@@ -165,7 +165,10 @@ async function forgeName(name){
   const t0=performance.now(); let card=null, err=null;
   if(online!==false){
     try{
-      const r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name})});
+      let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
+      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,code})});
+      if(r.status===403){ const c=window.prompt("입장 코드를 입력하세요"); if(c){ try{ localStorage.setItem("forge-code",c); }catch(e){}
+        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,code:c})}); } }
       if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
     }catch(e){ online=false; }
   }

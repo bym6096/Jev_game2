@@ -24,3 +24,12 @@ python server.py
 - `server.py`: 페이지 제공 + `POST /forge`
 - `make_samples.py`, `samples.json`: 견본 30장 (서버 없이 열면 이것만 보임)
 - `template.html` → `assemble.py` → `index.html`
+
+## 인터넷에 배포 (Vercel, GitHub 연결)
+1. https://vercel.com 에 GitHub 계정으로 가입
+2. Add New → Project → `Jev_game2` 저장소 선택
+3. **Root Directory**를 `toys/card-forge`로 지정
+4. Environment Variables에 `JEV_API_KEY` = 키 입력. 남이 키를 쓰지 못하게 하려면 `ACCESS_CODE` = 원하는 암호도 추가
+5. Deploy. 이후 GitHub에 push할 때마다 자동 재배포
+
+페이지는 `/`, 카드 만들기는 `/forge`(= `/api/forge`). ACCESS_CODE를 넣었다면 처음 새길 때 한 번 묻고 브라우저에 기억한다.
