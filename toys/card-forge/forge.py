@@ -122,7 +122,9 @@ def build_request(name):
 
 def call_jev(body):
     headers = {"Content-Type": "application/json"}
-    key = os.environ.get("JEV_API_KEY")
+    key = (os.environ.get("JEV_API_KEY") or "").strip().strip('"').strip("'")
+    if key.lower().startswith("bearer "):  # tolerate a value pasted with its prefix
+        key = key[7:].strip()
     if key:
         headers["Authorization"] = "Bearer " + key
     req = urllib.request.Request(URL, json.dumps(body).encode(), headers)

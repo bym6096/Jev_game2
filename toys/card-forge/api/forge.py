@@ -24,8 +24,14 @@ class handler(BaseHTTPRequestHandler):
         lang, err = forge.check_name(name)
         if err:
             return self._send(400, {"error": err})
+        key = (os.environ.get("JEV_API_KEY") or "").strip()
+        if not key:
+            return self._send(500, {"error": "서버에 JEV_API_KEY가 없습니다. Vercel 환경 변수를 넣은 뒤 다시 배포(Redeploy)하세요"})
         try:
             card, _ = forge.forge(name)
         except Exception as e:
-            return self._send(502, {"error": f"Jev 호출 실패: {e}"})
+            hint = ""
+            if "401" in str(e):
+                hint = f" (키가 거절됨. 서버가 받은 키 길이 {len(key)}자, 끝 4자리 …{key[-4:]})"
+            return self._send(502, {"error": f"Jev 호출 실패: {e}{hint}"})
         self._send(200, card)
