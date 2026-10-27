@@ -1,0 +1,917 @@
+[
+ {
+  "id": "m01-00",
+  "cond": "warmup",
+  "state": "Turn 0.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-01",
+  "cond": "warmup",
+  "state": "Turn 1.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-02",
+  "cond": "short_q1",
+  "state": "Turn 2.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-03",
+  "cond": "short_q5",
+  "state": "Turn 3.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-04",
+  "cond": "long_q1",
+  "state": "Turn 4.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-05",
+  "cond": "long_q5",
+  "state": "Turn 5.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-06",
+  "cond": "long_q5",
+  "state": "Turn 6.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-07",
+  "cond": "long_q1",
+  "state": "Turn 7.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-08",
+  "cond": "short_q5",
+  "state": "Turn 8.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-09",
+  "cond": "short_q1",
+  "state": "Turn 9.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-10",
+  "cond": "short_q1",
+  "state": "Turn 10.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-11",
+  "cond": "short_q5",
+  "state": "Turn 11.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-12",
+  "cond": "long_q1",
+  "state": "Turn 12.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-13",
+  "cond": "long_q5",
+  "state": "Turn 13.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-14",
+  "cond": "long_q5",
+  "state": "Turn 14.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-15",
+  "cond": "long_q1",
+  "state": "Turn 15.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-16",
+  "cond": "short_q5",
+  "state": "Turn 16.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-17",
+  "cond": "short_q1",
+  "state": "Turn 17.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-18",
+  "cond": "short_q1",
+  "state": "Turn 18.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-19",
+  "cond": "short_q5",
+  "state": "Turn 19.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-20",
+  "cond": "long_q1",
+  "state": "Turn 20.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-21",
+  "cond": "long_q5",
+  "state": "Turn 21.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-22",
+  "cond": "long_q5",
+  "state": "Turn 22.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-23",
+  "cond": "long_q1",
+  "state": "Turn 23.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-24",
+  "cond": "short_q5",
+  "state": "Turn 24.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-25",
+  "cond": "short_q1",
+  "state": "Turn 25.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-26",
+  "cond": "short_q1",
+  "state": "Turn 26.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-27",
+  "cond": "short_q5",
+  "state": "Turn 27.\nPersona: Mansu, 60s, the bride's uncle. Has not spoken to the groom's father Dongcheol for 20 years. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ },
+ {
+  "id": "m01-28",
+  "cond": "long_q1",
+  "state": "Turn 28.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "m01-29",
+  "cond": "long_q5",
+  "state": "Turn 29.\nPersona: Mansu, 60s, the bride's uncle. Twenty years ago he lost badly to the groom's father Dongcheol at cards in the guest room, and he has not spoken to him since. He raised the bride like his own daughter after her father died at sea. He insists on pouring the wedding wine himself. He is stubborn, proud, and quick to take offense, but he cries at weddings.\nSetting: a village on the south coast in the 1980s. The wedding is held in the yard of the bride's house. The kitchen is run by Mansu's sister Sunja, who never lets anyone else touch the noodle pot. The errand boy Cheol carries messages between the guests and loves candy. The town photographer Mr. Oh must catch the last bus back to town and hates anyone touching his tripod.\nToday: at 7 am Mansu tidied the guest room and set out the card mat out of habit.\nToday: at 9 am he greeted guests at the gate and did not look at the city cars that brought the groom's family.\nToday: at 11 am, during the ceremony, he stood behind the bride and kept his eyes on the ground when Dongcheol bowed.\nToday: at noon Dongcheol picked up the speech manuscript Mansu had dropped, bowed, and returned it, saying 'let's let the old thing go for the children.' Mansu took it without a word.\nToday: at 1 pm, over the noodles, Mansu poured wine for every guest at the long table except Dongcheol, and Sunja noticed.\nToday: at 2 pm the bride came to the kitchen and asked Sunja whether her uncle would be in the family photo.\nToday: at 3 pm Mansu sat in the guest room with two old friends and a bottle, and the friends teased him about the cards.\nToday: at 4 pm the photographer set up his tripod in the yard and chalked marks on the ground for the front row.\nToday: at 4:30 pm Cheol told Mansu that Dongcheol had asked where the bride's uncle would stand.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row, next to the empty chalk mark. The bride is looking toward the guest room door. The light is going, and the photographer says he can take only one picture before his bus.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   },
+   "mood": {
+    "type": "choice",
+    "instructions": "What is Mansu's main feeling right now?",
+    "criteria": {
+     "pride": null,
+     "resentment": null,
+     "tenderness": null,
+     "embarrassment": null
+    }
+   },
+   "speaks": {
+    "type": "noul",
+    "instructions": "Does Mansu speak to Dongcheol in the next minute?"
+   },
+   "bride": {
+    "type": "choice",
+    "instructions": "What does the bride do next?",
+    "criteria": {
+     "wait_quietly": null,
+     "go_fetch_her_uncle": null,
+     "ask_photographer_to_wait": null
+    }
+   },
+   "gossip": {
+    "type": "noul",
+    "instructions": "Will the guests gossip about this photo tomorrow?"
+   }
+  }
+ }
+]

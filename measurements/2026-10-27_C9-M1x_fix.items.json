@@ -1,0 +1,774 @@
+[
+ {
+  "id": "F4-I1-base",
+  "cond": "base",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I1-A",
+  "cond": "A",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an open sack of flour.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I1-B",
+  "cond": "B",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an electric fan, switched on, blowing across the room.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I1-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an open sack of flour and an electric fan, switched on, blowing across the room.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I2-base",
+  "cond": "base",
+  "state": "In a dry storage room, a wooden crate of books sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden crate of books: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden crate of books catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I2-A",
+  "cond": "A",
+  "state": "In a dry storage room, a wooden crate of books sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden crate of books: a lump of sodium metal in a dish.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden crate of books catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I2-B",
+  "cond": "B",
+  "state": "In a dry storage room, a wooden crate of books sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden crate of books: a bucket of water.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden crate of books catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I2-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a wooden crate of books sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden crate of books: a lump of sodium metal in a dish and a bucket of water.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden crate of books catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I3-base",
+  "cond": "base",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I3-A",
+  "cond": "A",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an aerosol can of hairspray.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I3-B",
+  "cond": "B",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an electric space heater, switched on.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I3-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: an aerosol can of hairspray and an electric space heater, switched on.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I4-base",
+  "cond": "base",
+  "state": "In a dry storage room, a pile of laundry sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a pile of laundry: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a pile of laundry catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I4-A",
+  "cond": "A",
+  "state": "In a dry storage room, a pile of laundry sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a pile of laundry: a pile of oily rags.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a pile of laundry catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I4-B",
+  "cond": "B",
+  "state": "In a dry storage room, a pile of laundry sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a pile of laundry: a leaking oxygen cylinder.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a pile of laundry catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I4-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a pile of laundry sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a pile of laundry: a pile of oily rags and a leaking oxygen cylinder.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a pile of laundry catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I5-base",
+  "cond": "base",
+  "state": "In a dry storage room, a wooden chair sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden chair: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden chair catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I5-A",
+  "cond": "A",
+  "state": "In a dry storage room, a wooden chair sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden chair: a bucket of sand.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden chair catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I5-B",
+  "cond": "B",
+  "state": "In a dry storage room, a wooden chair sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden chair: a bucket of water.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden chair catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-I5-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a wooden chair sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a wooden chair: a bucket of sand and a bucket of water.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden chair catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-C1-base",
+  "cond": "base",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a stack of bricks.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-C1-A",
+  "cond": "A",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a glass jar of marbles.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-C1-B",
+  "cond": "B",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a pile of dry newspapers.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F4-C1-AB",
+  "cond": "AB",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely. Right next to a cardboard box of old letters: a glass jar of marbles and a pile of dry newspapers.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "G4-P2-alive-edible",
+  "cond": "atomic",
+  "state": "Items arriving at a quarantine gate: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "alive1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) alive?"
+   },
+   "alive2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) alive?"
+   },
+   "alive3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) alive?"
+   },
+   "alive4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) alive?"
+   },
+   "alive5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) alive?"
+   },
+   "alive6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) alive?"
+   },
+   "alive7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) alive?"
+   },
+   "alive8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) alive?"
+   },
+   "alive9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) alive?"
+   },
+   "alive10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) alive?"
+   },
+   "alive11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) alive?"
+   },
+   "alive12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) alive?"
+   },
+   "alive13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) alive?"
+   },
+   "alive14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) alive?"
+   },
+   "alive15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) alive?"
+   },
+   "alive16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) alive?"
+   },
+   "alive17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) alive?"
+   },
+   "alive18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) alive?"
+   },
+   "alive19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) alive?"
+   },
+   "alive20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) alive?"
+   },
+   "edible1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) edible?"
+   },
+   "edible2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) edible?"
+   },
+   "edible3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) edible?"
+   },
+   "edible4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) edible?"
+   },
+   "edible5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) edible?"
+   },
+   "edible6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) edible?"
+   },
+   "edible7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) edible?"
+   },
+   "edible8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) edible?"
+   },
+   "edible9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) edible?"
+   },
+   "edible10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) edible?"
+   },
+   "edible11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) edible?"
+   },
+   "edible12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) edible?"
+   },
+   "edible13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) edible?"
+   },
+   "edible14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) edible?"
+   },
+   "edible15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) edible?"
+   },
+   "edible16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) edible?"
+   },
+   "edible17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) edible?"
+   },
+   "edible18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) edible?"
+   },
+   "edible19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) edible?"
+   },
+   "edible20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) edible?"
+   }
+  }
+ },
+ {
+  "id": "G4-P2-dangerous",
+  "cond": "atomic",
+  "state": "Items arriving at a quarantine gate: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "dangerous1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) dangerous?"
+   },
+   "dangerous2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) dangerous?"
+   },
+   "dangerous3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) dangerous?"
+   },
+   "dangerous4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) dangerous?"
+   },
+   "dangerous5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) dangerous?"
+   },
+   "dangerous6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) dangerous?"
+   },
+   "dangerous7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) dangerous?"
+   },
+   "dangerous8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) dangerous?"
+   },
+   "dangerous9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) dangerous?"
+   },
+   "dangerous10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) dangerous?"
+   },
+   "dangerous11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) dangerous?"
+   },
+   "dangerous12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) dangerous?"
+   },
+   "dangerous13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) dangerous?"
+   },
+   "dangerous14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) dangerous?"
+   },
+   "dangerous15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) dangerous?"
+   },
+   "dangerous16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) dangerous?"
+   },
+   "dangerous17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) dangerous?"
+   },
+   "dangerous18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) dangerous?"
+   },
+   "dangerous19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) dangerous?"
+   },
+   "dangerous20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) dangerous?"
+   }
+  }
+ },
+ {
+  "id": "G4-P2-alive-edible#rep",
+  "cond": "atomic",
+  "state": "Items arriving at a quarantine gate: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "alive1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) alive?"
+   },
+   "alive2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) alive?"
+   },
+   "alive3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) alive?"
+   },
+   "alive4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) alive?"
+   },
+   "alive5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) alive?"
+   },
+   "alive6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) alive?"
+   },
+   "alive7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) alive?"
+   },
+   "alive8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) alive?"
+   },
+   "alive9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) alive?"
+   },
+   "alive10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) alive?"
+   },
+   "alive11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) alive?"
+   },
+   "alive12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) alive?"
+   },
+   "alive13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) alive?"
+   },
+   "alive14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) alive?"
+   },
+   "alive15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) alive?"
+   },
+   "alive16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) alive?"
+   },
+   "alive17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) alive?"
+   },
+   "alive18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) alive?"
+   },
+   "alive19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) alive?"
+   },
+   "alive20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) alive?"
+   },
+   "edible1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) edible?"
+   },
+   "edible2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) edible?"
+   },
+   "edible3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) edible?"
+   },
+   "edible4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) edible?"
+   },
+   "edible5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) edible?"
+   },
+   "edible6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) edible?"
+   },
+   "edible7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) edible?"
+   },
+   "edible8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) edible?"
+   },
+   "edible9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) edible?"
+   },
+   "edible10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) edible?"
+   },
+   "edible11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) edible?"
+   },
+   "edible12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) edible?"
+   },
+   "edible13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) edible?"
+   },
+   "edible14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) edible?"
+   },
+   "edible15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) edible?"
+   },
+   "edible16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) edible?"
+   },
+   "edible17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) edible?"
+   },
+   "edible18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) edible?"
+   },
+   "edible19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) edible?"
+   },
+   "edible20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) edible?"
+   }
+  }
+ },
+ {
+  "id": "G4-P2-dangerous#rep",
+  "cond": "atomic",
+  "state": "Items arriving at a quarantine gate: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "dangerous1": {
+    "type": "noul",
+    "instructions": "Is arrival (1) dangerous?"
+   },
+   "dangerous2": {
+    "type": "noul",
+    "instructions": "Is arrival (2) dangerous?"
+   },
+   "dangerous3": {
+    "type": "noul",
+    "instructions": "Is arrival (3) dangerous?"
+   },
+   "dangerous4": {
+    "type": "noul",
+    "instructions": "Is arrival (4) dangerous?"
+   },
+   "dangerous5": {
+    "type": "noul",
+    "instructions": "Is arrival (5) dangerous?"
+   },
+   "dangerous6": {
+    "type": "noul",
+    "instructions": "Is arrival (6) dangerous?"
+   },
+   "dangerous7": {
+    "type": "noul",
+    "instructions": "Is arrival (7) dangerous?"
+   },
+   "dangerous8": {
+    "type": "noul",
+    "instructions": "Is arrival (8) dangerous?"
+   },
+   "dangerous9": {
+    "type": "noul",
+    "instructions": "Is arrival (9) dangerous?"
+   },
+   "dangerous10": {
+    "type": "noul",
+    "instructions": "Is arrival (10) dangerous?"
+   },
+   "dangerous11": {
+    "type": "noul",
+    "instructions": "Is arrival (11) dangerous?"
+   },
+   "dangerous12": {
+    "type": "noul",
+    "instructions": "Is arrival (12) dangerous?"
+   },
+   "dangerous13": {
+    "type": "noul",
+    "instructions": "Is arrival (13) dangerous?"
+   },
+   "dangerous14": {
+    "type": "noul",
+    "instructions": "Is arrival (14) dangerous?"
+   },
+   "dangerous15": {
+    "type": "noul",
+    "instructions": "Is arrival (15) dangerous?"
+   },
+   "dangerous16": {
+    "type": "noul",
+    "instructions": "Is arrival (16) dangerous?"
+   },
+   "dangerous17": {
+    "type": "noul",
+    "instructions": "Is arrival (17) dangerous?"
+   },
+   "dangerous18": {
+    "type": "noul",
+    "instructions": "Is arrival (18) dangerous?"
+   },
+   "dangerous19": {
+    "type": "noul",
+    "instructions": "Is arrival (19) dangerous?"
+   },
+   "dangerous20": {
+    "type": "noul",
+    "instructions": "Is arrival (20) dangerous?"
+   }
+  }
+ }
+]

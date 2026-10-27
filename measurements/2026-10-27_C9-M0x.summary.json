@@ -1,0 +1,682 @@
+{
+ "M01": {
+  "short_q1": {
+   "n": 7,
+   "p50": 125,
+   "p95": 130,
+   "max": 130,
+   "min": 109,
+   "input_tokens": 402
+  },
+  "short_q5": {
+   "n": 7,
+   "p50": 127,
+   "p95": 146,
+   "max": 146,
+   "min": 124,
+   "input_tokens": 541
+  },
+  "long_q1": {
+   "n": 7,
+   "p50": 129,
+   "p95": 166,
+   "max": 166,
+   "min": 122,
+   "input_tokens": 839
+  },
+  "long_q5": {
+   "n": 7,
+   "p50": 134,
+   "p95": 158,
+   "max": 158,
+   "min": 116,
+   "input_tokens": 978
+  },
+  "all": {
+   "n": 28,
+   "p50": 128.5,
+   "p95": 165,
+   "max": 166
+  }
+ },
+ "M02": {
+  "summary": {
+   "rel1": {
+    "flips": 2,
+    "n": 10,
+    "to_target": 1,
+    "target_eligible": 9,
+    "mean_tvd": 0.239,
+    "mean_target_gain": 0.152
+   },
+   "rel3": {
+    "flips": 5,
+    "n": 10,
+    "to_target": 4,
+    "target_eligible": 9,
+    "mean_tvd": 0.442,
+    "mean_target_gain": 0.39
+   },
+   "rel5": {
+    "flips": 7,
+    "n": 10,
+    "to_target": 6,
+    "target_eligible": 9,
+    "mean_tvd": 0.577,
+    "mean_target_gain": 0.508
+   },
+   "irr5": {
+    "flips": 2,
+    "n": 10,
+    "to_target": 0,
+    "target_eligible": 9,
+    "mean_tvd": 0.133,
+    "mean_target_gain": -0.056
+   },
+   "noise": {
+    "pairs": 30,
+    "mean_tvd": 0.032,
+    "max_tvd": 0.08,
+    "top_changed": [
+     [
+      "N3-solseom",
+      "irr5"
+     ]
+    ]
+   },
+   "rel5_flip_confirmed_on_repeat": 7,
+   "irr5_flip_on_repeat": 1,
+   "by_cand": {
+    "A01+": {
+     "rel1": "2/3",
+     "rel3": "1/3",
+     "rel5": "2/3",
+     "irr5": "1/3"
+    },
+    "N1": {
+     "rel1": "0/3",
+     "rel3": "2/3",
+     "rel5": "3/3",
+     "irr5": "0/3"
+    },
+    "A03+": {
+     "rel1": "0/2",
+     "rel3": "0/2",
+     "rel5": "0/2",
+     "irr5": "0/2"
+    },
+    "N3": {
+     "rel1": "0/2",
+     "rel3": "2/2",
+     "rel5": "2/2",
+     "irr5": "1/2"
+    }
+   },
+   "first_flip_dose": {
+    "A01-sera": "rel1",
+    "A01-odo": "rel5",
+    "A01-mir": "rel1",
+    "N1-mansu": "rel3",
+    "N1-misuk": "rel5",
+    "N1-dongcheol": "rel3",
+    "A03-park": null,
+    "A03-kang": null,
+    "N3-solseom": "rel3",
+    "N3-trawler": "rel3"
+   },
+   "verdict": "UNCLEAR"
+  },
+  "rows": [
+   {
+    "id": "A01-sera",
+    "cand": "A01+",
+    "target": "keep_working",
+    "base_top": "radio_report",
+    "base_p": 0.78,
+    "base_target_p": 0.03,
+    "base_is_target": false,
+    "rel1": {
+     "top": "keep_working",
+     "p": 0.55,
+     "target_p": 0.55,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.6100000000000001
+    },
+    "rel3": {
+     "top": "keep_working",
+     "p": 0.69,
+     "target_p": 0.69,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.7
+    },
+    "rel5": {
+     "top": "keep_working",
+     "p": 0.83,
+     "target_p": 0.83,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.84
+    },
+    "irr5": {
+     "top": "radio_report",
+     "p": 0.75,
+     "target_p": 0.03,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.030000000000000013
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.020000000000000014,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.05000000000000003,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.03000000000000001,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "A01-odo",
+    "cand": "A01+",
+    "target": "follow_them",
+    "base_top": "question_them",
+    "base_p": 0.8,
+    "base_target_p": 0.13,
+    "base_is_target": false,
+    "rel1": {
+     "top": "question_them",
+     "p": 0.48,
+     "target_p": 0.47,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.34
+    },
+    "rel3": {
+     "top": "question_them",
+     "p": 0.62,
+     "target_p": 0.29,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.2
+    },
+    "rel5": {
+     "top": "follow_them",
+     "p": 0.49,
+     "target_p": 0.49,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.53
+    },
+    "irr5": {
+     "top": "question_them",
+     "p": 0.8,
+     "target_p": 0.15,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.029999999999999995
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.030000000000000006,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.029999999999999985,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.009999999999999995,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "A01-mir",
+    "cand": "A01+",
+    "target": "radio_report",
+    "base_top": "radio_report",
+    "base_p": 0.4,
+    "base_target_p": 0.4,
+    "base_is_target": true,
+    "rel1": {
+     "top": "follow_them",
+     "p": 0.44,
+     "target_p": 0.39,
+     "flip": true,
+     "to_target": false,
+     "tvd": 0.15000000000000002
+    },
+    "rel3": {
+     "top": "radio_report",
+     "p": 0.99,
+     "target_p": 0.99,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.59
+    },
+    "rel5": {
+     "top": "radio_report",
+     "p": 0.97,
+     "target_p": 0.97,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.57
+    },
+    "irr5": {
+     "top": "question_them",
+     "p": 0.45999999999999996,
+     "target_p": 0.17,
+     "flip": true,
+     "to_target": false,
+     "tvd": 0.24999999999999994
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.020000000000000046,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.0,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.02000000000000003,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "N1-mansu",
+    "cand": "N1",
+    "target": "stand_front_row_in_photo",
+    "base_top": "stand_at_edge_of_photo",
+    "base_p": 0.84,
+    "base_target_p": 0.05,
+    "base_is_target": false,
+    "rel1": {
+     "top": "stand_at_edge_of_photo",
+     "p": 0.7,
+     "target_p": 0.26,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.21000000000000002
+    },
+    "rel3": {
+     "top": "stand_front_row_in_photo",
+     "p": 0.9,
+     "target_p": 0.9,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.85
+    },
+    "rel5": {
+     "top": "stand_front_row_in_photo",
+     "p": 0.91,
+     "target_p": 0.91,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.86
+    },
+    "irr5": {
+     "top": "stand_at_edge_of_photo",
+     "p": 0.8099999999999999,
+     "target_p": 0.15,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.1
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.010000000000000002,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.010000000000000002,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.02,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "N1-misuk",
+    "cand": "N1",
+    "target": "help_the_photographer",
+    "base_top": "rest_at_the_well",
+    "base_p": 0.99,
+    "base_target_p": 0.0,
+    "base_is_target": false,
+    "rel1": {
+     "top": "rest_at_the_well",
+     "p": 0.51,
+     "target_p": 0.45,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.48
+    },
+    "rel3": {
+     "top": "rest_at_the_well",
+     "p": 0.51,
+     "target_p": 0.47,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.48
+    },
+    "rel5": {
+     "top": "help_the_photographer",
+     "p": 0.69,
+     "target_p": 0.69,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.7
+    },
+    "irr5": {
+     "top": "rest_at_the_well",
+     "p": 1.0,
+     "target_p": 0.0,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.010000000000000005
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.010000000000000005,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.05000000000000002,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.010000000000000005,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "N1-dongcheol",
+    "cand": "N1",
+    "target": "stand_front_row_in_photo",
+    "base_top": "stand_at_edge_of_photo",
+    "base_p": 0.48,
+    "base_target_p": 0.25,
+    "base_is_target": false,
+    "rel1": {
+     "top": "stand_at_edge_of_photo",
+     "p": 0.45,
+     "target_p": 0.2,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.13999999999999996
+    },
+    "rel3": {
+     "top": "stand_front_row_in_photo",
+     "p": 0.68,
+     "target_p": 0.68,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.47000000000000003
+    },
+    "rel5": {
+     "top": "stand_front_row_in_photo",
+     "p": 0.98,
+     "target_p": 0.98,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.73
+    },
+    "irr5": {
+     "top": "stand_at_edge_of_photo",
+     "p": 0.59,
+     "target_p": 0.11,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.22
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.03999999999999999,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.020000000000000007,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.039999999999999994,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "A03-park",
+    "cand": "A03+",
+    "target": "reject",
+    "base_top": "uphold",
+    "base_p": 0.57,
+    "base_target_p": 0.09,
+    "base_is_target": false,
+    "rel1": {
+     "top": "uphold",
+     "p": 0.78,
+     "target_p": 0.07,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.21000000000000005
+    },
+    "rel3": {
+     "top": "uphold",
+     "p": 0.57,
+     "target_p": 0.09,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.0
+    },
+    "rel5": {
+     "top": "uphold",
+     "p": 0.45,
+     "target_p": 0.2,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.11999999999999995
+    },
+    "irr5": {
+     "top": "uphold",
+     "p": 0.78,
+     "target_p": 0.07,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.21000000000000005
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.029999999999999943,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.08,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.07000000000000003,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "A03-kang",
+    "cand": "A03+",
+    "target": "reject",
+    "base_top": "uphold",
+    "base_p": 0.56,
+    "base_target_p": 0.23,
+    "base_is_target": false,
+    "rel1": {
+     "top": "uphold",
+     "p": 0.42,
+     "target_p": 0.27,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.14000000000000004
+    },
+    "rel3": {
+     "top": "uphold",
+     "p": 0.55,
+     "target_p": 0.19,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.05000000000000002
+    },
+    "rel5": {
+     "top": "uphold",
+     "p": 0.47,
+     "target_p": 0.18,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.14000000000000004
+    },
+    "irr5": {
+     "top": "uphold",
+     "p": 0.74,
+     "target_p": 0.12,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.17999999999999997
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.060000000000000026,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.029999999999999985,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.030000000000000013,
+      "top_changed": false
+     }
+    }
+   },
+   {
+    "id": "N3-solseom",
+    "cand": "N3",
+    "target": "blame_on_the_trawler_fleet",
+    "base_top": "a_call_to_come",
+    "base_p": 0.41000000000000003,
+    "base_target_p": 0.08,
+    "base_is_target": false,
+    "rel1": {
+     "top": "a_call_to_come",
+     "p": 0.37,
+     "target_p": 0.12,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.08000000000000002
+    },
+    "rel3": {
+     "top": "a_warning_of_danger",
+     "p": 0.49,
+     "target_p": 0.23,
+     "flip": true,
+     "to_target": false,
+     "tvd": 0.45
+    },
+    "rel5": {
+     "top": "a_warning_of_danger",
+     "p": 0.49,
+     "target_p": 0.41,
+     "flip": true,
+     "to_target": false,
+     "tvd": 0.6
+    },
+    "irr5": {
+     "top": "a_warning_of_danger",
+     "p": 0.35,
+     "target_p": 0.04,
+     "flip": true,
+     "to_target": false,
+     "tvd": 0.16000000000000003
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.03999999999999998,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.06000000000000001,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.03999999999999998,
+      "top_changed": true
+     }
+    }
+   },
+   {
+    "id": "N3-trawler",
+    "cand": "N3",
+    "target": "mere_chance",
+    "base_top": "a_warning_of_danger",
+    "base_p": 0.63,
+    "base_target_p": 0.29,
+    "base_is_target": false,
+    "rel1": {
+     "top": "a_warning_of_danger",
+     "p": 0.6,
+     "target_p": 0.29,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.030000000000000016
+    },
+    "rel3": {
+     "top": "mere_chance",
+     "p": 0.92,
+     "target_p": 0.92,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.6300000000000001
+    },
+    "rel5": {
+     "top": "mere_chance",
+     "p": 0.97,
+     "target_p": 0.97,
+     "flip": true,
+     "to_target": true,
+     "tvd": 0.6799999999999999
+    },
+    "irr5": {
+     "top": "a_warning_of_danger",
+     "p": 0.68,
+     "target_p": 0.15,
+     "flip": false,
+     "to_target": false,
+     "tvd": 0.14
+    },
+    "noise": {
+     "base": {
+      "tvd": 0.05000000000000001,
+      "top_changed": false
+     },
+     "rel5": {
+      "tvd": 0.0,
+      "top_changed": false
+     },
+     "irr5": {
+      "tvd": 0.039999999999999945,
+      "top_changed": false
+     }
+    }
+   }
+  ]
+ }
+}

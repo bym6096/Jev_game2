@@ -1,0 +1,3 @@
+{"id": "t1", "cond": "base", "rep": 0, "answers": {"q": {"type": "choice", "choice": "catches_fire", "confidence": 0.95, "probabilities": {"catches_fire": 0.96, "gets_wet": 0.01, "nothing_happens": 0.03, "breaks": 0.0}}}, "usage": {"input_tokens": 328, "output_tokens": 56}, "model": "jev-1.14.0", "latency_ms": 692}
+{"id": "t2", "cond": "base", "rep": 0, "answers": {"q": {"type": "noul", "noul": 0.85}}, "usage": {"input_tokens": 296, "output_tokens": 20}, "model": "jev-1.14.0", "latency_ms": 194}
+{"id": "t3", "cond": "base", "rep": 0, "answers": {"q": {"type": "noul", "noul": 0.36}}, "usage": {"input_tokens": 303, "output_tokens": 20}, "model": "jev-1.14.0", "latency_ms": 195}

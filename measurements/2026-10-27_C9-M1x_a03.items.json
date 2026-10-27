@@ -1,0 +1,920 @@
+[
+ {
+  "id": "J-final-base",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-direct",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-indirect",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-irrelevant",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-base",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-direct",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-indirect",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-irrelevant",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-base",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-direct",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-indirect",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-irrelevant",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-base#rep",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-direct#rep",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-indirect#rep",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-irrelevant#rep",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-base#rep",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-direct#rep",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-indirect#rep",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-irrelevant#rep",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-base#rep",
+  "cond": "base",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-direct#rep",
+  "cond": "direct",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled the management company may not close the rooftop garden without a residents' vote.\nPrecedent #2: the committee ordered the management company to keep the playground lights on at night for children's safety.\nPrecedent #3: the committee ruled that a single weekday-afternoon hearing does not count as consulting residents.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-indirect#rep",
+  "cond": "indirect",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1 (Noah, 101-702): the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate.\nPrecedent #2 (Serin, 101-1102): the committee allowed rooftop vegetable boxes as a legitimate use of shared space.\nPrecedent #3 (Mi-seon, 102-904): the committee allowed the custom of leaving children with the security guard for short periods.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-irrelevant#rep",
+  "cond": "irrelevant",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nPrecedent book of this committee:\nPrecedent #1: the committee ruled that moving vans may hold the elevator for at most two hours.\nPrecedent #2: the committee moved the recycling collection day from Monday to Tuesday.\nPrecedent #3: the committee ruled that notice-board posters must be removed after 30 days.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-final-indirect_facts",
+  "cond": "indirect_facts",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon. Earlier rulings of this committee: the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate. the committee allowed rooftop vegetable boxes as a legitimate use of shared space. the committee allowed the custom of leaving children with the security guard for short periods.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-kia-indirect_facts",
+  "cond": "indirect_facts",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Kia (101-201) claims residents may run a Saturday shared-childcare group on the playground. Facts: it meets every Saturday; there were 2 noise complaints; the management company did not give prior permission. Earlier rulings of this committee: the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate. the committee allowed rooftop vegetable boxes as a legitimate use of shared space. the committee allowed the custom of leaving children with the security guard for short periods.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ },
+ {
+  "id": "J-eunbi-indirect_facts",
+  "cond": "indirect_facts",
+  "state": "Apartment complex dispute committee. Three judges rule independently.\nJudge Yoon Jeong-hee, retired teacher. The year the empty lot outside her classroom became a parking lot, the children lost their playground. Believes rules are only as legitimate as the majority that made them. Put up with the piano downstairs for ten years.\nJudge Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nJudge Park Bok-rye, runs the laundromat in the shopping arcade. Lost regular customers to parking enforcement in front of her shop. Has done business with the management company for 20 years. Hates neighbors fighting.\nCase: Eunbi (101-1001), whose child was hurt on the playground, claims the playground safety repairs must be paid from the management fees. Facts: a repair quote has been obtained; the management company says demolition is cheaper; residents signed a petition against demolition. Earlier rulings of this committee: the committee ruled that daytime piano lessons are ordinary living noise that neighbors must tolerate. the committee allowed rooftop vegetable boxes as a legitimate use of shared space. the committee allowed the custom of leaving children with the security guard for short periods.",
+  "questions": {
+   "yoon": {
+    "type": "choice",
+    "instructions": "How does Judge Yoon Jeong-hee rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "kang": {
+    "type": "choice",
+    "instructions": "How does Judge Kang Tae-o rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   },
+   "park": {
+    "type": "choice",
+    "instructions": "How does Judge Park Bok-rye rule on the claim?",
+    "criteria": {
+     "grant_claim": "the claim is granted",
+     "partial": "the claim is partly granted",
+     "deny_claim": "the claim is denied"
+    }
+   }
+  }
+ }
+]

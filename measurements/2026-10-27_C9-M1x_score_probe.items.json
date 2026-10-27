@@ -1,0 +1,38 @@
+[
+ {
+  "id": "S-fire-score",
+  "cond": "score",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a dry storage room, no wind. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. WEST: a stack of bricks. SOUTH: a closed metal toolbox.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How likely is it that the fire reaches and ignites the TARGET within the next minute?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-fire-choice",
+  "cond": "choice",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a dry storage room, no wind. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. WEST: a stack of bricks. SOUTH: a closed metal toolbox.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How likely is it that the fire reaches and ignites the TARGET within the next minute?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ }
+]

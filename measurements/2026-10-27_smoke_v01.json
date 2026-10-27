@@ -1,0 +1,748 @@
+{
+ "calls": 56,
+ "input_tokens": 24063,
+ "rows": [
+  {
+   "id": "A01-sera",
+   "lang": "en",
+   "cond": "base",
+   "choice": "radio_report",
+   "conf": 0.69,
+   "probs": {
+    "keep_working": 0.05,
+    "question_them": 0.15,
+    "radio_report": 0.77,
+    "follow_them": 0.03
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "radio_report",
+   "conf": 0.88,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.04,
+    "radio_report": 0.91,
+    "follow_them": 0.04
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "radio_report",
+   "conf": 0.75,
+   "probs": {
+    "keep_working": 0.03,
+    "question_them": 0.13,
+    "radio_report": 0.81,
+    "follow_them": 0.03
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "radio_report",
+   "conf": 0.79,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.09,
+    "radio_report": 0.84,
+    "follow_them": 0.06
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "radio_report",
+   "conf": 0.89,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.03,
+    "radio_report": 0.92,
+    "follow_them": 0.04
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "radio_report",
+   "conf": 0.79,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.09,
+    "radio_report": 0.84,
+    "follow_them": 0.06
+   }
+  },
+  {
+   "id": "A01-sera",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "radio_report",
+   "conf": 0.68,
+   "probs": {
+    "keep_working": 0.05,
+    "question_them": 0.15,
+    "radio_report": 0.76,
+    "follow_them": 0.04
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "en",
+   "cond": "base",
+   "choice": "question_them",
+   "conf": 0.69,
+   "probs": {
+    "keep_working": 0.03,
+    "question_them": 0.77,
+    "radio_report": 0.06,
+    "follow_them": 0.14
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "question_them",
+   "conf": 0.32,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.49,
+    "radio_report": 0.04,
+    "follow_them": 0.46
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "question_them",
+   "conf": 0.61,
+   "probs": {
+    "keep_working": 0.05,
+    "question_them": 0.71,
+    "radio_report": 0.04,
+    "follow_them": 0.2
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "follow_them",
+   "conf": 0.31,
+   "probs": {
+    "keep_working": 0.03,
+    "question_them": 0.41,
+    "radio_report": 0.08,
+    "follow_them": 0.48
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "follow_them",
+   "conf": 0.77,
+   "probs": {
+    "keep_working": 0.01,
+    "question_them": 0.11,
+    "radio_report": 0.05,
+    "follow_them": 0.83
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "follow_them",
+   "conf": 0.36,
+   "probs": {
+    "keep_working": 0.04,
+    "question_them": 0.37,
+    "radio_report": 0.07,
+    "follow_them": 0.52
+   }
+  },
+  {
+   "id": "A01-odo",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "question_them",
+   "conf": 0.71,
+   "probs": {
+    "keep_working": 0.02,
+    "question_them": 0.78,
+    "radio_report": 0.05,
+    "follow_them": 0.15
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "en",
+   "cond": "base",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.77,
+   "probs": {
+    "drink_in_guest_room": 0.06,
+    "stand_front_row_in_photo": 0.06,
+    "stand_at_edge_of_photo": 0.83,
+    "go_look_for_someone": 0.05
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.64,
+   "probs": {
+    "drink_in_guest_room": 0.02,
+    "stand_front_row_in_photo": 0.23,
+    "stand_at_edge_of_photo": 0.73,
+    "go_look_for_someone": 0.02
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.83,
+   "probs": {
+    "drink_in_guest_room": 0.02,
+    "stand_front_row_in_photo": 0.08,
+    "stand_at_edge_of_photo": 0.87,
+    "go_look_for_someone": 0.03
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.85,
+   "probs": {
+    "drink_in_guest_room": 0.01,
+    "stand_front_row_in_photo": 0.09,
+    "stand_at_edge_of_photo": 0.89,
+    "go_look_for_someone": 0.01
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.68,
+   "probs": {
+    "drink_in_guest_room": 0.01,
+    "stand_front_row_in_photo": 0.22,
+    "stand_at_edge_of_photo": 0.76,
+    "go_look_for_someone": 0.01
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.76,
+   "probs": {
+    "drink_in_guest_room": 0.01,
+    "stand_front_row_in_photo": 0.16,
+    "stand_at_edge_of_photo": 0.82,
+    "go_look_for_someone": 0.01
+   }
+  },
+  {
+   "id": "N1-mansu",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "stand_at_edge_of_photo",
+   "conf": 0.8,
+   "probs": {
+    "drink_in_guest_room": 0.05,
+    "stand_front_row_in_photo": 0.05,
+    "stand_at_edge_of_photo": 0.85,
+    "go_look_for_someone": 0.05
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "en",
+   "cond": "base",
+   "choice": "rest_at_the_well",
+   "conf": 1.0,
+   "probs": {
+    "rest_at_the_well": 1.0,
+    "help_the_photographer": 0.0,
+    "help_in_the_kitchen": 0.0,
+    "hide_in_the_inner_room": 0.0
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "help_the_photographer",
+   "conf": 0.39,
+   "probs": {
+    "rest_at_the_well": 0.44,
+    "help_the_photographer": 0.54,
+    "help_in_the_kitchen": 0.02,
+    "hide_in_the_inner_room": 0.0
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "rest_at_the_well",
+   "conf": 0.97,
+   "probs": {
+    "rest_at_the_well": 0.98,
+    "help_the_photographer": 0.0,
+    "help_in_the_kitchen": 0.01,
+    "hide_in_the_inner_room": 0.01
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "rest_at_the_well",
+   "conf": 0.99,
+   "probs": {
+    "rest_at_the_well": 0.99,
+    "help_the_photographer": 0.0,
+    "help_in_the_kitchen": 0.0,
+    "hide_in_the_inner_room": 0.01
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "rest_at_the_well",
+   "conf": 0.63,
+   "probs": {
+    "rest_at_the_well": 0.72,
+    "help_the_photographer": 0.26,
+    "help_in_the_kitchen": 0.01,
+    "hide_in_the_inner_room": 0.01
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "rest_at_the_well",
+   "conf": 0.99,
+   "probs": {
+    "rest_at_the_well": 0.99,
+    "help_the_photographer": 0.0,
+    "help_in_the_kitchen": 0.0,
+    "hide_in_the_inner_room": 0.01
+   }
+  },
+  {
+   "id": "N1-misuk",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "rest_at_the_well",
+   "conf": 0.99,
+   "probs": {
+    "rest_at_the_well": 0.99,
+    "help_the_photographer": 0.0,
+    "help_in_the_kitchen": 0.0,
+    "hide_in_the_inner_room": 0.01
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "en",
+   "cond": "base",
+   "choice": "uphold",
+   "conf": 0.38,
+   "probs": {
+    "uphold": 0.59,
+    "partial": 0.34,
+    "reject": 0.07
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "uphold",
+   "conf": 0.51,
+   "probs": {
+    "uphold": 0.67,
+    "partial": 0.26,
+    "reject": 0.07
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "uphold",
+   "conf": 0.27,
+   "probs": {
+    "uphold": 0.51,
+    "partial": 0.4,
+    "reject": 0.09
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "uphold",
+   "conf": 0.51,
+   "probs": {
+    "uphold": 0.67,
+    "partial": 0.21,
+    "reject": 0.12
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "uphold",
+   "conf": 0.72,
+   "probs": {
+    "uphold": 0.81,
+    "partial": 0.1,
+    "reject": 0.09
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "uphold",
+   "conf": 0.72,
+   "probs": {
+    "uphold": 0.81,
+    "partial": 0.11,
+    "reject": 0.08
+   }
+  },
+  {
+   "id": "A03-park",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "uphold",
+   "conf": 0.41,
+   "probs": {
+    "uphold": 0.61,
+    "partial": 0.33,
+    "reject": 0.06
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "en",
+   "cond": "base",
+   "choice": "uphold",
+   "conf": 0.33,
+   "probs": {
+    "uphold": 0.55,
+    "partial": 0.23,
+    "reject": 0.22
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "uphold",
+   "conf": 0.1,
+   "probs": {
+    "uphold": 0.4,
+    "partial": 0.32,
+    "reject": 0.28
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "uphold",
+   "conf": 0.33,
+   "probs": {
+    "uphold": 0.55,
+    "partial": 0.26,
+    "reject": 0.19
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "uphold",
+   "conf": 0.46,
+   "probs": {
+    "uphold": 0.64,
+    "partial": 0.2,
+    "reject": 0.16
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "uphold",
+   "conf": 0.51,
+   "probs": {
+    "uphold": 0.67,
+    "partial": 0.24,
+    "reject": 0.09
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "uphold",
+   "conf": 0.67,
+   "probs": {
+    "uphold": 0.78,
+    "partial": 0.14,
+    "reject": 0.08
+   }
+  },
+  {
+   "id": "A03-kang",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "uphold",
+   "conf": 0.37,
+   "probs": {
+    "uphold": 0.58,
+    "partial": 0.19,
+    "reject": 0.23
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "en",
+   "cond": "base",
+   "choice": "a_call_to_come",
+   "conf": 0.4,
+   "probs": {
+    "a_call_to_come": 0.5,
+    "a_warning_of_danger": 0.21,
+    "blame_on_the_trawler_fleet": 0.07,
+    "a_blessing": 0.19,
+    "a_demand": 0.03,
+    "mere_chance": 0.0
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "a_call_to_come",
+   "conf": 0.23,
+   "probs": {
+    "a_call_to_come": 0.36,
+    "a_warning_of_danger": 0.35,
+    "blame_on_the_trawler_fleet": 0.12,
+    "a_blessing": 0.12,
+    "a_demand": 0.05,
+    "mere_chance": 0.0
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "a_call_to_come",
+   "conf": 0.29,
+   "probs": {
+    "a_call_to_come": 0.41,
+    "a_warning_of_danger": 0.18,
+    "blame_on_the_trawler_fleet": 0.06,
+    "a_blessing": 0.33,
+    "a_demand": 0.02,
+    "mere_chance": 0.0
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "a_warning_of_danger",
+   "conf": 0.32,
+   "probs": {
+    "a_call_to_come": 0.23,
+    "a_warning_of_danger": 0.43,
+    "blame_on_the_trawler_fleet": 0.2,
+    "a_blessing": 0.1,
+    "a_demand": 0.03,
+    "mere_chance": 0.01
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "a_warning_of_danger",
+   "conf": 0.56,
+   "probs": {
+    "a_call_to_come": 0.14,
+    "a_warning_of_danger": 0.63,
+    "blame_on_the_trawler_fleet": 0.15,
+    "a_blessing": 0.05,
+    "a_demand": 0.02,
+    "mere_chance": 0.01
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "a_call_to_come",
+   "conf": 0.24,
+   "probs": {
+    "a_call_to_come": 0.37,
+    "a_warning_of_danger": 0.29,
+    "blame_on_the_trawler_fleet": 0.13,
+    "a_blessing": 0.18,
+    "a_demand": 0.02,
+    "mere_chance": 0.01
+   }
+  },
+  {
+   "id": "N3-solseom",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "a_call_to_come",
+   "conf": 0.32,
+   "probs": {
+    "a_call_to_come": 0.43,
+    "a_warning_of_danger": 0.25,
+    "blame_on_the_trawler_fleet": 0.11,
+    "a_blessing": 0.18,
+    "a_demand": 0.03,
+    "mere_chance": 0.0
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "en",
+   "cond": "base",
+   "choice": "a_warning_of_danger",
+   "conf": 0.59,
+   "probs": {
+    "a_call_to_come": 0.03,
+    "a_warning_of_danger": 0.66,
+    "blame_on_the_family_fleet": 0.01,
+    "a_blessing": 0.01,
+    "a_demand": 0.04,
+    "mere_chance": 0.25
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "en",
+   "cond": "rel",
+   "choice": "a_warning_of_danger",
+   "conf": 0.68,
+   "probs": {
+    "a_call_to_come": 0.04,
+    "a_warning_of_danger": 0.73,
+    "blame_on_the_family_fleet": 0.01,
+    "a_blessing": 0.02,
+    "a_demand": 0.03,
+    "mere_chance": 0.17
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "en",
+   "cond": "irr",
+   "choice": "a_warning_of_danger",
+   "conf": 0.44,
+   "probs": {
+    "a_call_to_come": 0.03,
+    "a_warning_of_danger": 0.53,
+    "blame_on_the_family_fleet": 0.01,
+    "a_blessing": 0.01,
+    "a_demand": 0.04,
+    "mere_chance": 0.38
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "ko",
+   "cond": "base",
+   "choice": "a_warning_of_danger",
+   "conf": 0.68,
+   "probs": {
+    "a_call_to_come": 0.03,
+    "a_warning_of_danger": 0.73,
+    "blame_on_the_family_fleet": 0.09,
+    "a_blessing": 0.01,
+    "a_demand": 0.08,
+    "mere_chance": 0.06
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "ko",
+   "cond": "rel",
+   "choice": "a_warning_of_danger",
+   "conf": 0.78,
+   "probs": {
+    "a_call_to_come": 0.03,
+    "a_warning_of_danger": 0.82,
+    "blame_on_the_family_fleet": 0.03,
+    "a_blessing": 0.02,
+    "a_demand": 0.05,
+    "mere_chance": 0.05
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "ko",
+   "cond": "irr",
+   "choice": "a_warning_of_danger",
+   "conf": 0.71,
+   "probs": {
+    "a_call_to_come": 0.03,
+    "a_warning_of_danger": 0.76,
+    "blame_on_the_family_fleet": 0.04,
+    "a_blessing": 0.02,
+    "a_demand": 0.06,
+    "mere_chance": 0.09
+   }
+  },
+  {
+   "id": "N3-trawler",
+   "lang": "en",
+   "cond": "repeat",
+   "choice": "a_warning_of_danger",
+   "conf": 0.57,
+   "probs": {
+    "a_call_to_come": 0.05,
+    "a_warning_of_danger": 0.64,
+    "blame_on_the_family_fleet": 0.02,
+    "a_blessing": 0.01,
+    "a_demand": 0.04,
+    "mere_chance": 0.24
+   }
+  }
+ ]
+}

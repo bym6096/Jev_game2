@@ -1,0 +1,1322 @@
+[
+ {
+  "id": "T-T1-base",
+  "cond": "base",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Nothing else is in the tank.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-X",
+  "cond": "X",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a timer LED light (on 14 hours a day).",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-Y",
+  "cond": "Y",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: an old copper coin.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-XY",
+  "cond": "XY",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a timer LED light (on 14 hours a day); an old copper coin.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-base#rep",
+  "cond": "base_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Nothing else is in the tank.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-XY#rep",
+  "cond": "XY_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a timer LED light (on 14 hours a day); an old copper coin.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-base",
+  "cond": "base",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Nothing else is in the tank.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-X",
+  "cond": "X",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Also in or by the tank: an air pump bubbler.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-Y",
+  "cond": "Y",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Also in or by the tank: a heater set to 32\u00b0C.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-XY",
+  "cond": "XY",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Also in or by the tank: an air pump bubbler; a heater set to 32\u00b0C.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-base#rep",
+  "cond": "base_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Nothing else is in the tank.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T2-XY#rep",
+  "cond": "XY_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): goldfish 2, duckweed 3, ramshorn snails 3, java moss 2. Also in or by the tank: an air pump bubbler; a heater set to 32\u00b0C.",
+  "questions": {
+   "goldfish": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the goldfish population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "duckweed": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the duckweed population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "ramshorn_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the ramshorn snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "java_moss": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the java moss population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-base",
+  "cond": "base",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Nothing else is in the tank.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-X",
+  "cond": "X",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Also in or by the tank: a betta fish.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-Y",
+  "cond": "Y",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Also in or by the tank: a dense thicket of java moss.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-XY",
+  "cond": "XY",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Also in or by the tank: a betta fish; a dense thicket of java moss.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-base#rep",
+  "cond": "base_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Nothing else is in the tank.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T3-XY#rep",
+  "cond": "XY_rep",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): neon tetras 3, hornwort 2, cherry shrimp 3, green algae 2. Also in or by the tank: a betta fish; a dense thicket of java moss.",
+  "questions": {
+   "neon_tetras": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the neon tetras population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "hornwort": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the hornwort population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-salt",
+  "cond": "junk_active",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a handful of aquarium salt.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-oak",
+  "cond": "junk_active",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a dried oak leaf.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-radio",
+  "cond": "junk_active",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a radio playing all night right next to the tank.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-castle",
+  "cond": "junk_inert",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a ceramic castle ornament.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-diver",
+  "cond": "junk_inert",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a plastic toy diver.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ },
+ {
+  "id": "T-T1-junk-magnet",
+  "cond": "junk_inert",
+  "state": "A 60-liter home aquarium. Occupants and population levels (0 none - 4 overrun): guppies 3, green algae 3, pond snails 2, cherry shrimp 2. Also in or by the tank: a magnet stuck to the outside of the glass.",
+  "questions": {
+   "guppies": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the guppies population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "green_algae": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the green algae population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "pond_snails": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the pond snails population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "cherry_shrimp": {
+    "type": "choice",
+    "instructions": "Next season, what happens to the cherry shrimp population?",
+    "criteria": {
+     "vanishes": null,
+     "shrinks": null,
+     "holds": null,
+     "grows": null,
+     "takes_over": null
+    }
+   },
+   "clear": {
+    "type": "noul",
+    "instructions": "Will the water be clear next season?"
+   }
+  }
+ }
+]

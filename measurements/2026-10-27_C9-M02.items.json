@@ -1,0 +1,962 @@
+[
+ {
+  "id": "A01-sera",
+  "cond": "base",
+  "cand": "A01+",
+  "target": "keep_working",
+  "state": "Persona: Sera, jewelry floor supervisor at a department store. Third day on the job. Was taught to report anyone not on the checklist. Feels intimidated by customers in suits.\nSituation: On opening day, a person in work overalls carrying a toolbag walks slowly past the jewelry counter toward the vault corridor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sera do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-sera",
+  "cond": "rel1",
+  "cand": "A01+",
+  "target": "keep_working",
+  "state": "Persona: Sera, jewelry floor supervisor at a department store. Third day on the job. Was taught to report anyone not on the checklist. Feels intimidated by customers in suits.\nMemory: At the morning briefing the manager said a maintenance crew in work overalls will service the vault corridor locks all day.\nSituation: On opening day, a person in work overalls carrying a toolbag walks slowly past the jewelry counter toward the vault corridor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sera do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-sera",
+  "cond": "rel3",
+  "cand": "A01+",
+  "target": "keep_working",
+  "state": "Persona: Sera, jewelry floor supervisor at a department store. Third day on the job. Was taught to report anyone not on the checklist. Feels intimidated by customers in suits.\nMemory: At the morning briefing the manager said a maintenance crew in work overalls will service the vault corridor locks all day.\nMemory: Yesterday Sera radioed about a man in overalls; he was the building's electrician, and the floor manager scolded her in front of customers.\nMemory: The checklist at her counter was updated this morning and now lists 'maintenance crew, overalls, toolbag' as authorized.\nSituation: On opening day, a person in work overalls carrying a toolbag walks slowly past the jewelry counter toward the vault corridor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sera do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-sera",
+  "cond": "rel5",
+  "cand": "A01+",
+  "target": "keep_working",
+  "state": "Persona: Sera, jewelry floor supervisor at a department store. Third day on the job. Was taught to report anyone not on the checklist. Feels intimidated by customers in suits.\nMemory: At the morning briefing the manager said a maintenance crew in work overalls will service the vault corridor locks all day.\nMemory: Yesterday Sera radioed about a man in overalls; he was the building's electrician, and the floor manager scolded her in front of customers.\nMemory: The checklist at her counter was updated this morning and now lists 'maintenance crew, overalls, toolbag' as authorized.\nMemory: The floor manager told her: 'On opening day the radio is for real emergencies only. Keep the counter staffed.'\nMemory: Ten minutes ago the same worker waved to the vault guard, who waved back and opened the corridor door for him.\nSituation: On opening day, a person in work overalls carrying a toolbag walks slowly past the jewelry counter toward the vault corridor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sera do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-sera",
+  "cond": "irr5",
+  "cand": "A01+",
+  "target": "keep_working",
+  "state": "Persona: Sera, jewelry floor supervisor at a department store. Third day on the job. Was taught to report anyone not on the checklist. Feels intimidated by customers in suits.\nMemory: The staff cafeteria ran out of soup at noon.\nMemory: The window display mannequins were rearranged this morning to face the street instead of the lobby.\nMemory: The music in the lift was changed from a march to a slow waltz before the doors opened.\nMemory: A customer asked where the hat department is, and Sera pointed her toward the third floor.\nMemory: The gift-wrapping paper this week is green with small gold stars, chosen by the design office.\nSituation: On opening day, a person in work overalls carrying a toolbag walks slowly past the jewelry counter toward the vault corridor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sera do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-odo",
+  "cond": "base",
+  "cand": "A01+",
+  "target": "follow_them",
+  "state": "Persona: Odo, loading dock supervisor, former hotel chef for 15 years. Recognizes people by the smell of food. Distrusts head-office people.\nSituation: A person in a white apron carrying a tray of food samples walks through the loading dock toward the staff stairs.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Odo do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-odo",
+  "cond": "rel1",
+  "cand": "A01+",
+  "target": "follow_them",
+  "state": "Persona: Odo, loading dock supervisor, former hotel chef for 15 years. Recognizes people by the smell of food. Distrusts head-office people.\nMemory: A tube note said 'someone carrying a food tray was seen leaving the vault floor in a hurry.'\nSituation: A person in a white apron carrying a tray of food samples walks through the loading dock toward the staff stairs.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Odo do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-odo",
+  "cond": "rel3",
+  "cand": "A01+",
+  "target": "follow_them",
+  "state": "Persona: Odo, loading dock supervisor, former hotel chef for 15 years. Recognizes people by the smell of food. Distrusts head-office people.\nMemory: A tube note said 'someone carrying a food tray was seen leaving the vault floor in a hurry.'\nMemory: The hotel caterers working today all wear blue aprons, not white ones.\nMemory: The food hall confirmed by tube that no samples were scheduled to go upstairs this afternoon.\nSituation: A person in a white apron carrying a tray of food samples walks through the loading dock toward the staff stairs.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Odo do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-odo",
+  "cond": "rel5",
+  "cand": "A01+",
+  "target": "follow_them",
+  "state": "Persona: Odo, loading dock supervisor, former hotel chef for 15 years. Recognizes people by the smell of food. Distrusts head-office people.\nMemory: A tube note said 'someone carrying a food tray was seen leaving the vault floor in a hurry.'\nMemory: The hotel caterers working today all wear blue aprons, not white ones.\nMemory: The food hall confirmed by tube that no samples were scheduled to go upstairs this afternoon.\nMemory: Last week a thief in a cook's uniform got away after a supervisor stopped him to ask questions and tipped him off.\nMemory: The tray this person carries gives off no food smell at all, and the samples look like wax.\nSituation: A person in a white apron carrying a tray of food samples walks through the loading dock toward the staff stairs.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Odo do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-odo",
+  "cond": "irr5",
+  "cand": "A01+",
+  "target": "follow_them",
+  "state": "Persona: Odo, loading dock supervisor, former hotel chef for 15 years. Recognizes people by the smell of food. Distrusts head-office people.\nMemory: The freight elevator was repaired this morning.\nMemory: A delivery of flour arrived an hour early and was stacked by the north wall of the dock.\nMemory: The clock above the dock runs two minutes slow, and nobody has been sent to fix it.\nMemory: A porter hummed an old harbor song while he swept the ramp after the morning trucks left.\nMemory: The dock floor was mopped at ten, and the smell of soap is still in the air.\nSituation: A person in a white apron carrying a tray of food samples walks through the loading dock toward the staff stairs.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Odo do next?",
+    "criteria": {
+     "keep_working": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-mir",
+  "cond": "base",
+  "cand": "A01+",
+  "target": "radio_report",
+  "state": "Persona: Mir, patrol guard at a department store. Promoted from cleaner. Loves machines. Readily believes rumors from coworkers.\nSituation: On opening day, during his patrol of the elevator hall, Mir sees a person in a cleaner's uniform pushing a mop cart toward the jewelry floor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mir do next?",
+    "criteria": {
+     "keep_patrolling": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-mir",
+  "cond": "rel1",
+  "cand": "A01+",
+  "target": "radio_report",
+  "state": "Persona: Mir, patrol guard at a department store. Promoted from cleaner. Loves machines. Readily believes rumors from coworkers.\nMemory: A tube note said 'someone pushing a cleaning cart was seen leaving the vault room.'\nSituation: On opening day, during his patrol of the elevator hall, Mir sees a person in a cleaner's uniform pushing a mop cart toward the jewelry floor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mir do next?",
+    "criteria": {
+     "keep_patrolling": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-mir",
+  "cond": "rel3",
+  "cand": "A01+",
+  "target": "radio_report",
+  "state": "Persona: Mir, patrol guard at a department store. Promoted from cleaner. Loves machines. Readily believes rumors from coworkers.\nMemory: A tube note said 'someone pushing a cleaning cart was seen leaving the vault room.'\nMemory: A coworker told him the cleaning crew finished the second floor an hour ago and went home.\nMemory: The head of security ordered every guard to radio in any cart heading for the jewelry floor today.\nSituation: On opening day, during his patrol of the elevator hall, Mir sees a person in a cleaner's uniform pushing a mop cart toward the jewelry floor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mir do next?",
+    "criteria": {
+     "keep_patrolling": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-mir",
+  "cond": "rel5",
+  "cand": "A01+",
+  "target": "radio_report",
+  "state": "Persona: Mir, patrol guard at a department store. Promoted from cleaner. Loves machines. Readily believes rumors from coworkers.\nMemory: A tube note said 'someone pushing a cleaning cart was seen leaving the vault room.'\nMemory: A coworker told him the cleaning crew finished the second floor an hour ago and went home.\nMemory: The head of security ordered every guard to radio in any cart heading for the jewelry floor today.\nMemory: Mir knows every cleaner on staff by face, and he does not recognize this one.\nMemory: The jewelry supervisor reported that a cleaning cart had blocked the vault corridor for ten minutes.\nSituation: On opening day, during his patrol of the elevator hall, Mir sees a person in a cleaner's uniform pushing a mop cart toward the jewelry floor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mir do next?",
+    "criteria": {
+     "keep_patrolling": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A01-mir",
+  "cond": "irr5",
+  "cand": "A01+",
+  "target": "radio_report",
+  "state": "Persona: Mir, patrol guard at a department store. Promoted from cleaner. Loves machines. Readily believes rumors from coworkers.\nMemory: The lobby fountain was switched on at nine.\nMemory: A brass band rehearsed in the atrium for the ribbon cutting and played the same tune three times.\nMemory: The elevator bell was oiled last night and now rings more softly than before.\nMemory: A child lost a red balloon near the perfume counter and it floated up to the ceiling.\nMemory: The escalator handrails were polished before opening, and they still smell faintly of wax.\nSituation: On opening day, during his patrol of the elevator hall, Mir sees a person in a cleaner's uniform pushing a mop cart toward the jewelry floor.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mir do next?",
+    "criteria": {
+     "keep_patrolling": null,
+     "question_them": null,
+     "radio_report": null,
+     "follow_them": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-mansu",
+  "cond": "base",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Mansu, 60s, the bride's uncle. Lost badly to the groom's father Dongcheol at cards 20 years ago and has not spoken to him since. Raised the bride like his own daughter. Stubborn.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-mansu",
+  "cond": "rel1",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Mansu, 60s, the bride's uncle. Lost badly to the groom's father Dongcheol at cards 20 years ago and has not spoken to him since. Raised the bride like his own daughter. Stubborn.\nToday: At noon Dongcheol bowed and returned a speech manuscript Mansu had dropped, saying 'let's let the old thing go for the children.'\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-mansu",
+  "cond": "rel3",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Mansu, 60s, the bride's uncle. Lost badly to the groom's father Dongcheol at cards 20 years ago and has not spoken to him since. Raised the bride like his own daughter. Stubborn.\nToday: At noon Dongcheol bowed and returned a speech manuscript Mansu had dropped, saying 'let's let the old thing go for the children.'\nToday: At the ceremony the bride whispered to Mansu that her only wish was a photo with both families together in the front row.\nToday: Over the noodles Dongcheol poured Mansu a drink with both hands, and the guests applauded them.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-mansu",
+  "cond": "rel5",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Mansu, 60s, the bride's uncle. Lost badly to the groom's father Dongcheol at cards 20 years ago and has not spoken to him since. Raised the bride like his own daughter. Stubborn.\nToday: At noon Dongcheol bowed and returned a speech manuscript Mansu had dropped, saying 'let's let the old thing go for the children.'\nToday: At the ceremony the bride whispered to Mansu that her only wish was a photo with both families together in the front row.\nToday: Over the noodles Dongcheol poured Mansu a drink with both hands, and the guests applauded them.\nToday: Mansu's sister Sunja told him the village would gossip for years if the bride's uncle hid from the family photo.\nToday: At 4 pm the photographer chalked a spot in the front row and wrote 'bride's uncle' next to it.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-mansu",
+  "cond": "irr5",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Mansu, 60s, the bride's uncle. Lost badly to the groom's father Dongcheol at cards 20 years ago and has not spoken to him since. Raised the bride like his own daughter. Stubborn.\nToday: The noodles at lunch were slightly overcooked.\nToday: A guest's bicycle tire went flat by the gate, and he pushed it home along the alley.\nToday: At 2 pm the wind blew a tablecloth off the yard table and a boy chased it into the field.\nToday: The neighbor's rooster crowed late this morning, well after the sun was already up.\nToday: A neighbor brought a basket of persimmons and left it on the kitchen step for later.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Dongcheol is already standing in the front row.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Mansu do at 5 pm?",
+    "criteria": {
+     "drink_in_guest_room": null,
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "go_look_for_someone": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-misuk",
+  "cond": "base",
+  "cand": "N1",
+  "target": "help_the_photographer",
+  "state": "Persona: Misuk, 20s, the bride's cousin. Dreams of becoming a photographer. Afraid of her uncle Mansu. Hates being stuck with kitchen work.\nSituation: Village wedding, 3 pm. Lunch is over. Misuk is at the quiet well behind the house.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Misuk do at 3 pm?",
+    "criteria": {
+     "rest_at_the_well": null,
+     "help_the_photographer": null,
+     "help_in_the_kitchen": null,
+     "hide_in_the_inner_room": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-misuk",
+  "cond": "rel1",
+  "cand": "N1",
+  "target": "help_the_photographer",
+  "state": "Persona: Misuk, 20s, the bride's cousin. Dreams of becoming a photographer. Afraid of her uncle Mansu. Hates being stuck with kitchen work.\nToday: Just now she found the photographer's camera tripod left leaning against the well.\nSituation: Village wedding, 3 pm. Lunch is over. Misuk is at the quiet well behind the house.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Misuk do at 3 pm?",
+    "criteria": {
+     "rest_at_the_well": null,
+     "help_the_photographer": null,
+     "help_in_the_kitchen": null,
+     "hide_in_the_inner_room": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-misuk",
+  "cond": "rel3",
+  "cand": "N1",
+  "target": "help_the_photographer",
+  "state": "Persona: Misuk, 20s, the bride's cousin. Dreams of becoming a photographer. Afraid of her uncle Mansu. Hates being stuck with kitchen work.\nToday: Just now she found the photographer's camera tripod left leaning against the well.\nToday: Just now the photographer called out from the yard, asking if anyone had seen his tripod.\nToday: At the ceremony the photographer let Misuk look through his camera and said she had a good eye.\nSituation: Village wedding, 3 pm. Lunch is over. Misuk is at the quiet well behind the house.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Misuk do at 3 pm?",
+    "criteria": {
+     "rest_at_the_well": null,
+     "help_the_photographer": null,
+     "help_in_the_kitchen": null,
+     "hide_in_the_inner_room": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-misuk",
+  "cond": "rel5",
+  "cand": "N1",
+  "target": "help_the_photographer",
+  "state": "Persona: Misuk, 20s, the bride's cousin. Dreams of becoming a photographer. Afraid of her uncle Mansu. Hates being stuck with kitchen work.\nToday: Just now she found the photographer's camera tripod left leaning against the well.\nToday: Just now the photographer called out from the yard, asking if anyone had seen his tripod.\nToday: At the ceremony the photographer let Misuk look through his camera and said she had a good eye.\nToday: Uncle Mansu went into the guest room to drink and will not come out until evening.\nToday: The kitchen aunt Sunja said the kitchen has enough hands for the rest of the day.\nSituation: Village wedding, 3 pm. Lunch is over. Misuk is at the quiet well behind the house.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Misuk do at 3 pm?",
+    "criteria": {
+     "rest_at_the_well": null,
+     "help_the_photographer": null,
+     "help_in_the_kitchen": null,
+     "hide_in_the_inner_room": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-misuk",
+  "cond": "irr5",
+  "cand": "N1",
+  "target": "help_the_photographer",
+  "state": "Persona: Misuk, 20s, the bride's cousin. Dreams of becoming a photographer. Afraid of her uncle Mansu. Hates being stuck with kitchen work.\nToday: Just now a dog barked somewhere in the alley.\nToday: A cloud covered the sun for a while and the yard turned cool before it passed.\nToday: The rope on the well bucket is new, bought at the town market last week.\nToday: A sparrow landed on the roof of the shed and pecked at the dry straw there.\nToday: Someone's radio in the next house played a trot song, then the news at the hour.\nSituation: Village wedding, 3 pm. Lunch is over. Misuk is at the quiet well behind the house.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Misuk do at 3 pm?",
+    "criteria": {
+     "rest_at_the_well": null,
+     "help_the_photographer": null,
+     "help_in_the_kitchen": null,
+     "hide_in_the_inner_room": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-dongcheol",
+  "cond": "base",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Dongcheol, 50s, the groom's father, a city man. Finds the village strange and the bride's elders intimidating. Hates being photographed. Worries he will lose his speech manuscript.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Mansu, the bride's uncle, who has not spoken to Dongcheol for 20 years, stands at the edge of the group.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Dongcheol do at 5 pm?",
+    "criteria": {
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "stay_in_guest_room": null,
+     "go_out_to_the_gate": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-dongcheol",
+  "cond": "rel1",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Dongcheol, 50s, the groom's father, a city man. Finds the village strange and the bride's elders intimidating. Hates being photographed. Worries he will lose his speech manuscript.\nToday: At noon Dongcheol returned Mansu's dropped speech manuscript and asked to let the old quarrel go; Mansu nodded.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Mansu, the bride's uncle, who has not spoken to Dongcheol for 20 years, stands at the edge of the group.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Dongcheol do at 5 pm?",
+    "criteria": {
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "stay_in_guest_room": null,
+     "go_out_to_the_gate": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-dongcheol",
+  "cond": "rel3",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Dongcheol, 50s, the groom's father, a city man. Finds the village strange and the bride's elders intimidating. Hates being photographed. Worries he will lose his speech manuscript.\nToday: At noon Dongcheol returned Mansu's dropped speech manuscript and asked to let the old quarrel go; Mansu nodded.\nToday: The groom asked his father to stand in the front row, since the groom's mother has passed away and he is the only parent there.\nToday: After the ceremony the bride's grandmother held Dongcheol's hand and called him family.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Mansu, the bride's uncle, who has not spoken to Dongcheol for 20 years, stands at the edge of the group.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Dongcheol do at 5 pm?",
+    "criteria": {
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "stay_in_guest_room": null,
+     "go_out_to_the_gate": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-dongcheol",
+  "cond": "rel5",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Dongcheol, 50s, the groom's father, a city man. Finds the village strange and the bride's elders intimidating. Hates being photographed. Worries he will lose his speech manuscript.\nToday: At noon Dongcheol returned Mansu's dropped speech manuscript and asked to let the old quarrel go; Mansu nodded.\nToday: The groom asked his father to stand in the front row, since the groom's mother has passed away and he is the only parent there.\nToday: After the ceremony the bride's grandmother held Dongcheol's hand and called him family.\nToday: At 4 pm the photographer chalked a spot in the front row and wrote 'groom's father' next to it.\nToday: Mansu sent the errand boy to tell Dongcheol: 'Stand in front. I will stand beside you.'\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Mansu, the bride's uncle, who has not spoken to Dongcheol for 20 years, stands at the edge of the group.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Dongcheol do at 5 pm?",
+    "criteria": {
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "stay_in_guest_room": null,
+     "go_out_to_the_gate": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N1-dongcheol",
+  "cond": "irr5",
+  "cand": "N1",
+  "target": "stand_front_row_in_photo",
+  "state": "Persona: Dongcheol, 50s, the groom's father, a city man. Finds the village strange and the bride's elders intimidating. Hates being photographed. Worries he will lose his speech manuscript.\nToday: The noodles at lunch were slightly overcooked.\nToday: A guest's bicycle tire went flat by the gate, and he pushed it home along the alley.\nToday: At 2 pm the wind blew a tablecloth off the yard table and a boy chased it into the field.\nToday: The neighbor's rooster crowed late this morning, well after the sun was already up.\nToday: A neighbor brought a basket of persimmons and left it on the kitchen step for later.\nSituation: Village wedding, 5 pm. The photographer calls everyone to the yard for the group photo. Mansu, the bride's uncle, who has not spoken to Dongcheol for 20 years, stands at the edge of the group.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Dongcheol do at 5 pm?",
+    "criteria": {
+     "stand_front_row_in_photo": null,
+     "stand_at_edge_of_photo": null,
+     "stay_in_guest_room": null,
+     "go_out_to_the_gate": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-park",
+  "cond": "base",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Park Bok-rye, runs the laundromat in the apartment complex's shopping arcade. Lost regular customers to parking enforcement. Has done business with the management company for 20 years. Hates neighbors fighting.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Park rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-park",
+  "cond": "rel1",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Park Bok-rye, runs the laundromat in the apartment complex's shopping arcade. Lost regular customers to parking enforcement. Has done business with the management company for 20 years. Hates neighbors fighting.\nRecord: Last month the committee ruled the company may repaint parking lines without a resident vote, calling it routine maintenance.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Park rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-park",
+  "cond": "rel3",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Park Bok-rye, runs the laundromat in the apartment complex's shopping arcade. Lost regular customers to parking enforcement. Has done business with the management company for 20 years. Hates neighbors fighting.\nRecord: Last month the committee ruled the company may repaint parking lines without a resident vote, calling it routine maintenance.\nRecord: The management company paid to fix the drain outside Park's laundromat at no cost to her.\nRecord: Two of Park's regular customers lost side mirrors to double-parkers last week and asked her to back the parking plan.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Park rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-park",
+  "cond": "rel5",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Park Bok-rye, runs the laundromat in the apartment complex's shopping arcade. Lost regular customers to parking enforcement. Has done business with the management company for 20 years. Hates neighbors fighting.\nRecord: Last month the committee ruled the company may repaint parking lines without a resident vote, calling it routine maintenance.\nRecord: The management company paid to fix the drain outside Park's laundromat at no cost to her.\nRecord: Two of Park's regular customers lost side mirrors to double-parkers last week and asked her to back the parking plan.\nRecord: The residents' playground petition was found to contain 12 duplicate signatures.\nRecord: The city fire inspector warned that double-parked cars block the fire lane every night.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Park rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-park",
+  "cond": "irr5",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Park Bok-rye, runs the laundromat in the apartment complex's shopping arcade. Lost regular customers to parking enforcement. Has done business with the management company for 20 years. Hates neighbors fighting.\nRecord: Last month the committee ruled on how long movers may hold the elevator.\nRecord: The bakery in the arcade changed its opening hours to start half an hour earlier.\nRecord: The trees along the main path of the complex were pruned by the gardeners on Monday.\nRecord: A 'lost cat' poster with a photo of a grey kitten appeared on the arcade door.\nRecord: The glass of the notice board by the gate was replaced after a crack appeared.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Park rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-kang",
+  "cond": "base",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Kang rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-kang",
+  "cond": "rel1",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nRecord: Last month the committee granted delivery riders a basement motorcycle area, and the logbook shows double-parking complaints fell by half afterwards.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Kang rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-kang",
+  "cond": "rel3",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nRecord: Last month the committee granted delivery riders a basement motorcycle area, and the logbook shows double-parking complaints fell by half afterwards.\nRecord: An ambulance was delayed four minutes last month because double-parked cars blocked the entrance road.\nRecord: The playground CCTV has been broken for three months, and the company's parking plan includes new cameras covering the area.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Kang rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-kang",
+  "cond": "rel5",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nRecord: Last month the committee granted delivery riders a basement motorcycle area, and the logbook shows double-parking complaints fell by half afterwards.\nRecord: An ambulance was delayed four minutes last month because double-parked cars blocked the entrance road.\nRecord: The playground CCTV has been broken for three months, and the company's parking plan includes new cameras covering the area.\nRecord: A night-shift nurse's car was towed from the double-parking row while she was at work.\nRecord: 70% of households answered a door-to-door survey saying they want more parking.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Kang rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "A03-kang",
+  "cond": "irr5",
+  "cand": "A03+",
+  "target": "reject",
+  "state": "Persona: Judge: Kang Tae-o, ER nurse with a working spouse. After night shifts spends 30 minutes looking for parking. Relies on the playground CCTV because there is nobody to watch the kids. Trusts records over talk.\nRecord: Last month the committee ruled on which day recycling is collected.\nRecord: The plants in the lobby were watered on Tuesday by the cleaning staff.\nRecord: The font on the community notices was changed to a larger, rounder style.\nRecord: A child's kite got stuck in a tree by the playground and stayed there for two days.\nRecord: The complex gym opened ten minutes late on Sunday because the key was misplaced.\nSituation: Case: residents claim the management company cannot turn the complex playground into a parking lot without residents' consent. Facts: the playground was designated a shared facility at construction; 30+ cars double-park every night; the company held one public hearing on a weekday afternoon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does Judge Kang rule on the claim?",
+    "criteria": {
+     "uphold": null,
+     "partial": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-solseom",
+  "cond": "base",
+  "cand": "N3",
+  "target": "blame_on_the_trawler_fleet",
+  "state": "Persona: Solseom fleet: family fishing boats from the south harbor. Think of home before the sea. Call their boats with songs. Resent the steam trawler fleet for sweeping the fishing grounds clean.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse shines a steady red light over the southern shoals where the fleet is anchored.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the Solseom fleet interpret the red light?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_trawler_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-solseom",
+  "cond": "rel1",
+  "cand": "N3",
+  "target": "blame_on_the_trawler_fleet",
+  "state": "Persona: Solseom fleet: family fishing boats from the south harbor. Think of home before the sea. Call their boats with songs. Resent the steam trawler fleet for sweeping the fishing grounds clean.\nRecent log: Yesterday we argued with the trawler fleet over fishing spots.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse shines a steady red light over the southern shoals where the fleet is anchored.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the Solseom fleet interpret the red light?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_trawler_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-solseom",
+  "cond": "rel3",
+  "cand": "N3",
+  "target": "blame_on_the_trawler_fleet",
+  "state": "Persona: Solseom fleet: family fishing boats from the south harbor. Think of home before the sea. Call their boats with songs. Resent the steam trawler fleet for sweeping the fishing grounds clean.\nRecent log: Yesterday we argued with the trawler fleet over fishing spots.\nRecent log: Last week the trawlers' nets tore the lines of two of our small boats at the southern shoals.\nRecent log: Elders say the keeper cursed the steam engines the year before he died.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse shines a steady red light over the southern shoals where the fleet is anchored.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the Solseom fleet interpret the red light?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_trawler_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-solseom",
+  "cond": "rel5",
+  "cand": "N3",
+  "target": "blame_on_the_trawler_fleet",
+  "state": "Persona: Solseom fleet: family fishing boats from the south harbor. Think of home before the sea. Call their boats with songs. Resent the steam trawler fleet for sweeping the fishing grounds clean.\nRecent log: Yesterday we argued with the trawler fleet over fishing spots.\nRecent log: Last week the trawlers' nets tore the lines of two of our small boats at the southern shoals.\nRecent log: Elders say the keeper cursed the steam engines the year before he died.\nRecent log: This morning the trawler fleet was seen anchoring right beside our shoals.\nRecent log: The last time the light turned red, a trawler rammed one of our boats that same night.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse shines a steady red light over the southern shoals where the fleet is anchored.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the Solseom fleet interpret the red light?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_trawler_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-solseom",
+  "cond": "irr5",
+  "cand": "N3",
+  "target": "blame_on_the_trawler_fleet",
+  "state": "Persona: Solseom fleet: family fishing boats from the south harbor. Think of home before the sea. Call their boats with songs. Resent the steam trawler fleet for sweeping the fishing grounds clean.\nRecent log: A child learned a new song.\nRecent log: The gulls gathered on the pier at dawn and left when the bread was gone.\nRecent log: Two nets were mended on the beach in the afternoon by the older women.\nRecent log: The cook burned the rice on the third boat and had to start the pot again.\nRecent log: The tide came in a little later than the almanac said it would today.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse shines a steady red light over the southern shoals where the fleet is anchored.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the Solseom fleet interpret the red light?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_trawler_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-trawler",
+  "cond": "base",
+  "cand": "N3",
+  "target": "mere_chance",
+  "state": "Persona: Steam trawler fleet. Tending the engine is their prayer. Follow signals and rules. See the small boats as lazy.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse goes completely dark for a long time over the western fishing grounds where the trawlers are working.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the trawler fleet interpret the long darkness?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_family_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-trawler",
+  "cond": "rel1",
+  "cand": "N3",
+  "target": "mere_chance",
+  "state": "Persona: Steam trawler fleet. Tending the engine is their prayer. Follow signals and rules. See the small boats as lazy.\nRecent log: Our engineer says the lighthouse generator is old and fails in damp weather.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse goes completely dark for a long time over the western fishing grounds where the trawlers are working.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the trawler fleet interpret the long darkness?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_family_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-trawler",
+  "cond": "rel3",
+  "cand": "N3",
+  "target": "mere_chance",
+  "state": "Persona: Steam trawler fleet. Tending the engine is their prayer. Follow signals and rules. See the small boats as lazy.\nRecent log: Our engineer says the lighthouse generator is old and fails in damp weather.\nRecent log: The lighthouse went dark three times last month, and nothing followed any of them.\nRecent log: The captain told the crew that lights are machines, not omens.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse goes completely dark for a long time over the western fishing grounds where the trawlers are working.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the trawler fleet interpret the long darkness?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_family_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-trawler",
+  "cond": "rel5",
+  "cand": "N3",
+  "target": "mere_chance",
+  "state": "Persona: Steam trawler fleet. Tending the engine is their prayer. Follow signals and rules. See the small boats as lazy.\nRecent log: Our engineer says the lighthouse generator is old and fails in damp weather.\nRecent log: The lighthouse went dark three times last month, and nothing followed any of them.\nRecent log: The captain told the crew that lights are machines, not omens.\nRecent log: The weather tonight is calm and the barometer has been steady all day.\nRecent log: The harbor office radioed that the lighthouse fuel delivery was late this week.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse goes completely dark for a long time over the western fishing grounds where the trawlers are working.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the trawler fleet interpret the long darkness?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_family_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ },
+ {
+  "id": "N3-trawler",
+  "cond": "irr5",
+  "cand": "N3",
+  "target": "mere_chance",
+  "state": "Persona: Steam trawler fleet. Tending the engine is their prayer. Follow signals and rules. See the small boats as lazy.\nRecent log: We repainted the hull of one ship.\nRecent log: Coal was loaded onto the lead trawler in the morning before we left the harbor.\nRecent log: A sailor on the second ship turned thirty, and the crew shared a tin of biscuits.\nRecent log: The galley ran out of coffee at midnight and the cook promised more tomorrow.\nRecent log: A seal was seen swimming near the bow of the lead ship just after sunset.\nSituation: Islanders believe the dead lighthouse keeper's will lives in the lighthouse beam. Tonight the unmanned lighthouse goes completely dark for a long time over the western fishing grounds where the trawlers are working.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the trawler fleet interpret the long darkness?",
+    "criteria": {
+     "a_call_to_come": null,
+     "a_warning_of_danger": null,
+     "blame_on_the_family_fleet": null,
+     "a_blessing": null,
+     "a_demand": null,
+     "mere_chance": null
+    }
+   }
+  }
+ }
+]

@@ -1,0 +1,1268 @@
+[
+ {
+  "id": "X-R1-a1-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-a1-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-a10-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-a10-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (10) a buzzing cooler box.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-a16-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-a16-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (16) a mechanical pocket watch.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R1-rev",
+  "cond": "x0_reversed",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a1-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a1-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a10-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a10-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (10) a buzzing cooler box.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a16-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-a16-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (16) a mechanical pocket watch.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R2-rev",
+  "cond": "x0_reversed",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a1-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a1-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a10-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a10-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (10) a tube of toothpaste.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a16-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-a16-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (16) a beekeeping suit.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R6-rev",
+  "cond": "x0_reversed",
+  "state": "Quarantine gate rule: \"BLOCK: flammable\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a1-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a1-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a10-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a10-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (10) a tube of toothpaste.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a16-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-a16-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (16) a beekeeping suit.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R7-rev",
+  "cond": "x0_reversed",
+  "state": "Quarantine gate rule: \"BLOCK: liquid\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a1-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a1-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a10-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a10-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (10) a tube of toothpaste.",
+  "questions": {
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a16-alone",
+  "cond": "x0_alone_q",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-a16-single",
+  "cond": "x0_single_state",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (16) a beekeeping suit.",
+  "questions": {
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   }
+  }
+ },
+ {
+  "id": "X-R9-rev",
+  "cond": "x0_reversed",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   }
+  }
+ },
+ {
+  "id": "X-lat40-0",
+  "cond": "x0_lat40",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips, (21) a bottle of olive oil, (22) a sealed can of hairspray, (23) a garden hose, (24) a jar of honey with a dead bee in it, (25) a laptop with a cracked screen, (26) a parrot that can say 'fire', (27) a bag of fertilizer, (28) a ceramic kitchen knife, (29) a pair of steel scissors, (30) a tube of toothpaste, (31) a snow globe, (32) a box of matches, (33) a frozen turkey, (34) a toy water pistol, (35) a hamster in a cage, (36) a beekeeping suit, (37) a bottle of perfume, (38) a camping gas stove, (39) a packet of flower seeds, (40) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a21": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (21)?"
+   },
+   "a22": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (22)?"
+   },
+   "a23": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (23)?"
+   },
+   "a24": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (24)?"
+   },
+   "a25": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (25)?"
+   },
+   "a26": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (26)?"
+   },
+   "a27": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (27)?"
+   },
+   "a28": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (28)?"
+   },
+   "a29": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (29)?"
+   },
+   "a30": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (30)?"
+   },
+   "a31": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (31)?"
+   },
+   "a32": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (32)?"
+   },
+   "a33": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (33)?"
+   },
+   "a34": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (34)?"
+   },
+   "a35": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (35)?"
+   },
+   "a36": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (36)?"
+   },
+   "a37": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (37)?"
+   },
+   "a38": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (38)?"
+   },
+   "a39": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (39)?"
+   },
+   "a40": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (40)?"
+   }
+  }
+ },
+ {
+  "id": "X-lat40-1",
+  "cond": "x0_lat40",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips, (21) a bottle of olive oil, (22) a sealed can of hairspray, (23) a garden hose, (24) a jar of honey with a dead bee in it, (25) a laptop with a cracked screen, (26) a parrot that can say 'fire', (27) a bag of fertilizer, (28) a ceramic kitchen knife, (29) a pair of steel scissors, (30) a tube of toothpaste, (31) a snow globe, (32) a box of matches, (33) a frozen turkey, (34) a toy water pistol, (35) a hamster in a cage, (36) a beekeeping suit, (37) a bottle of perfume, (38) a camping gas stove, (39) a packet of flower seeds, (40) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a21": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (21)?"
+   },
+   "a22": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (22)?"
+   },
+   "a23": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (23)?"
+   },
+   "a24": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (24)?"
+   },
+   "a25": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (25)?"
+   },
+   "a26": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (26)?"
+   },
+   "a27": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (27)?"
+   },
+   "a28": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (28)?"
+   },
+   "a29": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (29)?"
+   },
+   "a30": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (30)?"
+   },
+   "a31": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (31)?"
+   },
+   "a32": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (32)?"
+   },
+   "a33": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (33)?"
+   },
+   "a34": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (34)?"
+   },
+   "a35": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (35)?"
+   },
+   "a36": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (36)?"
+   },
+   "a37": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (37)?"
+   },
+   "a38": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (38)?"
+   },
+   "a39": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (39)?"
+   },
+   "a40": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (40)?"
+   }
+  }
+ },
+ {
+  "id": "X-lat40-2",
+  "cond": "x0_lat40",
+  "state": "Quarantine gate rule: \"BLOCK: sharp\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips, (21) a bottle of olive oil, (22) a sealed can of hairspray, (23) a garden hose, (24) a jar of honey with a dead bee in it, (25) a laptop with a cracked screen, (26) a parrot that can say 'fire', (27) a bag of fertilizer, (28) a ceramic kitchen knife, (29) a pair of steel scissors, (30) a tube of toothpaste, (31) a snow globe, (32) a box of matches, (33) a frozen turkey, (34) a toy water pistol, (35) a hamster in a cage, (36) a beekeeping suit, (37) a bottle of perfume, (38) a camping gas stove, (39) a packet of flower seeds, (40) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (1)?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (2)?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (3)?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (4)?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (5)?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (6)?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (7)?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (8)?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (9)?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (10)?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (11)?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (12)?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (13)?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (14)?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (15)?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (16)?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (17)?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (18)?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (19)?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (20)?"
+   },
+   "a21": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (21)?"
+   },
+   "a22": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (22)?"
+   },
+   "a23": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (23)?"
+   },
+   "a24": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (24)?"
+   },
+   "a25": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (25)?"
+   },
+   "a26": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (26)?"
+   },
+   "a27": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (27)?"
+   },
+   "a28": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (28)?"
+   },
+   "a29": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (29)?"
+   },
+   "a30": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (30)?"
+   },
+   "a31": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (31)?"
+   },
+   "a32": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (32)?"
+   },
+   "a33": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (33)?"
+   },
+   "a34": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (34)?"
+   },
+   "a35": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (35)?"
+   },
+   "a36": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (36)?"
+   },
+   "a37": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (37)?"
+   },
+   "a38": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (38)?"
+   },
+   "a39": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (39)?"
+   },
+   "a40": {
+    "type": "noul",
+    "instructions": "Does the gate rule apply to arrival (40)?"
+   }
+  }
+ }
+]

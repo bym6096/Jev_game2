@@ -1,0 +1,578 @@
+[
+ {
+  "id": "F-I1-base",
+  "cond": "base",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I1-A",
+  "cond": "A",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I1-B",
+  "cond": "B",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: an electric fan, switched on, blowing across the room. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I1-AB",
+  "cond": "AB",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. SOUTH: a closed metal toolbox. WEST: an electric fan, switched on, blowing across the room. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I1-AB_swap",
+  "cond": "AB_swap",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an electric fan, switched on, blowing across the room. SOUTH: a closed metal toolbox. WEST: an open sack of flour. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-base",
+  "cond": "base",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-A",
+  "cond": "A",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a lump of sodium metal in a dish. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-B",
+  "cond": "B",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-AB",
+  "cond": "AB",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a lump of sodium metal in a dish. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-AB_swap",
+  "cond": "AB_swap",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a bucket of water. SOUTH: a closed metal toolbox. WEST: a lump of sodium metal in a dish. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-base",
+  "cond": "base",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-A",
+  "cond": "A",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an aerosol can of hairspray. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-B",
+  "cond": "B",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: an electric space heater, switched on. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-AB",
+  "cond": "AB",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an aerosol can of hairspray. SOUTH: a closed metal toolbox. WEST: an electric space heater, switched on. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-AB_swap",
+  "cond": "AB_swap",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an electric space heater, switched on. SOUTH: a closed metal toolbox. WEST: an aerosol can of hairspray. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-base",
+  "cond": "base",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-A",
+  "cond": "A",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a pile of oily rags. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-B",
+  "cond": "B",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a leaking oxygen cylinder. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-AB",
+  "cond": "AB",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a pile of oily rags. SOUTH: a closed metal toolbox. WEST: a leaking oxygen cylinder. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-AB_swap",
+  "cond": "AB_swap",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a leaking oxygen cylinder. SOUTH: a closed metal toolbox. WEST: a pile of oily rags. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-base",
+  "cond": "base",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-A",
+  "cond": "A",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-B",
+  "cond": "B",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-AB",
+  "cond": "AB",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-AB_swap",
+  "cond": "AB_swap",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a bucket of water. SOUTH: a closed metal toolbox. WEST: a bucket of sand. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-base",
+  "cond": "base",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-A",
+  "cond": "A",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a glass jar of marbles. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-B",
+  "cond": "B",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a pile of dry newspapers. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-AB",
+  "cond": "AB",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a glass jar of marbles. SOUTH: a closed metal toolbox. WEST: a pile of dry newspapers. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-AB_swap",
+  "cond": "AB_swap",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a pile of dry newspapers. SOUTH: a closed metal toolbox. WEST: a glass jar of marbles. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-base",
+  "cond": "base",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-A",
+  "cond": "A",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a pile of dry newspapers. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-B",
+  "cond": "B",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a wooden pallet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-AB",
+  "cond": "AB",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a pile of dry newspapers. SOUTH: a closed metal toolbox. WEST: a wooden pallet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-AB_swap",
+  "cond": "AB_swap",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a wooden pallet. SOUTH: a closed metal toolbox. WEST: a pile of dry newspapers. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-base",
+  "cond": "base",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-A",
+  "cond": "A",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-B",
+  "cond": "B",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a closed metal filing cabinet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-AB",
+  "cond": "AB",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a closed metal filing cabinet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-AB_swap",
+  "cond": "AB_swap",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a closed metal filing cabinet. SOUTH: a closed metal toolbox. WEST: a bucket of sand. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I1-AB",
+  "cond": "AB_rep",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. SOUTH: a closed metal toolbox. WEST: an electric fan, switched on, blowing across the room. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I2-AB",
+  "cond": "AB_rep",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden crate of books. NORTH: a wool blanket, currently burning. EAST: a lump of sodium metal in a dish. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I3-AB",
+  "cond": "AB_rep",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an aerosol can of hairspray. SOUTH: a closed metal toolbox. WEST: an electric space heater, switched on. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I4-AB",
+  "cond": "AB_rep",
+  "exp": "interaction+",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a pile of oily rags. SOUTH: a closed metal toolbox. WEST: a leaking oxygen cylinder. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-I5-AB",
+  "cond": "AB_rep",
+  "exp": "interaction?",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C1-AB",
+  "cond": "AB_rep",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a glass jar of marbles. SOUTH: a closed metal toolbox. WEST: a pile of dry newspapers. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C2-AB",
+  "cond": "AB_rep",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a pile of dry newspapers. SOUTH: a closed metal toolbox. WEST: a wooden pallet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F-C3-AB",
+  "cond": "AB_rep",
+  "exp": "control",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of laundry. NORTH: a wool blanket, currently burning. EAST: a bucket of sand. SOUTH: a closed metal toolbox. WEST: a closed metal filing cabinet. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ }
+]

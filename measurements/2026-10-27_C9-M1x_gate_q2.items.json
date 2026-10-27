@@ -1,0 +1,358 @@
+[
+ {
+  "id": "G-R2-thru",
+  "cond": "q_letthrough",
+  "rule": "BLOCK: alive",
+  "pool": "P1",
+  "state": "Quarantine gate rule: \"BLOCK: alive\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (1) let through the gate?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (2) let through the gate?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (3) let through the gate?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (4) let through the gate?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (5) let through the gate?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (6) let through the gate?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (7) let through the gate?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (8) let through the gate?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (9) let through the gate?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (10) let through the gate?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (11) let through the gate?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (12) let through the gate?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (13) let through the gate?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (14) let through the gate?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (15) let through the gate?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (16) let through the gate?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (17) let through the gate?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (18) let through the gate?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (19) let through the gate?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (20) let through the gate?"
+   }
+  }
+ },
+ {
+  "id": "G-R4-thru",
+  "cond": "q_letthrough",
+  "rule": "ADMIT: edible",
+  "pool": "P1",
+  "state": "Quarantine gate rule: \"ADMIT: edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a wind-up music box, (2) a potted cactus, (3) a sleeping puppy in a crate, (4) a power bank, (5) a toy drone with its battery removed, (6) a birthday cake with candles, (7) a cordless electric drill, (8) a jar of live sourdough starter, (9) a child's drawing of a bomb, (10) a buzzing cooler box, (11) a box of kitchen knives, (12) a solar-powered garden gnome, (13) a bag of fresh oysters, (14) a pair of noise-cancelling headphones, (15) a goldfish in a plastic bag, (16) a mechanical pocket watch, (17) a vacuum-sealed pack of beef jerky, (18) a pair of ice skates, (19) an e-reader, (20) a bouquet of fresh tulips.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (1) let through the gate?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (2) let through the gate?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (3) let through the gate?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (4) let through the gate?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (5) let through the gate?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (6) let through the gate?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (7) let through the gate?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (8) let through the gate?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (9) let through the gate?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (10) let through the gate?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (11) let through the gate?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (12) let through the gate?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (13) let through the gate?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (14) let through the gate?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (15) let through the gate?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (16) let through the gate?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (17) let through the gate?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (18) let through the gate?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (19) let through the gate?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (20) let through the gate?"
+   }
+  }
+ },
+ {
+  "id": "G-R8-thru",
+  "cond": "q_letthrough",
+  "rule": "ADMIT: NOT dangerous",
+  "pool": "P2",
+  "state": "Quarantine gate rule: \"ADMIT: NOT dangerous\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (1) let through the gate?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (2) let through the gate?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (3) let through the gate?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (4) let through the gate?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (5) let through the gate?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (6) let through the gate?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (7) let through the gate?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (8) let through the gate?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (9) let through the gate?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (10) let through the gate?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (11) let through the gate?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (12) let through the gate?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (13) let through the gate?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (14) let through the gate?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (15) let through the gate?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (16) let through the gate?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (17) let through the gate?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (18) let through the gate?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (19) let through the gate?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (20) let through the gate?"
+   }
+  }
+ },
+ {
+  "id": "G-R9-thru",
+  "cond": "q_letthrough",
+  "rule": "BLOCK: alive OR edible",
+  "pool": "P2",
+  "state": "Quarantine gate rule: \"BLOCK: alive OR edible\". The rule is applied literally by the gate staff. Arrivals in line: (1) a bottle of olive oil, (2) a sealed can of hairspray, (3) a garden hose, (4) a jar of honey with a dead bee in it, (5) a laptop with a cracked screen, (6) a parrot that can say 'fire', (7) a bag of fertilizer, (8) a ceramic kitchen knife, (9) a pair of steel scissors, (10) a tube of toothpaste, (11) a snow globe, (12) a box of matches, (13) a frozen turkey, (14) a toy water pistol, (15) a hamster in a cage, (16) a beekeeping suit, (17) a bottle of perfume, (18) a camping gas stove, (19) a packet of flower seeds, (20) a pocket calculator.",
+  "questions": {
+   "a1": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (1) let through the gate?"
+   },
+   "a2": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (2) let through the gate?"
+   },
+   "a3": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (3) let through the gate?"
+   },
+   "a4": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (4) let through the gate?"
+   },
+   "a5": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (5) let through the gate?"
+   },
+   "a6": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (6) let through the gate?"
+   },
+   "a7": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (7) let through the gate?"
+   },
+   "a8": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (8) let through the gate?"
+   },
+   "a9": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (9) let through the gate?"
+   },
+   "a10": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (10) let through the gate?"
+   },
+   "a11": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (11) let through the gate?"
+   },
+   "a12": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (12) let through the gate?"
+   },
+   "a13": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (13) let through the gate?"
+   },
+   "a14": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (14) let through the gate?"
+   },
+   "a15": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (15) let through the gate?"
+   },
+   "a16": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (16) let through the gate?"
+   },
+   "a17": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (17) let through the gate?"
+   },
+   "a18": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (18) let through the gate?"
+   },
+   "a19": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (19) let through the gate?"
+   },
+   "a20": {
+    "type": "noul",
+    "instructions": "Under the gate rule, is arrival (20) let through the gate?"
+   }
+  }
+ }
+]

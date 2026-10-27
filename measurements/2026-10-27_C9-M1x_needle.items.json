@@ -1,0 +1,548 @@
+[
+ {
+  "id": "N-bridge-cum0",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum1",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum2",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum3",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots. (3) Army engineers reinforced the bridge last month.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum4",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots. (3) Army engineers reinforced the bridge last month. (4) 200 spectators follow the band onto the bridge.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum5",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots. (3) Army engineers reinforced the bridge last month. (4) 200 spectators follow the band onto the bridge. (5) The band has been told to break step while crossing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum6",
+  "cond": "cum",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots. (3) Army engineers reinforced the bridge last month. (4) 200 spectators follow the band onto the bridge. (5) The band has been told to break step while crossing. (6) A flock of seagulls is sitting on the railing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single1",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single2",
+  "cond": "single",
+  "exp": "0",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) The band members wear rubber boots.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single3",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) Army engineers reinforced the bridge last month.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single4",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) 200 spectators follow the band onto the bridge.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single5",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) The band has been told to break step while crossing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-single6",
+  "cond": "single",
+  "exp": "0",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) A flock of seagulls is sitting on the railing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-rev",
+  "cond": "rev",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) A flock of seagulls is sitting on the railing. (2) The band has been told to break step while crossing. (3) 200 spectators follow the band onto the bridge. (4) Army engineers reinforced the bridge last month. (5) The band members wear rubber boots. (6) It has rained heavily all week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum0#rep",
+  "cond": "rep",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-bridge-cum6#rep",
+  "cond": "rep",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. Added facts: (1) It has rained heavily all week. (2) The band members wear rubber boots. (3) Army engineers reinforced the bridge last month. (4) 200 spectators follow the band onto the bridge. (5) The band has been told to break step while crossing. (6) A flock of seagulls is sitting on the railing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the footbridge hold while the whole band crosses it?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum0",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum1",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum2",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum3",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west. (3) One passenger is afraid of heights.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum4",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west. (3) One passenger is afraid of heights. (4) They carry extra propane tanks.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum5",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west. (3) One passenger is afraid of heights. (4) They carry extra propane tanks. (5) Power lines run along the edge of the meadow.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum6",
+  "cond": "cum",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west. (3) One passenger is afraid of heights. (4) They carry extra propane tanks. (5) Power lines run along the edge of the meadow. (6) The balloon's fabric was patched last week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single1",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single2",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) A thunderstorm is forming to the west.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single3",
+  "cond": "single",
+  "exp": "0",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) One passenger is afraid of heights.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single4",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) They carry extra propane tanks.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single5",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) Power lines run along the edge of the meadow.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-single6",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The balloon's fabric was patched last week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-rev",
+  "cond": "rev",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The balloon's fabric was patched last week. (2) Power lines run along the edge of the meadow. (3) They carry extra propane tanks. (4) One passenger is afraid of heights. (5) A thunderstorm is forming to the west. (6) The pilot has 20 years of experience.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum0#rep",
+  "cond": "rep",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-balloon-cum6#rep",
+  "cond": "rep",
+  "state": "Scene: A hot-air balloon with three passengers is trying to fly over a hill and land in the meadow beyond. Added facts: (1) The pilot has 20 years of experience. (2) A thunderstorm is forming to the west. (3) One passenger is afraid of heights. (4) They carry extra propane tanks. (5) Power lines run along the edge of the meadow. (6) The balloon's fabric was patched last week.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the balloon land safely in the meadow?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum0",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum1",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum2",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum3",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers. (3) A dog is running loose among the guests.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum4",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers. (3) A dog is running loose among the guests. (4) The cake has internal dowel supports.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum5",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers. (3) A dog is running loose among the guests. (4) The cake has internal dowel supports. (5) The band starts playing a waltz.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum6",
+  "cond": "cum",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers. (3) A dog is running loose among the guests. (4) The cake has internal dowel supports. (5) The band starts playing a waltz. (6) The path is paved with uneven cobblestones.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single1",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single2",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) The two people carrying it are professional caterers.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single3",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) A dog is running loose among the guests.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single4",
+  "cond": "single",
+  "exp": "+",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) The cake has internal dowel supports.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single5",
+  "cond": "single",
+  "exp": "0",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) The band starts playing a waltz.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-single6",
+  "cond": "single",
+  "exp": "-",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) The path is paved with uneven cobblestones.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-rev",
+  "cond": "rev",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) The path is paved with uneven cobblestones. (2) The band starts playing a waltz. (3) The cake has internal dowel supports. (4) A dog is running loose among the guests. (5) The two people carrying it are professional caterers. (6) It is a very hot afternoon and the cake has buttercream icing.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum0#rep",
+  "cond": "rep",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ },
+ {
+  "id": "N-cake-cum6#rep",
+  "cond": "rep",
+  "state": "Scene: A three-tier wedding cake must be carried across a crowded garden party to the main table. Added facts: (1) It is a very hot afternoon and the cake has buttercream icing. (2) The two people carrying it are professional caterers. (3) A dog is running loose among the guests. (4) The cake has internal dowel supports. (5) The band starts playing a waltz. (6) The path is paved with uneven cobblestones.",
+  "questions": {
+   "needle": {
+    "type": "noul",
+    "instructions": "Does the cake arrive at the main table intact?"
+   }
+  }
+ }
+]

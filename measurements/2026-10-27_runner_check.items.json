@@ -1,0 +1,3 @@
+[{"id":"t1","cond":"base","state":"A dry wooden crate sits next to an oil lamp that just tipped over.","questions":{"q":{"type":"choice","instructions":"What happens to the crate in the next minute?","criteria":{"catches_fire":null,"gets_wet":null,"nothing_happens":null,"breaks":null}}}},
+ {"id":"t2","cond":"base","state":"Hand: three cards. Board: the rival's banner was torn down this turn by one of their own soldiers.","questions":{"q":{"type":"noul","instructions":"Has a betrayal happened this turn?"}}},
+ {"id":"t3","cond":"base","state":"Rule: 'Anything left outside the gate after dark is confiscated.' At night, a cat sleeps on the gate's top beam.","questions":{"q":{"type":"noul","instructions":"Does the rule confiscate the cat?"}}}]

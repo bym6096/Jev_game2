@@ -1,0 +1,290 @@
+[
+ {
+  "id": "S-market-score",
+  "cond": "score",
+  "state": "A mid-sized coastal city. Today's front page: \"Record heatwave expected all week\". Goods sold at the city market include electric fans.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How strongly does demand for electric fans at the market rise tomorrow?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-bridge-score",
+  "cond": "score",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. It has rained heavily all week.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How much risk is there that the footbridge fails while the whole band crosses it?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-tank-score",
+  "cond": "score",
+  "state": "A 60-liter home aquarium. Occupants: guppies, green algae, pond snails, cherry shrimp. A timer LED light is on 14 hours a day.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How much does the green algae population grow next season?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-gate-score",
+  "cond": "score",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrival: a wind-up music box.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How clearly does the gate rule apply to this arrival?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-crowd-score",
+  "cond": "score",
+  "state": "Morning rush hour at a train station. The corridor splits. LEFT: a narrow staircase to platforms 1-2. RIGHT: a wide passage to platforms 3-4 with a sign 'FREE COFFEE TODAY'. A group of late office workers is heading to platform 1.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How strongly are the late office workers drawn to the RIGHT passage?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-market-choice",
+  "cond": "choice",
+  "state": "A mid-sized coastal city. Today's front page: \"Record heatwave expected all week\". Goods sold at the city market include electric fans.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How strongly does demand for electric fans at the market rise tomorrow?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ },
+ {
+  "id": "S-bridge-choice",
+  "cond": "choice",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. It has rained heavily all week.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How much risk is there that the footbridge fails while the whole band crosses it?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ },
+ {
+  "id": "S-tank-choice",
+  "cond": "choice",
+  "state": "A 60-liter home aquarium. Occupants: guppies, green algae, pond snails, cherry shrimp. A timer LED light is on 14 hours a day.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How much does the green algae population grow next season?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ },
+ {
+  "id": "S-gate-choice",
+  "cond": "choice",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrival: a wind-up music box.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How clearly does the gate rule apply to this arrival?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ },
+ {
+  "id": "S-crowd-choice",
+  "cond": "choice",
+  "state": "Morning rush hour at a train station. The corridor splits. LEFT: a narrow staircase to platforms 1-2. RIGHT: a wide passage to platforms 3-4 with a sign 'FREE COFFEE TODAY'. A group of late office workers is heading to platform 1.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How strongly are the late office workers drawn to the RIGHT passage?",
+    "criteria": {
+     "very_low": null,
+     "low": null,
+     "moderate": null,
+     "high": null,
+     "very_high": null
+    }
+   }
+  }
+ },
+ {
+  "id": "S-fire-score-r2",
+  "cond": "score",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a dry storage room, no wind. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: an open sack of flour. WEST: a stack of bricks. SOUTH: a closed metal toolbox.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How likely is it that the fire reaches and ignites the TARGET within the next minute?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-market-score-r2",
+  "cond": "score",
+  "state": "A mid-sized coastal city. Today's front page: \"Record heatwave expected all week\". Goods sold at the city market include electric fans.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How strongly does demand for electric fans at the market rise tomorrow?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-bridge-score-r2",
+  "cond": "score",
+  "state": "Scene: An old wooden footbridge over a river. A marching band of 40 people is about to cross it in step. It has rained heavily all week.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How much risk is there that the footbridge fails while the whole band crosses it?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-tank-score-r2",
+  "cond": "score",
+  "state": "A 60-liter home aquarium. Occupants: guppies, green algae, pond snails, cherry shrimp. A timer LED light is on 14 hours a day.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How much does the green algae population grow next season?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-gate-score-r2",
+  "cond": "score",
+  "state": "Quarantine gate rule: \"BLOCK: electric\". The rule is applied literally by the gate staff. Arrival: a wind-up music box.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How clearly does the gate rule apply to this arrival?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ },
+ {
+  "id": "S-crowd-score-r2",
+  "cond": "score",
+  "state": "Morning rush hour at a train station. The corridor splits. LEFT: a narrow staircase to platforms 1-2. RIGHT: a wide passage to platforms 3-4 with a sign 'FREE COFFEE TODAY'. A group of late office workers is heading to platform 1.",
+  "questions": {
+   "q": {
+    "type": "score",
+    "instructions": "How strongly are the late office workers drawn to the RIGHT passage?",
+    "criteria": [
+     "very_low",
+     "low",
+     "moderate",
+     "high",
+     "very_high"
+    ]
+   }
+  }
+ }
+]

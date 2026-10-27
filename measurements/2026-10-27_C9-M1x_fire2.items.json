@@ -1,0 +1,218 @@
+[
+ {
+  "id": "F2-0-neutral",
+  "cond": "neutral",
+  "target": "a steel safe",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a steel safe. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-0-water",
+  "cond": "water",
+  "target": "a steel safe",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a steel safe. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-0-gasoline",
+  "cond": "gasoline",
+  "target": "a steel safe",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a steel safe. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-1-neutral",
+  "cond": "neutral",
+  "target": "a ceramic vase",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a ceramic vase. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-1-water",
+  "cond": "water",
+  "target": "a ceramic vase",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a ceramic vase. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-1-gasoline",
+  "cond": "gasoline",
+  "target": "a ceramic vase",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a ceramic vase. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-2-neutral",
+  "cond": "neutral",
+  "target": "a wooden chair",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-2-water",
+  "cond": "water",
+  "target": "a wooden chair",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-2-gasoline",
+  "cond": "gasoline",
+  "target": "a wooden chair",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-3-neutral",
+  "cond": "neutral",
+  "target": "a cardboard box of old letters",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-3-water",
+  "cond": "water",
+  "target": "a cardboard box of old letters",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-3-gasoline",
+  "cond": "gasoline",
+  "target": "a cardboard box of old letters",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-4-neutral",
+  "cond": "neutral",
+  "target": "a pile of dry straw",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of dry straw. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-4-water",
+  "cond": "water",
+  "target": "a pile of dry straw",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of dry straw. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-4-gasoline",
+  "cond": "gasoline",
+  "target": "a pile of dry straw",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of dry straw. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-5-neutral",
+  "cond": "neutral",
+  "target": "an open canister of gasoline",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): an open canister of gasoline. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-5-water",
+  "cond": "water",
+  "target": "an open canister of gasoline",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): an open canister of gasoline. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a bucket of water. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ },
+ {
+  "id": "F2-5-gasoline",
+  "cond": "gasoline",
+  "target": "an open canister of gasoline",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): an open canister of gasoline. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does the fire reach and ignite the TARGET?"
+   }
+  }
+ }
+]

@@ -1,0 +1,290 @@
+[
+ {
+  "id": "F3c-0-neutral",
+  "cond": "neutral",
+  "target": "a steel safe",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a steel safe. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-0-gasoline",
+  "cond": "gasoline",
+  "target": "a steel safe",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a steel safe. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-0",
+  "cond": "plain",
+  "target": "a steel safe",
+  "state": "In a dry storage room, a steel safe sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a steel safe catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F3c-1-neutral",
+  "cond": "neutral",
+  "target": "a ceramic vase",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a ceramic vase. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-1-gasoline",
+  "cond": "gasoline",
+  "target": "a ceramic vase",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a ceramic vase. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-1",
+  "cond": "plain",
+  "target": "a ceramic vase",
+  "state": "In a dry storage room, a ceramic vase sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a ceramic vase catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F3c-2-neutral",
+  "cond": "neutral",
+  "target": "a wooden chair",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-2-gasoline",
+  "cond": "gasoline",
+  "target": "a wooden chair",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a wooden chair. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-2",
+  "cond": "plain",
+  "target": "a wooden chair",
+  "state": "In a dry storage room, a wooden chair sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a wooden chair catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F3c-3-neutral",
+  "cond": "neutral",
+  "target": "a cardboard box of old letters",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-3-gasoline",
+  "cond": "gasoline",
+  "target": "a cardboard box of old letters",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a cardboard box of old letters. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-3",
+  "cond": "plain",
+  "target": "a cardboard box of old letters",
+  "state": "In a dry storage room, a cardboard box of old letters sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a cardboard box of old letters catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F3c-4-neutral",
+  "cond": "neutral",
+  "target": "a pile of dry straw",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of dry straw. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-4-gasoline",
+  "cond": "gasoline",
+  "target": "a pile of dry straw",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): a pile of dry straw. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-4",
+  "cond": "plain",
+  "target": "a pile of dry straw",
+  "state": "In a dry storage room, a pile of dry straw sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does a pile of dry straw catch fire?"
+   }
+  }
+ },
+ {
+  "id": "F3c-5-neutral",
+  "cond": "neutral",
+  "target": "an open canister of gasoline",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): an open canister of gasoline. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a stack of bricks. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3c-5-gasoline",
+  "cond": "gasoline",
+  "target": "an open canister of gasoline",
+  "state": "Phenomenon: FIRE. A 3x3 patch of a storage room seen from above. CENTER (TARGET): an open canister of gasoline. NORTH: a wool blanket, currently burning. EAST: a ceramic flower pot. SOUTH: a closed metal toolbox. WEST: a red can of gasoline. Corners: bare concrete floor. The room is dry and there is no wind.",
+  "questions": {
+   "when": {
+    "type": "choice",
+    "instructions": "When does the TARGET catch fire, if ever?",
+    "criteria": {
+     "within_1_minute": null,
+     "within_10_minutes": null,
+     "within_an_hour": null,
+     "never": "the target does not catch fire"
+    }
+   }
+  }
+ },
+ {
+  "id": "F3p-5",
+  "cond": "plain",
+  "target": "an open canister of gasoline",
+  "state": "In a dry storage room, an open canister of gasoline sits on a concrete floor, touching a wool blanket that is burning fiercely.",
+  "questions": {
+   "target": {
+    "type": "noul",
+    "instructions": "Within the next minute, does an open canister of gasoline catch fire?"
+   }
+  }
+ }
+]

@@ -1,0 +1,1522 @@
+[
+ {
+  "id": "M-base",
+  "cond": "base",
+  "state": "A mid-sized coastal city. Today's front page has no major news. Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H0",
+  "cond": "H0",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"City library extends weekend opening hours\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H1",
+  "cond": "H1",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Record heatwave expected all week\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H2",
+  "cond": "H2",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Fire at main power substation, outages likely for days\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H3",
+  "cond": "H3",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Typhoon to hit the coast this weekend\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H4",
+  "cond": "H4",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Beloved local singer dies at 74\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H5",
+  "cond": "H5",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Bicycle thefts triple downtown, police say\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H6",
+  "cond": "H6",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Food safety scare: canned fruit recalled nationwide\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-P1",
+  "cond": "P1",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Record heatwave expected all week\" (2) \"Fire at main power substation, outages likely for days\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-P2",
+  "cond": "P2",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Typhoon to hit the coast this weekend\" (2) \"Beloved local singer dies at 74\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-P3",
+  "cond": "P3",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Record heatwave expected all week\" (2) \"Typhoon to hit the coast this weekend\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-P4",
+  "cond": "P4",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Fire at main power substation, outages likely for days\" (2) \"Bicycle thefts triple downtown, police say\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-base#rep",
+  "cond": "base_rep",
+  "state": "A mid-sized coastal city. Today's front page has no major news. Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H1#rep",
+  "cond": "H1_rep",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Record heatwave expected all week\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-H2#rep",
+  "cond": "H2_rep",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Fire at main power substation, outages likely for days\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ },
+ {
+  "id": "M-P1#rep",
+  "cond": "P1_rep",
+  "state": "A mid-sized coastal city. Today's front page headlines: (1) \"Record heatwave expected all week\" (2) \"Fire at main power substation, outages likely for days\" Goods sold at the city market: electric fans, candles, cooler boxes, sunscreen, umbrellas, canned peaches, second-hand vinyl records, bicycle locks.",
+  "questions": {
+   "fans": {
+    "type": "choice",
+    "instructions": "How does demand for electric fans at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "candles": {
+    "type": "choice",
+    "instructions": "How does demand for candles at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "coolers": {
+    "type": "choice",
+    "instructions": "How does demand for cooler boxes at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "sunscreen": {
+    "type": "choice",
+    "instructions": "How does demand for sunscreen at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "umbrellas": {
+    "type": "choice",
+    "instructions": "How does demand for umbrellas at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "peaches": {
+    "type": "choice",
+    "instructions": "How does demand for canned peaches at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "vinyl": {
+    "type": "choice",
+    "instructions": "How does demand for second-hand vinyl records at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   },
+   "locks": {
+    "type": "choice",
+    "instructions": "How does demand for bicycle locks at the market change tomorrow?",
+    "criteria": {
+     "crash": "demand falls sharply",
+     "fall": "demand falls",
+     "flat": "about the same",
+     "rise": "demand rises",
+     "surge": "demand rises sharply"
+    }
+   }
+  }
+ }
+]

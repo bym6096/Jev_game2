@@ -1,0 +1,1208 @@
+[
+ {
+  "id": "L-J1-none",
+  "cond": "none",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J1-A",
+  "cond": "A",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4. A sign on the RIGHT passage says 'FREE COFFEE TODAY'.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J1-B",
+  "cond": "B",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4. A 'WET FLOOR' sign stands at the top of the LEFT staircase.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J1-AB",
+  "cond": "AB",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4. A sign on the RIGHT passage says 'FREE COFFEE TODAY'. A 'WET FLOOR' sign stands at the top of the LEFT staircase.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J1-none#rep",
+  "cond": "rep",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J1-none#random",
+  "cond": "random_member",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT leads down a narrow staircase to platforms 1-2. RIGHT is a wide passage to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-none",
+  "cond": "none",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-A",
+  "cond": "A",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4. A 'PHOTO ZONE' with a giant mascot costume stands at the LEFT escalator entrance.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-B",
+  "cond": "B",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4. A board at the LEFT escalator says '5-MINUTE DELAY ON PLATFORMS 1-2'.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-AB",
+  "cond": "AB",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4. A 'PHOTO ZONE' with a giant mascot costume stands at the LEFT escalator entrance. A board at the LEFT escalator says '5-MINUTE DELAY ON PLATFORMS 1-2'.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-none#rep",
+  "cond": "rep",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J2-none#random",
+  "cond": "random_member",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is a down escalator to platforms 1-2. RIGHT is a corridor lined with shops to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-none",
+  "cond": "none",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-A",
+  "cond": "A",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4. A street musician is performing at the LEFT underpass entrance.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-B",
+  "cond": "B",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4. A sign says the RIGHT elevator is OUT OF SERVICE.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-AB",
+  "cond": "AB",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4. A street musician is performing at the LEFT underpass entrance. A sign says the RIGHT elevator is OUT OF SERVICE.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-none#rep",
+  "cond": "rep",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way do most of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way do most of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way do most of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way do most of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way do most of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way do most of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ },
+ {
+  "id": "L-J3-none#random",
+  "cond": "random_member",
+  "state": "Morning rush hour at a train station concourse. The corridor splits. LEFT is an underpass to platforms 1-2. RIGHT is an overpass with stairs and an elevator to platforms 3-4.",
+  "questions": {
+   "late_office": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the late office workers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "elderly": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the elderly couples with heavy suitcases heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "students": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the middle-school students on a school trip heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "riders": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the delivery riders carrying folding bicycles heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "family": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the tourist families with strollers heading to platform 1 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   },
+   "nurses": {
+    "type": "choice",
+    "instructions": "Which way does a randomly chosen member of the nurses coming off a night shift heading to platform 3 go?",
+    "criteria": {
+     "left": null,
+     "right": null,
+     "stop": null,
+     "ask_staff": null
+    }
+   }
+  }
+ }
+]
