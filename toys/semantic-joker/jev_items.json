@@ -1,0 +1,2822 @@
+[
+ {
+  "id": "anchor",
+  "cond": "plain",
+  "state": "Object: a rusty ship anchor",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "anchor:burnt",
+  "cond": "burnt",
+  "state": "Object: a rusty ship anchor, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "anchor:frozen",
+  "cond": "frozen",
+  "state": "Object: a rusty ship anchor, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "cake",
+  "cond": "plain",
+  "state": "Object: a birthday cake",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "cake:burnt",
+  "cond": "burnt",
+  "state": "Object: a birthday cake, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "cake:frozen",
+  "cond": "frozen",
+  "state": "Object: a birthday cake, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "dentures",
+  "cond": "plain",
+  "state": "Object: grandma's dentures",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "dentures:burnt",
+  "cond": "burnt",
+  "state": "Object: grandma's dentures, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "dentures:frozen",
+  "cond": "frozen",
+  "state": "Object: grandma's dentures, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "umbrella",
+  "cond": "plain",
+  "state": "Object: a broken umbrella",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "umbrella:burnt",
+  "cond": "burnt",
+  "state": "Object: a broken umbrella, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "umbrella:frozen",
+  "cond": "frozen",
+  "state": "Object: a broken umbrella, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "goldfish",
+  "cond": "plain",
+  "state": "Object: a goldfish bowl with a goldfish",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "goldfish:burnt",
+  "cond": "burnt",
+  "state": "Object: a goldfish bowl with a goldfish, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "goldfish:frozen",
+  "cond": "frozen",
+  "state": "Object: a goldfish bowl with a goldfish, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "letter",
+  "cond": "plain",
+  "state": "Object: an old love letter",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "letter:burnt",
+  "cond": "burnt",
+  "state": "Object: an old love letter, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "letter:frozen",
+  "cond": "frozen",
+  "state": "Object: an old love letter, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "firetruck",
+  "cond": "plain",
+  "state": "Object: a toy fire truck",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "firetruck:burnt",
+  "cond": "burnt",
+  "state": "Object: a toy fire truck, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "firetruck:frozen",
+  "cond": "frozen",
+  "state": "Object: a toy fire truck, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "skull",
+  "cond": "plain",
+  "state": "Object: a human skull",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "skull:burnt",
+  "cond": "burnt",
+  "state": "Object: a human skull, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "skull:frozen",
+  "cond": "frozen",
+  "state": "Object: a human skull, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "icecream",
+  "cond": "plain",
+  "state": "Object: an ice cream cone",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "icecream:burnt",
+  "cond": "burnt",
+  "state": "Object: an ice cream cone, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "icecream:frozen",
+  "cond": "frozen",
+  "state": "Object: an ice cream cone, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "matches",
+  "cond": "plain",
+  "state": "Object: a box of matches",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "matches:burnt",
+  "cond": "burnt",
+  "state": "Object: a box of matches, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "matches:frozen",
+  "cond": "frozen",
+  "state": "Object: a box of matches, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "ring",
+  "cond": "plain",
+  "state": "Object: a wedding ring",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "ring:burnt",
+  "cond": "burnt",
+  "state": "Object: a wedding ring, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "ring:frozen",
+  "cond": "frozen",
+  "state": "Object: a wedding ring, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "salt",
+  "cond": "plain",
+  "state": "Object: a jar of sea salt",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "salt:burnt",
+  "cond": "burnt",
+  "state": "Object: a jar of sea salt, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "salt:frozen",
+  "cond": "frozen",
+  "state": "Object: a jar of sea salt, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "chainsaw",
+  "cond": "plain",
+  "state": "Object: a chainsaw",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "chainsaw:burnt",
+  "cond": "burnt",
+  "state": "Object: a chainsaw, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "chainsaw:frozen",
+  "cond": "frozen",
+  "state": "Object: a chainsaw, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "teddy",
+  "cond": "plain",
+  "state": "Object: a teddy bear",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "teddy:burnt",
+  "cond": "burnt",
+  "state": "Object: a teddy bear, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "teddy:frozen",
+  "cond": "frozen",
+  "state": "Object: a teddy bear, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "candle",
+  "cond": "plain",
+  "state": "Object: a lit candle",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "candle:burnt",
+  "cond": "burnt",
+  "state": "Object: a lit candle, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "candle:frozen",
+  "cond": "frozen",
+  "state": "Object: a lit candle, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "glacier",
+  "cond": "plain",
+  "state": "Object: a chunk of glacier ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "glacier:burnt",
+  "cond": "burnt",
+  "state": "Object: a chunk of glacier ice, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "glacier:frozen",
+  "cond": "frozen",
+  "state": "Object: a chunk of glacier ice, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "lottery",
+  "cond": "plain",
+  "state": "Object: a lottery ticket",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "lottery:burnt",
+  "cond": "burnt",
+  "state": "Object: a lottery ticket, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "lottery:frozen",
+  "cond": "frozen",
+  "state": "Object: a lottery ticket, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "bouquet",
+  "cond": "plain",
+  "state": "Object: a funeral bouquet",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "bouquet:burnt",
+  "cond": "burnt",
+  "state": "Object: a funeral bouquet, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "bouquet:frozen",
+  "cond": "frozen",
+  "state": "Object: a funeral bouquet, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "pirateflag",
+  "cond": "plain",
+  "state": "Object: a pirate flag",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "pirateflag:burnt",
+  "cond": "burnt",
+  "state": "Object: a pirate flag, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "pirateflag:frozen",
+  "cond": "frozen",
+  "state": "Object: a pirate flag, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "alarm",
+  "cond": "plain",
+  "state": "Object: an alarm clock",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "alarm:burnt",
+  "cond": "burnt",
+  "state": "Object: an alarm clock, badly burnt and charred",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ },
+ {
+  "id": "alarm:frozen",
+  "cond": "frozen",
+  "state": "Object: an alarm clock, frozen solid in a block of ice",
+  "questions": {
+   "sea": {
+    "type": "noul",
+    "instructions": "Is this related to the sea? Judge this specific object."
+   },
+   "fire": {
+    "type": "noul",
+    "instructions": "Could this catch fire, or is it hot? Judge this specific object."
+   },
+   "sad": {
+    "type": "noul",
+    "instructions": "Would this make someone sad? Judge this specific object."
+   },
+   "cold": {
+    "type": "noul",
+    "instructions": "Is this cold? Judge this specific object."
+   },
+   "granny": {
+    "type": "noul",
+    "instructions": "Would an elderly person cherish this? Judge this specific object."
+   },
+   "danger": {
+    "type": "noul",
+    "instructions": "Is this dangerous? Judge this specific object."
+   },
+   "sweet": {
+    "type": "noul",
+    "instructions": "Is this sweet or tasty to eat? Judge this specific object."
+   },
+   "shiny": {
+    "type": "noul",
+    "instructions": "Is this shiny or valuable? Judge this specific object."
+   },
+   "kid": {
+    "type": "noul",
+    "instructions": "Would a child want this? Judge this specific object."
+   },
+   "cursed": {
+    "type": "noul",
+    "instructions": "Does this seem cursed or unlucky? Judge this specific object."
+   }
+  }
+ }
+]

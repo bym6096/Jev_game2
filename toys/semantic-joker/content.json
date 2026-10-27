@@ -1,0 +1,183 @@
+{
+ "items": [
+  [
+   "anchor",
+   "녹슨 닻",
+   "a rusty ship anchor"
+  ],
+  [
+   "cake",
+   "생일 케이크",
+   "a birthday cake"
+  ],
+  [
+   "dentures",
+   "할머니의 틀니",
+   "grandma's dentures"
+  ],
+  [
+   "umbrella",
+   "고장 난 우산",
+   "a broken umbrella"
+  ],
+  [
+   "goldfish",
+   "금붕어 어항",
+   "a goldfish bowl with a goldfish"
+  ],
+  [
+   "letter",
+   "낡은 러브레터",
+   "an old love letter"
+  ],
+  [
+   "firetruck",
+   "소방차 장난감",
+   "a toy fire truck"
+  ],
+  [
+   "skull",
+   "해골",
+   "a human skull"
+  ],
+  [
+   "icecream",
+   "아이스크림",
+   "an ice cream cone"
+  ],
+  [
+   "matches",
+   "성냥갑",
+   "a box of matches"
+  ],
+  [
+   "ring",
+   "결혼반지",
+   "a wedding ring"
+  ],
+  [
+   "salt",
+   "바다 소금",
+   "a jar of sea salt"
+  ],
+  [
+   "chainsaw",
+   "전기톱",
+   "a chainsaw"
+  ],
+  [
+   "teddy",
+   "곰 인형",
+   "a teddy bear"
+  ],
+  [
+   "candle",
+   "촛불",
+   "a lit candle"
+  ],
+  [
+   "glacier",
+   "빙하 조각",
+   "a chunk of glacier ice"
+  ],
+  [
+   "lottery",
+   "복권",
+   "a lottery ticket"
+  ],
+  [
+   "bouquet",
+   "장례식 꽃다발",
+   "a funeral bouquet"
+  ],
+  [
+   "pirateflag",
+   "해적 깃발",
+   "a pirate flag"
+  ],
+  [
+   "alarm",
+   "알람 시계",
+   "an alarm clock"
+  ]
+ ],
+ "variants": [
+  [
+   "",
+   "",
+   "{}"
+  ],
+  [
+   "burnt",
+   "불탄 ",
+   "{}, badly burnt and charred"
+  ],
+  [
+   "frozen",
+   "얼어붙은 ",
+   "{}, frozen solid in a block of ice"
+  ]
+ ],
+ "jokers": [
+  [
+   "sea",
+   "바다 사나이",
+   "바다와 관련된 것",
+   "Is this related to the sea?"
+  ],
+  [
+   "fire",
+   "불장난",
+   "불이 붙을 수 있거나 뜨거운 것",
+   "Could this catch fire, or is it hot?"
+  ],
+  [
+   "sad",
+   "눈물샘",
+   "누군가를 슬프게 할 것",
+   "Would this make someone sad?"
+  ],
+  [
+   "cold",
+   "차가운 손",
+   "차가운 것",
+   "Is this cold?"
+  ],
+  [
+   "granny",
+   "할머니의 미소",
+   "노인이 소중히 여길 것",
+   "Would an elderly person cherish this?"
+  ],
+  [
+   "danger",
+   "위험물 취급",
+   "위험한 것",
+   "Is this dangerous?"
+  ],
+  [
+   "sweet",
+   "달콤한 것",
+   "달콤하거나 맛있는 것",
+   "Is this sweet or tasty to eat?"
+  ],
+  [
+   "shiny",
+   "반짝반짝",
+   "반짝이거나 값비싼 것",
+   "Is this shiny or valuable?"
+  ],
+  [
+   "kid",
+   "어린이날",
+   "아이가 갖고 싶어 할 것",
+   "Would a child want this?"
+  ],
+  [
+   "cursed",
+   "저주받은",
+   "저주받았거나 불길해 보이는 것",
+   "Does this seem cursed or unlucky?"
+  ]
+ ]
+}

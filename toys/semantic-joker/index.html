@@ -1,0 +1,281 @@
+<title>심야 감정소</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 한 화면 게임 보드. 위 = 빚 목표와 감정사 줄, 가운데 = 점수판, 아래 = 손패와 버튼 */
+:root{
+  --bg:#17120f; --felt:#221a15; --panel:#2c221b; --line:#4a3a2e;
+  --card:#efe3cc; --card-ink:#2a1f17; --muted:#a8937c; --fg:#f3e8d6;
+  --brass:#d9a441; --chips:#5aa9c9; --mult:#e0624a; --good:#8fc46a;
+  --f-display:"Do Hyeon","Black Han Sans",sans-serif;
+  --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 24px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{font-family:var(--f-display);font-weight:400;font-size:30px;margin:0;color:var(--brass);letter-spacing:.02em}
+.top{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.stats{display:flex;flex-wrap:wrap;gap:8px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 12px;display:flex;flex-direction:column;min-width:84px}
+.stat small{color:var(--muted);font-size:12px}
+.stat b{font-family:var(--f-num);font-size:18px;font-variant-numeric:tabular-nums}
+.stat.debt b{color:var(--brass)}
+.section-label{font-size:13px;color:var(--muted);margin-bottom:6px}
+.jokers{display:flex;flex-wrap:wrap;gap:10px;min-height:96px}
+.joker{width:150px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:4px;position:relative;transition:transform .15s, border-color .15s}
+.joker .jn{font-family:var(--f-display);font-size:18px}
+.joker .jc{font-size:13px;color:var(--muted);line-height:1.35}
+.joker .je{font-family:var(--f-num);font-size:13px}
+.joker.lit{border-color:var(--brass);transform:translateY(-4px)}
+.empty-slot{width:150px;border:1px dashed var(--line);border-radius:10px;display:grid;place-items:center;color:var(--muted);font-size:13px;min-height:90px}
+.board{background:var(--felt);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:14px}
+.scorebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;font-family:var(--f-num);font-size:22px}
+.pill{border-radius:8px;padding:6px 14px;min-width:90px;text-align:center;font-variant-numeric:tabular-nums}
+.pill.c{background:var(--chips);color:#0e1d24}.pill.m{background:var(--mult);color:#2a0d07}.pill.x{background:#b48ad8;color:#1d0f29}
+.total{font-size:26px;color:var(--brass)}
+.played{display:flex;justify-content:center;gap:10px;min-height:132px;flex-wrap:wrap}
+.hand{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.card{width:112px;min-height:124px;background:var(--card);color:var(--card-ink);border-radius:10px;padding:10px 9px 8px;display:flex;flex-direction:column;gap:6px;cursor:pointer;
+  border:2px solid transparent;box-shadow:0 2px 0 #0006;transition:transform .12s;position:relative;user-select:none}
+.card:hover{transform:translateY(-3px)}
+.card.sel{transform:translateY(-14px);border-color:var(--brass)}
+.card.burnt{background:#d8c3a6;background-image:radial-gradient(circle at 70% 20%,#3a2a1e55,transparent 55%)}
+.card.frozen{background:#dbe9ef}
+.card .cn{font-family:var(--f-display);font-size:18px;line-height:1.15}
+.card .tag{font-size:11px;font-weight:600;letter-spacing:.04em}
+.card .tag.burnt{color:#8a3b1c}.card .tag.frozen{color:#2b6d8a}
+.card .ps{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.prow{display:flex;align-items:center;gap:4px;font-size:10.5px}
+.prow span:first-child{flex:0 0 46px;overflow:hidden;white-space:nowrap;text-overflow:clip}
+.bar{flex:1;height:5px;background:#0002;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--card-ink)}
+.card.scoring{border-color:var(--brass);transform:translateY(-8px)}
+.float{position:absolute;left:50%;top:-6px;transform:translate(-50%,-100%);font-family:var(--f-num);font-weight:600;font-size:15px;pointer-events:none;
+  padding:1px 6px;border-radius:6px;animation:up .7s ease-out forwards;white-space:nowrap}
+.float.c{background:var(--chips);color:#0e1d24}.float.m{background:var(--mult);color:#2a0d07}.float.x{background:#b48ad8;color:#1d0f29}
+@keyframes up{from{opacity:1;transform:translate(-50%,-90%)}to{opacity:0;transform:translate(-50%,-180%)}}
+.controls{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+button{font-family:var(--f-display);font-size:18px;border:none;border-radius:10px;padding:10px 20px;cursor:pointer;background:var(--panel);color:var(--fg);border:1px solid var(--line)}
+button.primary{background:var(--brass);color:#2a1a05;border-color:var(--brass)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,.card:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:14px;cursor:pointer}
+.tool.armed{border-color:var(--brass);color:var(--brass)}
+.msg{text-align:center;color:var(--muted);min-height:22px;font-size:14px}
+.overlay{position:fixed;inset:0;background:#0b0806e6;display:grid;place-items:center;z-index:20;padding:16px;overflow:auto}
+.dialog{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;max-width:760px;width:100%;display:flex;flex-direction:column;gap:14px}
+.dialog h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0;color:var(--brass)}
+.dialog p{margin:0;line-height:1.6}
+.offers{display:flex;flex-wrap:wrap;gap:12px}
+.offer{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.offer .joker{width:170px}
+.price{font-family:var(--f-num);color:var(--brass);text-align:center}
+.log{font-size:12.5px;color:var(--muted);max-height:120px;overflow:auto;font-family:var(--f-num)}
+.toggle{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+@media (max-width:560px){.card{width:96px;min-height:116px}.joker,.empty-slot{width:46%}.scorebar{font-size:18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <h1>심야 감정소</h1>
+    <div class="stats">
+      <div class="stat debt"><small>이번 빚</small><b id="sTarget">0</b></div>
+      <div class="stat"><small>모은 돈</small><b id="sScore">0</b></div>
+      <div class="stat"><small>남은 패</small><b id="sHands">0</b></div>
+      <div class="stat"><small>버리기</small><b id="sDisc">0</b></div>
+      <div class="stat"><small>지갑</small><b id="sMoney">0</b></div>
+      <div class="stat"><small>기한</small><b id="sBlind">1/5</b></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">고용한 감정사 (최대 4명) · 물건이 취향에 맞는 정도만큼 값을 더합니다</div>
+    <div class="jokers" id="jokers"></div>
+  </div>
+
+  <div class="board">
+    <div class="scorebar"><span class="pill c" id="bChips">0</span>×<span class="pill m" id="bMult">0</span><span id="bXwrap" hidden>×<span class="pill x" id="bX">1</span></span>=<span class="total" id="bTotal">0</span></div>
+    <div class="played" id="played"></div>
+    <div class="msg" id="msg">물건을 1~5개 골라 감정을 맡기세요.</div>
+    <div class="hand" id="hand"></div>
+    <div class="controls">
+      <div class="tools" id="tools"></div>
+      <button class="primary" id="btnPlay">감정 맡기기</button>
+      <button id="btnDiscard">돌려보내기</button>
+      <label class="toggle"><input type="checkbox" id="showP" checked> 감정사 취향 보기</label>
+    </div>
+  </div>
+  <div class="log" id="log"></div>
+</div>
+
+<div class="overlay" id="overlay" hidden><div class="dialog" id="dialog"></div></div>
+
+<script>
+const DATA = {"items": [["anchor", "녹슨 닻", "a rusty ship anchor"], ["cake", "생일 케이크", "a birthday cake"], ["dentures", "할머니의 틀니", "grandma's dentures"], ["umbrella", "고장 난 우산", "a broken umbrella"], ["goldfish", "금붕어 어항", "a goldfish bowl with a goldfish"], ["letter", "낡은 러브레터", "an old love letter"], ["firetruck", "소방차 장난감", "a toy fire truck"], ["skull", "해골", "a human skull"], ["icecream", "아이스크림", "an ice cream cone"], ["matches", "성냥갑", "a box of matches"], ["ring", "결혼반지", "a wedding ring"], ["salt", "바다 소금", "a jar of sea salt"], ["chainsaw", "전기톱", "a chainsaw"], ["teddy", "곰 인형", "a teddy bear"], ["candle", "촛불", "a lit candle"], ["glacier", "빙하 조각", "a chunk of glacier ice"], ["lottery", "복권", "a lottery ticket"], ["bouquet", "장례식 꽃다발", "a funeral bouquet"], ["pirateflag", "해적 깃발", "a pirate flag"], ["alarm", "알람 시계", "an alarm clock"]], "p": {"anchor": {"sea": 0.98, "fire": 0.11, "sad": 0.34, "cold": 0.69, "granny": 0.52, "danger": 0.6, "sweet": 0.01, "shiny": 0.12, "kid": 0.31, "cursed": 0.33}, "anchor:burnt": {"sea": 0.94, "fire": 0.51, "sad": 0.48, "cold": 0.55, "granny": 0.43, "danger": 0.68, "sweet": 0.02, "shiny": 0.07, "kid": 0.2, "cursed": 0.47}, "anchor:frozen": {"sea": 0.93, "fire": 0.06, "sad": 0.38, "cold": 0.95, "granny": 0.46, "danger": 0.51, "sweet": 0.02, "shiny": 0.14, "kid": 0.41, "cursed": 0.41}, "cake": {"sea": 0.05, "fire": 0.62, "sad": 0.18, "cold": 0.44, "granny": 0.62, "danger": 0.11, "sweet": 0.95, "shiny": 0.39, "kid": 0.91, "cursed": 0.1}, "cake:burnt": {"sea": 0.03, "fire": 0.82, "sad": 0.83, "cold": 0.45, "granny": 0.16, "danger": 0.63, "sweet": 0.07, "shiny": 0.05, "kid": 0.08, "cursed": 0.51}, "cake:frozen": {"sea": 0.13, "fire": 0.11, "sad": 0.62, "cold": 0.97, "granny": 0.39, "danger": 0.56, "sweet": 0.48, "shiny": 0.47, "kid": 0.37, "cursed": 0.47}, "dentures": {"sea": 0.04, "fire": 0.58, "sad": 0.58, "cold": 0.43, "granny": 0.78, "danger": 0.34, "sweet": 0.02, "shiny": 0.39, "kid": 0.09, "cursed": 0.21}, "dentures:burnt": {"sea": 0.04, "fire": 0.79, "sad": 0.86, "cold": 0.34, "granny": 0.2, "danger": 0.87, "sweet": 0.02, "shiny": 0.07, "kid": 0.05, "cursed": 0.51}, "dentures:frozen": {"sea": 0.09, "fire": 0.13, "sad": 0.69, "cold": 0.96, "granny": 0.37, "danger": 0.73, "sweet": 0.03, "shiny": 0.31, "kid": 0.17, "cursed": 0.55}, "umbrella": {"sea": 0.13, "fire": 0.47, "sad": 0.51, "cold": 0.27, "granny": 0.25, "danger": 0.32, "sweet": 0.02, "shiny": 0.1, "kid": 0.25, "cursed": 0.43}, "umbrella:burnt": {"sea": 0.07, "fire": 0.78, "sad": 0.55, "cold": 0.18, "granny": 0.15, "danger": 0.65, "sweet": 0.02, "shiny": 0.04, "kid": 0.1, "cursed": 0.49}, "umbrella:frozen": {"sea": 0.2, "fire": 0.1, "sad": 0.49, "cold": 0.96, "granny": 0.26, "danger": 0.52, "sweet": 0.05, "shiny": 0.26, "kid": 0.34, "cursed": 0.57}, "goldfish": {"sea": 0.12, "fire": 0.12, "sad": 0.42, "cold": 0.35, "granny": 0.52, "danger": 0.17, "sweet": 0.07, "shiny": 0.45, "kid": 0.78, "cursed": 0.21}, "goldfish:burnt": {"sea": 0.09, "fire": 0.87, "sad": 0.89, "cold": 0.2, "granny": 0.17, "danger": 0.89, "sweet": 0.05, "shiny": 0.19, "kid": 0.12, "cursed": 0.74}, "goldfish:frozen": {"sea": 0.1, "fire": 0.05, "sad": 0.82, "cold": 0.96, "granny": 0.32, "danger": 0.56, "sweet": 0.08, "shiny": 0.5, "kid": 0.43, "cursed": 0.69}, "letter": {"sea": 0.1, "fire": 0.8, "sad": 0.68, "cold": 0.26, "granny": 0.85, "danger": 0.05, "sweet": 0.04, "shiny": 0.33, "kid": 0.19, "cursed": 0.2}, "letter:burnt": {"sea": 0.06, "fire": 0.71, "sad": 0.84, "cold": 0.54, "granny": 0.72, "danger": 0.45, "sweet": 0.03, "shiny": 0.18, "kid": 0.15, "cursed": 0.47}, "letter:frozen": {"sea": 0.24, "fire": 0.11, "sad": 0.76, "cold": 0.97, "granny": 0.75, "danger": 0.45, "sweet": 0.1, "shiny": 0.5, "kid": 0.35, "cursed": 0.51}, "firetruck": {"sea": 0.04, "fire": 0.23, "sad": 0.14, "cold": 0.36, "granny": 0.36, "danger": 0.14, "sweet": 0.02, "shiny": 0.34, "kid": 0.89, "cursed": 0.08}, "firetruck:burnt": {"sea": 0.04, "fire": 0.67, "sad": 0.61, "cold": 0.64, "granny": 0.27, "danger": 0.6, "sweet": 0.02, "shiny": 0.06, "kid": 0.17, "cursed": 0.34}, "firetruck:frozen": {"sea": 0.1, "fire": 0.07, "sad": 0.37, "cold": 0.96, "granny": 0.32, "danger": 0.34, "sweet": 0.05, "shiny": 0.34, "kid": 0.44, "cursed": 0.22}, "skull": {"sea": 0.11, "fire": 0.51, "sad": 0.64, "cold": 0.66, "granny": 0.18, "danger": 0.22, "sweet": 0.02, "shiny": 0.28, "kid": 0.11, "cursed": 0.27}, "skull:burnt": {"sea": 0.07, "fire": 0.71, "sad": 0.84, "cold": 0.72, "granny": 0.05, "danger": 0.69, "sweet": 0.02, "shiny": 0.09, "kid": 0.04, "cursed": 0.33}, "skull:frozen": {"sea": 0.3, "fire": 0.11, "sad": 0.7, "cold": 0.96, "granny": 0.14, "danger": 0.46, "sweet": 0.03, "shiny": 0.33, "kid": 0.14, "cursed": 0.52}, "icecream": {"sea": 0.07, "fire": 0.5, "sad": 0.18, "cold": 0.7, "granny": 0.43, "danger": 0.12, "sweet": 0.88, "shiny": 0.16, "kid": 0.91, "cursed": 0.14}, "icecream:burnt": {"sea": 0.05, "fire": 0.82, "sad": 0.64, "cold": 0.26, "granny": 0.14, "danger": 0.58, "sweet": 0.08, "shiny": 0.05, "kid": 0.09, "cursed": 0.46}, "icecream:frozen": {"sea": 0.12, "fire": 0.09, "sad": 0.48, "cold": 0.95, "granny": 0.35, "danger": 0.45, "sweet": 0.45, "shiny": 0.3, "kid": 0.45, "cursed": 0.41}, "matches": {"sea": 0.06, "fire": 0.72, "sad": 0.15, "cold": 0.25, "granny": 0.32, "danger": 0.68, "sweet": 0.02, "shiny": 0.11, "kid": 0.33, "cursed": 0.17}, "matches:burnt": {"sea": 0.06, "fire": 0.6, "sad": 0.37, "cold": 0.48, "granny": 0.25, "danger": 0.63, "sweet": 0.02, "shiny": 0.05, "kid": 0.12, "cursed": 0.4}, "matches:frozen": {"sea": 0.18, "fire": 0.26, "sad": 0.29, "cold": 0.97, "granny": 0.24, "danger": 0.36, "sweet": 0.04, "shiny": 0.26, "kid": 0.32, "cursed": 0.33}, "ring": {"sea": 0.07, "fire": 0.4, "sad": 0.28, "cold": 0.66, "granny": 0.82, "danger": 0.06, "sweet": 0.03, "shiny": 0.92, "kid": 0.23, "cursed": 0.1}, "ring:burnt": {"sea": 0.06, "fire": 0.7, "sad": 0.82, "cold": 0.56, "granny": 0.65, "danger": 0.55, "sweet": 0.02, "shiny": 0.34, "kid": 0.12, "cursed": 0.44}, "ring:frozen": {"sea": 0.19, "fire": 0.07, "sad": 0.46, "cold": 0.96, "granny": 0.69, "danger": 0.35, "sweet": 0.06, "shiny": 0.88, "kid": 0.43, "cursed": 0.33}, "salt": {"sea": 0.95, "fire": 0.08, "sad": 0.13, "cold": 0.22, "granny": 0.31, "danger": 0.12, "sweet": 0.58, "shiny": 0.38, "kid": 0.25, "cursed": 0.1}, "salt:burnt": {"sea": 0.7, "fire": 0.75, "sad": 0.45, "cold": 0.32, "granny": 0.2, "danger": 0.71, "sweet": 0.16, "shiny": 0.09, "kid": 0.1, "cursed": 0.46}, "salt:frozen": {"sea": 0.88, "fire": 0.05, "sad": 0.26, "cold": 0.96, "granny": 0.25, "danger": 0.32, "sweet": 0.28, "shiny": 0.39, "kid": 0.31, "cursed": 0.26}, "chainsaw": {"sea": 0.04, "fire": 0.84, "sad": 0.34, "cold": 0.53, "granny": 0.14, "danger": 0.97, "sweet": 0.02, "shiny": 0.48, "kid": 0.15, "cursed": 0.25}, "chainsaw:burnt": {"sea": 0.04, "fire": 0.76, "sad": 0.49, "cold": 0.55, "granny": 0.11, "danger": 0.83, "sweet": 0.02, "shiny": 0.06, "kid": 0.07, "cursed": 0.42}, "chainsaw:frozen": {"sea": 0.15, "fire": 0.19, "sad": 0.34, "cold": 0.96, "granny": 0.19, "danger": 0.53, "sweet": 0.03, "shiny": 0.47, "kid": 0.27, "cursed": 0.41}, "teddy": {"sea": 0.05, "fire": 0.77, "sad": 0.25, "cold": 0.3, "granny": 0.67, "danger": 0.08, "sweet": 0.07, "shiny": 0.16, "kid": 0.92, "cursed": 0.11}, "teddy:burnt": {"sea": 0.04, "fire": 0.8, "sad": 0.83, "cold": 0.46, "granny": 0.29, "danger": 0.7, "sweet": 0.03, "shiny": 0.06, "kid": 0.1, "cursed": 0.46}, "teddy:frozen": {"sea": 0.2, "fire": 0.16, "sad": 0.64, "cold": 0.97, "granny": 0.49, "danger": 0.36, "sweet": 0.06, "shiny": 0.35, "kid": 0.36, "cursed": 0.43}, "candle": {"sea": 0.09, "fire": 0.93, "sad": 0.25, "cold": 0.04, "granny": 0.56, "danger": 0.75, "sweet": 0.11, "shiny": 0.29, "kid": 0.65, "cursed": 0.13}, "candle:burnt": {"sea": 0.05, "fire": 0.88, "sad": 0.43, "cold": 0.23, "granny": 0.36, "danger": 0.67, "sweet": 0.05, "shiny": 0.08, "kid": 0.2, "cursed": 0.33}, "candle:frozen": {"sea": 0.15, "fire": 0.26, "sad": 0.38, "cold": 0.93, "granny": 0.38, "danger": 0.31, "sweet": 0.08, "shiny": 0.39, "kid": 0.47, "cursed": 0.37}, "glacier": {"sea": 0.5, "fire": 0.06, "sad": 0.28, "cold": 0.97, "granny": 0.26, "danger": 0.46, "sweet": 0.24, "shiny": 0.54, "kid": 0.55, "cursed": 0.16}, "glacier:burnt": {"sea": 0.24, "fire": 0.57, "sad": 0.66, "cold": 0.5, "granny": 0.18, "danger": 0.6, "sweet": 0.09, "shiny": 0.12, "kid": 0.18, "cursed": 0.56}, "glacier:frozen": {"sea": 0.37, "fire": 0.06, "sad": 0.22, "cold": 0.97, "granny": 0.27, "danger": 0.37, "sweet": 0.25, "shiny": 0.48, "kid": 0.54, "cursed": 0.18}, "lottery": {"sea": 0.04, "fire": 0.76, "sad": 0.48, "cold": 0.33, "granny": 0.32, "danger": 0.07, "sweet": 0.03, "shiny": 0.34, "kid": 0.48, "cursed": 0.34}, "lottery:burnt": {"sea": 0.04, "fire": 0.79, "sad": 0.78, "cold": 0.62, "granny": 0.28, "danger": 0.58, "sweet": 0.03, "shiny": 0.09, "kid": 0.11, "cursed": 0.62}, "lottery:frozen": {"sea": 0.19, "fire": 0.14, "sad": 0.49, "cold": 0.97, "granny": 0.31, "danger": 0.36, "sweet": 0.07, "shiny": 0.43, "kid": 0.31, "cursed": 0.58}, "bouquet": {"sea": 0.06, "fire": 0.62, "sad": 0.86, "cold": 0.28, "granny": 0.55, "danger": 0.06, "sweet": 0.04, "shiny": 0.2, "kid": 0.12, "cursed": 0.25}, "bouquet:burnt": {"sea": 0.04, "fire": 0.76, "sad": 0.88, "cold": 0.46, "granny": 0.12, "danger": 0.68, "sweet": 0.02, "shiny": 0.05, "kid": 0.07, "cursed": 0.67}, "bouquet:frozen": {"sea": 0.14, "fire": 0.16, "sad": 0.81, "cold": 0.97, "granny": 0.26, "danger": 0.55, "sweet": 0.05, "shiny": 0.51, "kid": 0.14, "cursed": 0.69}, "pirateflag": {"sea": 0.98, "fire": 0.82, "sad": 0.27, "cold": 0.23, "granny": 0.36, "danger": 0.24, "sweet": 0.02, "shiny": 0.19, "kid": 0.72, "cursed": 0.4}, "pirateflag:burnt": {"sea": 0.93, "fire": 0.76, "sad": 0.56, "cold": 0.63, "granny": 0.37, "danger": 0.51, "sweet": 0.02, "shiny": 0.1, "kid": 0.33, "cursed": 0.51}, "pirateflag:frozen": {"sea": 0.92, "fire": 0.17, "sad": 0.35, "cold": 0.96, "granny": 0.32, "danger": 0.51, "sweet": 0.08, "shiny": 0.35, "kid": 0.55, "cursed": 0.45}, "alarm": {"sea": 0.04, "fire": 0.56, "sad": 0.25, "cold": 0.44, "granny": 0.56, "danger": 0.09, "sweet": 0.02, "shiny": 0.34, "kid": 0.49, "cursed": 0.15}, "alarm:burnt": {"sea": 0.04, "fire": 0.8, "sad": 0.59, "cold": 0.45, "granny": 0.18, "danger": 0.85, "sweet": 0.02, "shiny": 0.06, "kid": 0.1, "cursed": 0.5}, "alarm:frozen": {"sea": 0.13, "fire": 0.09, "sad": 0.37, "cold": 0.96, "granny": 0.3, "danger": 0.34, "sweet": 0.05, "shiny": 0.38, "kid": 0.41, "cursed": 0.44}}};
+const P = DATA.p;
+const JOKER_DEF = {
+  sea:   {name:"늙은 선장",   cond:"바다와 관련된 것",        kind:"mult",  val:3},
+  fire:  {name:"방화광",      cond:"불이 붙거나 뜨거운 것",    kind:"chips", val:50},
+  sad:   {name:"울보 시인",   cond:"누군가를 슬프게 할 것",    kind:"mult",  val:3},
+  cold:  {name:"얼음 장수",   cond:"차가운 것",               kind:"chips", val:50},
+  granny:{name:"할머니 수집가",cond:"노인이 소중히 여길 것",    kind:"chips", val:60},
+  danger:{name:"보험 조사관", cond:"위험한 것",               kind:"mult",  val:4},
+  sweet: {name:"제과 장인",   cond:"달콤하거나 맛있는 것",     kind:"chips", val:60},
+  shiny: {name:"까마귀",      cond:"반짝이거나 값비싼 것",     kind:"mult",  val:4},
+  kid:   {name:"꼬마 손님",   cond:"아이가 갖고 싶어 할 것",   kind:"chips", val:50},
+  cursed:{name:"점쟁이",      cond:"저주받았거나 불길한 것",   kind:"xmult", val:0.4},
+};
+const JIDS = Object.keys(JOKER_DEF);
+const ITEM_KO = Object.fromEntries(DATA.items.map(i=>[i[0],i[1]]));
+const VAR_KO = {"":"", burnt:"불탄 ", frozen:"얼어붙은 "};
+const TOOLS = {burn:{name:"성냥", desc:"손패의 물건 하나를 영원히 불태웁니다"}, freeze:{name:"냉동고", desc:"손패의 물건 하나를 영원히 얼립니다"}};
+const TARGETS = [400, 1500, 4000, 9000, 18000];
+const HAND_SIZE = 7, HANDS = 4, DISCARDS = 3, BASE_CHIP = 10;
+const JOKER_PRICE = 6, TOOL_PRICE = 3, REROLL = 2;
+
+let S;
+function fresh(){
+  S = {deck: DATA.items.map((it,i)=>({uid:i, iid:it[0], v:""})), draw:[], hand:[], sel:new Set(),
+       jokers:[], tools:[], money:4, blind:0, score:0, hands:HANDS, disc:DISCARDS, armed:null, busy:false, log:[]};
+}
+const pOf = (c,j) => P[c.iid + (c.v ? ":"+c.v : "")][j];
+const nameOf = c => VAR_KO[c.v] + ITEM_KO[c.iid];
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function startBlind(){S.draw=shuffle(S.deck.slice());S.hand=[];S.score=0;S.hands=HANDS;S.disc=DISCARDS;S.sel.clear();refill();}
+function refill(){while(S.hand.length<HAND_SIZE&&S.draw.length)S.hand.push(S.draw.pop());}
+const fmt = n => Math.round(n).toLocaleString("ko-KR");
+const $ = id => document.getElementById(id);
+function log(t){S.log.unshift(t);S.log=S.log.slice(0,30);$("log").innerHTML=S.log.map(x=>`<div>${x}</div>`).join("");}
+
+function jokerHTML(id, extra=""){
+  const d=JOKER_DEF[id];
+  const eff = d.kind==="chips"?`<span style="color:var(--chips)">물건마다 +${d.val} 칩 × 취향</span>`
+            : d.kind==="mult"?`<span style="color:var(--mult)">물건마다 +${d.val} 배수 × 취향</span>`
+            : `<span style="color:#b48ad8">물건마다 ×(1+${d.val}×취향) 배수</span>`;
+  return `<div class="joker" data-j="${id}" ${extra}><div class="jn">${d.name}</div><div class="jc">"${d.cond}"을 좋아함</div><div class="je">${eff}</div></div>`;
+}
+function cardHTML(c, idx, where){
+  const show=$("showP").checked && S.jokers.length;
+  const rows = show ? S.jokers.map(j=>{const p=pOf(c,j);return `<div class="prow"><span>${JOKER_DEF[j].name}</span><div class="bar"><i style="width:${Math.round(p*100)}%"></i></div><span>${Math.round(p*100)}</span></div>`}).join("") : "";
+  const tag = c.v ? `<div class="tag ${c.v}">${c.v==="burnt"?"불탐":"얼어붙음"}</div>` : "";
+  const sel = where==="hand" && S.sel.has(idx) ? " sel":"";
+  return `<div class="card ${c.v}${sel}" tabindex="0" role="button" data-i="${idx}" data-w="${where}" aria-label="${nameOf(c)}">${tag}<div class="cn">${ITEM_KO[c.iid]}</div><div class="ps">${rows}</div></div>`;
+}
+function render(){
+  $("sTarget").textContent=fmt(TARGETS[S.blind]);$("sScore").textContent=fmt(S.score);
+  $("sHands").textContent=S.hands;$("sDisc").textContent=S.disc;$("sMoney").textContent="$"+S.money;$("sBlind").textContent=`${S.blind+1}/${TARGETS.length}`;
+  let jh=S.jokers.map(j=>jokerHTML(j)).join("");for(let i=S.jokers.length;i<4;i++)jh+=`<div class="empty-slot">빈 자리</div>`;
+  $("jokers").innerHTML=jh;
+  $("hand").innerHTML=S.hand.map((c,i)=>cardHTML(c,i,"hand")).join("");
+  $("tools").innerHTML=S.tools.map((t,i)=>`<button class="tool${S.armed===i?" armed":""}" data-t="${i}" title="${TOOLS[t].desc}">${TOOLS[t].name}</button>`).join("");
+  $("btnPlay").disabled=S.busy||!S.sel.size||!S.hands;$("btnDiscard").disabled=S.busy||!S.sel.size||!S.disc;
+  if(!S.busy) previewScore();
+}
+function previewScore(){
+  const cards=[...S.sel].map(i=>S.hand[i]);
+  if(!cards.length){setBar(0,0,1,0);return;}
+  const r=score(cards);setBar(r.chips,r.mult,r.x,r.total);
+}
+function setBar(c,m,x,t){$("bChips").textContent=fmt(c);$("bMult").textContent=(Math.round(m*10)/10).toLocaleString("ko-KR");
+  $("bXwrap").hidden = x<=1.001; $("bX").textContent=(Math.round(x*100)/100).toFixed(2);$("bTotal").textContent=fmt(t);}
+function score(cards){
+  let chips=BASE_CHIP*cards.length, mult=1, x=1; const steps=[];
+  for(const j of S.jokers){const d=JOKER_DEF[j];
+    cards.forEach((c,ci)=>{const p=pOf(c,j);
+      if(d.kind==="chips"){const a=d.val*p;chips+=a;steps.push({ci,j,kind:"c",amt:a,p});}
+      else if(d.kind==="mult"){const a=d.val*p;mult+=a;steps.push({ci,j,kind:"m",amt:a,p});}
+      else {const f=1+d.val*p;x*=f;steps.push({ci,j,kind:"x",amt:f,p});}
+    });}
+  return {chips,mult,x,total:chips*mult*x,steps};
+}
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+async function play(){
+  if(S.busy||!S.sel.size||!S.hands)return;S.busy=true;
+  const idxs=[...S.sel].sort((a,b)=>a-b);const cards=idxs.map(i=>S.hand[i]);
+  S.hand=S.hand.filter((_,i)=>!S.sel.has(i));S.sel.clear();S.hands--;render();
+  $("played").innerHTML=cards.map((c,i)=>cardHTML(c,i,"played")).join("");
+  const r=score(cards);let chips=BASE_CHIP*cards.length,mult=1,x=1;setBar(chips,mult,x,0);
+  const pc=[...$("played").children];
+  for(const st of r.steps){
+    if(st.kind==="c")chips+=st.amt;else if(st.kind==="m")mult+=st.amt;else x*=st.amt;
+    if(st.p<0.08) continue;
+    const el=pc[st.ci], jel=document.querySelector(`#jokers .joker[data-j="${st.j}"]`);
+    el.classList.add("scoring");jel&&jel.classList.add("lit");
+    setBar(chips,mult,x,chips*mult*x);
+    const f=document.createElement("div");f.className="float "+st.kind;
+    f.textContent= st.kind==="c"?`+${Math.round(st.amt)}` : st.kind==="m"?`+${(Math.round(st.amt*10)/10)}` : `×${st.amt.toFixed(2)}`;
+    el.appendChild(f);
+    await sleep(reduced?40:170+ (st.p>0.7?90:0));
+    el.classList.remove("scoring");jel&&jel.classList.remove("lit");
+  }
+  setBar(r.chips,r.mult,r.x,r.total);
+  S.score+=r.total;log(`${cards.map(nameOf).join(", ")} → ${fmt(r.total)}`);
+  await sleep(reduced?100:650);
+  $("played").innerHTML="";refill();S.busy=false;
+  if(S.score>=TARGETS[S.blind]) return clearBlind();
+  if(!S.hands) return lose();
+  render();
+}
+function discard(){ if(S.busy||!S.sel.size||!S.disc)return;
+  S.hand=S.hand.filter((_,i)=>!S.sel.has(i));S.sel.clear();S.disc--;refill();render();}
+function clearBlind(){
+  const earn=4+S.hands;S.money+=earn;log(`빚 ${fmt(TARGETS[S.blind])} 상환 완료. 수입 $${earn}`);
+  if(S.blind===TARGETS.length-1) return win();
+  S.blind++;shop(true);
+}
+function offers(){
+  const pool=JIDS.filter(j=>!S.jokers.includes(j));shuffle(pool);
+  const tl=shuffle(Object.keys(TOOLS)).slice(0,1);
+  return [...pool.slice(0,2).map(j=>({type:"joker",id:j})), ...tl.map(t=>({type:"tool",id:t}))];
+}
+function shop(newOffers){
+  if(newOffers) S.offers=offers();
+  const o=S.offers.map((x,i)=>{
+    if(x.sold) return `<div class="offer"><div class="empty-slot" style="width:170px">팔림</div></div>`;
+    const price=x.type==="joker"?JOKER_PRICE:TOOL_PRICE;
+    const body = x.type==="joker"? jokerHTML(x.id) : `<div class="joker" style="width:170px"><div class="jn">${TOOLS[x.id].name}</div><div class="jc">${TOOLS[x.id].desc}</div><div class="je" style="color:var(--muted)">감정 값이 바뀝니다</div></div>`;
+    const full = x.type==="joker"? S.jokers.length>=4 : S.tools.length>=2;
+    return `<div class="offer">${body}<div class="price">$${price}</div><button data-buy="${i}" ${S.money<price||full?"disabled":""}>${full?"자리 없음":"사기"}</button></div>`;
+  }).join("");
+  dialog(`<h2>뒷골목 상점</h2><p>다음 빚: <b style="color:var(--brass)">${fmt(TARGETS[S.blind])}</b> · 지갑 <b>$${S.money}</b></p>
+    <div class="offers">${o}</div>
+    <div class="controls" style="justify-content:flex-start"><button id="reroll" ${S.money<REROLL?"disabled":""}>새로 진열 ($${REROLL})</button><button class="primary" id="next">다음 기한으로</button></div>`);
+  document.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{const x=S.offers[+b.dataset.buy];const price=x.type==="joker"?JOKER_PRICE:TOOL_PRICE;
+    if(S.money<price)return;S.money-=price;x.sold=true;(x.type==="joker"?S.jokers:S.tools).push(x.id);shop(false);});
+  $("reroll").onclick=()=>{S.money-=REROLL;shop(true);};
+  $("next").onclick=()=>{closeDialog();startBlind();render();};
+}
+function startPick(){
+  const pool=shuffle(JIDS.slice()).slice(0,3);
+  dialog(`<h2>심야 감정소에 오신 걸 환영합니다</h2>
+    <p>당신은 빚에 쫓기는 전당포 주인입니다. 손님이 맡긴 물건을 1~5개씩 감정사에게 맡기면, 감정사들은 <b>자기 취향에 맞는 정도만큼</b> 값을 매깁니다. 기한마다 빚을 갚지 못하면 가게를 잃습니다.</p>
+    <p>값 = 칩 × 배수. 상점에서 감정사를 더 고용하고, 성냥이나 냉동고로 물건의 성질을 바꿔 보세요. 불탄 생일 케이크는 더 이상 달콤하지 않지만, 누군가는 슬퍼할지도 모릅니다.</p>
+    <p class="section-label" style="margin:0">첫 감정사를 한 명 고르세요</p>
+    <div class="offers">${pool.map(j=>`<div class="offer">${jokerHTML(j)}<button class="primary" data-pick="${j}">고용</button></div>`).join("")}</div>`);
+  document.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{S.jokers.push(b.dataset.pick);closeDialog();startBlind();render();});
+}
+function lose(){dialog(`<h2>가게를 잃었습니다</h2><p>${S.blind+1}번째 기한, ${fmt(S.score)} / ${fmt(TARGETS[S.blind])}</p><div class="controls" style="justify-content:flex-start"><button class="primary" id="again">다시 시작</button></div>`);$("again").onclick=restart;}
+function win(){dialog(`<h2>빚을 모두 갚았습니다</h2><p>감정사들: ${S.jokers.map(j=>JOKER_DEF[j].name).join(", ")}</p><div class="controls" style="justify-content:flex-start"><button class="primary" id="again">한 판 더</button></div>`);$("again").onclick=restart;}
+function dialog(h){$("dialog").innerHTML=h;$("overlay").hidden=false;}
+function closeDialog(){$("overlay").hidden=true;}
+function restart(){closeDialog();fresh();render();startPick();}
+
+$("hand").addEventListener("click",e=>{const c=e.target.closest(".card");if(!c||S.busy)return;const i=+c.dataset.i;
+  if(S.armed!==null){const t=S.tools[S.armed];const card=S.hand[i];const was=nameOf(card);card.v= t==="burn"?"burnt":"frozen";
+    const deckCard=S.deck.find(d=>d.uid===card.uid); if(deckCard) deckCard.v=card.v;
+    S.tools.splice(S.armed,1);S.armed=null;$("msg").textContent=`${was} → ${nameOf(card)}`;log(`${was} → ${nameOf(card)}`);render();return;}
+  if(S.sel.has(i))S.sel.delete(i);else if(S.sel.size<5)S.sel.add(i);render();});
+$("hand").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();e.target.click();}});
+$("tools").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;const i=+b.dataset.t;S.armed=S.armed===i?null:i;
+  $("msg").textContent=S.armed===null?"":`${TOOLS[S.tools[i]].name}: 손패에서 물건을 하나 고르세요`;render();});
+$("btnPlay").onclick=play;$("btnDiscard").onclick=discard;$("showP").onchange=render;
+fresh();render();startPick();
+</script>
