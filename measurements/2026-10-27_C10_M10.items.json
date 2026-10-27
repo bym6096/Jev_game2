@@ -1,0 +1,759 @@
+[
+ {
+  "id": "b07-L4-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the zoo bit my son in the park, and now his arm is swollen. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-del-monkey",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A [REDACTED] from the zoo bit my son in the park, and now his arm is swollen. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-del-zoo",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the [REDACTED] bit my son in the park, and now his arm is swollen. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-del-bit",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the zoo [REDACTED] my son in the park, and now his arm is swollen. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-del-swollen",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the zoo bit my son in the park, and now his arm is [REDACTED]. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-del-catch",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the zoo bit my son in the park, and now his arm is swollen. Someone should [REDACTED] it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L4-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A monkey from the zoo bit my son in the park, and [REDACTED] his arm is swollen. Someone should catch it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a police badge inside on the bus near the hospital. I want to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-del-wallet",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a [REDACTED] with a police badge inside on the bus near the hospital. I want to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-del-police badge",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a [REDACTED] inside on the bus near the hospital. I want to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-del-bus",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a police badge inside on the [REDACTED] near the hospital. I want to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-del-hospital",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a police badge inside on the bus near the [REDACTED]. I want to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-del-return",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a police badge inside on the bus near the hospital. I want to [REDACTED] it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L5-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I found a wallet with a police badge inside on the bus near the hospital. [REDACTED]  to return it.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the animal shelter is broken and dogs howl all night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-del-streetlight",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The [REDACTED] outside the animal shelter is broken and dogs howl all night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-del-animal shelt",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the [REDACTED] is broken and dogs howl all night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-del-broken",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the animal shelter is [REDACTED] and dogs howl all night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-del-dogs",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the animal shelter is broken and [REDACTED] howl all night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-del-dark",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the animal shelter is broken and dogs howl all night in the [REDACTED] street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L6-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"The streetlight outside the animal shelter is broken and dogs howl [REDACTED] night in the dark street.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-func-plain",
+  "cond": "plain",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of zoo and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-delpolice-plain",
+  "cond": "plain",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and stole a hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-delknee-plain",
+  "cond": "plain",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b01-fix-inhuman",
+  "cond": "inhuman",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'inhuman'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'inhuman'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'inhuman'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'inhuman'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'inhuman'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'inhuman'?"
+   }
+  }
+ },
+ {
+  "id": "b01-fix-inhuman-r",
+  "cond": "inhuman-rep",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'inhuman'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'inhuman'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'inhuman'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'inhuman'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'inhuman'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'inhuman'?"
+   }
+  }
+ },
+ {
+  "id": "b01-fix-mechanical",
+  "cond": "mechanical",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'mechanical'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'mechanical'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'mechanical'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'mechanical'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'mechanical'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'mechanical'?"
+   }
+  }
+ },
+ {
+  "id": "b01-fix-mechanical-r",
+  "cond": "mechanical-rep",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'mechanical'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'mechanical'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'mechanical'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'mechanical'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'mechanical'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'mechanical'?"
+   }
+  }
+ },
+ {
+  "id": "b01-fix-toy",
+  "cond": "toy",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'toy'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'toy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'toy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'toy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'toy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'toy'?"
+   }
+  }
+ },
+ {
+  "id": "b01-fix-toy-r",
+  "cond": "toy-rep",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'toy'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a rogue park mascot performer in a sweaty rabbit costume, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin that the repair worker fixed and now fights beside her.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'toy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'toy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'toy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'toy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'toy'?"
+   }
+  }
+ },
+ {
+  "id": "b04-int-all",
+  "cond": "b04int",
+  "state": "A ball game with written rules. The referee applies each rule literally to each play. Rules: (1) Touching the ball with a foot is a foul. (2) Making any sound is a foul. (3) Using the left hand is a foul. (4) Moving backward is a foul. Plays this round: (A) rolls the ball with the left hand while singing. (B) compliments an opponent's shoelaces. (C) walks backward with the ball on the head. (D) whistles while standing still.",
+  "questions": {
+   "Ar0": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 1?"
+   },
+   "Ar1": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 2?"
+   },
+   "Ar2": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 3?"
+   },
+   "Ar3": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 4?"
+   },
+   "Br0": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 1?"
+   },
+   "Br1": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 2?"
+   },
+   "Br2": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 3?"
+   },
+   "Br3": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 4?"
+   },
+   "Cr0": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 1?"
+   },
+   "Cr1": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 2?"
+   },
+   "Cr2": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 3?"
+   },
+   "Cr3": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 4?"
+   },
+   "Dr0": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 1?"
+   },
+   "Dr1": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 2?"
+   },
+   "Dr2": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 3?"
+   },
+   "Dr3": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 4?"
+   }
+  }
+ },
+ {
+  "id": "b04-int-only0",
+  "cond": "b04int",
+  "state": "A ball game with written rules. The referee applies each rule literally to each play. Rules: (1) Touching the ball with a foot is a foul. Plays this round: (A) rolls the ball with the left hand while singing. (B) compliments an opponent's shoelaces. (C) walks backward with the ball on the head. (D) whistles while standing still.",
+  "questions": {
+   "Ar0": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 1?"
+   },
+   "Br0": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 1?"
+   },
+   "Cr0": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 1?"
+   },
+   "Dr0": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 1?"
+   }
+  }
+ },
+ {
+  "id": "b04-int-only1",
+  "cond": "b04int",
+  "state": "A ball game with written rules. The referee applies each rule literally to each play. Rules: (1) Making any sound is a foul. Plays this round: (A) rolls the ball with the left hand while singing. (B) compliments an opponent's shoelaces. (C) walks backward with the ball on the head. (D) whistles while standing still.",
+  "questions": {
+   "Ar1": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 1?"
+   },
+   "Br1": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 1?"
+   },
+   "Cr1": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 1?"
+   },
+   "Dr1": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 1?"
+   }
+  }
+ },
+ {
+  "id": "b04-int-only2",
+  "cond": "b04int",
+  "state": "A ball game with written rules. The referee applies each rule literally to each play. Rules: (1) Using the left hand is a foul. Plays this round: (A) rolls the ball with the left hand while singing. (B) compliments an opponent's shoelaces. (C) walks backward with the ball on the head. (D) whistles while standing still.",
+  "questions": {
+   "Ar2": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 1?"
+   },
+   "Br2": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 1?"
+   },
+   "Cr2": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 1?"
+   },
+   "Dr2": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 1?"
+   }
+  }
+ },
+ {
+  "id": "b04-int-only3",
+  "cond": "b04int",
+  "state": "A ball game with written rules. The referee applies each rule literally to each play. Rules: (1) Moving backward is a foul. Plays this round: (A) rolls the ball with the left hand while singing. (B) compliments an opponent's shoelaces. (C) walks backward with the ball on the head. (D) whistles while standing still.",
+  "questions": {
+   "Ar3": {
+    "type": "noul",
+    "instructions": "Does play (A) break rule 1?"
+   },
+   "Br3": {
+    "type": "noul",
+    "instructions": "Does play (B) break rule 1?"
+   },
+   "Cr3": {
+    "type": "noul",
+    "instructions": "Does play (C) break rule 1?"
+   },
+   "Dr3": {
+    "type": "noul",
+    "instructions": "Does play (D) break rule 1?"
+   }
+  }
+ }
+]

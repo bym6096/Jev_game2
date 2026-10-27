@@ -1,0 +1,1045 @@
+[
+ {
+  "id": "b03-batch-carbo",
+  "cond": "batch",
+  "state": "A kitchen tests eight variants of 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Each variant changes exactly one ingredient: Variant (1): rice instead of spaghetti. Variant (2): tomato sauce instead of eggs. Variant (3): canned tuna instead of guanciale. Variant (4): cheddar cheese instead of pecorino cheese. Variant (5): white pepper instead of black pepper. Variant (6): parmesan cheese instead of pecorino cheese. Variant (7): pancetta instead of guanciale. Variant (8): rigatoni instead of spaghetti.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a carbonara?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a carbonara?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a carbonara?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a carbonara?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a carbonara?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a carbonara?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a carbonara?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-batch-carbo-r",
+  "cond": "batch-rep",
+  "state": "A kitchen tests eight variants of 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Each variant changes exactly one ingredient: Variant (1): rice instead of spaghetti. Variant (2): tomato sauce instead of eggs. Variant (3): canned tuna instead of guanciale. Variant (4): cheddar cheese instead of pecorino cheese. Variant (5): white pepper instead of black pepper. Variant (6): parmesan cheese instead of pecorino cheese. Variant (7): pancetta instead of guanciale. Variant (8): rigatoni instead of spaghetti.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a carbonara?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a carbonara?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a carbonara?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a carbonara?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a carbonara?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a carbonara?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a carbonara?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-carbo-0",
+  "cond": "acc0",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-carbo-1",
+  "cond": "acc1",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: rice (instead of spaghetti), eggs, pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-carbo-2",
+  "cond": "acc2",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: rice (instead of spaghetti), tomato sauce (instead of eggs), pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-carbo-3",
+  "cond": "acc3",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: rice (instead of spaghetti), tomato sauce (instead of eggs), pecorino cheese, canned tuna (instead of guanciale), black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ctl-carbo",
+  "cond": "ctl",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, pecorino cheese, guanciale, black pepper. It is served on a blue plate by a new waiter.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-batch-kimch",
+  "cond": "batch",
+  "state": "A kitchen tests eight variants of 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Each variant changes exactly one ingredient: Variant (1): sauerkraut instead of kimchi. Variant (2): couscous instead of rice. Variant (3): ketchup instead of gochujang. Variant (4): coleslaw instead of kimchi. Variant (5): canned ham instead of spam. Variant (6): a boiled egg on top instead of a fried egg on top. Variant (7): sriracha instead of gochujang. Variant (8): brown rice instead of rice.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a kimchi fried rice?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a kimchi fried rice?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a kimchi fried rice?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a kimchi fried rice?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a kimchi fried rice?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a kimchi fried rice?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a kimchi fried rice?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-batch-kimch-r",
+  "cond": "batch-rep",
+  "state": "A kitchen tests eight variants of 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Each variant changes exactly one ingredient: Variant (1): sauerkraut instead of kimchi. Variant (2): couscous instead of rice. Variant (3): ketchup instead of gochujang. Variant (4): coleslaw instead of kimchi. Variant (5): canned ham instead of spam. Variant (6): a boiled egg on top instead of a fried egg on top. Variant (7): sriracha instead of gochujang. Variant (8): brown rice instead of rice.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a kimchi fried rice?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a kimchi fried rice?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a kimchi fried rice?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a kimchi fried rice?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a kimchi fried rice?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a kimchi fried rice?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a kimchi fried rice?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-kimch-0",
+  "cond": "acc0",
+  "state": "A diner ordered 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Tonight's version: rice, kimchi, spam, gochujang, a fried egg on top.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-kimch-1",
+  "cond": "acc1",
+  "state": "A diner ordered 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Tonight's version: rice, sauerkraut (instead of kimchi), spam, gochujang, a fried egg on top.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-kimch-2",
+  "cond": "acc2",
+  "state": "A diner ordered 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Tonight's version: couscous (instead of rice), sauerkraut (instead of kimchi), spam, gochujang, a fried egg on top.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-kimch-3",
+  "cond": "acc3",
+  "state": "A diner ordered 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Tonight's version: couscous (instead of rice), sauerkraut (instead of kimchi), spam, ketchup (instead of gochujang), a fried egg on top.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-ctl-kimch",
+  "cond": "ctl",
+  "state": "A diner ordered 'kimchi fried rice'. Standard recipe: rice, kimchi, spam, gochujang, a fried egg on top. Tonight's version: rice, kimchi, spam, gochujang, a fried egg on top. It is served on a blue plate by a new waiter.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a kimchi fried rice?"
+   }
+  }
+ },
+ {
+  "id": "b03-batch-margh",
+  "cond": "batch",
+  "state": "A kitchen tests eight variants of 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Each variant changes exactly one ingredient: Variant (1): cheddar cheese instead of mozzarella. Variant (2): barbecue sauce instead of tomato sauce. Variant (3): a flour tortilla instead of pizza dough. Variant (4): pineapple instead of fresh basil. Variant (5): dried oregano instead of fresh basil. Variant (6): burrata instead of mozzarella. Variant (7): sunflower oil instead of olive oil. Variant (8): crushed canned tomatoes instead of tomato sauce.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a margherita pizza?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a margherita pizza?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a margherita pizza?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a margherita pizza?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a margherita pizza?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a margherita pizza?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a margherita pizza?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-batch-margh-r",
+  "cond": "batch-rep",
+  "state": "A kitchen tests eight variants of 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Each variant changes exactly one ingredient: Variant (1): cheddar cheese instead of mozzarella. Variant (2): barbecue sauce instead of tomato sauce. Variant (3): a flour tortilla instead of pizza dough. Variant (4): pineapple instead of fresh basil. Variant (5): dried oregano instead of fresh basil. Variant (6): burrata instead of mozzarella. Variant (7): sunflower oil instead of olive oil. Variant (8): crushed canned tomatoes instead of tomato sauce.",
+  "questions": {
+   "v1": {
+    "type": "noul",
+    "instructions": "Is variant (1) still a margherita pizza?"
+   },
+   "v2": {
+    "type": "noul",
+    "instructions": "Is variant (2) still a margherita pizza?"
+   },
+   "v3": {
+    "type": "noul",
+    "instructions": "Is variant (3) still a margherita pizza?"
+   },
+   "v4": {
+    "type": "noul",
+    "instructions": "Is variant (4) still a margherita pizza?"
+   },
+   "v5": {
+    "type": "noul",
+    "instructions": "Is variant (5) still a margherita pizza?"
+   },
+   "v6": {
+    "type": "noul",
+    "instructions": "Is variant (6) still a margherita pizza?"
+   },
+   "v7": {
+    "type": "noul",
+    "instructions": "Is variant (7) still a margherita pizza?"
+   },
+   "v8": {
+    "type": "noul",
+    "instructions": "Is variant (8) still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-margh-0",
+  "cond": "acc0",
+  "state": "A diner ordered 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Tonight's version: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-margh-1",
+  "cond": "acc1",
+  "state": "A diner ordered 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Tonight's version: pizza dough, tomato sauce, cheddar cheese (instead of mozzarella), fresh basil, olive oil.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-margh-2",
+  "cond": "acc2",
+  "state": "A diner ordered 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Tonight's version: pizza dough, barbecue sauce (instead of tomato sauce), cheddar cheese (instead of mozzarella), fresh basil, olive oil.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-acc-margh-3",
+  "cond": "acc3",
+  "state": "A diner ordered 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Tonight's version: a flour tortilla (instead of pizza dough), barbecue sauce (instead of tomato sauce), cheddar cheese (instead of mozzarella), fresh basil, olive oil.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-ctl-margh",
+  "cond": "ctl",
+  "state": "A diner ordered 'margherita pizza'. Standard recipe: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. Tonight's version: pizza dough, tomato sauce, mozzarella, fresh basil, olive oil. It is served on a blue plate by a new waiter.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a margherita pizza?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v1",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: rice (instead of spaghetti), eggs, pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v2",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, tomato sauce (instead of eggs), pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v3",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, pecorino cheese, canned tuna (instead of guanciale), black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v4",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, cheddar cheese (instead of pecorino cheese), guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v5",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, pecorino cheese, guanciale, white pepper (instead of black pepper).",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v6",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, parmesan cheese (instead of pecorino cheese), guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v7",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: spaghetti, eggs, pecorino cheese, pancetta (instead of guanciale), black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "b03-ind-carbo-v8",
+  "cond": "ind",
+  "state": "A diner ordered 'carbonara'. Standard recipe: spaghetti, eggs, pecorino cheese, guanciale, black pepper. Tonight's version: rigatoni (instead of spaghetti), eggs, pecorino cheese, guanciale, black pepper.",
+  "questions": {
+   "still": {
+    "type": "noul",
+    "instructions": "Is this dish still a carbonara?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small",
+  "cond": "small",
+  "state": "Context: inside a child's small sandbox. There are several separate piles, each on its own: pile (1) 10,000 grains of dry sand; pile (2) 3,000 grains of dry sand; pile (3) 1,000 grains of dry sand; pile (4) 400 grains of dry sand; pile (5) 150 grains of dry sand; pile (6) 50 grains of dry sand; pile (7) 15 grains of dry sand; pile (8) 3 grains of dry sand.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering pile (1) only: is it a heap of sand?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering pile (2) only: is it a heap of sand?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering pile (3) only: is it a heap of sand?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering pile (4) only: is it a heap of sand?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering pile (5) only: is it a heap of sand?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering pile (6) only: is it a heap of sand?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering pile (7) only: is it a heap of sand?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering pile (8) only: is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-r",
+  "cond": "rep",
+  "state": "Context: inside a child's small sandbox. There are several separate piles, each on its own: pile (1) 10,000 grains of dry sand; pile (2) 3,000 grains of dry sand; pile (3) 1,000 grains of dry sand; pile (4) 400 grains of dry sand; pile (5) 150 grains of dry sand; pile (6) 50 grains of dry sand; pile (7) 15 grains of dry sand; pile (8) 3 grains of dry sand.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering pile (1) only: is it a heap of sand?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering pile (2) only: is it a heap of sand?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering pile (3) only: is it a heap of sand?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering pile (4) only: is it a heap of sand?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering pile (5) only: is it a heap of sand?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering pile (6) only: is it a heap of sand?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering pile (7) only: is it a heap of sand?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering pile (8) only: is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-big",
+  "cond": "big",
+  "state": "Context: on a huge construction site. There are several separate piles, each on its own: pile (1) 10,000 grains of dry sand; pile (2) 3,000 grains of dry sand; pile (3) 1,000 grains of dry sand; pile (4) 400 grains of dry sand; pile (5) 150 grains of dry sand; pile (6) 50 grains of dry sand; pile (7) 15 grains of dry sand; pile (8) 3 grains of dry sand.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering pile (1) only: is it a heap of sand?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering pile (2) only: is it a heap of sand?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering pile (3) only: is it a heap of sand?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering pile (4) only: is it a heap of sand?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering pile (5) only: is it a heap of sand?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering pile (6) only: is it a heap of sand?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering pile (7) only: is it a heap of sand?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering pile (8) only: is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-crowd-small",
+  "cond": "small",
+  "state": "Context: inside a small village chapel. There are several separate groups, each on its own: group (1) 2,000 people; group (2) 500 people; group (3) 200 people; group (4) 80 people; group (5) 30 people; group (6) 12 people; group (7) 5 people; group (8) 2 people.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering group (1) only: is it a crowd?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering group (2) only: is it a crowd?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering group (3) only: is it a crowd?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering group (4) only: is it a crowd?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering group (5) only: is it a crowd?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering group (6) only: is it a crowd?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering group (7) only: is it a crowd?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering group (8) only: is it a crowd?"
+   }
+  }
+ },
+ {
+  "id": "a06-crowd-small-r",
+  "cond": "rep",
+  "state": "Context: inside a small village chapel. There are several separate groups, each on its own: group (1) 2,000 people; group (2) 500 people; group (3) 200 people; group (4) 80 people; group (5) 30 people; group (6) 12 people; group (7) 5 people; group (8) 2 people.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering group (1) only: is it a crowd?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering group (2) only: is it a crowd?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering group (3) only: is it a crowd?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering group (4) only: is it a crowd?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering group (5) only: is it a crowd?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering group (6) only: is it a crowd?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering group (7) only: is it a crowd?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering group (8) only: is it a crowd?"
+   }
+  }
+ },
+ {
+  "id": "a06-crowd-big",
+  "cond": "big",
+  "state": "Context: at a packed football stadium. There are several separate groups, each on its own: group (1) 2,000 people; group (2) 500 people; group (3) 200 people; group (4) 80 people; group (5) 30 people; group (6) 12 people; group (7) 5 people; group (8) 2 people.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering group (1) only: is it a crowd?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering group (2) only: is it a crowd?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering group (3) only: is it a crowd?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering group (4) only: is it a crowd?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering group (5) only: is it a crowd?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering group (6) only: is it a crowd?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering group (7) only: is it a crowd?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering group (8) only: is it a crowd?"
+   }
+  }
+ },
+ {
+  "id": "a06-forest-small",
+  "cond": "small",
+  "state": "Context: on a small city lot. There are several separate patchs, each on its own: patch (1) 50,000 trees; patch (2) 5,000 trees; patch (3) 800 trees; patch (4) 200 trees; patch (5) 60 trees; patch (6) 20 trees; patch (7) 6 trees; patch (8) 2 trees.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering patch (1) only: is it a forest?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering patch (2) only: is it a forest?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering patch (3) only: is it a forest?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering patch (4) only: is it a forest?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering patch (5) only: is it a forest?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering patch (6) only: is it a forest?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering patch (7) only: is it a forest?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering patch (8) only: is it a forest?"
+   }
+  }
+ },
+ {
+  "id": "a06-forest-small-r",
+  "cond": "rep",
+  "state": "Context: on a small city lot. There are several separate patchs, each on its own: patch (1) 50,000 trees; patch (2) 5,000 trees; patch (3) 800 trees; patch (4) 200 trees; patch (5) 60 trees; patch (6) 20 trees; patch (7) 6 trees; patch (8) 2 trees.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering patch (1) only: is it a forest?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering patch (2) only: is it a forest?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering patch (3) only: is it a forest?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering patch (4) only: is it a forest?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering patch (5) only: is it a forest?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering patch (6) only: is it a forest?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering patch (7) only: is it a forest?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering patch (8) only: is it a forest?"
+   }
+  }
+ },
+ {
+  "id": "a06-forest-big",
+  "cond": "big",
+  "state": "Context: in the vast Siberian taiga. There are several separate patchs, each on its own: patch (1) 50,000 trees; patch (2) 5,000 trees; patch (3) 800 trees; patch (4) 200 trees; patch (5) 60 trees; patch (6) 20 trees; patch (7) 6 trees; patch (8) 2 trees.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering patch (1) only: is it a forest?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering patch (2) only: is it a forest?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering patch (3) only: is it a forest?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering patch (4) only: is it a forest?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering patch (5) only: is it a forest?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering patch (6) only: is it a forest?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering patch (7) only: is it a forest?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering patch (8) only: is it a forest?"
+   }
+  }
+ },
+ {
+  "id": "a06-books-small",
+  "cond": "small",
+  "state": "Context: on a bedside table. There are several separate stacks, each on its own: stack (1) 300 books; stack (2) 100 books; stack (3) 40 books; stack (4) 15 books; stack (5) 8 books; stack (6) 4 books; stack (7) 2 books; stack (8) 1 books.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering stack (1) only: is it a pile of books?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering stack (2) only: is it a pile of books?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering stack (3) only: is it a pile of books?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering stack (4) only: is it a pile of books?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering stack (5) only: is it a pile of books?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering stack (6) only: is it a pile of books?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering stack (7) only: is it a pile of books?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering stack (8) only: is it a pile of books?"
+   }
+  }
+ },
+ {
+  "id": "a06-books-small-r",
+  "cond": "rep",
+  "state": "Context: on a bedside table. There are several separate stacks, each on its own: stack (1) 300 books; stack (2) 100 books; stack (3) 40 books; stack (4) 15 books; stack (5) 8 books; stack (6) 4 books; stack (7) 2 books; stack (8) 1 books.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering stack (1) only: is it a pile of books?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering stack (2) only: is it a pile of books?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering stack (3) only: is it a pile of books?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering stack (4) only: is it a pile of books?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering stack (5) only: is it a pile of books?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering stack (6) only: is it a pile of books?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering stack (7) only: is it a pile of books?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering stack (8) only: is it a pile of books?"
+   }
+  }
+ },
+ {
+  "id": "a06-books-big",
+  "cond": "big",
+  "state": "Context: in a national library warehouse. There are several separate stacks, each on its own: stack (1) 300 books; stack (2) 100 books; stack (3) 40 books; stack (4) 15 books; stack (5) 8 books; stack (6) 4 books; stack (7) 2 books; stack (8) 1 books.",
+  "questions": {
+   "p1": {
+    "type": "noul",
+    "instructions": "Considering stack (1) only: is it a pile of books?"
+   },
+   "p2": {
+    "type": "noul",
+    "instructions": "Considering stack (2) only: is it a pile of books?"
+   },
+   "p3": {
+    "type": "noul",
+    "instructions": "Considering stack (3) only: is it a pile of books?"
+   },
+   "p4": {
+    "type": "noul",
+    "instructions": "Considering stack (4) only: is it a pile of books?"
+   },
+   "p5": {
+    "type": "noul",
+    "instructions": "Considering stack (5) only: is it a pile of books?"
+   },
+   "p6": {
+    "type": "noul",
+    "instructions": "Considering stack (6) only: is it a pile of books?"
+   },
+   "p7": {
+    "type": "noul",
+    "instructions": "Considering stack (7) only: is it a pile of books?"
+   },
+   "p8": {
+    "type": "noul",
+    "instructions": "Considering stack (8) only: is it a pile of books?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind1",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 10,000 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind2",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 3,000 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind3",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 1,000 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind4",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 400 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind5",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 150 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind6",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 50 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind7",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 15 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ },
+ {
+  "id": "a06-sand-small-ind8",
+  "cond": "ind",
+  "state": "Context: inside a child's small sandbox. There is a pile of 3 grains of dry sand.",
+  "questions": {
+   "p": {
+    "type": "noul",
+    "instructions": "Is it a heap of sand?"
+   }
+  }
+ }
+]

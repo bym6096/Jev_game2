@@ -1,0 +1,1004 @@
+[
+ {
+  "id": "a04-D1-R0",
+  "cond": "R0",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our Busan plant, next to the city's famous Jagalchi fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R0-r",
+  "cond": "R0-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our Busan plant, next to the city's famous Jagalchi fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R1",
+  "cond": "R1",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our [REDACTED] plant, next to the city's famous Jagalchi fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R2",
+  "cond": "R2",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our [REDACTED] plant, next to the city's famous [REDACTED] fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R2-r",
+  "cond": "R2-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our [REDACTED] plant, next to the city's famous [REDACTED] fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R3",
+  "cond": "R3",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our [REDACTED] plant, next to the city's famous [REDACTED] fish market. Workers smelled [REDACTED] and left the building within ten minutes. No one was hurt. The [REDACTED] line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R4",
+  "cond": "R4",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"On 3 May a valve failed at our [REDACTED] plant, next to the city's famous [REDACTED] fish market. Workers smelled [REDACTED] and left the building [REDACTED]. No one was hurt. The [REDACTED] line was shut off. This valve type has now been replaced [REDACTED].\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D1-R5",
+  "cond": "R5",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"[REDACTED] a valve failed at our Busan plant, next to the city's famous Jagalchi fish market. Workers smelled ammonia and left the building within ten minutes. No one was hurt. The ammonia line was shut off. This valve type has now been replaced at all of our sites.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which city the plant is in?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply that the leaked gas was ammonia?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the workers got out quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the faulty part has been replaced everywhere?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R0",
+  "cond": "R0",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer Lee Hana, famous for the hit song 'Moonlight', fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the 'Moonlight' singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R0-r",
+  "cond": "R0-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer Lee Hana, famous for the hit song 'Moonlight', fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the 'Moonlight' singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R1",
+  "cond": "R1",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer [REDACTED], famous for the hit song 'Moonlight', fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the 'Moonlight' singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R2",
+  "cond": "R2",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer [REDACTED], famous for the hit song [REDACTED], fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the [REDACTED] singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R2-r",
+  "cond": "R2-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer [REDACTED], famous for the hit song [REDACTED], fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the [REDACTED] singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R3",
+  "cond": "R3",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer [REDACTED], famous for the hit song [REDACTED], fainted backstage at the [REDACTED] Hotel. Hotel staff called an ambulance at once. Doctors say the [REDACTED] singer is now stable and will rest for two weeks. The [REDACTED] concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R4",
+  "cond": "R4",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Last night the singer [REDACTED], famous for the hit song [REDACTED], fainted backstage at the [REDACTED] Hotel. Hotel staff called an ambulance [REDACTED]. Doctors say the [REDACTED] singer is now [REDACTED] and will rest for two weeks. The [REDACTED] concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D2-R5",
+  "cond": "R5",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"[REDACTED] the singer Lee Hana, famous for the hit song 'Moonlight', fainted backstage at the Grand Harbor Hotel. Hotel staff called an ambulance at once. Doctors say the 'Moonlight' singer is now stable and will rest for two weeks. The Grand Harbor concert hall will reopen on Friday.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which singer fainted?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which hotel it happened at?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that help was called quickly?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that the patient is now stable?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R0",
+  "cond": "R0",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the Volta X-200 electric bike battery. Some X-200 batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R0-r",
+  "cond": "R0-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the Volta X-200 electric bike battery. Some X-200 batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R1",
+  "cond": "R1",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the [REDACTED] electric bike battery. Some X-200 batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R2",
+  "cond": "R2",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the [REDACTED] electric bike battery. Some [REDACTED] batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R2-r",
+  "cond": "R2-rep",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the [REDACTED] electric bike battery. Some [REDACTED] batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R3",
+  "cond": "R3",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in [REDACTED] delivered a batch of faulty cells for the [REDACTED] electric bike battery. Some [REDACTED] batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty [REDACTED] batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R4",
+  "cond": "R4",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in [REDACTED] delivered a batch of faulty cells for the [REDACTED] electric bike battery. Some [REDACTED] batteries overheated while charging. Customers should [REDACTED] the battery and contact us for a [REDACTED]. The faulty [REDACTED] batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "a04-D3-R5",
+  "cond": "R5",
+  "state": "A company statement released to the public. Removed words are shown as [REDACTED]. Text: \"Our supplier in Vietnam delivered a batch of faulty cells for the Volta X-200 electric bike battery. [REDACTED] X-200 batteries overheated while charging. Customers should stop charging the battery and contact us for a free replacement. The faulty Vietnamese batch has been destroyed.\"",
+  "questions": {
+   "s1": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which product model is affected?"
+   },
+   "s2": {
+    "type": "noul",
+    "instructions": "Does the released text state or clearly imply which country the supplier is in?"
+   },
+   "u1": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers to stop charging the battery?"
+   },
+   "u2": {
+    "type": "noul",
+    "instructions": "Does the released text tell readers that they can get a free replacement?"
+   }
+  }
+ },
+ {
+  "id": "b07-L1-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old pianist, plays the piano every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-orig-r",
+  "cond": "orig-rep",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old pianist, plays the piano every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-del-neighbor",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My [REDACTED], an old pianist, plays the piano every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-del-pianist",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old [REDACTED], plays the piano every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-del-piano",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old pianist, plays the [REDACTED] every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-del-night",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old pianist, plays the piano every [REDACTED] until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-del-dog",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, an old pianist, plays the piano every night until 2 a.m. so I cannot sleep. Her [REDACTED] barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"My neighbor, [REDACTED] old pianist, plays the piano every night until 2 a.m. so I cannot sleep. Her dog barks too.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-orig-r",
+  "cond": "orig-rep",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-del-parrot",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A [REDACTED] flew out of the zoo and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-del-zoo",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the [REDACTED] and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-del-police offic",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and stole a [REDACTED] hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-del-stole",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and [REDACTED] a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-del-Please help ",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of the zoo and stole a police officer's hat. [REDACTED].\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L2-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"A parrot flew out of [REDACTED] zoo and stole a police officer's hat. Please help me get my hat back.\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-orig",
+  "cond": "orig",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my knee. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-orig-r",
+  "cond": "orig-rep",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my knee. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-del-fell",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I [REDACTED] on the broken stairs at the train station and hurt my knee. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-del-broken",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the [REDACTED] stairs at the train station and hurt my knee. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-del-train statio",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the [REDACTED] and hurt my knee. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-del-knee",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my [REDACTED]. Who will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-del-fix",
+  "cond": "del",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my knee. Who will [REDACTED] the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L3-func",
+  "cond": "func",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"I fell on the broken stairs at the train station and hurt my knee. [REDACTED] will fix the stairs?\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ },
+ {
+  "id": "b07-L1-all",
+  "cond": "all",
+  "state": "An automatic mail sorter reads the letter and sends it to one office. Letter: \"[REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED] [REDACTED]\"",
+  "questions": {
+   "office": {
+    "type": "choice",
+    "instructions": "Which office handles this letter?",
+    "criteria": {
+     "police station": null,
+     "city hall": null,
+     "zoo": null,
+     "hospital": null,
+     "lost and found": null
+    }
+   }
+  }
+ }
+]

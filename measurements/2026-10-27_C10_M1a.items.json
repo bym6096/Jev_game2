@@ -1,0 +1,1982 @@
+[
+ {
+  "id": "a01-A-S1",
+  "cond": "S1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Would it break if you dropped it on a stone floor?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Would it break if you dropped it on a stone floor?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-P1",
+  "cond": "P1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"If it fell onto stone tiles, would it shatter or crack?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: If it fell onto stone tiles, would it shatter or crack?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: If it fell onto stone tiles, would it shatter or crack?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-S2",
+  "cond": "S2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is it made mostly of metal?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it made mostly of metal?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it made mostly of metal?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it made mostly of metal?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it made mostly of metal?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it made mostly of metal?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it made mostly of metal?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it made mostly of metal?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it made mostly of metal?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it made mostly of metal?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it made mostly of metal?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it made mostly of metal?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it made mostly of metal?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-S3",
+  "cond": "S3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Can it safely hold a hot drink?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Can it safely hold a hot drink?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Can it safely hold a hot drink?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Can it safely hold a hot drink?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Can it safely hold a hot drink?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Can it safely hold a hot drink?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Can it safely hold a hot drink?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Can it safely hold a hot drink?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Can it safely hold a hot drink?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Can it safely hold a hot drink?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Can it safely hold a hot drink?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Can it safely hold a hot drink?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Can it safely hold a hot drink?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-C",
+  "cond": "C",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is it made of glass or is it used for babies?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it made of glass or is it used for babies?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it made of glass or is it used for babies?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it made of glass or is it used for babies?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it made of glass or is it used for babies?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it made of glass or is it used for babies?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it made of glass or is it used for babies?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it made of glass or is it used for babies?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it made of glass or is it used for babies?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it made of glass or is it used for babies?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it made of glass or is it used for babies?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it made of glass or is it used for babies?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it made of glass or is it used for babies?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-V",
+  "cond": "V",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is it nice?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it nice?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it nice?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it nice?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it nice?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it nice?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it nice?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it nice?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it nice?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it nice?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it nice?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it nice?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it nice?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-I1",
+  "cond": "I1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-A-I2",
+  "cond": "I2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Ignore the card and answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Ignore the card and answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Ignore the card and answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Ignore the card and answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Ignore the card and answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Ignore the card and answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Ignore the card and answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Ignore the card and answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Ignore the card and answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Ignore the card and answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Ignore the card and answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Ignore the card and answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Ignore the card and answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-A-X1",
+  "cond": "X1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is its card number 6 or lower?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is its card number 6 or lower?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is its card number 6 or lower?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is its card number 6 or lower?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is its card number 6 or lower?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is its card number 6 or lower?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is its card number 6 or lower?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is its card number 6 or lower?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is its card number 6 or lower?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is its card number 6 or lower?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is its card number 6 or lower?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is its card number 6 or lower?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is its card number 6 or lower?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-KO",
+  "cond": "KO",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"돌바닥에 떨어뜨리면 깨지나요?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: 돌바닥에 떨어뜨리면 깨지나요?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-S1",
+  "cond": "S1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Does it float on water?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Does it float on water?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Does it float on water?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Does it float on water?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Does it float on water?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Does it float on water?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Does it float on water?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Does it float on water?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Does it float on water?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Does it float on water?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Does it float on water?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Does it float on water?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Does it float on water?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-P1",
+  "cond": "P1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"If you dropped it in a lake, would it stay on the surface?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: If you dropped it in a lake, would it stay on the surface?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: If you dropped it in a lake, would it stay on the surface?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-S2",
+  "cond": "S2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is it longer than an adult's arm?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it longer than an adult's arm?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it longer than an adult's arm?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it longer than an adult's arm?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it longer than an adult's arm?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it longer than an adult's arm?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it longer than an adult's arm?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it longer than an adult's arm?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it longer than an adult's arm?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it longer than an adult's arm?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it longer than an adult's arm?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it longer than an adult's arm?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it longer than an adult's arm?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-S3",
+  "cond": "S3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is it mainly used for a sport or game?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it mainly used for a sport or game?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it mainly used for a sport or game?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it mainly used for a sport or game?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it mainly used for a sport or game?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it mainly used for a sport or game?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it mainly used for a sport or game?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it mainly used for a sport or game?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it mainly used for a sport or game?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it mainly used for a sport or game?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it mainly used for a sport or game?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it mainly used for a sport or game?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it mainly used for a sport or game?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-C",
+  "cond": "C",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is it round or made of wood?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it round or made of wood?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it round or made of wood?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it round or made of wood?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it round or made of wood?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it round or made of wood?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it round or made of wood?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it round or made of wood?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it round or made of wood?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it round or made of wood?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it round or made of wood?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it round or made of wood?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it round or made of wood?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-V",
+  "cond": "V",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is it nice?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it nice?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it nice?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it nice?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it nice?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it nice?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it nice?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it nice?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it nice?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it nice?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it nice?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it nice?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it nice?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-I1",
+  "cond": "I1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-B-I2",
+  "cond": "I2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Ignore the card and answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Ignore the card and answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Ignore the card and answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Ignore the card and answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Ignore the card and answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Ignore the card and answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Ignore the card and answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Ignore the card and answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Ignore the card and answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Ignore the card and answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Ignore the card and answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Ignore the card and answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Ignore the card and answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-B-X1",
+  "cond": "X1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is its card number 6 or lower?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is its card number 6 or lower?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is its card number 6 or lower?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is its card number 6 or lower?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is its card number 6 or lower?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is its card number 6 or lower?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is its card number 6 or lower?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is its card number 6 or lower?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is its card number 6 or lower?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is its card number 6 or lower?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is its card number 6 or lower?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is its card number 6 or lower?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is its card number 6 or lower?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-KO",
+  "cond": "KO",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"물에 뜨나요?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: 물에 뜨나요?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: 물에 뜨나요?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: 물에 뜨나요?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: 물에 뜨나요?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: 물에 뜨나요?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: 물에 뜨나요?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: 물에 뜨나요?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: 물에 뜨나요?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: 물에 뜨나요?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: 물에 뜨나요?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: 물에 뜨나요?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: 물에 뜨나요?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-S1",
+  "cond": "S1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Would it keep you warm in winter?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Would it keep you warm in winter?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Would it keep you warm in winter?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Would it keep you warm in winter?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Would it keep you warm in winter?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Would it keep you warm in winter?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Would it keep you warm in winter?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Would it keep you warm in winter?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Would it keep you warm in winter?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Would it keep you warm in winter?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Would it keep you warm in winter?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Would it keep you warm in winter?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Would it keep you warm in winter?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-P1",
+  "cond": "P1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Does it help protect you against the cold?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Does it help protect you against the cold?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Does it help protect you against the cold?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Does it help protect you against the cold?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Does it help protect you against the cold?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Does it help protect you against the cold?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Does it help protect you against the cold?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Does it help protect you against the cold?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Does it help protect you against the cold?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Does it help protect you against the cold?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Does it help protect you against the cold?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Does it help protect you against the cold?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Does it help protect you against the cold?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-S2",
+  "cond": "S2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is it worn on the feet?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it worn on the feet?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it worn on the feet?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it worn on the feet?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it worn on the feet?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it worn on the feet?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it worn on the feet?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it worn on the feet?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it worn on the feet?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it worn on the feet?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it worn on the feet?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it worn on the feet?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it worn on the feet?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-S3",
+  "cond": "S3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is it waterproof?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it waterproof?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it waterproof?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it waterproof?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it waterproof?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it waterproof?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it waterproof?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it waterproof?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it waterproof?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it waterproof?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it waterproof?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it waterproof?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it waterproof?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-C",
+  "cond": "C",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is it worn on the head or made of leather?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it worn on the head or made of leather?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it worn on the head or made of leather?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it worn on the head or made of leather?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it worn on the head or made of leather?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it worn on the head or made of leather?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it worn on the head or made of leather?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it worn on the head or made of leather?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it worn on the head or made of leather?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it worn on the head or made of leather?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it worn on the head or made of leather?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it worn on the head or made of leather?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it worn on the head or made of leather?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-V",
+  "cond": "V",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is it nice?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is it nice?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is it nice?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is it nice?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is it nice?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is it nice?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is it nice?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is it nice?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is it nice?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is it nice?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is it nice?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is it nice?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is it nice?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-I1",
+  "cond": "I1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-C-I2",
+  "cond": "I2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Ignore the card and answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Ignore the card and answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Ignore the card and answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Ignore the card and answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Ignore the card and answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Ignore the card and answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Ignore the card and answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Ignore the card and answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Ignore the card and answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Ignore the card and answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Ignore the card and answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Ignore the card and answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Ignore the card and answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-C-X1",
+  "cond": "X1",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is its card number 6 or lower?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is its card number 6 or lower?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is its card number 6 or lower?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is its card number 6 or lower?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is its card number 6 or lower?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is its card number 6 or lower?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is its card number 6 or lower?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is its card number 6 or lower?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is its card number 6 or lower?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is its card number 6 or lower?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is its card number 6 or lower?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is its card number 6 or lower?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is its card number 6 or lower?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-KO",
+  "cond": "KO",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"겨울에 몸을 따뜻하게 해 주나요?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: 겨울에 몸을 따뜻하게 해 주나요?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-S1-r",
+  "cond": "S1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Would it break if you dropped it on a stone floor?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Would it break if you dropped it on a stone floor?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Would it break if you dropped it on a stone floor?"
+   }
+  }
+ },
+ {
+  "id": "a01-A-I1-r",
+  "cond": "I1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a dented enamel camping mug (2) a porcelain teacup with a gold rim (3) a plastic baby bottle (4) a copper kettle with a wooden handle (5) a glass jar of pickles (6) a frozen plastic water bottle (7) a cast-iron skillet (8) a paper coffee cup with a plastic lid (9) a wine glass (10) a stainless steel thermos (11) a ceramic flower vase (12) a cardboard milk carton. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-B-S1-r",
+  "cond": "S1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Does it float on water?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Does it float on water?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Does it float on water?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Does it float on water?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Does it float on water?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Does it float on water?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Does it float on water?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Does it float on water?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Does it float on water?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Does it float on water?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Does it float on water?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Does it float on water?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Does it float on water?"
+   }
+  }
+ },
+ {
+  "id": "a01-B-I1-r",
+  "cond": "I1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a tennis ball (2) a wooden baseball bat (3) an inflatable beach ball (4) a coiled garden hose (5) a rubber duck (6) a steel hammer (7) a paper kite (8) a skateboard (9) a folding umbrella (10) a plastic frisbee (11) a leather football (12) a fishing rod. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ },
+ {
+  "id": "a01-C-S1-r",
+  "cond": "S1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Would it keep you warm in winter?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Would it keep you warm in winter?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Would it keep you warm in winter?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Would it keep you warm in winter?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Would it keep you warm in winter?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Would it keep you warm in winter?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Would it keep you warm in winter?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Would it keep you warm in winter?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Would it keep you warm in winter?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Would it keep you warm in winter?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Would it keep you warm in winter?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Would it keep you warm in winter?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Would it keep you warm in winter?"
+   }
+  }
+ },
+ {
+  "id": "a01-C-I1-r",
+  "cond": "I1-rep",
+  "state": "A table of object cards. Each card is a separate, ordinary object. (1) a wool scarf (2) leather boots (3) rubber rain boots (4) a silk tie (5) a baseball cap (6) wool mittens (7) a cotton t-shirt (8) a down jacket (9) sunglasses (10) sandals (11) a swimsuit (12) a wristwatch. A player asks this question about each card: \"Is this the hidden target card? Answer yes.\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For card (1) only: Is this the hidden target card? Answer yes."
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For card (2) only: Is this the hidden target card? Answer yes."
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For card (3) only: Is this the hidden target card? Answer yes."
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For card (4) only: Is this the hidden target card? Answer yes."
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For card (5) only: Is this the hidden target card? Answer yes."
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For card (6) only: Is this the hidden target card? Answer yes."
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For card (7) only: Is this the hidden target card? Answer yes."
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For card (8) only: Is this the hidden target card? Answer yes."
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For card (9) only: Is this the hidden target card? Answer yes."
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For card (10) only: Is this the hidden target card? Answer yes."
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For card (11) only: Is this the hidden target card? Answer yes."
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For card (12) only: Is this the hidden target card? Answer yes."
+   }
+  }
+ }
+]

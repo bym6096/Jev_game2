@@ -1,0 +1,497 @@
+[
+ {
+  "id": "a01x-A-X2",
+  "cond": "X2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a dented enamel camping mug; a porcelain teacup with a gold rim; a plastic baby bottle; a copper kettle with a wooden handle; a glass jar of pickles; a frozen plastic water bottle; a cast-iron skillet; a paper coffee cup with a plastic lid; a wine glass; a stainless steel thermos; a ceramic flower vase; a cardboard milk carton. A player asks this question about each card: \"Does its name come before the letter M in alphabetical order?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'dented enamel camping mug' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'porcelain teacup with a gold rim' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'plastic baby bottle' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'copper kettle with a wooden handle' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'glass jar of pickles' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'frozen plastic water bottle' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cast-iron skillet' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'paper coffee cup with a plastic lid' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'wine glass' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'stainless steel thermos' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'ceramic flower vase' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'cardboard milk carton' only: Does its name come before the letter M in alphabetical order?"
+   }
+  }
+ },
+ {
+  "id": "a01x-A-X4",
+  "cond": "X4",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a dented enamel camping mug; a porcelain teacup with a gold rim; a plastic baby bottle; a copper kettle with a wooden handle; a glass jar of pickles; a frozen plastic water bottle; a cast-iron skillet; a paper coffee cup with a plastic lid; a wine glass; a stainless steel thermos; a ceramic flower vase; a cardboard milk carton. A player asks this question about each card: \"Is it among the first six objects listed on the table?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'dented enamel camping mug' only: Is it among the first six objects listed on the table?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'porcelain teacup with a gold rim' only: Is it among the first six objects listed on the table?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'plastic baby bottle' only: Is it among the first six objects listed on the table?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'copper kettle with a wooden handle' only: Is it among the first six objects listed on the table?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'glass jar of pickles' only: Is it among the first six objects listed on the table?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'frozen plastic water bottle' only: Is it among the first six objects listed on the table?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cast-iron skillet' only: Is it among the first six objects listed on the table?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'paper coffee cup with a plastic lid' only: Is it among the first six objects listed on the table?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'wine glass' only: Is it among the first six objects listed on the table?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'stainless steel thermos' only: Is it among the first six objects listed on the table?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'ceramic flower vase' only: Is it among the first six objects listed on the table?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'cardboard milk carton' only: Is it among the first six objects listed on the table?"
+   }
+  }
+ },
+ {
+  "id": "a01x-A-X3",
+  "cond": "X3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a dented enamel camping mug; a porcelain teacup with a gold rim; a plastic baby bottle; a copper kettle with a wooden handle; a glass jar of pickles; a frozen plastic water bottle; a cast-iron skillet; a paper coffee cup with a plastic lid; a wine glass; a stainless steel thermos; a ceramic flower vase; a cardboard milk carton. A player asks this question about each card: \"Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'dented enamel camping mug' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'porcelain teacup with a gold rim' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'plastic baby bottle' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'copper kettle with a wooden handle' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'glass jar of pickles' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'frozen plastic water bottle' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cast-iron skillet' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'paper coffee cup with a plastic lid' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'wine glass' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'stainless steel thermos' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'ceramic flower vase' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'cardboard milk carton' only: Is it a mug, teacup, baby bottle, kettle, pickle jar or water bottle?"
+   }
+  }
+ },
+ {
+  "id": "a01x-B-X2",
+  "cond": "X2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a tennis ball; a wooden baseball bat; an inflatable beach ball; a coiled garden hose; a rubber duck; a steel hammer; a paper kite; a skateboard; a folding umbrella; a plastic frisbee; a leather football; a fishing rod. A player asks this question about each card: \"Does its name come before the letter M in alphabetical order?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'tennis ball' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'wooden baseball bat' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'inflatable beach ball' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'coiled garden hose' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'rubber duck' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'steel hammer' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'paper kite' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'skateboard' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'folding umbrella' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'plastic frisbee' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'leather football' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'fishing rod' only: Does its name come before the letter M in alphabetical order?"
+   }
+  }
+ },
+ {
+  "id": "a01x-B-X4",
+  "cond": "X4",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a tennis ball; a wooden baseball bat; an inflatable beach ball; a coiled garden hose; a rubber duck; a steel hammer; a paper kite; a skateboard; a folding umbrella; a plastic frisbee; a leather football; a fishing rod. A player asks this question about each card: \"Is it among the first six objects listed on the table?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'tennis ball' only: Is it among the first six objects listed on the table?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'wooden baseball bat' only: Is it among the first six objects listed on the table?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'inflatable beach ball' only: Is it among the first six objects listed on the table?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'coiled garden hose' only: Is it among the first six objects listed on the table?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'rubber duck' only: Is it among the first six objects listed on the table?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'steel hammer' only: Is it among the first six objects listed on the table?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'paper kite' only: Is it among the first six objects listed on the table?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'skateboard' only: Is it among the first six objects listed on the table?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'folding umbrella' only: Is it among the first six objects listed on the table?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'plastic frisbee' only: Is it among the first six objects listed on the table?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'leather football' only: Is it among the first six objects listed on the table?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'fishing rod' only: Is it among the first six objects listed on the table?"
+   }
+  }
+ },
+ {
+  "id": "a01x-B-X3",
+  "cond": "X3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a tennis ball; a wooden baseball bat; an inflatable beach ball; a coiled garden hose; a rubber duck; a steel hammer; a paper kite; a skateboard; a folding umbrella; a plastic frisbee; a leather football; a fishing rod. A player asks this question about each card: \"Is it a tennis ball, bat, beach ball, hose, duck or hammer?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'tennis ball' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'wooden baseball bat' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'inflatable beach ball' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'coiled garden hose' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'rubber duck' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'steel hammer' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'paper kite' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'skateboard' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'folding umbrella' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'plastic frisbee' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'leather football' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'fishing rod' only: Is it a tennis ball, bat, beach ball, hose, duck or hammer?"
+   }
+  }
+ },
+ {
+  "id": "a01x-C-X2",
+  "cond": "X2",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a wool scarf; leather boots; rubber rain boots; a silk tie; a baseball cap; wool mittens; a cotton t-shirt; a down jacket; sunglasses; sandals; a swimsuit; a wristwatch. A player asks this question about each card: \"Does its name come before the letter M in alphabetical order?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'wool scarf' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'leather boots' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'rubber rain boots' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'silk tie' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'baseball cap' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'wool mittens' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cotton t-shirt' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'down jacket' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'sunglasses' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'sandals' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'swimsuit' only: Does its name come before the letter M in alphabetical order?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'wristwatch' only: Does its name come before the letter M in alphabetical order?"
+   }
+  }
+ },
+ {
+  "id": "a01x-C-X4",
+  "cond": "X4",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a wool scarf; leather boots; rubber rain boots; a silk tie; a baseball cap; wool mittens; a cotton t-shirt; a down jacket; sunglasses; sandals; a swimsuit; a wristwatch. A player asks this question about each card: \"Is it among the first six objects listed on the table?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'wool scarf' only: Is it among the first six objects listed on the table?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'leather boots' only: Is it among the first six objects listed on the table?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'rubber rain boots' only: Is it among the first six objects listed on the table?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'silk tie' only: Is it among the first six objects listed on the table?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'baseball cap' only: Is it among the first six objects listed on the table?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'wool mittens' only: Is it among the first six objects listed on the table?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cotton t-shirt' only: Is it among the first six objects listed on the table?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'down jacket' only: Is it among the first six objects listed on the table?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'sunglasses' only: Is it among the first six objects listed on the table?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'sandals' only: Is it among the first six objects listed on the table?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'swimsuit' only: Is it among the first six objects listed on the table?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'wristwatch' only: Is it among the first six objects listed on the table?"
+   }
+  }
+ },
+ {
+  "id": "a01x-C-X3",
+  "cond": "X3",
+  "state": "A table of object cards. Each card is a separate, ordinary object. Cards: a wool scarf; leather boots; rubber rain boots; a silk tie; a baseball cap; wool mittens; a cotton t-shirt; a down jacket; sunglasses; sandals; a swimsuit; a wristwatch. A player asks this question about each card: \"Is it a scarf, boots, rain boots, tie, cap or mittens?\"",
+  "questions": {
+   "c1": {
+    "type": "noul",
+    "instructions": "For the card 'wool scarf' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c2": {
+    "type": "noul",
+    "instructions": "For the card 'leather boots' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c3": {
+    "type": "noul",
+    "instructions": "For the card 'rubber rain boots' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c4": {
+    "type": "noul",
+    "instructions": "For the card 'silk tie' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c5": {
+    "type": "noul",
+    "instructions": "For the card 'baseball cap' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c6": {
+    "type": "noul",
+    "instructions": "For the card 'wool mittens' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c7": {
+    "type": "noul",
+    "instructions": "For the card 'cotton t-shirt' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c8": {
+    "type": "noul",
+    "instructions": "For the card 'down jacket' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c9": {
+    "type": "noul",
+    "instructions": "For the card 'sunglasses' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c10": {
+    "type": "noul",
+    "instructions": "For the card 'sandals' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c11": {
+    "type": "noul",
+    "instructions": "For the card 'swimsuit' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   },
+   "c12": {
+    "type": "noul",
+    "instructions": "For the card 'wristwatch' only: Is it a scarf, boots, rain boots, tie, cap or mittens?"
+   }
+  }
+ }
+]

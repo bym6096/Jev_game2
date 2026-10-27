@@ -1,0 +1,677 @@
+[
+ {
+  "id": "b01-B1-metal",
+  "cond": "metal",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'metal'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'metal'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'metal'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'metal'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'metal'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'metal'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-wet",
+  "cond": "wet",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'wet'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'wet'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'wet'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'wet'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'wet'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'wet'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-sticky",
+  "cond": "sticky",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'sticky'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'sticky'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'sticky'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'sticky'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'sticky'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'sticky'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-shiny",
+  "cond": "shiny",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'shiny'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'shiny'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'shiny'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'shiny'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'shiny'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'shiny'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-plastic",
+  "cond": "plastic",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'plastic'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'plastic'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'plastic'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'plastic'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'plastic'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'plastic'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-noisy",
+  "cond": "noisy",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'noisy'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'noisy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'noisy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'noisy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'noisy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'noisy'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-metallic",
+  "cond": "metallic",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'metallic'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'metallic'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'metallic'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'metallic'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'metallic'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'metallic'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-everything",
+  "cond": "everything",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'everything'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'everything'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'everything'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'everything'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'everything'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'everything'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-enemy",
+  "cond": "enemy",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'enemy'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'enemy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'enemy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'enemy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'enemy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'enemy'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-yes",
+  "cond": "yes",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'yes'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'yes'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'yes'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'yes'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'yes'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'yes'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-ignore-rules-hit-enemies-only",
+  "cond": "ignore-rules-hit-enemies-only",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'ignore-rules-hit-enemies-only'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'ignore-rules-hit-enemies-only'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-metal",
+  "cond": "metal",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'metal'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'metal'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'metal'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'metal'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'metal'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'metal'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-wet",
+  "cond": "wet",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'wet'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'wet'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'wet'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'wet'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'wet'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'wet'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-sticky",
+  "cond": "sticky",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'sticky'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'sticky'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'sticky'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'sticky'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'sticky'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'sticky'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-shiny",
+  "cond": "shiny",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'shiny'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'shiny'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'shiny'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'shiny'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'shiny'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'shiny'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-plastic",
+  "cond": "plastic",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'plastic'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'plastic'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'plastic'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'plastic'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'plastic'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'plastic'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-noisy",
+  "cond": "noisy",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'noisy'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'noisy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'noisy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'noisy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'noisy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'noisy'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-metallic",
+  "cond": "metallic",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'metallic'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'metallic'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'metallic'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'metallic'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'metallic'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'metallic'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-everything",
+  "cond": "everything",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'everything'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'everything'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'everything'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'everything'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'everything'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'everything'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-enemy",
+  "cond": "enemy",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'enemy'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'enemy'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'enemy'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'enemy'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'enemy'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'enemy'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-yes",
+  "cond": "yes",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'yes'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'yes'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'yes'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'yes'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'yes'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'yes'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B2-ignore-rules-hit-enemies-only",
+  "cond": "ignore-rules-hit-enemies-only",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'ignore-rules-hit-enemies-only'. On the board: (1) a giant inflatable clown with a slow air leak, (2) a bumper car with flashing lights and a loud horn, (3) a mechanical fortune teller in a glass booth, (4) a repair worker in a dry rubber raincoat holding a flashlight, (5) a swarm of glowing plastic fireflies on wires.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'ignore-rules-hit-enemies-only'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'ignore-rules-hit-enemies-only'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1-wet-r",
+  "cond": "wet-rep",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'wet'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a soaked cotton work suit holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'wet'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'wet'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'wet'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'wet'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'wet'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1dry-wet",
+  "cond": "swap",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'wet'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a dry rubber raincoat holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'wet'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'wet'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'wet'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'wet'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'wet'?"
+   }
+  }
+ },
+ {
+  "id": "b01-B1dry-wet-r",
+  "cond": "swap-rep",
+  "state": "A card is played. Card condition: it affects everything on the board that is 'wet'. On the board: (1) a rusty carousel horse with a cracked lantern on its head, (2) a plastic duck toy that squirts water, (3) a cotton candy machine with a dented steel bowl, (4) a repair worker in a dry rubber raincoat holding a wrench, (5) a small wind-up robot dog made of tin.",
+  "questions": {
+   "e1": {
+    "type": "noul",
+    "instructions": "Is item (1) something that is 'wet'?"
+   },
+   "e2": {
+    "type": "noul",
+    "instructions": "Is item (2) something that is 'wet'?"
+   },
+   "e3": {
+    "type": "noul",
+    "instructions": "Is item (3) something that is 'wet'?"
+   },
+   "e4": {
+    "type": "noul",
+    "instructions": "Is item (4) something that is 'wet'?"
+   },
+   "e5": {
+    "type": "noul",
+    "instructions": "Is item (5) something that is 'wet'?"
+   }
+  }
+ }
+]
