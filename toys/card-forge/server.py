@@ -24,9 +24,10 @@ class H(BaseHTTPRequestHandler):
         if self.path != "/forge":
             return self._send(404, {"error": "not found"})
         n = int(self.headers.get("Content-Length", 0))
-        name = json.loads(self.rfile.read(n) or b"{}").get("name", "").strip()[:24]
-        if not name:
-            return self._send(400, {"error": "이름을 적어 주세요"})
+        name = json.loads(self.rfile.read(n) or b"{}").get("name", "").strip()
+        lang, err = forge.check_name(name)
+        if err:
+            return self._send(400, {"error": err})
         if name in CACHE:  # same name -> same card
             return self._send(200, CACHE[name])
         try:

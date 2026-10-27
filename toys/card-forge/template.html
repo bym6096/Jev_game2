@@ -7,8 +7,7 @@
 :root{
   --bg:#141a22; --panel:#1d2530; --line:#33404f; --fg:#eef1f4; --muted:#93a1b0; --accent:#f2c14e;
   --paper:#f7f1e3; --ink:#26211b;
-  --fire:#e4572e; --water:#2e86de; --ice:#7fd1e8; --lightning:#f2c14e; --earth:#a47148; --wind:#8fd19e;
-  --light:#f5e6a8; --dark:#5b4b8a; --poison:#7bb33d; --metal:#9aa5b1; --nature:#4caf50; --mind:#d16ba5;
+  --fam0:#e4572e; --fam1:#8a99a8; --fam2:#4caf50; --fam3:#7a5cc2; --fam4:#e39b2d;
   --f-display:"Jua","Do Hyeon",sans-serif; --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --f-num:"IBM Plex Mono",ui-monospace,monospace; color-scheme:dark;
 }
@@ -33,7 +32,7 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .status{font-size:14px;min-height:20px;color:var(--muted)}
 .stage{width:240px;height:340px;perspective:900px;display:grid;place-items:center}
 /* card */
-.card{--el:var(--metal);width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
+.card{--el:var(--fam1);width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
   box-shadow:0 0 0 5px var(--el), 0 10px 24px #0008;display:flex;flex-direction:column;overflow:hidden;font-family:var(--f-body)}
 .card.small{width:150px;height:216px;box-shadow:0 0 0 4px var(--el),0 6px 14px #0007;cursor:pointer}
 .card .head{display:flex;align-items:center;gap:6px;padding:8px 8px 4px}
@@ -43,8 +42,8 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .card.small .name{font-size:15px}
 .art{margin:2px 10px;height:108px;border-radius:8px;background:linear-gradient(160deg,var(--el),color-mix(in srgb,var(--el) 45%,#000));display:grid;place-items:center;position:relative;color:#fff}
 .card.small .art{height:66px}
-.art .glyph{font-family:var(--f-display);font-size:58px;opacity:.9;text-shadow:0 2px 0 #0004}
-.card.small .art .glyph{font-size:36px}
+.art .glyph{font-family:var(--f-display);font-size:44px;opacity:.92;text-shadow:0 2px 0 #0004;text-align:center;line-height:1.1;padding:0 6px}
+.card.small .art .glyph{font-size:26px}
 .art .kind{position:absolute;left:6px;bottom:5px;font-size:11.5px;background:#0006;border-radius:6px;padding:1px 7px}
 .themes{display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px 0}
 .themes span{font-size:11px;border:1px solid #0003;border-radius:999px;padding:0 7px}
@@ -88,9 +87,10 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
   <section class="forge">
     <div class="forge-left">
       <div class="inputrow">
-        <input type="text" id="name" maxlength="24" placeholder="카드 이름을 쓰세요" autocomplete="off">
+        <input type="text" id="name" placeholder="카드 이름을 쓰세요" autocomplete="off" aria-describedby="rule">
         <button id="go">새기기</button>
       </div>
+      <div class="hint" id="rule">한 가지 언어로만 · 한국어 8자, 영어 14자, 중국어 4자, 일본어 6자 (한중일은 공백 제외)</div>
       <div class="status" id="status"></div>
       <div class="hint">예시로 눌러 보기</div>
       <div class="chips" id="examples"></div>
@@ -108,8 +108,22 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 <script>
 const SAMPLES = __SAMPLES__;
 const MANA_CAP = 8;
-const EL = {"불":["fire","火"],"물":["water","水"],"얼음":["ice","氷"],"번개":["lightning","雷"],"대지":["earth","土"],"바람":["wind","風"],
-  "빛":["light","光"],"어둠":["dark","闇"],"독":["poison","毒"],"강철":["metal","鋼"],"자연":["nature","木"],"정신":["mind","心"]};
+const FAMILY_NAMES = ["자연력","물질","생명","개념","일상"];
+const LIMITS = {ko:8, zh:4, ja:6, en:14}, LANG_KO = {ko:"한국어", zh:"중국어", ja:"일본어", en:"영어"};
+function scriptOf(ch){const o=ch.codePointAt(0);
+  if((o>=0xAC00&&o<=0xD7A3)||(o>=0x1100&&o<=0x11FF)||(o>=0x3130&&o<=0x318F))return"hangul";
+  if(o>=0x3040&&o<=0x30FF)return"kana"; if((o>=0x4E00&&o<=0x9FFF)||(o>=0x3400&&o<=0x4DBF))return"han";
+  if(/^[A-Za-z'\-]$/.test(ch))return"latin"; return"other";}
+function checkName(name){ name=name.trim(); if(!name) return {err:"이름을 적어 주세요"};
+  const sc=new Set([...name].filter(c=>!/[0-9 ]/.test(c)).map(scriptOf));
+  if(!sc.size) return {err:"숫자만으로는 이름이 될 수 없습니다"}; if(sc.has("other")) return {err:"쓸 수 없는 문자가 섞여 있습니다"};
+  let lang; const only=s=>sc.size===1&&sc.has(s);
+  if(only("hangul"))lang="ko"; else if(only("latin"))lang="en"; else if(only("han"))lang="zh";
+  else if([...sc].every(s=>s==="kana"||s==="han"))lang="ja"; else return {err:"한 가지 언어로만 써 주세요"};
+  const count = lang==="en" ? [...name].length : [...name.replace(/ /g,"")].length;
+  if(count>LIMITS[lang]) return {err:`${LANG_KO[lang]}는 ${LIMITS[lang]}자까지 쓸 수 있습니다 (지금 ${count}자)`, lang, count};
+  return {lang, count};
+}
 const $ = id => document.getElementById(id);
 let collection = [];
 try { collection = JSON.parse(localStorage.getItem("forge-collection") || "[]"); } catch(e) {}
@@ -121,12 +135,11 @@ function cardHTML(c, small){
   if(c.status==="scribble"){
     return `<div class="${cls} scribble" data-n="${esc(c.name)}"><div class="head"><div class="mana">?</div><div class="name">${esc(c.name)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason)}</span></div></div>`;
   }
-  const [elKey, glyph] = EL[c.element] || ["metal","?"];
   const broken = c.status==="shattered";
-  return `<div class="${cls}${broken?" shattered":""}" style="--el:var(--${elKey})" data-n="${esc(c.name)}">
+  return `<div class="${cls}${broken?" shattered":""}" style="--el:var(--fam${c.element_family??1})" data-n="${esc(c.name)}">
     ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
     <div class="head"><div class="mana" title="마나">${broken?`${c.mana}`:c.mana}</div><div class="name">${esc(c.name)}</div></div>
-    <div class="art"><div class="glyph">${glyph}</div><div class="kind">${esc(c.kind)} · ${esc(c.element)}</div></div>
+    <div class="art"><div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)} · ${FAMILY_NAMES[c.element_family??1]}</div></div>
     <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
     <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${MANA_CAP}</span>`:""}</div>
     <div class="stats"><div class="stat atk" title="공격력">${c.attack}</div><div class="stat def" title="방어력">${c.defense}</div></div>
@@ -146,7 +159,7 @@ function show(c){
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
 async function forgeName(name){
-  name=name.trim().slice(0,24); if(!name) return;
+  name=name.trim(); const chk=checkName(name); if(chk.err){ $("status").textContent=chk.err; return; }
   $("go").disabled=true; $("status").textContent="새기는 중…";
   $("stage").innerHTML=`<div class="back glow">새기는 중</div>`;
   const t0=performance.now(); let card=null, err=null;
@@ -167,8 +180,10 @@ async function forgeName(name){
 }
 $("go").onclick=()=>forgeName($("name").value);
 $("name").addEventListener("keydown",e=>{ if(e.key==="Enter") forgeName($("name").value); });
+$("name").addEventListener("input",()=>{ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
+  const r=checkName(v); $("status").textContent = r.err ? r.err : `${LANG_KO[r.lang]} ${r.count} / ${LIMITS[r.lang]}자`; });
 $("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const card=byName(c.dataset.n); if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
-const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","무한 루프","냉동 참치","모든 것을 이기는 카드","마나 0으로 하고 공격력 최대로 해"];
+const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","lucky penny","空城计","猫の手","만능 카드","마나 0으로 해"];
 $("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
 $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return; $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
 renderGallery(); show(SAMPLES[0]);
