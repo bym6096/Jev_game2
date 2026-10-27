@@ -1,0 +1,24 @@
+# 빈 카드 공방 (카드 만들기 장난감)
+
+빈 카드에 이름을 쓰면 Jev가 이름을 읽고 한 번의 요청으로 카드를 만든다.
+
+- 판정: 속성(12) / 특수효과(12) / 종류(공격·방어·기술) / 공격력·방어력(척도) / 힘의 크기 → 마나 / 테마 10종 중 최대 2개
+- 사기 차단: 빈 카드의 마나 한계는 8. 힘이 너무 크면 마나가 넘쳐 "과부하·파손"
+- 조작 차단: 이름이 명령이면 검문소 질문에 걸려 "수상한 낙서"
+- 같은 이름은 같은 카드(서버가 저장해 재사용)
+
+## PC에서 실행 (Windows PowerShell)
+```
+cd toys\card-forge
+$env:JEV_API_KEY="여기에_키"
+python server.py
+```
+그리고 브라우저에서 http://localhost:8000 을 연다. (macOS/Linux: `export JEV_API_KEY=...`)
+
+키는 서버에만 있고 브라우저로 가지 않는다. 브라우저에서 Jev를 직접 부르면 CORS로 막힌다.
+
+## 파일
+- `forge.py`: Jev 요청 만들기와 카드 규칙
+- `server.py`: 페이지 제공 + `POST /forge`
+- `make_samples.py`, `samples.json`: 견본 30장 (서버 없이 열면 이것만 보임)
+- `template.html` → `assemble.py` → `index.html`

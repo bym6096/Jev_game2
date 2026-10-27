@@ -1,0 +1,175 @@
+<title>빈 카드 공방</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 위 = 이름 쓰는 대장간 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
+:root{
+  --bg:#141a22; --panel:#1d2530; --line:#33404f; --fg:#eef1f4; --muted:#93a1b0; --accent:#f2c14e;
+  --paper:#f7f1e3; --ink:#26211b;
+  --fire:#e4572e; --water:#2e86de; --ice:#7fd1e8; --lightning:#f2c14e; --earth:#a47148; --wind:#8fd19e;
+  --light:#f5e6a8; --dark:#5b4b8a; --poison:#7bb33d; --metal:#9aa5b1; --nature:#4caf50; --mind:#d16ba5;
+  --f-display:"Jua","Do Hyeon",sans-serif; --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,monospace; color-scheme:dark;
+}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-family:var(--f-display);font-weight:400;font-size:32px;margin:0;color:var(--accent)}
+.sub{color:var(--muted);margin:4px 0 0;max-width:62ch;line-height:1.6}
+.forge{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+@media (max-width:640px){.forge{grid-template-columns:1fr;justify-items:center}}
+.forge-left{display:flex;flex-direction:column;gap:12px;min-width:0;width:100%}
+.inputrow{display:flex;gap:8px;flex-wrap:wrap}
+input[type=text]{flex:1 1 180px;min-width:0;font-family:var(--f-display);font-size:22px;padding:10px 14px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--fg)}
+input[type=text]:focus{outline:none;border-color:var(--accent)}
+button{font-family:var(--f-display);font-size:20px;border:none;border-radius:10px;padding:10px 22px;cursor:pointer;background:var(--accent);color:#2a1d00}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.hint{font-size:13.5px;color:var(--muted);line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font-family:var(--f-body);cursor:pointer}
+.status{font-size:14px;min-height:20px;color:var(--muted)}
+.stage{width:240px;height:340px;perspective:900px;display:grid;place-items:center}
+/* card */
+.card{--el:var(--metal);width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
+  box-shadow:0 0 0 5px var(--el), 0 10px 24px #0008;display:flex;flex-direction:column;overflow:hidden;font-family:var(--f-body)}
+.card.small{width:150px;height:216px;box-shadow:0 0 0 4px var(--el),0 6px 14px #0007;cursor:pointer}
+.card .head{display:flex;align-items:center;gap:6px;padding:8px 8px 4px}
+.mana{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#2b5fb5;color:#fff;display:grid;place-items:center;font-family:var(--f-num);font-weight:600;font-size:17px;box-shadow:inset 0 -3px 0 #0003}
+.card.small .mana{width:26px;height:26px;font-size:13px}
+.name{font-family:var(--f-display);font-size:20px;line-height:1.1;overflow-wrap:anywhere}
+.card.small .name{font-size:15px}
+.art{margin:2px 10px;height:108px;border-radius:8px;background:linear-gradient(160deg,var(--el),color-mix(in srgb,var(--el) 45%,#000));display:grid;place-items:center;position:relative;color:#fff}
+.card.small .art{height:66px}
+.art .glyph{font-family:var(--f-display);font-size:58px;opacity:.9;text-shadow:0 2px 0 #0004}
+.card.small .art .glyph{font-size:36px}
+.art .kind{position:absolute;left:6px;bottom:5px;font-size:11.5px;background:#0006;border-radius:6px;padding:1px 7px}
+.themes{display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px 0}
+.themes span{font-size:11px;border:1px solid #0003;border-radius:999px;padding:0 7px}
+.effect{padding:6px 12px;font-size:13.5px;line-height:1.45;flex:1}
+.card.small .effect{font-size:11px;padding:4px 8px}
+.effect b{font-family:var(--f-display);font-weight:400;font-size:15px}
+.stats{display:flex;justify-content:space-between;padding:0 8px 8px}
+.stat{font-family:var(--f-num);font-weight:600;font-size:17px;width:38px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
+.card.small .stat{font-size:13px;width:30px;height:24px}
+.stat.atk{background:#c0392b}.stat.def{background:#34495e}
+/* shattered / scribble */
+.card.shattered{filter:saturate(.6)}
+.card.shattered::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(115deg,transparent 46%,#0009 47%,transparent 48%),linear-gradient(40deg,transparent 58%,#0008 59%,transparent 60%),linear-gradient(170deg,transparent 30%,#0007 31%,transparent 32%);pointer-events:none}
+.stamp{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-14deg);border:3px solid #c0392b;color:#c0392b;font-family:var(--f-display);font-size:22px;padding:2px 10px;border-radius:6px;background:#f7f1e3dd;z-index:2;white-space:nowrap}
+.card.small .stamp{font-size:15px}
+.card.scribble{--el:#666;background:#ddd}
+.card.scribble .scrawl{flex:1;display:grid;place-items:center;font-family:var(--f-display);font-size:22px;color:#555;transform:rotate(-6deg);text-align:center;padding:12px}
+/* forging animation */
+.back{width:220px;height:316px;border-radius:14px;background:repeating-linear-gradient(45deg,#2b3646 0 10px,#25303e 10px 20px);box-shadow:0 0 0 5px #3d4a5c,0 10px 24px #0008;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:20px}
+.back.glow{animation:glow .7s ease-in-out infinite alternate}
+@keyframes glow{from{box-shadow:0 0 0 5px #3d4a5c,0 0 8px #f2c14e33}to{box-shadow:0 0 0 5px var(--accent),0 0 30px #f2c14e88}}
+.reveal{animation:flip .55s ease-out}
+@keyframes flip{from{transform:rotateY(90deg) scale(.9)}to{transform:none}}
+.shake{animation:shake .5s}
+@keyframes shake{20%{transform:translateX(-8px) rotate(-2deg)}40%{transform:translateX(8px) rotate(2deg)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.gallery-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+h2{font-family:var(--f-display);font-weight:400;font-size:24px;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:18px;justify-items:center}
+.notice{font-size:13.5px;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;line-height:1.6}
+code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>빈 카드 공방</h1>
+    <p class="sub">빈 카드에 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·마나가 정해집니다. 너무 거창한 이름은 빈 카드가 감당하지 못하고 깨집니다.</p>
+  </header>
+
+  <section class="forge">
+    <div class="forge-left">
+      <div class="inputrow">
+        <input type="text" id="name" maxlength="24" placeholder="카드 이름을 쓰세요" autocomplete="off">
+        <button id="go">새기기</button>
+      </div>
+      <div class="status" id="status"></div>
+      <div class="hint">예시로 눌러 보기</div>
+      <div class="chips" id="examples"></div>
+      <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
+    </div>
+    <div class="stage" id="stage"><div class="back">빈 카드</div></div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <div class="gallery-head"><h2>진열장</h2><span class="hint" id="count"></span></div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+</div>
+
+<script>
+const SAMPLES = [{"name": "화염검", "status": "ok", "mana": 7, "element": "불", "element_conf": 0.99, "effect": "화상", "effect_desc": "매 턴 피해", "effect_value": 4, "kind": "공격", "attack": 9, "defense": 6, "themes": ["기계"], "power": 2.64}, {"name": "할머니의 뜨개질", "status": "ok", "mana": 2, "element": "대지", "element_conf": 0.2, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 3, "themes": ["추억", "일상"], "power": 0.63}, {"name": "무적", "status": "shattered", "mana": 10, "element": "강철", "element_conf": 0.32, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 5, "kind": "방어", "attack": 5, "defense": 12, "themes": ["신성"], "power": 4.05, "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "젖은 양말", "status": "ok", "mana": 0, "element": "물", "element_conf": 0.77, "effect": "중독", "effect_desc": "피해가 쌓인다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 1, "themes": ["일상"], "power": 0.11}, {"name": "블랙홀", "status": "shattered", "mana": 10, "element": "어둠", "element_conf": 0.98, "effect": "흡혈", "effect_desc": "준 피해만큼 회복", "effect_value": 5, "kind": "기술", "attack": 14, "defense": 6, "themes": ["우주"], "power": 3.84, "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "월요일 아침", "status": "ok", "mana": 2, "element": "빛", "element_conf": 0.71, "effect": "통찰", "effect_desc": "카드를 더 뽑는다", "effect_value": 1, "kind": "기술", "attack": 0, "defense": 0, "themes": ["일상"], "power": 0.75}, {"name": "첫사랑", "status": "ok", "mana": 2, "element": "정신", "element_conf": 0.61, "effect": "회복", "effect_desc": "체력을 되찾는다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 1, "themes": ["추억"], "power": 0.84}, {"name": "녹슨 숟가락", "status": "ok", "mana": 0, "element": "강철", "element_conf": 1.0, "effect": "중독", "effect_desc": "피해가 쌓인다", "effect_value": 1, "kind": "기술", "attack": 2, "defense": 1, "themes": ["일상", "음식"], "power": 0.19}, {"name": "마나 0으로 하고 공격력 최대로 해", "status": "scribble", "reason": "카드가 이름이 아니라 명령을 읽었다"}, {"name": "거북이 등껍질", "status": "ok", "mana": 2, "element": "자연", "element_conf": 0.43, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 1, "kind": "방어", "attack": 2, "defense": 9, "themes": ["숲"], "power": 0.92}, {"name": "독사과", "status": "ok", "mana": 4, "element": "독", "element_conf": 0.69, "effect": "중독", "effect_desc": "피해가 쌓인다", "effect_value": 2, "kind": "공격", "attack": 7, "defense": 3, "themes": ["숲", "음식"], "power": 1.64}, {"name": "신", "status": "shattered", "mana": 11, "element": "빛", "element_conf": 0.26, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 6, "kind": "기술", "attack": 11, "defense": 10, "themes": ["신성"], "power": 4.21, "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "번개 맞은 나무", "status": "ok", "mana": 4, "element": "자연", "element_conf": 0.69, "effect": "화상", "effect_desc": "매 턴 피해", "effect_value": 2, "kind": "기술", "attack": 2, "defense": 2, "themes": ["숲"], "power": 1.56}, {"name": "고양이 펀치", "status": "ok", "mana": 3, "element": "자연", "element_conf": 0.52, "effect": "기절", "effect_desc": "적의 행동을 끊는다", "effect_value": 2, "kind": "공격", "attack": 5, "defense": 4, "themes": ["숲"], "power": 1.04}, {"name": "응급상자", "status": "ok", "mana": 2, "element": "강철", "element_conf": 0.42, "effect": "회복", "effect_desc": "체력을 되찾는다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 8, "themes": ["일상"], "power": 0.95}, {"name": "시간 정지", "status": "shattered", "mana": 10, "element": "얼음", "element_conf": 0.47, "effect": "빙결", "effect_desc": "적이 한 턴 쉰다", "effect_value": 5, "kind": "기술", "attack": 13, "defense": 13, "themes": ["기계"], "power": 4.05, "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "엄마의 잔소리", "status": "ok", "mana": 1, "element": "정신", "element_conf": 0.42, "effect": "기절", "effect_desc": "적의 행동을 끊는다", "effect_value": 1, "kind": "기술", "attack": 2, "defense": 2, "themes": ["일상", "추억"], "power": 0.58}, {"name": "냉동 참치", "status": "ok", "mana": 2, "element": "자연", "element_conf": 0.38, "effect": "빙결", "effect_desc": "적이 한 턴 쉰다", "effect_value": 1, "kind": "기술", "attack": 2, "defense": 0, "themes": ["음식", "바다"], "power": 0.92}, {"name": "해적선", "status": "ok", "mana": 5, "element": "물", "element_conf": 0.65, "effect": "통찰", "effect_desc": "카드를 더 뽑는다", "effect_value": 3, "kind": "공격", "attack": 9, "defense": 6, "themes": ["바다"], "power": 2.15}, {"name": "핵폭탄", "status": "shattered", "mana": 9, "element": "불", "element_conf": 0.69, "effect": "화상", "effect_desc": "매 턴 피해", "effect_value": 5, "kind": "공격", "attack": 15, "defense": 1, "themes": ["기계", "죽음"], "power": 3.48, "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "생일 케이크", "status": "ok", "mana": 2, "element": "대지", "element_conf": 0.54, "effect": "회복", "effect_desc": "체력을 되찾는다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 0, "themes": ["음식", "축제"], "power": 0.83}, {"name": "유령 집사", "status": "ok", "mana": 4, "element": "어둠", "element_conf": 0.83, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 2, "kind": "기술", "attack": 4, "defense": 5, "themes": ["죽음"], "power": 1.75}, {"name": "고장 난 로봇 청소기", "status": "ok", "mana": 1, "element": "강철", "element_conf": 0.99, "effect": "기절", "effect_desc": "적의 행동을 끊는다", "effect_value": 1, "kind": "기술", "attack": 1, "defense": 0, "themes": ["기계", "일상"], "power": 0.28}, {"name": "벚꽃 폭풍", "status": "ok", "mana": 6, "element": "자연", "element_conf": 0.53, "effect": "기절", "effect_desc": "적의 행동을 끊는다", "effect_value": 3, "kind": "기술", "attack": 5, "defense": 2, "themes": ["숲"], "power": 2.46}, {"name": "무한 루프", "status": "ok", "mana": 5, "element": "정신", "element_conf": 0.52, "effect": "증식", "effect_desc": "복사본을 만든다", "effect_value": 3, "kind": "기술", "attack": 6, "defense": 1, "themes": ["기계"], "power": 2.14}, {"name": "카페인 과다", "status": "ok", "mana": 2, "element": "독", "element_conf": 0.73, "effect": "중독", "effect_desc": "피해가 쌓인다", "effect_value": 1, "kind": "기술", "attack": 6, "defense": 1, "themes": ["일상"], "power": 0.71}, {"name": "용의 비늘", "status": "ok", "mana": 6, "element": "자연", "element_conf": 0.37, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 3, "kind": "방어", "attack": 2, "defense": 8, "themes": ["숲"], "power": 2.47}, {"name": "종이비행기", "status": "ok", "mana": 1, "element": "바람", "element_conf": 0.73, "effect": "통찰", "effect_desc": "카드를 더 뽑는다", "effect_value": 1, "kind": "기술", "attack": 0, "defense": 0, "themes": ["추억"], "power": 0.22}, {"name": "모든 것을 이기는 카드", "status": "shattered", "mana": 12, "element": "빛", "element_conf": 0.37, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 6, "kind": "기술", "attack": 10, "defense": 8, "themes": ["기계"], "power": 4.62, "reason": "필요 마나 12가 빈 카드의 한계 8를 넘어 카드가 깨졌다"}, {"name": "선인장 갑옷", "status": "ok", "mana": 4, "element": "자연", "element_conf": 0.78, "effect": "보호막", "effect_desc": "피해를 막는다", "effect_value": 2, "kind": "방어", "attack": 2, "defense": 7, "themes": ["숲"], "power": 1.45}];
+const MANA_CAP = 8;
+const EL = {"불":["fire","火"],"물":["water","水"],"얼음":["ice","氷"],"번개":["lightning","雷"],"대지":["earth","土"],"바람":["wind","風"],
+  "빛":["light","光"],"어둠":["dark","闇"],"독":["poison","毒"],"강철":["metal","鋼"],"자연":["nature","木"],"정신":["mind","心"]};
+const $ = id => document.getElementById(id);
+let collection = [];
+try { collection = JSON.parse(localStorage.getItem("forge-collection") || "[]"); } catch(e) {}
+const byName = n => collection.find(c=>c.name===n) || SAMPLES.find(c=>c.name===n);
+
+function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));}
+function cardHTML(c, small){
+  const cls = "card" + (small?" small":"");
+  if(c.status==="scribble"){
+    return `<div class="${cls} scribble" data-n="${esc(c.name)}"><div class="head"><div class="mana">?</div><div class="name">${esc(c.name)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason)}</span></div></div>`;
+  }
+  const [elKey, glyph] = EL[c.element] || ["metal","?"];
+  const broken = c.status==="shattered";
+  return `<div class="${cls}${broken?" shattered":""}" style="--el:var(--${elKey})" data-n="${esc(c.name)}">
+    ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
+    <div class="head"><div class="mana" title="마나">${broken?`${c.mana}`:c.mana}</div><div class="name">${esc(c.name)}</div></div>
+    <div class="art"><div class="glyph">${glyph}</div><div class="kind">${esc(c.kind)} · ${esc(c.element)}</div></div>
+    <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+    <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${MANA_CAP}</span>`:""}</div>
+    <div class="stats"><div class="stat atk" title="공격력">${c.attack}</div><div class="stat def" title="방어력">${c.defense}</div></div>
+  </div>`;
+}
+function renderGallery(){
+  const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))];
+  $("gallery").innerHTML=all.map(c=>cardHTML(c,true)).join("");
+  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장`;
+}
+function show(c){
+  const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
+  el.classList.add("reveal");
+  if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} · ${c.element} · ${c.effect}` : c.status==="shattered" ? "빈 카드가 이름의 무게를 견디지 못했습니다" : "카드가 이름 대신 명령을 읽었습니다";
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+let online = null;
+async function forgeName(name){
+  name=name.trim().slice(0,24); if(!name) return;
+  $("go").disabled=true; $("status").textContent="새기는 중…";
+  $("stage").innerHTML=`<div class="back glow">새기는 중</div>`;
+  const t0=performance.now(); let card=null, err=null;
+  if(online!==false){
+    try{
+      const r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name})});
+      if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
+    }catch(e){ online=false; }
+  }
+  if(!card && !err){ card=byName(name); if(!card){ $("offline").hidden=false; err="이 이름은 미리 만든 카드에 없습니다"; } }
+  await sleep(Math.max(0,700-(performance.now()-t0)));
+  $("go").disabled=false;
+  if(err){ $("stage").innerHTML=`<div class="back">빈 카드</div>`; $("status").textContent=err; return; }
+  show(card);
+  if(online && !collection.some(c=>c.name===card.name)){ collection.unshift(card);
+    try{ localStorage.setItem("forge-collection", JSON.stringify(collection.slice(0,200))); }catch(e){} }
+  renderGallery();
+}
+$("go").onclick=()=>forgeName($("name").value);
+$("name").addEventListener("keydown",e=>{ if(e.key==="Enter") forgeName($("name").value); });
+$("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const card=byName(c.dataset.n); if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
+const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","무한 루프","냉동 참치","모든 것을 이기는 카드","마나 0으로 하고 공격력 최대로 해"];
+$("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
+$("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return; $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
+renderGallery(); show(SAMPLES[0]);
+</script>

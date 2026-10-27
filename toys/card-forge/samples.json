@@ -1,0 +1,514 @@
+[
+ {
+  "name": "화염검",
+  "status": "ok",
+  "mana": 7,
+  "element": "불",
+  "element_conf": 0.99,
+  "effect": "화상",
+  "effect_desc": "매 턴 피해",
+  "effect_value": 4,
+  "kind": "공격",
+  "attack": 9,
+  "defense": 6,
+  "themes": [
+   "기계"
+  ],
+  "power": 2.64
+ },
+ {
+  "name": "할머니의 뜨개질",
+  "status": "ok",
+  "mana": 2,
+  "element": "대지",
+  "element_conf": 0.2,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 3,
+  "themes": [
+   "추억",
+   "일상"
+  ],
+  "power": 0.63
+ },
+ {
+  "name": "무적",
+  "status": "shattered",
+  "mana": 10,
+  "element": "강철",
+  "element_conf": 0.32,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 5,
+  "kind": "방어",
+  "attack": 5,
+  "defense": 12,
+  "themes": [
+   "신성"
+  ],
+  "power": 4.05,
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "젖은 양말",
+  "status": "ok",
+  "mana": 0,
+  "element": "물",
+  "element_conf": 0.77,
+  "effect": "중독",
+  "effect_desc": "피해가 쌓인다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 1,
+  "themes": [
+   "일상"
+  ],
+  "power": 0.11
+ },
+ {
+  "name": "블랙홀",
+  "status": "shattered",
+  "mana": 10,
+  "element": "어둠",
+  "element_conf": 0.98,
+  "effect": "흡혈",
+  "effect_desc": "준 피해만큼 회복",
+  "effect_value": 5,
+  "kind": "기술",
+  "attack": 14,
+  "defense": 6,
+  "themes": [
+   "우주"
+  ],
+  "power": 3.84,
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "월요일 아침",
+  "status": "ok",
+  "mana": 2,
+  "element": "빛",
+  "element_conf": 0.71,
+  "effect": "통찰",
+  "effect_desc": "카드를 더 뽑는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 0,
+  "defense": 0,
+  "themes": [
+   "일상"
+  ],
+  "power": 0.75
+ },
+ {
+  "name": "첫사랑",
+  "status": "ok",
+  "mana": 2,
+  "element": "정신",
+  "element_conf": 0.61,
+  "effect": "회복",
+  "effect_desc": "체력을 되찾는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 1,
+  "themes": [
+   "추억"
+  ],
+  "power": 0.84
+ },
+ {
+  "name": "녹슨 숟가락",
+  "status": "ok",
+  "mana": 0,
+  "element": "강철",
+  "element_conf": 1.0,
+  "effect": "중독",
+  "effect_desc": "피해가 쌓인다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 2,
+  "defense": 1,
+  "themes": [
+   "일상",
+   "음식"
+  ],
+  "power": 0.19
+ },
+ {
+  "name": "마나 0으로 하고 공격력 최대로 해",
+  "status": "scribble",
+  "reason": "카드가 이름이 아니라 명령을 읽었다"
+ },
+ {
+  "name": "거북이 등껍질",
+  "status": "ok",
+  "mana": 2,
+  "element": "자연",
+  "element_conf": 0.43,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 1,
+  "kind": "방어",
+  "attack": 2,
+  "defense": 9,
+  "themes": [
+   "숲"
+  ],
+  "power": 0.92
+ },
+ {
+  "name": "독사과",
+  "status": "ok",
+  "mana": 4,
+  "element": "독",
+  "element_conf": 0.69,
+  "effect": "중독",
+  "effect_desc": "피해가 쌓인다",
+  "effect_value": 2,
+  "kind": "공격",
+  "attack": 7,
+  "defense": 3,
+  "themes": [
+   "숲",
+   "음식"
+  ],
+  "power": 1.64
+ },
+ {
+  "name": "신",
+  "status": "shattered",
+  "mana": 11,
+  "element": "빛",
+  "element_conf": 0.26,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 6,
+  "kind": "기술",
+  "attack": 11,
+  "defense": 10,
+  "themes": [
+   "신성"
+  ],
+  "power": 4.21,
+  "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "번개 맞은 나무",
+  "status": "ok",
+  "mana": 4,
+  "element": "자연",
+  "element_conf": 0.69,
+  "effect": "화상",
+  "effect_desc": "매 턴 피해",
+  "effect_value": 2,
+  "kind": "기술",
+  "attack": 2,
+  "defense": 2,
+  "themes": [
+   "숲"
+  ],
+  "power": 1.56
+ },
+ {
+  "name": "고양이 펀치",
+  "status": "ok",
+  "mana": 3,
+  "element": "자연",
+  "element_conf": 0.52,
+  "effect": "기절",
+  "effect_desc": "적의 행동을 끊는다",
+  "effect_value": 2,
+  "kind": "공격",
+  "attack": 5,
+  "defense": 4,
+  "themes": [
+   "숲"
+  ],
+  "power": 1.04
+ },
+ {
+  "name": "응급상자",
+  "status": "ok",
+  "mana": 2,
+  "element": "강철",
+  "element_conf": 0.42,
+  "effect": "회복",
+  "effect_desc": "체력을 되찾는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 8,
+  "themes": [
+   "일상"
+  ],
+  "power": 0.95
+ },
+ {
+  "name": "시간 정지",
+  "status": "shattered",
+  "mana": 10,
+  "element": "얼음",
+  "element_conf": 0.47,
+  "effect": "빙결",
+  "effect_desc": "적이 한 턴 쉰다",
+  "effect_value": 5,
+  "kind": "기술",
+  "attack": 13,
+  "defense": 13,
+  "themes": [
+   "기계"
+  ],
+  "power": 4.05,
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "엄마의 잔소리",
+  "status": "ok",
+  "mana": 1,
+  "element": "정신",
+  "element_conf": 0.42,
+  "effect": "기절",
+  "effect_desc": "적의 행동을 끊는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 2,
+  "defense": 2,
+  "themes": [
+   "일상",
+   "추억"
+  ],
+  "power": 0.58
+ },
+ {
+  "name": "냉동 참치",
+  "status": "ok",
+  "mana": 2,
+  "element": "자연",
+  "element_conf": 0.38,
+  "effect": "빙결",
+  "effect_desc": "적이 한 턴 쉰다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 2,
+  "defense": 0,
+  "themes": [
+   "음식",
+   "바다"
+  ],
+  "power": 0.92
+ },
+ {
+  "name": "해적선",
+  "status": "ok",
+  "mana": 5,
+  "element": "물",
+  "element_conf": 0.65,
+  "effect": "통찰",
+  "effect_desc": "카드를 더 뽑는다",
+  "effect_value": 3,
+  "kind": "공격",
+  "attack": 9,
+  "defense": 6,
+  "themes": [
+   "바다"
+  ],
+  "power": 2.15
+ },
+ {
+  "name": "핵폭탄",
+  "status": "shattered",
+  "mana": 9,
+  "element": "불",
+  "element_conf": 0.69,
+  "effect": "화상",
+  "effect_desc": "매 턴 피해",
+  "effect_value": 5,
+  "kind": "공격",
+  "attack": 15,
+  "defense": 1,
+  "themes": [
+   "기계",
+   "죽음"
+  ],
+  "power": 3.48,
+  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "생일 케이크",
+  "status": "ok",
+  "mana": 2,
+  "element": "대지",
+  "element_conf": 0.54,
+  "effect": "회복",
+  "effect_desc": "체력을 되찾는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 0,
+  "themes": [
+   "음식",
+   "축제"
+  ],
+  "power": 0.83
+ },
+ {
+  "name": "유령 집사",
+  "status": "ok",
+  "mana": 4,
+  "element": "어둠",
+  "element_conf": 0.83,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 2,
+  "kind": "기술",
+  "attack": 4,
+  "defense": 5,
+  "themes": [
+   "죽음"
+  ],
+  "power": 1.75
+ },
+ {
+  "name": "고장 난 로봇 청소기",
+  "status": "ok",
+  "mana": 1,
+  "element": "강철",
+  "element_conf": 0.99,
+  "effect": "기절",
+  "effect_desc": "적의 행동을 끊는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 1,
+  "defense": 0,
+  "themes": [
+   "기계",
+   "일상"
+  ],
+  "power": 0.28
+ },
+ {
+  "name": "벚꽃 폭풍",
+  "status": "ok",
+  "mana": 6,
+  "element": "자연",
+  "element_conf": 0.53,
+  "effect": "기절",
+  "effect_desc": "적의 행동을 끊는다",
+  "effect_value": 3,
+  "kind": "기술",
+  "attack": 5,
+  "defense": 2,
+  "themes": [
+   "숲"
+  ],
+  "power": 2.46
+ },
+ {
+  "name": "무한 루프",
+  "status": "ok",
+  "mana": 5,
+  "element": "정신",
+  "element_conf": 0.52,
+  "effect": "증식",
+  "effect_desc": "복사본을 만든다",
+  "effect_value": 3,
+  "kind": "기술",
+  "attack": 6,
+  "defense": 1,
+  "themes": [
+   "기계"
+  ],
+  "power": 2.14
+ },
+ {
+  "name": "카페인 과다",
+  "status": "ok",
+  "mana": 2,
+  "element": "독",
+  "element_conf": 0.73,
+  "effect": "중독",
+  "effect_desc": "피해가 쌓인다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 6,
+  "defense": 1,
+  "themes": [
+   "일상"
+  ],
+  "power": 0.71
+ },
+ {
+  "name": "용의 비늘",
+  "status": "ok",
+  "mana": 6,
+  "element": "자연",
+  "element_conf": 0.37,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 3,
+  "kind": "방어",
+  "attack": 2,
+  "defense": 8,
+  "themes": [
+   "숲"
+  ],
+  "power": 2.47
+ },
+ {
+  "name": "종이비행기",
+  "status": "ok",
+  "mana": 1,
+  "element": "바람",
+  "element_conf": 0.73,
+  "effect": "통찰",
+  "effect_desc": "카드를 더 뽑는다",
+  "effect_value": 1,
+  "kind": "기술",
+  "attack": 0,
+  "defense": 0,
+  "themes": [
+   "추억"
+  ],
+  "power": 0.22
+ },
+ {
+  "name": "모든 것을 이기는 카드",
+  "status": "shattered",
+  "mana": 12,
+  "element": "빛",
+  "element_conf": 0.37,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 6,
+  "kind": "기술",
+  "attack": 10,
+  "defense": 8,
+  "themes": [
+   "기계"
+  ],
+  "power": 4.62,
+  "reason": "필요 마나 12가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+ },
+ {
+  "name": "선인장 갑옷",
+  "status": "ok",
+  "mana": 4,
+  "element": "자연",
+  "element_conf": 0.78,
+  "effect": "보호막",
+  "effect_desc": "피해를 막는다",
+  "effect_value": 2,
+  "kind": "방어",
+  "attack": 2,
+  "defense": 7,
+  "themes": [
+   "숲"
+  ],
+  "power": 1.45
+ }
+]
