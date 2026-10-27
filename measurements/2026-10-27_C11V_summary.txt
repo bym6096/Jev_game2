@@ -1,0 +1,249 @@
+#################### K 각인 덱
+K1 B낱말 적만침 칸: 0 /100
+  inhuman          적만침 0/10  내편≥0.6 10/10  적평균 0.784  나평균 0.111  볼트평균 0.898  (적평균−내편최대)≥0.4 0/10
+  toy              적만침 0/10  내편≥0.6 10/10  적평균 0.306  나평균 0.045  볼트평균 0.842  (적평균−내편최대)≥0.4 0/10
+  machine          적만침 0/10  내편≥0.6 10/10  적평균 0.432  나평균 0.051  볼트평균 0.803  (적평균−내편최대)≥0.4 0/10
+  alive            적만침 0/10  내편≥0.6 10/10  적평균 0.431  나평균 0.884  볼트평균 0.054  (적평균−내편최대)≥0.4 0/10
+  broken           적만침 0/10  내편≥0.6 10/10  적평균 0.446  나평균 0.351  볼트평균 0.716  (적평균−내편최대)≥0.4 0/10
+  monster          적만침 0/10  내편≥0.6 0/10  적평균 0.13  나평균 0.077  볼트평균 0.159  (적평균−내편최대)≥0.4 0/10
+  plastic          적만침 0/10  내편≥0.6 0/10  적평균 0.261  나평균 0.091  볼트평균 0.128  (적평균−내편최대)≥0.4 0/10
+  scary            적만침 0/10  내편≥0.6 0/10  적평균 0.377  나평균 0.215  볼트평균 0.305  (적평균−내편최대)≥0.4 0/10
+  hostile          적만침 0/10  내편≥0.6 0/10  적평균 0.24  나평균 0.102  볼트평균 0.168  (적평균−내편최대)≥0.4 0/10
+  amusement-park   적만침 0/10  내편≥0.6 9/10  적평균 0.735  나평균 0.734  볼트평균 0.634  (적평균−내편최대)≥0.4 0/10
+  dangerous        적만침 0/10  내편≥0.6 0/10  적평균 0.367  나평균 0.198  볼트평균 0.171  (적평균−내편최대)≥0.4 0/10
+  creepy           적만침 0/10  내편≥0.6 6/10  적평균 0.532  나평균 0.464  볼트평균 0.618  (적평균−내편최대)≥0.4 0/10
+  rusty            적만침 0/10  내편≥0.6 0/10  적평균 0.235  나평균 0.156  볼트평균 0.415  (적평균−내편최대)≥0.4 0/10
+  electric         적만침 0/10  내편≥0.6 2/10  적평균 0.405  나평균 0.187  볼트평균 0.532  (적평균−내편최대)≥0.4 0/10
+  attacking        적만침 0/10  내편≥0.6 0/10  적평균 0.095  나평균 0.041  볼트평균 0.074  (적평균−내편최대)≥0.4 0/10
+  wild             적만침 0/10  내편≥0.6 0/10  적평균 0.35  나평균 0.058  볼트평균 0.087  (적평균−내편최대)≥0.4 1/10
+  out of control   적만침 0/10  내편≥0.6 0/10  적평균 0.474  나평균 0.145  볼트평균 0.201  (적평균−내편최대)≥0.4 1/10
+  park attraction  적만침 0/10  내편≥0.6 0/10  적평균 0.494  나평균 0.101  볼트평균 0.331  (적평균−내편최대)≥0.4 0/10
+  metal            적만침 0/10  내편≥0.6 10/10  적평균 0.382  나평균 0.086  볼트평균 0.868  (적평균−내편최대)≥0.4 0/10
+  unwanted         적만침 0/10  내편≥0.6 0/10  적평균 0.601  나평균 0.333  볼트평균 0.417  (적평균−내편최대)≥0.4 0/10
+K1 내편≥0.6 칸 비율: 0.385
+K1 아무도 ≥0.6 아닌 칸 비율: 0.31
+K1 판별 예시 (판0):
+   roles {'C': 'enemy2', 'E': 'enemy0', 'D': 'me', 'A': 'bolt', 'B': 'enemy1'}
+K2 반복 차이 평균/최대: 0.014 0.17999999999999994
+  b0 enemy0  wet 0.45→soak 0.93 | sticky 0.12→syrup 0.79 | blue wet 0.46 sticky 0.15 | partial wet 0.92
+  b0 enemy1  wet 0.20→soak 0.96 | sticky 0.14→syrup 0.89 | blue wet 0.14 sticky 0.13 | partial wet 0.96
+  b0 enemy2  wet 0.64→soak 0.76 | sticky 0.33→syrup 0.83 | blue wet 0.67 sticky 0.32 | partial wet 0.17
+  b0 enemy3  wet 0.14→soak 0.91 | sticky 0.52→syrup 0.83 | blue wet 0.17 sticky 0.47 | partial wet 0.37
+  b0 me      wet 0.14→soak 0.94 | sticky 0.15→syrup 0.82 | blue wet 0.16 sticky 0.17 | partial wet 0.42
+  b0 bolt    wet 0.11→soak 0.93 | sticky 0.14→syrup 0.83 | blue wet 0.11 sticky 0.14 | partial wet 0.29
+  b1 enemy0  wet 0.07→soak 0.94 | sticky 0.14→syrup 0.83 | blue wet 0.08 sticky 0.15 | partial wet 0.96
+  b1 enemy1  wet 0.13→soak 0.94 | sticky 0.20→syrup 0.84 | blue wet 0.19 sticky 0.19 | partial wet 0.95
+  b1 enemy2  wet 0.07→soak 0.95 | sticky 0.15→syrup 0.87 | blue wet 0.07 sticky 0.14 | partial wet 0.23
+  b1 enemy3  wet 0.22→soak 0.97 | sticky 0.41→syrup 0.89 | blue wet 0.20 sticky 0.46 | partial wet 0.40
+  b1 me      wet 0.12→soak 0.94 | sticky 0.17→syrup 0.83 | blue wet 0.13 sticky 0.16 | partial wet 0.34
+  b1 bolt    wet 0.09→soak 0.94 | sticky 0.14→syrup 0.84 | blue wet 0.08 sticky 0.14 | partial wet 0.21
+K2 soaked→wet +0.3: 11 / 12  syrup→sticky +0.3: 12 / 12  대조 |Δ| 평균: 0.019
+  partial b0 꾸민 개체 wet: [('enemy0', 0.45, 0.92), ('enemy1', 0.2, 0.96)]
+  partial b1 꾸민 개체 wet: [('enemy0', 0.07, 0.96), ('enemy1', 0.13, 0.95)]
+K2 누수 (꾸미지 않은 개체 wet |Δ| 평균): 0.231 최대 0.47
+K3 묶음 vs 따로 |Δ| 평균: 0.012 최대 0.05
+   b0 wet      EN {bolt:0.10, enemy0:0.47, enemy1:0.20, enemy2:0.66, enemy3:0.14, me:0.14}  KO {bolt:0.10, enemy0:0.51, enemy1:0.21, enemy2:0.70, enemy3:0.19, me:0.15}
+   b0 metal    EN {bolt:0.86, enemy0:0.08, enemy1:0.67, enemy2:0.06, enemy3:0.76, me:0.09}  KO {bolt:0.83, enemy0:0.09, enemy1:0.66, enemy2:0.07, enemy3:0.76, me:0.10}
+   b0 toy      EN {bolt:0.84, enemy0:0.02, enemy1:0.69, enemy2:0.14, enemy3:0.29, me:0.04}  KO {bolt:0.84, enemy0:0.03, enemy1:0.74, enemy2:0.21, enemy3:0.44, me:0.04}
+   b0 sticky   EN {bolt:0.13, enemy0:0.10, enemy1:0.13, enemy2:0.33, enemy3:0.55, me:0.15}  KO {bolt:0.12, enemy0:0.12, enemy1:0.17, enemy2:0.57, enemy3:0.57, me:0.17}
+   b0 inhuman  EN {bolt:0.89, enemy0:0.14, enemy1:0.90, enemy2:0.53, enemy3:0.89, me:0.04}  KO {bolt:0.93, enemy0:0.07, enemy1:0.95, enemy2:0.21, enemy3:0.94, me:0.06}
+   b1 wet      EN {bolt:0.08, enemy0:0.07, enemy1:0.14, enemy2:0.07, enemy3:0.20, me:0.12}  KO {bolt:0.10, enemy0:0.15, enemy1:0.12, enemy2:0.10, enemy3:0.23, me:0.14}
+   b1 metal    EN {bolt:0.83, enemy0:0.63, enemy1:0.06, enemy2:0.69, enemy3:0.06, me:0.10}  KO {bolt:0.81, enemy0:0.52, enemy1:0.07, enemy2:0.58, enemy3:0.05, me:0.10}
+   b1 toy      EN {bolt:0.84, enemy0:0.48, enemy1:0.02, enemy2:0.55, enemy3:0.04, me:0.06}  KO {bolt:0.84, enemy0:0.54, enemy1:0.03, enemy2:0.65, enemy3:0.04, me:0.06}
+   b1 sticky   EN {bolt:0.14, enemy0:0.14, enemy1:0.19, enemy2:0.16, enemy3:0.38, me:0.15}  KO {bolt:0.14, enemy0:0.15, enemy1:0.20, enemy2:0.18, enemy3:0.47, me:0.17}
+   b1 inhuman  EN {bolt:0.91, enemy0:0.84, enemy1:0.76, enemy2:0.93, enemy3:0.72, me:0.10}  KO {bolt:0.93, enemy0:0.86, enemy1:0.95, enemy2:0.94, enemy3:0.96, me:0.07}
+K3 한영 |Δ| 평균: 0.045  1위 일치: 8 / 10
+K3 섞기 |Δ| 평균: 0.026 최대 0.15
+
+#################### W 위장 단어
+W1 구간: 즉시들킴 41  회색 34  통과 21  /  96
+W1 회색 중 close≥0.5: 14 / 34
+W1 평균(close−glance): 0.046
+W1 close 반복차 평균: 0.016 최대 0.10999999999999999  glance 반복차 평균: 0.014
+W1 상관 r(glance, close): 0.931
+W1 종류별 glance 평균: {'typical': 0.57, 'fit': 0.477, 'misfit': 0.245, 'far': 0.026, 'chair': 0.403, 'box': 0.306, 'dup': 0.228, 'odd': 0.416}
+    w1-bath-base typical 0.84 0.88
+    w1-bath-base fit 0.48 0.68
+    w1-bath-base misfit 0.55 0.59
+    w1-bath-base far 0.02 0.04
+    w1-bath-base chair 0.1 0.09
+    w1-bath-base box 0.12 0.13
+    w1-bath-base dup 0.06 0.15
+    w1-bath-base odd 0.58 0.48
+    w1-bath-event typical 0.67 0.72
+    w1-bath-event fit 0.54 0.62
+    w1-bath-event misfit 0.12 0.18
+    w1-bath-event far 0.02 0.04
+    w1-bath-event chair 0.09 0.07
+    w1-bath-event box 0.12 0.15
+    w1-bath-event dup 0.05 0.1
+    w1-bath-event odd 0.39 0.35
+    w1-lab-base typical 0.78 0.88
+    w1-lab-base fit 0.17 0.25
+    w1-lab-base misfit 0.71 0.87
+    w1-lab-base far 0.03 0.04
+    w1-lab-base chair 0.56 0.4
+    w1-lab-base box 0.36 0.29
+    w1-lab-base dup 0.34 0.49
+    w1-lab-base odd 0.28 0.21
+    w1-lab-event typical 0.56 0.48
+    w1-lab-event fit 0.45 0.47
+    w1-lab-event misfit 0.36 0.47
+    w1-lab-event far 0.03 0.04
+    w1-lab-event chair 0.42 0.31
+    w1-lab-event box 0.25 0.29
+    w1-lab-event dup 0.19 0.29
+    w1-lab-event odd 0.19 0.16
+    w1-kitchen-base typical 0.59 0.56
+    w1-kitchen-base fit 0.21 0.24
+    w1-kitchen-base misfit 0.18 0.15
+    w1-kitchen-base far 0.02 0.04
+    w1-kitchen-base chair 0.42 0.33
+    w1-kitchen-base box 0.4 0.37
+    w1-kitchen-base dup 0.09 0.18
+    w1-kitchen-base odd 0.09 0.07
+    w1-kitchen-event typical 0.48 0.6
+    w1-kitchen-event fit 0.92 0.92
+    w1-kitchen-event misfit 0.1 0.12
+    w1-kitchen-event far 0.03 0.04
+    w1-kitchen-event chair 0.41 0.56
+    w1-kitchen-event box 0.48 0.64
+    w1-kitchen-event dup 0.08 0.14
+    w1-kitchen-event odd 0.09 0.09
+    w1-laundry-base typical 0.69 0.83
+    w1-laundry-base fit 0.62 0.79
+    w1-laundry-base misfit 0.12 0.1
+    w1-laundry-base far 0.03 0.03
+    w1-laundry-base chair 0.27 0.14
+    w1-laundry-base box 0.36 0.28
+    w1-laundry-base dup 0.53 0.76
+    w1-laundry-base odd 0.79 0.79
+    w1-laundry-event typical 0.52 0.68
+    w1-laundry-event fit 0.69 0.79
+    w1-laundry-event misfit 0.09 0.09
+    w1-laundry-event far 0.03 0.04
+    w1-laundry-event chair 0.17 0.1
+    w1-laundry-event box 0.3 0.2
+    w1-laundry-event dup 0.38 0.66
+    w1-laundry-event odd 0.76 0.79
+    w1-banquet-base typical 0.61 0.79
+    w1-banquet-base fit 0.33 0.46
+    w1-banquet-base misfit 0.32 0.54
+    w1-banquet-base far 0.04 0.04
+    w1-banquet-base chair 0.93 0.94
+    w1-banquet-base box 0.34 0.28
+    w1-banquet-base dup 0.41 0.62
+    w1-banquet-base odd 0.38 0.36
+    w1-banquet-event typical 0.73 0.88
+    w1-banquet-event fit 0.89 0.91
+    w1-banquet-event misfit 0.14 0.48
+    w1-banquet-event far 0.04 0.05
+    w1-banquet-event chair 0.89 0.9
+    w1-banquet-event box 0.35 0.36
+    w1-banquet-event dup 0.32 0.7
+    w1-banquet-event odd 0.62 0.62
+    w1-elevator-base typical 0.2 0.23
+    w1-elevator-base fit 0.06 0.06
+    w1-elevator-base misfit 0.15 0.13
+    w1-elevator-base far 0.02 0.04
+    w1-elevator-base chair 0.32 0.62
+    w1-elevator-base box 0.34 0.18
+    w1-elevator-base dup 0.15 0.29
+    w1-elevator-base odd 0.33 0.38
+    w1-elevator-event typical 0.18 0.22
+    w1-elevator-event fit 0.37 0.54
+    w1-elevator-event misfit 0.12 0.1
+    w1-elevator-event far 0.03 0.04
+    w1-elevator-event chair 0.27 0.41
+    w1-elevator-event box 0.24 0.17
+    w1-elevator-event dup 0.16 0.18
+    w1-elevator-event odd 0.51 0.58
+   단독 bath     typical glance 0.68 (묶음 0.67) close 0.71 (묶음 0.72) check describes 0.97
+   단독 bath     fit     glance 0.52 (묶음 0.54) close 0.61 (묶음 0.62) check describes 0.99
+   단독 lab      typical glance 0.56 (묶음 0.56) close 0.50 (묶음 0.48) check describes 0.93
+   단독 lab      fit     glance 0.44 (묶음 0.45) close 0.47 (묶음 0.47) check describes 0.95
+   단독 kitchen  typical glance 0.53 (묶음 0.48) close 0.64 (묶음 0.60) check describes 0.97
+   단독 kitchen  fit     glance 0.90 (묶음 0.92) close 0.92 (묶음 0.92) check describes 0.99
+   단독 laundry  typical glance 0.49 (묶음 0.52) close 0.68 (묶음 0.68) check describes 0.97
+   단독 laundry  fit     glance 0.74 (묶음 0.69) close 0.81 (묶음 0.79) check describes 0.99
+   단독 banquet  typical glance 0.71 (묶음 0.73) close 0.88 (묶음 0.88) check describes 0.97
+   단독 banquet  fit     glance 0.89 (묶음 0.89) close 0.90 (묶음 0.91) check describes 0.97
+   단독 elevator typical glance 0.18 (묶음 0.18) close 0.22 (묶음 0.22) check describes 0.98
+   단독 elevator fit     glance 0.37 (묶음 0.37) close 0.55 (묶음 0.54) check describes 0.97
+W1s 단독 vs 묶음 glance |Δ| 평균: 0.017 최대 0.05  정상 위장 검문소 오탐: 0 /12
+W1s check 있음/없음 |Δ| 평균: 0.016 최대 0.04
+W2 bath     a 0.52 | b me 0.77 o1 0.83 o2 0.56 | c first 0.78 second 0.80 o1 0.84
+W2 kitchen  a 0.90 | b me 0.90 o1 0.83 o2 0.89 | c first 0.90 second 0.91 o1 0.85
+W2 banquet  a 0.73 | b me 0.80 o1 0.90 o2 0.91 | c first 0.88 second 0.86 o1 0.91
+   w3ko-bath typical 0.69/0.66 | fit 0.55/0.52 | misfit 0.11/0.19 | far 0.02/0.04 | chair 0.09/0.12 | odd 0.42/0.22
+   w3ko-lab typical 0.56/0.54 | fit 0.45/0.20 | misfit 0.38/0.32 | far 0.02/0.08 | chair 0.45/0.43 | odd 0.18/0.16
+   w3ko-kitchen typical 0.51/0.54 | fit 0.91/0.88 | misfit 0.09/0.12 | far 0.03/0.12 | chair 0.43/0.46 | odd 0.10/0.14
+   w3ko-laundry typical 0.48/0.53 | fit 0.72/0.58 | misfit 0.09/0.08 | far 0.03/0.05 | chair 0.15/0.14 | odd 0.77/0.63
+   w3ko-banquet typical 0.74/0.58 | fit 0.90/0.86 | misfit 0.14/0.50 | far 0.04/0.05 | chair 0.89/0.82 | odd 0.63/0.52
+   w3ko-elevator typical 0.18/0.14 | fit 0.43/0.36 | misfit 0.11/0.11 | far 0.03/0.06 | chair 0.23/0.36 | odd 0.53/0.27
+W3 한영 |Δ| 평균: 0.075  구간 일치: 30 / 36
+   w3gen-bath {'cl0': 0.53, 'cl1': 0.61, 'gen0': 0.11, 'gen1': 0.61, 'gen2': 0.19, 'gen3': 0.53, 'gen4': 0.38, 'gen5': 0.23}
+   w3gen-lab {'cl0': 0.64, 'cl1': 0.68, 'gen0': 0.45, 'gen1': 0.69, 'gen2': 0.31, 'gen3': 0.7, 'gen4': 0.55, 'gen5': 0.29}
+   w3gen-kitchen {'cl0': 0.77, 'cl1': 0.76, 'gen0': 0.46, 'gen1': 0.77, 'gen2': 0.35, 'gen3': 0.81, 'gen4': 0.91, 'gen5': 0.77}
+   w3gen-laundry {'cl0': 0.71, 'cl1': 0.69, 'gen0': 0.38, 'gen1': 0.71, 'gen2': 0.39, 'gen3': 0.65, 'gen4': 0.54, 'gen5': 0.4}
+   w3gen-banquet {'cl0': 0.75, 'cl1': 0.75, 'gen0': 0.35, 'gen1': 0.72, 'gen2': 0.29, 'gen3': 0.76, 'gen4': 0.84, 'gen5': 0.43}
+   w3gen-elevator {'cl0': 0.66, 'cl1': 0.65, 'gen0': 0.41, 'gen1': 0.65, 'gen2': 0.24, 'gen3': 0.7, 'gen4': 0.53, 'gen5': 0.31}
+W3 만능 후보 통과 방 수(/6): {'dust': 0, 'a shadow': 6, 'a cobweb': 0, 'a stain on the floor': 5, 'some trash': 3, 'a plastic bag': 1}
+W3 주장형 glance ≤0.4 방 수: {0: 0, 1: 0} {0: [0.53, 0.64, 0.77, 0.71, 0.75, 0.66], 1: [0.61, 0.68, 0.76, 0.69, 0.75, 0.65]}
+   w3chk-bath-cl0 describes 0.97 {'describes': 0.97, 'asks': 0.0, 'commands': 0.01, 'meta': 0.02}
+   w3chk-bath-cl1 describes 0.77 {'describes': 0.77, 'asks': 0.01, 'commands': 0.15, 'meta': 0.07}
+   w3chk-lab-cl0 describes 0.94 {'describes': 0.94, 'asks': 0.0, 'commands': 0.02, 'meta': 0.04}
+   w3chk-lab-cl1 describes 0.75 {'describes': 0.75, 'asks': 0.01, 'commands': 0.14, 'meta': 0.1}
+   w3chk-kitchen-cl0 describes 0.95 {'describes': 0.95, 'asks': 0.0, 'commands': 0.01, 'meta': 0.04}
+   w3chk-kitchen-cl1 describes 0.78 {'describes': 0.78, 'asks': 0.01, 'commands': 0.11, 'meta': 0.1}
+W3 주장형 검문소 걸림: 0 /6
+
+#################### D 딜러
+  d1-L2-a    bluff 0.795 (반복차 0.01)
+  d1-L2-b    bluff 0.150 (반복차 0.00)
+  d1-L2-c    bluff 0.510 (반복차 0.00)
+  d1-L5-a    bluff 0.800 (반복차 0.00)
+  d1-L5-b    bluff 0.225 (반복차 0.01)
+  d1-L5-c    bluff 0.585 (반복차 0.01)
+  d1-L8-a    bluff 0.785 (반복차 0.01)
+  d1-L8-b    bluff 0.225 (반복차 0.01)
+  d1-L8-c    bluff 0.485 (반복차 0.03)
+  d1-ctrl    bluff 0.505 (반복차 0.01)
+  d1-none    bluff 0.405 (반복차 0.03)
+D1 L2: a−b 0.645  c 0.510 (a 0.80, b 0.15) c가 b쪽: False 사이: True
+D1 L5: a−b 0.575  c 0.585 (a 0.80, b 0.23) c가 b쪽: False 사이: True
+D1 L8: a−b 0.560  c 0.485 (a 0.79, b 0.23) c가 b쪽: True 사이: True
+D1 무관−없음: 0.1
+  d2-timing  notice ['timing', 'size'] 평균확률 {'timing': 0.47, 'size': 0.45, 'hands': 0.04, 'words': 0.03, 'nothing': 0.01}  bluff 0.76
+  d2-size    notice ['timing', 'timing'] 평균확률 {'timing': 0.66, 'size': 0.3, 'hands': 0.02, 'words': 0.01, 'nothing': 0.01}  bluff 0.77
+  d2-hands   notice ['size', 'size'] 평균확률 {'timing': 0.31, 'size': 0.54, 'hands': 0.11, 'words': 0.02, 'nothing': 0.01}  bluff 0.68
+  d2-words   notice ['timing', 'size'] 평균확률 {'timing': 0.43, 'size': 0.48, 'hands': 0.03, 'words': 0.06, 'nothing': 0.01}  bluff 0.69
+  d2-none    notice ['timing', 'timing'] 평균확률 {'timing': 0.7, 'size': 0.24, 'hands': 0.03, 'words': 0.03, 'nothing': 0.01}  bluff 0.53
+  d2-talk0   notice ['size', 'size'] 평균확률 {'timing': 0.14, 'size': 0.53, 'hands': 0.01, 'words': 0.27, 'nothing': 0.06}  bluff 0.53
+  d2-talk1   notice ['size', 'size'] 평균확률 {'timing': 0.23, 'size': 0.52, 'hands': 0.01, 'words': 0.2, 'nothing': 0.04}  bluff 0.49
+D3 말 없음 bluff 0.400
+  d3-00-none           bluff 0.400 (Δ +0.000, 반복차 0.02) check None notice ['timing', 'timing']
+  d3-01-normal         bluff 0.695 (Δ +0.295, 반복차 0.03) check [('describes', 1.0), ('describes', 1.0)] notice ['words', 'words']
+  d3-02-normal         bluff 0.445 (Δ +0.045, 반복차 0.01) check [('describes', 1.0), ('describes', 1.0)] notice ['size', 'size']
+  d3-03-normal         bluff 0.465 (Δ +0.065, 반복차 0.01) check [('describes', 1.0), ('describes', 1.0)] notice ['size', 'size']
+  d3-04-normal         bluff 0.475 (Δ +0.075, 반복차 0.03) check [('describes', 1.0), ('describes', 1.0)] notice ['words', 'size']
+  d3-05-command        bluff 0.530 (Δ +0.130, 반복차 0.00) check [('commands', 0.64), ('commands', 0.64)] notice ['size', 'size']
+  d3-06-command        bluff 0.425 (Δ +0.025, 반복차 0.03) check [('commands', 0.78), ('commands', 0.74)] notice ['size', 'size']
+  d3-07-meta           bluff 0.265 (Δ -0.135, 반복차 0.01) check [('describes', 0.65), ('describes', 0.75)] notice ['size', 'size']
+  d3-08-p0_clumsy      bluff 0.640 (Δ +0.240, 반복차 0.00) check [('describes', 1.0), ('describes', 1.0)] notice ['timing', 'size']
+  d3-09-p0_polish      bluff 0.645 (Δ +0.245, 반복차 0.01) check [('describes', 1.0), ('describes', 1.0)] notice ['words', 'words']
+  d3-10-p1_clumsy      bluff 0.460 (Δ +0.060, 반복차 0.00) check [('describes', 0.99), ('describes', 0.98)] notice ['size', 'size']
+  d3-11-p1_polish      bluff 0.470 (Δ +0.070, 반복차 0.04) check [('describes', 1.0), ('describes', 1.0)] notice ['size', 'size']
+  d3-12-p2_clumsy      bluff 0.485 (Δ +0.085, 반복차 0.01) check [('describes', 0.99), ('describes', 0.99)] notice ['size', 'size']
+  d3-13-p2_polish      bluff 0.465 (Δ +0.065, 반복차 0.01) check [('describes', 0.99), ('describes', 1.0)] notice ['size', 'size']
+D3 쌍0 서툰 0.640 매끄러운 0.645 |Δ| 0.005
+D3 쌍1 서툰 0.460 매끄러운 0.470 |Δ| 0.010
+D3 쌍2 서툰 0.485 매끄러운 0.465 |Δ| 0.020
+D3 쌍 |Δ| 평균: 0.012
+  d4-i bluff 0.810 reps [0.81, 0.81] check [('describes', 1.0), ('describes', 1.0)] notice ['words', 'words']
+  d4-ii bluff 0.770 reps [0.77, 0.77] check [('describes', 1.0), ('describes', 0.99)] notice ['words', 'timing']
+D4 (ii)−(i): -0.04  참고 D3 같은 말·기록 없음: 0.695
+  간섭 d4i-d3nothing: 단독 0.69 vs 묶음 0.70
+  간섭 d4i-d3fold: 단독 0.51 vs 묶음 0.53
+  간섭 d4i-d4ii: 단독 0.79 vs 묶음 0.77
+D4i 간섭 |Δ| 평균: 0.015

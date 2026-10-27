@@ -1,0 +1,3 @@
+{"id": "d4i-d3nothing", "cond": "nochk", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.69}}, "usage": {"input_tokens": 412, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 178}
+{"id": "d4i-d3fold", "cond": "nochk", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.51}}, "usage": {"input_tokens": 412, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 161}
+{"id": "d4i-d4ii", "cond": "nochk", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.79}}, "usage": {"input_tokens": 479, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 156}

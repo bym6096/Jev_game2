@@ -1,0 +1,8 @@
+{"id": "dm-lastweak-hes", "cond": "hes", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.83}}, "usage": {"input_tokens": 491, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 452}
+{"id": "dm-lastweak-hes", "cond": "hes", "rep": 1, "answers": {"bluff": {"type": "noul", "noul": 0.82}}, "usage": {"input_tokens": 491, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 170}
+{"id": "dm-lastweak-quick", "cond": "quick", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.18}}, "usage": {"input_tokens": 479, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 162}
+{"id": "dm-lastweak-quick", "cond": "quick", "rep": 1, "answers": {"bluff": {"type": "noul", "noul": 0.2}}, "usage": {"input_tokens": 479, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 116}
+{"id": "dm-laststrong-hes", "cond": "hes", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.86}}, "usage": {"input_tokens": 491, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 165}
+{"id": "dm-laststrong-hes", "cond": "hes", "rep": 1, "answers": {"bluff": {"type": "noul", "noul": 0.87}}, "usage": {"input_tokens": 491, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 127}
+{"id": "dm-laststrong-quick", "cond": "quick", "rep": 0, "answers": {"bluff": {"type": "noul", "noul": 0.09}}, "usage": {"input_tokens": 479, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 122}
+{"id": "dm-laststrong-quick", "cond": "quick", "rep": 1, "answers": {"bluff": {"type": "noul", "noul": 0.09}}, "usage": {"input_tokens": 479, "output_tokens": 21}, "model": "jev-1.14.0", "latency_ms": 152}

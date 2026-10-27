@@ -1,0 +1,18 @@
+wf-bath {'cl0': ('vague', 0.54), 'cl1': ('object', 0.76), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.99), 'fit': ('object', 0.89), 'odd': ('object', 0.98)}
+wf-lab {'cl0': ('object', 0.56), 'cl1': ('object', 0.68), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.9), 'fit': ('object', 0.99), 'odd': ('object', 0.93)}
+wf-kitchen {'cl0': ('object', 0.56), 'cl1': ('object', 0.73), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.97), 'fit': ('object', 0.98), 'odd': ('object', 0.99)}
+wf-laundry {'cl0': ('vague', 0.6), 'cl1': ('object', 0.62), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.84), 'fit': ('object', 0.52), 'odd': ('object', 0.89)}
+wf-banquet {'cl0': ('vague', 0.57), 'cl1': ('object', 0.63), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.9), 'fit': ('object', 1.0), 'odd': ('object', 0.98)}
+wf-elevator {'cl0': ('vague', 0.66), 'cl1': ('object', 0.7), 'shadow': ('not_object', 1.0), 'stain': ('not_object', 1.0), 'typical': ('object', 0.66), 'fit': ('object', 0.78), 'odd': ('object', 0.89)}
+WF 주장형 걸림 4 /12  그림자·얼룩 object아님 12 /12  정상 object 18 /18
+b0 {'enemy0': (0.54, 0.97), 'enemy1': (0.18, 0.97), 'enemy2': (0.83, 0.83), 'enemy3': (0.34, 0.33), 'me': (0.22, 0.2), 'bolt': (0.09, 0.09)}
+b1 {'enemy0': (0.15, 0.96), 'enemy1': (0.22, 0.92), 'enemy2': (0.11, 0.1), 'enemy3': (0.32, 0.3), 'me': (0.2, 0.21), 'bolt': (0.09, 0.09)}
+KF 누수 평균 0.009 최대 0.020000000000000018  꾸민 개체 +0.3 4 /4
+dm-lastweak-hes 0 0.83
+dm-lastweak-hes 1 0.82
+dm-lastweak-quick 0 0.18
+dm-lastweak-quick 1 0.2
+dm-laststrong-hes 0 0.86
+dm-laststrong-hes 1 0.87
+dm-laststrong-quick 0 0.09
+dm-laststrong-quick 1 0.09

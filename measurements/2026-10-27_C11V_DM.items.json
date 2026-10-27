@@ -1,0 +1,46 @@
+[
+ {
+  "id": "dm-lastweak-hes",
+  "cond": "hes",
+  "state": "A one-on-one card game at a dim table. Cards run from 1 to 10; higher wins. The dealer cannot see the player's card and must decide whether to call the player's bet. The dealer keeps a notebook of the player's past hands tonight. Notebook: Hand 1: right away, pushed in a large bet. Cards were revealed: the player had a strong 9. Hand 2: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 2. Hand 3: right away, pushed in a large bet. Cards were revealed: the player had a strong 10. Hand 4: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 3. This hand: the player looked at their card, then after hesitating for about four seconds, fiddled with the chips, pushed in a large bet.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   }
+  }
+ },
+ {
+  "id": "dm-lastweak-quick",
+  "cond": "quick",
+  "state": "A one-on-one card game at a dim table. Cards run from 1 to 10; higher wins. The dealer cannot see the player's card and must decide whether to call the player's bet. The dealer keeps a notebook of the player's past hands tonight. Notebook: Hand 1: right away, pushed in a large bet. Cards were revealed: the player had a strong 9. Hand 2: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 2. Hand 3: right away, pushed in a large bet. Cards were revealed: the player had a strong 10. Hand 4: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 3. This hand: the player looked at their card, then right away, pushed in a large bet.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   }
+  }
+ },
+ {
+  "id": "dm-laststrong-hes",
+  "cond": "hes",
+  "state": "A one-on-one card game at a dim table. Cards run from 1 to 10; higher wins. The dealer cannot see the player's card and must decide whether to call the player's bet. The dealer keeps a notebook of the player's past hands tonight. Notebook: Hand 1: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 2. Hand 2: right away, pushed in a large bet. Cards were revealed: the player had a strong 9. Hand 3: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 3. Hand 4: right away, pushed in a large bet. Cards were revealed: the player had a strong 10. This hand: the player looked at their card, then after hesitating for about four seconds, fiddled with the chips, pushed in a large bet.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   }
+  }
+ },
+ {
+  "id": "dm-laststrong-quick",
+  "cond": "quick",
+  "state": "A one-on-one card game at a dim table. Cards run from 1 to 10; higher wins. The dealer cannot see the player's card and must decide whether to call the player's bet. The dealer keeps a notebook of the player's past hands tonight. Notebook: Hand 1: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 2. Hand 2: right away, pushed in a large bet. Cards were revealed: the player had a strong 9. Hand 3: after hesitating for about four seconds, fiddled with the chips, pushed in a large bet. Cards were revealed: the player had a weak 3. Hand 4: right away, pushed in a large bet. Cards were revealed: the player had a strong 10. This hand: the player looked at their card, then right away, pushed in a large bet.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   }
+  }
+ }
+]
