@@ -1,0 +1,92 @@
+[
+ {
+  "id": "s4-D0",
+  "cond": "D0",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ },
+ {
+  "id": "s4-D1",
+  "cond": "D1",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet. Earlier tonight, twice the player hesitated for a few seconds before a large bet; both times the cards were revealed and the player had been bluffing with a weak hand.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ },
+ {
+  "id": "s4-D2",
+  "cond": "D2",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet. Earlier tonight, twice the player hesitated for a few seconds before a large bet; both times the cards were revealed and the player had held a very strong hand.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ },
+ {
+  "id": "s4-D3",
+  "cond": "D3",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet. Earlier tonight, the player took off a green jacket and ordered a glass of water with no ice.",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ },
+ {
+  "id": "s4-D4",
+  "cond": "D4",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet. As they pushed in the bet, the player said: <<Honestly, I've got nothing.>>",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ },
+ {
+  "id": "s4-D5",
+  "cond": "D5",
+  "state": "A one-on-one card game at a dim table. The dealer cannot see the player's cards and must decide whether to call the player's bet. On this hand, the player looked at their cards, hesitated for about four seconds, then pushed in a large bet. As they pushed in the bet, the player said: <<Nice lamp in here.>>",
+  "questions": {
+   "bluff": {
+    "type": "noul",
+    "instructions": "Is the player bluffing on this hand?"
+   },
+   "call": {
+    "type": "noul",
+    "instructions": "Should the dealer call this bet?"
+   }
+  }
+ }
+]

@@ -1,0 +1,460 @@
+[
+ {
+  "id": "s2-common",
+  "cond": "orig",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena floor is plain sand under a clear sky.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'rock' and 'scissors', which one wins?",
+    "criteria": {
+     "first": "'rock' wins",
+     "second": "'scissors' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'paper' and 'rock', which one wins?",
+    "criteria": {
+     "first": "'paper' wins",
+     "second": "'rock' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'water' and 'fire', which one wins?",
+    "criteria": {
+     "first": "'water' wins",
+     "second": "'fire' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'cat' and 'mouse', which one wins?",
+    "criteria": {
+     "first": "'cat' wins",
+     "second": "'mouse' wins"
+    }
+   },
+   "p4": {
+    "type": "choice",
+    "instructions": "In a clash between 'sponge' and 'the sea', which one wins?",
+    "criteria": {
+     "first": "'sponge' wins",
+     "second": "'the sea' wins"
+    }
+   },
+   "p5": {
+    "type": "choice",
+    "instructions": "In a clash between 'a candle' and 'a gust of wind', which one wins?",
+    "criteria": {
+     "first": "'a candle' wins",
+     "second": "'a gust of wind' wins"
+    }
+   },
+   "p6": {
+    "type": "choice",
+    "instructions": "In a clash between 'an umbrella' and 'rain', which one wins?",
+    "criteria": {
+     "first": "'an umbrella' wins",
+     "second": "'rain' wins"
+    }
+   },
+   "p7": {
+    "type": "choice",
+    "instructions": "In a clash between 'a lion' and 'a mosquito', which one wins?",
+    "criteria": {
+     "first": "'a lion' wins",
+     "second": "'a mosquito' wins"
+    }
+   },
+   "p8": {
+    "type": "choice",
+    "instructions": "In a clash between 'ice' and 'a hair dryer', which one wins?",
+    "criteria": {
+     "first": "'ice' wins",
+     "second": "'a hair dryer' wins"
+    }
+   },
+   "p9": {
+    "type": "choice",
+    "instructions": "In a clash between 'a lie' and 'the truth', which one wins?",
+    "criteria": {
+     "first": "'a lie' wins",
+     "second": "'the truth' wins"
+    }
+   }
+  }
+ },
+ {
+  "id": "s2-common-sw",
+  "cond": "swap",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena floor is plain sand under a clear sky.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'scissors' and 'rock', which one wins?",
+    "criteria": {
+     "first": "'scissors' wins",
+     "second": "'rock' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'rock' and 'paper', which one wins?",
+    "criteria": {
+     "first": "'rock' wins",
+     "second": "'paper' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'fire' and 'water', which one wins?",
+    "criteria": {
+     "first": "'fire' wins",
+     "second": "'water' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'mouse' and 'cat', which one wins?",
+    "criteria": {
+     "first": "'mouse' wins",
+     "second": "'cat' wins"
+    }
+   },
+   "p4": {
+    "type": "choice",
+    "instructions": "In a clash between 'the sea' and 'sponge', which one wins?",
+    "criteria": {
+     "first": "'the sea' wins",
+     "second": "'sponge' wins"
+    }
+   },
+   "p5": {
+    "type": "choice",
+    "instructions": "In a clash between 'a gust of wind' and 'a candle', which one wins?",
+    "criteria": {
+     "first": "'a gust of wind' wins",
+     "second": "'a candle' wins"
+    }
+   },
+   "p6": {
+    "type": "choice",
+    "instructions": "In a clash between 'rain' and 'an umbrella', which one wins?",
+    "criteria": {
+     "first": "'rain' wins",
+     "second": "'an umbrella' wins"
+    }
+   },
+   "p7": {
+    "type": "choice",
+    "instructions": "In a clash between 'a mosquito' and 'a lion', which one wins?",
+    "criteria": {
+     "first": "'a mosquito' wins",
+     "second": "'a lion' wins"
+    }
+   },
+   "p8": {
+    "type": "choice",
+    "instructions": "In a clash between 'a hair dryer' and 'ice', which one wins?",
+    "criteria": {
+     "first": "'a hair dryer' wins",
+     "second": "'ice' wins"
+    }
+   },
+   "p9": {
+    "type": "choice",
+    "instructions": "In a clash between 'the truth' and 'a lie', which one wins?",
+    "criteria": {
+     "first": "'the truth' wins",
+     "second": "'a lie' wins"
+    }
+   }
+  }
+ },
+ {
+  "id": "s2-univ",
+  "cond": "orig",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena floor is plain sand under a clear sky.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'a black hole' and 'a hungry cat', which one wins?",
+    "criteria": {
+     "first": "'a black hole' wins",
+     "second": "'a hungry cat' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'a black hole' and 'an umbrella', which one wins?",
+    "criteria": {
+     "first": "'a black hole' wins",
+     "second": "'an umbrella' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'god' and 'a hungry cat', which one wins?",
+    "criteria": {
+     "first": "'god' wins",
+     "second": "'a hungry cat' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'god' and 'an umbrella', which one wins?",
+    "criteria": {
+     "first": "'god' wins",
+     "second": "'an umbrella' wins"
+    }
+   },
+   "p4": {
+    "type": "choice",
+    "instructions": "In a clash between 'a nuclear bomb' and 'a hungry cat', which one wins?",
+    "criteria": {
+     "first": "'a nuclear bomb' wins",
+     "second": "'a hungry cat' wins"
+    }
+   },
+   "p5": {
+    "type": "choice",
+    "instructions": "In a clash between 'a nuclear bomb' and 'an umbrella', which one wins?",
+    "criteria": {
+     "first": "'a nuclear bomb' wins",
+     "second": "'an umbrella' wins"
+    }
+   },
+   "p6": {
+    "type": "choice",
+    "instructions": "In a clash between 'a black hole' and 'Hawking radiation', which one wins?",
+    "criteria": {
+     "first": "'a black hole' wins",
+     "second": "'Hawking radiation' wins"
+    }
+   },
+   "p7": {
+    "type": "choice",
+    "instructions": "In a clash between 'a black hole' and 'a white hole', which one wins?",
+    "criteria": {
+     "first": "'a black hole' wins",
+     "second": "'a white hole' wins"
+    }
+   },
+   "p8": {
+    "type": "choice",
+    "instructions": "In a clash between 'god' and 'an atheist', which one wins?",
+    "criteria": {
+     "first": "'god' wins",
+     "second": "'an atheist' wins"
+    }
+   },
+   "p9": {
+    "type": "choice",
+    "instructions": "In a clash between 'god' and 'the devil's paperwork', which one wins?",
+    "criteria": {
+     "first": "'god' wins",
+     "second": "'the devil's paperwork' wins"
+    }
+   },
+   "p10": {
+    "type": "choice",
+    "instructions": "In a clash between 'a nuclear bomb' and 'a dud fuse', which one wins?",
+    "criteria": {
+     "first": "'a nuclear bomb' wins",
+     "second": "'a dud fuse' wins"
+    }
+   },
+   "p11": {
+    "type": "choice",
+    "instructions": "In a clash between 'a nuclear bomb' and 'a bomb shelter', which one wins?",
+    "criteria": {
+     "first": "'a nuclear bomb' wins",
+     "second": "'a bomb shelter' wins"
+    }
+   }
+  }
+ },
+ {
+  "id": "s2-univ-sw",
+  "cond": "swap",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena floor is plain sand under a clear sky.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'a hungry cat' and 'a black hole', which one wins?",
+    "criteria": {
+     "first": "'a hungry cat' wins",
+     "second": "'a black hole' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'an umbrella' and 'a black hole', which one wins?",
+    "criteria": {
+     "first": "'an umbrella' wins",
+     "second": "'a black hole' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'a hungry cat' and 'god', which one wins?",
+    "criteria": {
+     "first": "'a hungry cat' wins",
+     "second": "'god' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'an umbrella' and 'god', which one wins?",
+    "criteria": {
+     "first": "'an umbrella' wins",
+     "second": "'god' wins"
+    }
+   },
+   "p4": {
+    "type": "choice",
+    "instructions": "In a clash between 'a hungry cat' and 'a nuclear bomb', which one wins?",
+    "criteria": {
+     "first": "'a hungry cat' wins",
+     "second": "'a nuclear bomb' wins"
+    }
+   },
+   "p5": {
+    "type": "choice",
+    "instructions": "In a clash between 'an umbrella' and 'a nuclear bomb', which one wins?",
+    "criteria": {
+     "first": "'an umbrella' wins",
+     "second": "'a nuclear bomb' wins"
+    }
+   },
+   "p6": {
+    "type": "choice",
+    "instructions": "In a clash between 'Hawking radiation' and 'a black hole', which one wins?",
+    "criteria": {
+     "first": "'Hawking radiation' wins",
+     "second": "'a black hole' wins"
+    }
+   },
+   "p7": {
+    "type": "choice",
+    "instructions": "In a clash between 'a white hole' and 'a black hole', which one wins?",
+    "criteria": {
+     "first": "'a white hole' wins",
+     "second": "'a black hole' wins"
+    }
+   },
+   "p8": {
+    "type": "choice",
+    "instructions": "In a clash between 'an atheist' and 'god', which one wins?",
+    "criteria": {
+     "first": "'an atheist' wins",
+     "second": "'god' wins"
+    }
+   },
+   "p9": {
+    "type": "choice",
+    "instructions": "In a clash between 'the devil's paperwork' and 'god', which one wins?",
+    "criteria": {
+     "first": "'the devil's paperwork' wins",
+     "second": "'god' wins"
+    }
+   },
+   "p10": {
+    "type": "choice",
+    "instructions": "In a clash between 'a dud fuse' and 'a nuclear bomb', which one wins?",
+    "criteria": {
+     "first": "'a dud fuse' wins",
+     "second": "'a nuclear bomb' wins"
+    }
+   },
+   "p11": {
+    "type": "choice",
+    "instructions": "In a clash between 'a bomb shelter' and 'a nuclear bomb', which one wins?",
+    "criteria": {
+     "first": "'a bomb shelter' wins",
+     "second": "'a nuclear bomb' wins"
+    }
+   }
+  }
+ },
+ {
+  "id": "s2-arena-flood",
+  "cond": "orig",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena is flooded knee-deep with seawater and it is raining.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'a campfire' and 'a bucket of sand', which one wins?",
+    "criteria": {
+     "first": "'a campfire' wins",
+     "second": "'a bucket of sand' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'an electric eel' and 'rubber boots', which one wins?",
+    "criteria": {
+     "first": "'an electric eel' wins",
+     "second": "'rubber boots' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'a paper boat' and 'a brick', which one wins?",
+    "criteria": {
+     "first": "'a paper boat' wins",
+     "second": "'a brick' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'a flamethrower' and 'a wooden shield', which one wins?",
+    "criteria": {
+     "first": "'a flamethrower' wins",
+     "second": "'a wooden shield' wins"
+    }
+   }
+  }
+ },
+ {
+  "id": "s2-arena-plain",
+  "cond": "orig",
+  "state": "A word duel arena. Two fighters each shout one word at the same time, and the things they name clash. The arena floor is plain sand under a clear sky.",
+  "questions": {
+   "p0": {
+    "type": "choice",
+    "instructions": "In a clash between 'a campfire' and 'a bucket of sand', which one wins?",
+    "criteria": {
+     "first": "'a campfire' wins",
+     "second": "'a bucket of sand' wins"
+    }
+   },
+   "p1": {
+    "type": "choice",
+    "instructions": "In a clash between 'an electric eel' and 'rubber boots', which one wins?",
+    "criteria": {
+     "first": "'an electric eel' wins",
+     "second": "'rubber boots' wins"
+    }
+   },
+   "p2": {
+    "type": "choice",
+    "instructions": "In a clash between 'a paper boat' and 'a brick', which one wins?",
+    "criteria": {
+     "first": "'a paper boat' wins",
+     "second": "'a brick' wins"
+    }
+   },
+   "p3": {
+    "type": "choice",
+    "instructions": "In a clash between 'a flamethrower' and 'a wooden shield', which one wins?",
+    "criteria": {
+     "first": "'a flamethrower' wins",
+     "second": "'a wooden shield' wins"
+    }
+   }
+  }
+ }
+]
