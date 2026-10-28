@@ -11,6 +11,12 @@ try:
 except Exception:
     CACHE = {}
 
+HERO_CACHE_PATH = os.path.join(HERE, "hero_cache.json")
+try:
+    HERO_CACHE = json.load(open(HERO_CACHE_PATH, encoding="utf-8"))
+except Exception:
+    HERO_CACHE = {}
+
 class H(BaseHTTPRequestHandler):
     def _send(self, code, body, ctype="application/json; charset=utf-8"):
         data = body if isinstance(body, bytes) else json.dumps(body, ensure_ascii=False).encode()
@@ -21,6 +27,8 @@ class H(BaseHTTPRequestHandler):
             return self._send(200, open(os.path.join(HERE, "index.html"), "rb").read(), "text/html; charset=utf-8")
         self._send(404, {"error": "not found"})
     def do_POST(self):
+        if self.path == "/hero":
+            return self._hero()
         if self.path != "/forge":
             return self._send(404, {"error": "not found"})
         n = int(self.headers.get("Content-Length", 0))
@@ -40,6 +48,19 @@ class H(BaseHTTPRequestHandler):
         CACHE[name] = card
         json.dump(CACHE, open(CACHE_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         self._send(200, card)
+    def _hero(self):
+        n = int(self.headers.get("Content-Length", 0))
+        names, err = forge.check_deck(json.loads(self.rfile.read(n) or b"{}").get("names"))
+        if err:
+            return self._send(400, {"error": err})
+        key = "\n".join(sorted(names))  # same set of cards -> same hero (Jev wobbles +-0.08 near ties)
+        if key not in HERO_CACHE:
+            try:
+                HERO_CACHE[key], _ = forge.hero_of(names)
+            except Exception as e:
+                return self._send(502, {"error": f"Jev 호출 실패: {e}"})
+            json.dump(HERO_CACHE, open(HERO_CACHE_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        self._send(200, HERO_CACHE[key])
     def log_message(self, *a): pass
 
 if __name__ == "__main__":

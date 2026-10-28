@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/forge", "destination": "/api/forge" }]
+  "rewrites": [
+    { "source": "/forge", "destination": "/api/forge" },
+    { "source": "/hero", "destination": "/api/hero" }
+  ]
 }

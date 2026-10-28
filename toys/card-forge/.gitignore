@@ -1,2 +1,4 @@
 forged_cache.json
 __pycache__/
+hero_cache.json
+.env.local

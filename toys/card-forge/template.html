@@ -89,6 +89,23 @@ h2{font-family:var(--f-display);font-weight:400;font-size:24px;margin:0}
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:18px;justify-items:center}
 .notice{font-size:13.5px;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;line-height:1.6}
 code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;border-radius:4px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+@media (max-width:640px){.hero{grid-template-columns:1fr}}
+.hero-left,.hero-right{display:flex;flex-direction:column;gap:10px;min-width:0}
+.deck{display:flex;flex-wrap:wrap;gap:6px;min-height:34px}
+.deck .chip{display:inline-flex;gap:6px;align-items:center}
+.deck .chip s{text-decoration:none;color:var(--muted)}
+.deck-empty{color:var(--muted);font-size:13.5px}
+.herocard{border:2px solid var(--accent);border-radius:14px;padding:14px 16px;background:var(--bg);display:flex;flex-direction:column;gap:6px}
+.herocard.vague{border-style:dashed;border-color:var(--line)}
+.herocard .title{font-family:var(--f-display);font-size:30px;color:var(--accent);line-height:1.1}
+.herocard .temper{color:var(--muted);font-size:14px}
+.herocard .passive{font-size:15px;line-height:1.5}
+.herocard .passive b{font-family:var(--f-display);font-weight:400;color:var(--accent)}
+.herocard .bars{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;font-size:13px;color:var(--muted)}
+.bar{height:8px;border-radius:4px;background:#0006;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.herocard .why{font-size:12.5px;color:var(--muted);line-height:1.5}
+.card.small.indeck{outline:3px solid var(--accent);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 
@@ -113,6 +130,19 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
       <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
     </div>
     <div class="stage" id="stage"><div class="back">빈 카드</div></div>
+  </section>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="gallery-head"><h2>내 덱</h2><span class="hint" id="deckcount"></span></div>
+      <div class="hint">카드를 눌러 위에 띄운 뒤 "덱에 넣기"를 누르세요. 덱에 든 카드의 이름들이 모여 주인공이 정해집니다. 카드를 바꾸면 주인공도 따라 바뀝니다.</div>
+      <div class="inputrow"><button class="ghost" id="deckbtn" disabled>덱에 넣기</button><button class="ghost" id="deckclear" hidden>덱 비우기</button></div>
+      <div class="deck" id="deck"></div>
+    </div>
+    <div class="hero-right">
+      <h2>주인공</h2>
+      <div id="herobox" class="hint">덱에 카드를 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다.</div>
+    </div>
   </section>
 
   <section style="display:flex;flex-direction:column;gap:14px">
@@ -214,7 +244,7 @@ function nameHTML(c){
   return esc(c.name).replace(esc(c.frag), `<i>${esc(c.frag)}</i>`);
 }
 function cardHTML(c, small){
-  const cls = "card" + (small?" small":"") + ` t${c.tier??2}`;
+  const cls = "card" + (small?" small":"") + ` t${c.tier??2}` + (small && deck.includes(c.name) ? " indeck" : "");
   if(c.status==="scribble"){
     return `<div class="${cls} scribble" data-n="${esc(keyOf(c))}"><div class="head"><div class="mana">?</div><div class="name">${nameHTML(c)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason||"카드가 이름이 아니라 명령을 읽었다")}</span></div></div>`;
   }
@@ -235,6 +265,7 @@ function renderGallery(){
   $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 카드 기준)`;
 }
 function show(c){
+  current=c; updateDeckBtn();
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
@@ -282,5 +313,50 @@ const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리"
 $("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
 $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return;
   if(frag){ frag=null; renderBlank(); } $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
-drawBlank(); renderGallery(); show(onBlank(SAMPLES[0],2,null));
+
+// --- deck -> hero: the names of the cards in the deck, judged together by Jev, make the protagonist ---
+const DECK_MAX = 20;          // measured up to 20 cards
+let current = null, heroSeq = 0, heroTimer = null;
+let deck = []; try { deck = JSON.parse(localStorage.getItem("forge-deck-v1") || "[]").filter(n=>typeof n==="string"); } catch(e) {}
+const saveDeck = () => { try{ localStorage.setItem("forge-deck-v1", JSON.stringify(deck)); }catch(e){} };
+function updateDeckBtn(){
+  const b=$("deckbtn"); if(!current || current.status!=="ok"){ b.disabled=true; b.textContent="덱에 넣기"; return; }
+  const inDeck=deck.includes(current.name);
+  b.textContent = inDeck ? "덱에서 빼기" : "덱에 넣기"; b.disabled = !inDeck && deck.length>=DECK_MAX;
+}
+function renderDeck(){
+  $("deck").innerHTML = deck.length ? deck.map((n,i)=>`<button class="chip" data-i="${i}" title="눌러서 빼기">${esc(n)} <s>×</s></button>`).join("") : `<span class="deck-empty">비어 있음</span>`;
+  $("deckcount").textContent = `${deck.length} / ${DECK_MAX}장`;
+  $("deckclear").hidden = !deck.length; updateDeckBtn(); renderGallery();
+}
+const pct = v => Math.round(v*100);
+function heroHTML(h){
+  const bar=(label,v)=>`<span>${label}</span><div class="bar"><i style="width:${Math.min(100,v/5*100)}%"></i></div><span>${v.toFixed(1)} / 5</span>`;
+  const why = h.vague
+    ? `덱의 색이 뚜렷하지 않습니다. (가장 가까운 것: ${esc(h.leaning)} ${pct(h.conf)}%) 같은 결의 카드를 더 모으면 정체가 드러납니다.`
+    : `덱 ${h.cards}장을 읽은 결과 ${pct(h.conf)}% 확신. 다음으로 가까운 것은 ${esc(h.runner_up)} ${pct(h.runner_up_conf)}%.`;
+  return `<div class="herocard${h.vague?" vague":""}"><div class="title">${esc(h.title)}</div><div class="temper">${esc(h.temper)} 기질</div>
+    <div class="passive"><b>패시브</b> ${esc(h.passive)}</div>
+    <div class="bars">${bar("공격성",h.aggression)}${bar("강인함",h.toughness)}</div><div class="why">${why}</div></div>`;
+}
+async function judgeHero(){
+  if(!deck.length){ $("herobox").className="hint"; $("herobox").textContent="덱에 카드를 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다."; return; }
+  const seq=++heroSeq; $("herobox").className="hint"; $("herobox").textContent="덱을 읽는 중…";
+  try{
+    let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
+    const r=await fetch("hero",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({names:deck,code})});
+    if(seq!==heroSeq) return;   // a newer deck change already asked again
+    if(r.status===404||r.status===405){ $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; return; }
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok){ $("herobox").textContent=j.error||`오류 ${r.status}`; return; }
+    $("herobox").className=""; $("herobox").innerHTML=heroHTML(j);
+  }catch(e){ if(seq===heroSeq) $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; }
+}
+function deckChanged(){ saveDeck(); renderDeck(); clearTimeout(heroTimer); heroTimer=setTimeout(judgeHero,500); }
+$("deckbtn").onclick=()=>{ if(!current||current.status!=="ok") return; const i=deck.indexOf(current.name);
+  if(i>=0) deck.splice(i,1); else if(deck.length<DECK_MAX) deck.push(current.name); deckChanged(); };
+$("deck").addEventListener("click",e=>{ const b=e.target.closest("[data-i]"); if(!b) return; deck.splice(+b.dataset.i,1); deckChanged(); });
+$("deckclear").onclick=()=>{ deck=[]; deckChanged(); };
+
+drawBlank(); renderDeck(); show(onBlank(SAMPLES[0],2,null)); if(deck.length) judgeHero();
 </script>
