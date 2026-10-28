@@ -8,18 +8,24 @@ Output: JSONL, one line per call: id, cond, rep, answers, usage, latency_ms.
 Usage:
   python3 -I jev_run.py items.json out.jsonl --max 300 [--repeat 1] [--model jev-latest]
 
-The API key is never read or printed here; the environment's egress proxy
-attaches the Authorization header for api.typesafe.ai.
+Key: if JEV_API_KEY is set (local runs), it is sent as a Bearer token and never
+printed. If unset (cloud sandbox), the egress proxy attaches the Authorization
+header for api.typesafe.ai.
 """
-import argparse, json, sys, time, urllib.error, urllib.request
+import argparse, json, os, sys, time, urllib.error, urllib.request
 
 URL = "https://api.typesafe.ai/v1/systemone"
 PRICE_PER_M = 0.042  # USD per 1M input tokens, third-party figure, unconfirmed
 
 
 def call(body):
-    req = urllib.request.Request(URL, json.dumps(body).encode(),
-                                 {"Content-Type": "application/json"})
+    headers = {"Content-Type": "application/json"}
+    key = (os.environ.get("JEV_API_KEY") or "").strip().strip('"').strip("'")
+    if key.lower().startswith("bearer "):
+        key = key[7:].strip()
+    if key:
+        headers["Authorization"] = "Bearer " + key
+    req = urllib.request.Request(URL, json.dumps(body).encode(), headers)
     t0 = time.perf_counter()
     with urllib.request.urlopen(req, timeout=60) as r:
         data = json.load(r)
@@ -35,14 +41,14 @@ def main():
     ap.add_argument("--model", default="jev-latest")
     a = ap.parse_args()
 
-    items = json.load(open(a.items))
+    items = json.load(open(a.items, encoding="utf-8"))
     planned = len(items) * a.repeat
     if planned > a.max:
         sys.exit(f"planned {planned} requests > cap {a.max}; nothing sent")
 
     calls = tokens = errors = 0
     lat = []
-    with open(a.out, "w") as f:
+    with open(a.out, "w", encoding="utf-8") as f:
         for it in items:
             for rep in range(a.repeat):
                 body = {"model": a.model, "state": it["state"], "questions": it["questions"]}
