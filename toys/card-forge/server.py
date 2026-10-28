@@ -28,8 +28,11 @@ class H(BaseHTTPRequestHandler):
         lang, err = forge.check_name(name)
         if err:
             return self._send(400, {"error": err})
-        if name in CACHE:  # same name -> same card
-            return self._send(200, CACHE[name])
+        if name in CACHE:  # same name -> same card (mana rule re-applied so older saves follow the current rule)
+            card = CACHE[name]
+            if card.get("status") != "scribble":
+                forge.apply_mana(card)
+            return self._send(200, card)
         try:
             card, _ = forge.forge(name)
         except Exception as e:

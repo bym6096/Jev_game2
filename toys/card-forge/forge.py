@@ -148,16 +148,17 @@ def make_card(name, lang, a):
     ei, fi = ELEMENT_FAMILY_OF[el_key], EFFECT_FAMILY_OF[fx_key]
     fx_name, fx_desc = ALL_EFFECTS[fx_key]
     power = a["power"]["score"]
-    mana = round(power * 2.5)
     themes = sorted(((a["t_" + k]["noul"], k) for k in THEMES), reverse=True)
     picked = [THEMES[k] for p, k in themes[:2] if p >= 0.6] or [THEMES[themes[0][1]]]
-    card = {"name": name, "lang": lang, "status": "ok", "mana": mana,
+    card = {"name": name, "lang": lang, "status": "ok",
             "element": ALL_ELEMENTS[el_key], "element_family": ei,
             "element_conf": round(a["element"]["probabilities"][el_key], 2), "effect_conf": round(a["effect"]["probabilities"][fx_key], 2),
-            "effect": fx_name, "effect_desc": fx_desc, "effect_family": fi, "effect_value": max(1, math.ceil((mana + 1) / 2)),
+            "effect": fx_name, "effect_desc": fx_desc, "effect_family": fi,
             "kind": {"attack": "공격", "defense": "방어", "skill": "기술"}[a["kind"]["choice"]],
             "attack": round(a["attack"]["score"] * 3), "defense": round(a["defense"]["score"] * 3),
             "themes": picked, "power": round(power, 2), "color": card_color(name, a)}
+    apply_mana(card)
+    mana = card["mana"]
     # runner-up answers Jev also found plausible; the page occasionally forges a variant from these
     el_alt = sorted(((p, k) for k, p in a["element"]["probabilities"].items() if k != el_key and p >= ALT_MIN_P), reverse=True)[:3]
     fx_alt = sorted(((p, k) for k, p in a["effect"]["probabilities"].items() if k != fx_key and p >= ALT_MIN_P), reverse=True)[:3]
@@ -166,6 +167,16 @@ def make_card(name, lang, a):
     if mana > MANA_CAP:
         card["status"] = "shattered"
         card["reason"] = f"필요 마나 {mana}가 빈 카드의 한계 {MANA_CAP}를 넘어 카드가 깨졌다"
+    return card
+
+def apply_mana(card):
+    """Mana = the larger of how grand the name is (Jev's power reading) and what its stats are worth,
+    so a modest name with big numbers cannot come cheap."""
+    hi, lo = max(card["attack"], card["defense"]), min(card["attack"], card["defense"])
+    card["mana_power"] = round(card["power"] * 2.5)
+    card["mana_stats"] = round(hi * 0.6 + lo * 0.2)
+    card["mana"] = max(card["mana_power"], card["mana_stats"])
+    card["effect_value"] = max(1, math.ceil((card["mana"] + 1) / 2))
     return card
 
 def card_color(name, a):

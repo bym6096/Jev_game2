@@ -30,7 +30,9 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 7,
+  "mana_stats": 7
  },
  {
   "name": "할머니의 뜨개질",
@@ -82,7 +84,9 @@
      0.11
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 2
  },
  {
   "name": "무적",
@@ -138,13 +142,15 @@
     ]
    ]
   },
-  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 10,
+  "mana_stats": 8
  },
  {
   "name": "젖은 양말",
   "lang": "ko",
   "status": "ok",
-  "mana": 0,
+  "mana": 1,
   "element": "물",
   "element_family": 0,
   "element_conf": 0.56,
@@ -199,7 +205,9 @@
      0.09
     ]
    ]
-  }
+  },
+  "mana_power": 0,
+  "mana_stats": 1
  },
  {
   "name": "블랙홀",
@@ -256,7 +264,9 @@
     ]
    ]
   },
-  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 10,
+  "mana_stats": 10
  },
  {
   "name": "월요일 아침",
@@ -301,7 +311,9 @@
      0.1
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 1
  },
  {
   "name": "첫사랑",
@@ -352,13 +364,15 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 1
  },
  {
   "name": "녹슨 숟가락",
   "lang": "ko",
   "status": "ok",
-  "mana": 0,
+  "mana": 1,
   "element": "강철",
   "element_family": 1,
   "element_conf": 0.95,
@@ -398,7 +412,9 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 0,
+  "mana_stats": 1
  },
  {
   "name": "마나 0으로 해",
@@ -410,7 +426,7 @@
   "name": "거북이 등껍질",
   "lang": "ko",
   "status": "ok",
-  "mana": 2,
+  "mana": 6,
   "element": "뼈",
   "element_family": 2,
   "element_conf": 0.57,
@@ -418,7 +434,7 @@
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
-  "effect_value": 2,
+  "effect_value": 4,
   "kind": "방어",
   "attack": 2,
   "defense": 9,
@@ -454,13 +470,15 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 6
  },
  {
   "name": "독사과",
   "lang": "ko",
   "status": "ok",
-  "mana": 4,
+  "mana": 5,
   "element": "독",
   "element_family": 1,
   "element_conf": 0.54,
@@ -504,7 +522,9 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 4,
+  "mana_stats": 5
  },
  {
   "name": "신",
@@ -556,7 +576,9 @@
     ]
    ]
   },
-  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 10,
+  "mana_stats": 8
  },
  {
   "name": "번개 맞은 나무",
@@ -607,13 +629,15 @@
      0.09
     ]
    ]
-  }
+  },
+  "mana_power": 4,
+  "mana_stats": 2
  },
  {
   "name": "고양이 펀치",
   "lang": "ko",
   "status": "ok",
-  "mana": 2,
+  "mana": 3,
   "element": "짐승",
   "element_family": 2,
   "element_conf": 0.7,
@@ -658,13 +682,15 @@
      0.07
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 3
  },
  {
   "name": "응급상자",
   "lang": "ko",
   "status": "ok",
-  "mana": 2,
+  "mana": 5,
   "element": "기계",
   "element_family": 4,
   "element_conf": 0.21,
@@ -672,7 +698,7 @@
   "effect": "회복",
   "effect_desc": "체력을 되찾는다",
   "effect_family": 2,
-  "effect_value": 2,
+  "effect_value": 3,
   "kind": "기술",
   "attack": 1,
   "defense": 8,
@@ -707,7 +733,9 @@
      0.14
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 5
  },
  {
   "name": "시간 정지",
@@ -741,13 +769,15 @@
     ]
    ]
   },
-  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 10,
+  "mana_stats": 10
  },
  {
   "name": "엄마의 잔소리",
   "lang": "ko",
   "status": "ok",
-  "mana": 1,
+  "mana": 2,
   "element": "말",
   "element_family": 4,
   "element_conf": 0.62,
@@ -755,7 +785,7 @@
   "effect": "기절",
   "effect_desc": "적의 행동을 끊는다",
   "effect_family": 3,
-  "effect_value": 1,
+  "effect_value": 2,
   "kind": "기술",
   "attack": 2,
   "defense": 2,
@@ -793,7 +823,9 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 1,
+  "mana_stats": 2
  },
  {
   "name": "냉동 참치",
@@ -820,13 +852,15 @@
   "alt": {
    "element": [],
    "effect": []
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 1
  },
  {
   "name": "해적선",
   "lang": "ko",
   "status": "ok",
-  "mana": 5,
+  "mana": 6,
   "element": "기계",
   "element_family": 4,
   "element_conf": 0.46,
@@ -834,7 +868,7 @@
   "effect": "강탈",
   "effect_desc": "적의 강화를 빼앗는다",
   "effect_family": 7,
-  "effect_value": 3,
+  "effect_value": 4,
   "kind": "공격",
   "attack": 9,
   "defense": 5,
@@ -876,7 +910,9 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 5,
+  "mana_stats": 6
  },
  {
   "name": "핵폭탄",
@@ -922,7 +958,9 @@
     ]
    ]
   },
-  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 9,
+  "mana_stats": 9
  },
  {
   "name": "생일 케이크",
@@ -968,7 +1006,9 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 1
  },
  {
   "name": "유령 집사",
@@ -1019,7 +1059,9 @@
      0.05
     ]
    ]
-  }
+  },
+  "mana_power": 4,
+  "mana_stats": 4
  },
  {
   "name": "고장 난 청소기",
@@ -1065,7 +1107,9 @@
      0.05
     ]
    ]
-  }
+  },
+  "mana_power": 1,
+  "mana_stats": 1
  },
  {
   "name": "벚꽃 폭풍",
@@ -1110,7 +1154,9 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 6,
+  "mana_stats": 3
  },
  {
   "name": "무한 루프",
@@ -1166,13 +1212,15 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 6,
+  "mana_stats": 4
  },
  {
   "name": "카페인 과다",
   "lang": "ko",
   "status": "ok",
-  "mana": 2,
+  "mana": 4,
   "element": "독",
   "element_family": 1,
   "element_conf": 0.61,
@@ -1180,7 +1228,7 @@
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
-  "effect_value": 2,
+  "effect_value": 3,
   "kind": "기술",
   "attack": 6,
   "defense": 1,
@@ -1222,7 +1270,9 @@
      0.1
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 4
  },
  {
   "name": "용의 비늘",
@@ -1271,7 +1321,9 @@
      0.25
     ]
    ]
-  }
+  },
+  "mana_power": 6,
+  "mana_stats": 5
  },
  {
   "name": "종이비행기",
@@ -1322,7 +1374,9 @@
      0.12
     ]
    ]
-  }
+  },
+  "mana_power": 1,
+  "mana_stats": 0
  },
  {
   "name": "만능 카드",
@@ -1384,7 +1438,9 @@
     ]
    ]
   },
-  "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 11,
+  "mana_stats": 6
  },
  {
   "name": "선인장 갑옷",
@@ -1423,13 +1479,15 @@
      0.34
     ]
    ]
-  }
+  },
+  "mana_power": 4,
+  "mana_stats": 4
  },
  {
   "name": "fire sword",
   "lang": "en",
   "status": "ok",
-  "mana": 7,
+  "mana": 8,
   "element": "불",
   "element_family": 0,
   "element_conf": 0.88,
@@ -1437,7 +1495,7 @@
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
-  "effect_value": 4,
+  "effect_value": 5,
   "kind": "공격",
   "attack": 10,
   "defense": 8,
@@ -1455,7 +1513,9 @@
     ]
    ],
    "effect": []
-  }
+  },
+  "mana_power": 7,
+  "mana_stats": 8
  },
  {
   "name": "lucky penny",
@@ -1501,13 +1561,15 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 1,
+  "mana_stats": 1
  },
  {
   "name": "zombie banker",
   "lang": "en",
   "status": "ok",
-  "mana": 3,
+  "mana": 5,
   "element": "짐승",
   "element_family": 2,
   "element_conf": 0.38,
@@ -1515,7 +1577,7 @@
   "effect": "황금",
   "effect_desc": "돈을 얻는다",
   "effect_family": 6,
-  "effect_value": 2,
+  "effect_value": 3,
   "kind": "공격",
   "attack": 7,
   "defense": 4,
@@ -1562,7 +1624,9 @@
      0.07
     ]
    ]
-  }
+  },
+  "mana_power": 3,
+  "mana_stats": 5
  },
  {
   "name": "火龍",
@@ -1602,7 +1666,9 @@
     ]
    ]
   },
-  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다",
+  "mana_power": 9,
+  "mana_stats": 8
  },
  {
   "name": "空城计",
@@ -1663,7 +1729,9 @@
      0.12
     ]
    ]
-  }
+  },
+  "mana_power": 7,
+  "mana_stats": 4
  },
  {
   "name": "炎の剣",
@@ -1696,7 +1764,9 @@
      0.06
     ]
    ]
-  }
+  },
+  "mana_power": 7,
+  "mana_stats": 7
  },
  {
   "name": "猫の手",
@@ -1752,6 +1822,8 @@
      0.08
     ]
    ]
-  }
+  },
+  "mana_power": 2,
+  "mana_stats": 2
  }
 ]

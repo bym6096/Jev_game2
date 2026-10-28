@@ -223,7 +223,8 @@ function show(c){
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
-  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8} · ${c.element} · ${c.effect}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
+  const why = c.mana_stats!==undefined ? ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽)` : "";
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${c.effect}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
