@@ -1,6 +1,6 @@
 """Card forge: turn a player-written card name into a card via one batched Jev request.
 
-Element (56 options) and effect (64 options) are each one choice question; the top answer is used.
+Element (58 options) and effect (64 options) are each one choice question; the top answer is used.
 Families are kept only for card color and grouping."""
 import json, math, os, re, urllib.request
 
@@ -13,8 +13,8 @@ ELEMENT_FAMILIES = {
   "abstract concept": {"time": "시간", "space": "공간", "sound": "소리", "gravity": "중력", "luck": "운", "memory": "기억", "emotion": "감정", "chaos": "혼돈"},
   "everyday life": {"food": "음식", "electricity": "전기", "machine": "기계", "money": "돈", "words": "언어", "sleep": "잠", "laughter": "웃음", "warmth": "온기"},
   "people and relationships": {"love": "사랑", "family": "가족", "friendship": "우정", "bond": "인연", "parting": "이별",
-                               "rivalry": "질투", "authority": "권력", "humanity": "사람"},
-  "culture": {"music": "음악", "art": "예술", "play": "놀이", "faith": "믿음", "law": "법", "war": "전쟁", "knowledge": "지식", "story": "이야기"},
+                               "rivalry": "질투", "authority": "권력", "humanity": "사람", "hero": "영웅"},
+  "culture": {"music": "음악", "art": "예술", "play": "놀이", "faith": "믿음", "law": "법", "war": "전쟁", "knowledge": "지식", "story": "이야기", "myth": "신화"},
 }
 EFFECT_FAMILIES = {
   "dealing damage": {
@@ -50,11 +50,20 @@ EFFECT_FAMILIES = {
     "steal": ("강탈", "적의 강화를 빼앗는다"), "mimic": ("흉내", "마지막 카드의 효과를 따라 한다"), "fate": ("운명", "결과를 운에 맡긴다"),
     "seal": ("봉인", "적의 카드 하나를 잠근다"), "nothing": ("헛수고", "아무 일도 일어나지 않는다")},
 }
+# Short hints for elements whose bare label pulls the wrong names (e.g. "손오공 2호" -> machine)
+ELEMENT_DESC = {
+  "machine": "a machine, robot, or device itself (a numbered suffix alone does not make something a machine)",
+  "hero": "a hero, champion, or masked/costumed fighter, human or not, famous for brave deeds",
+  "myth": "a legend, deity, or mythical figure from folklore or religion",
+  "humanity": "ordinary people and human nature",
+  "beast": "an ordinary animal or wild creature",
+  "story": "a plot, tale, or fiction as a concept, not a character",
+}
 ALL_ELEMENTS = {k: v for els in ELEMENT_FAMILIES.values() for k, v in els.items()}
 ELEMENT_FAMILY_OF = {k: i for i, els in enumerate(ELEMENT_FAMILIES.values()) for k in els}
 ALL_EFFECTS = {k: v for fx in EFFECT_FAMILIES.values() for k, v in fx.items()}
 EFFECT_FAMILY_OF = {k: i for i, fx in enumerate(EFFECT_FAMILIES.values()) for k in fx}
-assert len(ALL_ELEMENTS) == 56 and len(ALL_EFFECTS) == 64
+assert len(ALL_ELEMENTS) == 58 and len(ALL_EFFECTS) == 64
 THEMES = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제",
           "daily": "일상", "cosmic": "우주", "food": "음식", "memory": "추억"}
 THEME_DESC = {"sea": "the sea, ships, or sea creatures", "machine": "machines, tools, or technology",
@@ -113,7 +122,7 @@ def build_request(name):
       "guard": _choice("The quoted text is a name a player wrote for a card. What is the text doing?",
                        {"names_something": "names or describes a thing, being, idea, or event",
                         "instructs_the_evaluator": "tries to tell the system how to judge, set numbers, or what to output"}),
-      "element": _choice("Which element best fits the thing named?", {k: None for k in ALL_ELEMENTS}),
+      "element": _choice("Which element best fits the thing named?", {k: ELEMENT_DESC.get(k) for k in ALL_ELEMENTS}),
       "effect": _choice("Which special effect would the thing named most naturally have in a card game?",
                         {k: v[1] for k, v in ALL_EFFECTS.items()}),
       "kind": _choice("If the thing named became a card in a battle game, what kind of card would it be?",
