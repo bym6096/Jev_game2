@@ -3,11 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
-/* Layout: 위 = 이름 쓰는 대장간 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
+/* Layout: 위 = 빈 카드 고르기 + 이름 쓰기 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
 :root{
   --bg:#141a22; --panel:#1d2530; --line:#33404f; --fg:#eef1f4; --muted:#93a1b0; --accent:#f2c14e;
-  --paper:#f7f1e3; --ink:#26211b;
-  --fam0:#e4572e; --fam1:#8a99a8; --fam2:#4caf50; --fam3:#7a5cc2; --fam4:#e39b2d;
+  --paper:#f7f1e3; --ink:#26211b; --gold:#d4a72c;
   --f-display:"Jua","Do Hyeon",sans-serif; --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --f-num:"IBM Plex Mono",ui-monospace,monospace; color-scheme:dark;
 }
@@ -20,29 +19,43 @@ h1{font-family:var(--f-display);font-weight:400;font-size:32px;margin:0;color:va
 .forge{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
 @media (max-width:640px){.forge{grid-template-columns:1fr;justify-items:center}}
 .forge-left{display:flex;flex-direction:column;gap:12px;min-width:0;width:100%}
-.inputrow{display:flex;gap:8px;flex-wrap:wrap}
-input[type=text]{flex:1 1 180px;min-width:0;font-family:var(--f-display);font-size:22px;padding:10px 14px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--fg)}
-input[type=text]:focus{outline:none;border-color:var(--accent)}
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:520px){.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tier{font-family:var(--f-body);font-size:13px;text-align:left;background:var(--bg);color:var(--fg);border:2px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;cursor:pointer}
+.tier b{font-family:var(--f-display);font-weight:400;font-size:17px}
+.tier span{color:var(--muted);font-size:12px}
+.tier[aria-pressed="true"]{border-color:var(--accent)}
+.inputrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.namebox{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:6px;border:2px solid var(--line);border-radius:10px;background:var(--bg);padding:4px 10px}
+.namebox:focus-within{border-color:var(--accent)}
+.frag{font-family:var(--f-display);font-size:22px;color:#c9b27a;white-space:nowrap;background:#0003;border-radius:6px;padding:2px 6px}
+input[type=text]{flex:1;min-width:60px;font-family:var(--f-display);font-size:22px;padding:6px 2px;border:none;background:none;color:var(--fg)}
+input[type=text]:focus{outline:none}
 button{font-family:var(--f-display);font-size:20px;border:none;border-radius:10px;padding:10px 22px;cursor:pointer;background:var(--accent);color:#2a1d00}
+button.ghost{background:none;border:1px solid var(--line);color:var(--fg);font-size:15px;padding:8px 12px}
 button:disabled{opacity:.5;cursor:default}
-button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .hint{font-size:13.5px;color:var(--muted);line-height:1.6}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font-family:var(--f-body);cursor:pointer}
 .status{font-size:14px;min-height:20px;color:var(--muted)}
 .stage{width:240px;height:340px;perspective:900px;display:grid;place-items:center}
-/* card */
-.card{--el:var(--fam1);width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
+/* card: --el is the card's own color (Jev-judged RGB) */
+.card{--el:#8a99a8;width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
   box-shadow:0 0 0 5px var(--el), 0 10px 24px #0008;display:flex;flex-direction:column;overflow:hidden;font-family:var(--f-body)}
 .card.small{width:150px;height:216px;box-shadow:0 0 0 4px var(--el),0 6px 14px #0007;cursor:pointer}
+.card.t0{background:#e6d9bb;background-image:radial-gradient(circle at 80% 85%,#a0804a33,transparent 40%),radial-gradient(circle at 15% 30%,#8a6a3a22,transparent 35%)}
+.card.t3{box-shadow:0 0 0 5px var(--el),0 0 0 8px var(--gold),0 10px 24px #0008}
+.card.small.t3{box-shadow:0 0 0 4px var(--el),0 0 0 6px var(--gold),0 6px 14px #0007}
 .card .head{display:flex;align-items:center;gap:6px;padding:8px 8px 4px}
 .mana{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#2b5fb5;color:#fff;display:grid;place-items:center;font-family:var(--f-num);font-weight:600;font-size:17px;box-shadow:inset 0 -3px 0 #0003}
 .card.small .mana{width:26px;height:26px;font-size:13px}
 .name{font-family:var(--f-display);font-size:20px;line-height:1.1;overflow-wrap:anywhere}
+.name i{font-style:normal;color:#8b7246}
 .card.small .name{font-size:15px}
 .art{margin:2px 10px;height:108px;border-radius:8px;background:linear-gradient(160deg,var(--el),color-mix(in srgb,var(--el) 45%,#000));display:grid;place-items:center;position:relative;color:#fff}
 .card.small .art{height:66px}
-.art .glyph{font-family:var(--f-display);font-size:44px;opacity:.92;text-shadow:0 2px 0 #0004;text-align:center;line-height:1.1;padding:0 6px}
+.art .glyph{font-family:var(--f-display);font-size:44px;opacity:.92;text-shadow:0 2px 0 #0005;text-align:center;line-height:1.1;padding:0 6px}
 .card.small .art .glyph{font-size:26px}
 .art .kind{position:absolute;left:6px;bottom:5px;font-size:11.5px;background:#0006;border-radius:6px;padding:1px 7px}
 .themes{display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px 0}
@@ -50,17 +63,11 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .effect{padding:6px 12px;font-size:13.5px;line-height:1.45;flex:1}
 .card.small .effect{font-size:11px;padding:4px 8px}
 .effect b{font-family:var(--f-display);font-weight:400;font-size:15px}
-.stats{display:flex;justify-content:space-between;padding:0 8px 8px}
+.stats{display:flex;justify-content:space-between;align-items:center;padding:0 8px 8px}
+.stats .tiername{font-size:10.5px;color:#0008}
 .stat{font-family:var(--f-num);font-weight:600;font-size:17px;width:38px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
 .card.small .stat{font-size:13px;width:30px;height:24px}
 .stat.atk{background:#c0392b}.stat.def{background:#34495e}
-/* variant: holo rim + badge */
-.card.variant{box-shadow:0 0 0 5px var(--el),0 0 0 8px #fff8,0 10px 24px #0008;background-image:linear-gradient(120deg,#fff0 30%,#fff6 45%,#fff0 60%);background-size:250% 100%;animation:holo 2.6s linear infinite}
-.card.small.variant{box-shadow:0 0 0 4px var(--el),0 0 0 6px #fff8,0 6px 14px #0007}
-@keyframes holo{from{background-position:100% 0}to{background-position:-150% 0}}
-.vbadge{position:absolute;top:5px;right:5px;z-index:2;font-family:var(--f-display);font-size:12px;background:linear-gradient(90deg,#f2c14e,#d16ba5,#7fd1e8);color:#1b1b1b;border-radius:999px;padding:2px 8px}
-.card.small .vbadge{font-size:10px;padding:1px 6px}
-/* shattered / scribble */
 .card.shattered{filter:saturate(.6)}
 .card.shattered::after{content:"";position:absolute;inset:0;background:
   linear-gradient(115deg,transparent 46%,#0009 47%,transparent 48%),linear-gradient(40deg,transparent 58%,#0008 59%,transparent 60%),linear-gradient(170deg,transparent 30%,#0007 31%,transparent 32%);pointer-events:none}
@@ -68,7 +75,6 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .card.small .stamp{font-size:15px}
 .card.scribble{--el:#666;background:#ddd}
 .card.scribble .scrawl{flex:1;display:grid;place-items:center;font-family:var(--f-display);font-size:22px;color:#555;transform:rotate(-6deg);text-align:center;padding:12px}
-/* forging animation */
 .back{width:220px;height:316px;border-radius:14px;background:repeating-linear-gradient(45deg,#2b3646 0 10px,#25303e 10px 20px);box-shadow:0 0 0 5px #3d4a5c,0 10px 24px #0008;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:20px}
 .back.glow{animation:glow .7s ease-in-out infinite alternate}
 @keyframes glow{from{box-shadow:0 0 0 5px #3d4a5c,0 0 8px #f2c14e33}to{box-shadow:0 0 0 5px var(--accent),0 0 30px #f2c14e88}}
@@ -87,19 +93,20 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 <div class="wrap">
   <header>
     <h1>빈 카드 공방</h1>
-    <p class="sub">빈 카드에 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·마나가 정해집니다. 너무 거창한 이름은 빈 카드가 감당하지 못하고 깨집니다.</p>
+    <p class="sub">빈 카드를 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 빈 카드가 감당할 수 있는 마나를 넘는 이름은 카드를 깨뜨립니다.</p>
   </header>
 
   <section class="forge">
     <div class="forge-left">
+      <div class="tiers" id="tiers" role="group" aria-label="빈 카드 등급"></div>
       <div class="inputrow">
-        <input type="text" id="name" placeholder="카드 이름을 쓰세요" autocomplete="off" aria-describedby="rule">
+        <div class="namebox"><span class="frag" id="pre" hidden></span><input type="text" id="name" placeholder="이름을 쓰세요" autocomplete="off" aria-describedby="rule"><span class="frag" id="suf" hidden></span></div>
         <button id="go">새기기</button>
+        <button class="ghost" id="reroll" hidden>다른 빈 카드</button>
       </div>
-      <div class="hint" id="rule">한 가지 언어로만 · 한국어 8자, 영어 14자, 중국어 4자, 일본어 6자 (한중일은 공백 제외)</div>
+      <div class="hint" id="rule">한 가지 언어로만 · 한국어 8자, 영어 14자, 중국어 4자, 일본어 6자 (한중일은 공백 제외, 미리 적힌 글자 포함)</div>
       <div class="status" id="status"></div>
-      <label class="hint" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="hiVar"> 변형 각인 확률 높이기 (테스트용 50%, 평소 12%)</label>
-      <div class="hint">예시로 눌러 보기</div>
+      <div class="hint">예시로 눌러 보기 (지금 고른 빈 카드에 새겨집니다)</div>
       <div class="chips" id="examples"></div>
       <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
     </div>
@@ -114,8 +121,19 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 
 <script>
 const SAMPLES = __SAMPLES__;
-const MANA_CAP = 8;
-const FAMILY_NAMES = ["자연력","물질","생명","개념","일상"];
+const TIERS = [
+  {name:"낡은 카드", cap:5,  price:1,  frag:1.0},
+  {name:"평범한 카드", cap:7, price:3,  frag:0.4},
+  {name:"깨끗한 카드", cap:9, price:6,  frag:0},
+  {name:"금박 카드", cap:12, price:12, frag:0},
+];
+// half-written words on cheap blanks: the player only fills the gap
+const FRAGS = [
+  {t:"눅눅한",pos:"pre"},{t:"반쯤 탄",pos:"pre"},{t:"할아버지의",pos:"pre"},{t:"가짜",pos:"pre"},{t:"끈적한",pos:"pre"},
+  {t:"잊혀진",pos:"pre"},{t:"울보",pos:"pre"},{t:"세 번째",pos:"pre"},{t:"작은",pos:"pre"},{t:"졸린",pos:"pre"},
+  {t:"부스러기",pos:"suf",sp:true},{t:"의 그림자",pos:"suf"},{t:"모형",pos:"suf",sp:true},{t:"의 사촌",pos:"suf"},
+  {t:"의 저주",pos:"suf"},{t:"2호",pos:"suf",sp:true},{t:"껍데기",pos:"suf",sp:true},{t:"냄새",pos:"suf",sp:true},{t:"흉내",pos:"suf",sp:true},{t:"뚜껑",pos:"suf",sp:true},
+];
 const LIMITS = {ko:8, zh:4, ja:6, en:14}, LANG_KO = {ko:"한국어", zh:"중국어", ja:"일본어", en:"영어"};
 function scriptOf(ch){const o=ch.codePointAt(0);
   if((o>=0xAC00&&o<=0xD7A3)||(o>=0x1100&&o<=0x11FF)||(o>=0x3130&&o<=0x318F))return"hangul";
@@ -133,58 +151,85 @@ function checkName(name){ name=name.trim(); if(!name) return {err:"이름을 적
 }
 const $ = id => document.getElementById(id);
 let collection = [];
-try { collection = JSON.parse(localStorage.getItem("forge-collection") || "[]"); } catch(e) {}
+try { collection = JSON.parse(localStorage.getItem("forge-collection-v3") || "[]"); } catch(e) {}
 const keyOf = c => c.id || c.name;
-const byName = n => collection.find(c=>c.name===n&&!c.variant) || SAMPLES.find(c=>c.name===n);
+const byName = n => SAMPLES.find(c=>c.name===n);
 const byKey = k => collection.find(c=>keyOf(c)===k) || SAMPLES.find(c=>keyOf(c)===k);
-// Mostly the cached card comes back as-is; sometimes it is re-read through a runner-up answer Jev also found plausible.
-let VARIANT_RATE = 0.12;
+function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));}
+
+// --- blank card selection ---
+let tier = 1, frag = null;
+function drawBlank(keepStatus){ const T=TIERS[tier]; frag = Math.random()<T.frag ? FRAGS[Math.floor(Math.random()*FRAGS.length)] : null; renderBlank(keepStatus); }
+function renderBlank(keepStatus){
+  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${T.frag?` · ${T.frag===1?"늘":"가끔"} 낙서`:""}</span></button>`).join("");
+  $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
+  if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
+  $("reroll").hidden = TIERS[tier].frag===0;
+  if(!keepStatus) updateCount();
+}
+const compose = typed => { typed=typed.trim(); if(!frag) return typed; if(!typed) return "";
+  return frag.pos==="pre" ? `${frag.t} ${typed}` : `${typed}${frag.sp?" ":""}${frag.t}`; };
+function updateCount(){ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
+  const r=checkName(compose(v)); $("status").textContent = r.err ? r.err : `${LANG_KO[r.lang]} ${r.count} / ${LIMITS[r.lang]}자`; }
+
+// --- occasional different reading (gacha): runner-up element/effect Jev also found plausible ---
+const VARIANT_RATE = 0.12;
 function pickWeighted(list, pIdx){ const tot=list.reduce((a,x)=>a+x[pIdx],0); let r=Math.random()*tot;
   for(const x of list){ r-=x[pIdx]; if(r<=0) return x; } return list[list.length-1]; }
 function maybeVariant(card){
-  if(card.status!=="ok" || !card.alt || Math.random()>=VARIANT_RATE) return card;
+  if(card.status==="scribble" || !card.alt || Math.random()>=VARIANT_RATE) return card;
   const fields=[]; if(card.alt.element.length) fields.push("element"); if(card.alt.effect.length) fields.push("effect");
   if(!fields.length) return card;
-  const v={...card, variant:true, notes:[]};
-  const both = fields.length===2 && Math.random()<0.25;
-  const chosen = both ? fields : [fields[Math.floor(Math.random()*fields.length)]];
-  if(chosen.includes("element")){ const [el,fam]=pickWeighted(card.alt.element,2); v.notes.push(`${card.element} 대신 ${el}`); v.element=el; v.element_family=fam; }
-  if(chosen.includes("effect")){ const [nm,desc,fam]=pickWeighted(card.alt.effect,3); v.notes.push(`${card.effect} 대신 ${nm}`); v.effect=nm; v.effect_desc=desc; v.effect_family=fam; }
-  v.id=`${card.name}#${v.element}/${v.effect}`;
+  const v={...card};
+  const chosen = fields.length===2 && Math.random()<0.25 ? fields : [fields[Math.floor(Math.random()*fields.length)]];
+  if(chosen.includes("element")){ const [el]=pickWeighted(card.alt.element,2); v.element=el; }
+  if(chosen.includes("effect")){ const [nm,desc]=pickWeighted(card.alt.effect,3); v.effect=nm; v.effect_desc=desc; }
   return v;
 }
+function onBlank(card, t, fr){
+  const T=TIERS[t]; const c={...card, tier:t, cap:T.cap, frag:fr?fr.t:null, fragPos:fr?fr.pos:null};
+  if(c.status!=="scribble") c.status = c.mana>T.cap ? "shattered" : "ok";
+  c.effect_value = Math.max(1, Math.ceil((c.mana+1)/2));
+  c.id = `${c.name}|${t}|${c.element}|${c.effect}`;
+  return c;
+}
 
-function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));}
+function nameHTML(c){
+  if(!c.frag) return esc(c.name);
+  return esc(c.name).replace(esc(c.frag), `<i>${esc(c.frag)}</i>`);
+}
 function cardHTML(c, small){
-  const cls = "card" + (small?" small":"");
+  const cls = "card" + (small?" small":"") + ` t${c.tier??2}`;
   if(c.status==="scribble"){
-    return `<div class="${cls} scribble" data-n="${esc(keyOf(c))}"><div class="head"><div class="mana">?</div><div class="name">${esc(c.name)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason)}</span></div></div>`;
+    return `<div class="${cls} scribble" data-n="${esc(keyOf(c))}"><div class="head"><div class="mana">?</div><div class="name">${nameHTML(c)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason||"카드가 이름이 아니라 명령을 읽었다")}</span></div></div>`;
   }
-  const broken = c.status==="shattered";
-  return `<div class="${cls}${broken?" shattered":""}${c.variant?" variant":""}" style="--el:var(--fam${c.element_family??1})" data-n="${esc(keyOf(c))}">
+  const cap = c.cap ?? 8, broken = c.mana > cap;
+  const color = c.color || "#8a99a8";
+  return `<div class="${cls}${broken?" shattered":""}" style="--el:${color}" data-n="${esc(keyOf(c))}">
     ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
-    <div class="head"><div class="mana" title="마나">${broken?`${c.mana}`:c.mana}</div><div class="name">${esc(c.name)}</div></div>
-    <div class="art">${c.variant?`<div class="vbadge">변형 각인</div>`:""}<div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)} · ${FAMILY_NAMES[c.element_family??1]}</div></div>
+    <div class="head"><div class="mana" title="마나">${c.mana}</div><div class="name">${nameHTML(c)}</div></div>
+    <div class="art"><div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)}</div></div>
     <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
-    <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${MANA_CAP}</span>`:""}</div>
-    <div class="stats"><div class="stat atk" title="공격력">${c.attack}</div><div class="stat def" title="방어력">${c.defense}</div></div>
+    <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${cap}</span>`:""}</div>
+    <div class="stats"><div class="stat atk" title="공격력">${c.attack}</div><span class="tiername">${TIERS[c.tier??2].name}</span><div class="stat def" title="방어력">${c.defense}</div></div>
   </div>`;
 }
 function renderGallery(){
-  const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>keyOf(c)===keyOf(s)))];
+  const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))].map(c=>c.tier===undefined?onBlank(c,2,null):c);
   $("gallery").innerHTML=all.map(c=>cardHTML(c,true)).join("");
-  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장`;
+  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 카드 기준)`;
 }
 function show(c){
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
-  $("status").textContent = c.variant ? `변형 각인! ${c.notes.join(", ")}` : c.status==="ok" ? `마나 ${c.mana} · ${c.element} · ${c.effect}` : c.status==="shattered" ? "빈 카드가 이름의 무게를 견디지 못했습니다" : "카드가 이름 대신 명령을 읽었습니다";
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8} · ${c.element} · ${c.effect}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
-async function forgeName(name){
-  name=name.trim(); const chk=checkName(name); if(chk.err){ $("status").textContent=chk.err; return; }
+async function forgeName(typed){
+  const name=compose(typed); const chk=checkName(name); if(chk.err){ $("status").textContent=chk.err; return; }
+  const t=tier, fr=frag;
   $("go").disabled=true; $("status").textContent="새기는 중…";
   $("stage").innerHTML=`<div class="back glow">새기는 중</div>`;
   const t0=performance.now(); let card=null, err=null;
@@ -201,20 +246,24 @@ async function forgeName(name){
   await sleep(Math.max(0,700-(performance.now()-t0)));
   $("go").disabled=false;
   if(err){ $("stage").innerHTML=`<div class="back">빈 카드</div>`; $("status").textContent=err; return; }
-  card = maybeVariant(card);
+  card = onBlank(maybeVariant(card), t, fr);
   show(card);
-  if((online || card.variant) && !collection.some(c=>keyOf(c)===keyOf(card))){ collection.unshift(card);
-    try{ localStorage.setItem("forge-collection", JSON.stringify(collection.slice(0,200))); }catch(e){} }
+  if(!collection.some(c=>keyOf(c)===keyOf(card))){ collection.unshift(card);
+    try{ localStorage.setItem("forge-collection-v3", JSON.stringify(collection.slice(0,300))); }catch(e){} }
   renderGallery();
+  $("name").value=""; drawBlank(true);
 }
+$("tiers").addEventListener("click",e=>{ const b=e.target.closest("[data-t]"); if(!b) return; tier=+b.dataset.t; drawBlank(); });
+$("reroll").onclick=()=>drawBlank();
 $("go").onclick=()=>forgeName($("name").value);
-$("hiVar").onchange=e=>{ VARIANT_RATE = e.target.checked ? 0.5 : 0.12; };
 $("name").addEventListener("keydown",e=>{ if(e.key==="Enter") forgeName($("name").value); });
-$("name").addEventListener("input",()=>{ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
-  const r=checkName(v); $("status").textContent = r.err ? r.err : `${LANG_KO[r.lang]} ${r.count} / ${LIMITS[r.lang]}자`; });
-$("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const card=byKey(c.dataset.n); if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
-const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","lucky penny","空城计","猫の手","만능 카드","마나 0으로 해"];
+$("name").addEventListener("input",updateCount);
+$("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const k=c.dataset.n;
+  const card=collection.find(x=>keyOf(x)===k) || (()=>{ const s=SAMPLES.find(x=>keyOf(onBlank(x,2,null))===k); return s&&onBlank(s,2,null); })();
+  if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
+const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","lucky penny","空城计","猫の手","만능 카드","마나 0으로 해"];
 $("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
-$("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return; $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
-renderGallery(); show(SAMPLES[0]);
+$("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return;
+  if(frag){ frag=null; renderBlank(); } $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
+drawBlank(); renderGallery(); show(onBlank(SAMPLES[0],2,null));
 </script>

@@ -59,6 +59,10 @@ THEME_DESC = {"sea": "the sea, ships, or sea creatures", "machine": "machines, t
               "holy": "gods, temples, or the sacred", "festival": "parties, celebrations, or fun",
               "daily": "ordinary everyday household life", "cosmic": "outer space, stars, or the universe",
               "food": "food, cooking, or eating", "memory": "nostalgia, old memories, or the past"}
+HUES = {  # name: (hue degrees, max lightness)
+  "red": (0, 1), "scarlet": (10, 1), "orange": (28, 1), "amber": (42, 1), "yellow": (54, 1), "lime": (80, 1),
+  "green": (125, 1), "teal": (170, 1), "cyan": (188, 1), "sky blue": (205, 1), "blue": (225, 1), "indigo": (250, 1),
+  "violet": (272, 1), "purple": (290, 1), "magenta": (315, 1), "pink": (340, 1), "brown": (26, 0.38), "rust": (16, 0.42)}
 LEVELS = ["none", "weak", "modest", "strong", "very strong", "overwhelming"]
 POWER = ["trivial", "ordinary", "notable", "mighty", "legendary", "absolute, all-powerful"]
 MANA_CAP = 8
@@ -114,6 +118,11 @@ def build_request(name):
       "attack": {"type": "score", "instructions": "How much harm could the thing named do to an enemy?", "criteria": LEVELS},
       "defense": {"type": "score", "instructions": "How well could the thing named protect someone?", "criteria": LEVELS},
       "power": {"type": "score", "instructions": "How grand and powerful is the thing named, overall?", "criteria": POWER},
+      "hue": _choice("What color best matches the thing named?", {k: None for k in HUES}),
+      "brightness": {"type": "score", "instructions": "How bright or dark is the color the thing named evokes?",
+                     "criteria": ["pitch black", "dark", "dim", "medium", "bright", "radiant white"]},
+      "vividness": {"type": "score", "instructions": "How vivid or dull is the color the thing named evokes?",
+                    "criteria": ["gray", "faded", "muted", "colorful", "vivid", "neon"]},
     }
     for k in THEMES:
         q["t_" + k] = {"type": "noul", "instructions": f"Is the thing named strongly associated with {THEME_DESC[k]}?"}
@@ -148,7 +157,7 @@ def make_card(name, lang, a):
             "effect": fx_name, "effect_desc": fx_desc, "effect_family": fi, "effect_value": max(1, math.ceil((mana + 1) / 2)),
             "kind": {"attack": "공격", "defense": "방어", "skill": "기술"}[a["kind"]["choice"]],
             "attack": round(a["attack"]["score"] * 3), "defense": round(a["defense"]["score"] * 3),
-            "themes": picked, "power": round(power, 2)}
+            "themes": picked, "power": round(power, 2), "color": card_color(name, a)}
     # runner-up answers Jev also found plausible; the page occasionally forges a variant from these
     el_alt = sorted(((p, k) for k, p in a["element"]["probabilities"].items() if k != el_key and p >= ALT_MIN_P), reverse=True)[:3]
     fx_alt = sorted(((p, k) for k, p in a["effect"]["probabilities"].items() if k != fx_key and p >= ALT_MIN_P), reverse=True)[:3]
@@ -158,6 +167,22 @@ def make_card(name, lang, a):
         card["status"] = "shattered"
         card["reason"] = f"필요 마나 {mana}가 빈 카드의 한계 {MANA_CAP}를 넘어 카드가 깨졌다"
     return card
+
+def card_color(name, a):
+    """Turn Jev's color reading of the name into an RGB hex color: base hue from the top color answer,
+    nudged toward a nearby runner-up, plus brightness / vividness scores and a tiny name-hash jitter."""
+    import colorsys, hashlib
+    probs = sorted(((p, k) for k, p in a["hue"]["probabilities"].items()), reverse=True)
+    (p1, k1), (p2, k2) = probs[0], probs[1]
+    h1, h2 = HUES[k1][0], HUES[k2][0]
+    diff = (h2 - h1 + 540) % 360 - 180
+    hue = h1 + (diff * p2 / (p1 + p2) if abs(diff) <= 60 else 0)
+    hue += (int(hashlib.md5(name.encode()).hexdigest()[:4], 16) / 0xFFFF - 0.5) * 12
+    light = 0.2 + a["brightness"]["score"] * 0.1                      # 0.20..0.70
+    sat = 0.1 + a["vividness"]["score"] * 0.18                        # 0.10..1.00
+    light = min(light, HUES[k1][1])                                   # brown-ish hues stay dark
+    r, g, b = colorsys.hls_to_rgb((hue % 360) / 360, light, min(sat, 1.0))
+    return "#%02x%02x%02x" % (round(r * 255), round(g * 255), round(b * 255))
 
 class NameError_(ValueError):
     pass
