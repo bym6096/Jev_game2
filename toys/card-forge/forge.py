@@ -169,14 +169,25 @@ def make_card(name, lang, a):
         card["reason"] = f"필요 마나 {mana}가 빈 카드의 한계 {MANA_CAP}를 넘어 카드가 깨졌다"
     return card
 
+# extra mana for how strong an effect is in play (by Korean effect name, so page-side re-rolls can reuse it)
+EFFECT_COST = {
+  **{n: 2 for n in ["부활", "되감기", "가속", "집중", "복제", "증식", "무효", "강탈", "철벽"]},
+  **{n: 1 for n in ["관통", "휩쓸기", "처형", "시한폭발", "저격", "연쇄", "회피", "반격", "은신", "재생", "흡혈", "정화",
+                    "빙결", "기절", "혼란", "저주", "힘", "분노", "성장", "축복", "각성", "공명", "통찰", "회수", "변신",
+                    "소환", "예지", "마나 샘", "저장", "할인", "도박", "자리바꿈", "흉내", "봉인"]},
+  "헛수고": -1,
+}
+
 def apply_mana(card):
     """Mana = the larger of how grand the name is (Jev's power reading) and what its stats are worth,
-    so a modest name with big numbers cannot come cheap."""
+    plus the effect's own cost. Effect value follows the base (pre-effect) mana so strong effects don't pay off twice."""
     hi, lo = max(card["attack"], card["defense"]), min(card["attack"], card["defense"])
     card["mana_power"] = round(card["power"] * 2.5)
     card["mana_stats"] = round(hi * 0.6 + lo * 0.2)
-    card["mana"] = max(card["mana_power"], card["mana_stats"])
-    card["effect_value"] = max(1, math.ceil((card["mana"] + 1) / 2))
+    card["mana_effect"] = EFFECT_COST.get(card["effect"], 0)
+    base = max(card["mana_power"], card["mana_stats"])
+    card["mana"] = max(0, base + card["mana_effect"])
+    card["effect_value"] = max(1, math.ceil((base + 1) / 2))
     return card
 
 def card_color(name, a):

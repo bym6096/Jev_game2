@@ -121,18 +121,24 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 
 <script>
 const SAMPLES = __SAMPLES__;
+const EFFECT_COST = __EFFECT_COST__;
 const TIERS = [
   {name:"낡은 카드", cap:5,  price:1,  frag:1.0},
-  {name:"평범한 카드", cap:7, price:3,  frag:0.4},
-  {name:"깨끗한 카드", cap:9, price:6,  frag:0},
-  {name:"금박 카드", cap:12, price:12, frag:0},
+  {name:"평범한 카드", cap:7, price:3,  frag:0.5},
+  {name:"깨끗한 카드", cap:9, price:6,  frag:0.25},
+  {name:"금박 카드", cap:12, price:12, frag:0.1},
 ];
-// half-written words on cheap blanks: the player only fills the gap
+// half-written words a blank may already carry; the player only fills the gap. Any tier can have one.
 const FRAGS = [
-  {t:"눅눅한",pos:"pre"},{t:"반쯤 탄",pos:"pre"},{t:"할아버지의",pos:"pre"},{t:"가짜",pos:"pre"},{t:"끈적한",pos:"pre"},
-  {t:"잊혀진",pos:"pre"},{t:"울보",pos:"pre"},{t:"세 번째",pos:"pre"},{t:"작은",pos:"pre"},{t:"졸린",pos:"pre"},
-  {t:"부스러기",pos:"suf",sp:true},{t:"의 그림자",pos:"suf"},{t:"모형",pos:"suf",sp:true},{t:"의 사촌",pos:"suf"},
-  {t:"의 저주",pos:"suf"},{t:"2호",pos:"suf",sp:true},{t:"껍데기",pos:"suf",sp:true},{t:"냄새",pos:"suf",sp:true},{t:"흉내",pos:"suf",sp:true},{t:"뚜껑",pos:"suf",sp:true},
+  // 낮춤·우스움
+  {t:"눅눅한",pos:"pre"},{t:"반쯤 탄",pos:"pre"},{t:"가짜",pos:"pre"},{t:"끈적한",pos:"pre"},{t:"졸린",pos:"pre"},
+  {t:"부스러기",pos:"suf",sp:true},{t:"모형",pos:"suf",sp:true},{t:"껍데기",pos:"suf",sp:true},{t:"흉내",pos:"suf",sp:true},
+  // 중립
+  {t:"할아버지의",pos:"pre"},{t:"세 번째",pos:"pre"},{t:"작은",pos:"pre"},{t:"바다의",pos:"pre"},{t:"한밤의",pos:"pre"},
+  {t:"2호",pos:"suf",sp:true},{t:"의 그림자",pos:"suf"},{t:"조각",pos:"suf",sp:true},{t:"의 꿈",pos:"suf"},
+  // 높임·멋
+  {t:"빛나는",pos:"pre"},{t:"전설의",pos:"pre"},{t:"춤추는",pos:"pre"},{t:"황금",pos:"pre"},{t:"첫 번째",pos:"pre"},
+  {t:"의 왕",pos:"suf"},{t:"의 심장",pos:"suf"},{t:"의 노래",pos:"suf"},{t:"의 축복",pos:"suf"},{t:"수호자",pos:"suf",sp:true},
 ];
 const LIMITS = {ko:8, zh:4, ja:6, en:14}, LANG_KO = {ko:"한국어", zh:"중국어", ja:"일본어", en:"영어"};
 function scriptOf(ch){const o=ch.codePointAt(0);
@@ -161,7 +167,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",
 let tier = 1, frag = null;
 function drawBlank(keepStatus){ const T=TIERS[tier]; frag = Math.random()<T.frag ? FRAGS[Math.floor(Math.random()*FRAGS.length)] : null; renderBlank(keepStatus); }
 function renderBlank(keepStatus){
-  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${T.frag?` · ${T.frag===1?"늘":"가끔"} 낙서`:""}</span></button>`).join("");
+  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price} · 미리 적힌 말 ${Math.round(T.frag*100)}%</span></button>`).join("");
   $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
   if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
   $("reroll").hidden = TIERS[tier].frag===0;
@@ -188,8 +194,10 @@ function maybeVariant(card){
 }
 function onBlank(card, t, fr){
   const T=TIERS[t]; const c={...card, tier:t, cap:T.cap, frag:fr?fr.t:null, fragPos:fr?fr.pos:null};
+  if(c.mana_power!==undefined){ // same rule as forge.apply_mana, re-run because a gacha re-read may change the effect
+    const base=Math.max(c.mana_power, c.mana_stats); c.mana_effect=EFFECT_COST[c.effect]??0;
+    c.mana=Math.max(0, base+c.mana_effect); c.effect_value=Math.max(1, Math.ceil((base+1)/2)); }
   if(c.status!=="scribble") c.status = c.mana>T.cap ? "shattered" : "ok";
-  c.effect_value = Math.max(1, Math.ceil((c.mana+1)/2));
   c.id = `${c.name}|${t}|${c.element}|${c.effect}`;
   return c;
 }
@@ -223,7 +231,8 @@ function show(c){
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
-  const why = c.mana_stats!==undefined ? ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽)` : "";
+  const fx = c.mana_effect ? ` ${c.mana_effect>0?"+":"−"} 효과 ${Math.abs(c.mana_effect)}` : "";
+  const why = c.mana_stats!==undefined ? ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})` : "";
   $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${c.effect}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
