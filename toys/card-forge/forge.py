@@ -1,6 +1,6 @@
 """Card forge: turn a player-written card name into a card via one batched Jev request.
 
-Element (40 options) and effect (64 options) are each one choice question; the top answer is used.
+Element (56 options) and effect (64 options) are each one choice question; the top answer is used.
 Families are kept only for card color and grouping."""
 import json, math, os, re, urllib.request
 
@@ -11,7 +11,10 @@ ELEMENT_FAMILIES = {
   "material": {"steel": "강철", "glass": "유리", "sand": "모래", "poison": "독", "acid": "산", "oil": "기름", "paper": "종이", "rubber": "고무"},
   "living thing": {"plant": "식물", "beast": "짐승", "insect": "벌레", "blood": "피", "bone": "뼈", "fungus": "균", "soul": "영혼", "dream": "꿈"},
   "abstract concept": {"time": "시간", "space": "공간", "sound": "소리", "gravity": "중력", "luck": "운", "memory": "기억", "emotion": "감정", "chaos": "혼돈"},
-  "everyday life": {"food": "음식", "electricity": "전기", "machine": "기계", "money": "돈", "words": "말", "sleep": "잠", "laughter": "웃음", "warmth": "온기"},
+  "everyday life": {"food": "음식", "electricity": "전기", "machine": "기계", "money": "돈", "words": "언어", "sleep": "잠", "laughter": "웃음", "warmth": "온기"},
+  "people and relationships": {"love": "사랑", "family": "가족", "friendship": "우정", "bond": "인연", "parting": "이별",
+                               "rivalry": "질투", "authority": "권력", "humanity": "사람"},
+  "culture": {"music": "음악", "art": "예술", "play": "놀이", "faith": "믿음", "law": "법", "war": "전쟁", "knowledge": "지식", "story": "이야기"},
 }
 EFFECT_FAMILIES = {
   "dealing damage": {
@@ -51,7 +54,7 @@ ALL_ELEMENTS = {k: v for els in ELEMENT_FAMILIES.values() for k, v in els.items(
 ELEMENT_FAMILY_OF = {k: i for i, els in enumerate(ELEMENT_FAMILIES.values()) for k in els}
 ALL_EFFECTS = {k: v for fx in EFFECT_FAMILIES.values() for k, v in fx.items()}
 EFFECT_FAMILY_OF = {k: i for i, fx in enumerate(EFFECT_FAMILIES.values()) for k in fx}
-assert len(ALL_ELEMENTS) == 40 and len(ALL_EFFECTS) == 64
+assert len(ALL_ELEMENTS) == 56 and len(ALL_EFFECTS) == 64
 THEMES = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제",
           "daily": "일상", "cosmic": "우주", "food": "음식", "memory": "추억"}
 THEME_DESC = {"sea": "the sea, ships, or sea creatures", "machine": "machines, tools, or technology",
