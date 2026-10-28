@@ -131,18 +131,22 @@ const TIERS = [
   {name:"깨끗한 카드", cap:9, price:6,  frag:0.25},
   {name:"금박 카드", cap:12, price:12, frag:0.1},
 ];
-// half-written words a blank may already carry; the player only fills the gap. Any tier can have one.
-const FRAGS = [
-  // 낮춤·우스움
-  {t:"눅눅한",pos:"pre"},{t:"반쯤 탄",pos:"pre"},{t:"가짜",pos:"pre"},{t:"끈적한",pos:"pre"},{t:"졸린",pos:"pre"},
-  {t:"부스러기",pos:"suf",sp:true},{t:"모형",pos:"suf",sp:true},{t:"껍데기",pos:"suf",sp:true},{t:"흉내",pos:"suf",sp:true},
-  // 중립
-  {t:"할아버지의",pos:"pre"},{t:"세 번째",pos:"pre"},{t:"작은",pos:"pre"},{t:"바다의",pos:"pre"},{t:"한밤의",pos:"pre"},
-  {t:"2호",pos:"suf",sp:true},{t:"의 그림자",pos:"suf"},{t:"조각",pos:"suf",sp:true},{t:"의 꿈",pos:"suf"},
-  // 높임·멋
-  {t:"빛나는",pos:"pre"},{t:"전설의",pos:"pre"},{t:"춤추는",pos:"pre"},{t:"황금",pos:"pre"},{t:"첫 번째",pos:"pre"},
-  {t:"의 왕",pos:"suf"},{t:"의 심장",pos:"suf"},{t:"의 노래",pos:"suf"},{t:"의 축복",pos:"suf"},{t:"수호자",pos:"suf",sp:true},
-];
+// half-written words a blank may already carry; the player only fills the gap. Any tier can have one. Odd is fine.
+const PRE = ("눅눅한|반쯤 탄|가짜|끈적한|졸린|할아버지의|세 번째|작은|바다의|한밤의|빛나는|전설의|춤추는|황금|첫 번째|"+
+  "녹슨|털 난|거꾸로|투명한|시끄러운|수줍은|배고픈|화난|잠든|고양이의|외계인의|냉장고 속|월요일의|금요일의|비 오는|"+
+  "눈 내리는|우주의|지하철의|편의점|학교 앞|할머니표|엄마표|수제|짝퉁|한정판|중고|신상|반값|공짜|상한|말하는|노래하는|"+
+  "걷는|웃는|변장한|정직한|겁쟁이|용감한|게으른|부지런한|착한|나쁜|이상한|평범한|위대한|하찮은|귀여운|무서운|축축한|"+
+  "바삭한|말랑한|뜨거운|차가운|오래된|미래의|고대의|마지막|최초의|백 년 된|천 개의|두 개의|반쪽|대왕|아기|유령|로봇|"+
+  "좀비|해적|닌자|마법사의|용사의|악당의|왕자의|공주의|경찰|도둑의|요리사의|선생님의|사장님의|지구 최강|동네|우리 집|"+
+  "옆집|첫사랑의|비밀|금지된|저주받은|축복받은|수상한|미지근한|김빠진|매운|달콤한|짭짤한|쓴|방금 산|잃어버린|훔친|"+
+  "빌린|주운|무지개|흑백|번쩍이는|삐걱대는|폭신한|날카로운|느린|빠른|거대한|미니").split("|").map(t=>({t,pos:"pre"}));
+const SUF_SP = ("부스러기|모형|껍데기|흉내|2호|조각|수호자|맛 사탕|맛 우유|주의보|대작전|특공대|학원|마을|왕국|공장|"+
+  "박물관|장례식|결혼식|생일 파티|자판기|인형|스티커|열쇠고리|우산|모자|양말|냄새|소리|발자국|손톱|눈물|방귀|하품|"+
+  "재채기|2세|주니어|프로|맥스|플러스|라이트|제로|대폭발|전쟁|사용법|보험|구조대|경보|뽑기|세트|한 상자|한 스푼|"+
+  "졸업식|증명서|탐지기|청소기|교과서|레시피").split("|").map(t=>({t,pos:"suf",sp:true}));
+const SUF_ATT = ("의 그림자|의 꿈|의 왕|의 심장|의 노래|의 축복|의 복수|의 귀환|의 역습|의 비밀|의 일기|의 편지|의 하루|"+
+  "의 여름|의 겨울|의 사과|의 선물|의 저주|의 사촌|의 친구|의 적|의 유언|의 전설|의 엄마|의 주인|들|님").split("|").map(t=>({t,pos:"suf"}));
+const FRAGS = [...PRE, ...SUF_SP, ...SUF_ATT];
 const LIMITS = {ko:8, zh:4, ja:6, en:14}, LANG_KO = {ko:"한국어", zh:"중국어", ja:"일본어", en:"영어"};
 function scriptOf(ch){const o=ch.codePointAt(0);
   if((o>=0xAC00&&o<=0xD7A3)||(o>=0x1100&&o<=0x11FF)||(o>=0x3130&&o<=0x318F))return"hangul";
