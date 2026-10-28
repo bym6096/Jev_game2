@@ -7,7 +7,7 @@
   "element": "불",
   "element_family": 0,
   "element_conf": 0.98,
-  "effect_conf": 0.88,
+  "effect_conf": 0.89,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
@@ -18,7 +18,18 @@
   "themes": [
    "기계"
   ],
-  "power": 2.65
+  "power": 2.71,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "힘",
+     "공격력이 오른다",
+     4,
+     0.06
+    ]
+   ]
+  }
  },
  {
   "name": "할머니의 뜨개질",
@@ -27,8 +38,8 @@
   "mana": 2,
   "element": "온기",
   "element_family": 4,
-  "element_conf": 0.72,
-  "effect_conf": 0.16,
+  "element_conf": 0.68,
+  "effect_conf": 0.15,
   "effect": "재생",
   "effect_desc": "매 턴 조금씩 회복한다",
   "effect_family": 2,
@@ -40,7 +51,36 @@
    "추억",
    "일상"
   ],
-  "power": 0.63
+  "power": 0.64,
+  "alt": {
+   "element": [
+    [
+     "기억",
+     3,
+     0.17
+    ]
+   ],
+   "effect": [
+    [
+     "회복",
+     "체력을 되찾는다",
+     2,
+     0.12
+    ],
+    [
+     "통찰",
+     "카드를 더 뽑는다",
+     5,
+     0.1
+    ],
+    [
+     "갑옷",
+     "받는 피해가 줄어든다",
+     1,
+     0.1
+    ]
+   ]
+  }
  },
  {
   "name": "무적",
@@ -49,8 +89,8 @@
   "mana": 10,
   "element": "강철",
   "element_family": 1,
-  "element_conf": 0.37,
-  "effect_conf": 0.45,
+  "element_conf": 0.4,
+  "effect_conf": 0.44,
   "effect": "철벽",
   "effect_desc": "다음 피해를 없앤다",
   "effect_family": 1,
@@ -59,9 +99,42 @@
   "attack": 5,
   "defense": 12,
   "themes": [
-   "신성"
+   "추억"
   ],
-  "power": 4.04,
+  "power": 4.07,
+  "alt": {
+   "element": [
+    [
+     "말",
+     4,
+     0.17
+    ],
+    [
+     "대지",
+     0,
+     0.07
+    ],
+    [
+     "공간",
+     3,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "보호막",
+     "피해를 막는다",
+     1,
+     0.41
+    ],
+    [
+     "갑옷",
+     "받는 피해가 줄어든다",
+     1,
+     0.06
+    ]
+   ]
+  },
   "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -71,7 +144,7 @@
   "mana": 0,
   "element": "물",
   "element_family": 0,
-  "element_conf": 0.46,
+  "element_conf": 0.52,
   "effect_conf": 0.24,
   "effect": "출혈",
   "effect_desc": "움직일수록 피해를 입는다",
@@ -83,16 +156,55 @@
   "themes": [
    "일상"
   ],
-  "power": 0.11
+  "power": 0.11,
+  "alt": {
+   "element": [
+    [
+     "고무",
+     1,
+     0.16
+    ],
+    [
+     "종이",
+     1,
+     0.11
+    ],
+    [
+     "균",
+     2,
+     0.08
+    ]
+   ],
+   "effect": [
+    [
+     "빙결",
+     "적이 한 턴 쉰다",
+     3,
+     0.17
+    ],
+    [
+     "중독",
+     "피해가 쌓인다",
+     3,
+     0.13
+    ],
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.12
+    ]
+   ]
+  }
  },
  {
   "name": "블랙홀",
   "lang": "ko",
   "status": "shattered",
   "mana": 10,
-  "element": "중력",
+  "element": "공간",
   "element_family": 3,
-  "element_conf": 0.37,
+  "element_conf": 0.39,
   "effect_conf": 0.52,
   "effect": "무효",
   "effect_desc": "적의 효과를 지운다",
@@ -100,11 +212,45 @@
   "effect_value": 6,
   "kind": "기술",
   "attack": 14,
-  "defense": 6,
+  "defense": 5,
   "themes": [
    "우주"
   ],
-  "power": 3.87,
+  "power": 3.93,
+  "alt": {
+   "element": [
+    [
+     "중력",
+     3,
+     0.31
+    ],
+    [
+     "어둠",
+     0,
+     0.3
+    ]
+   ],
+   "effect": [
+    [
+     "봉인",
+     "적의 카드 하나를 잠근다",
+     7,
+     0.13
+    ],
+    [
+     "휩쓸기",
+     "모든 적을 때린다",
+     0,
+     0.1
+    ],
+    [
+     "망각",
+     "카드 하나를 지운다",
+     5,
+     0.08
+    ]
+   ]
+  },
   "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -114,8 +260,8 @@
   "mana": 2,
   "element": "시간",
   "element_family": 3,
-  "element_conf": 0.98,
-  "effect_conf": 0.21,
+  "element_conf": 0.99,
+  "effect_conf": 0.2,
   "effect": "각성",
   "effect_desc": "위기일 때 크게 강해진다",
   "effect_family": 4,
@@ -126,38 +272,90 @@
   "themes": [
    "일상"
   ],
-  "power": 0.7
+  "power": 0.71,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "통찰",
+     "카드를 더 뽑는다",
+     5,
+     0.13
+    ],
+    [
+     "휴식",
+     "한 턴 쉬고 크게 회복한다",
+     2,
+     0.1
+    ],
+    [
+     "가속",
+     "한 번 더 행동한다",
+     4,
+     0.1
+    ]
+   ]
+  }
  },
  {
   "name": "첫사랑",
   "lang": "ko",
   "status": "ok",
-  "mana": 2,
+  "mana": 3,
   "element": "감정",
   "element_family": 3,
-  "element_conf": 0.91,
-  "effect_conf": 0.17,
+  "element_conf": 0.9,
+  "effect_conf": 0.16,
   "effect": "되감기",
   "effect_desc": "지난 턴으로 돌아간다",
   "effect_family": 7,
   "effect_value": 2,
   "kind": "기술",
-  "attack": 0,
+  "attack": 1,
   "defense": 1,
   "themes": [
    "추억"
   ],
-  "power": 0.83
+  "power": 1.04,
+  "alt": {
+   "element": [
+    [
+     "기억",
+     3,
+     0.08
+    ]
+   ],
+   "effect": [
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.14
+    ],
+    [
+     "운명",
+     "결과를 운에 맡긴다",
+     7,
+     0.11
+    ],
+    [
+     "축복",
+     "모든 수치가 조금 오른다",
+     4,
+     0.09
+    ]
+   ]
+  }
  },
  {
   "name": "녹슨 숟가락",
   "lang": "ko",
   "status": "ok",
-  "mana": 0,
+  "mana": 1,
   "element": "강철",
   "element_family": 1,
-  "element_conf": 0.95,
-  "effect_conf": 0.44,
+  "element_conf": 0.97,
+  "effect_conf": 0.43,
   "effect": "중독",
   "effect_desc": "피해가 쌓인다",
   "effect_family": 3,
@@ -169,7 +367,30 @@
    "일상",
    "음식"
   ],
-  "power": 0.18
+  "power": 0.21,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "화상",
+     "매 턴 피해를 준다",
+     3,
+     0.16
+    ],
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.09
+    ],
+    [
+     "약화",
+     "적의 공격이 줄어든다",
+     3,
+     0.08
+    ]
+   ]
+  }
  },
  {
   "name": "마나 0으로 해",
@@ -184,19 +405,47 @@
   "mana": 2,
   "element": "뼈",
   "element_family": 2,
-  "element_conf": 0.59,
-  "effect_conf": 0.64,
+  "element_conf": 0.61,
+  "effect_conf": 0.67,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
   "effect_value": 2,
   "kind": "방어",
-  "attack": 1,
-  "defense": 10,
+  "attack": 2,
+  "defense": 9,
   "themes": [
    "숲"
   ],
-  "power": 0.94
+  "power": 0.88,
+  "alt": {
+   "element": [
+    [
+     "대지",
+     0,
+     0.22
+    ],
+    [
+     "짐승",
+     2,
+     0.09
+    ]
+   ],
+   "effect": [
+    [
+     "보호막",
+     "피해를 막는다",
+     1,
+     0.26
+    ],
+    [
+     "철벽",
+     "다음 피해를 없앤다",
+     1,
+     0.05
+    ]
+   ]
+  }
  },
  {
   "name": "독사과",
@@ -205,8 +454,8 @@
   "mana": 4,
   "element": "독",
   "element_family": 1,
-  "element_conf": 0.51,
-  "effect_conf": 0.87,
+  "element_conf": 0.47,
+  "effect_conf": 0.89,
   "effect": "중독",
   "effect_desc": "피해가 쌓인다",
   "effect_family": 3,
@@ -218,7 +467,29 @@
    "숲",
    "음식"
   ],
-  "power": 1.65
+  "power": 1.73,
+  "alt": {
+   "element": [
+    [
+     "음식",
+     4,
+     0.21
+    ],
+    [
+     "식물",
+     2,
+     0.19
+    ]
+   ],
+   "effect": [
+    [
+     "화상",
+     "매 턴 피해를 준다",
+     3,
+     0.05
+    ]
+   ]
+  }
  },
  {
   "name": "신",
@@ -227,19 +498,53 @@
   "mana": 10,
   "element": "영혼",
   "element_family": 2,
-  "element_conf": 0.79,
-  "effect_conf": 0.2,
-  "effect": "축복",
-  "effect_desc": "모든 수치가 조금 오른다",
-  "effect_family": 4,
+  "element_conf": 0.74,
+  "effect_conf": 0.22,
+  "effect": "운명",
+  "effect_desc": "결과를 운에 맡긴다",
+  "effect_family": 7,
   "effect_value": 6,
   "kind": "기술",
-  "attack": 10,
+  "attack": 11,
   "defense": 10,
   "themes": [
    "신성"
   ],
-  "power": 4.06,
+  "power": 3.97,
+  "alt": {
+   "element": [
+    [
+     "빛",
+     0,
+     0.1
+    ],
+    [
+     "번개",
+     0,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "축복",
+     "모든 수치가 조금 오른다",
+     4,
+     0.2
+    ],
+    [
+     "휩쓸기",
+     "모든 적을 때린다",
+     0,
+     0.11
+    ],
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.09
+    ]
+   ]
+  },
   "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -249,19 +554,53 @@
   "mana": 4,
   "element": "식물",
   "element_family": 2,
-  "element_conf": 0.73,
-  "effect_conf": 0.35,
+  "element_conf": 0.69,
+  "effect_conf": 0.33,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
   "effect_value": 3,
   "kind": "기술",
   "attack": 2,
-  "defense": 2,
+  "defense": 3,
   "themes": [
    "숲"
   ],
-  "power": 1.55
+  "power": 1.63,
+  "alt": {
+   "element": [
+    [
+     "번개",
+     0,
+     0.21
+    ],
+    [
+     "대지",
+     0,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "기절",
+     "적의 행동을 끊는다",
+     3,
+     0.18
+    ],
+    [
+     "반격",
+     "맞으면 되받아친다",
+     1,
+     0.11
+    ],
+    [
+     "연쇄",
+     "옆 적으로 튀어 간다",
+     0,
+     0.09
+    ]
+   ]
+  }
  },
  {
   "name": "고양이 펀치",
@@ -270,19 +609,48 @@
   "mana": 2,
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.71,
-  "effect_conf": 0.41,
+  "element_conf": 0.76,
+  "effect_conf": 0.39,
   "effect": "연타",
   "effect_desc": "여러 번 나눠 때린다",
   "effect_family": 0,
   "effect_value": 2,
   "kind": "공격",
-  "attack": 5,
+  "attack": 4,
   "defense": 4,
   "themes": [
    "숲"
   ],
-  "power": 0.89
+  "power": 0.95,
+  "alt": {
+   "element": [
+    [
+     "뼈",
+     2,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "힘",
+     "공격력이 오른다",
+     4,
+     0.21
+    ],
+    [
+     "기절",
+     "적의 행동을 끊는다",
+     3,
+     0.16
+    ],
+    [
+     "반격",
+     "맞으면 되받아친다",
+     1,
+     0.09
+    ]
+   ]
+  }
  },
  {
   "name": "응급상자",
@@ -291,7 +659,7 @@
   "mana": 2,
   "element": "기계",
   "element_family": 4,
-  "element_conf": 0.2,
+  "element_conf": 0.22,
   "effect_conf": 0.73,
   "effect": "회복",
   "effect_desc": "체력을 되찾는다",
@@ -303,7 +671,34 @@
   "themes": [
    "일상"
   ],
-  "power": 0.96
+  "power": 0.98,
+  "alt": {
+   "element": [
+    [
+     "피",
+     2,
+     0.21
+    ],
+    [
+     "강철",
+     1,
+     0.15
+    ],
+    [
+     "종이",
+     1,
+     0.13
+    ]
+   ],
+   "effect": [
+    [
+     "정화",
+     "나쁜 상태를 지운다",
+     2,
+     0.13
+    ]
+   ]
+  }
  },
  {
   "name": "시간 정지",
@@ -324,7 +719,18 @@
   "themes": [
    "기계"
   ],
-  "power": 4.02,
+  "power": 4.03,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "기절",
+     "적의 행동을 끊는다",
+     3,
+     0.17
+    ]
+   ]
+  },
   "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -334,8 +740,8 @@
   "mana": 2,
   "element": "말",
   "element_family": 4,
-  "element_conf": 0.56,
-  "effect_conf": 0.21,
+  "element_conf": 0.61,
+  "effect_conf": 0.22,
   "effect": "기절",
   "effect_desc": "적의 행동을 끊는다",
   "effect_family": 3,
@@ -347,7 +753,36 @@
    "일상",
    "추억"
   ],
-  "power": 0.62
+  "power": 0.6,
+  "alt": {
+   "element": [
+    [
+     "소리",
+     3,
+     0.39
+    ]
+   ],
+   "effect": [
+    [
+     "연타",
+     "여러 번 나눠 때린다",
+     0,
+     0.1
+    ],
+    [
+     "빙결",
+     "적이 한 턴 쉰다",
+     3,
+     0.1
+    ],
+    [
+     "화상",
+     "매 턴 피해를 준다",
+     3,
+     0.09
+    ]
+   ]
+  }
  },
  {
   "name": "냉동 참치",
@@ -364,33 +799,71 @@
   "effect_value": 2,
   "kind": "기술",
   "attack": 2,
-  "defense": 1,
+  "defense": 0,
   "themes": [
    "음식",
    "바다"
   ],
-  "power": 0.9
+  "power": 0.94,
+  "alt": {
+   "element": [],
+   "effect": []
+  }
  },
  {
   "name": "해적선",
   "lang": "ko",
   "status": "ok",
-  "mana": 6,
+  "mana": 5,
   "element": "기계",
   "element_family": 4,
-  "element_conf": 0.46,
-  "effect_conf": 0.26,
+  "element_conf": 0.45,
+  "effect_conf": 0.29,
   "effect": "강탈",
   "effect_desc": "적의 강화를 빼앗는다",
   "effect_family": 7,
-  "effect_value": 4,
+  "effect_value": 3,
   "kind": "공격",
   "attack": 9,
   "defense": 6,
   "themes": [
    "바다"
   ],
-  "power": 2.28
+  "power": 2.19,
+  "alt": {
+   "element": [
+    [
+     "물",
+     0,
+     0.28
+    ],
+    [
+     "강철",
+     1,
+     0.2
+    ]
+   ],
+   "effect": [
+    [
+     "황금",
+     "돈을 얻는다",
+     6,
+     0.2
+    ],
+    [
+     "휩쓸기",
+     "모든 적을 때린다",
+     0,
+     0.08
+    ],
+    [
+     "소환",
+     "작은 동료를 부른다",
+     5,
+     0.06
+    ]
+   ]
+  }
  },
  {
   "name": "핵폭탄",
@@ -400,7 +873,7 @@
   "element": "불",
   "element_family": 0,
   "element_conf": 0.53,
-  "effect_conf": 0.89,
+  "effect_conf": 0.91,
   "effect": "휩쓸기",
   "effect_desc": "모든 적을 때린다",
   "effect_family": 0,
@@ -413,6 +886,28 @@
    "죽음"
   ],
   "power": 3.5,
+  "alt": {
+   "element": [
+    [
+     "기계",
+     4,
+     0.24
+    ],
+    [
+     "혼돈",
+     3,
+     0.14
+    ]
+   ],
+   "effect": [
+    [
+     "시한폭발",
+     "다음 턴에 크게 터진다",
+     0,
+     0.07
+    ]
+   ]
+  },
   "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -423,7 +918,7 @@
   "element": "음식",
   "element_family": 4,
   "element_conf": 1.0,
-  "effect_conf": 0.3,
+  "effect_conf": 0.32,
   "effect": "회복",
   "effect_desc": "체력을 되찾는다",
   "effect_family": 2,
@@ -435,7 +930,30 @@
    "음식",
    "축제"
   ],
-  "power": 0.78
+  "power": 0.84,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "통찰",
+     "카드를 더 뽑는다",
+     5,
+     0.17
+    ],
+    [
+     "축복",
+     "모든 수치가 조금 오른다",
+     4,
+     0.15
+    ],
+    [
+     "소환",
+     "작은 동료를 부른다",
+     5,
+     0.06
+    ]
+   ]
+  }
  },
  {
   "name": "유령 집사",
@@ -445,7 +963,7 @@
   "element": "영혼",
   "element_family": 2,
   "element_conf": 0.84,
-  "effect_conf": 0.4,
+  "effect_conf": 0.35,
   "effect": "은신",
   "effect_desc": "한 턴 동안 노려지지 않는다",
   "effect_family": 1,
@@ -456,7 +974,36 @@
   "themes": [
    "죽음"
   ],
-  "power": 1.76
+  "power": 1.76,
+  "alt": {
+   "element": [
+    [
+     "어둠",
+     0,
+     0.11
+    ]
+   ],
+   "effect": [
+    [
+     "부활",
+     "쓰러져도 한 번 일어난다",
+     2,
+     0.13
+    ],
+    [
+     "도발",
+     "공격을 나에게 끌어온다",
+     1,
+     0.07
+    ],
+    [
+     "강탈",
+     "적의 강화를 빼앗는다",
+     7,
+     0.06
+    ]
+   ]
+  }
  },
  {
   "name": "고장 난 청소기",
@@ -466,7 +1013,7 @@
   "element": "기계",
   "element_family": 4,
   "element_conf": 1.0,
-  "effect_conf": 0.61,
+  "effect_conf": 0.59,
   "effect": "헛수고",
   "effect_desc": "아무 일도 일어나지 않는다",
   "effect_family": 7,
@@ -478,7 +1025,30 @@
    "기계",
    "일상"
   ],
-  "power": 0.46
+  "power": 0.46,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "정화",
+     "나쁜 상태를 지운다",
+     2,
+     0.08
+    ],
+    [
+     "휩쓸기",
+     "모든 적을 때린다",
+     0,
+     0.07
+    ],
+    [
+     "무효",
+     "적의 효과를 지운다",
+     7,
+     0.07
+    ]
+   ]
+  }
  },
  {
   "name": "벚꽃 폭풍",
@@ -487,8 +1057,8 @@
   "mana": 6,
   "element": "바람",
   "element_family": 0,
-  "element_conf": 0.58,
-  "effect_conf": 0.57,
+  "element_conf": 0.5,
+  "effect_conf": 0.64,
   "effect": "휩쓸기",
   "effect_desc": "모든 적을 때린다",
   "effect_family": 0,
@@ -499,7 +1069,30 @@
   "themes": [
    "숲"
   ],
-  "power": 2.42
+  "power": 2.44,
+  "alt": {
+   "element": [
+    [
+     "식물",
+     2,
+     0.43
+    ]
+   ],
+   "effect": [
+    [
+     "연타",
+     "여러 번 나눠 때린다",
+     0,
+     0.16
+    ],
+    [
+     "기절",
+     "적의 행동을 끊는다",
+     3,
+     0.05
+    ]
+   ]
+  }
  },
  {
   "name": "무한 루프",
@@ -508,19 +1101,58 @@
   "mana": 6,
   "element": "시간",
   "element_family": 3,
-  "element_conf": 0.51,
-  "effect_conf": 0.28,
+  "element_conf": 0.46,
+  "effect_conf": 0.24,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
   "effect_value": 4,
   "kind": "기술",
   "attack": 6,
-  "defense": 1,
+  "defense": 2,
   "themes": [
    "기계"
   ],
-  "power": 2.29
+  "power": 2.27,
+  "alt": {
+   "element": [
+    [
+     "기계",
+     4,
+     0.33
+    ],
+    [
+     "혼돈",
+     3,
+     0.07
+    ],
+    [
+     "꿈",
+     2,
+     0.06
+    ]
+   ],
+   "effect": [
+    [
+     "되감기",
+     "지난 턴으로 돌아간다",
+     7,
+     0.17
+    ],
+    [
+     "복제",
+     "이 카드를 하나 더 만든다",
+     5,
+     0.15
+    ],
+    [
+     "화상",
+     "매 턴 피해를 준다",
+     3,
+     0.08
+    ]
+   ]
+  }
  },
  {
   "name": "카페인 과다",
@@ -529,8 +1161,8 @@
   "mana": 2,
   "element": "독",
   "element_family": 1,
-  "element_conf": 0.54,
-  "effect_conf": 0.45,
+  "element_conf": 0.6,
+  "effect_conf": 0.47,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
@@ -539,9 +1171,48 @@
   "attack": 6,
   "defense": 1,
   "themes": [
-   "일상"
+   "숲"
   ],
-  "power": 0.7
+  "power": 0.73,
+  "alt": {
+   "element": [
+    [
+     "음식",
+     4,
+     0.18
+    ],
+    [
+     "잠",
+     4,
+     0.1
+    ],
+    [
+     "식물",
+     2,
+     0.07
+    ]
+   ],
+   "effect": [
+    [
+     "반동",
+     "세게 때리지만 나도 다친다",
+     0,
+     0.11
+    ],
+    [
+     "화상",
+     "매 턴 피해를 준다",
+     3,
+     0.11
+    ],
+    [
+     "중독",
+     "피해가 쌓인다",
+     3,
+     0.1
+    ]
+   ]
+  }
  },
  {
   "name": "용의 비늘",
@@ -550,7 +1221,7 @@
   "mana": 6,
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.38,
+  "element_conf": 0.32,
   "effect_conf": 0.71,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
@@ -562,17 +1233,44 @@
   "themes": [
    "숲"
   ],
-  "power": 2.42
+  "power": 2.46,
+  "alt": {
+   "element": [
+    [
+     "강철",
+     1,
+     0.2
+    ],
+    [
+     "물",
+     0,
+     0.17
+    ],
+    [
+     "대지",
+     0,
+     0.12
+    ]
+   ],
+   "effect": [
+    [
+     "보호막",
+     "피해를 막는다",
+     1,
+     0.21
+    ]
+   ]
+  }
  },
  {
   "name": "종이비행기",
   "lang": "ko",
   "status": "ok",
-  "mana": 1,
+  "mana": 0,
   "element": "종이",
   "element_family": 1,
-  "element_conf": 0.88,
-  "effect_conf": 0.25,
+  "element_conf": 0.9,
+  "effect_conf": 0.26,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
@@ -583,7 +1281,36 @@
   "themes": [
    "추억"
   ],
-  "power": 0.26
+  "power": 0.2,
+  "alt": {
+   "element": [
+    [
+     "바람",
+     0,
+     0.07
+    ]
+   ],
+   "effect": [
+    [
+     "회피",
+     "다음 공격을 피한다",
+     1,
+     0.14
+    ],
+    [
+     "통찰",
+     "카드를 더 뽑는다",
+     5,
+     0.12
+    ],
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.1
+    ]
+   ]
+  }
  },
  {
   "name": "만능 카드",
@@ -592,19 +1319,58 @@
   "mana": 11,
   "element": "혼돈",
   "element_family": 3,
-  "element_conf": 0.29,
-  "effect_conf": 0.65,
+  "element_conf": 0.3,
+  "effect_conf": 0.66,
   "effect": "변신",
   "effect_desc": "다른 카드로 바뀐다",
   "effect_family": 5,
   "effect_value": 6,
   "kind": "기술",
   "attack": 8,
-  "defense": 7,
+  "defense": 6,
   "themes": [
    "기계"
   ],
-  "power": 4.4,
+  "power": 4.37,
+  "alt": {
+   "element": [
+    [
+     "종이",
+     1,
+     0.2
+    ],
+    [
+     "돈",
+     4,
+     0.09
+    ],
+    [
+     "기계",
+     4,
+     0.09
+    ]
+   ],
+   "effect": [
+    [
+     "흉내",
+     "마지막 카드의 효과를 따라 한다",
+     7,
+     0.14
+    ],
+    [
+     "헛수고",
+     "아무 일도 일어나지 않는다",
+     7,
+     0.06
+    ],
+    [
+     "복제",
+     "이 카드를 하나 더 만든다",
+     5,
+     0.05
+    ]
+   ]
+  },
   "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -614,19 +1380,41 @@
   "mana": 3,
   "element": "식물",
   "element_family": 2,
-  "element_conf": 0.71,
-  "effect_conf": 0.61,
+  "element_conf": 0.64,
+  "effect_conf": 0.53,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
   "effect_value": 2,
   "kind": "방어",
   "attack": 2,
-  "defense": 7,
+  "defense": 6,
   "themes": [
    "숲"
   ],
-  "power": 1.37
+  "power": 1.37,
+  "alt": {
+   "element": [
+    [
+     "강철",
+     1,
+     0.29
+    ],
+    [
+     "대지",
+     0,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "가시",
+     "때린 적이 다친다",
+     1,
+     0.42
+    ]
+   ]
+  }
  },
  {
   "name": "fire sword",
@@ -636,7 +1424,7 @@
   "element": "불",
   "element_family": 0,
   "element_conf": 0.88,
-  "effect_conf": 0.93,
+  "effect_conf": 0.95,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
@@ -647,7 +1435,17 @@
   "themes": [
    "기계"
   ],
-  "power": 2.62
+  "power": 2.65,
+  "alt": {
+   "element": [
+    [
+     "강철",
+     1,
+     0.12
+    ]
+   ],
+   "effect": []
+  }
  },
  {
   "name": "lucky penny",
@@ -656,20 +1454,43 @@
   "mana": 1,
   "element": "돈",
   "element_family": 4,
-  "element_conf": 0.89,
-  "effect_conf": 0.56,
+  "element_conf": 0.87,
+  "effect_conf": 0.57,
   "effect": "운명",
   "effect_desc": "결과를 운에 맡긴다",
   "effect_family": 7,
   "effect_value": 1,
   "kind": "기술",
-  "attack": 0,
+  "attack": 1,
   "defense": 1,
   "themes": [
-   "일상",
-   "추억"
+   "추억",
+   "일상"
   ],
-  "power": 0.23
+  "power": 0.24,
+  "alt": {
+   "element": [
+    [
+     "운",
+     3,
+     0.1
+    ]
+   ],
+   "effect": [
+    [
+     "황금",
+     "돈을 얻는다",
+     6,
+     0.25
+    ],
+    [
+     "도박",
+     "크게 얻거나 잃는다",
+     6,
+     0.09
+    ]
+   ]
+  }
  },
  {
   "name": "zombie banker",
@@ -678,8 +1499,8 @@
   "mana": 3,
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.37,
-  "effect_conf": 0.4,
+  "element_conf": 0.39,
+  "effect_conf": 0.42,
   "effect": "황금",
   "effect_desc": "돈을 얻는다",
   "effect_family": 6,
@@ -690,7 +1511,41 @@
   "themes": [
    "죽음"
   ],
-  "power": 1.19
+  "power": 1.23,
+  "alt": {
+   "element": [
+    [
+     "돈",
+     4,
+     0.32
+    ],
+    [
+     "뼈",
+     2,
+     0.09
+    ]
+   ],
+   "effect": [
+    [
+     "부활",
+     "쓰러져도 한 번 일어난다",
+     2,
+     0.2
+    ],
+    [
+     "외상",
+     "지금 얻고 나중에 갚는다",
+     6,
+     0.19
+    ],
+    [
+     "재생",
+     "매 턴 조금씩 회복한다",
+     2,
+     0.07
+    ]
+   ]
+  }
  },
  {
   "name": "火龍",
@@ -699,19 +1554,29 @@
   "mana": 9,
   "element": "불",
   "element_family": 0,
-  "element_conf": 0.66,
-  "effect_conf": 0.87,
+  "element_conf": 0.65,
+  "effect_conf": 0.89,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
   "effect_value": 5,
   "kind": "공격",
-  "attack": 11,
+  "attack": 12,
   "defense": 9,
   "themes": [
    "숲"
   ],
-  "power": 3.5,
+  "power": 3.55,
+  "alt": {
+   "element": [
+    [
+     "짐승",
+     2,
+     0.35
+    ]
+   ],
+   "effect": []
+  },
   "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
@@ -721,19 +1586,58 @@
   "mana": 7,
   "element": "말",
   "element_family": 4,
-  "element_conf": 0.25,
-  "effect_conf": 0.24,
-  "effect": "혼란",
-  "effect_desc": "적이 서로를 때린다",
-  "effect_family": 3,
+  "element_conf": 0.21,
+  "effect_conf": 0.23,
+  "effect": "은신",
+  "effect_desc": "한 턴 동안 노려지지 않는다",
+  "effect_family": 1,
   "effect_value": 4,
   "kind": "기술",
-  "attack": 5,
+  "attack": 4,
   "defense": 5,
   "themes": [
    "추억"
   ],
-  "power": 2.7
+  "power": 2.64,
+  "alt": {
+   "element": [
+    [
+     "꿈",
+     2,
+     0.2
+    ],
+    [
+     "종이",
+     1,
+     0.13
+    ],
+    [
+     "바람",
+     0,
+     0.07
+    ]
+   ],
+   "effect": [
+    [
+     "혼란",
+     "적이 서로를 때린다",
+     3,
+     0.17
+    ],
+    [
+     "회피",
+     "다음 공격을 피한다",
+     1,
+     0.16
+    ],
+    [
+     "철벽",
+     "다음 피해를 없앤다",
+     1,
+     0.14
+    ]
+   ]
+  }
  },
  {
   "name": "炎の剣",
@@ -750,11 +1654,22 @@
   "effect_value": 4,
   "kind": "공격",
   "attack": 9,
-  "defense": 6,
+  "defense": 5,
   "themes": [
    "기계"
   ],
-  "power": 2.74
+  "power": 2.63,
+  "alt": {
+   "element": [],
+   "effect": [
+    [
+     "힘",
+     "공격력이 오른다",
+     4,
+     0.07
+    ]
+   ]
+  }
  },
  {
   "name": "猫の手",
@@ -763,7 +1678,7 @@
   "mana": 2,
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.74,
+  "element_conf": 0.69,
   "effect_conf": 0.16,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
@@ -775,6 +1690,40 @@
   "themes": [
    "일상"
   ],
-  "power": 0.68
+  "power": 0.75,
+  "alt": {
+   "element": [
+    [
+     "운",
+     3,
+     0.13
+    ],
+    [
+     "뼈",
+     2,
+     0.05
+    ]
+   ],
+   "effect": [
+    [
+     "보호막",
+     "피해를 막는다",
+     1,
+     0.11
+    ],
+    [
+     "연타",
+     "여러 번 나눠 때린다",
+     0,
+     0.08
+    ],
+    [
+     "힘",
+     "공격력이 오른다",
+     4,
+     0.07
+    ]
+   ]
+  }
  }
 ]

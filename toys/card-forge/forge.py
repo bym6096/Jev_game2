@@ -62,6 +62,7 @@ THEME_DESC = {"sea": "the sea, ships, or sea creatures", "machine": "machines, t
 LEVELS = ["none", "weak", "modest", "strong", "very strong", "overwhelming"]
 POWER = ["trivial", "ordinary", "notable", "mighty", "legendary", "absolute, all-powerful"]
 MANA_CAP = 8
+ALT_MIN_P = 0.05  # runner-ups below this are too unlikely to feel like a fair reading of the name
 
 # --- name rules: one language only, per-language length limits -----------------------------
 LIMITS = {"ko": 8, "zh": 4, "ja": 6, "en": 14}
@@ -148,6 +149,11 @@ def make_card(name, lang, a):
             "kind": {"attack": "공격", "defense": "방어", "skill": "기술"}[a["kind"]["choice"]],
             "attack": round(a["attack"]["score"] * 3), "defense": round(a["defense"]["score"] * 3),
             "themes": picked, "power": round(power, 2)}
+    # runner-up answers Jev also found plausible; the page occasionally forges a variant from these
+    el_alt = sorted(((p, k) for k, p in a["element"]["probabilities"].items() if k != el_key and p >= ALT_MIN_P), reverse=True)[:3]
+    fx_alt = sorted(((p, k) for k, p in a["effect"]["probabilities"].items() if k != fx_key and p >= ALT_MIN_P), reverse=True)[:3]
+    card["alt"] = {"element": [[ALL_ELEMENTS[k], ELEMENT_FAMILY_OF[k], round(p, 3)] for p, k in el_alt],
+                   "effect": [[*ALL_EFFECTS[k], EFFECT_FAMILY_OF[k], round(p, 3)] for p, k in fx_alt]}
     if mana > MANA_CAP:
         card["status"] = "shattered"
         card["reason"] = f"필요 마나 {mana}가 빈 카드의 한계 {MANA_CAP}를 넘어 카드가 깨졌다"

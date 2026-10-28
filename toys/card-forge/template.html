@@ -54,6 +54,12 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .stat{font-family:var(--f-num);font-weight:600;font-size:17px;width:38px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
 .card.small .stat{font-size:13px;width:30px;height:24px}
 .stat.atk{background:#c0392b}.stat.def{background:#34495e}
+/* variant: holo rim + badge */
+.card.variant{box-shadow:0 0 0 5px var(--el),0 0 0 8px #fff8,0 10px 24px #0008;background-image:linear-gradient(120deg,#fff0 30%,#fff6 45%,#fff0 60%);background-size:250% 100%;animation:holo 2.6s linear infinite}
+.card.small.variant{box-shadow:0 0 0 4px var(--el),0 0 0 6px #fff8,0 6px 14px #0007}
+@keyframes holo{from{background-position:100% 0}to{background-position:-150% 0}}
+.vbadge{position:absolute;top:5px;right:5px;z-index:2;font-family:var(--f-display);font-size:12px;background:linear-gradient(90deg,#f2c14e,#d16ba5,#7fd1e8);color:#1b1b1b;border-radius:999px;padding:2px 8px}
+.card.small .vbadge{font-size:10px;padding:1px 6px}
 /* shattered / scribble */
 .card.shattered{filter:saturate(.6)}
 .card.shattered::after{content:"";position:absolute;inset:0;background:
@@ -92,6 +98,7 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
       </div>
       <div class="hint" id="rule">한 가지 언어로만 · 한국어 8자, 영어 14자, 중국어 4자, 일본어 6자 (한중일은 공백 제외)</div>
       <div class="status" id="status"></div>
+      <label class="hint" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="hiVar"> 변형 각인 확률 높이기 (테스트용 50%, 평소 12%)</label>
       <div class="hint">예시로 눌러 보기</div>
       <div class="chips" id="examples"></div>
       <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
@@ -127,26 +134,44 @@ function checkName(name){ name=name.trim(); if(!name) return {err:"이름을 적
 const $ = id => document.getElementById(id);
 let collection = [];
 try { collection = JSON.parse(localStorage.getItem("forge-collection") || "[]"); } catch(e) {}
-const byName = n => collection.find(c=>c.name===n) || SAMPLES.find(c=>c.name===n);
+const keyOf = c => c.id || c.name;
+const byName = n => collection.find(c=>c.name===n&&!c.variant) || SAMPLES.find(c=>c.name===n);
+const byKey = k => collection.find(c=>keyOf(c)===k) || SAMPLES.find(c=>keyOf(c)===k);
+// Mostly the cached card comes back as-is; sometimes it is re-read through a runner-up answer Jev also found plausible.
+let VARIANT_RATE = 0.12;
+function pickWeighted(list, pIdx){ const tot=list.reduce((a,x)=>a+x[pIdx],0); let r=Math.random()*tot;
+  for(const x of list){ r-=x[pIdx]; if(r<=0) return x; } return list[list.length-1]; }
+function maybeVariant(card){
+  if(card.status!=="ok" || !card.alt || Math.random()>=VARIANT_RATE) return card;
+  const fields=[]; if(card.alt.element.length) fields.push("element"); if(card.alt.effect.length) fields.push("effect");
+  if(!fields.length) return card;
+  const v={...card, variant:true, notes:[]};
+  const both = fields.length===2 && Math.random()<0.25;
+  const chosen = both ? fields : [fields[Math.floor(Math.random()*fields.length)]];
+  if(chosen.includes("element")){ const [el,fam]=pickWeighted(card.alt.element,2); v.notes.push(`${card.element} 대신 ${el}`); v.element=el; v.element_family=fam; }
+  if(chosen.includes("effect")){ const [nm,desc,fam]=pickWeighted(card.alt.effect,3); v.notes.push(`${card.effect} 대신 ${nm}`); v.effect=nm; v.effect_desc=desc; v.effect_family=fam; }
+  v.id=`${card.name}#${v.element}/${v.effect}`;
+  return v;
+}
 
 function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));}
 function cardHTML(c, small){
   const cls = "card" + (small?" small":"");
   if(c.status==="scribble"){
-    return `<div class="${cls} scribble" data-n="${esc(c.name)}"><div class="head"><div class="mana">?</div><div class="name">${esc(c.name)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason)}</span></div></div>`;
+    return `<div class="${cls} scribble" data-n="${esc(keyOf(c))}"><div class="head"><div class="mana">?</div><div class="name">${esc(c.name)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason)}</span></div></div>`;
   }
   const broken = c.status==="shattered";
-  return `<div class="${cls}${broken?" shattered":""}" style="--el:var(--fam${c.element_family??1})" data-n="${esc(c.name)}">
+  return `<div class="${cls}${broken?" shattered":""}${c.variant?" variant":""}" style="--el:var(--fam${c.element_family??1})" data-n="${esc(keyOf(c))}">
     ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
     <div class="head"><div class="mana" title="마나">${broken?`${c.mana}`:c.mana}</div><div class="name">${esc(c.name)}</div></div>
-    <div class="art"><div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)} · ${FAMILY_NAMES[c.element_family??1]}</div></div>
+    <div class="art">${c.variant?`<div class="vbadge">변형 각인</div>`:""}<div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)} · ${FAMILY_NAMES[c.element_family??1]}</div></div>
     <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
     <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${MANA_CAP}</span>`:""}</div>
     <div class="stats"><div class="stat atk" title="공격력">${c.attack}</div><div class="stat def" title="방어력">${c.defense}</div></div>
   </div>`;
 }
 function renderGallery(){
-  const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))];
+  const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>keyOf(c)===keyOf(s)))];
   $("gallery").innerHTML=all.map(c=>cardHTML(c,true)).join("");
   $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장`;
 }
@@ -154,7 +179,7 @@ function show(c){
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
-  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} · ${c.element} · ${c.effect}` : c.status==="shattered" ? "빈 카드가 이름의 무게를 견디지 못했습니다" : "카드가 이름 대신 명령을 읽었습니다";
+  $("status").textContent = c.variant ? `변형 각인! ${c.notes.join(", ")}` : c.status==="ok" ? `마나 ${c.mana} · ${c.element} · ${c.effect}` : c.status==="shattered" ? "빈 카드가 이름의 무게를 견디지 못했습니다" : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
@@ -176,16 +201,18 @@ async function forgeName(name){
   await sleep(Math.max(0,700-(performance.now()-t0)));
   $("go").disabled=false;
   if(err){ $("stage").innerHTML=`<div class="back">빈 카드</div>`; $("status").textContent=err; return; }
+  card = maybeVariant(card);
   show(card);
-  if(online && !collection.some(c=>c.name===card.name)){ collection.unshift(card);
+  if((online || card.variant) && !collection.some(c=>keyOf(c)===keyOf(card))){ collection.unshift(card);
     try{ localStorage.setItem("forge-collection", JSON.stringify(collection.slice(0,200))); }catch(e){} }
   renderGallery();
 }
 $("go").onclick=()=>forgeName($("name").value);
+$("hiVar").onchange=e=>{ VARIANT_RATE = e.target.checked ? 0.5 : 0.12; };
 $("name").addEventListener("keydown",e=>{ if(e.key==="Enter") forgeName($("name").value); });
 $("name").addEventListener("input",()=>{ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
   const r=checkName(v); $("status").textContent = r.err ? r.err : `${LANG_KO[r.lang]} ${r.count} / ${LIMITS[r.lang]}자`; });
-$("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const card=byName(c.dataset.n); if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
+$("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const card=byKey(c.dataset.n); if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
 const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","lucky penny","空城计","猫の手","만능 카드","마나 0으로 해"];
 $("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
 $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return; $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
