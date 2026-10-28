@@ -6,7 +6,7 @@
   "element": "불",
   "element_family": 0,
   "element_conf": 0.97,
-  "effect_conf": 0.9,
+  "effect_conf": 0.89,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
@@ -16,8 +16,8 @@
   "themes": [
    "기계"
   ],
-  "power": 2.71,
-  "color": "#ec6748",
+  "power": 2.7,
+  "color": "#ec6449",
   "mana_power": 7,
   "mana_stats": 7,
   "mana_effect": 0,
@@ -30,7 +30,7 @@
      "힘",
      "공격력이 오른다",
      4,
-     0.06
+     0.05
     ]
    ]
   }
@@ -41,25 +41,25 @@
   "status": "ok",
   "element": "온기",
   "element_family": 4,
-  "element_conf": 0.45,
-  "effect_conf": 0.15,
-  "effect": "재생",
-  "effect_desc": "매 턴 조금씩 회복한다",
+  "element_conf": 0.43,
+  "effect_conf": 0.16,
+  "effect": "회복",
+  "effect_desc": "체력을 되찾는다",
   "effect_family": 2,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 1,
   "defense": 3,
   "themes": [
    "추억",
    "일상"
   ],
-  "power": 0.64,
-  "color": "#8e4834",
+  "power": 0.62,
+  "color": "#8e4134",
   "mana_power": 2,
-  "mana_stats": 2,
-  "mana_effect": 1,
-  "mana": 3,
-  "effect_value": 2,
+  "mana_stats": 0,
+  "mana_effect": 0,
+  "mana": 2,
+  "effect_value": 3,
   "alt": {
    "element": [
     [
@@ -75,15 +75,15 @@
     [
      "이야기",
      6,
-     0.09
+     0.1
     ]
    ],
    "effect": [
     [
-     "회복",
-     "체력을 되찾는다",
+     "재생",
+     "매 턴 조금씩 회복한다",
      2,
-     0.13
+     0.15
     ],
     [
      "통찰",
@@ -95,7 +95,7 @@
      "갑옷",
      "받는 피해가 줄어든다",
      1,
-     0.11
+     0.09
     ]
    ]
   }
@@ -106,19 +106,19 @@
   "status": "shattered",
   "element": "강철",
   "element_family": 1,
-  "element_conf": 0.31,
-  "effect_conf": 0.45,
+  "element_conf": 0.33,
+  "effect_conf": 0.41,
   "effect": "철벽",
   "effect_desc": "다음 피해를 없앤다",
   "effect_family": 1,
   "kind": "방어",
-  "attack": 5,
-  "defense": 11,
+  "attack": 6,
+  "defense": 12,
   "themes": [
    "신성"
   ],
-  "power": 3.99,
-  "color": "#6a7ac0",
+  "power": 3.97,
+  "color": "#6a79be",
   "mana_power": 10,
   "mana_stats": 8,
   "mana_effect": 2,
@@ -134,12 +134,12 @@
     [
      "전쟁",
      6,
-     0.09
+     0.07
     ],
     [
-     "대지",
-     0,
-     0.08
+     "운",
+     3,
+     0.07
     ]
    ],
    "effect": [
@@ -147,18 +147,12 @@
      "보호막",
      "피해를 막는다",
      1,
-     0.35
+     0.41
     ],
     [
      "갑옷",
      "받는 피해가 줄어든다",
      1,
-     0.07
-    ],
-    [
-     "무효",
-     "적의 효과를 지운다",
-     7,
      0.06
     ]
    ]
@@ -171,30 +165,30 @@
   "status": "ok",
   "element": "물",
   "element_family": 0,
-  "element_conf": 0.53,
-  "effect_conf": 0.22,
+  "element_conf": 0.51,
+  "effect_conf": 0.23,
   "effect": "출혈",
   "effect_desc": "움직일수록 피해를 입는다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 1,
   "defense": 1,
   "themes": [
    "일상"
   ],
-  "power": 0.15,
-  "color": "#7b5c47",
+  "power": 0.13,
+  "color": "#7a5c48",
   "mana_power": 0,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 0,
-  "mana": 1,
+  "mana": 0,
   "effect_value": 1,
   "alt": {
    "element": [
     [
      "고무",
      1,
-     0.15
+     0.13
     ],
     [
      "종이",
@@ -204,7 +198,7 @@
     [
      "균",
      2,
-     0.05
+     0.06
     ]
    ],
    "effect": [
@@ -215,16 +209,16 @@
      0.17
     ],
     [
+     "중독",
+     "피해가 쌓인다",
+     3,
+     0.14
+    ],
+    [
      "헛수고",
      "아무 일도 일어나지 않는다",
      7,
      0.12
-    ],
-    [
-     "중독",
-     "피해가 쌓인다",
-     3,
-     0.11
     ]
    ]
   }
@@ -235,35 +229,35 @@
   "status": "shattered",
   "element": "공간",
   "element_family": 3,
-  "element_conf": 0.39,
-  "effect_conf": 0.52,
+  "element_conf": 0.46,
+  "effect_conf": 0.49,
   "effect": "무효",
   "effect_desc": "적의 효과를 지운다",
   "effect_family": 7,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 14,
-  "defense": 7,
+  "defense": 6,
   "themes": [
    "우주"
   ],
-  "power": 3.82,
+  "power": 3.84,
   "color": "#2b2146",
   "mana_power": 10,
-  "mana_stats": 10,
+  "mana_stats": 0,
   "mana_effect": 2,
   "mana": 12,
-  "effect_value": 6,
+  "effect_value": 9,
   "alt": {
    "element": [
     [
      "중력",
      3,
-     0.38
+     0.29
     ],
     [
      "어둠",
      0,
-     0.23
+     0.25
     ]
    ],
    "effect": [
@@ -271,19 +265,19 @@
      "봉인",
      "적의 카드 하나를 잠근다",
      7,
-     0.13
-    ],
-    [
-     "휩쓸기",
-     "모든 적을 때린다",
-     0,
-     0.09
+     0.14
     ],
     [
      "망각",
      "카드 하나를 지운다",
      5,
-     0.07
+     0.09
+    ],
+    [
+     "통찰",
+     "카드를 더 뽑는다",
+     5,
+     0.08
     ]
    ]
   },
@@ -296,23 +290,23 @@
   "element": "시간",
   "element_family": 3,
   "element_conf": 0.98,
-  "effect_conf": 0.18,
+  "effect_conf": 0.19,
   "effect": "각성",
   "effect_desc": "위기일 때 크게 강해진다",
   "effect_family": 4,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 0,
   "defense": 1,
   "themes": [
    "일상"
   ],
-  "power": 0.72,
-  "color": "#b3ab5c",
+  "power": 0.64,
+  "color": "#b0ad5c",
   "mana_power": 2,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 3,
-  "effect_value": 2,
+  "effect_value": 3,
   "alt": {
    "element": [],
    "effect": [
@@ -320,7 +314,7 @@
      "통찰",
      "카드를 더 뽑는다",
      5,
-     0.14
+     0.15
     ],
     [
      "마나 샘",
@@ -329,10 +323,10 @@
      0.11
     ],
     [
-     "헛수고",
-     "아무 일도 일어나지 않는다",
-     7,
-     0.1
+     "가속",
+     "한 번 더 행동한다",
+     4,
+     0.11
     ]
    ]
   }
@@ -343,35 +337,35 @@
   "status": "ok",
   "element": "사랑",
   "element_family": 5,
-  "element_conf": 0.88,
-  "effect_conf": 0.16,
+  "element_conf": 0.86,
+  "effect_conf": 0.2,
   "effect": "되감기",
   "effect_desc": "지난 턴으로 돌아간다",
   "effect_family": 7,
-  "kind": "기술",
-  "attack": 1,
+  "kind": "스킬",
+  "attack": 0,
   "defense": 1,
   "themes": [
    "추억"
   ],
   "power": 0.87,
-  "color": "#d55974",
+  "color": "#d65874",
   "mana_power": 2,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 2,
   "mana": 4,
-  "effect_value": 2,
+  "effect_value": 3,
   "alt": {
    "element": [
     [
      "감정",
      3,
-     0.07
+     0.08
     ],
     [
      "기억",
      3,
-     0.05
+     0.06
     ]
    ],
    "effect": [
@@ -379,18 +373,18 @@
      "헛수고",
      "아무 일도 일어나지 않는다",
      7,
-     0.12
-    ],
-    [
-     "운명",
-     "결과를 운에 맡긴다",
-     7,
-     0.11
+     0.14
     ],
     [
      "회복",
      "체력을 되찾는다",
      2,
+     0.08
+    ],
+    [
+     "운명",
+     "결과를 운에 맡긴다",
+     7,
      0.08
     ]
    ]
@@ -402,24 +396,24 @@
   "status": "ok",
   "element": "강철",
   "element_family": 1,
-  "element_conf": 0.94,
-  "effect_conf": 0.4,
+  "element_conf": 0.96,
+  "effect_conf": 0.42,
   "effect": "중독",
   "effect_desc": "피해가 쌓인다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 2,
   "defense": 0,
   "themes": [
    "일상",
    "음식"
   ],
-  "power": 0.2,
-  "color": "#7f5239",
+  "power": 0.18,
+  "color": "#7e533b",
   "mana_power": 0,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 0,
-  "mana": 1,
+  "mana": 0,
   "effect_value": 1,
   "alt": {
    "element": [],
@@ -428,19 +422,19 @@
      "화상",
      "매 턴 피해를 준다",
      3,
-     0.15
+     0.17
     ],
     [
      "헛수고",
      "아무 일도 일어나지 않는다",
      7,
-     0.11
+     0.1
     ],
     [
      "약화",
      "적의 공격이 줄어든다",
      3,
-     0.09
+     0.07
     ]
    ]
   }
@@ -457,8 +451,8 @@
   "status": "ok",
   "element": "뼈",
   "element_family": 2,
-  "element_conf": 0.55,
-  "effect_conf": 0.7,
+  "element_conf": 0.53,
+  "effect_conf": 0.66,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
@@ -468,8 +462,8 @@
   "themes": [
    "숲"
   ],
-  "power": 0.92,
-  "color": "#358535",
+  "power": 0.94,
+  "color": "#348535",
   "mana_power": 2,
   "mana_stats": 6,
   "mana_effect": 0,
@@ -480,12 +474,12 @@
     [
      "대지",
      0,
-     0.21
+     0.26
     ],
     [
      "짐승",
      2,
-     0.13
+     0.12
     ]
    ],
    "effect": [
@@ -493,13 +487,13 @@
      "보호막",
      "피해를 막는다",
      1,
-     0.22
+     0.27
     ],
     [
      "철벽",
      "다음 피해를 없앤다",
      1,
-     0.06
+     0.05
     ]
    ]
   }
@@ -511,40 +505,40 @@
   "element": "독",
   "element_family": 1,
   "element_conf": 0.43,
-  "effect_conf": 0.89,
+  "effect_conf": 0.87,
   "effect": "중독",
   "effect_desc": "피해가 쌓인다",
   "effect_family": 3,
-  "kind": "공격",
+  "kind": "아이템",
   "attack": 7,
   "defense": 3,
   "themes": [
    "숲",
    "음식"
   ],
-  "power": 1.66,
-  "color": "#b42735",
+  "power": 1.72,
+  "color": "#b02936",
   "mana_power": 4,
-  "mana_stats": 5,
+  "mana_stats": 0,
   "mana_effect": 0,
-  "mana": 5,
-  "effect_value": 3,
+  "mana": 4,
+  "effect_value": 4,
   "alt": {
    "element": [
     [
      "음식",
      4,
-     0.22
+     0.2
     ],
     [
      "식물",
      2,
-     0.16
+     0.18
     ],
     [
      "산",
      1,
-     0.06
+     0.07
     ]
    ],
    "effect": [
@@ -563,23 +557,23 @@
   "status": "shattered",
   "element": "영혼",
   "element_family": 2,
-  "element_conf": 0.55,
-  "effect_conf": 0.19,
-  "effect": "운명",
-  "effect_desc": "결과를 운에 맡긴다",
-  "effect_family": 7,
-  "kind": "기술",
+  "element_conf": 0.58,
+  "effect_conf": 0.2,
+  "effect": "축복",
+  "effect_desc": "모든 수치가 조금 오른다",
+  "effect_family": 4,
+  "kind": "공격",
   "attack": 11,
   "defense": 10,
   "themes": [
    "신성"
   ],
-  "power": 4.09,
-  "color": "#6ea5d1",
+  "power": 4.02,
+  "color": "#70a6d2",
   "mana_power": 10,
   "mana_stats": 9,
-  "mana_effect": 0,
-  "mana": 10,
+  "mana_effect": 1,
+  "mana": 11,
   "effect_value": 6,
   "alt": {
    "element": [
@@ -596,31 +590,31 @@
     [
      "권력",
      5,
-     0.09
+     0.07
     ]
    ],
    "effect": [
     [
-     "축복",
-     "모든 수치가 조금 오른다",
-     4,
-     0.19
+     "운명",
+     "결과를 운에 맡긴다",
+     7,
+     0.16
     ],
     [
      "휩쓸기",
      "모든 적을 때린다",
      0,
-     0.13
+     0.14
     ],
     [
      "헛수고",
      "아무 일도 일어나지 않는다",
      7,
-     0.08
+     0.09
     ]
    ]
   },
-  "reason": "필요 마나 10가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
+  "reason": "필요 마나 11가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
   "name": "번개 맞은 나무",
@@ -629,18 +623,18 @@
   "element": "식물",
   "element_family": 2,
   "element_conf": 0.73,
-  "effect_conf": 0.33,
+  "effect_conf": 0.3,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "공격",
   "attack": 2,
-  "defense": 3,
+  "defense": 2,
   "themes": [
    "숲"
   ],
-  "power": 1.52,
-  "color": "#7c5337",
+  "power": 1.59,
+  "color": "#825434",
   "mana_power": 4,
   "mana_stats": 2,
   "mana_effect": 0,
@@ -651,7 +645,7 @@
     [
      "번개",
      0,
-     0.19
+     0.2
     ]
    ],
    "effect": [
@@ -659,19 +653,19 @@
      "기절",
      "적의 행동을 끊는다",
      3,
-     0.15
+     0.17
     ],
     [
      "반격",
      "맞으면 되받아친다",
      1,
-     0.11
+     0.13
     ],
     [
      "연쇄",
      "옆 적으로 튀어 간다",
      0,
-     0.07
+     0.08
     ]
    ]
   }
@@ -682,35 +676,35 @@
   "status": "ok",
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.6,
-  "effect_conf": 0.4,
+  "element_conf": 0.61,
+  "effect_conf": 0.44,
   "effect": "연타",
   "effect_desc": "여러 번 나눠 때린다",
   "effect_family": 0,
-  "kind": "공격",
-  "attack": 5,
+  "kind": "스킬",
+  "attack": 4,
   "defense": 3,
   "themes": [
    "숲"
   ],
-  "power": 0.92,
-  "color": "#bc4b3b",
+  "power": 0.99,
+  "color": "#bb483c",
   "mana_power": 2,
-  "mana_stats": 4,
+  "mana_stats": 0,
   "mana_effect": 0,
-  "mana": 4,
+  "mana": 2,
   "effect_value": 3,
   "alt": {
    "element": [
     [
-     "놀이",
-     6,
-     0.11
-    ],
-    [
      "전쟁",
      6,
      0.1
+    ],
+    [
+     "놀이",
+     6,
+     0.09
     ]
    ],
    "effect": [
@@ -718,7 +712,7 @@
      "힘",
      "공격력이 오른다",
      4,
-     0.21
+     0.2
     ],
     [
      "기절",
@@ -739,42 +733,42 @@
   "name": "응급상자",
   "lang": "ko",
   "status": "ok",
-  "element": "기계",
-  "element_family": 4,
+  "element": "피",
+  "element_family": 2,
   "element_conf": 0.23,
-  "effect_conf": 0.76,
+  "effect_conf": 0.75,
   "effect": "회복",
   "effect_desc": "체력을 되찾는다",
   "effect_family": 2,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 1,
   "defense": 8,
   "themes": [
    "일상"
   ],
-  "power": 0.97,
-  "color": "#dd584d",
+  "power": 0.95,
+  "color": "#e05a4f",
   "mana_power": 2,
-  "mana_stats": 5,
+  "mana_stats": 0,
   "mana_effect": 0,
-  "mana": 5,
+  "mana": 2,
   "effect_value": 3,
   "alt": {
    "element": [
     [
-     "피",
-     2,
-     0.14
+     "기계",
+     4,
+     0.18
     ],
     [
      "강철",
      1,
-     0.12
+     0.16
     ],
     [
      "종이",
      1,
-     0.1
+     0.06
     ]
    ],
    "effect": [
@@ -782,7 +776,7 @@
      "정화",
      "나쁜 상태를 지운다",
      2,
-     0.11
+     0.12
     ]
    ]
   }
@@ -794,23 +788,23 @@
   "element": "시간",
   "element_family": 3,
   "element_conf": 0.99,
-  "effect_conf": 0.79,
+  "effect_conf": 0.8,
   "effect": "빙결",
   "effect_desc": "적이 한 턴 쉰다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 13,
   "defense": 13,
   "themes": [
    "기계"
   ],
   "power": 4.01,
-  "color": "#37486a",
+  "color": "#35476a",
   "mana_power": 10,
-  "mana_stats": 10,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 11,
-  "effect_value": 6,
+  "effect_value": 9,
   "alt": {
    "element": [],
    "effect": [
@@ -819,12 +813,6 @@
      "적의 행동을 끊는다",
      3,
      0.13
-    ],
-    [
-     "되감기",
-     "지난 턴으로 돌아간다",
-     7,
-     0.05
     ]
    ]
   },
@@ -836,36 +824,36 @@
   "status": "ok",
   "element": "언어",
   "element_family": 4,
-  "element_conf": 0.62,
-  "effect_conf": 0.22,
+  "element_conf": 0.56,
+  "effect_conf": 0.25,
   "effect": "기절",
   "effect_desc": "적의 행동을 끊는다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 2,
   "defense": 2,
   "themes": [
    "일상",
    "추억"
   ],
-  "power": 0.6,
-  "color": "#ab8540",
-  "mana_power": 2,
-  "mana_stats": 2,
+  "power": 0.54,
+  "color": "#a5a042",
+  "mana_power": 1,
+  "mana_stats": 0,
   "mana_effect": 1,
-  "mana": 3,
+  "mana": 2,
   "effect_value": 2,
   "alt": {
    "element": [
     [
      "소리",
      3,
-     0.26
+     0.32
     ],
     [
      "가족",
      5,
-     0.09
+     0.07
     ]
    ],
    "effect": [
@@ -885,7 +873,7 @@
      "화상",
      "매 턴 피해를 준다",
      3,
-     0.08
+     0.09
     ]
    ]
   }
@@ -896,25 +884,25 @@
   "status": "ok",
   "element": "음식",
   "element_family": 4,
-  "element_conf": 0.96,
-  "effect_conf": 0.87,
+  "element_conf": 0.97,
+  "effect_conf": 0.89,
   "effect": "빙결",
   "effect_desc": "적이 한 턴 쉰다",
   "effect_family": 3,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 2,
-  "defense": 1,
+  "defense": 0,
   "themes": [
    "음식",
    "바다"
   ],
-  "power": 0.93,
-  "color": "#5361a3",
+  "power": 0.92,
+  "color": "#5260a4",
   "mana_power": 2,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 3,
-  "effect_value": 2,
+  "effect_value": 3,
   "alt": {
    "element": [],
    "effect": []
@@ -923,43 +911,43 @@
  {
   "name": "해적선",
   "lang": "ko",
-  "status": "ok",
+  "status": "shattered",
   "element": "기계",
   "element_family": 4,
-  "element_conf": 0.43,
+  "element_conf": 0.45,
   "effect_conf": 0.27,
   "effect": "강탈",
   "effect_desc": "적의 강화를 빼앗는다",
   "effect_family": 7,
   "kind": "공격",
-  "attack": 8,
+  "attack": 9,
   "defense": 6,
   "themes": [
    "바다"
   ],
-  "power": 2.22,
-  "color": "#805227",
+  "power": 2.21,
+  "color": "#7e5126",
   "mana_power": 6,
-  "mana_stats": 6,
+  "mana_stats": 7,
   "mana_effect": 2,
-  "mana": 8,
+  "mana": 9,
   "effect_value": 4,
   "alt": {
    "element": [
     [
      "물",
      0,
-     0.27
+     0.3
     ],
     [
      "강철",
      1,
-     0.15
+     0.13
     ],
     [
      "전쟁",
      6,
-     0.06
+     0.05
     ]
    ],
    "effect": [
@@ -967,13 +955,13 @@
      "황금",
      "돈을 얻는다",
      6,
-     0.15
+     0.19
     ],
     [
      "휩쓸기",
      "모든 적을 때린다",
      0,
-     0.09
+     0.08
     ],
     [
      "갑옷",
@@ -982,7 +970,8 @@
      0.07
     ]
    ]
-  }
+  },
+  "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
  {
   "name": "핵폭탄",
@@ -990,8 +979,8 @@
   "status": "shattered",
   "element": "전쟁",
   "element_family": 6,
-  "element_conf": 0.5,
-  "effect_conf": 0.91,
+  "element_conf": 0.51,
+  "effect_conf": 0.93,
   "effect": "휩쓸기",
   "effect_desc": "모든 적을 때린다",
   "effect_family": 0,
@@ -1003,7 +992,7 @@
    "죽음"
   ],
   "power": 3.47,
-  "color": "#e1944e",
+  "color": "#e3954e",
   "mana_power": 9,
   "mana_stats": 9,
   "mana_effect": 1,
@@ -1014,7 +1003,7 @@
     [
      "불",
      0,
-     0.32
+     0.3
     ],
     [
      "기계",
@@ -1024,7 +1013,7 @@
     [
      "혼돈",
      3,
-     0.07
+     0.08
     ]
    ],
    "effect": [
@@ -1032,7 +1021,7 @@
      "시한폭발",
      "다음 턴에 크게 터진다",
      0,
-     0.07
+     0.05
     ]
    ]
   },
@@ -1044,25 +1033,25 @@
   "status": "ok",
   "element": "음식",
   "element_family": 4,
-  "element_conf": 1.0,
-  "effect_conf": 0.34,
+  "element_conf": 0.99,
+  "effect_conf": 0.3,
   "effect": "회복",
   "effect_desc": "체력을 되찾는다",
   "effect_family": 2,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 1,
   "defense": 0,
   "themes": [
    "음식",
    "축제"
   ],
-  "power": 0.86,
-  "color": "#df5388",
+  "power": 0.84,
+  "color": "#e05288",
   "mana_power": 2,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 0,
   "mana": 2,
-  "effect_value": 2,
+  "effect_value": 3,
   "alt": {
    "element": [],
    "effect": [
@@ -1076,13 +1065,13 @@
      "축복",
      "모든 수치가 조금 오른다",
      4,
-     0.13
+     0.15
     ],
     [
      "소환",
      "작은 동료를 부른다",
      5,
-     0.06
+     0.07
     ]
    ]
   }
@@ -1093,19 +1082,19 @@
   "status": "ok",
   "element": "영혼",
   "element_family": 2,
-  "element_conf": 0.81,
-  "effect_conf": 0.36,
+  "element_conf": 0.79,
+  "effect_conf": 0.45,
   "effect": "은신",
   "effect_desc": "한 턴 동안 노려지지 않는다",
   "effect_family": 1,
-  "kind": "기술",
+  "kind": "공격",
   "attack": 4,
-  "defense": 5,
+  "defense": 6,
   "themes": [
    "죽음"
   ],
-  "power": 1.78,
-  "color": "#404d6f",
+  "power": 1.77,
+  "color": "#404d70",
   "mana_power": 4,
   "mana_stats": 4,
   "mana_effect": 1,
@@ -1116,7 +1105,7 @@
     [
      "어둠",
      0,
-     0.09
+     0.12
     ]
    ],
    "effect": [
@@ -1124,7 +1113,7 @@
      "부활",
      "쓰러져도 한 번 일어난다",
      2,
-     0.17
+     0.13
     ],
     [
      "도발",
@@ -1133,9 +1122,9 @@
      0.06
     ],
     [
-     "강탈",
-     "적의 강화를 빼앗는다",
-     7,
+     "관통",
+     "방어를 무시하고 때린다",
+     0,
      0.05
     ]
    ]
@@ -1148,44 +1137,38 @@
   "element": "기계",
   "element_family": 4,
   "element_conf": 0.99,
-  "effect_conf": 0.67,
+  "effect_conf": 0.66,
   "effect": "헛수고",
   "effect_desc": "아무 일도 일어나지 않는다",
   "effect_family": 7,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 1,
   "defense": 0,
   "themes": [
    "기계",
    "일상"
   ],
-  "power": 0.46,
-  "color": "#83604e",
+  "power": 0.48,
+  "color": "#86624f",
   "mana_power": 1,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": -1,
   "mana": 0,
-  "effect_value": 1,
+  "effect_value": 2,
   "alt": {
    "element": [],
    "effect": [
     [
-     "정화",
-     "나쁜 상태를 지운다",
-     2,
-     0.08
-    ],
-    [
      "무효",
      "적의 효과를 지운다",
      7,
-     0.06
+     0.08
     ],
     [
-     "휩쓸기",
-     "모든 적을 때린다",
-     0,
-     0.05
+     "정화",
+     "나쁜 상태를 지운다",
+     2,
+     0.07
     ]
    ]
   }
@@ -1196,30 +1179,30 @@
   "status": "ok",
   "element": "바람",
   "element_family": 0,
-  "element_conf": 0.48,
-  "effect_conf": 0.67,
+  "element_conf": 0.51,
+  "effect_conf": 0.65,
   "effect": "휩쓸기",
   "effect_desc": "모든 적을 때린다",
   "effect_family": 0,
-  "kind": "기술",
-  "attack": 5,
+  "kind": "스킬",
+  "attack": 6,
   "defense": 2,
   "themes": [
    "숲"
   ],
-  "power": 2.43,
-  "color": "#e4578c",
+  "power": 2.45,
+  "color": "#e4578b",
   "mana_power": 6,
-  "mana_stats": 3,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 7,
-  "effect_value": 4,
+  "effect_value": 6,
   "alt": {
    "element": [
     [
      "식물",
      2,
-     0.39
+     0.38
     ]
    ],
    "effect": [
@@ -1227,7 +1210,7 @@
      "연타",
      "여러 번 나눠 때린다",
      0,
-     0.15
+     0.16
     ],
     [
      "기절",
@@ -1244,30 +1227,30 @@
   "status": "ok",
   "element": "시간",
   "element_family": 3,
-  "element_conf": 0.49,
-  "effect_conf": 0.29,
-  "effect": "가속",
-  "effect_desc": "한 번 더 행동한다",
-  "effect_family": 4,
-  "kind": "기술",
-  "attack": 6,
+  "element_conf": 0.44,
+  "effect_conf": 0.24,
+  "effect": "되감기",
+  "effect_desc": "지난 턴으로 돌아간다",
+  "effect_family": 7,
+  "kind": "스킬",
+  "attack": 5,
   "defense": 1,
   "themes": [
    "기계"
   ],
-  "power": 2.2,
-  "color": "#374067",
+  "power": 2.22,
+  "color": "#384269",
   "mana_power": 6,
-  "mana_stats": 4,
+  "mana_stats": 0,
   "mana_effect": 2,
   "mana": 8,
-  "effect_value": 4,
+  "effect_value": 6,
   "alt": {
    "element": [
     [
      "기계",
      4,
-     0.33
+     0.39
     ],
     [
      "꿈",
@@ -1282,21 +1265,21 @@
    ],
    "effect": [
     [
-     "되감기",
-     "지난 턴으로 돌아간다",
-     7,
-     0.2
+     "가속",
+     "한 번 더 행동한다",
+     4,
+     0.23
     ],
     [
      "복제",
      "이 카드를 하나 더 만든다",
      5,
-     0.13
+     0.15
     ],
     [
-     "연타",
-     "여러 번 나눠 때린다",
-     0,
+     "흉내",
+     "마지막 카드의 효과를 따라 한다",
+     7,
      0.07
     ]
    ]
@@ -1308,35 +1291,35 @@
   "status": "ok",
   "element": "독",
   "element_family": 1,
-  "element_conf": 0.52,
-  "effect_conf": 0.49,
+  "element_conf": 0.51,
+  "effect_conf": 0.47,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 6,
   "defense": 1,
   "themes": [
-   "일상"
+   "숲"
   ],
-  "power": 0.68,
-  "color": "#c47333",
+  "power": 0.72,
+  "color": "#c14d32",
   "mana_power": 2,
-  "mana_stats": 4,
+  "mana_stats": 0,
   "mana_effect": 2,
-  "mana": 6,
+  "mana": 4,
   "effect_value": 3,
   "alt": {
    "element": [
     [
      "음식",
      4,
-     0.23
+     0.29
     ],
     [
      "잠",
      4,
-     0.14
+     0.11
     ],
     [
      "식물",
@@ -1346,22 +1329,22 @@
    ],
    "effect": [
     [
-     "중독",
-     "피해가 쌓인다",
-     3,
-     0.1
+     "반동",
+     "세게 때리지만 나도 다친다",
+     0,
+     0.13
     ],
     [
      "화상",
      "매 턴 피해를 준다",
      3,
-     0.1
+     0.11
     ],
     [
-     "반동",
-     "세게 때리지만 나도 다친다",
-     0,
-     0.09
+     "중독",
+     "피해가 쌓인다",
+     3,
+     0.08
     ]
    ]
   }
@@ -1372,8 +1355,8 @@
   "status": "ok",
   "element": "짐승",
   "element_family": 2,
-  "element_conf": 0.45,
-  "effect_conf": 0.74,
+  "element_conf": 0.36,
+  "effect_conf": 0.69,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
@@ -1383,29 +1366,29 @@
   "themes": [
    "숲"
   ],
-  "power": 2.26,
-  "color": "#2dc250",
-  "mana_power": 6,
+  "power": 2.64,
+  "color": "#2dc13e",
+  "mana_power": 7,
   "mana_stats": 5,
   "mana_effect": 0,
-  "mana": 6,
+  "mana": 7,
   "effect_value": 4,
   "alt": {
    "element": [
     [
-     "강철",
-     1,
-     0.17
-    ],
-    [
      "물",
      0,
-     0.15
+     0.19
+    ],
+    [
+     "강철",
+     1,
+     0.16
     ],
     [
      "대지",
      0,
-     0.1
+     0.11
     ]
    ],
    "effect": [
@@ -1413,7 +1396,7 @@
      "보호막",
      "피해를 막는다",
      1,
-     0.2
+     0.24
     ]
    ]
   }
@@ -1424,54 +1407,54 @@
   "status": "ok",
   "element": "종이",
   "element_family": 1,
-  "element_conf": 0.79,
-  "effect_conf": 0.24,
+  "element_conf": 0.81,
+  "effect_conf": 0.28,
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 0,
   "defense": 0,
   "themes": [
    "추억"
   ],
-  "power": 0.27,
-  "color": "#8eadc1",
+  "power": 0.25,
+  "color": "#8db0c1",
   "mana_power": 1,
   "mana_stats": 0,
   "mana_effect": 2,
   "mana": 3,
-  "effect_value": 1,
+  "effect_value": 2,
   "alt": {
    "element": [
     [
      "바람",
      0,
-     0.08
+     0.07
     ],
     [
      "기계",
      4,
-     0.07
+     0.06
     ],
     [
      "놀이",
      6,
-     0.06
+     0.05
     ]
    ],
    "effect": [
-    [
-     "회피",
-     "다음 공격을 피한다",
-     1,
-     0.17
-    ],
     [
      "통찰",
      "카드를 더 뽑는다",
      5,
      0.14
+    ],
+    [
+     "회피",
+     "다음 공격을 피한다",
+     1,
+     0.13
     ],
     [
      "헛수고",
@@ -1488,24 +1471,24 @@
   "status": "shattered",
   "element": "혼돈",
   "element_family": 3,
-  "element_conf": 0.31,
-  "effect_conf": 0.57,
+  "element_conf": 0.25,
+  "effect_conf": 0.66,
   "effect": "변신",
   "effect_desc": "다른 카드로 바뀐다",
   "effect_family": 5,
-  "kind": "기술",
-  "attack": 7,
-  "defense": 6,
+  "kind": "아이템",
+  "attack": 8,
+  "defense": 7,
   "themes": [
    "기계"
   ],
-  "power": 4.41,
-  "color": "#a761bd",
+  "power": 4.27,
+  "color": "#a75fbd",
   "mana_power": 11,
-  "mana_stats": 5,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 12,
-  "effect_value": 6,
+  "effect_value": 9,
   "alt": {
    "element": [
     [
@@ -1529,19 +1512,13 @@
      "흉내",
      "마지막 카드의 효과를 따라 한다",
      7,
-     0.22
+     0.18
     ],
     [
      "헛수고",
      "아무 일도 일어나지 않는다",
      7,
-     0.06
-    ],
-    [
-     "복제",
-     "이 카드를 하나 더 만든다",
-     5,
-     0.06
+     0.05
     ]
    ]
   },
@@ -1553,30 +1530,30 @@
   "status": "ok",
   "element": "식물",
   "element_family": 2,
-  "element_conf": 0.57,
-  "effect_conf": 0.57,
+  "element_conf": 0.61,
+  "effect_conf": 0.59,
   "effect": "갑옷",
   "effect_desc": "받는 피해가 줄어든다",
   "effect_family": 1,
   "kind": "방어",
   "attack": 2,
-  "defense": 7,
+  "defense": 6,
   "themes": [
    "숲"
   ],
-  "power": 1.43,
-  "color": "#36b446",
+  "power": 1.45,
+  "color": "#39b349",
   "mana_power": 4,
-  "mana_stats": 5,
+  "mana_stats": 4,
   "mana_effect": 0,
-  "mana": 5,
+  "mana": 4,
   "effect_value": 3,
   "alt": {
    "element": [
     [
      "강철",
      1,
-     0.32
+     0.29
     ],
     [
      "대지",
@@ -1589,7 +1566,7 @@
      "가시",
      "때린 적이 다친다",
      1,
-     0.38
+     0.37
     ]
    ]
   }
@@ -1600,33 +1577,40 @@
   "status": "ok",
   "element": "불",
   "element_family": 0,
-  "element_conf": 0.89,
+  "element_conf": 0.91,
   "effect_conf": 0.93,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
   "kind": "공격",
   "attack": 10,
-  "defense": 7,
+  "defense": 8,
   "themes": [
    "기계"
   ],
-  "power": 2.62,
-  "color": "#ec6547",
+  "power": 2.66,
+  "color": "#ec6747",
   "mana_power": 7,
-  "mana_stats": 7,
+  "mana_stats": 8,
   "mana_effect": 0,
-  "mana": 7,
-  "effect_value": 4,
+  "mana": 8,
+  "effect_value": 5,
   "alt": {
    "element": [
     [
      "강철",
      1,
-     0.1
+     0.08
     ]
    ],
-   "effect": []
+   "effect": [
+    [
+     "힘",
+     "공격력이 오른다",
+     4,
+     0.05
+    ]
+   ]
   }
  },
  {
@@ -1635,31 +1619,31 @@
   "status": "ok",
   "element": "돈",
   "element_family": 4,
-  "element_conf": 0.88,
-  "effect_conf": 0.56,
+  "element_conf": 0.85,
+  "effect_conf": 0.62,
   "effect": "운명",
   "effect_desc": "결과를 운에 맡긴다",
   "effect_family": 7,
-  "kind": "기술",
+  "kind": "아이템",
   "attack": 0,
   "defense": 1,
   "themes": [
-   "추억",
-   "일상"
+   "일상",
+   "추억"
   ],
-  "power": 0.21,
-  "color": "#8e5334",
+  "power": 0.23,
+  "color": "#8e5234",
   "mana_power": 1,
-  "mana_stats": 1,
+  "mana_stats": 0,
   "mana_effect": 0,
   "mana": 1,
-  "effect_value": 1,
+  "effect_value": 2,
   "alt": {
    "element": [
     [
      "운",
      3,
-     0.1
+     0.13
     ]
    ],
    "effect": [
@@ -1667,7 +1651,7 @@
      "황금",
      "돈을 얻는다",
      6,
-     0.28
+     0.2
     ],
     [
      "도박",
@@ -1684,8 +1668,8 @@
   "status": "ok",
   "element": "사람",
   "element_family": 5,
-  "element_conf": 0.31,
-  "effect_conf": 0.4,
+  "element_conf": 0.32,
+  "effect_conf": 0.42,
   "effect": "황금",
   "effect_desc": "돈을 얻는다",
   "effect_family": 6,
@@ -1695,8 +1679,8 @@
   "themes": [
    "죽음"
   ],
-  "power": 1.26,
-  "color": "#2e6c2d",
+  "power": 1.34,
+  "color": "#306a2f",
   "mana_power": 3,
   "mana_stats": 4,
   "mana_effect": 0,
@@ -1712,12 +1696,7 @@
     [
      "짐승",
      2,
-     0.21
-    ],
-    [
-     "뼈",
-     2,
-     0.06
+     0.24
     ]
    ],
    "effect": [
@@ -1725,13 +1704,13 @@
      "부활",
      "쓰러져도 한 번 일어난다",
      2,
-     0.22
+     0.2
     ],
     [
      "외상",
      "지금 얻고 나중에 갚는다",
      6,
-     0.2
+     0.19
     ],
     [
      "재생",
@@ -1748,8 +1727,8 @@
   "status": "shattered",
   "element": "불",
   "element_family": 0,
-  "element_conf": 0.71,
-  "effect_conf": 0.89,
+  "element_conf": 0.77,
+  "effect_conf": 0.9,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
@@ -1759,8 +1738,8 @@
   "themes": [
    "숲"
   ],
-  "power": 3.55,
-  "color": "#eb443e",
+  "power": 3.47,
+  "color": "#eb443d",
   "mana_power": 9,
   "mana_stats": 9,
   "mana_effect": 0,
@@ -1771,17 +1750,10 @@
     [
      "짐승",
      2,
-     0.29
+     0.23
     ]
    ],
-   "effect": [
-    [
-     "휩쓸기",
-     "모든 적을 때린다",
-     0,
-     0.05
-    ]
-   ]
+   "effect": []
   },
   "reason": "필요 마나 9가 빈 카드의 한계 8를 넘어 카드가 깨졌다"
  },
@@ -1791,55 +1763,55 @@
   "status": "ok",
   "element": "전쟁",
   "element_family": 6,
-  "element_conf": 0.41,
+  "element_conf": 0.4,
   "effect_conf": 0.21,
-  "effect": "혼란",
-  "effect_desc": "적이 서로를 때린다",
-  "effect_family": 3,
-  "kind": "기술",
-  "attack": 5,
-  "defense": 5,
+  "effect": "은신",
+  "effect_desc": "한 턴 동안 노려지지 않는다",
+  "effect_family": 1,
+  "kind": "스킬",
+  "attack": 4,
+  "defense": 6,
   "themes": [
    "추억"
   ],
-  "power": 2.74,
-  "color": "#5773a1",
+  "power": 2.63,
+  "color": "#56719f",
   "mana_power": 7,
-  "mana_stats": 4,
+  "mana_stats": 0,
   "mana_effect": 1,
   "mana": 8,
-  "effect_value": 4,
+  "effect_value": 6,
   "alt": {
    "element": [
     [
      "이야기",
      6,
-     0.38
+     0.39
     ],
     [
      "놀이",
      6,
-     0.08
+     0.07
     ]
    ],
    "effect": [
     [
-     "은신",
-     "한 턴 동안 노려지지 않는다",
-     1,
-     0.18
+     "혼란",
+     "적이 서로를 때린다",
+     3,
+     0.2
     ],
     [
      "철벽",
      "다음 피해를 없앤다",
      1,
-     0.15
+     0.13
     ],
     [
      "회피",
      "다음 공격을 피한다",
      1,
-     0.12
+     0.13
     ]
    ]
   }
@@ -1850,8 +1822,8 @@
   "status": "ok",
   "element": "불",
   "element_family": 0,
-  "element_conf": 0.96,
-  "effect_conf": 0.86,
+  "element_conf": 0.95,
+  "effect_conf": 0.85,
   "effect": "화상",
   "effect_desc": "매 턴 피해를 준다",
   "effect_family": 3,
@@ -1861,15 +1833,21 @@
   "themes": [
    "기계"
   ],
-  "power": 2.69,
-  "color": "#ec4646",
+  "power": 2.67,
+  "color": "#ec4a47",
   "mana_power": 7,
   "mana_stats": 7,
   "mana_effect": 0,
   "mana": 7,
   "effect_value": 4,
   "alt": {
-   "element": [],
+   "element": [
+    [
+     "강철",
+     1,
+     0.05
+    ]
+   ],
    "effect": [
     [
      "힘",
@@ -1891,50 +1869,45 @@
   "effect": "가속",
   "effect_desc": "한 번 더 행동한다",
   "effect_family": 4,
-  "kind": "기술",
+  "kind": "스킬",
   "attack": 3,
   "defense": 3,
   "themes": [
    "일상"
   ],
-  "power": 0.75,
-  "color": "#a08343",
+  "power": 0.72,
+  "color": "#a28643",
   "mana_power": 2,
-  "mana_stats": 2,
+  "mana_stats": 0,
   "mana_effect": 2,
   "mana": 4,
-  "effect_value": 2,
+  "effect_value": 3,
   "alt": {
    "element": [
     [
      "운",
      3,
      0.2
-    ],
-    [
-     "뼈",
-     2,
-     0.05
     ]
    ],
    "effect": [
     [
-     "각성",
-     "위기일 때 크게 강해진다",
-     4,
-     0.1
-    ],
-    [
-     "힘",
-     "공격력이 오른다",
-     4,
-     0.08
+     "연타",
+     "여러 번 나눠 때린다",
+     0,
+     0.09
     ],
     [
      "보호막",
      "피해를 막는다",
      1,
      0.08
+    ],
+    [
+     "기절",
+     "적의 행동을 끊는다",
+     3,
+     0.07
     ]
    ]
   }

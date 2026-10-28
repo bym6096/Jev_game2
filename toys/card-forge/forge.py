@@ -116,8 +116,11 @@ def build_request(name):
       "element": _choice("Which element best fits the thing named?", {k: None for k in ALL_ELEMENTS}),
       "effect": _choice("Which special effect would the thing named most naturally have in a card game?",
                         {k: v[1] for k, v in ALL_EFFECTS.items()}),
-      "kind": _choice("As a card, what is the thing named mainly used for?",
-                      {"attack": "hurting enemies", "defense": "protecting yourself", "skill": "tricks, support, or utility"}),
+      "kind": _choice("If the thing named became a card in a battle game, what kind of card would it be?",
+                      {"attack": "a weapon, a creature or vehicle that fights, or a force that deals damage",
+                       "defense": "armor, a shield, a wall, a shell, or something that protects",
+                       "skill": "an action, technique, spell, phenomenon, event, feeling, or something that happens",
+                       "item": "a small handheld object or consumable, like food, a tool, a trinket, or a potion"}),
       "attack": {"type": "score", "instructions": "How much harm could the thing named do to an enemy?", "criteria": LEVELS},
       "defense": {"type": "score", "instructions": "How well could the thing named protect someone?", "criteria": LEVELS},
       "power": {"type": "score", "instructions": "How grand and powerful is the thing named, overall?", "criteria": POWER},
@@ -157,7 +160,7 @@ def make_card(name, lang, a):
             "element": ALL_ELEMENTS[el_key], "element_family": ei,
             "element_conf": round(a["element"]["probabilities"][el_key], 2), "effect_conf": round(a["effect"]["probabilities"][fx_key], 2),
             "effect": fx_name, "effect_desc": fx_desc, "effect_family": fi,
-            "kind": {"attack": "공격", "defense": "방어", "skill": "기술"}[a["kind"]["choice"]],
+            "kind": KINDS[a["kind"]["choice"]],
             "attack": round(a["attack"]["score"] * 3), "defense": round(a["defense"]["score"] * 3),
             "themes": picked, "power": round(power, 2), "color": card_color(name, a)}
     apply_mana(card)
@@ -181,16 +184,21 @@ EFFECT_COST = {
   "헛수고": -1,
 }
 
+KINDS = {"attack": "공격", "defense": "방어", "skill": "스킬", "item": "아이템"}
+STATLESS = {"스킬", "아이템"}  # no attack/defense; the effect carries the card
+
 def apply_mana(card):
     """Mana = the larger of how grand the name is (Jev's power reading) and what its stats are worth,
     plus the effect's own cost. Effect value follows the base (pre-effect) mana so strong effects don't pay off twice."""
+    statless = card["kind"] in STATLESS
     hi, lo = max(card["attack"], card["defense"]), min(card["attack"], card["defense"])
     card["mana_power"] = round(card["power"] * 2.5)
-    card["mana_stats"] = round(hi * 0.6 + lo * 0.2)
+    card["mana_stats"] = 0 if statless else round(hi * 0.6 + lo * 0.2)
     card["mana_effect"] = EFFECT_COST.get(card["effect"], 0)
     base = max(card["mana_power"], card["mana_stats"])
     card["mana"] = max(0, base + card["mana_effect"])
-    card["effect_value"] = max(1, math.ceil((base + 1) / 2))
+    value = (base + 1) / 2 * (1.5 if statless else 1)   # statless cards get a stronger effect instead of numbers
+    card["effect_value"] = max(1, math.ceil(value))
     return card
 
 def card_color(name, a):
