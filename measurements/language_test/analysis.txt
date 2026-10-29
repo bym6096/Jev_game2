@@ -1,0 +1,115 @@
+| 언어 | 허용% | 영어와 같음% | 계열 같음% | 종류% | 가드오탐% | 확신도 | 위력비 | (공+방)비 | 마나평균 | 고유% | 뒤집힘% |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| en | 93 | 100 | 100 | 100 | 0 | 0.86 | 1.00 | 1.00 | 6.90 | 13 | 0 |
+| zh-Hans | 93 | 97 | 100 | 100 | 0 | 0.90 | 1.00 | 0.96 | 6.67 | 20 | 0 |
+| zh-Hant | 93 | 97 | 100 | 100 | 0 | 0.90 | 0.99 | 0.97 | 6.70 | 20 | 0 |
+| ru | 93 | 97 | 100 | 97 | 0 | 0.89 | 0.99 | 1.04 | 6.93 | 17 | 0 |
+| th | 93 | 97 | 100 | 97 | 0 | 0.89 | 0.98 | 1.01 | 6.83 | 17 | 0 |
+| ja | 93 | 93 | 97 | 97 | 0 | 0.87 | 0.96 | 0.95 | 6.47 | 13 | 0 |
+| ar | 90 | 90 | 93 | 97 | 0 | 0.85 | 0.94 | 0.96 | 6.47 | 17 | 0 |
+| es | 87 | 90 | 93 | 93 | 0 | 0.78 | 0.96 | 0.94 | 6.40 | 17 | 0 |
+| ko | 87 | 87 | 90 | 97 | 0 | 0.84 | 0.95 | 0.94 | 6.53 | 17 | 12 |
+| de | 90 | 83 | 90 | 93 | 0 | 0.77 | 0.85 | 0.83 | 5.83 | 20 | 12 |
+| pt-BR | 83 | 87 | 90 | 100 | 0 | 0.75 | 0.87 | 0.89 | 5.80 | 13 | 0 |
+| vi | 83 | 87 | 90 | 100 | 0 | 0.80 | 0.90 | 0.90 | 6.17 | 17 | 12 |
+| fr | 83 | 83 | 87 | 97 | 0 | 0.79 | 0.88 | 0.85 | 5.87 | 17 | 0 |
+| it | 80 | 80 | 83 | 90 | 0 | 0.75 | 0.86 | 0.86 | 5.70 | 13 | 0 |
+| pl | 77 | 80 | 87 | 93 | 0 | 0.68 | 0.89 | 0.86 | 6.07 | 17 | 0 |
+| tr | 77 | 73 | 80 | 87 | 0 | 0.73 | 0.88 | 0.86 | 5.73 | 13 | 0 |
+| id | 77 | 73 | 77 | 90 | 0 | 0.71 | 0.88 | 0.89 | 5.93 | 13 | 0 |
+
+## worst
+### en  (2 wrong)
+- shield / 「Shield」 -> tool 0.42, weapon 0.17, steel 0.12
+- dice / 「Dice」 -> tool 0.73, luck 0.08, machine 0.05
+### zh-Hans  (2 wrong)
+- shield / 「盾」 -> tool 0.50, weapon 0.20, steel 0.10
+- dice / 「骰子」 -> tool 0.68, luck 0.09, machine 0.07
+### zh-Hant  (2 wrong)
+- shield / 「盾」 -> tool 0.46, weapon 0.21, steel 0.10
+- dice / 「骰子」 -> tool 0.64, luck 0.11, machine 0.08
+### ru  (2 wrong)
+- shield / 「Щит」 -> tool 0.46, weapon 0.25, steel 0.10
+- dice / 「Кубик」 -> tool 0.64, machine 0.06, sports 0.06
+### th  (2 wrong)
+- shield / 「โล่」 -> tool 0.40, weapon 0.26, steel 0.14
+- dice / 「ลูกเต๋า」 -> tool 0.65, luck 0.11, machine 0.06
+### ja  (2 wrong)
+- shield / 「盾」 -> tool 0.46, weapon 0.25, steel 0.09
+- dice / 「サイコロ」 -> tool 0.72, luck 0.11, machine 0.07
+### ar  (3 wrong)
+- poison / 「سم」 -> soul 0.29, poison 0.12, water 0.07
+- shield / 「درع」 -> tool 0.43, steel 0.18, clothes 0.11
+- dice / 「نرد」 -> tool 0.60, luck 0.12, sports 0.10
+### es  (4 wrong)
+- shield / 「Escudo」 -> tool 0.32, weapon 0.20, steel 0.07
+- bread / 「Pan」 -> myth 0.57, beast 0.07, tool 0.04
+- dice / 「Dado」 -> tool 0.56, luck 0.07, sports 0.06
+- mushroom / 「Seta」 -> myth 0.10, hero 0.06, humanity 0.04
+### ko  (4 wrong)
+- poison / 「독」 -> beast 0.29, dragon 0.28, poison 0.27
+- shield / 「방패」 -> tool 0.44, weapon 0.30, steel 0.08
+- dice / 「주사위」 -> tool 0.67, luck 0.11, machine 0.06
+- castle / 「성」 -> soul 0.24, star 0.16, hero 0.12
+### de  (3 wrong)
+- poison / 「Gift」 -> money 0.19, gold 0.08, love 0.08
+- dice / 「Würfel」 -> tool 0.69, luck 0.09, sports 0.05
+- castle / 「Burg」 -> hero 0.11, house 0.09, food 0.08
+### pt-BR  (5 wrong)
+- shield / 「Escudo」 -> tool 0.36, weapon 0.23, steel 0.08
+- moon / 「Lua」 -> tool 0.33, machine 0.08, words 0.08
+- king / 「Rei」 -> ghost 0.14, hero 0.09, soul 0.06
+- time / 「Tempo」 -> music 0.57, time 0.33, sound 0.03
+- dice / 「Dado」 -> tool 0.53, luck 0.13, sports 0.06
+### vi  (5 wrong)
+- lightning / 「Sét」 -> sports 0.05, fruit 0.03, words 0.03
+- shield / 「Khiên」 -> tool 0.47, weapon 0.31, steel 0.06
+- ghost / 「Ma」 -> family 0.12, myth 0.12, earth 0.08
+- dice / 「Xúc xắc」 -> tool 0.60, luck 0.12, machine 0.12
+- bomb / 「Bom」 -> sound 0.13, weapon 0.10, fruit 0.05
+### fr  (5 wrong)
+- shield / 「Bouclier」 -> tool 0.46, weapon 0.16, steel 0.12
+- cat / 「Chat」 -> words 0.55, machine 0.13, sound 0.08
+- bread / 「Pain」 -> emotion 0.84, poison 0.02, soul 0.02
+- time / 「Temps」 -> warmth 0.56, time 0.27, ice 0.03
+- dice / 「Dé」 -> myth 0.05, earth 0.03, words 0.03
+### it  (6 wrong)
+- shield / 「Scudo」 -> money 0.58, weapon 0.13, tool 0.08
+- apple / 「Mela」 -> festival 0.27, fruit 0.19, myth 0.09
+- bread / 「Pane」 -> glass 0.32, paper 0.05, fruit 0.05
+- king / 「Re」 -> magic 0.08, gold 0.07, rubber 0.05
+- time / 「Tempo」 -> music 0.55, time 0.32, sound 0.03
+### pl  (7 wrong)
+- poison / 「Trucizna」 -> magic 0.08, poison 0.06, villain 0.05
+- shield / 「Tarcza」 -> tool 0.40, weapon 0.38, steel 0.07
+- dragon / 「Smok」 -> fire 0.39, dragon 0.07, myth 0.05
+- ghost / 「Duch」 -> king 0.10, authority 0.08, humanity 0.08
+- wolf / 「Wilk」 -> humanity 0.18, hero 0.10, beast 0.08
+### tr  (7 wrong)
+- ice / 「Buz」 -> sound 0.16, beast 0.13, insect 0.11
+- shield / 「Kalkan」 -> tool 0.28, weapon 0.16, steel 0.10
+- wolf / 「Kurt」 -> humanity 0.79, hero 0.12, earth 0.02
+- moon / 「Ay」 -> words 0.08, myth 0.07, sound 0.06
+- dice / 「Zar」 -> myth 0.24, king 0.17, demon 0.09
+### id  (7 wrong)
+- fire / 「Api」 -> myth 0.08, wind 0.07, machine 0.05
+- ice / 「Es」 -> electricity 0.26, acid 0.06, earth 0.05
+- lightning / 「Petir」 -> myth 0.31, lightning 0.21, hero 0.14
+- poison / 「Racun」 -> beast 0.25, myth 0.10, thief 0.07
+- shield / 「Perisai」 -> tool 0.45, weapon 0.19, steel 0.12
+
+## short
+fire | ko:불->fire(1.00)OK | ja:火->fire(1.00)OK | zh-Hans:火->fire(1.00)OK | en:Fire->fire(1.00)OK
+dragon | ko:용->dragon(0.97)OK | ja:竜->dragon(1.00)OK | zh-Hans:龙->dragon(0.98)OK | en:Dragon->dragon(0.97)OK
+moon | ko:달->moon(0.96)OK | ja:月->moon(0.99)OK | zh-Hans:月->moon(0.99)OK | en:Moon->moon(0.99)OK
+sword | ko:검->weapon(0.73)OK | ja:剣->weapon(0.89)OK | zh-Hans:剑->weapon(0.91)OK | en:Sword->weapon(0.96)OK
+water | ko:물->water(1.00)OK | ja:水->water(1.00)OK | zh-Hans:水->water(1.00)OK | en:Water->water(0.99)OK
+tree | ko:나무->plant(0.56)OK | ja:木->wood(0.96)OK | zh-Hans:木->wood(0.96)OK | en:Tree->plant(0.88)OK
+mountain | ko:산->mountain(0.92)OK | ja:山->mountain(0.93)OK | zh-Hans:山->mountain(0.96)OK | en:Mountain->mountain(0.92)OK
+poison | ko:독->dragon(0.33)X | ja:毒->poison(0.98)OK | zh-Hans:毒->poison(0.99)OK | en:Poison->poison(0.92)OK
+king | ko:왕->king(0.99)OK | ja:王->king(0.96)OK | zh-Hans:王->king(0.97)OK | en:King->king(0.84)OK
+thunder | ko:번개->lightning(0.83)OK | ja:雷->lightning(0.74)OK | zh-Hans:雷->lightning(0.77)OK | en:Thunder->lightning(0.34)OK
+SHORT ko: ok 9/10 same-as-en 9/10 conf 0.83 guardFP 0 power 2.47
+SHORT ja: ok 10/10 same-as-en 9/10 conf 0.94 guardFP 0 power 2.54
+SHORT zh-Hans: ok 10/10 same-as-en 9/10 conf 0.95 guardFP 0 power 2.58
+SHORT en: ok 10/10 same-as-en 10/10 conf 0.88 guardFP 0 power 2.59
