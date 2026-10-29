@@ -75,4 +75,4 @@
 - 작업 폴더는 `D:\Project\Jev Game 2\Jev_game2` 하나(git 저장소도 여기). 2026-10-28 상위 폴더에 따로 있던 `design/`(라운드 1~9)을 `Jev_game2/design/`으로 합쳤고 상위 폴더는 비움. 세션은 `Jev_game2`에서 연다
 - 이 문서(HANDOFF)는 작업하면서 계속 고친다. 언제든 세션을 넘길 수 있게, 결정·실측·할 일이 바뀔 때마다 바로 반영하고 "마지막 갱신"을 맞춘다
 - 디렉터에게는 존댓말, 쉬운 말, 짧게. 산출물에는 간단 요약본(`*_simple.md`)을 같이
-- 커밋 작성자: Yongma Baek <bym6096@gmail.com>. 로컬(`D:\Project\Jev Game 2\Jev_game2`)에서 작업하며 GitHub push는 하지 않음(2026-10-28 디렉터 지시)
+- 커밋 작성자: Yongma Baek <bym6096@gmail.com>. 로컬(`D:\Project\Jev Game 2\Jev_game2`)에서 작업하고, Vercel 배포를 위해 커밋마다 `git push origin main`까지 한다(2026-10-29 디렉터 지시, 이전의 "push 안 함"을 대체). 키는 `toys/card-forge/.env.local`(git 제외)과 Vercel 환경 변수에만 둔다
