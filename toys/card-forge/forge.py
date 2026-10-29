@@ -149,6 +149,40 @@ UNIQUES = {
 UNIQUE_MIN_P = 0.35     # how sure Jev must be that the name really is one of these concepts
 UNIQUE_MIN_BASE = 4    # and only grand (expensive) cards can carry one
 UNIQUE_COST = 1
+# Combo effects: a small table of lucky pairs. If a card's element and one of its effects match a pair, it gets the extra
+# effect (a small "oh, that combination does something" surprise). Not every pair is filled in, and nobody is told the list.
+# (element key, effect key, name, what it does)
+COMBOS = [
+  ("fire", "regenerate", "불사의 불꽃", "매 턴 체력을 되찾고 화상이 옆 적에게 번진다"),
+  ("ice", "burn", "열충격", "뜨겁고 차가운 것이 부딪쳐 적의 방어가 깨진다"),
+  ("lightning", "chain", "연쇄 번개", "번개가 모든 적을 한 번씩 건너뛰며 때린다"),
+  ("poison", "lifesteal", "독 흡수", "적의 중독을 먹어 체력으로 바꾼다"),
+  ("water", "cleanse", "샘물", "나쁜 상태를 모두 씻고 마나를 1 얻는다"),
+  ("light", "revive", "성스러운 부활", "일어날 때 체력이 가득 차고 적을 눈멀게 한다"),
+  ("darkness", "stealth", "그림자 숨바꼭질", "숨은 동안 첫 공격이 두 배가 된다"),
+  ("time", "rewind", "시간 역행", "되감을 때 쓴 마나를 돌려받는다"),
+  ("time", "haste", "가속 시계", "한 번 더 행동하고 다음 카드가 공짜가 된다"),
+  ("money", "gamble", "빚쟁이의 도박", "크게 잃으면 외상으로 한 번 더 걸 수 있다"),
+  ("money", "gold", "황금 폭포", "얻는 돈이 두 배가 된다"),
+  ("food", "heal", "든든한 한 끼", "회복한 만큼 최대 체력이 오른다"),
+  ("dream", "foresee", "예지몽", "다음 세 장을 보고 하나를 골라 뽑는다"),
+  ("soul", "summon", "영혼 소환", "쓰러진 동료가 영혼으로 돌아와 함께 싸운다"),
+  ("bone", "revive", "해골 기사", "쓰러져도 뼈로 일어나 한 번 더 때린다"),
+  ("wind", "dodge", "바람처럼", "피한 공격만큼 다음 공격이 세진다"),
+  ("steel", "counter", "철벽 반격", "맞을 때마다 방어가 늘고 되받는 피해도 커진다"),
+  ("sound", "confuse", "불협화음", "적이 서로의 귀를 막고 서로를 때린다"),
+  ("gravity", "seal", "중력 감옥", "봉인된 카드는 이번 전투 내내 풀리지 않는다"),
+  ("laughter", "confuse", "웃음 바이러스", "웃음이 옆 적에게 번져 모두 행동이 흐트러진다"),
+  ("luck", "gamble", "행운의 도박", "도박에서 지는 일이 한 번 없어진다"),
+  ("memory", "recall", "회상", "되찾은 카드의 마나가 줄어든다"),
+  ("words", "seal", "금기어", "봉인한 적은 다음 효과도 말하지 못한다"),
+  ("war", "rage", "전쟁광", "맞을 때마다 모든 카드가 강해진다"),
+  ("sleep", "rest", "깊은 잠", "쉬는 동안 모든 나쁜 상태가 풀리고 카드를 두 장 뽑는다"),
+  ("love", "taunt", "연모", "적이 나만 쳐다보다 자기 편을 놓친다"),
+  ("fungus", "poison", "포자 번식", "중독이 번질 때마다 작은 동료가 하나 생긴다"),
+  ("glass", "thorns", "유리 파편", "가시가 박히면 적의 방어가 깎인다"),
+]
+COMBO_COST = 1
 EXTRA_EFFECT_MIN_P = 0.03   # an extra effect must be something Jev at least slightly saw in the name
 THEMES = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제",
           "daily": "일상", "cosmic": "우주", "food": "음식", "memory": "추억"}
@@ -331,8 +365,12 @@ def apply_mana(card):
     if card["unique"]:
         name, desc, _ = UNIQUES[uniq[0]]
         effects.append({"name": name, "desc": desc, "value": card["effect_value"], "unique": True})
+    combo = next((COMBOS_KO[k] for k in (f"{card['element']}|{e['name']}" for e in effects if not e.get("unique")) if k in COMBOS_KO), None)
+    card["combo"] = bool(combo)
+    if combo:
+        effects.append({**combo, "value": card["effect_value"], "combo": True})
     card["effects"] = effects
-    card["mana_effect"] = (EFFECT_COST.get(card["effect"], 0) if slots else 0) + (UNIQUE_COST if card["unique"] else 0)
+    card["mana_effect"] = (EFFECT_COST.get(card["effect"], 0) if slots else 0) + (UNIQUE_COST if card["unique"] else 0) + (COMBO_COST if combo else 0)
     card["mana"] = max(0, base + card["mana_effect"])
     return card
 
@@ -445,3 +483,13 @@ def forge(name):
         raise NameError_(err)
     d = call_jev(build_request(name))
     return make_card(name, lang, d["answers"]), d
+
+
+# keyed by Korean names ("element|effect") so the page, which only has Korean names, can re-check a combo after a gacha re-roll
+def _combos_ko():
+    out = {}
+    for el, fx, name, desc in COMBOS:
+        assert el in ALL_ELEMENTS and fx in ALL_EFFECTS, (el, fx)
+        out[f"{ALL_ELEMENTS[el]}|{ALL_EFFECTS[fx][0]}"] = {"name": name, "desc": desc, "from": f"{ALL_ELEMENTS[el]} + {ALL_EFFECTS[fx][0]}"}
+    return out
+COMBOS_KO = _combos_ko()
