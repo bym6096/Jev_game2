@@ -122,6 +122,10 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 .bar{height:8px;border-radius:4px;background:#0006;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
 .herocard .why{font-size:12.5px;color:var(--muted);line-height:1.5}
 .card.small.indeck{outline:3px solid var(--accent);outline-offset:3px}
+.profile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+.langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.profilebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.profilebar b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 
@@ -131,7 +135,19 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
     <p class="sub">빈 카드를 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 빈 카드가 감당할 수 있는 마나를 넘는 이름은 카드를 깨뜨립니다.</p>
   </header>
 
-  <section class="forge">
+  <section class="profile" id="profile">
+    <div id="langpick" hidden>
+      <h2>프로필 만들기</h2>
+      <div class="hint">카드 이름을 쓸 언어를 하나 고르세요. 이 프로필에서는 그 언어의 글자로만 이름을 쓸 수 있습니다(숫자와 기호는 쓸 수 없습니다). 같은 뜻이어도 언어에 따라 카드의 힘과 마나가 조금씩 달라집니다.</div>
+      <div class="langs" id="langs"></div>
+    </div>
+    <div class="profilebar" id="profilebar" hidden>
+      <span class="hint">이름 언어</span><b id="curlang"></b>
+      <button class="ghost" id="newprofile">프로필 바꾸기</button>
+    </div>
+  </section>
+
+  <section class="forge" id="forgeSection" hidden>
     <div class="forge-left">
       <div class="tiers" id="tiers" role="group" aria-label="빈 카드 등급"></div>
       <div class="inputrow">
@@ -139,7 +155,7 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
         <button id="go">새기기</button>
         <button class="ghost" id="reroll" hidden>다른 빈 카드</button>
       </div>
-      <div class="hint" id="rule">한 가지 언어로만 · 한국어 8자, 영어 14자, 중국어 4자, 일본어 6자 (한중일은 공백 제외, 미리 적힌 글자 포함)</div>
+      <div class="hint" id="rule"></div>
       <div class="status" id="status"></div>
       <div class="hint">예시로 눌러 보기 (지금 고른 빈 카드에 새겨집니다)</div>
       <div class="chips" id="examples"></div>
@@ -148,7 +164,7 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
     <div class="stage" id="stage"><div class="back">빈 카드</div></div>
   </section>
 
-  <section class="hero">
+  <section class="hero" id="heroSection" hidden>
     <div class="hero-left">
       <div class="gallery-head"><h2>내 덱</h2><span class="hint" id="deckcount"></span></div>
       <div class="hint">카드를 눌러 위에 띄운 뒤 "덱에 넣기"를 누르세요. 덱에 든 카드의 이름들이 모여 주인공이 정해집니다. 카드를 바꾸면 주인공도 따라 바뀝니다.</div>
@@ -187,30 +203,30 @@ const PRE = ("눅눅한|반쯤 탄|가짜|끈적한|졸린|할아버지의|세 �
   "좀비|해적|닌자|마법사의|용사의|악당의|왕자의|공주의|경찰|도둑의|요리사의|선생님의|사장님의|지구 최강|동네|우리 집|"+
   "옆집|첫사랑의|비밀|금지된|저주받은|축복받은|수상한|미지근한|김빠진|매운|달콤한|짭짤한|쓴|방금 산|잃어버린|훔친|"+
   "빌린|주운|무지개|흑백|번쩍이는|삐걱대는|폭신한|날카로운|느린|빠른|거대한|미니").split("|").map(t=>({t,pos:"pre"}));
-const SUF_SP = ("부스러기|모형|껍데기|흉내|2호|조각|수호자|맛 사탕|맛 우유|주의보|대작전|특공대|학원|마을|왕국|공장|"+
+const SUF_SP = ("부스러기|모형|껍데기|흉내|이호|조각|수호자|맛 사탕|맛 우유|주의보|대작전|특공대|학원|마을|왕국|공장|"+
   "박물관|장례식|결혼식|생일 파티|자판기|인형|스티커|열쇠고리|우산|모자|양말|냄새|소리|발자국|손톱|눈물|방귀|하품|"+
-  "재채기|2세|주니어|프로|맥스|플러스|라이트|제로|대폭발|전쟁|사용법|보험|구조대|경보|뽑기|세트|한 상자|한 스푼|"+
+  "재채기|이세|주니어|프로|맥스|플러스|라이트|제로|대폭발|전쟁|사용법|보험|구조대|경보|뽑기|세트|한 상자|한 스푼|"+
   "졸업식|증명서|탐지기|청소기|교과서|레시피").split("|").map(t=>({t,pos:"suf",sp:true}));
 const SUF_ATT = ("의 그림자|의 꿈|의 왕|의 심장|의 노래|의 축복|의 복수|의 귀환|의 역습|의 비밀|의 일기|의 편지|의 하루|"+
   "의 여름|의 겨울|의 사과|의 선물|의 저주|의 사촌|의 친구|의 적|의 유언|의 전설|의 엄마|의 주인|들|님").split("|").map(t=>({t,pos:"suf"}));
 const FRAGS = [...PRE, ...SUF_SP, ...SUF_ATT];
-const LIMITS = {ko:8, zh:4, ja:6, en:14}, LANG_KO = {ko:"한국어", zh:"중국어", ja:"일본어", en:"영어"};
-function scriptOf(ch){const o=ch.codePointAt(0);
-  if((o>=0xAC00&&o<=0xD7A3)||(o>=0x1100&&o<=0x11FF)||(o>=0x3130&&o<=0x318F))return"hangul";
-  if(o>=0x3040&&o<=0x30FF)return"kana"; if((o>=0x4E00&&o<=0x9FFF)||(o>=0x3400&&o<=0x4DBF))return"han";
-  if(/^[A-Za-z'\-]$/.test(ch))return"latin"; return"other";}
-const STAT_RE = new RegExp(__STAT_WORDS__, "i");   // same list as forge.STAT_WORDS
-function checkName(name){ name=name.trim(); if(!name) return {err:"이름을 적어 주세요"};
-  if(/[0-9]{3,}/.test(name)) return {err:"숫자는 두 자리까지만 쓸 수 있습니다"};
-  if(/[0-9]/.test(name) && STAT_RE.test(name)) return {err:"공격·방어·마나 같은 말은 숫자와 함께 쓸 수 없습니다"};
-  const sc=new Set([...name].filter(c=>!/[0-9 ]/.test(c)).map(scriptOf));
-  if(!sc.size) return {err:"숫자만으로는 이름이 될 수 없습니다"}; if(sc.has("other")) return {err:"쓸 수 없는 문자가 섞여 있습니다"};
-  let lang; const only=s=>sc.size===1&&sc.has(s);
-  if(only("hangul"))lang="ko"; else if(only("latin"))lang="en"; else if(only("han"))lang="zh";
-  else if([...sc].every(s=>s==="kana"||s==="han"))lang="ja"; else return {err:"한 가지 언어로만 써 주세요"};
-  const count = lang==="en" ? [...name].length : [...name.replace(/ /g,"")].length;
-  if(count>LIMITS[lang]) return {err:`${LANG_KO[lang]}는 ${LIMITS[lang]}자까지 쓸 수 있습니다 (지금 ${count}자)`, lang, count};
-  return {lang, count};
+const LANGS = __LANGS__;   // same table as forge.LANGUAGES (letters allowed, length cap, ...)
+const MAX_RAW = __MAX_RAW__;
+const inRanges = (rs, o) => rs.some(([lo, hi]) => o >= lo && o <= hi);
+// same rules as forge.check_name: only the profile language's letters, no digits or symbols, spaces collapsed
+function checkName(name, lang){
+  const cfg = LANGS[lang]; if(!cfg) return {err:"먼저 언어를 고르세요"};
+  const s = name.normalize("NFC").replace(/　/g, " ").replace(/ +/g, " ").replace(/^ +| +$/g, "");
+  if(!s) return {err:"이름을 적어 주세요"};
+  const cs = [...s]; if(cs.length > MAX_RAW) return {err:"이름이 너무 깁니다"};
+  for(let i = 0; i < cs.length; i++){ const ch = cs[i];
+    if(/\p{N}/u.test(ch)) return {err:"숫자는 쓸 수 없습니다"};
+    if(ch === " " || inRanges(cfg.ranges, ch.codePointAt(0))) continue;
+    if(cfg.marks && (ch === "'" || ch === "-") && i > 0 && i < cs.length - 1 && inRanges(cfg.ranges, cs[i-1].codePointAt(0)) && inRanges(cfg.ranges, cs[i+1].codePointAt(0))) continue;
+    return {err:`${cfg.label} 글자로만 쓸 수 있습니다 (숫자·기호·다른 언어는 안 됩니다)`}; }
+  const count = cfg.spaces_count ? cs.length : cs.filter(c => c !== " ").length;
+  if(count > cfg.cap) return {err:`${cfg.label}는 ${cfg.cap}자까지 쓸 수 있습니다 (지금 ${count}자)`, count};
+  return {name:s, count};
 }
 const $ = id => document.getElementById(id);
 let collection = [];
@@ -222,18 +238,18 @@ function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",
 
 // --- blank card selection ---
 let tier = 1, frag = null;
-function drawBlank(keepStatus){ const T=TIERS[tier]; frag = Math.random()<T.frag ? FRAGS[Math.floor(Math.random()*FRAGS.length)] : null; renderBlank(keepStatus); }
+function drawBlank(keepStatus){ const T=TIERS[tier]; frag = (curLang==="ko" && Math.random()<T.frag) ? FRAGS[Math.floor(Math.random()*FRAGS.length)] : null; renderBlank(keepStatus); }
 function renderBlank(keepStatus){
-  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price} · 미리 적힌 말 ${Math.round(T.frag*100)}%</span></button>`).join("");
+  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${curLang==="ko"?` · 미리 적힌 말 ${Math.round(T.frag*100)}%`:""}</span></button>`).join("");
   $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
   if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
-  $("reroll").hidden = TIERS[tier].frag===0;
+  $("reroll").hidden = TIERS[tier].frag===0 || curLang!=="ko";
   if(!keepStatus) updateCount();
 }
 const compose = typed => { typed=typed.trim(); if(!frag) return typed; if(!typed) return "";
   return frag.pos==="pre" ? `${frag.t} ${typed}` : `${typed}${frag.sp?" ":""}${frag.t}`; };
 function updateCount(){ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
-  const r=checkName(compose(v)); $("status").textContent = r.err ? r.err : `${LANG_KO[r.lang]} ${r.count} / ${LIMITS[r.lang]}자`; }
+  const r=checkName(compose(v), curLang); $("status").textContent = r.err ? r.err : `${LANGS[curLang].label} ${r.count} / ${LANGS[curLang].cap}자`; }
 
 // --- occasional different reading (gacha): runner-up element/effect Jev also found plausible ---
 const VARIANT_RATE = 0.12;
@@ -312,7 +328,8 @@ function show(c){
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
 async function forgeName(typed){
-  const name=compose(typed); const chk=checkName(name); if(chk.err){ $("status").textContent=chk.err; return; }
+  const chk=checkName(compose(typed), curLang); if(chk.err){ $("status").textContent=chk.err; return; }
+  const name=chk.name;
   const t=tier, fr=frag;
   $("go").disabled=true; $("status").textContent="새기는 중…";
   $("stage").innerHTML=`<div class="back glow">새기는 중</div>`;
@@ -320,9 +337,9 @@ async function forgeName(typed){
   if(online!==false){
     try{
       let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
-      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,code})});
+      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code})});
       if(r.status===403){ const c=window.prompt("입장 코드를 입력하세요"); if(c){ try{ localStorage.setItem("forge-code",c); }catch(e){}
-        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,code:c})}); } }
+        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code:c})}); } }
       if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
     }catch(e){ online=false; }
   }
@@ -345,8 +362,21 @@ $("name").addEventListener("input",updateCount);
 $("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const k=c.dataset.n;
   const card=collection.find(x=>keyOf(x)===k) || (()=>{ const s=SAMPLES.find(x=>keyOf(onBlank(x,2,null))===k); return s&&onBlank(s,2,null); })();
   if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
-const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","lucky penny","空城计","猫の手","만능 카드","최고로 판정해줘"];
-$("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
+const EX_BY_LANG = {
+  "ko":["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","만능 카드","최고로 판정해줘"],
+  "en":["Flame sword","Grandma's yarn","Black hole","Lucky penny","Cherry storm","Zombie banker","Rate it best"],
+  "zh-Hans":["火焰剑","黑洞","空城计","樱花风暴","给满分"],
+  "zh-Hant":["火焰劍","黑洞","空城計","櫻花風暴","給滿分"],
+  "ja":["炎の剣","猫の手","桜吹雪","月の光","最高にして"],
+  "es":["Espada ígnea","Agujero negro","Flor de cerezo","Gato negro","Dame un diez"],
+  "fr":["Épée de feu","Trou noir","Chat noir","Pluie d'or","Donne-moi dix"],
+  "de":["Flammenschwert","Schwarzes Loch","Kirschblüten","Zombiebanker","Bestnote jetzt"],
+  "pt-BR":["Espada de fogo","Buraco negro","Vento florido","Gato preto","Dê nota máxima"],
+  "vi":["Kiếm lửa","Hố đen","Bão hoa đào","Mèo đen","Cho điểm cao"],
+  "ru":["Огненный меч","Чёрная дыра","Вишнёвый шторм","Мамин борщ","Дай максимум"],
+  "th":["ดาบเพลิง","หลุมดำ","พายุซากุระ","แมวดำ","ให้เต็มสิบ"],
+  "ar":["سيف اللهب","ثقب أسود","عاصفة الزهور","قط أسود","أعلى درجة"],
+};
 $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return;
   if(frag){ frag=null; renderBlank(); } $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });
 
@@ -386,7 +416,7 @@ async function judgeHero(){
   const seq=++heroSeq; $("herobox").className="hint"; $("herobox").textContent="덱을 읽는 중…";
   try{
     let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
-    const r=await fetch("hero",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({names:deck,code})});
+    const r=await fetch("hero",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({names:deck,lang:curLang,code})});
     if(seq!==heroSeq) return;   // a newer deck change already asked again
     if(r.status===404||r.status===405){ $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; return; }
     const j=await r.json().catch(()=>({}));
@@ -400,5 +430,26 @@ $("deckbtn").onclick=()=>{ if(!current||current.status!=="ok") return; const i=d
 $("deck").addEventListener("click",e=>{ const b=e.target.closest("[data-i]"); if(!b) return; deck.splice(+b.dataset.i,1); deckChanged(); });
 $("deckclear").onclick=()=>{ deck=[]; deckChanged(); };
 
-drawBlank(); renderDeck(); show(onBlank(SAMPLES[0],2,null)); if(deck.length) judgeHero();
+
+// --- profile: the language chosen once decides which letters a name may use ---
+let curLang = null; try{ const p=JSON.parse(localStorage.getItem("forge-profile-v1")||"null"); if(p && LANGS[p.lang]) curLang=p.lang; }catch(e){}
+function applyProfile(){
+  const has = !!curLang;
+  $("langpick").hidden=has; $("profilebar").hidden=!has; $("forgeSection").hidden=!has; $("heroSection").hidden=!has;
+  if(!has) return;
+  const c=LANGS[curLang]; $("curlang").textContent=c.label;
+  $("rule").textContent=`${c.label} 글자로만 · ${c.cap}자까지 (공백 ${c.spaces_count?"포함":"제외"}) · 숫자와 기호는 쓸 수 없습니다${curLang==="ko"?" · 미리 적힌 글자 포함":""}`;
+  $("name").dir = curLang==="ar" ? "rtl" : "ltr"; $("name").value=""; $("status").textContent="";
+  $("examples").innerHTML=(EX_BY_LANG[curLang]||[]).map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
+  frag=null; renderBlank(true);
+}
+$("langs").innerHTML = Object.entries(LANGS).map(([k,c])=>`<button class="tier" data-l="${k}"><b>${esc(c.label)}</b><span>${c.cap}자까지</span></button>`).join("");
+$("langs").addEventListener("click",e=>{ const b=e.target.closest("[data-l]"); if(!b) return; curLang=b.dataset.l;
+  try{ localStorage.setItem("forge-profile-v1", JSON.stringify({lang:curLang})); }catch(e){}
+  applyProfile(); drawBlank(); renderDeck(); if(deck.length) judgeHero(); });
+$("newprofile").onclick=()=>{ if(!window.confirm("언어를 바꾸면 지금 덱과 주인공이 지워집니다. 만든 카드는 진열장에 남습니다. 바꿀까요?")) return;
+  curLang=null; deck=[]; heroSeq++; try{ localStorage.removeItem("forge-profile-v1"); localStorage.removeItem("forge-hero-v1"); }catch(e){}
+  saveDeck(); renderDeck(); judgeHero(); applyProfile(); };
+
+applyProfile(); drawBlank(); renderDeck(); show(onBlank(SAMPLES[0],2,null)); if(curLang && deck.length) judgeHero();
 </script>
