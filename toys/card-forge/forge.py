@@ -114,9 +114,40 @@ UNIQUES = {
   "puppet": ("꼭두각시", "적 하나를 한 턴 동안 내 편으로 부린다", "puppets, strings, hypnosis, or controlling another's will"),
   "alchemy": ("연성", "카드 하나를 지우고 더 강한 카드로 바꾼다", "alchemy, forging, or transmuting one thing into a better one"),
   "typhoon_eye": ("태풍의 눈", "한 턴은 안전하다가 다음 턴 모든 것을 휩쓴다", "the calm eye of a typhoon, or the calm before a storm"),
+  "divine_descent": ("강림", "신이 내려와 한 턴 동안 모든 피해를 막고 모든 적을 벌한다", "a god or deity descending to the world, or divine power made manifest"),
+  "mushroom_cloud": ("대폭발", "모든 적과 나에게 큰 피해를 주고 이후 모든 적이 약해진다", "a nuclear blast, a doomsday device, or an enormous explosion"),
+  "plunder": ("약탈", "적에게 피해를 주고 돈과 카드를 빼앗는다", "pirates, raiders, plunder, or a ship at sea hunting for loot"),
+  "unyielding": ("불굴", "한 턴 동안 어떤 피해도 받지 않고 다음 공격이 커진다", "invincibility, an unbreakable guard, or an immortal body"),
+  "dragon_scale": ("용린", "받는 피해가 크게 줄고 때린 적은 불에 탄다", "dragon scales, a dragon's hide, or armor made from a dragon"),
+  "poisoned_gift": ("독이 든 선물", "적에게 선물을 주어 한 턴 뒤 크게 중독시킨다", "a poisoned gift, a trap disguised as something nice, or a deadly sweet"),
+  "wildcard": ("와일드카드", "손에 든 카드 하나를 아무 효과로나 바꿔 쓴다", "a wildcard, a joker, or a trick that can be anything"),
+  "sword_dance": ("검무", "연속으로 벨수록 한 번 한 번이 더 아프다", "a dance of blades, swordplay mastery, or a flurry of slashes"),
+  "war_cry": ("함성", "이번 전투에서 낸 카드 수만큼 모든 카드가 강해진다", "a battle cry, war drums, or a charging army"),
+  "healing_rain": ("단비", "모든 나쁜 상태를 씻고 체력을 천천히 되찾는다", "gentle rain, a blessing from the sky, or a miracle cure"),
+  "curse_mark": ("낙인", "적 하나에 낙인을 찍어 그 적이 받는 모든 피해가 늘어난다", "a brand, a curse mark, or a target marked by fate"),
+  "heartbreak": ("상심", "적의 의욕을 꺾어 한 턴 쉬게 하고 공격을 줄인다", "heartbreak, a bitter parting, or sorrow that drains the will"),
+  "crush": ("설렘", "한 턴 동안 적이 나를 공격하지 못한다", "a first love, a crush, or a warm fluttering feeling"),
+  "labyrinth": ("미궁", "적이 길을 잃어 행동이 한 번 사라진다", "a maze, a labyrinth, or a trap that confuses and misleads"),
+  "library": ("서고", "카드를 여러 장 뽑고 그중 하나를 지울 수 있다", "a library, a pile of ancient books, or a hoard of knowledge"),
+  "forge_fire": ("대장간", "카드 하나의 수치를 영구히 올린다", "a blacksmith's forge, crafting, or tempering weapons"),
+  "beacon": ("등대", "다음에 올 카드 세 장을 보고 순서를 바꾼다", "a lighthouse, a beacon, or a guiding light in the dark"),
+  "whirlpool": ("소용돌이", "손과 버린 카드를 뒤섞어 새로 뽑는다", "a whirlpool, a vortex, or something that churns everything up"),
+  "thorn_garden": ("가시 정원", "내가 맞을 때마다 적이 크게 다친다", "thorns, a garden of briars, or a spiny cactus"),
+  "eternal_winter": ("영원한 겨울", "모든 적이 서서히 얼어붙어 매 턴 느려진다", "an endless winter, a frozen kingdom, or a snow queen"),
+  "eruption": ("분화", "다음 턴에 모든 적에게 불의 비가 쏟아지고 땅이 타오른다", "a volcano erupting, flowing lava, or a mountain of fire"),
+  "tsunami": ("해일", "모든 적을 쓸어 밀어내고 쓰러뜨린 만큼 마나를 얻는다", "a tsunami, a great tidal wave, or the sea's rage"),
+  "shadow_step": ("그림자 걸음", "한 턴 사라졌다가 첫 공격을 세 배로 꽂는다", "a shadow, an assassin's stealth, or a ninja vanishing"),
+  "holy_light": ("성광", "모든 나쁜 상태를 지우고 어둠의 적에게 큰 피해를 준다", "holy light, an angel, or radiant divine light"),
+  "spider_web": ("거미줄", "모든 적의 행동이 한 번씩 묶인다", "a web, a net, or a trap that binds and entangles"),
+  "earthquake": ("지진", "모든 적을 흔들어 방어를 무너뜨린다", "an earthquake, a quaking ground, or a collapsing mountain"),
+  "sandstorm": ("모래폭풍", "적의 공격이 빗나가고 서서히 피해를 입는다", "a desert, a sandstorm, or scorching blowing sand"),
+  "black_market": ("암시장", "카드를 하나 지우고 새 카드를 둘 얻는다", "a black market, smuggling, or shady dealings among thieves"),
+  "clocktower": ("시계탑", "이번 턴이 끝날 때 마나가 모두 다음 턴에 남는다", "a clocktower, clockwork, or a great ticking mechanism"),
+  "swarm": ("떼", "작은 동료가 여럿 나타나 모든 적을 계속 괴롭힌다", "a swarm of bugs, a flock, a horde of tiny creatures"),
+  "lullaby_song": ("자장가", "한 턴 동안 적의 공격이 약해지고 나는 체력을 되찾는다", "a gentle song, a lullaby, or soothing music"),
 }
-UNIQUE_MIN_P = 0.4     # how sure Jev must be that the name really is one of these concepts
-UNIQUE_MIN_BASE = 5    # and only grand (expensive) cards can carry one
+UNIQUE_MIN_P = 0.35     # how sure Jev must be that the name really is one of these concepts
+UNIQUE_MIN_BASE = 4    # and only grand (expensive) cards can carry one
 UNIQUE_COST = 1
 EXTRA_EFFECT_MIN_P = 0.03   # an extra effect must be something Jev at least slightly saw in the name
 THEMES = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제",
