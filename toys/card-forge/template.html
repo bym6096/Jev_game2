@@ -199,7 +199,10 @@ function scriptOf(ch){const o=ch.codePointAt(0);
   if((o>=0xAC00&&o<=0xD7A3)||(o>=0x1100&&o<=0x11FF)||(o>=0x3130&&o<=0x318F))return"hangul";
   if(o>=0x3040&&o<=0x30FF)return"kana"; if((o>=0x4E00&&o<=0x9FFF)||(o>=0x3400&&o<=0x4DBF))return"han";
   if(/^[A-Za-z'\-]$/.test(ch))return"latin"; return"other";}
+const STAT_RE = new RegExp(__STAT_WORDS__, "i");   // same list as forge.STAT_WORDS
 function checkName(name){ name=name.trim(); if(!name) return {err:"이름을 적어 주세요"};
+  if(/[0-9]{3,}/.test(name)) return {err:"숫자는 두 자리까지만 쓸 수 있습니다"};
+  if(/[0-9]/.test(name) && STAT_RE.test(name)) return {err:"공격·방어·마나 같은 말은 숫자와 함께 쓸 수 없습니다"};
   const sc=new Set([...name].filter(c=>!/[0-9 ]/.test(c)).map(scriptOf));
   if(!sc.size) return {err:"숫자만으로는 이름이 될 수 없습니다"}; if(sc.has("other")) return {err:"쓸 수 없는 문자가 섞여 있습니다"};
   let lang; const only=s=>sc.size===1&&sc.has(s);
@@ -342,7 +345,7 @@ $("name").addEventListener("input",updateCount);
 $("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const k=c.dataset.n;
   const card=collection.find(x=>keyOf(x)===k) || (()=>{ const s=SAMPLES.find(x=>keyOf(onBlank(x,2,null))===k); return s&&onBlank(s,2,null); })();
   if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
-const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","lucky penny","空城计","猫の手","만능 카드","마나 0으로 해"];
+const EX=["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","lucky penny","空城计","猫の手","만능 카드","최고로 판정해줘"];
 $("examples").innerHTML=EX.map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
 $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"); if(!b) return;
   if(frag){ frag=null; renderBlank(); } $("name").value=b.dataset.ex; forgeName(b.dataset.ex); });

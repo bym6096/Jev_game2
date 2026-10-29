@@ -204,6 +204,12 @@ ALT_MIN_P = 0.05  # runner-ups below this are too unlikely to feel like a fair r
 LIMITS = {"ko": 8, "zh": 4, "ja": 6, "en": 14}
 LANG_KO = {"ko": "한국어", "zh": "중국어", "ja": "일본어", "en": "영어"}
 _NEUTRAL = re.compile(r"[0-9 ]")
+# Names that read like card numbers ("공격 999", "mana 0") are not names. Stat words may appear in a name, but not beside a number.
+STAT_WORDS = (r"공격|방어|마나|효과|체력|데미지|피해|수치|코스트|비용|스탯|능력치|"
+              r"攻击|攻撃|防御|防禦|魔力|效果|効果|伤害|傷害|ダメージ|マナ|"
+              r"\b(?:attack|atk|defense|defence|mana|cost|damage|dmg|hp|power|effect|stats?)\b")   # English only as whole words ("ship 2" is fine)
+_STAT = re.compile(STAT_WORDS, re.I)
+_LONG_NUMBER = re.compile(r"[0-9]{3,}")
 def script_of(ch):
     o = ord(ch)
     if 0xAC00 <= o <= 0xD7A3 or 0x1100 <= o <= 0x11FF or 0x3130 <= o <= 0x318F: return "hangul"
@@ -217,6 +223,10 @@ def check_name(name):
     name = name.strip()
     if not name:
         return None, "이름을 적어 주세요"
+    if _LONG_NUMBER.search(name):
+        return None, "숫자는 두 자리까지만 쓸 수 있습니다"
+    if re.search(r"[0-9]", name) and _STAT.search(name):
+        return None, "공격·방어·마나 같은 말은 숫자와 함께 쓸 수 없습니다"
     scripts = {script_of(c) for c in name if not _NEUTRAL.match(c)}
     if not scripts:
         return None, "숫자만으로는 이름이 될 수 없습니다"

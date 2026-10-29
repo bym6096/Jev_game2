@@ -5,6 +5,7 @@ import forge
 html = (open("template.html", encoding="utf-8").read()
         .replace("__SAMPLES__", json.dumps(samples, ensure_ascii=False))
         .replace("__EFFECT_COST__", json.dumps(forge.EFFECT_COST, ensure_ascii=False))
+        .replace("__STAT_WORDS__", json.dumps(forge.STAT_WORDS))
         .replace("__COMBOS__", json.dumps(forge.COMBOS_KO, ensure_ascii=False)))
 open("index.html", "w", encoding="utf-8").write(html)
 print(len(samples), "samples;", len(html), "bytes")
