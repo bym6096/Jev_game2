@@ -202,7 +202,7 @@ const PRE = ("눅눅한|반쯤 탄|가짜|끈적한|졸린|할아버지의|세 �
   "바삭한|말랑한|뜨거운|차가운|오래된|미래의|고대의|마지막|최초의|백 년 된|천 개의|두 개의|반쪽|대왕|아기|유령|로봇|"+
   "좀비|해적|닌자|마법사의|용사의|악당의|왕자의|공주의|경찰|도둑의|요리사의|선생님의|사장님의|지구 최강|동네|우리 집|"+
   "옆집|첫사랑의|비밀|금지된|저주받은|축복받은|수상한|미지근한|김빠진|매운|달콤한|짭짤한|쓴|방금 산|잃어버린|훔친|"+
-  "빌린|주운|무지개|흑백|번쩍이는|삐걱대는|폭신한|날카로운|느린|빠른|거대한|미니").split("|").map(t=>({t,pos:"pre"}));
+  "빌린|주운|무지개|흑백|번쩍이는|삐걱대는|폭신한|날카로운|느린|빠른|거대한|미니").split("|").map(t=>({t,pos:"pre",sp:true}));
 const SUF_SP = ("부스러기|모형|껍데기|흉내|이호|조각|수호자|맛 사탕|맛 우유|주의보|대작전|특공대|학원|마을|왕국|공장|"+
   "박물관|장례식|결혼식|생일 파티|자판기|인형|스티커|열쇠고리|우산|모자|양말|냄새|소리|발자국|손톱|눈물|방귀|하품|"+
   "재채기|이세|주니어|프로|맥스|플러스|라이트|제로|대폭발|전쟁|사용법|보험|구조대|경보|뽑기|세트|한 상자|한 스푼|"+
@@ -210,6 +210,7 @@ const SUF_SP = ("부스러기|모형|껍데기|흉내|이호|조각|수호자|�
 const SUF_ATT = ("의 그림자|의 꿈|의 왕|의 심장|의 노래|의 축복|의 복수|의 귀환|의 역습|의 비밀|의 일기|의 편지|의 하루|"+
   "의 여름|의 겨울|의 사과|의 선물|의 저주|의 사촌|의 친구|의 적|의 유언|의 전설|의 엄마|의 주인|들|님").split("|").map(t=>({t,pos:"suf"}));
 const FRAGS = [...PRE, ...SUF_SP, ...SUF_ATT];
+const FRAGS_BY_LANG = {ko: FRAGS, ...__FRAGS__};   // other languages: fragments.py (words that never change with the name)
 const LANGS = __LANGS__;   // same table as forge.LANGUAGES (letters allowed, length cap, ...)
 const MAX_RAW = __MAX_RAW__;
 const inRanges = (rs, o) => rs.some(([lo, hi]) => o >= lo && o <= hi);
@@ -238,16 +239,17 @@ function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",
 
 // --- blank card selection ---
 let tier = 1, frag = null;
-function drawBlank(keepStatus){ const T=TIERS[tier]; frag = (curLang==="ko" && Math.random()<T.frag) ? FRAGS[Math.floor(Math.random()*FRAGS.length)] : null; renderBlank(keepStatus); }
+function drawBlank(keepStatus){ const T=TIERS[tier]; const fl = FRAGS_BY_LANG[curLang]; frag = (fl && Math.random()<T.frag) ? fl[Math.floor(Math.random()*fl.length)] : null; renderBlank(keepStatus); }
 function renderBlank(keepStatus){
-  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${curLang==="ko"?` · 미리 적힌 말 ${Math.round(T.frag*100)}%`:""}</span></button>`).join("");
+  $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${FRAGS_BY_LANG[curLang]?` · 미리 적힌 말 ${Math.round(T.frag*100)}%`:""}</span></button>`).join("");
+  $("pre").textContent=""; $("suf").textContent="";   // a hidden slot must not keep the previous language's word
   $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
   if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
-  $("reroll").hidden = TIERS[tier].frag===0 || curLang!=="ko";
+  $("reroll").hidden = TIERS[tier].frag===0 || !FRAGS_BY_LANG[curLang];
   if(!keepStatus) updateCount();
 }
 const compose = typed => { typed=typed.trim(); if(!frag) return typed; if(!typed) return "";
-  return frag.pos==="pre" ? `${frag.t} ${typed}` : `${typed}${frag.sp?" ":""}${frag.t}`; };
+  return frag.pos==="pre" ? `${frag.t}${frag.sp?" ":""}${typed}` : `${typed}${frag.sp?" ":""}${frag.t}`; };
 function updateCount(){ const v=$("name").value; if(!v.trim()){ $("status").textContent=""; return; }
   const r=checkName(compose(v), curLang); $("status").textContent = r.err ? r.err : `${LANGS[curLang].label} ${r.count} / ${LANGS[curLang].cap}자`; }
 
@@ -438,7 +440,7 @@ function applyProfile(){
   $("langpick").hidden=has; $("profilebar").hidden=!has; $("forgeSection").hidden=!has; $("heroSection").hidden=!has;
   if(!has) return;
   const c=LANGS[curLang]; $("curlang").textContent=c.label;
-  $("rule").textContent=`${c.label} 글자로만 · ${c.cap}자까지 (공백 ${c.spaces_count?"포함":"제외"}) · 숫자와 기호는 쓸 수 없습니다${curLang==="ko"?" · 미리 적힌 글자 포함":""}`;
+  $("rule").textContent=`${c.label} 글자로만 · ${c.cap}자까지 (공백 ${c.spaces_count?"포함":"제외"}) · 숫자와 기호는 쓸 수 없습니다${FRAGS_BY_LANG[curLang]?" · 미리 적힌 글자 포함":""}`;
   $("name").dir = curLang==="ar" ? "rtl" : "ltr"; $("name").value=""; $("status").textContent="";
   $("examples").innerHTML=(EX_BY_LANG[curLang]||[]).map(n=>`<button class="chip" data-ex="${esc(n)}">${esc(n)}</button>`).join("");
   frag=null; renderBlank(true);
