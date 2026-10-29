@@ -78,6 +78,47 @@ ELEMENT_FAMILY_OF = {k: i for i, els in enumerate(ELEMENT_FAMILIES.values()) for
 ALL_EFFECTS = {k: v for fx in EFFECT_FAMILIES.values() for k, v in fx.items()}
 EFFECT_FAMILY_OF = {k: i for i, fx in enumerate(EFFECT_FAMILIES.values()) for k in fx}
 assert len(ALL_ELEMENTS) == 98 and len(ALL_EFFECTS) == 64
+# Unique effects: only an expensive card whose name matches one of these concepts strongly gets one on top of
+# its ordinary effects. key: (Korean name, what it does, what the thing named must be like). Jev answers "none" for most names.
+UNIQUES = {
+  "steam": ("증기압", "뜨거운 김이 모든 적을 덮어 피해를 주고 적의 방어를 녹인다", "something both hot and wet, like steam, a kettle, a sauna, or a hot spring"),
+  "thunderstorm": ("뇌우", "번개와 비가 함께 와서 모든 적을 때리고 젖게 만든다", "a storm that brings lightning and rain together"),
+  "frostfire": ("서리불꽃", "불과 얼음이 함께 있어 화상과 빙결을 동시에 건다", "something that is both burning and freezing, fire and ice together"),
+  "eclipse": ("일식", "빛과 어둠이 겹쳐 한 턴 동안 모든 효과가 뒤집힌다", "an eclipse, or light and darkness meeting and overlapping"),
+  "time_loop": ("시간 고리", "이번 턴에 쓴 카드를 다음 턴에 한 번 더 쓴다", "a loop, an endless repetition, or a time paradox"),
+  "blood_pact": ("피의 계약", "체력을 크게 바치고 다음 세 장의 카드가 강해진다", "a pact, an oath, or a contract sealed with blood or a soul"),
+  "phoenix": ("불사조", "쓰러지면 체력을 가득 채우고 한 번 일어난다", "a phoenix, or a thing reborn from its own ashes"),
+  "singularity": ("특이점", "모든 적의 수치를 빨아들여 내 것으로 만든다", "a black hole, a singularity, or something that devours everything"),
+  "wishing": ("소원", "덱에서 원하는 카드 하나를 골라 손에 넣는다", "a wish, a genie, a wishing star, or a granted miracle"),
+  "dream_walk": ("꿈길", "적을 잠재우고 그 사이 카드를 마음껏 뽑는다", "dreams, sleep, or a lullaby that puts others to sleep"),
+  "nightmare": ("악몽", "적이 자기 자신을 공격한다", "a nightmare, a haunting dread, or a horror that turns minds against themselves"),
+  "feast": ("잔치", "체력과 마나를 조금씩 되찾고 다음 카드가 싸진다", "a feast, a banquet, or a party that cheers everyone up"),
+  "rust_decay": ("부식", "적의 방어와 강화를 모두 갉아먹는다", "rust, rot, decay, or slow corrosion"),
+  "overdrive": ("폭주", "이번 턴에 카드를 세 장 더 쓰지만 다음 턴이 사라진다", "a machine pushed past its limit, overdrive, or reckless speed"),
+  "mirror_world": ("거울 세계", "적의 마지막 행동을 그대로 되돌려 준다", "a mirror, a reflection, or a perfect copy of someone else"),
+  "gravity_well": ("중력 우물", "모든 적이 느려지고 가까운 적끼리 부딪친다", "crushing gravity, great weight, or a pull nothing escapes"),
+  "jackpot": ("잭팟", "정확히 일곱 번째 카드에 큰 보너스가 붙는다", "a lucky number, a jackpot, dice, or a slot machine"),
+  "crown": ("왕관", "이 카드가 덱에 있는 동안 모든 카드 수치가 오른다", "a crown, a throne, or royal authority that lifts everyone beneath it"),
+  "hoard": ("보물 더미", "돈이 많을수록 모든 카드가 강해진다", "a hoard of treasure, a greedy dragon's gold, or a miser's vault"),
+  "world_tree": ("세계수", "매 턴 최대 체력과 마나가 조금씩 오른다", "a giant ancient tree, a world tree, or endless slow growth"),
+  "symphony": ("교향곡", "이번 전투에 쓴 카드 종류가 많을수록 효과가 커진다", "an orchestra, a symphony, or many different sounds in harmony"),
+  "ghost_ship": ("유령선", "쓰러진 동료를 한 번 불러내 함께 싸운다", "a ghost ship, an undead crew, or the dead returning to fight"),
+  "frozen_world": ("정지한 세계", "모든 적이 한 턴 완전히 멈춘다", "stopped time, a frozen moment, or a pause on the whole world"),
+  "mirage": ("신기루", "적이 존재하지 않는 것을 공격하게 만든다", "a mirage, an illusion, or a convincing deception"),
+  "avalanche": ("눈사태", "쓸 때마다 피해가 두 배로 불어나는 연쇄를 시작한다", "an avalanche, a snowball rolling downhill, or a growing chain reaction"),
+  "plague": ("역병", "모든 적에게 중독이 퍼지고 하나가 쓰러질 때마다 옮겨 간다", "a plague, an epidemic, or a spreading disease"),
+  "harvest": ("수확", "쓰러뜨린 적마다 카드나 돈을 얻는다", "a harvest, reaping, or collecting the fruits of labor"),
+  "echo": ("메아리", "방금 쓴 카드가 한 번 더 울려 반쯤 다시 발동한다", "an echo, or a song or voice that repeats itself"),
+  "cat_nap": ("낮잠", "한 턴을 쉬는 대신 모든 나쁜 상태를 지우고 크게 회복한다", "a cozy nap, a cat curling up, or total relaxation"),
+  "meteor": ("유성우", "다음 턴에 모든 적에게 크게 떨어지고 나는 피한다", "a meteor shower, a comet, or something falling from the sky"),
+  "puppet": ("꼭두각시", "적 하나를 한 턴 동안 내 편으로 부린다", "puppets, strings, hypnosis, or controlling another's will"),
+  "alchemy": ("연성", "카드 하나를 지우고 더 강한 카드로 바꾼다", "alchemy, forging, or transmuting one thing into a better one"),
+  "typhoon_eye": ("태풍의 눈", "한 턴은 안전하다가 다음 턴 모든 것을 휩쓴다", "the calm eye of a typhoon, or the calm before a storm"),
+}
+UNIQUE_MIN_P = 0.4     # how sure Jev must be that the name really is one of these concepts
+UNIQUE_MIN_BASE = 5    # and only grand (expensive) cards can carry one
+UNIQUE_COST = 1
+EXTRA_EFFECT_MIN_P = 0.03   # an extra effect must be something Jev at least slightly saw in the name
 THEMES = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제",
           "daily": "일상", "cosmic": "우주", "food": "음식", "memory": "추억"}
 THEME_DESC = {"sea": "the sea, ships, or sea creatures", "machine": "machines, tools, or technology",
@@ -147,6 +188,8 @@ def build_request(name):
       "attack": {"type": "score", "instructions": "How much harm could the thing named do to an enemy?", "criteria": LEVELS},
       "defense": {"type": "score", "instructions": "How well could the thing named protect someone?", "criteria": LEVELS},
       "power": {"type": "score", "instructions": "How grand and powerful is the thing named, overall?", "criteria": POWER},
+      "unique": _choice("Is the thing named, as a whole, a special concept that deserves a one-of-a-kind power? Pick it only if it clearly is one.",
+                        {"none": "an ordinary thing with nothing one-of-a-kind about it", **{k: v[2] for k, v in UNIQUES.items()}}),
       "hue": _choice("What color best matches the thing named?", {k: None for k in HUES}),
       "brightness": {"type": "score", "instructions": "How bright or dark is the color the thing named evokes?",
                      "criteria": ["pitch black", "dark", "dim", "medium", "bright", "radiant white"]},
@@ -202,6 +245,10 @@ def make_card(name, lang, a):
             "kind": KINDS[a["kind"]["choice"]],
             "attack": round(a["attack"]["score"] * 3), "defense": round(a["defense"]["score"] * 3),
             "themes": picked, "power": round(power, 2), "color": card_color(name, a)}
+    # kept so the effects can be re-chosen whenever the mana rule changes (same name = cached card)
+    card["fx_pool"] = [[k, round(p, 3)] for k, p in sorted(a["effect"]["probabilities"].items(), key=lambda x: -x[1])[:10]]
+    u = a["unique"]["choice"]
+    card["uniq"] = [u, round(a["unique"]["probabilities"][u], 3)] if u != "none" and a["unique"]["probabilities"][u] >= UNIQUE_MIN_P else None
     apply_mana(card)
     mana = card["mana"]
     # runner-up answers Jev also found plausible; the page occasionally forges a variant from these
@@ -233,12 +280,34 @@ def apply_mana(card):
     hi, lo = max(card["attack"], card["defense"]), min(card["attack"], card["defense"])
     card["mana_power"] = round(card["power"] * 2.5)
     card["mana_stats"] = 0 if statless else round(hi * 0.6 + lo * 0.2)
-    card["mana_effect"] = EFFECT_COST.get(card["effect"], 0)
     base = max(card["mana_power"], card["mana_stats"])
-    card["mana"] = max(0, base + card["mana_effect"])
     value = (base + 1) / 2 * (1.5 if statless else 1)   # statless cards get a stronger effect instead of numbers
     card["effect_value"] = max(1, math.ceil(value))
+    # effects follow the card's weight: a cheap card has none (or one), a grand card has several
+    slots = effect_slots(base, statless)
+    effects, used = [], set()
+    if slots:
+        effects.append({"name": card["effect"], "desc": card["effect_desc"], "value": card["effect_value"]})
+        used.add(card["effect_family"])
+        for key, p in card.get("fx_pool", []):       # more effects: Jev's next-best readings, one per family
+            if len(effects) >= slots: break
+            name, desc = ALL_EFFECTS[key]
+            if name == card["effect"] or EFFECT_FAMILY_OF[key] in used or p < EXTRA_EFFECT_MIN_P: continue
+            used.add(EFFECT_FAMILY_OF[key])
+            effects.append({"name": name, "desc": desc, "value": max(1, math.ceil(card["effect_value"] * 0.7))})
+    uniq = card.get("uniq")
+    card["unique"] = bool(uniq and base >= UNIQUE_MIN_BASE)
+    if card["unique"]:
+        name, desc, _ = UNIQUES[uniq[0]]
+        effects.append({"name": name, "desc": desc, "value": card["effect_value"], "unique": True})
+    card["effects"] = effects
+    card["mana_effect"] = (EFFECT_COST.get(card["effect"], 0) if slots else 0) + (UNIQUE_COST if card["unique"] else 0)
+    card["mana"] = max(0, base + card["mana_effect"])
     return card
+
+def effect_slots(base, statless):
+    n = 0 if base <= 2 else 1 if base <= 4 else 2 if base <= 7 else 3
+    return max(1, n) if statless else n   # a skill or item has no numbers, so it needs at least one effect
 
 def card_color(name, a):
     """Turn Jev's color reading of the name into an RGB hex color: base hue from the top color answer,

@@ -63,6 +63,14 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .effect{padding:6px 12px;font-size:13.5px;line-height:1.45;flex:1}
 .card.small .effect{font-size:11px;padding:4px 8px}
 .effect b{font-family:var(--f-display);font-weight:400;font-size:15px}
+.effect .fx+.fx{margin-top:3px}
+.effect .fx.uniq{color:#7a4a00;background:#f2c14e33;border-radius:6px;padding:1px 5px;margin-inline:-5px}
+.effect .fx.uniq b{color:#8a5200}
+.effect .none{color:#0007}
+.effect.compact{font-size:12px;line-height:1.3;padding:4px 10px}
+.effect.compact b{font-size:13.5px}
+.card.small .effect.compact{font-size:10px;padding:3px 8px}
+.card.small .effect.compact b{font-size:11.5px}
 .stats{display:flex;justify-content:space-between;align-items:center;padding:0 8px 8px}
 .stats .tiername{font-size:10.5px;color:#0008}
 .stat{font-family:var(--f-num);font-weight:600;font-size:17px;width:38px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
@@ -221,7 +229,7 @@ function pickWeighted(list, pIdx){ const tot=list.reduce((a,x)=>a+x[pIdx],0); le
   for(const x of list){ r-=x[pIdx]; if(r<=0) return x; } return list[list.length-1]; }
 function maybeVariant(card){
   if(card.status==="scribble" || !card.alt || Math.random()>=VARIANT_RATE) return card;
-  const fields=[]; if(card.alt.element.length) fields.push("element"); if(card.alt.effect.length) fields.push("effect");
+  const fields=[]; if(card.alt.element.length) fields.push("element"); if(card.alt.effect.length && !(card.effects && !card.effects.length)) fields.push("effect");
   if(!fields.length) return card;
   const v={...card};
   const chosen = fields.length===2 && Math.random()<0.25 ? fields : [fields[Math.floor(Math.random()*fields.length)]];
@@ -232,8 +240,13 @@ function maybeVariant(card){
 function onBlank(card, t, fr){
   const T=TIERS[t]; const c={...card, tier:t, cap:T.cap, frag:fr?fr.t:null, fragPos:fr?fr.pos:null};
   if(c.mana_power!==undefined){ // same rule as forge.apply_mana, re-run because a gacha re-read may change the effect
-    const statless=STATLESS.has(c.kind); const base=Math.max(c.mana_power, statless?0:c.mana_stats); c.mana_effect=EFFECT_COST[c.effect]??0;
-    c.mana=Math.max(0, base+c.mana_effect); c.effect_value=Math.max(1, Math.ceil((base+1)/2*(statless?1.5:1))); }
+    const statless=STATLESS.has(c.kind); const base=Math.max(c.mana_power, statless?0:c.mana_stats);
+    c.effect_value=Math.max(1, Math.ceil((base+1)/2*(statless?1.5:1)));
+    if(c.effects){ c.effects=c.effects.map((e,i)=> e.unique ? {...e,value:c.effect_value}
+      : i===0 ? {...e,name:c.effect,desc:c.effect_desc,value:c.effect_value} : {...e,value:Math.max(1,Math.ceil(c.effect_value*0.7))}); }
+    const paysPrimary = c.effects===undefined || (c.effects.length>0 && !c.effects[0].unique);   // older saved cards have no effects list
+    c.mana_effect=(paysPrimary?(EFFECT_COST[c.effect]??0):0)+(c.unique?1:0);
+    c.mana=Math.max(0, base+c.mana_effect); }
   if(c.status!=="scribble") c.status = c.mana>T.cap ? "shattered" : "ok";
   c.id = `${c.name}|${t}|${c.element}|${c.effect}`;
   return c;
@@ -242,6 +255,14 @@ function onBlank(card, t, fr){
 function nameHTML(c){
   if(!c.frag) return esc(c.name);
   return esc(c.name).replace(esc(c.frag), `<i>${esc(c.frag)}</i>`);
+}
+function effectsHTML(c, broken, cap, small){
+  const list = c.effects ?? [{name:c.effect, desc:c.effect_desc, value:c.effect_value}];   // older saved cards have one effect
+  const compact = list.length>2 || (small && list.length>1);   // small cards have room for one full line only
+  const rows = list.length ? list.map(e=>{ const showDesc = !compact || (e.unique && !small);
+    return `<div class="fx${e.unique?" uniq":""}" title="${esc(e.desc)}">${e.unique?"✦ ":""}<b>${esc(e.name)} ${e.value}</b>${showDesc?" "+esc(e.desc):""}</div>`; }).join("")
+    : `<div class="fx none">효과 없음</div>`;
+  return `<div class="effect${compact?" compact":""}">${rows}${broken?`<span style="color:#c0392b">마나 ${c.mana} / 한계 ${cap}</span>`:""}</div>`;
 }
 function cardHTML(c, small){
   const cls = "card" + (small?" small":"") + ` t${c.tier??2}` + (small && deck.includes(c.name) ? " indeck" : "");
@@ -255,7 +276,7 @@ function cardHTML(c, small){
     <div class="head"><div class="mana" title="마나">${c.mana}</div><div class="name">${nameHTML(c)}</div></div>
     <div class="art"><div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)}</div></div>
     <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
-    <div class="effect"><b>${esc(c.effect)} ${c.effect_value}</b> ${esc(c.effect_desc)}${broken?`<br><span style="color:#c0392b">마나 ${c.mana} / 한계 ${cap}</span>`:""}</div>
+    ${effectsHTML(c, broken, cap, small)}
     <div class="stats">${STATLESS.has(c.kind)?`<span class="kindtag">${esc(c.kind)}</span>`:`<div class="stat atk" title="공격력">${c.attack}</div>`}<span class="tiername">${TIERS[c.tier??2].name}</span>${STATLESS.has(c.kind)?`<span class="kindtag"></span>`:`<div class="stat def" title="방어력">${c.defense}</div>`}</div>
   </div>`;
 }
@@ -271,7 +292,7 @@ function show(c){
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
   const fx = c.mana_effect ? ` ${c.mana_effect>0?"+":"−"} 효과 ${Math.abs(c.mana_effect)}` : "";
   const why = c.mana_stats===undefined ? "" : STATLESS.has(c.kind) ? ` (이름의 힘 ${c.mana_power}${fx})` : ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})`;
-  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${c.effect}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${(c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음"}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
