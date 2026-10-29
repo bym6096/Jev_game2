@@ -375,7 +375,13 @@ function heroHTML(h){
     <div class="passive"><b>패시브</b> ${esc(h.passive)}</div>
     <div class="bars">${bar("공격성",h.aggression)}${bar("강인함",h.toughness)}</div><div class="why">${why}</div></div>`;
 }
+// a hero judged for a deck is kept with it: the same deck is not asked again (Jev wobbles near ties, so a re-ask could flip the hero)
+const deckKey = () => [...deck].sort().join("\n");
+const loadHero = () => { try{ const h=JSON.parse(localStorage.getItem("forge-hero-v1")||"null"); return h && h.key===deckKey() ? h.hero : null; }catch(e){ return null; } };
+const saveHero = hero => { try{ localStorage.setItem("forge-hero-v1", JSON.stringify({key:deckKey(), hero})); }catch(e){} };
 async function judgeHero(){
+  const kept = deck.length ? loadHero() : null;
+  if(kept){ ++heroSeq; $("herobox").className=""; $("herobox").innerHTML=heroHTML(kept); return; }
   if(!deck.length){ $("herobox").className="hint"; $("herobox").textContent="덱에 카드를 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다."; return; }
   const seq=++heroSeq; $("herobox").className="hint"; $("herobox").textContent="덱을 읽는 중…";
   try{
@@ -385,7 +391,7 @@ async function judgeHero(){
     if(r.status===404||r.status===405){ $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; return; }
     const j=await r.json().catch(()=>({}));
     if(!r.ok){ $("herobox").textContent=j.error||`오류 ${r.status}`; return; }
-    $("herobox").className=""; $("herobox").innerHTML=heroHTML(j);
+    saveHero(j); $("herobox").className=""; $("herobox").innerHTML=heroHTML(j);
   }catch(e){ if(seq===heroSeq) $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; }
 }
 function deckChanged(){ saveDeck(); renderDeck(); clearTimeout(heroTimer); heroTimer=setTimeout(judgeHero,500); }

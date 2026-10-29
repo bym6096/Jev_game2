@@ -1,21 +1,13 @@
-"""Local toy server: serves index.html and POST /forge {"name": ...} -> card JSON.
+"""Local toy server (stateless): serves index.html, POST /forge {"name": ...} -> card JSON, POST /hero {"names": [...]} -> hero JSON.
 Set JEV_API_KEY in the environment first. Run: python server.py  then open http://localhost:8000"""
 import json, os, sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import forge
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE_PATH = os.path.join(HERE, "forged_cache.json")
-try:
-    CACHE = json.load(open(CACHE_PATH, encoding="utf-8"))
-except Exception:
-    CACHE = {}
-
-HERO_CACHE_PATH = os.path.join(HERE, "hero_cache.json")
-try:
-    HERO_CACHE = json.load(open(HERO_CACHE_PATH, encoding="utf-8"))
-except Exception:
-    HERO_CACHE = {}
+# No server-side cache on purpose: the same name may come out a little differently each time (Jev wobbles near ties), and in the
+# game each forging costs a blank card, so re-rolling is limited by the game, not by the server. The page keeps the cards a player
+# has made (and the hero it got for a deck), so nothing that has been made changes afterwards.
 
 class H(BaseHTTPRequestHandler):
     def _send(self, code, body, ctype="application/json; charset=utf-8"):
@@ -36,31 +28,21 @@ class H(BaseHTTPRequestHandler):
         lang, err = forge.check_name(name)
         if err:
             return self._send(400, {"error": err})
-        if name in CACHE:  # same name -> same card (mana rule re-applied so older saves follow the current rule)
-            card = CACHE[name]
-            if card.get("status") != "scribble":
-                forge.apply_mana(card)
-            return self._send(200, card)
         try:
             card, _ = forge.forge(name)
         except Exception as e:
             return self._send(502, {"error": f"Jev 호출 실패: {e}"})
-        CACHE[name] = card
-        json.dump(CACHE, open(CACHE_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         self._send(200, card)
     def _hero(self):
         n = int(self.headers.get("Content-Length", 0))
         names, err = forge.check_deck(json.loads(self.rfile.read(n) or b"{}").get("names"))
         if err:
             return self._send(400, {"error": err})
-        key = "\n".join(sorted(names))  # same set of cards -> same hero (Jev wobbles +-0.08 near ties)
-        if key not in HERO_CACHE:
-            try:
-                HERO_CACHE[key], _ = forge.hero_of(names)
-            except Exception as e:
-                return self._send(502, {"error": f"Jev 호출 실패: {e}"})
-            json.dump(HERO_CACHE, open(HERO_CACHE_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        self._send(200, HERO_CACHE[key])
+        try:
+            hero, _ = forge.hero_of(names)
+        except Exception as e:
+            return self._send(502, {"error": f"Jev 호출 실패: {e}"})
+        self._send(200, hero)
     def log_message(self, *a): pass
 
 if __name__ == "__main__":
