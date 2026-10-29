@@ -144,6 +144,7 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
     <div class="profilebar" id="profilebar" hidden>
       <span class="hint">이름 언어</span><b id="curlang"></b>
       <button class="ghost" id="newprofile">프로필 바꾸기</button>
+      <button class="ghost" id="wipe">저장 데이터 모두 지우기</button>
     </div>
   </section>
 
@@ -230,8 +231,39 @@ function checkName(name, lang){
   return {name:s, count};
 }
 const $ = id => document.getElementById(id);
+// Anything that comes from the server or from saved data is rebuilt from known fields with known types before it is drawn,
+// so a broken or hand-edited value can neither inject markup nor stop the page from loading.
+const cNum = (v, lo, hi, d) => { v = Number(v); return Number.isFinite(v) ? Math.min(hi, Math.max(lo, Math.round(v))) : d; };
+const cStr = (v, max) => typeof v === "string" ? v.slice(0, max) : "";
+const cList = (v, max, f) => Array.isArray(v) ? v.slice(0, max).map(f).filter(x => x !== null) : [];
+const cFx = e => (e && typeof e === "object") ? {name:cStr(e.name,40), desc:cStr(e.desc,300), value:cNum(e.value,0,99,1), unique:!!e.unique, combo:!!e.combo, from:cStr(e.from,80)} : null;
+function cleanCard(c){
+  if(!c || typeof c !== "object" || typeof c.name !== "string" || !c.name) return null;
+  const o = {name:cStr(c.name,60), lang:cStr(c.lang,12), tier:c.tier===undefined ? undefined : cNum(c.tier,0,3,2), id:cStr(c.id,200) || undefined,
+    frag:typeof c.frag==="string" ? c.frag.slice(0,30) : null, fragPos:c.fragPos==="pre"||c.fragPos==="suf" ? c.fragPos : null};
+  if(c.status === "scribble"){ o.status = "scribble"; o.reason = cStr(c.reason,120); return o; }
+  if(typeof c.element !== "string" || typeof c.kind !== "string") return null;
+  Object.assign(o, {status:c.status==="shattered" ? "shattered" : "ok", cap:cNum(c.cap,1,99,8), element:cStr(c.element,20), kind:cStr(c.kind,20),
+    color:/^#[0-9a-fA-F]{6}$/.test(c.color) ? c.color : "#8a99a8", mana:cNum(c.mana,0,99,0), attack:cNum(c.attack,0,99,0), defense:cNum(c.defense,0,99,0),
+    effect:cStr(c.effect,40), effect_desc:cStr(c.effect_desc,300), effect_value:cNum(c.effect_value,0,99,1),
+    themes:cList(c.themes, 10, t => typeof t === "string" ? t.slice(0,30) : null), unique:!!c.unique, combo:!!c.combo});
+  for(const k of ["mana_power","mana_stats","mana_effect"]) if(c[k] !== undefined) o[k] = cNum(c[k],-99,99,0);
+  if(c.power !== undefined) o.power = Number(c.power) || 0;
+  if(Array.isArray(c.effects)) o.effects = cList(c.effects, 8, cFx);
+  if(c.alt && typeof c.alt === "object"){   // runner-up readings for the gacha; only a fresh server card carries them
+    const t = (a, n) => Array.isArray(a) && a.length >= n ? a : null;
+    o.alt = {element:cList(c.alt.element, 6, a => t(a,3) ? [cStr(a[0],20), cStr(a[1],20), cNum(a[2]*1000,0,1000,0)/1000] : null),
+             effect:cList(c.alt.effect, 6, a => t(a,4) ? [cStr(a[0],40), cStr(a[1],300), cStr(a[2],20), cNum(a[3]*1000,0,1000,0)/1000] : null)}; }
+  return o;
+}
+function cleanHero(h){
+  if(!h || typeof h !== "object") return null;
+  const n = (v, lo, hi) => Number.isFinite(Number(v)) ? Math.min(hi, Math.max(lo, Number(v))) : 0;
+  return {title:cStr(h.title,60), temper:cStr(h.temper,30), passive:cStr(h.passive,300), leaning:cStr(h.leaning,60), runner_up:cStr(h.runner_up,60),
+    conf:n(h.conf,0,1), runner_up_conf:n(h.runner_up_conf,0,1), vague:!!h.vague, aggression:n(h.aggression,0,5), toughness:n(h.toughness,0,5), cards:cNum(h.cards,0,99,0)};
+}
 let collection = [];
-try { collection = JSON.parse(localStorage.getItem("forge-collection-v3") || "[]"); } catch(e) {}
+try { const raw = JSON.parse(localStorage.getItem("forge-collection-v3") || "[]"); if(Array.isArray(raw)) collection = raw.map(cleanCard).filter(Boolean); } catch(e) {}
 const keyOf = c => c.id || c.name;
 const byName = n => SAMPLES.find(c=>c.name===n);
 const byKey = k => collection.find(c=>keyOf(c)===k) || SAMPLES.find(c=>keyOf(c)===k);
@@ -315,7 +347,7 @@ function cardHTML(c, small){
 }
 function renderGallery(){
   const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))].map(c=>c.tier===undefined?onBlank(c,2,null):c);
-  $("gallery").innerHTML=all.map(c=>cardHTML(c,true)).join("");
+  $("gallery").innerHTML=all.map(c=>{ try{ return cardHTML(c,true); }catch(e){ return ""; } }).join("");   // one broken card must not blank the shelf
   $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 카드 기준)`;
 }
 function show(c){
@@ -345,6 +377,7 @@ async function forgeName(typed){
       if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
     }catch(e){ online=false; }
   }
+  if(card && !(card = cleanCard(card))) err = "서버 응답을 읽을 수 없습니다";
   if(!card && !err){ card=byName(name); if(!card){ $("offline").hidden=false; err="이 이름은 미리 만든 카드에 없습니다"; } }
   await sleep(Math.max(0,700-(performance.now()-t0)));
   $("go").disabled=false;
@@ -385,7 +418,7 @@ $("examples").addEventListener("click",e=>{ const b=e.target.closest("[data-ex]"
 // --- deck -> hero: the names of the cards in the deck, judged together by Jev, make the protagonist ---
 const DECK_MAX = 20;          // measured up to 20 cards
 let current = null, heroSeq = 0, heroTimer = null;
-let deck = []; try { deck = JSON.parse(localStorage.getItem("forge-deck-v1") || "[]").filter(n=>typeof n==="string"); } catch(e) {}
+let deck = []; try { deck = JSON.parse(localStorage.getItem("forge-deck-v1") || "[]").filter(n=>typeof n==="string").slice(0,DECK_MAX); } catch(e) {}
 const saveDeck = () => { try{ localStorage.setItem("forge-deck-v1", JSON.stringify(deck)); }catch(e){} };
 function updateDeckBtn(){
   const b=$("deckbtn"); if(!current || current.status!=="ok"){ b.disabled=true; b.textContent="덱에 넣기"; return; }
@@ -409,7 +442,7 @@ function heroHTML(h){
 }
 // a hero judged for a deck is kept with it: the same deck is not asked again (Jev wobbles near ties, so a re-ask could flip the hero)
 const deckKey = () => [...deck].sort().join("\n");
-const loadHero = () => { try{ const h=JSON.parse(localStorage.getItem("forge-hero-v1")||"null"); return h && h.key===deckKey() ? h.hero : null; }catch(e){ return null; } };
+const loadHero = () => { try{ const h=JSON.parse(localStorage.getItem("forge-hero-v1")||"null"); return h && h.key===deckKey() ? cleanHero(h.hero) : null; }catch(e){ return null; } };
 const saveHero = hero => { try{ localStorage.setItem("forge-hero-v1", JSON.stringify({key:deckKey(), hero})); }catch(e){} };
 async function judgeHero(){
   const kept = deck.length ? loadHero() : null;
@@ -423,7 +456,8 @@ async function judgeHero(){
     if(r.status===404||r.status===405){ $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; return; }
     const j=await r.json().catch(()=>({}));
     if(!r.ok){ $("herobox").textContent=j.error||`오류 ${r.status}`; return; }
-    saveHero(j); $("herobox").className=""; $("herobox").innerHTML=heroHTML(j);
+    const hj=cleanHero(j); if(!hj){ $("herobox").textContent="서버 응답을 읽을 수 없습니다"; return; }
+    saveHero(hj); $("herobox").className=""; $("herobox").innerHTML=heroHTML(hj);
   }catch(e){ if(seq===heroSeq) $("herobox").textContent="주인공 판정은 서버가 있어야 합니다. PC에서 server.py를 실행해 http://localhost:8000 으로 여세요."; }
 }
 function deckChanged(){ saveDeck(); renderDeck(); clearTimeout(heroTimer); heroTimer=setTimeout(judgeHero,500); }
@@ -449,6 +483,9 @@ $("langs").innerHTML = Object.entries(LANGS).map(([k,c])=>`<button class="tier" 
 $("langs").addEventListener("click",e=>{ const b=e.target.closest("[data-l]"); if(!b) return; curLang=b.dataset.l;
   try{ localStorage.setItem("forge-profile-v1", JSON.stringify({lang:curLang})); }catch(e){}
   applyProfile(); drawBlank(); renderDeck(); if(deck.length) judgeHero(); });
+$("wipe").onclick=()=>{ if(!window.confirm("만든 카드, 덱, 주인공, 프로필이 모두 지워집니다. 지울까요?")) return;
+  try{ ["forge-collection-v3","forge-deck-v1","forge-hero-v1","forge-profile-v1","forge-code"].forEach(k=>localStorage.removeItem(k)); }catch(e){}
+  location.reload(); };
 $("newprofile").onclick=()=>{ if(!window.confirm("언어를 바꾸면 지금 덱과 주인공이 지워집니다. 만든 카드는 진열장에 남습니다. 바꿀까요?")) return;
   curLang=null; deck=[]; heroSeq++; try{ localStorage.removeItem("forge-profile-v1"); localStorage.removeItem("forge-hero-v1"); }catch(e){}
   saveDeck(); renderDeck(); judgeHero(); applyProfile(); };
