@@ -32,6 +32,7 @@
 ### 캘리그라피 카드 이름 (2026-11-01, 1차)
 디렉터 제안: 그림 조합 대신 **이름을 붓글씨로 크게 써 주는 연출 + 나중에 게임 구조가 정해지면 어울리는 아이콘만 조금**. 마스크 와이프 방식으로 시작(획순 데이터 없이 모든 언어 같은 코드).
 - `template.html`: 카드 그림 칸(art)에 이름을 붓 글꼴로 크게 표시(`.brush`, `brushStyle`), 머리줄은 속성 이름으로 바꿈. 새로 만든 카드(`.reveal`)는 이름이 붓으로 훑으며 드러남(1.3초, 아랍어는 오른쪽→왼쪽), 진열장은 정지 상태. 이름의 힘(`mana_power`)이 클수록 굵은 붓, 색은 Jev가 정한 색을 잉크·종이 바탕에 반영. 글꼴 13개 언어 매핑(`BRUSH`): ko Nanum Brush Script, ja Yuji Boku, zh-Hans Ma Shan Zheng, zh-Hant Noto Serif TC, ar Aref Ruqaa, 라틴 계열 Great Vibes, ru Marck Script, th Mali
+- **글꼴 교체(같은 날)**: 필기체가 "구려" 보여 **고문서·옛 서적 활자 느낌**으로 바꿈(아래 글꼴표는 이 줄이 최신): ko Song Myung, ja Shippori Mincho, zh-Hans ZCOOL XiaoWei, zh-Hant Noto Serif TC, ar Amiri, 라틴 IM Fell English(+EB Garamond), vi EB Garamond, ru Cormorant Garamond, th Noto Serif Thai. 글자 가장자리를 먹 번짐처럼 거칠게 하는 SVG 필터(`#inkrough`)와 양피지색 바탕 추가
 - 화면으로 확인한 것: ko·en·ja·zh-Hans·ar 5개(와이프 방향, 파손 도장과 겹침 포함). 확인 못 한 것: zh-Hant·th·ru·vi 글꼴, 긴 이름의 글자 크기 맞춤, 저사양 기기 성능, 글꼴 라이선스·로딩(Google Fonts)
 - 다음: 질감(속성 계열별 번짐·불티·서리), 파손 연출(먹 튀김), 게임 구조가 정해진 뒤 계열·종류 아이콘
 
