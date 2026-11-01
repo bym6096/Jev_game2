@@ -1,7 +1,7 @@
 <title>빈 카드 공방</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Nanum+Brush+Script&family=Great+Vibes&family=Marck+Script&family=Yuji+Boku&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@900&family=Aref+Ruqaa:wght@700&family=Mali:ital,wght@1,600&display=swap">
 <style>
 /* Layout: 위 = 빈 카드 고르기 + 이름 쓰기 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
 :root{
@@ -54,7 +54,7 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .name i{font-style:normal;color:#8b7246}
 .card.small .name{font-size:15px}
 .art{margin:2px 10px;height:108px;border-radius:8px;background:linear-gradient(160deg,var(--el),color-mix(in srgb,var(--el) 45%,#000));display:grid;place-items:center;position:relative;color:#fff}
-.card.small .art{height:66px}
+.card.small .art{height:66px;padding-bottom:9px}.card.small .art .kind{font-size:9.5px;padding:0 5px;bottom:3px;left:4px}
 .art .glyph{font-family:var(--f-display);font-size:44px;opacity:.92;text-shadow:0 2px 0 #0005;text-align:center;line-height:1.1;padding:0 6px}
 .card.small .art .glyph{font-size:26px}
 .art .kind{position:absolute;left:6px;bottom:5px;font-size:11.5px;background:#0006;border-radius:6px;padding:1px 7px}
@@ -96,6 +96,20 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .back{width:220px;height:316px;border-radius:14px;background:repeating-linear-gradient(45deg,#2b3646 0 10px,#25303e 10px 20px);box-shadow:0 0 0 5px #3d4a5c,0 10px 24px #0008;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:20px}
 .back.glow{animation:glow .7s ease-in-out infinite alternate}
 @keyframes glow{from{box-shadow:0 0 0 5px #3d4a5c,0 0 8px #f2c14e33}to{box-shadow:0 0 0 5px var(--accent),0 0 30px #f2c14e88}}
+
+/* calligraphy name: the name is written onto the card art by a mask wipe (same code for every script, only the brush font changes) */
+.art.callig{background:linear-gradient(160deg,color-mix(in srgb,var(--el) 22%,var(--paper)),color-mix(in srgb,var(--el) 42%,var(--paper)));color:color-mix(in srgb,var(--el) 18%,#14100c);padding-bottom:12px;box-sizing:border-box}
+.art .brush{font-family:var(--bf,var(--f-display));font-size:var(--fs,40px);line-height:1.15;text-align:center;padding:0 6px;white-space:nowrap;
+  -webkit-text-stroke:var(--sw,0px) currentColor;text-shadow:0 0 6px color-mix(in srgb,currentColor 30%,transparent)}
+.art .brush i{font-style:normal;opacity:.55}
+.reveal .art .brush{-webkit-mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);
+  -webkit-mask-size:250% 100%;mask-size:250% 100%;-webkit-mask-position:100% 0;mask-position:100% 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  animation:wipe 1.3s .45s ease-in-out forwards}
+.reveal .art .brush[dir=rtl]{-webkit-mask-position:0 0;mask-position:0 0;animation-name:wipe-rtl}
+@keyframes wipe-rtl{to{-webkit-mask-position:100% 0;mask-position:100% 0}}
+@keyframes wipe{to{-webkit-mask-position:0 0;mask-position:0 0}}
+.reveal.t0 .art .brush{filter:blur(.3px)}
+@media (prefers-reduced-motion:reduce){.reveal .art .brush{animation-duration:.01s;animation-delay:0s}}
 .reveal{animation:flip .55s ease-out}
 @keyframes flip{from{transform:rotateY(90deg) scale(.9)}to{transform:none}}
 .shake{animation:shake .5s}
@@ -317,6 +331,16 @@ function onBlank(card, t, fr){
   return c;
 }
 
+
+const BRUSH = {ko:"'Nanum Brush Script'", en:"'Great Vibes'", ja:"'Yuji Boku'", "zh-Hans":"'Ma Shan Zheng'", "zh-Hant":"'Noto Serif TC'", ar:"'Aref Ruqaa'",
+  es:"'Great Vibes'", fr:"'Great Vibes'", de:"'Great Vibes'", "pt-BR":"'Great Vibes'", vi:"'Great Vibes'", ru:"'Marck Script'", th:"'Mali'"};
+const WIDE = new Set(["ko","ja","zh-Hans","zh-Hant","th"]);   // one em per letter; the rest are narrow script
+function brushStyle(c, small){
+  const lang = BRUSH[c.lang] ? c.lang : "en", units = [...c.name].length * (WIDE.has(lang) ? 1 : lang==="ar" ? 0.55 : 0.42);
+  const fs = Math.max(14, Math.min(WIDE.has(lang) ? 54 : 44, (small ? 130 : 190) / Math.max(units, 1)));
+  const pw = Number.isFinite(c.mana_power) ? c.mana_power : c.mana, sw = Math.min(1.6, Math.max(0, pw / 8)) * (small ? .6 : 1);   // stronger name, heavier brush
+  return `--bf:${BRUSH[lang]},var(--f-display);--fs:${fs.toFixed(1)}px;--sw:${sw.toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`;
+}
 function nameHTML(c){
   if(!c.frag) return esc(c.name);
   return esc(c.name).replace(esc(c.frag), `<i>${esc(c.frag)}</i>`);
@@ -338,8 +362,8 @@ function cardHTML(c, small){
   const color = c.color || "#8a99a8";
   return `<div class="${cls}${broken?" shattered":""}" style="--el:${color}" data-n="${esc(keyOf(c))}">
     ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
-    <div class="head"><div class="mana" title="마나">${c.mana}</div><div class="name">${nameHTML(c)}</div></div>
-    <div class="art"><div class="glyph">${esc(c.element)}</div><div class="kind">${esc(c.kind)}</div></div>
+    <div class="head"><div class="mana" title="마나">${c.mana}</div><div class="name">${esc(c.element)}</div></div>
+    <div class="art callig"><div class="brush" dir="${c.lang==="ar"?"rtl":"ltr"}" style="${brushStyle(c,small)}">${nameHTML(c)}</div><div class="kind">${esc(c.kind)}</div></div>
     <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
     ${effectsHTML(c, broken, cap, small)}
     <div class="stats">${STATLESS.has(c.kind)?`<span class="kindtag">${esc(c.kind)}</span>`:`<div class="stat atk" title="공격력">${c.attack}</div>`}<span class="tiername">${TIERS[c.tier??2].name}</span>${STATLESS.has(c.kind)?`<span class="kindtag"></span>`:`<div class="stat def" title="방어력">${c.defense}</div>`}</div>
