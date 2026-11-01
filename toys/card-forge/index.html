@@ -1,7 +1,7 @@
 <title>빈 카드 공방</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Song+Myung&family=IM+Fell+English&family=EB+Garamond:wght@700&family=Cormorant+Garamond:wght@700&family=Shippori+Mincho:wght@800&family=Zen+Antique&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@900&family=Noto+Serif+TC:wght@900&family=Amiri:wght@700&family=Noto+Serif+Thai:wght@800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IM+Fell+English&family=EB+Garamond:wght@700&family=Cormorant+Garamond:wght@700&family=Shippori+Mincho:wght@800&family=Zen+Antique&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@900&family=Noto+Serif+TC:wght@900&family=Amiri:wght@700&family=Noto+Serif+Thai:wght@800&display=swap">
 <style>
 /* Layout: 위 = 빈 카드 고르기 + 이름 쓰기 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
 :root{
@@ -140,6 +140,43 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 .profilebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .profilebar b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* antique frame: aged parchment, brass-ruled double border with corner brackets, wax-seal mana, ink-blue/oxblood stat plates */
+:root{--f-card:"Gowun Batang","Noto Serif KR","Batang",serif;--brown:#6b4f2a;--cornTL:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%225%22 cy=%225%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornTR:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%2826 0%29 scale%28-1 1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%2221%22 cy=%225%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornBL:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%280 26%29 scale%281 -1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%225%22 cy=%2221%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornBR:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%2826 26%29 scale%28-1 -1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%2221%22 cy=%2221%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--grain:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.8%22 numOctaves=%223%22 seed=%225%22/%3E%3CfeColorMatrix values=%220 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .1  0 0 0 .22 0%22/%3E%3C/filter%3E%3Crect width=%22180%22 height=%22180%22 filter=%22url%28%23n%29%22/%3E%3C/svg%3E")}
+.card{border-radius:6px;font-family:var(--f-card);
+  background:var(--grain),radial-gradient(ellipse at 50% 45%,#f3e8cc 35%,#e2d0a5 80%,#c9b07a 100%);
+  box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 6px #2a1d0e,0 10px 24px #000a}
+.card.small{border-radius:5px;box-shadow:0 0 0 1.5px #2a1d0e,0 0 0 4px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 5px #2a1d0e,0 6px 14px #0008}
+.card.t0{background:var(--grain),radial-gradient(circle at 80% 85%,#7a52244d,transparent 45%),radial-gradient(circle at 15% 25%,#6a45204a,transparent 40%),radial-gradient(ellipse at 50% 45%,#dccaa0 30%,#bfa675 85%,#9c8355 100%)}
+.card.t3{box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 6px #2a1d0e,0 0 0 9px var(--gold),0 0 0 10px #2a1d0e,0 10px 24px #000a}
+.card.small.t3{box-shadow:0 0 0 1.5px #2a1d0e,0 0 0 4px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 5px #2a1d0e,0 0 0 7px var(--gold),0 0 0 8px #2a1d0e,0 6px 14px #0008}
+.card::before{content:"";position:absolute;inset:4px;border:1.5px solid var(--brown);box-shadow:inset 0 0 0 2px #0000,inset 0 0 0 3px #6b4f2a55;pointer-events:none;z-index:0;
+  background:var(--cornTL) left top/16px 16px no-repeat,var(--cornTR) right top/16px 16px no-repeat,var(--cornBL) left bottom/16px 16px no-repeat,var(--cornBR) right bottom/16px 16px no-repeat}
+.card.small::before{inset:3px;background-size:11px 11px,11px 11px,11px 11px,11px 11px}
+.card::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 28px #5a3c1a66;pointer-events:none;border-radius:inherit}   /* aged edges */
+.card.shattered::after{box-shadow:none}
+.card>*{position:relative;z-index:1}
+.card .head{padding:11px 12px 5px;margin:0;border-bottom:1px solid #6b4f2a66;margin:0 8px;padding-inline:0}
+.card.small .head{padding:9px 0 3px;margin:0 6px}
+.name{font-family:var(--f-card);font-weight:700;letter-spacing:.02em;font-size:18px}
+.card.small .name{font-size:13px}
+.mana{width:34px;height:34px;border-radius:50% 47% 52% 46%/47% 52% 46% 50%;color:#f6e3b4;font-family:var(--f-card);font-weight:700;font-size:18px;
+  background:radial-gradient(circle at 35% 30%,#d9544a,#a3261f 55%,#6b130f);box-shadow:inset 0 0 0 2px #0003,inset 0 -3px 4px #0005,0 2px 3px #0006;text-shadow:0 1px 1px #0008}
+.card.small .mana{width:25px;height:25px;font-size:13px}
+.art{margin:6px 14px 2px;border-radius:2px;border:1.5px solid var(--brown);box-shadow:inset 0 0 14px #5a3c1a66,0 0 0 2px #e9dbb6,0 0 0 3px #6b4f2a88}
+.card.small .art{margin:5px 11px 2px;box-shadow:inset 0 0 9px #5a3c1a66,0 0 0 1.5px #e9dbb6,0 0 0 2.5px #6b4f2a88}
+.art .kind{border-radius:2px;background:#3b2a14d9;color:#f1dfae;font-size:11px;letter-spacing:.04em}
+.themes span{border:1px solid #6b4f2a99;border-radius:2px;background:#fff3;font-style:italic}
+.effect b{font-family:var(--f-card);font-weight:800}
+.effect .fx.uniq,.effect .fx.combo{border-radius:2px}
+.stats{padding:0 12px 11px}
+.card.small .stats{padding:0 9px 8px}
+.stat{border-radius:3px;font-family:var(--f-card);font-weight:800;color:#f6e3b4;border:1.5px solid #3b2a14;box-shadow:inset 0 0 0 1.5px #d9b45a88,0 1px 2px #0005;text-shadow:0 1px 1px #0008}
+.stat.atk{background:linear-gradient(#9c2a22,#6e1a15)}.stat.def{background:linear-gradient(#2f4560,#1d2c40)}
+.stats .tiername,.kindtag{font-family:var(--f-card);font-style:italic;color:#5a3c1aaa}
+.stamp{border-radius:2px;font-family:var(--f-card);font-weight:800;background:#efe2bfe6}
+.back{border-radius:6px;background:radial-gradient(circle,#c9a24a 0 2px,transparent 3px) 0 0/22px 22px,repeating-linear-gradient(45deg,#3a2616 0 11px,#2e1d10 11px 22px);
+  box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px #8a6a2c,0 0 0 6px #2a1d0e,0 10px 24px #000a;color:#e0c27a}
 </style>
 
 <div class="wrap">

@@ -34,6 +34,7 @@
 - `template.html`: 카드 그림 칸(art)에 이름을 붓 글꼴로 크게 표시(`.brush`, `brushStyle`), 머리줄은 속성 이름으로 바꿈. 새로 만든 카드(`.reveal`)는 이름이 붓으로 훑으며 드러남(1.3초, 아랍어는 오른쪽→왼쪽), 진열장은 정지 상태. 이름의 힘(`mana_power`)이 클수록 굵은 붓, 색은 Jev가 정한 색을 잉크·종이 바탕에 반영. 글꼴 13개 언어 매핑(`BRUSH`): ko Nanum Brush Script, ja Yuji Boku, zh-Hans Ma Shan Zheng, zh-Hant Noto Serif TC, ar Aref Ruqaa, 라틴 계열 Great Vibes, ru Marck Script, th Mali
 - **글꼴 교체(같은 날)**: 필기체가 "구려" 보여 **고문서·옛 서적 활자 느낌**으로 바꿈(아래 글꼴표는 이 줄이 최신): ko Song Myung, ja Shippori Mincho, zh-Hans ZCOOL XiaoWei, zh-Hant Noto Serif TC, ar Amiri, 라틴 IM Fell English(+EB Garamond), vi EB Garamond, ru Cormorant Garamond, th Noto Serif Thai. 글자 가장자리를 먹 번짐처럼 거칠게 하는 SVG 필터(`#inkrough`)와 양피지색 바탕 추가
 - 화면으로 확인한 것: ko·en·ja·zh-Hans·ar 5개(와이프 방향, 파손 도장과 겹침 포함). 확인 못 한 것: zh-Hant·th·ru·vi 글꼴, 긴 이름의 글자 크기 맞춤, 저사양 기기 성능, 글꼴 라이선스·로딩(Google Fonts)
+- **앤틱 프레임(같은 날, 디렉터: "확정은 아니지만 프레임이 구려")**: `template.html` 끝의 CSS 블록 "antique frame"으로 카드 겉모습만 덮어씀(규칙·데이터 변경 없음, 되돌리려면 그 블록 삭제). 양피지 결(SVG 노이즈)+가장자리 낡음, 겹선 테두리(속성 색은 어두운 갈색에 섞어 유지, 금박은 금 겹선), 안쪽 선과 모서리 장식, 마나는 붉은 밀랍 도장, 공격·방어는 주홍/남색 판, 그림 칸은 각진 액자, 카드 본문 글꼴 Gowun Batang. 빈 카드 뒷면도 갈색 문양. 확인: 4등급·진열장 작은 카드·뒷면 한 화면. 미확인: 실제 만든 카드의 긴 효과 5개, 낡은 카드의 얼룩 강도
 - 다음: 질감(속성 계열별 번짐·불티·서리), 파손 연출(먹 튀김), 게임 구조가 정해진 뒤 계열·종류 아이콘
 
 ### 레드팀 테스트 (2026-10-29, 고치기 전)
