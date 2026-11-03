@@ -452,7 +452,7 @@ document.addEventListener("click", e => { if(!noHover.matches) return; const o =
 function renderGallery(){
   const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))].map(c=>c.tier===undefined?onBlank(c,2,null):c);
   hideTip(); $("gallery").innerHTML=all.map(c=>{ try{ return cardHTML(c,true); }catch(e){ return ""; } }).join("");   // one broken card must not blank the shelf
-  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 구슬 기준)`;
+  $("count").textContent=`${collection.length}개 직접 새김 · 견본 ${SAMPLES.length}개 (깨끗한 구슬 기준)`;
 }
 function show(c){
   current=c; updateDeckBtn(); hideTip();
@@ -531,7 +531,7 @@ function updateDeckBtn(){
 }
 function renderDeck(){
   $("deck").innerHTML = deck.length ? deck.map((n,i)=>`<button class="chip" data-i="${i}" title="눌러서 빼기">${esc(n)} <s>×</s></button>`).join("") : `<span class="deck-empty">비어 있음</span>`;
-  $("deckcount").textContent = `${deck.length} / ${DECK_MAX}장`;
+  $("deckcount").textContent = `${deck.length} / ${DECK_MAX}개`;
   $("deckclear").hidden = !deck.length; updateDeckBtn(); renderGallery();
 }
 const pct = v => Math.round(v*100);
@@ -539,7 +539,7 @@ function heroHTML(h){
   const bar=(label,v)=>`<span>${label}</span><div class="bar"><i style="width:${Math.min(100,v/5*100)}%"></i></div><span>${v.toFixed(1)} / 5</span>`;
   const why = h.vague
     ? `덱의 색이 뚜렷하지 않습니다. (가장 가까운 것: ${esc(h.leaning)} ${pct(h.conf)}%) 같은 결의 구슬을 더 모으면 정체가 드러납니다.`
-    : `덱 ${h.cards}장을 읽은 결과 ${pct(h.conf)}% 확신. 다음으로 가까운 것은 ${esc(h.runner_up)} ${pct(h.runner_up_conf)}%.`;
+    : `덱 ${h.cards}개를 읽은 결과 ${pct(h.conf)}% 확신. 다음으로 가까운 것은 ${esc(h.runner_up)} ${pct(h.runner_up_conf)}%.`;
   return `<div class="herocard${h.vague?" vague":""}"><div class="title">${esc(h.title)}</div><div class="temper">${esc(h.temper)} 기질</div>
     <div class="passive"><b>패시브</b> ${esc(h.passive)}</div>
     <div class="bars">${bar("공격성",h.aggression)}${bar("강인함",h.toughness)}</div><div class="why">${why}</div></div>`;

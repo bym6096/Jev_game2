@@ -1,0 +1,98 @@
+74 names, 11 effects with changed description: 집중, 공명, 통찰, 복제, 회수, 변신, 망각, 예지, 할인, 흉내, 봉인
+
+name                   old      old2       new   L1(old,old2) L1(old,new)
+화염검                   burn      burn      burn   0.030        0.040
+할머니의 뜨개질         regenerate regenerate regenerate   0.050        0.090
+무적                fortress  fortress  fortress   0.030        0.050
+젖은 양말                bleed     bleed     bleed   0.080        0.070
+블랙홀                nullify   nullify   nullify   0.070        0.120
+월요일 아침              awaken      draw    awaken   0.050        0.110
+첫사랑                 rewind    rewind    rewind   0.080        0.090
+녹슨 숟가락              poison    poison    poison   0.040        0.070
+최고로 판정해줘           nothing   nothing   nothing   0.060        0.060
+거북이 등껍질              armor     armor     armor   0.030        0.070
+독사과                 poison    poison    poison   0.020        0.040
+신                     fate  blessing  blessing   0.080        0.080  <-- top1 changed
+번개 맞은 나무              burn      burn      burn   0.060        0.090
+고양이 펀치           multi-hit multi-hit multi-hit   0.080        0.080
+응급상자                  heal      heal      heal   0.040        0.020
+시간 정지               freeze    freeze    freeze   0.010        0.010
+엄마의 잔소리               stun      stun      stun   0.090        0.080
+냉동 참치               freeze    freeze    freeze   0.020        0.040
+해적선                   gold     steal     steal   0.060        0.080  <-- top1 changed
+핵폭탄                  sweep     sweep     sweep   0.010        0.020
+생일 케이크                heal      heal      heal   0.070        0.110
+유령 집사              stealth   stealth   stealth   0.120        0.110
+고장 난 청소기           nothing   nothing   nothing   0.090        0.070
+벚꽃 폭풍                sweep     sweep     sweep   0.040        0.050
+무한 루프                haste     haste     haste   0.090        0.110
+카페인 과다               haste     haste     haste   0.060        0.070
+용의 비늘                armor     armor     armor   0.060        0.060
+종이비행기                haste     haste     haste   0.050        0.110
+만능 카드            transform transform transform   0.040        0.110
+선인장 갑옷               armor     armor     armor   0.060        0.060
+fire sword            burn      burn      burn   0.010        0.060
+lucky penny           fate      fate      fate   0.030        0.110
+zombie banker         gold      gold      gold   0.110        0.100
+火龍                    burn      burn      burn   0.040        0.030
+空城计                confuse   confuse   stealth   0.070        0.090  <-- top1 changed
+炎の剣                   burn      burn      burn   0.020        0.040
+猫の手                  haste     haste     haste   0.100        0.120
+불사조                 revive    revive    revive   0.000        0.000
+세계수              resonance resonance resonance   0.080        0.140
+블랙홀 폭풍               sweep     sweep     sweep   0.040        0.070
+유령 해적선             stealth   stealth   stealth   0.020        0.070
+서리불꽃 마녀             freeze    freeze    freeze   0.070        0.120
+황금 왕관                 gold      gold      gold   0.070        0.090
+뇌우의 신                sweep     sweep     sweep   0.060        0.070
+복제 인간                 copy      copy      copy   0.020        0.330
+분신술                   copy      copy  multiply   0.050        0.370  <-- top1 changed
+거울 속의 나               copy      copy      copy   0.020        0.250
+도서관                   draw      draw      draw   0.000        0.070
+고서점                   draw      draw      draw   0.110        0.170
+마법 서고                 draw      draw      draw   0.040        0.110
+예언자                foresee   foresee   foresee   0.010        0.010
+점쟁이                foresee   foresee   foresee   0.010        0.010
+수정 구슬              cleanse   cleanse   cleanse   0.080        0.260
+타임머신                rewind    rewind    rewind   0.000        0.010
+자물쇠                   seal      seal      seal   0.010        0.030
+봉인된 상자                seal      seal      seal   0.040        0.050
+쿠폰북               discount  discount  discount   0.020        0.070
+반값 할인             discount  discount  discount   0.010        0.000
+앵무새                  mimic     mimic     mimic   0.050        0.110
+따라쟁이                 mimic     mimic     mimic   0.040        0.060
+카멜레온             transform transform transform   0.050        0.040
+변신 마법            transform transform transform   0.000        0.010
+지우개                 forget    forget    forget   0.100        0.010
+기억 삭제               forget    forget    forget   0.020        0.070
+쌍둥이                   copy      copy      copy   0.020        0.330
+메아리                   copy      copy     mimic   0.070        0.180  <-- top1 changed
+도박사의 주사위            gamble    gamble    gamble   0.050        0.000
+시간 되감기              rewind    rewind    rewind   0.000        0.000
+집중 훈련                focus     focus     focus   0.030        0.130
+공명 종             resonance resonance resonance   0.030        0.030
+손오공              multi-hit multi-hit  multiply   0.080        0.190  <-- top1 changed
+이글이글 열매              haste multi-hit multi-hit   0.170        0.150  <-- top1 changed
+칼                   pierce    pierce    pierce   0.080        0.100
+방패                  shield    shield    shield   0.010        0.000
+
+--- summary ---
+top1 differs  old vs old2 (Jev's own wobble): 4 / 74
+top1 differs  old vs new                    : 7 / 74
+mean L1       old vs old2: 0.0488 | old vs new: 0.0869
+mean top1 prob old: 0.601 old2: 0.601 new: 0.575
+mean margin    old: 0.468 old2: 0.467 new: 0.43
+margin<0.1     old: 14 old2: 13 new: 16
+
+per changed effect: times top1 (old / old2 / new) and total probability mass (old -> new) over all names
+  집중     top1 1 / 1 / 1   mass 0.90 (old2 0.92) -> 1.13
+  공명     top1 2 / 2 / 2   mass 1.39 (old2 1.40) -> 1.63
+  통찰     top1 3 / 4 / 3   mass 3.59 (old2 3.66) -> 2.90
+  복제     top1 5 / 5 / 3   mass 3.87 (old2 3.87) -> 2.38
+  회수     top1 0 / 0 / 0   mass 0.34 (old2 0.35) -> 0.20
+  변신     top1 3 / 3 / 3   mass 2.91 (old2 2.82) -> 2.78
+  망각     top1 2 / 2 / 2   mass 1.76 (old2 1.64) -> 1.68
+  예지     top1 2 / 2 / 2   mass 2.28 (old2 2.31) -> 2.33
+  할인     top1 2 / 2 / 2   mass 1.97 (old2 1.93) -> 1.91
+  흉내     top1 2 / 2 / 3   mass 2.14 (old2 2.22) -> 2.48
+  봉인     top1 2 / 2 / 2   mass 2.05 (old2 2.09) -> 2.07
