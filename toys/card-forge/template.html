@@ -1,9 +1,9 @@
-<title>빈 카드 공방</title>
+<title>빈 구슬 공방</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IM+Fell+English&family=EB+Garamond:wght@700&family=Cormorant+Garamond:wght@700&family=Shippori+Mincho:wght@800&family=Zen+Antique&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@900&family=Noto+Serif+TC:wght@900&family=Amiri:wght@700&family=Noto+Serif+Thai:wght@800&display=swap">
 <style>
-/* Layout: 위 = 빈 카드 고르기 + 이름 쓰기 + 방금 만든 카드, 아래 = 수집한 카드 진열장 */
+/* Layout: 위 = 빈 구슬 고르기 + 이름 쓰기 + 방금 만든 구슬, 아래 = 수집한 구슬 진열장 */
 :root{
   --bg:#141a22; --panel:#1d2530; --line:#33404f; --fg:#eef1f4; --muted:#93a1b0; --accent:#f2c14e;
   --paper:#f7f1e3; --ink:#26211b; --gold:#d4a72c;
@@ -159,14 +159,14 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 <div class="wrap">
   <header>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="inkrough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter></svg>
-<h1>빈 카드 공방</h1>
-    <p class="sub">빈 카드를 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 완성된 카드는 이름만 새겨진 구슬이 되고, 구슬에 마우스를 올리면 내용이 나타납니다(터치는 큰 구슬을 누르세요). 빈 카드가 감당할 수 있는 마나를 넘는 이름은 구슬을 깨뜨립니다.</p>
+<h1>빈 구슬 공방</h1>
+    <p class="sub">빈 구슬을 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 완성된 구슬에는 이름만 새겨지고, 마우스를 올리면 내용이 나타납니다(터치는 큰 구슬을 누르세요). 빈 구슬이 감당할 수 있는 마나를 넘는 이름은 구슬을 깨뜨립니다.</p>
   </header>
 
   <section class="profile" id="profile">
     <div id="langpick" hidden>
       <h2>프로필 만들기</h2>
-      <div class="hint">카드 이름을 쓸 언어를 하나 고르세요. 이 프로필에서는 그 언어의 글자로만 이름을 쓸 수 있습니다(숫자와 기호는 쓸 수 없습니다). 같은 뜻이어도 언어에 따라 카드의 힘과 마나가 조금씩 달라집니다.</div>
+      <div class="hint">구슬 이름을 쓸 언어를 하나 고르세요. 이 프로필에서는 그 언어의 글자로만 이름을 쓸 수 있습니다(숫자와 기호는 쓸 수 없습니다). 같은 뜻이어도 언어에 따라 구슬의 힘과 마나가 조금씩 달라집니다.</div>
       <div class="langs" id="langs"></div>
     </div>
     <div class="profilebar" id="profilebar" hidden>
@@ -178,17 +178,17 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 
   <section class="forge" id="forgeSection" hidden>
     <div class="forge-left">
-      <div class="tiers" id="tiers" role="group" aria-label="빈 카드 등급"></div>
+      <div class="tiers" id="tiers" role="group" aria-label="빈 구슬 등급"></div>
       <div class="inputrow">
         <div class="namebox"><span class="frag" id="pre" hidden></span><input type="text" id="name" placeholder="이름을 쓰세요" autocomplete="off" aria-describedby="rule"><span class="frag" id="suf" hidden></span></div>
         <button id="go">새기기</button>
-        <button class="ghost" id="reroll" hidden>다른 빈 카드</button>
+        <button class="ghost" id="reroll" hidden>다른 빈 구슬</button>
       </div>
       <div class="hint" id="rule"></div>
       <div class="status" id="status"></div>
-      <div class="hint">예시로 눌러 보기 (지금 고른 빈 카드에 새겨집니다)</div>
+      <div class="hint">예시로 눌러 보기 (지금 고른 빈 구슬에 새겨집니다)</div>
       <div class="chips" id="examples"></div>
-      <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
+      <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 구슬만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
     </div>
     <div class="stage" id="stage"></div>
   </section>
@@ -196,13 +196,13 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
   <section class="hero" id="heroSection" hidden>
     <div class="hero-left">
       <div class="gallery-head"><h2>내 덱</h2><span class="hint" id="deckcount"></span></div>
-      <div class="hint">카드를 눌러 위에 띄운 뒤 "덱에 넣기"를 누르세요. 덱에 든 카드의 이름들이 모여 주인공이 정해집니다. 카드를 바꾸면 주인공도 따라 바뀝니다.</div>
+      <div class="hint">구슬을 눌러 위에 띄운 뒤 "덱에 넣기"를 누르세요. 덱에 든 구슬의 이름들이 모여 주인공이 정해집니다. 구슬을 바꾸면 주인공도 따라 바뀝니다.</div>
       <div class="inputrow"><button class="ghost" id="deckbtn" disabled>덱에 넣기</button><button class="ghost" id="deckclear" hidden>덱 비우기</button></div>
       <div class="deck" id="deck"></div>
     </div>
     <div class="hero-right">
       <h2>주인공</h2>
-      <div id="herobox" class="hint">덱에 카드를 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다.</div>
+      <div id="herobox" class="hint">덱에 구슬을 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다.</div>
     </div>
   </section>
 
@@ -218,10 +218,10 @@ const EFFECT_COST = __EFFECT_COST__;
 const COMBOS = __COMBOS__;   // "속성|효과" -> a lucky pair's extra effect (same table as forge.COMBOS)
 const STATLESS = new Set(["스킬","아이템"]);
 const TIERS = [
-  {name:"낡은 카드", cap:5,  price:1,  frag:1.0},
-  {name:"평범한 카드", cap:7, price:3,  frag:0.5},
-  {name:"깨끗한 카드", cap:9, price:6,  frag:0.25},
-  {name:"금박 카드", cap:12, price:12, frag:0.1},
+  {name:"낡은 구슬", cap:5,  price:1,  frag:1.0},
+  {name:"평범한 구슬", cap:7, price:3,  frag:0.5},
+  {name:"깨끗한 구슬", cap:9, price:6,  frag:0.25},
+  {name:"금박 구슬", cap:12, price:12, frag:0.1},
 ];
 // half-written words a blank may already carry; the player only fills the gap. Any tier can have one. Odd is fine.
 const PRE = ("눅눅한|반쯤 탄|가짜|끈적한|졸린|할아버지의|세 번째|작은|바다의|한밤의|빛나는|전설의|춤추는|황금|첫 번째|"+
@@ -407,7 +407,7 @@ function manaWhy(c){
 function tipHTML(c){
   const lang = BRUSH[c.lang] ? c.lang : "en", nameStyle = `font-family:${BRUSH[lang]},var(--f-display)`;
   if(c.status==="scribble") return `<div class="tip-h"><div class="tip-t"><div class="tip-name" style="${nameStyle}" dir="auto">${esc(c.name)}</div><div class="tip-sub">수상한 낙서</div></div></div>
-    <div class="tip-b"><div class="tip-note">${esc(c.reason||"카드가 이름이 아니라 명령을 읽었다")}</div></div>`;
+    <div class="tip-b"><div class="tip-note">${esc(c.reason||"구슬이 이름이 아니라 명령을 읽었다")}</div></div>`;
   const broken = c.status==="shattered", cap = c.cap ?? 8, list = c.effects ?? [{name:c.effect, desc:c.effect_desc, value:c.effect_value}];
   const fx = list.length ? list.map(e=>`<div class="tfx${e.unique?" uniq":""}${e.combo?" combo":""}"><b>${e.unique?"✦ ":e.combo?"◆ ":""}${esc(e.name)} ${e.value}</b> ${esc(e.desc)}${e.combo?` <span>(${esc(e.from)})</span>`:""}</div>`).join("")
     : `<div class="tfx none">효과 없음</div>`;
@@ -452,7 +452,7 @@ document.addEventListener("click", e => { if(!noHover.matches) return; const o =
 function renderGallery(){
   const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))].map(c=>c.tier===undefined?onBlank(c,2,null):c);
   hideTip(); $("gallery").innerHTML=all.map(c=>{ try{ return cardHTML(c,true); }catch(e){ return ""; } }).join("");   // one broken card must not blank the shelf
-  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 카드 기준)`;
+  $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 구슬 기준)`;
 }
 function show(c){
   current=c; updateDeckBtn(); hideTip();
@@ -460,7 +460,7 @@ function show(c){
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
   const why = manaWhy(c);
-  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${(c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음"}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${(c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음"}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}이 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "구슬이 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
@@ -481,7 +481,7 @@ async function forgeName(typed){
     }catch(e){ online=false; }
   }
   if(card && !(card = cleanCard(card))) err = "서버 응답을 읽을 수 없습니다";
-  if(!card && !err){ card=byName(name); if(!card){ $("offline").hidden=false; err="이 이름은 미리 만든 카드에 없습니다"; } }
+  if(!card && !err){ card=byName(name); if(!card){ $("offline").hidden=false; err="이 이름은 미리 만든 구슬에 없습니다"; } }
   await sleep(Math.max(0,700-(performance.now()-t0)));
   $("go").disabled=false;
   if(err){ $("stage").innerHTML=blankOrb(t,false); $("status").textContent=err; return; }
@@ -538,7 +538,7 @@ const pct = v => Math.round(v*100);
 function heroHTML(h){
   const bar=(label,v)=>`<span>${label}</span><div class="bar"><i style="width:${Math.min(100,v/5*100)}%"></i></div><span>${v.toFixed(1)} / 5</span>`;
   const why = h.vague
-    ? `덱의 색이 뚜렷하지 않습니다. (가장 가까운 것: ${esc(h.leaning)} ${pct(h.conf)}%) 같은 결의 카드를 더 모으면 정체가 드러납니다.`
+    ? `덱의 색이 뚜렷하지 않습니다. (가장 가까운 것: ${esc(h.leaning)} ${pct(h.conf)}%) 같은 결의 구슬을 더 모으면 정체가 드러납니다.`
     : `덱 ${h.cards}장을 읽은 결과 ${pct(h.conf)}% 확신. 다음으로 가까운 것은 ${esc(h.runner_up)} ${pct(h.runner_up_conf)}%.`;
   return `<div class="herocard${h.vague?" vague":""}"><div class="title">${esc(h.title)}</div><div class="temper">${esc(h.temper)} 기질</div>
     <div class="passive"><b>패시브</b> ${esc(h.passive)}</div>
@@ -551,7 +551,7 @@ const saveHero = hero => { try{ localStorage.setItem("forge-hero-v1", JSON.strin
 async function judgeHero(){
   const kept = deck.length ? loadHero() : null;
   if(kept){ ++heroSeq; $("herobox").className=""; $("herobox").innerHTML=heroHTML(kept); return; }
-  if(!deck.length){ $("herobox").className="hint"; $("herobox").textContent="덱에 카드를 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다."; return; }
+  if(!deck.length){ $("herobox").className="hint"; $("herobox").textContent="덱에 구슬을 넣으면 Jev가 덱 전체를 읽고 주인공을 정합니다."; return; }
   const seq=++heroSeq; $("herobox").className="hint"; $("herobox").textContent="덱을 읽는 중…";
   try{
     let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
@@ -587,10 +587,10 @@ $("langs").innerHTML = Object.entries(LANGS).map(([k,c])=>`<button class="tier" 
 $("langs").addEventListener("click",e=>{ const b=e.target.closest("[data-l]"); if(!b) return; curLang=b.dataset.l;
   try{ localStorage.setItem("forge-profile-v1", JSON.stringify({lang:curLang})); }catch(e){}
   applyProfile(); drawBlank(); renderDeck(); if(deck.length) judgeHero(); });
-$("wipe").onclick=()=>{ if(!window.confirm("만든 카드, 덱, 주인공, 프로필이 모두 지워집니다. 지울까요?")) return;
+$("wipe").onclick=()=>{ if(!window.confirm("만든 구슬, 덱, 주인공, 프로필이 모두 지워집니다. 지울까요?")) return;
   try{ ["forge-collection-v3","forge-deck-v1","forge-hero-v1","forge-profile-v1","forge-code"].forEach(k=>localStorage.removeItem(k)); }catch(e){}
   location.reload(); };
-$("newprofile").onclick=()=>{ if(!window.confirm("언어를 바꾸면 지금 덱과 주인공이 지워집니다. 만든 카드는 진열장에 남습니다. 바꿀까요?")) return;
+$("newprofile").onclick=()=>{ if(!window.confirm("언어를 바꾸면 지금 덱과 주인공이 지워집니다. 만든 구슬은 진열장에 남습니다. 바꿀까요?")) return;
   curLang=null; deck=[]; heroSeq++; try{ localStorage.removeItem("forge-profile-v1"); localStorage.removeItem("forge-hero-v1"); }catch(e){}
   saveDeck(); renderDeck(); judgeHero(); applyProfile(); };
 

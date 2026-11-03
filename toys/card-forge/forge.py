@@ -318,7 +318,7 @@ def call_jev(body):
 
 def make_card(name, lang, a):
     if a["guard"]["choice"] == "instructs_the_evaluator":
-        return {"name": name, "lang": lang, "status": "scribble", "reason": "카드가 이름이 아니라 명령을 읽었다"}
+        return {"name": name, "lang": lang, "status": "scribble", "reason": "구슬이 이름이 아니라 명령을 읽었다"}
     el_key, fx_key = a["element"]["choice"], a["effect"]["choice"]
     ei, fi = ELEMENT_FAMILY_OF[el_key], EFFECT_FAMILY_OF[fx_key]
     fx_name, fx_desc = ALL_EFFECTS[fx_key]
@@ -345,7 +345,7 @@ def make_card(name, lang, a):
                    "effect": [[*ALL_EFFECTS[k], EFFECT_FAMILY_OF[k], round(p, 3)] for p, k in fx_alt]}
     if mana > MANA_CAP:
         card["status"] = "shattered"
-        card["reason"] = f"필요 마나 {mana}가 빈 카드의 한계 {MANA_CAP}를 넘어 카드가 깨졌다"
+        card["reason"] = f"필요 마나 {mana}가 빈 구슬의 한계({MANA_CAP})를 넘어 구슬이 깨졌다"
     return card
 
 # extra mana for how strong an effect is in play (by Korean effect name, so page-side re-rolls can reuse it)
@@ -486,7 +486,7 @@ def check_deck(names, lang):
     for n in names:
         n, err = check_name(n, lang)
         if err:
-            return None, f"카드 이름: {err}"
+            return None, f"구슬 이름: {err}"
         clean.append(n)
     return clean, None
 
