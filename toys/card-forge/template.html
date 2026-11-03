@@ -39,78 +39,92 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font-family:var(--f-body);cursor:pointer}
 .status{font-size:14px;min-height:20px;color:var(--muted)}
-.stage{width:240px;height:340px;perspective:900px;display:grid;place-items:center}
-/* card: --el is the card's own color (Jev-judged RGB) */
-.card{--el:#8a99a8;width:220px;height:316px;border-radius:14px;background:var(--paper);color:var(--ink);position:relative;
-  box-shadow:0 0 0 5px var(--el), 0 10px 24px #0008;display:flex;flex-direction:column;overflow:hidden;font-family:var(--f-body)}
-.card.small{width:150px;height:216px;box-shadow:0 0 0 4px var(--el),0 6px 14px #0007;cursor:pointer}
-.card.t0{background:#e6d9bb;background-image:radial-gradient(circle at 80% 85%,#a0804a33,transparent 40%),radial-gradient(circle at 15% 30%,#8a6a3a22,transparent 35%)}
-.card.t3{box-shadow:0 0 0 5px var(--el),0 0 0 8px var(--gold),0 10px 24px #0008}
-.card.small.t3{box-shadow:0 0 0 4px var(--el),0 0 0 6px var(--gold),0 6px 14px #0007}
-.card .head{display:flex;align-items:center;gap:6px;padding:8px 8px 4px}
-.mana{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#2b5fb5;color:#fff;display:grid;place-items:center;font-family:var(--f-num);font-weight:600;font-size:17px;box-shadow:inset 0 -3px 0 #0003}
-.card.small .mana{width:26px;height:26px;font-size:13px}
-.name{font-family:var(--f-display);font-size:20px;line-height:1.1;overflow-wrap:anywhere}
-.name i{font-style:normal;color:#8b7246}
-.card.small .name{font-size:15px}
-.art{margin:2px 10px;height:108px;border-radius:8px;background:linear-gradient(160deg,var(--el),color-mix(in srgb,var(--el) 45%,#000));display:grid;place-items:center;position:relative;color:#fff}
-.card.small .art{height:66px;padding-bottom:9px}.card.small .art .kind{font-size:9.5px;padding:0 5px;bottom:3px;left:4px}
-.art .glyph{font-family:var(--f-display);font-size:44px;opacity:.92;text-shadow:0 2px 0 #0005;text-align:center;line-height:1.1;padding:0 6px}
-.card.small .art .glyph{font-size:26px}
-.art .kind{position:absolute;left:6px;bottom:5px;font-size:11.5px;background:#0006;border-radius:6px;padding:1px 7px}
-.themes{display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px 0}
-.themes span{font-size:11px;border:1px solid #0003;border-radius:999px;padding:0 7px}
-.effect{padding:6px 12px;font-size:13.5px;line-height:1.45;flex:1}
-.card.small .effect{font-size:11px;padding:4px 8px}
-.effect b{font-family:var(--f-display);font-weight:400;font-size:15px}
-.effect .fx+.fx{margin-top:3px}
-.effect .fx.uniq{color:#7a4a00;background:#f2c14e33;border-radius:6px;padding:1px 5px;margin-inline:-5px}
-.effect .fx.uniq b{color:#8a5200}
-.effect .fx.combo{color:#0b4a6e;background:#4aa3d433;border-radius:6px;padding:1px 5px;margin-inline:-5px}
-.effect .fx.combo b{color:#0a5c8a}
-.effect .from{font-size:.85em;opacity:.75}
-.effect.tight{font-size:11px;line-height:1.15;padding:3px 10px}
-.effect.tight b{font-size:12px}
-.card.small .effect.tight{font-size:9px;padding:2px 8px}
-.card.small .effect.tight b{font-size:10px}
-.card.small .effect{overflow:hidden;min-height:0}   /* the rare 5-effect card is clipped, not spilled out of the card */
-.effect .none{color:#0007}
-.effect.compact{font-size:12px;line-height:1.3;padding:4px 10px}
-.effect.compact b{font-size:13.5px}
-.card.small .effect.compact{font-size:10px;padding:3px 8px}
-.card.small .effect.compact b{font-size:11.5px}
-.stats{display:flex;justify-content:space-between;align-items:center;padding:0 8px 8px}
-.stats .tiername{font-size:10.5px;color:#0008}
-.stat{font-family:var(--f-num);font-weight:600;font-size:17px;width:38px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff}
-.card.small .stat{font-size:13px;width:30px;height:24px}
-.stat.atk{background:#c0392b}.stat.def{background:#34495e}
-.kindtag{min-width:38px;font-family:var(--f-display);font-size:13px;color:#0009}
-.card.small .kindtag{min-width:30px;font-size:11px}
-.card.shattered{filter:saturate(.6)}
-.card.shattered::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(115deg,transparent 46%,#0009 47%,transparent 48%),linear-gradient(40deg,transparent 58%,#0008 59%,transparent 60%),linear-gradient(170deg,transparent 30%,#0007 31%,transparent 32%);pointer-events:none}
-.stamp{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-14deg);border:3px solid #c0392b;color:#c0392b;font-family:var(--f-display);font-size:22px;padding:2px 10px;border-radius:6px;background:#f7f1e3dd;z-index:2;white-space:nowrap}
-.card.small .stamp{font-size:15px}
-.card.scribble{--el:#666;background:#ddd}
-.card.scribble .scrawl{flex:1;display:grid;place-items:center;font-family:var(--f-display);font-size:22px;color:#555;transform:rotate(-6deg);text-align:center;padding:12px}
-.back{width:220px;height:316px;border-radius:14px;background:repeating-linear-gradient(45deg,#2b3646 0 10px,#25303e 10px 20px);box-shadow:0 0 0 5px #3d4a5c,0 10px 24px #0008;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:20px}
-.back.glow{animation:glow .7s ease-in-out infinite alternate}
-@keyframes glow{from{box-shadow:0 0 0 5px #3d4a5c,0 0 8px #f2c14e33}to{box-shadow:0 0 0 5px var(--accent),0 0 30px #f2c14e88}}
-
-/* calligraphy name: the name is written onto the card art by a mask wipe (same code for every script, only the brush font changes) */
-.art.callig{background:radial-gradient(ellipse at 30% 25%,#fff4,transparent 60%),linear-gradient(160deg,color-mix(in srgb,var(--el) 14%,#eadcb8),color-mix(in srgb,var(--el) 34%,#d9c699));color:color-mix(in srgb,var(--el) 18%,#14100c);padding-bottom:12px;box-sizing:border-box}
-.art .brush{filter:url(#inkrough);font-family:var(--bf,var(--f-display));font-size:var(--fs,40px);line-height:1.15;text-align:center;padding:0 6px;white-space:nowrap;
-  -webkit-text-stroke:var(--sw,0px) currentColor;text-shadow:0 0 6px color-mix(in srgb,currentColor 30%,transparent)}
-.art .brush i{font-style:normal;opacity:.55}
-.reveal .art .brush{-webkit-mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);
+.stage{width:240px;height:250px;display:grid;place-items:center}
+/* orb: a card is a bead. Jev's color -> --el, blank grade -> material (.t0-.t3), element family -> inner pattern (.f0-.f6), mana -> size (--d).
+   The surface carries only the engraved name; everything else is in the hover popup (#tip). */
+:root{--f-card:"Gowun Batang","Noto Serif KR","Batang",serif;--grain:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%27120%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.85%27%20numOctaves%3D%272%27%20seed%3D%275%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%200.1%200%200%200%200%200.08%200%200%200%200%200.05%200%200%200%20.7%20-.05%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27120%27%20height%3D%27120%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E");--crack:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cg%20fill%3D%27none%27%20stroke-linejoin%3D%27round%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20id%3D%27a%27%20d%3D%27M80%2014%20L70%2028%20L76%2040%20L63%2056%20L69%2070%20L58%2084%20L61%2096%20M63%2056%20L48%2068%20L44%2082%20M76%2040%20L90%2046%20M70%2028%20L58%2022%27%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%27none%27%20stroke-linejoin%3D%27round%27%20stroke-linecap%3D%27round%27%20transform%3D%27translate%28.9%20.9%29%27%3E%3Cuse%20href%3D%27%23a%27%20stroke%3D%27%23fff%27%20stroke-opacity%3D%27.45%27%20stroke-width%3D%27.7%27%2F%3E%3C%2Fg%3E%3Cuse%20href%3D%27%23a%27%20fill%3D%27none%27%20stroke%3D%27%231a0d08%27%20stroke-opacity%3D%27.85%27%20stroke-width%3D%271.2%27%20stroke-linejoin%3D%27round%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E")}
+.orbcell{width:100%;height:150px;display:grid;place-items:center}
+.orb{--el:#8a99a8;--d:96px;--hi:color-mix(in srgb,var(--el) 45%,#fff);--lo:color-mix(in srgb,var(--el) 42%,#000);
+  position:relative;width:var(--d);height:var(--d);border-radius:50%;display:grid;place-items:center;cursor:pointer;isolation:isolate;
+  background:radial-gradient(circle at 36% 30%,var(--hi) 0,var(--el) 42%,var(--lo) 100%);
+  box-shadow:inset calc(var(--d)*-.06) calc(var(--d)*-.09) calc(var(--d)*.17) #000a,inset calc(var(--d)*.03) calc(var(--d)*.04) calc(var(--d)*.09) #fff5,
+    0 calc(var(--d)*.1) calc(var(--d)*.2) #000b,0 0 calc(var(--d)*.32) color-mix(in srgb,var(--el) 32%,transparent);
+  transition:transform .18s ease,box-shadow .18s ease}
+.orb:focus-visible{transform:translateY(-5px) scale(1.07)}
+@media (hover:hover){.orb:hover{transform:translateY(-5px) scale(1.07)}}
+.orb:focus-visible{outline:2px solid var(--fg);outline-offset:5px}
+.orb::before{content:"";position:absolute;left:17%;top:10%;width:40%;height:25%;border-radius:50%;transform:rotate(-28deg);z-index:3;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 42%,#ffffffe0,#fff0 72%)}
+.orb::after{content:"";position:absolute;inset:0;border-radius:50%;z-index:0;pointer-events:none;mix-blend-mode:soft-light;
+  background:var(--pat,none),radial-gradient(circle at 70% 80%,#fff8 0,#fff0 34%);background-size:150% 150%,auto;background-position:center}
+/* inner pattern by element family */
+.f0{--pat:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.012%20.04%27%20numOctaves%3D%273%27%20seed%3D%272%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%201%200%200%200%200%201%201.9%200%200%200%20-.7%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E")}.f1{--pat:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27turbulence%27%20baseFrequency%3D%27.02%27%20numOctaves%3D%272%27%20seed%3D%2711%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%201%200%200%200%200%201%201%200%200%200%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27discrete%27%20tableValues%3D%270%200%200%200%200%200%200%200%200%200%200%200%200.7%200.7%200.7%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E")}.f2{--pat:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.07%27%20numOctaves%3D%272%27%20seed%3D%274%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%201%200%200%200%200%201%201%200%200%200%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27discrete%27%20tableValues%3D%270%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%200.4%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E")}.f3{--pat:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.5%27%20numOctaves%3D%271%27%20seed%3D%273%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%201%200%200%200%200%201%201%200%200%200%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27discrete%27%20tableValues%3D%270%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%201%201%201%201%201%201%201%201%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E")}.f4{--pat:repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)}.f5{--pat:radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)}.f6{--pat:repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)}
+/* material by blank grade: worn stone / glass / crystal / gold leaf */
+.orb.t0{filter:saturate(.62) brightness(.88)}
+.orb.t0::after{--pat:var(--grain);background-size:120px 120px,auto;mix-blend-mode:multiply;opacity:.9}
+.orb.t0::before{opacity:.35}
+.orb.t2::before{background:radial-gradient(ellipse at 50% 42%,#fff,#fff0 72%);box-shadow:0 0 calc(var(--d)*.06) #fff8}
+.orb.t2{box-shadow:inset calc(var(--d)*-.06) calc(var(--d)*-.09) calc(var(--d)*.17) #0009,inset 0 0 0 1px #fff6,inset calc(var(--d)*.03) calc(var(--d)*.04) calc(var(--d)*.1) #fff7,
+    0 calc(var(--d)*.1) calc(var(--d)*.2) #000b,0 0 calc(var(--d)*.4) color-mix(in srgb,var(--el) 45%,transparent)}
+.orb.t3{box-shadow:inset calc(var(--d)*-.06) calc(var(--d)*-.09) calc(var(--d)*.17) #000a,inset 0 0 0 2px #f6dd8a99,inset calc(var(--d)*.03) calc(var(--d)*.04) calc(var(--d)*.09) #fff5,
+    0 0 0 2px #d4a72ccc,0 calc(var(--d)*.1) calc(var(--d)*.2) #000b,0 0 calc(var(--d)*.4) #d4a72c88}
+.orb.t3::after{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27turbulence%27%20baseFrequency%3D%27.022%27%20numOctaves%3D%272%27%20seed%3D%278%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%200.84%200%200%200%200%200.42%201%200%200%200%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27discrete%27%20tableValues%3D%270%200%200%200%200%200%200%200%200%200%200%200%201%201%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E"),var(--pat,none),radial-gradient(circle at 70% 80%,#fff8 0,#fff0 34%);background-size:150% 150%,150% 150%,auto;background-blend-mode:normal,soft-light,normal;mix-blend-mode:normal;opacity:.8}
+/* the engraved name: dark groove on a light bead, light showing through on a dark bead */
+.orb .eng{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;font-family:var(--bf,var(--f-card));font-size:var(--fs);line-height:1.12;
+  font-weight:700;text-align:center;white-space:nowrap;pointer-events:none;-webkit-text-stroke:var(--sw,0px) currentColor}
+.orb .eng .ln{display:block}
+.orb .eng i{font-style:normal;opacity:.5}   /* pre-printed words are cut shallower */
+.orb.light .eng{color:color-mix(in srgb,var(--el) 14%,#140c04);text-shadow:0 1px 0 #ffffff8c,0 -1px 1px #0009}
+.orb.dark .eng{color:color-mix(in srgb,var(--el) 18%,#fff);text-shadow:0 0 .45em color-mix(in srgb,var(--el) 60%,#fff),0 1px 1px #0008}
+.orb.t0 .eng{filter:url(#inkrough)}
+/* broken: cracked, dull, tilted words */
+.orb.broken{filter:saturate(.5) brightness(.82)}
+.orb.broken .eng{transform:rotate(-7deg)}
+.orb .crack{position:absolute;inset:0;z-index:2;border-radius:50%;opacity:.72;background:var(--crack) center/100% 100% no-repeat;pointer-events:none}
+.orb.scribble{filter:grayscale(.75) brightness(.9)}
+.orb.scribble .eng{transform:rotate(-9deg);text-decoration:line-through wavy;text-decoration-thickness:1px}
+.orb.indeck{outline:3px solid var(--accent);outline-offset:5px}
+/* an unengraved bead */
+.orb.blank{cursor:default}@media (hover:hover){.orb.blank:hover{transform:none}}
+.orb.forging{animation:forging .75s ease-in-out infinite alternate}
+@keyframes forging{from{filter:brightness(1)}to{filter:brightness(1.4) saturate(1.25)}}
+/* a freshly made bead pops in, then the name is written onto it by a mask wipe (same code for every script) */
+.orb.reveal{animation:orbin .7s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes orbin{from{transform:scale(.35);opacity:0}to{transform:none;opacity:1}}
+.reveal .eng{-webkit-mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);mask-image:linear-gradient(var(--wd,90deg),#000 40%,transparent 60%);
   -webkit-mask-size:250% 100%;mask-size:250% 100%;-webkit-mask-position:100% 0;mask-position:100% 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   animation:wipe 1.3s .45s ease-in-out forwards}
-.reveal .art .brush[dir=rtl]{-webkit-mask-position:0 0;mask-position:0 0;animation-name:wipe-rtl}
+.reveal .eng[dir=rtl]{-webkit-mask-position:0 0;mask-position:0 0;animation-name:wipe-rtl}
 @keyframes wipe-rtl{to{-webkit-mask-position:100% 0;mask-position:100% 0}}
 @keyframes wipe{to{-webkit-mask-position:0 0;mask-position:0 0}}
-@media (prefers-reduced-motion:reduce){.reveal .art .brush{animation-duration:.01s;animation-delay:0s}}
-.reveal{animation:flip .55s ease-out}
-@keyframes flip{from{transform:rotateY(90deg) scale(.9)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal .eng{-webkit-mask-image:none;mask-image:none}.orb,#tip{transition:none}}   /* no wipe: the name just appears (the global rule below already stops animations) */
+/* hover popup: the bead's contents */
+#tip{--tel:#8a99a8;position:fixed;z-index:50;left:0;top:0;width:272px;max-width:calc(100vw - 16px);background:#0f151c;color:var(--fg);pointer-events:none;
+  border:1px solid color-mix(in srgb,var(--tel) 60%,#000);border-radius:12px;box-shadow:0 16px 36px #000c;overflow:hidden;font-family:var(--f-body);font-size:13.5px;line-height:1.5;
+  visibility:hidden;opacity:0;transform:translateY(6px) scale(.97);transition:opacity .14s,transform .14s,visibility 0s .14s}
+#tip.on{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+.tip-h{display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(135deg,color-mix(in srgb,var(--tel) 40%,#0f151c),#0f151c 88%)}
+.tip-mana{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-num);font-weight:600;font-size:17px;color:#fff;
+  background:radial-gradient(circle at 35% 30%,#86b6ff,#2b5fb5 58%,#16356d);box-shadow:inset 0 -3px 0 #0003,0 2px 4px #0006}
+.tip-t{min-width:0}
+.tip-name{font-size:20px;line-height:1.15;font-weight:700;overflow-wrap:anywhere}
+.tip-sub{font-size:12px;color:var(--muted)}
+.tip-b{padding:8px 12px 10px;display:flex;flex-direction:column;gap:6px}
+.tfx b{font-family:var(--f-display);font-weight:400;font-size:15px}
+.tfx.uniq{color:#f6d98a;background:#f2c14e22;border-radius:6px;padding:1px 6px;margin-inline:-6px}
+.tfx.uniq b{color:#ffd35e}
+.tfx.combo{color:#9fd4f2;background:#4aa3d426;border-radius:6px;padding:1px 6px;margin-inline:-6px}
+.tfx.combo b{color:#7cc4ee}
+.tfx span{font-size:.85em;opacity:.75}
+.tfx.none{color:var(--muted)}
+.tip-themes{display:flex;gap:4px;flex-wrap:wrap}
+.tip-themes span{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:0 8px;color:var(--muted)}
+.tip-stats{display:flex;gap:8px;align-items:center}
+.tstat{font-family:var(--f-num);font-weight:600;font-size:14px;border-radius:6px;padding:1px 9px;color:#fff}
+.tstat.atk{background:#b8362b}.tstat.def{background:#38506b}
+.tip-foot{font-size:12px;color:var(--muted);margin-left:auto}
+.tip-foot.bad{color:#ff8a7a}
+.tip-note{color:var(--muted)}
 .shake{animation:shake .5s}
 @keyframes shake{20%{transform:translateX(-8px) rotate(-2deg)}40%{transform:translateX(8px) rotate(2deg)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 .gallery-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
@@ -134,56 +148,19 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
 .herocard .bars{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;font-size:13px;color:var(--muted)}
 .bar{height:8px;border-radius:4px;background:#0006;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
 .herocard .why{font-size:12.5px;color:var(--muted);line-height:1.5}
-.card.small.indeck{outline:3px solid var(--accent);outline-offset:3px}
 .profile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:10px}
 .langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .profilebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .profilebar b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 
-/* antique frame: aged parchment, brass-ruled double border with corner brackets, wax-seal mana, ink-blue/oxblood stat plates */
-:root{--f-card:"Gowun Batang","Noto Serif KR","Batang",serif;--brown:#6b4f2a;--cornTL:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%225%22 cy=%225%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornTR:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%2826 0%29 scale%28-1 1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%2221%22 cy=%225%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornBL:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%280 26%29 scale%281 -1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%225%22 cy=%2221%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--cornBR:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2226%22 height=%2226%22 viewBox=%220 0 26 26%22%3E%3Cg transform=%22translate%2826 26%29 scale%28-1 -1%29%22 fill=%22none%22 stroke=%22%237a5a2c%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M2 24V9Q2 2 9 2H24%22 stroke-width=%221.8%22/%3E%3Cpath d=%22M6.5 20V11Q6.5 6.5 11 6.5H20%22 stroke-width=%221%22 opacity=%22.8%22/%3E%3C/g%3E%3Ccircle cx=%2221%22 cy=%2221%22 r=%222.2%22 fill=%22%237a5a2c%22/%3E%3C/svg%3E");--grain:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.8%22 numOctaves=%223%22 seed=%225%22/%3E%3CfeColorMatrix values=%220 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .1  0 0 0 .22 0%22/%3E%3C/filter%3E%3Crect width=%22180%22 height=%22180%22 filter=%22url%28%23n%29%22/%3E%3C/svg%3E")}
-.card{border-radius:6px;font-family:var(--f-card);
-  background:var(--grain),radial-gradient(ellipse at 50% 45%,#f3e8cc 35%,#e2d0a5 80%,#c9b07a 100%);
-  box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 6px #2a1d0e,0 10px 24px #000a}
-.card.small{border-radius:5px;box-shadow:0 0 0 1.5px #2a1d0e,0 0 0 4px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 5px #2a1d0e,0 6px 14px #0008}
-.card.t0{background:var(--grain),radial-gradient(circle at 80% 85%,#7a52244d,transparent 45%),radial-gradient(circle at 15% 25%,#6a45204a,transparent 40%),radial-gradient(ellipse at 50% 45%,#dccaa0 30%,#bfa675 85%,#9c8355 100%)}
-.card.t3{box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 6px #2a1d0e,0 0 0 9px var(--gold),0 0 0 10px #2a1d0e,0 10px 24px #000a}
-.card.small.t3{box-shadow:0 0 0 1.5px #2a1d0e,0 0 0 4px color-mix(in srgb,var(--el) 60%,#3b2a14),0 0 0 5px #2a1d0e,0 0 0 7px var(--gold),0 0 0 8px #2a1d0e,0 6px 14px #0008}
-.card::before{content:"";position:absolute;inset:4px;border:1.5px solid var(--brown);box-shadow:inset 0 0 0 2px #0000,inset 0 0 0 3px #6b4f2a55;pointer-events:none;z-index:0;
-  background:var(--cornTL) left top/16px 16px no-repeat,var(--cornTR) right top/16px 16px no-repeat,var(--cornBL) left bottom/16px 16px no-repeat,var(--cornBR) right bottom/16px 16px no-repeat}
-.card.small::before{inset:3px;background-size:11px 11px,11px 11px,11px 11px,11px 11px}
-.card::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 28px #5a3c1a66;pointer-events:none;border-radius:inherit}   /* aged edges */
-.card.shattered::after{box-shadow:none}
-.card>*{position:relative;z-index:1}
-.card .head{padding:11px 12px 5px;margin:0;border-bottom:1px solid #6b4f2a66;margin:0 8px;padding-inline:0}
-.card.small .head{padding:9px 0 3px;margin:0 6px}
-.name{font-family:var(--f-card);font-weight:700;letter-spacing:.02em;font-size:18px}
-.card.small .name{font-size:13px}
-.mana{width:34px;height:34px;border-radius:50% 47% 52% 46%/47% 52% 46% 50%;color:#f6e3b4;font-family:var(--f-card);font-weight:700;font-size:18px;
-  background:radial-gradient(circle at 35% 30%,#d9544a,#a3261f 55%,#6b130f);box-shadow:inset 0 0 0 2px #0003,inset 0 -3px 4px #0005,0 2px 3px #0006;text-shadow:0 1px 1px #0008}
-.card.small .mana{width:25px;height:25px;font-size:13px}
-.art{margin:6px 14px 2px;border-radius:2px;border:1.5px solid var(--brown);box-shadow:inset 0 0 14px #5a3c1a66,0 0 0 2px #e9dbb6,0 0 0 3px #6b4f2a88}
-.card.small .art{margin:5px 11px 2px;box-shadow:inset 0 0 9px #5a3c1a66,0 0 0 1.5px #e9dbb6,0 0 0 2.5px #6b4f2a88}
-.art .kind{border-radius:2px;background:#3b2a14d9;color:#f1dfae;font-size:11px;letter-spacing:.04em}
-.themes span{border:1px solid #6b4f2a99;border-radius:2px;background:#fff3;font-style:italic}
-.effect b{font-family:var(--f-card);font-weight:800}
-.effect .fx.uniq,.effect .fx.combo{border-radius:2px}
-.stats{padding:0 12px 11px}
-.card.small .stats{padding:0 9px 8px}
-.stat{border-radius:3px;font-family:var(--f-card);font-weight:800;color:#f6e3b4;border:1.5px solid #3b2a14;box-shadow:inset 0 0 0 1.5px #d9b45a88,0 1px 2px #0005;text-shadow:0 1px 1px #0008}
-.stat.atk{background:linear-gradient(#9c2a22,#6e1a15)}.stat.def{background:linear-gradient(#2f4560,#1d2c40)}
-.stats .tiername,.kindtag{font-family:var(--f-card);font-style:italic;color:#5a3c1aaa}
-.stamp{border-radius:2px;font-family:var(--f-card);font-weight:800;background:#efe2bfe6}
-.back{border-radius:6px;background:radial-gradient(circle,#c9a24a 0 2px,transparent 3px) 0 0/22px 22px,repeating-linear-gradient(45deg,#3a2616 0 11px,#2e1d10 11px 22px);
-  box-shadow:0 0 0 2px #2a1d0e,0 0 0 5px #8a6a2c,0 0 0 6px #2a1d0e,0 10px 24px #000a;color:#e0c27a}
 </style>
 
 <div class="wrap">
   <header>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="inkrough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter></svg>
 <h1>빈 카드 공방</h1>
-    <p class="sub">빈 카드를 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 빈 카드가 감당할 수 있는 마나를 넘는 이름은 카드를 깨뜨립니다.</p>
+    <p class="sub">빈 카드를 고르고 이름을 쓰면, 그 이름이 무엇인지 읽고 속성·효과·공격력·방어력·테마·색·마나가 정해집니다. 완성된 카드는 이름만 새겨진 구슬이 되고, 구슬에 마우스를 올리면 내용이 나타납니다(터치는 큰 구슬을 누르세요). 빈 카드가 감당할 수 있는 마나를 넘는 이름은 구슬을 깨뜨립니다.</p>
   </header>
 
   <section class="profile" id="profile">
@@ -213,7 +190,7 @@ code{font-family:var(--f-num);font-size:12.5px;background:#0004;padding:1px 5px;
       <div class="chips" id="examples"></div>
       <div class="notice" id="offline" hidden>지금은 미리 만들어 둔 카드만 볼 수 있습니다. 아무 이름이나 새기려면 PC에서 <code>server.py</code>를 실행한 뒤 <code>http://localhost:8000</code>으로 여세요.</div>
     </div>
-    <div class="stage" id="stage"><div class="back">빈 카드</div></div>
+    <div class="stage" id="stage"></div>
   </section>
 
   <section class="hero" id="heroSection" hidden>
@@ -298,12 +275,13 @@ function cleanCard(c){
     color:/^#[0-9a-fA-F]{6}$/.test(c.color) ? c.color : "#8a99a8", mana:cNum(c.mana,0,99,0), attack:cNum(c.attack,0,99,0), defense:cNum(c.defense,0,99,0),
     effect:cStr(c.effect,40), effect_desc:cStr(c.effect_desc,300), effect_value:cNum(c.effect_value,0,99,1),
     themes:cList(c.themes, 10, t => typeof t === "string" ? t.slice(0,30) : null), unique:!!c.unique, combo:!!c.combo});
+  if(c.element_family !== undefined) o.element_family = cNum(c.element_family,0,6,0);
   for(const k of ["mana_power","mana_stats","mana_effect"]) if(c[k] !== undefined) o[k] = cNum(c[k],-99,99,0);
   if(c.power !== undefined) o.power = Number(c.power) || 0;
   if(Array.isArray(c.effects)) o.effects = cList(c.effects, 8, cFx);
   if(c.alt && typeof c.alt === "object"){   // runner-up readings for the gacha; only a fresh server card carries them
     const t = (a, n) => Array.isArray(a) && a.length >= n ? a : null;
-    o.alt = {element:cList(c.alt.element, 6, a => t(a,3) ? [cStr(a[0],20), cStr(a[1],20), cNum(a[2]*1000,0,1000,0)/1000] : null),
+    o.alt = {element:cList(c.alt.element, 6, a => t(a,3) ? [cStr(a[0],20), cNum(a[1],0,6,0), cNum(a[2]*1000,0,1000,0)/1000] : null),
              effect:cList(c.alt.effect, 6, a => t(a,4) ? [cStr(a[0],40), cStr(a[1],300), cStr(a[2],20), cNum(a[3]*1000,0,1000,0)/1000] : null)}; }
   return o;
 }
@@ -346,7 +324,7 @@ function maybeVariant(card){
   if(!fields.length) return card;
   const v={...card};
   const chosen = fields.length===2 && Math.random()<0.25 ? fields : [fields[Math.floor(Math.random()*fields.length)]];
-  if(chosen.includes("element")){ const [el]=pickWeighted(card.alt.element,2); v.element=el; }
+  if(chosen.includes("element")){ const [el,fam]=pickWeighted(card.alt.element,2); v.element=el; v.element_family=fam; }
   if(chosen.includes("effect")){ const [nm,desc]=pickWeighted(card.alt.effect,3); v.effect=nm; v.effect_desc=desc; }
   return v;
 }
@@ -372,52 +350,116 @@ function onBlank(card, t, fr){
 const BRUSH = {ko:"'Song Myung'", en:"'IM Fell English','EB Garamond'", ja:"'Shippori Mincho','Zen Antique'", "zh-Hans":"'ZCOOL XiaoWei','Noto Serif SC'", "zh-Hant":"'Noto Serif TC'", ar:"'Amiri'",
   es:"'IM Fell English','EB Garamond'", fr:"'IM Fell English','EB Garamond'", de:"'IM Fell English','EB Garamond'", "pt-BR":"'IM Fell English','EB Garamond'", vi:"'EB Garamond'", ru:"'Cormorant Garamond'", th:"'Noto Serif Thai'"};
 const WIDE = new Set(["ko","ja","zh-Hans","zh-Hant","th"]);   // one em per letter; the rest are narrow script
-function brushStyle(c, small){
-  const lang = BRUSH[c.lang] ? c.lang : "en", units = [...c.name].length * (WIDE.has(lang) ? 1 : lang==="ar" ? 0.55 : 0.5);
-  const fs = Math.max(14, Math.min(WIDE.has(lang) ? 46 : 42, (small ? 130 : 176) / Math.max(units, 1)));
-  const pw = Number.isFinite(c.mana_power) ? c.mana_power : c.mana, sw = Math.min(1.6, Math.max(0, pw / 8)) * (small ? .6 : 1);   // stronger name, heavier brush
-  return `--bf:${BRUSH[lang]},var(--f-display);--fs:${fs.toFixed(1)}px;--sw:${sw.toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`;
-}
-function nameHTML(c){
-  if(!c.frag) return esc(c.name);
-  return esc(c.name).replace(esc(c.frag), `<i>${esc(c.frag)}</i>`);
-}
-function effectsHTML(c, broken, cap, small){
-  const list = c.effects ?? [{name:c.effect, desc:c.effect_desc, value:c.effect_value}];   // older saved cards have one effect
-  const compact = list.length>2 || (small && list.length>1);   // small cards have room for one full line only
-  const rows = list.length ? list.map(e=>{ const showDesc = !compact || ((e.unique||e.combo) && !small && list.length<=4);
-    return `<div class="fx${e.unique?" uniq":""}${e.combo?" combo":""}" title="${esc(e.desc)}${e.combo?" ("+esc(e.from)+")":""}">${e.unique?"✦ ":e.combo?"◆ ":""}<b>${esc(e.name)} ${e.value}</b>${showDesc?" "+esc(e.desc):""}${e.combo&&showDesc?` <span class="from">(${esc(e.from)})</span>`:""}</div>`; }).join("")
-    : `<div class="fx none">효과 없음</div>`;
-  return `<div class="effect${compact?" compact":""}${list.length>4||(small&&list.length>3)?" tight":""}">${rows}${broken&&!small?`<span style="color:#c0392b">마나 ${c.mana} / 한계 ${cap}</span>`:""}</div>`;
+const BREAK_ANYWHERE = new Set(["ko","ja","zh-Hans","zh-Hant"]);   // scripts where a name may wrap between any two letters
+const FAMS = __ELFAM__;   // element name -> family 0..6 (same table as forge.ELEMENT_FAMILY_OF); picks the bead's inner pattern
+const TIER_TINT = ["#8b8578","#8ea6bd","#a9d6ea","#e0bd55"];   // an unengraved bead's color by blank grade
+const shown = new Map();   // key -> card, for every bead on screen (the popup and the click handler look cards up here)
+const isHex = s => /^#[0-9a-fA-F]{6}$/.test(s);
+function lum(hex){ const f = i => { const v = parseInt(hex.slice(i,i+2),16)/255; return v<=.03928 ? v/12.92 : ((v+.055)/1.055)**2.4; };
+  return .2126*f(1) + .7152*f(3) + .0722*f(5); }
+// the bead grows with its mana (a cracked one is the biggest: too heavy for its blank)
+function orbSize(c, small){ const m = Math.min(12, Math.max(0, c.mana ?? 4)); return Math.round((74 + m*4.1) * (small ? 1 : 1.7)); }
+// the name goes on in at most two lines: split at the space nearest the middle, or between letters for scripts without spaces
+function engrave(c, d){
+  const lang = BRUSH[c.lang] ? c.lang : "en", wide = WIDE.has(lang), unit = wide ? 1 : lang==="ar" ? .55 : .5;
+  const chars = [...c.name], wd = ch => ch===" " ? .3 : unit, span = (a,b) => { let w=0; for(let i=a;i<b;i++) w+=wd(chars[i]); return w; };
+  const n = chars.length, total = span(0,n);
+  let lines = [[0,n]];
+  if(total > 3.4){   // one line would be smaller than ~22% of the bead
+    let best = null;
+    const cut = BREAK_ANYWHERE.has(lang);   // Thai has no spaces and its letters stack, so it only breaks at a space
+    for(let i=1;i<n;i++){ if(chars[i]!==" " && !(cut && chars[i-1]!==" ")) continue;
+      const a = [0,i], b = [chars[i]===" " ? i+1 : i, n]; if(b[0]>=n) continue;
+      const w = Math.max(span(...a), span(...b)); if(!best || w<best.w) best = {w, l:[a,b]}; }
+    if(best && best.w < total*.9) lines = best.l;
+  }
+  const maxW = Math.max(...lines.map(l=>span(...l)), .5);
+  const fs = Math.max(8, Math.min(d*.27, d*(lines.length>1?.68:.74)/maxW, d*.56/(lines.length*1.12)));
+  // pre-printed words (the blank's own) are cut shallower; they sit at the start or the end of the name
+  let fa = 0, fb = 0; const fr = c.frag ? [...c.frag].length : 0;
+  if(fr && c.fragPos==="pre" && c.name.startsWith(c.frag)) fb = fr; else if(fr && c.fragPos==="suf" && c.name.endsWith(c.frag)) { fa = n-fr; fb = n; }
+  const html = lines.map(([a,b]) => { let s = "", open = false;
+    for(let i=a;i<b;i++){ const dim = i>=fa && i<fb; if(dim!==open){ s += dim ? "<i>" : "</i>"; open = dim; } s += esc(chars[i]); }
+    return `<span class="ln">${s}${open?"</i>":""}</span>`; }).join("");
+  const pw = Number.isFinite(c.mana_power) ? c.mana_power : (c.mana ?? 0), sw = Math.min(1.6, Math.max(0, pw/8)) * (d<120 ? .6 : 1);   // stronger name, deeper cut
+  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fs.toFixed(1)}px;--sw:${sw.toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
 }
 function cardHTML(c, small){
-  const cls = "card" + (small?" small":"") + ` t${c.tier??2}` + (small && deck.includes(c.name) ? " indeck" : "");
-  if(c.status==="scribble"){
-    return `<div class="${cls} scribble" data-n="${esc(keyOf(c))}"><div class="head"><div class="mana">?</div><div class="name">${nameHTML(c)}</div></div><div class="scrawl">수상한 낙서<br><span style="font-size:13px">${esc(c.reason||"카드가 이름이 아니라 명령을 읽었다")}</span></div></div>`;
-  }
-  const cap = c.cap ?? 8, broken = c.mana > cap;
-  const color = c.color || "#8a99a8";
-  return `<div class="${cls}${broken?" shattered":""}" style="--el:${color}" data-n="${esc(keyOf(c))}">
-    ${broken?`<div class="stamp">과부하 · 파손</div>`:""}
-    <div class="head"><div class="mana" title="마나">${c.mana}</div><div class="name">${esc(c.element)}</div></div>
-    <div class="art callig"><div class="brush" dir="${c.lang==="ar"?"rtl":"ltr"}" style="${brushStyle(c,small)}">${nameHTML(c)}</div><div class="kind">${esc(c.kind)}</div></div>
-    <div class="themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
-    ${effectsHTML(c, broken, cap, small)}
-    <div class="stats">${STATLESS.has(c.kind)?`<span class="kindtag">${esc(c.kind)}</span>`:`<div class="stat atk" title="공격력">${c.attack}</div>`}<span class="tiername">${TIERS[c.tier??2].name}</span>${STATLESS.has(c.kind)?`<span class="kindtag"></span>`:`<div class="stat def" title="방어력">${c.defense}</div>`}</div>
-  </div>`;
+  const scrib = c.status==="scribble", broken = c.status==="shattered", d = orbSize(c, small);
+  const color = !scrib && isHex(c.color) ? c.color : scrib ? "#777777" : "#8a99a8";
+  const fam = scrib ? null : Number.isInteger(c.element_family) ? c.element_family : FAMS[c.element];
+  const cls = ["orb", "t"+(c.tier??2), fam!=null && fam>=0 && fam<7 ? "f"+fam : "", lum(color)>.2 ? "light" : "dark", broken?"broken":"", scrib?"scribble":"",
+    small && deck.includes(c.name) ? "indeck" : ""].filter(Boolean).join(" ");
+  const label = scrib ? `${c.name} — 수상한 낙서` : `${c.name} — ${c.element} ${c.kind}, 마나 ${c.mana}${broken?", 파손":""}`;
+  const e = engrave(c, d), key = keyOf(c); shown.set(key, c);
+  const orb = `<div class="${cls}" style="--el:${color};--d:${d}px" data-n="${esc(key)}" tabindex="0" role="img" aria-label="${esc(label)}"><span class="eng" dir="${e.dir}" style="${e.style}">${e.html}</span>${broken?`<i class="crack"></i>`:""}</div>`;
+  return small ? `<div class="orbcell">${orb}</div>` : orb;
 }
+function blankOrb(t, forging){
+  return `<div class="orb blank t${t} ${lum(TIER_TINT[t])>.2?"light":"dark"}${forging?" forging":""}" style="--el:${TIER_TINT[t]};--d:170px" aria-hidden="true"></div>`;
+}
+function manaWhy(c){
+  if(c.mana_stats===undefined) return "";
+  const fx = c.mana_effect ? ` ${c.mana_effect>0?"+":"−"} 효과 ${Math.abs(c.mana_effect)}` : "";
+  return STATLESS.has(c.kind) ? ` (이름의 힘 ${c.mana_power}${fx})` : ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})`;
+}
+// --- the popup: what a bead holds, shown while the pointer (or focus) is on it ---
+function tipHTML(c){
+  const lang = BRUSH[c.lang] ? c.lang : "en", nameStyle = `font-family:${BRUSH[lang]},var(--f-display)`;
+  if(c.status==="scribble") return `<div class="tip-h"><div class="tip-t"><div class="tip-name" style="${nameStyle}" dir="auto">${esc(c.name)}</div><div class="tip-sub">수상한 낙서</div></div></div>
+    <div class="tip-b"><div class="tip-note">${esc(c.reason||"카드가 이름이 아니라 명령을 읽었다")}</div></div>`;
+  const broken = c.status==="shattered", cap = c.cap ?? 8, list = c.effects ?? [{name:c.effect, desc:c.effect_desc, value:c.effect_value}];
+  const fx = list.length ? list.map(e=>`<div class="tfx${e.unique?" uniq":""}${e.combo?" combo":""}"><b>${e.unique?"✦ ":e.combo?"◆ ":""}${esc(e.name)} ${e.value}</b> ${esc(e.desc)}${e.combo?` <span>(${esc(e.from)})</span>`:""}</div>`).join("")
+    : `<div class="tfx none">효과 없음</div>`;
+  const stats = STATLESS.has(c.kind) ? "" : `<span class="tstat atk">공격 ${c.attack}</span><span class="tstat def">방어 ${c.defense}</span>`;
+  return `<div class="tip-h"><div class="tip-mana">${c.mana}</div><div class="tip-t"><div class="tip-name" style="${nameStyle}" dir="auto">${esc(c.name)}</div>
+      <div class="tip-sub">${esc(c.element)} · ${esc(c.kind)} · ${TIERS[c.tier??2].name}</div></div></div>
+    <div class="tip-b">${fx}${c.themes.length?`<div class="tip-themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`:""}
+      <div class="tip-stats">${stats}<span class="tip-foot${broken?" bad":""}">${broken?`과부하 · 파손 — 마나 ${c.mana} / 한계 ${cap}`:`마나 ${c.mana} / 한계 ${cap}`}</span></div></div>`;
+}
+const tipEl = document.createElement("div"); tipEl.id = "tip"; tipEl.setAttribute("role","tooltip"); document.body.appendChild(tipEl);
+let tipOrb = null;
+function hideTip(){ tipEl.classList.remove("on"); if(tipOrb){ tipOrb.removeAttribute("aria-describedby"); tipOrb = null; } }
+function placeTip(){
+  if(!tipOrb) return; if(!tipOrb.isConnected){ hideTip(); return; }
+  const r = tipOrb.getBoundingClientRect(), w = tipEl.offsetWidth, h = tipEl.offsetHeight, vw = innerWidth, vh = innerHeight, m = 12;
+  if(r.bottom < 0 || r.top > vh){ hideTip(); return; }   // scrolled out of view
+  let x, y = r.top + r.height/2 - h/2;
+  if(r.right + m + w <= vw - 8) x = r.right + m;                 // beside it, to the right
+  else if(r.left - m - w >= 8) x = r.left - m - w;               // or to the left
+  else { x = r.left + r.width/2 - w/2; y = r.top - h - m; if(y < 8) y = r.bottom + m; }   // narrow screen: above, else below
+  tipEl.style.left = Math.max(8, Math.min(vw - w - 8, x)) + "px"; tipEl.style.top = Math.max(8, Math.min(vh - h - 8, y)) + "px";
+}
+function showTip(orb){
+  const c = shown.get(orb.dataset.n); if(!c) return;
+  if(tipOrb===orb) return;
+  hideTip(); tipOrb = orb; orb.setAttribute("aria-describedby","tip");
+  tipEl.innerHTML = tipHTML(c); tipEl.style.setProperty("--tel", isHex(c.color) ? c.color : "#8a99a8");
+  placeTip(); tipEl.classList.add("on");
+}
+const orbOf = t => t instanceof Element ? t.closest(".orb[data-n]") : null;
+document.addEventListener("pointerover", e => { if(e.pointerType==="touch") return; const o = orbOf(e.target); if(o) showTip(o); });
+document.addEventListener("pointerout", e => { const o = orbOf(e.target); if(o && !o.contains(e.relatedTarget)) hideTip(); });
+document.addEventListener("focusin", e => { const o = orbOf(e.target); if(o && o.matches(":focus-visible")) showTip(o); });   // keyboard focus only; a tap or click is not "focus-visible"
+document.addEventListener("focusout", e => { if(orbOf(e.target)) hideTip(); });
+document.addEventListener("scroll", () => requestAnimationFrame(placeTip), {passive:true, capture:true});
+addEventListener("resize", () => placeTip());
+document.addEventListener("keydown", e => { if(e.key==="Escape") hideTip(); });
+// touch has no hover: tapping the big bead on the stage opens the popup, tapping anywhere else closes it
+const noHover = matchMedia("(hover:none)");
+document.addEventListener("click", e => { if(!noHover.matches) return; const o = orbOf(e.target);
+  if(o && o.closest("#stage")){ tipOrb===o ? hideTip() : showTip(o); } else hideTip(); });
 function renderGallery(){
   const all=[...collection, ...SAMPLES.filter(s=>!collection.some(c=>c.name===s.name))].map(c=>c.tier===undefined?onBlank(c,2,null):c);
-  $("gallery").innerHTML=all.map(c=>{ try{ return cardHTML(c,true); }catch(e){ return ""; } }).join("");   // one broken card must not blank the shelf
+  hideTip(); $("gallery").innerHTML=all.map(c=>{ try{ return cardHTML(c,true); }catch(e){ return ""; } }).join("");   // one broken card must not blank the shelf
   $("count").textContent=`${collection.length}장 직접 새김 · 견본 ${SAMPLES.length}장 (깨끗한 카드 기준)`;
 }
 function show(c){
-  current=c; updateDeckBtn();
+  current=c; updateDeckBtn(); hideTip();
   const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
-  const fx = c.mana_effect ? ` ${c.mana_effect>0?"+":"−"} 효과 ${Math.abs(c.mana_effect)}` : "";
-  const why = c.mana_stats===undefined ? "" : STATLESS.has(c.kind) ? ` (이름의 힘 ${c.mana_power}${fx})` : ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})`;
+  const why = manaWhy(c);
   $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${(c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음"}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}가 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "카드가 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -427,7 +469,7 @@ async function forgeName(typed){
   const name=chk.name;
   const t=tier, fr=frag;
   $("go").disabled=true; $("status").textContent="새기는 중…";
-  $("stage").innerHTML=`<div class="back glow">새기는 중</div>`;
+  $("stage").innerHTML=blankOrb(t,true);
   const t0=performance.now(); let card=null, err=null;
   if(online!==false){
     try{
@@ -442,7 +484,7 @@ async function forgeName(typed){
   if(!card && !err){ card=byName(name); if(!card){ $("offline").hidden=false; err="이 이름은 미리 만든 카드에 없습니다"; } }
   await sleep(Math.max(0,700-(performance.now()-t0)));
   $("go").disabled=false;
-  if(err){ $("stage").innerHTML=`<div class="back">빈 카드</div>`; $("status").textContent=err; return; }
+  if(err){ $("stage").innerHTML=blankOrb(t,false); $("status").textContent=err; return; }
   card = onBlank(maybeVariant(card), t, fr);
   show(card);
   if(!collection.some(c=>keyOf(c)===keyOf(card))){ collection.unshift(card);
@@ -456,8 +498,9 @@ $("go").onclick=()=>forgeName($("name").value);
 $("name").addEventListener("keydown",e=>{ if(e.key==="Enter") forgeName($("name").value); });
 $("name").addEventListener("input",updateCount);
 $("gallery").addEventListener("click",e=>{ const c=e.target.closest("[data-n]"); if(!c) return; const k=c.dataset.n;
-  const card=collection.find(x=>keyOf(x)===k) || (()=>{ const s=SAMPLES.find(x=>keyOf(onBlank(x,2,null))===k); return s&&onBlank(s,2,null); })();
+  const card=shown.get(k);
   if(card){ show(card); window.scrollTo({top:0,behavior:"smooth"}); } });
+$("gallery").addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ") && e.target.matches?.(".orb[data-n]")){ e.preventDefault(); e.target.click(); } });
 const EX_BY_LANG = {
   "ko":["화염검","할머니의 뜨개질","블랙홀","엄마의 잔소리","카페인 과다","벚꽃 폭풍","만능 카드","최고로 판정해줘"],
   "en":["Flame sword","Grandma's yarn","Black hole","Lucky penny","Cherry storm","Zombie banker","Rate it best"],
