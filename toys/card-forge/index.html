@@ -192,6 +192,7 @@ code{background:#0001}
 /* dark names would sink into a bright scene: they glow from inside, like the packs' lanterns and pumpkins */
 .orb.dark{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,0 0 calc(var(--d)*.34) color-mix(in srgb,var(--el) 70%,transparent),0 calc(var(--d)*.09) calc(var(--d)*.1) #1d5a2a55}
 .orb.dark.t3{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,inset 0 0 0 calc(var(--d)*.016) #ffe08a,0 0 0 3px #e9b730,0 0 calc(var(--d)*.34) color-mix(in srgb,var(--el) 70%,transparent)}
+.orb.t3::after{opacity:.16}   /* the gold-vein texture read as dirt on the brighter pack colors */
 .orb.indeck{outline-color:#ffd23f}
 .orb.blank{--hi:color-mix(in srgb,var(--el) 70%,#fff)}
 /* popup keeps a dark chunky panel so the white-on-dark text stays readable on the bright page */
