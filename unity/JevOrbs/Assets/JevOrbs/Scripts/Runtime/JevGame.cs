@@ -21,6 +21,10 @@ namespace JevOrbs
         [Header("Server (toys/card-forge/server.py or the Vercel deploy). The Jev key lives there, never in the game.")]
         public string serverUrl = "http://localhost:8000";
 
+        [Header("Look")]
+        [Range(0f, 1f), Tooltip("0 = the web toy's glossy beads with Jev's raw colors, 1 = matte, bright, like the low-poly packs. Lower it to make the beads stand out on purpose.")]
+        public float orbBlend = 0.85f;
+
         // --- world layout (see LowPolyStyle / README for how this is meant to be dressed with the low-poly packs) ---
         static readonly Vector3 StagePos = new Vector3(-2.2f, 0.45f, 0f);
         const int Cols = 8, PageSize = 16;
@@ -78,6 +82,7 @@ namespace JevOrbs
 
         void Awake()
         {
+            LowPolyStyle.Blend = orbBlend;
             save = SaveStore.Load();
             if (!string.IsNullOrEmpty(save.serverUrl) && save.serverUrl != "http://localhost:8000") serverUrl = save.serverUrl;
             client = new ForgeClient { baseUrl = serverUrl, accessCode = save.accessCode };
@@ -176,17 +181,34 @@ namespace JevOrbs
         void BuildDiorama()
         {
             var d = new GameObject("Diorama").transform; d.SetParent(world, false);
-            var keep = world; world = d;                                                         // Mesh() parents to `world`
-            AddMesh("Ground", OrbMeshFactory.Prism(10), new Color(0.46f, 0.70f, 0.40f), new Vector3(0f, -4.6f, 5f), new Vector3(34f, 1.5f, 20f));
-            Color[] hill = { new Color(0.40f, 0.64f, 0.45f), new Color(0.50f, 0.72f, 0.50f), new Color(0.38f, 0.58f, 0.62f) };
+            var keep = world; world = d;                                                         // AddMesh() parents to `world`
+            // Colors read off the packs' promo shots: saturated grass green, lighter far hills, warm wood, white clouds on daylight blue.
+            AddMesh("Ground", OrbMeshFactory.Prism(10), new Color(0.40f, 0.78f, 0.30f), new Vector3(0f, -4.6f, 5f), new Vector3(34f, 1.5f, 20f));
+            Color[] hill = { new Color(0.45f, 0.80f, 0.36f), new Color(0.55f, 0.84f, 0.45f), new Color(0.38f, 0.72f, 0.50f) };
             for (int i = 0; i < 6; i++)
             {
-                var m = OrbMeshFactory.Build("hill" + i, 1, 0.12f, false);
+                var m = OrbMeshFactory.Build("hill" + i, 1, 0.10f, false);
                 AddMesh("Hill" + i, m, hill[i % 3], new Vector3(-13f + i * 5.4f, -2.6f, 9f + (i % 2) * 3f), new Vector3(7f, 4.6f + (i % 3), 5f));
             }
-            AddMesh("Pedestal", OrbMeshFactory.Prism(8), new Color(0.80f, 0.76f, 0.68f), StagePos + new Vector3(0, -1.35f, 0.1f), new Vector3(2.8f, 0.5f, 2.8f), 0.2f);
+            // chunky faceted trees and clouds, the way the nature packs build them: a few blobs on a trunk, a few white blobs in the sky
+            Color trunk = new Color(0.62f, 0.40f, 0.22f), leafA = new Color(0.30f, 0.74f, 0.28f), leafB = new Color(0.42f, 0.82f, 0.32f);
+            float[] tx = { -7.4f, -6.2f, 6.9f, 7.6f, -4.9f, 5.5f };
+            for (int i = 0; i < tx.Length; i++)
+            {
+                float z = 3.5f + (i % 3) * 2.2f, h = 1.2f + (i % 2) * 0.5f, x = tx[i];
+                AddMesh("TreeTrunk" + i, OrbMeshFactory.Prism(6), trunk, new Vector3(x, -3.4f + h * 0.5f, z), new Vector3(0.35f, h, 0.35f));
+                AddMesh("TreeLeaf" + i + "a", OrbMeshFactory.Build("leaf" + i, 1, 0.10f, false), leafA, new Vector3(x, -3.4f + h + 0.6f, z), new Vector3(1.9f, 1.6f, 1.9f));
+                AddMesh("TreeLeaf" + i + "b", OrbMeshFactory.Build("leafb" + i, 1, 0.10f, false), leafB, new Vector3(x + 0.35f, -3.4f + h + 1.25f, z - 0.2f), new Vector3(1.3f, 1.1f, 1.3f));
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                float cx = -9f + i * 6f, cy = 5.2f + (i % 2) * 0.8f;
+                for (int k = 0; k < 3; k++)
+                    AddMesh("Cloud" + i + k, OrbMeshFactory.Build("cloud" + i + k, 1, 0.08f, false), new Color(1f, 1f, 1f), new Vector3(cx + k * 0.9f, cy + (k == 1 ? 0.35f : 0f), 14f), new Vector3(2.0f - k * 0.3f, 1.0f, 1.1f), 0.05f);
+            }
+            AddMesh("Pedestal", OrbMeshFactory.Prism(8), new Color(0.93f, 0.86f, 0.70f), StagePos + new Vector3(0, -1.35f, 0.1f), new Vector3(2.8f, 0.5f, 2.8f), 0.1f);
             for (int r = 0; r < PageSize / Cols; r++)
-                AddBox("ShelfPlank" + r, new Color(0.58f, 0.40f, 0.24f), new Vector3(ShelfCenterX, ShelfY - r * ShelfStep - 0.52f, 0.5f), new Vector3(Cols * ShelfStep * 1.2f, 0.1f, 1.1f));
+                AddBox("ShelfPlank" + r, new Color(0.72f, 0.47f, 0.26f), new Vector3(ShelfCenterX, ShelfY - r * ShelfStep - 0.52f, 0.5f), new Vector3(Cols * ShelfStep * 1.2f, 0.1f, 1.1f));
             world = keep;
 
             shelfRoot = new GameObject("Shelf").transform; shelfRoot.SetParent(world, false);

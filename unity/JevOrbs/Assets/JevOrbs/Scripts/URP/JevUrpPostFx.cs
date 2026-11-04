@@ -28,13 +28,13 @@ namespace JevOrbs
             vol.isGlobal = true;
             var profile = ScriptableObject.CreateInstance<VolumeProfile>();
             var bloom = profile.Add<Bloom>(true);
-            bloom.threshold.Override(0.95f); bloom.intensity.Override(0.45f); bloom.scatter.Override(0.6f);
+            bloom.threshold.Override(1.0f); bloom.intensity.Override(0.35f); bloom.scatter.Override(0.55f);   // only the glowing beads / emissive bits bloom
             var tone = profile.Add<Tonemapping>(true);
             tone.mode.Override(TonemappingMode.ACES);
             var adj = profile.Add<ColorAdjustments>(true);
-            adj.saturation.Override(12f); adj.contrast.Override(8f);
+            adj.saturation.Override(14f); adj.contrast.Override(4f);
             var vig = profile.Add<Vignette>(true);
-            vig.intensity.Override(0.22f);
+            vig.intensity.Override(0.15f);
             vol.sharedProfile = profile;
         }
     }

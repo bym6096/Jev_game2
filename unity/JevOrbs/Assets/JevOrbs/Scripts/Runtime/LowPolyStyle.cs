@@ -13,7 +13,14 @@ namespace JevOrbs
     public static class LowPolyStyle
     {
         // --- palette -------------------------------------------------------------------
-        public const float MinSat = 0.34f, MaxSat = 0.90f, MinVal = 0.40f, MaxVal = 0.96f;
+        // Measured by eye from the Creator Bundle's own promo shots (city, furniture, nature, pirate, halloween packs): colors are bright and
+        // saturated (teal, pink, yellow, red, grass green on sky blue), almost never dark; the dark scenes get their punch from glowing orange / green.
+        public const float MinSat = 0.42f, MaxSat = 0.88f, MinVal = 0.50f, MaxVal = 1.00f;
+
+        /// <summary>0 = the web toy's look (glossy glass / metal, Jev's colors untouched), 1 = fully the packs' look (matte clay-like, bright palette).
+        /// The packs are matte with soft highlights, so a glossy glass bead reads as foreign; lower this on purpose to keep the beads standing out.</summary>
+        public static float Blend = 0.85f;
+        public static float Mix(float web, float pack) { return Mathf.Lerp(web, pack, Blend); }
 
         public static bool TryHex(string hex, out Color c)
         {
@@ -26,8 +33,8 @@ namespace JevOrbs
         {
             float h, s, v; Color.RGBToHSV(jev, out h, out s, out v);
             s = Mathf.Lerp(MinSat, MaxSat, Mathf.Clamp01(s));
-            v = Mathf.Lerp(MinVal, MaxVal, Mathf.Clamp01((v - 0.2f) / 0.75f));
-            return Color.HSVToRGB(h, s, v);
+            v = Mathf.Lerp(MinVal, MaxVal, Mathf.Clamp01((v - 0.2f) / 0.6f));
+            return Color.Lerp(jev, Color.HSVToRGB(h, s, v), Blend);
         }
 
         public static float Luminance(Color c) { return 0.2126f * c.linear.r + 0.7152f * c.linear.g + 0.0722f * c.linear.b; }
@@ -134,18 +141,18 @@ namespace JevOrbs
         public static Light BuildLighting(Transform parent)
         {
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = new Color(0.62f, 0.72f, 0.88f);
-            RenderSettings.ambientEquatorColor = new Color(0.52f, 0.52f, 0.58f);
-            RenderSettings.ambientGroundColor = new Color(0.30f, 0.27f, 0.30f);
+            RenderSettings.ambientSkyColor = new Color(0.70f, 0.82f, 0.96f);      // bright sky fill: shadows in the packs are light and bluish, never black
+            RenderSettings.ambientEquatorColor = new Color(0.80f, 0.76f, 0.70f);
+            RenderSettings.ambientGroundColor = new Color(0.50f, 0.44f, 0.40f);
             RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Linear;
-            RenderSettings.fogColor = new Color(0.62f, 0.72f, 0.82f); RenderSettings.fogStartDistance = 22f; RenderSettings.fogEndDistance = 55f;
+            RenderSettings.fogColor = new Color(0.66f, 0.84f, 0.97f); RenderSettings.fogStartDistance = 24f; RenderSettings.fogEndDistance = 60f;
 
             var go = new GameObject("JevKeyLight");
             go.transform.SetParent(parent, false);
             go.transform.rotation = Quaternion.Euler(42f, -32f, 0f);
             var l = go.AddComponent<Light>();
-            l.type = LightType.Directional; l.color = new Color(1f, 0.93f, 0.8f); l.intensity = 1.15f;
-            l.shadows = LightShadows.Soft; l.shadowStrength = 0.7f;
+            l.type = LightType.Directional; l.color = new Color(1f, 0.94f, 0.82f); l.intensity = 1.1f;
+            l.shadows = LightShadows.Soft; l.shadowStrength = 0.5f;
             return l;
         }
 
@@ -157,7 +164,7 @@ namespace JevOrbs
         public static void StyleCamera(Camera cam, Transform parent)
         {
             cam.clearFlags = CameraClearFlags.SolidColor;
-            cam.backgroundColor = new Color(0.62f, 0.72f, 0.82f);
+            cam.backgroundColor = new Color(0.55f, 0.80f, 0.97f);   // the packs' daylight sky blue
             cam.allowMSAA = true;
             if (PostFx != null) PostFx(cam, parent);   // set by JevOrbs.URP when the Universal RP package is present
         }

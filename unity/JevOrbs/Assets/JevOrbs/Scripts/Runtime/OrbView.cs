@@ -75,12 +75,15 @@ namespace JevOrbs
             float smooth, metal, jitter; Color? emit = null;
             switch (tier)
             {
-                case 0: smooth = 0.05f; metal = 0f; jitter = 0.07f; col = Color.Lerp(col, new Color(0.5f, 0.48f, 0.44f), 0.35f); break;      // worn stone, ink-smudged
-                case 1: smooth = 0.75f; metal = 0f; jitter = 0.035f; break;                                                                   // glass
-                case 2: smooth = 0.95f; metal = 0.05f; jitter = 0.03f; emit = col * 0.18f; break;                                            // crystal
-                default: smooth = 0.7f; metal = 0.85f; jitter = 0.035f; emit = new Color(0.45f, 0.34f, 0.08f) * 0.5f; break;                  // gold leaf
+                // Mix(web look, pack look): the packs are matte with soft highlights, so the pack values are far less glossy than the web's glass / metal
+                case 0: smooth = 0.05f; metal = 0f; jitter = 0.06f; col = Color.Lerp(col, new Color(0.55f, 0.52f, 0.47f), 0.25f * LowPolyStyle.Blend); break;      // worn stone, ink-smudged
+                case 1: smooth = LowPolyStyle.Mix(0.75f, 0.32f); metal = 0f; jitter = 0.03f; break;                                                        // glass -> glazed clay
+                case 2: smooth = LowPolyStyle.Mix(0.95f, 0.50f); metal = 0f; jitter = 0.03f; emit = col * LowPolyStyle.Mix(0.18f, 0.12f); break;            // crystal -> satin, faint inner glow
+                default: smooth = LowPolyStyle.Mix(0.7f, 0.45f); metal = LowPolyStyle.Mix(0.85f, 0.25f); jitter = 0.03f; emit = new Color(0.45f, 0.34f, 0.08f) * 0.4f; break;   // gold leaf -> satin gold
             }
             if (scrib) { smooth = 0.05f; metal = 0f; jitter = 0.05f; emit = null; }
+            // dark beads would sink into the bright scenes: like the packs' pumpkins and lanterns they glow from inside instead of just being dark
+            if (!scrib && !blank && !lightBead && !emit.HasValue) emit = col * LowPolyStyle.Mix(0.0f, 0.45f);
             if (broken) col = Color.Lerp(col, new Color(0.15f, 0.12f, 0.14f), 0.45f);
 
             body = new GameObject("body").transform;
