@@ -1,7 +1,7 @@
 <title>빈 구슬 공방</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Song+Myung&family=Yuji+Boku&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@900&family=Kaushan+Script&family=Pacifico&family=Marck+Script&family=Charmonman:wght@700&family=Aref+Ruqaa:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Gamja+Flower&family=Klee+One&family=Yuji+Boku&family=Ma+Shan+Zheng&family=LXGW+WenKai+TC&family=Courgette&family=Mali&family=Sriracha&family=Marck+Script&family=Aref+Ruqaa&display=swap">
 <style>
 @font-face{font-family:"Gabia Bombaram";src:url("fonts/GabiaBombaram.woff2") format("woff2");font-display:swap}   /* Korean bead names; see fonts/README.md */
 /* Layout: 위 = 빈 구슬 고르기 + 이름 쓰기 + 방금 만든 구슬, 아래 = 수집한 구슬 진열장 */
@@ -408,8 +408,8 @@ function onBlank(card, t, fr){
 }
 
 
-const BRUSH = {ko:"'Gabia Bombaram','Nanum Brush Script','Song Myung'", en:"'Kaushan Script'", ja:"'Yuji Boku','Noto Serif TC'", "zh-Hans":"'Ma Shan Zheng','Yuji Boku'", "zh-Hant":"'Ma Shan Zheng','Yuji Boku','Noto Serif TC'", ar:"'Aref Ruqaa'",
-  es:"'Kaushan Script'", fr:"'Kaushan Script'", de:"'Kaushan Script'", "pt-BR":"'Kaushan Script'", vi:"'Pacifico','Charmonman'", ru:"'Marck Script'", th:"'Charmonman'"};   // brush / calligraphy hands, one per script
+const BRUSH = {ko:"'Gabia Bombaram','Gamja Flower'", en:"'Courgette'", ja:"'Klee One','Yuji Boku'", "zh-Hans":"'Ma Shan Zheng','LXGW WenKai TC'", "zh-Hant":"'LXGW WenKai TC','Ma Shan Zheng'", ar:"'Aref Ruqaa'",
+  es:"'Courgette'", fr:"'Courgette'", de:"'Courgette'", "pt-BR":"'Courgette'", vi:"'Mali','Courgette'", ru:"'Marck Script'", th:"'Sriracha','Mali'"};   // chosen from Google Fonts (OFL) by popularity + a look at each on the bead; see HANDOFF
 const WIDE = new Set(["ko","ja","zh-Hans","zh-Hant","th"]);   // one em per letter; the rest are narrow script
 const BREAK_ANYWHERE = new Set(["ko","ja","zh-Hans","zh-Hant"]);   // scripts where a name may wrap between any two letters
 const FAMS = {"불": 0, "물": 0, "얼음": 0, "번개": 0, "바람": 0, "대지": 0, "빛": 0, "어둠": 0, "폭풍": 0, "용암": 0, "별": 0, "달": 0, "바다": 0, "숲": 0, "산": 1, "강철": 1, "유리": 1, "모래": 1, "독": 1, "기름": 1, "종이": 1, "고무": 1, "나무": 1, "돌": 1, "금": 1, "수정": 1, "천": 1, "식물": 2, "짐승": 2, "벌레": 2, "피": 2, "뼈": 2, "균": 2, "영혼": 2, "꿈": 2, "과일": 2, "새": 2, "물고기": 2, "용": 2, "유령": 2, "꽃": 2, "알": 2, "악마": 2, "시간": 3, "공간": 3, "소리": 3, "중력": 3, "운": 3, "기억": 3, "감정": 3, "혼돈": 3, "공포": 3, "희망": 3, "정의": 3, "허공": 3, "음식": 4, "전기": 4, "기계": 4, "돈": 4, "언어": 4, "잠": 4, "웃음": 4, "온기": 4, "운동": 4, "약": 4, "옷": 4, "도구": 4, "무기": 4, "탈것": 4, "집": 4, "책": 4, "사랑": 5, "가족": 5, "우정": 5, "인연": 5, "이별": 5, "질투": 5, "권력": 5, "사람": 5, "영웅": 5, "악당": 5, "아이": 5, "왕": 5, "도둑": 5, "음악": 6, "예술": 6, "놀이": 6, "믿음": 6, "법": 6, "전쟁": 6, "지식": 6, "이야기": 6, "신화": 6, "마법": 6, "춤": 6, "축제": 6, "과학": 6};   // element name -> family 0..6 (same table as forge.ELEMENT_FAMILY_OF); picks the bead's inner pattern
@@ -436,7 +436,7 @@ function lum(hex){ const f = i => { const v = parseInt(hex.slice(i,i+2),16)/255;
 function orbSize(c, small){ const m = Math.min(12, Math.max(0, c.mana ?? 4)); return Math.round((74 + m*4.1) * (small ? 1 : 1.7)); }
 // the name goes on in at most two lines: split at the space nearest the middle, or between letters for scripts without spaces
 function engrave(c, d){
-  const lang = BRUSH[c.lang] ? c.lang : "en", wide = WIDE.has(lang), unit = lang==="th" ? .5 : wide ? 1 : lang==="ar" ? .55 : .5;   // Thai letters are narrow (the old 1em per letter made its names tiny)
+  const lang = BRUSH[c.lang] ? c.lang : "en", wide = WIDE.has(lang), unit = lang==="th" ? .5 : lang==="vi" ? .62 : wide ? 1 : lang==="ar" ? .55 : .5;   // Thai letters are narrow (the old 1em per letter made its names tiny)
   const chars = [...c.name], wd = ch => ch===" " ? .3 : unit, span = (a,b) => { let w=0; for(let i=a;i<b;i++) w+=wd(chars[i]); return w; };
   const n = chars.length, total = span(0,n);
   let lines = [[0,n]];
@@ -450,7 +450,7 @@ function engrave(c, d){
   }
   const maxW = Math.max(...lines.map(l=>span(...l)), .5);
   const fs = Math.max(8, Math.min(d*.27, d*(lines.length>1?.68:.74)/maxW, d*.56/(lines.length*1.12)));
-  const BOOST = {ko:1.0, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.6, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
+  const BOOST = {ko:1.0, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.25, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
   // pre-printed words (the blank's own) are cut shallower; they sit at the start or the end of the name
   let fa = 0, fb = 0; const fr = c.frag ? [...c.frag].length : 0;
   if(fr && c.fragPos==="pre" && c.name.startsWith(c.frag)) fb = fr; else if(fr && c.fragPos==="suf" && c.name.endsWith(c.frag)) { fa = n-fr; fb = n; }

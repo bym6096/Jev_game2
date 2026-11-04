@@ -80,6 +80,12 @@
 - 원인 3가지를 전 언어에 적용해 풀음: ① `.orb .eng`의 `font-weight:700` → 일반 굵기만 있는 글꼴(봄바람·Kaushan 등)을 브라우저가 **가짜 볼드**로 번지게 함 → 400, ② 글씨 외곽선(`--sw`) → 0(이름의 힘을 획 굵기로 보이던 효과는 없어짐), ③ 3겹 후광 → 얇은 후광 하나. 팝업 이름(`.tip-name`)도 400. 한국어 전용 약한 후광 규칙은 공통 규칙이 되어 삭제.
 - 확인: 13개 언어 견본을 2배 해상도로 전/후 비교(획이 선명해짐). 작은 구슬의 글씨가 이전보다 가늘어 보일 수 있음 → 너무 가늘면 `.orb .eng`의 `-webkit-text-stroke`를 아주 얇게(.2px 안팎) 되살리면 됨.
 
+### 언어별 글꼴 재선정 (2026-11-04, 디렉터: "각국 네이티브 트렌드를 반영해 촌스럽지 않은 상업용 폰트")
+- **방법**: 웹 검색은 일반 목록뿐이라 네이티브 트렌드 근거로 쓸 만한 자료가 없었음(한국·일본·중국 모두 확인). 대신 **Google Fonts 공개 메타데이터**(`fonts.google.com/metadata/fonts`: 인기 순위 popularity, 상승 순위 trending, 분류, 지원 문자)로 언어별 지원 폰트를 추려 후보 8개 안팎을 구슬 위에 올려 눈으로 비교(`scratchpad` 비교판 4장). Google Fonts는 OFL/Apache라 상업 이용·재배포 가능. **"네이티브가 보기에 자연스러운가"는 검증하지 못함 — 각 언어 사용자가 보고 판단해야 함.**
+- 선택(`BRUSH` 표): ko 가비아 봄바람(+예비 Gamja Flower, 인기 98위) · en/es/fr/de/pt-BR **Courgette**(인기 31위) · ja **Klee One** (+Yuji Boku) · zh-Hans Ma Shan Zheng(+LXGW WenKai TC) · zh-Hant **LXGW WenKai TC**(인기 88위·상승 12위) · vi **Mali**(인기 60위) · ru Marck Script · th **Sriracha** · ar Aref Ruqaa. 한국어 외 모두 Google Fonts에서 불러옴(파일 저장 없음).
+- 글자 폭 보정: vi unit .62, th unit .5 + `BOOST` th 1.25. 못 본 것: 서버로 새긴 이 폰트들의 구슬, 긴 이름, 희귀 글자(한자 확장 등)의 대체 글꼴 모양.
+- 후보로 봤지만 안 쓴 것: ko Single Day·Poor Story·Dokdo, ja Yomogi·Potta One·Hachi Maru Pop, zh ZCOOL KuaiLe, en Mr Dafoe·Grenze Gotisch(RPG 느낌이지만 밝은 팩 스타일과 어긋남), th Mali·Charm, ar Katibeh·Lemonada.
+
 ### 레드팀 테스트 (2026-10-29, 고치기 전)
 서브에이전트 4개(입력 우회·Jev 주입·서버/화면·밸런스)로 시스템을 깨 보게 함. 통합 리포트 `measurements/redteam/REPORT.md`(근거는 A~D 보고서). **아직 아무것도 안 고침.** 결론: Jev 지시 주입은 안 통함, 진짜 약점은 ① 입력 규칙(공백·숫자·보이지 않는 글자), ② 캐시 우회로 공짜 다시 뽑기·서버 비용·동시 요청에서 서버 깨짐·화면 XSS, ③ 마나 공식·덱→주인공이 카드 값과 안 맞음. 디렉터 제안: 프로필에서 언어 하나만 고르고 그 언어만 입력, 숫자 아예 금지(찬성, 단 R1~R5·R8~R15는 따로 막아야 함). **다음 할 일**: 리포트의 1순위(R1~R5)부터 구현 → 같은 레드팀 테스트 다시 돌려 확인. 디렉터에게 물어 둔 것: 프로필 언어를 한국어·영어만 지원할지, 다른 언어도 둘지(미답)
 
