@@ -72,7 +72,7 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .orb.t3::after{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%3E%3Cfilter%20id%3D%27f%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27turbulence%27%20baseFrequency%3D%27.022%27%20numOctaves%3D%272%27%20seed%3D%278%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%201%200%200%200%200%200.84%200%200%200%200%200.42%201%200%200%200%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27discrete%27%20tableValues%3D%270%200%200%200%200%200%200%200%200%200%200%200%201%201%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20filter%3D%27url%28%23f%29%27%2F%3E%3C%2Fsvg%3E"),var(--pat,none),radial-gradient(circle at 70% 80%,#fff8 0,#fff0 34%);background-size:150% 150%,150% 150%,auto;background-blend-mode:normal,soft-light,normal;mix-blend-mode:normal;opacity:.8}
 /* the engraved name: dark groove on a light bead, light showing through on a dark bead */
 .orb .eng{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;font-family:var(--bf,var(--f-card));font-size:var(--fs);line-height:1.12;
-  font-weight:700;text-align:center;white-space:nowrap;pointer-events:none;-webkit-text-stroke:var(--sw,0px) currentColor}
+  font-weight:400;text-align:center;white-space:nowrap;pointer-events:none;-webkit-text-stroke:var(--sw,0px) currentColor}   /* the brush faces only come in one weight: 700 made the browser fake a bold (smeared) */
 .orb .eng .ln{display:block}
 .orb .eng i{font-style:normal;opacity:.5}   /* pre-printed words are cut shallower */
 .orb.light .eng{color:color-mix(in srgb,var(--el) 14%,#140c04);text-shadow:0 1px 0 #ffffff8c,0 -1px 1px #0009}
@@ -108,7 +108,7 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .tip-mana{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-num);font-weight:600;font-size:17px;color:#fff;
   background:radial-gradient(circle at 35% 30%,#86b6ff,#2b5fb5 58%,#16356d);box-shadow:inset 0 -3px 0 #0003,0 2px 4px #0006}
 .tip-t{min-width:0}
-.tip-name{font-size:20px;line-height:1.15;font-weight:700;overflow-wrap:anywhere}
+.tip-name{font-size:20px;line-height:1.15;font-weight:400;overflow-wrap:anywhere}
 .tip-sub{font-size:12px;color:var(--muted)}
 .tip-b{padding:8px 12px 10px;display:flex;flex-direction:column;gap:6px}
 .tfx b{font-family:var(--f-display);font-weight:400;font-size:15px}
@@ -190,9 +190,8 @@ code{background:#0001}
 .orb::after{opacity:.28}
 /* the name: light from inside the glass, with a soft halo; a little blur-halo layer gives it depth */
 .orb .eng,.orb.light .eng,.orb.dark .eng{color:color-mix(in srgb,var(--el) 14%,#fffbea);-webkit-text-stroke:var(--sw,0px) currentColor;
-  text-shadow:0 0 .08em #fff,0 0 .3em color-mix(in srgb,var(--el) 35%,var(--glow)),0 0 .75em color-mix(in srgb,var(--el) 55%,#ffb347),0 .04em .1em #0006;
+  text-shadow:0 0 .04em #fff7,0 0 .15em color-mix(in srgb,var(--el) 35%,var(--glow)),0 .03em .06em #0005;   /* a thin halo only: the strokes stay crisp */
   translate:calc(var(--px,0)*-4%) calc(var(--py,0)*-4%);transition:translate .12s}
-.orb .eng.k-ko{text-shadow:0 0 .05em #fff8,0 0 .22em color-mix(in srgb,var(--el) 35%,var(--glow)),0 .03em .08em #0005}   /* Bombaram is bold already: a lighter glow keeps it from looking heavy */
 .orb.t0{filter:saturate(.75) brightness(.92);--glow:#f0d9a0}
 .orb.t0 .eng{filter:none;opacity:.8}
 .orb.t0::before{opacity:.25}
@@ -459,7 +458,7 @@ function engrave(c, d){
     for(let i=a;i<b;i++){ const dim = i>=fa && i<fb; if(dim!==open){ s += dim ? "<i>" : "</i>"; open = dim; } s += esc(chars[i]); }
     return `<span class="ln">${s}${open?"</i>":""}</span>`; }).join("");
   const pw = Number.isFinite(c.mana_power) ? c.mana_power : (c.mana ?? 0), sw = Math.min(1.6, Math.max(0, pw/8)) * (d<120 ? .6 : 1);   // stronger name, deeper cut
-  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fsb.toFixed(1)}px;--sw:${(sw*(lang==="ko"?0:wide?.9:.5)).toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
+  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fsb.toFixed(1)}px;--sw:0px;--wd:${lang==="ar"?"270deg":"90deg"}`};
 }
 function cardHTML(c, small){
   const scrib = c.status==="scribble", broken = c.status==="shattered", d = orbSize(c, small);
