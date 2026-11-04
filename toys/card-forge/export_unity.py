@@ -24,7 +24,7 @@ VARIANT_RATE = 0.12   # gacha: chance a card is quietly read a different way (VA
 # OS fonts to try, per language, when no font file is dropped into Resources/JevFonts/<lang>.ttf.
 # "brush" is the Google Fonts family the web version engraves with (use it for the dropped-in file).
 FONTS = {
-    "ko": {"brush": "Nanum Brush Script", "os": ["Batang", "Malgun Gothic", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif CJK KR", "Noto Sans CJK KR"]},
+    "ko": {"brush": "Gabia Bombaram", "os": ["Batang", "Malgun Gothic", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif CJK KR", "Noto Sans CJK KR"]},
     "en": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
     "ja": {"brush": "Yuji Boku", "os": ["Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Meiryo", "MS Mincho"]},
     "zh-Hans": {"brush": "Ma Shan Zheng", "os": ["SimSun", "Songti SC", "Noto Serif CJK SC", "Microsoft YaHei"]},

@@ -42,6 +42,11 @@ class H(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path in ("/", "/index.html"):
             return self._send(200, open(os.path.join(HERE, "index.html"), "rb").read(), "text/html; charset=utf-8")
+        if self.path.startswith("/fonts/") and self.path.count("/") == 2 and self.path.endswith(".woff2") and ".." not in self.path:
+            try:
+                return self._send(200, open(os.path.join(HERE, self.path[1:]), "rb").read(), "font/woff2")
+            except OSError:
+                pass
         self._send(404, {"error": "not found"})
     def do_POST(self):
         if self.path not in ("/forge", "/hero"):

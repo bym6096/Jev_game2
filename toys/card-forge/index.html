@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Song+Myung&family=Yuji+Boku&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@900&family=Kaushan+Script&family=Pacifico&family=Marck+Script&family=Charmonman:wght@700&family=Aref+Ruqaa:wght@700&display=swap">
 <style>
+@font-face{font-family:"Gabia Bombaram";src:url("fonts/GabiaBombaram.woff2") format("woff2");font-display:swap}   /* Korean bead names; see fonts/README.md */
 /* Layout: 위 = 빈 구슬 고르기 + 이름 쓰기 + 방금 만든 구슬, 아래 = 수집한 구슬 진열장 */
 :root{
   --bg:#141a22; --panel:#1d2530; --line:#33404f; --fg:#eef1f4; --muted:#93a1b0; --accent:#f2c14e;
@@ -191,6 +192,7 @@ code{background:#0001}
 .orb .eng,.orb.light .eng,.orb.dark .eng{color:color-mix(in srgb,var(--el) 14%,#fffbea);-webkit-text-stroke:var(--sw,0px) currentColor;
   text-shadow:0 0 .08em #fff,0 0 .3em color-mix(in srgb,var(--el) 35%,var(--glow)),0 0 .75em color-mix(in srgb,var(--el) 55%,#ffb347),0 .04em .1em #0006;
   translate:calc(var(--px,0)*-4%) calc(var(--py,0)*-4%);transition:translate .12s}
+.orb .eng.k-ko{text-shadow:0 0 .05em #fff8,0 0 .22em color-mix(in srgb,var(--el) 35%,var(--glow)),0 .03em .08em #0005}   /* Bombaram is bold already: a lighter glow keeps it from looking heavy */
 .orb.t0{filter:saturate(.75) brightness(.92);--glow:#f0d9a0}
 .orb.t0 .eng{filter:none;opacity:.8}
 .orb.t0::before{opacity:.25}
@@ -407,7 +409,7 @@ function onBlank(card, t, fr){
 }
 
 
-const BRUSH = {ko:"'Nanum Brush Script','Song Myung'", en:"'Kaushan Script'", ja:"'Yuji Boku','Noto Serif TC'", "zh-Hans":"'Ma Shan Zheng','Yuji Boku'", "zh-Hant":"'Ma Shan Zheng','Yuji Boku','Noto Serif TC'", ar:"'Aref Ruqaa'",
+const BRUSH = {ko:"'Gabia Bombaram','Nanum Brush Script','Song Myung'", en:"'Kaushan Script'", ja:"'Yuji Boku','Noto Serif TC'", "zh-Hans":"'Ma Shan Zheng','Yuji Boku'", "zh-Hant":"'Ma Shan Zheng','Yuji Boku','Noto Serif TC'", ar:"'Aref Ruqaa'",
   es:"'Kaushan Script'", fr:"'Kaushan Script'", de:"'Kaushan Script'", "pt-BR":"'Kaushan Script'", vi:"'Pacifico','Charmonman'", ru:"'Marck Script'", th:"'Charmonman'"};   // brush / calligraphy hands, one per script
 const WIDE = new Set(["ko","ja","zh-Hans","zh-Hant","th"]);   // one em per letter; the rest are narrow script
 const BREAK_ANYWHERE = new Set(["ko","ja","zh-Hans","zh-Hant"]);   // scripts where a name may wrap between any two letters
@@ -449,7 +451,7 @@ function engrave(c, d){
   }
   const maxW = Math.max(...lines.map(l=>span(...l)), .5);
   const fs = Math.max(8, Math.min(d*.27, d*(lines.length>1?.68:.74)/maxW, d*.56/(lines.length*1.12)));
-  const BOOST = {ko:1.28, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.6, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
+  const BOOST = {ko:1.0, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.6, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
   // pre-printed words (the blank's own) are cut shallower; they sit at the start or the end of the name
   let fa = 0, fb = 0; const fr = c.frag ? [...c.frag].length : 0;
   if(fr && c.fragPos==="pre" && c.name.startsWith(c.frag)) fb = fr; else if(fr && c.fragPos==="suf" && c.name.endsWith(c.frag)) { fa = n-fr; fb = n; }
@@ -457,7 +459,7 @@ function engrave(c, d){
     for(let i=a;i<b;i++){ const dim = i>=fa && i<fb; if(dim!==open){ s += dim ? "<i>" : "</i>"; open = dim; } s += esc(chars[i]); }
     return `<span class="ln">${s}${open?"</i>":""}</span>`; }).join("");
   const pw = Number.isFinite(c.mana_power) ? c.mana_power : (c.mana ?? 0), sw = Math.min(1.6, Math.max(0, pw/8)) * (d<120 ? .6 : 1);   // stronger name, deeper cut
-  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fsb.toFixed(1)}px;--sw:${(sw*(wide?.9:.5)).toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
+  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fsb.toFixed(1)}px;--sw:${(sw*(lang==="ko"?0:wide?.9:.5)).toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
 }
 function cardHTML(c, small){
   const scrib = c.status==="scribble", broken = c.status==="shattered", d = orbSize(c, small);
@@ -467,7 +469,7 @@ function cardHTML(c, small){
     small && deck.includes(c.name) ? "indeck" : ""].filter(Boolean).join(" ");
   const label = scrib ? `${c.name} — 수상한 낙서` : `${c.name} — ${c.element} ${c.kind}, 마나 ${c.mana}${broken?", 파손":""}`;
   const e = engrave(c, d), key = keyOf(c); shown.set(key, c);
-  const orb = `<div class="${cls}" style="--el:${packColor(color)};--d:${d}px" data-n="${esc(key)}" tabindex="0" role="img" aria-label="${esc(label)}"><span class="eng" dir="${e.dir}" style="${e.style}">${e.html}</span>${broken?`<i class="crack"></i>`:""}</div>`;
+  const orb = `<div class="${cls}" style="--el:${packColor(color)};--d:${d}px" data-n="${esc(key)}" tabindex="0" role="img" aria-label="${esc(label)}"><span class="eng k-${BRUSH[c.lang]?c.lang:"en"}" dir="${e.dir}" style="${e.style}">${e.html}</span>${broken?`<i class="crack"></i>`:""}</div>`;
   return small ? `<div class="orbcell"><span class="seat" style="--d:${d}px">${orb}</span></div>` : `<span class="seat" style="--d:${d}px">${orb}</span>`;
 }
 function blankOrb(t, forging){
