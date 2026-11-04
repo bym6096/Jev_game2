@@ -7,15 +7,25 @@ import forge
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAX_BODY = 8192
+ALLOW_ORIGIN = os.environ.get("ALLOW_ORIGIN", "").strip()
 # No server-side cache on purpose: the same name may come out a little differently each time (Jev wobbles near ties), and in the
 # game each forging costs a blank card, so re-rolling is limited by the game, not by the server. The page keeps the cards a player
 # has made (and the hero it got for a deck), so nothing that has been made changes afterwards.
 
 class H(BaseHTTPRequestHandler):
+    def _cors(self):
+        # Only for a Unity WebGL build served from another address (a desktop/mobile build is not a browser and needs none).
+        # Off unless ALLOW_ORIGIN is set, e.g.  ALLOW_ORIGIN=https://my-game.itch.io  (or * while testing).
+        if ALLOW_ORIGIN:
+            self.send_header("Access-Control-Allow-Origin", ALLOW_ORIGIN)
+            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+            self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
     def _send(self, code, body, ctype="application/json; charset=utf-8"):
         data = body if isinstance(body, bytes) else json.dumps(body, ensure_ascii=False).encode()
-        self.send_response(code); self.send_header("Content-Type", ctype); self.send_header("Content-Length", str(len(data)))
+        self.send_response(code); self.send_header("Content-Type", ctype); self.send_header("Content-Length", str(len(data))); self._cors()
         self.end_headers(); self.wfile.write(data)
+    def do_OPTIONS(self):
+        self.send_response(204); self._cors(); self.send_header("Content-Length", "0"); self.end_headers()
     def _body(self):
         """The JSON object sent with the request, or None after answering 400 (never leave the connection hanging)."""
         try:

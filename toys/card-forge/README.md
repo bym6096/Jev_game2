@@ -21,13 +21,14 @@ python server.py
 ```
 그리고 브라우저에서 http://localhost:8000 을 연다. (macOS/Linux: `export JEV_API_KEY=...`)
 
-키는 서버에만 있고 브라우저로 가지 않는다. 브라우저에서 Jev를 직접 부르면 CORS로 막힌다.
+키는 서버에만 있고 브라우저로 가지 않는다. (유니티 WebGL 빌드처럼 다른 주소의 브라우저에서 부르려면 `ALLOW_ORIGIN` 환경 변수에 허용할 주소를 넣는다. 기본은 꺼짐.) 브라우저에서 Jev를 직접 부르면 CORS로 막힌다.
 
 ## 파일
 - `forge.py`: Jev 요청 만들기와 카드 규칙
 - `server.py`: 페이지 제공 + `POST /forge`
 - `make_samples.py`, `samples.json`: 견본 30장 (서버 없이 열면 이것만 보임)
 - `template.html` → `assemble.py` → `index.html`
+- `export_unity.py`, `test_unity_export.py`, `make_unity_metas.py`: 유니티 이식용 규칙 내보내기·검사·메타 파일 (`../../unity/README.md`)
 
 ## 인터넷에 배포 (Vercel, GitHub 연결)
 1. https://vercel.com 에 GitHub 계정으로 가입

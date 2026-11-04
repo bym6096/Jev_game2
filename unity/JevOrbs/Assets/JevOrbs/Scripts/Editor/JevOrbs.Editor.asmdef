@@ -1,0 +1,18 @@
+{
+    "name": "JevOrbs.Editor",
+    "rootNamespace": "JevOrbs.EditorTools",
+    "references": [
+        "JevOrbs.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

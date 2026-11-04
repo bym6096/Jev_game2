@@ -4,3 +4,6 @@ assemble.py
 template.html
 README.md
 .env.local
+export_unity.py
+test_unity_export.py
+make_unity_metas.py

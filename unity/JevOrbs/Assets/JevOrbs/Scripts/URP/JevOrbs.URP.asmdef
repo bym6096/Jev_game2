@@ -1,0 +1,26 @@
+{
+    "name": "JevOrbs.URP",
+    "rootNamespace": "JevOrbs",
+    "references": [
+        "JevOrbs.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "JEV_URP"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "JEV_URP"
+        }
+    ],
+    "noEngineReferences": false
+}
