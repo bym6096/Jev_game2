@@ -86,6 +86,11 @@
 - 글자 폭 보정: vi unit .62, th unit .5 + `BOOST` th 1.25. 못 본 것: 서버로 새긴 이 폰트들의 구슬, 긴 이름, 희귀 글자(한자 확장 등)의 대체 글꼴 모양.
 - 후보로 봤지만 안 쓴 것: ko Single Day·Poor Story·Dokdo, ja Yomogi·Potta One·Hachi Maru Pop, zh ZCOOL KuaiLe, en Mr Dafoe·Grenze Gotisch(RPG 느낌이지만 밝은 팩 스타일과 어긋남), th Mali·Charm, ar Katibeh·Lemonada.
 
+### 폰트 최종 선택 + 줄바꿈 수정 (2026-11-04, 디렉터가 비교판에서 직접 고름 / 봄바람 라이선스는 디렉터가 확인함)
+- 선택(`BRUSH` 표): ko 가비아 봄바람(+Gamja Flower) · en/es/fr/pt-BR/vi **Dancing Script**(es·fr·pt-BR은 디렉터가 따로 말하지 않아 영어와 같게 함) · de **Grenze Gotisch** · ja Klee One · zh-Hans **Liu Jian Mao Cao** · zh-Hant **Yuji Boku**(디렉터의 "liu jian mao cao / yuji boku"를 간체/번체로 해석) · ru Marck Script · th Charmonman · ar **Mirza**. 가비아 봄바람 외 모두 Google Fonts(OFL). 가비아 봄바람 라이선스 확인됨(디렉터) → `fonts/README.md`의 경고 문구는 이제 해소.
+- 주의: Liu Jian Mao Cao는 초서체라 구슬 위에서 **글자를 알아보기 어렵다**(空城计가 거의 기호처럼 보임). Dancing Script는 가늘다. 독일어 Grenze Gotisch는 띄어쓰기 없는 긴 한 단어("Kirschblüten")가 한 줄이라 작음.
+- **줄바꿈**: `engrave()`가 한·중·일 이름에서 띄어쓰기 여부와 상관없이 글자 사이 아무 곳에서나 가장 균형 잡힌 곳을 골라 단어 중간이 잘렸다("번개 맞은 나무"→"번개 맞 / 은 나무"). 이제 **띄어쓰기가 있으면 거기서만** 나누고, 띄어쓰기 없는 이름만 글자 사이에서 나누며 한 줄에 한 글자만 남지 않게 함. 한국어 UI 글(팝업·효과 설명)은 `word-break:keep-all`로 단어 중간 줄바꿈 방지(이름·칩은 `normal` 유지: keep-all이면 중·일 이름이 아예 안 접힘). 한계: 띄어쓰기 없는 이름의 조사 경계("불사조의심장"→"불사조/의심장")는 형태소 분석 없이는 못 맞춤.
+
 ### 레드팀 테스트 (2026-10-29, 고치기 전)
 서브에이전트 4개(입력 우회·Jev 주입·서버/화면·밸런스)로 시스템을 깨 보게 함. 통합 리포트 `measurements/redteam/REPORT.md`(근거는 A~D 보고서). **아직 아무것도 안 고침.** 결론: Jev 지시 주입은 안 통함, 진짜 약점은 ① 입력 규칙(공백·숫자·보이지 않는 글자), ② 캐시 우회로 공짜 다시 뽑기·서버 비용·동시 요청에서 서버 깨짐·화면 XSS, ③ 마나 공식·덱→주인공이 카드 값과 안 맞음. 디렉터 제안: 프로필에서 언어 하나만 고르고 그 언어만 입력, 숫자 아예 금지(찬성, 단 R1~R5·R8~R15는 따로 막아야 함). **다음 할 일**: 리포트의 1순위(R1~R5)부터 구현 → 같은 레드팀 테스트 다시 돌려 확인. 디렉터에게 물어 둔 것: 프로필 언어를 한국어·영어만 지원할지, 다른 언어도 둘지(미답)
 

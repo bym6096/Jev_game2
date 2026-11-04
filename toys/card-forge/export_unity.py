@@ -25,18 +25,18 @@ VARIANT_RATE = 0.12   # gacha: chance a card is quietly read a different way (VA
 # "brush" is the Google Fonts family the web version engraves with (use it for the dropped-in file).
 FONTS = {
     "ko": {"brush": "Gabia Bombaram", "os": ["Batang", "Malgun Gothic", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif CJK KR", "Noto Sans CJK KR"]},
-    "en": {"brush": "Courgette", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "en": {"brush": "Dancing Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
     "ja": {"brush": "Klee One", "os": ["Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Meiryo", "MS Mincho"]},
-    "zh-Hans": {"brush": "Ma Shan Zheng", "os": ["SimSun", "Songti SC", "Noto Serif CJK SC", "Microsoft YaHei"]},
-    "zh-Hant": {"brush": "LXGW WenKai TC", "os": ["PMingLiU", "Songti TC", "Noto Serif CJK TC", "Microsoft JhengHei"]},
-    "es": {"brush": "Courgette", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "fr": {"brush": "Courgette", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "de": {"brush": "Courgette", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "pt-BR": {"brush": "Courgette", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "vi": {"brush": "Mali", "os": ["Times New Roman", "Georgia", "Arial"]},
+    "zh-Hans": {"brush": "Liu Jian Mao Cao", "os": ["SimSun", "Songti SC", "Noto Serif CJK SC", "Microsoft YaHei"]},
+    "zh-Hant": {"brush": "Yuji Boku", "os": ["PMingLiU", "Songti TC", "Noto Serif CJK TC", "Microsoft JhengHei"]},
+    "es": {"brush": "Dancing Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "fr": {"brush": "Dancing Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "de": {"brush": "Grenze Gotisch", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "pt-BR": {"brush": "Dancing Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "vi": {"brush": "Dancing Script", "os": ["Times New Roman", "Georgia", "Arial"]},
     "ru": {"brush": "Marck Script", "os": ["Times New Roman", "Georgia", "Arial"]},
-    "th": {"brush": "Sriracha", "os": ["Leelawadee UI", "Thonburi", "Tahoma", "Noto Sans Thai"]},
-    "ar": {"brush": "Aref Ruqaa", "os": ["Traditional Arabic", "Geeza Pro", "Arial", "Tahoma"]},
+    "th": {"brush": "Charmonman", "os": ["Leelawadee UI", "Thonburi", "Tahoma", "Noto Sans Thai"]},
+    "ar": {"brush": "Mirza", "os": ["Traditional Arabic", "Geeza Pro", "Arial", "Tahoma"]},
 }
 
 

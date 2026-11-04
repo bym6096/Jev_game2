@@ -3304,7 +3304,7 @@
    ]
   },
   "en": {
-   "brush": "Courgette",
+   "brush": "Dancing Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3323,7 +3323,7 @@
    ]
   },
   "zh-Hans": {
-   "brush": "Ma Shan Zheng",
+   "brush": "Liu Jian Mao Cao",
    "os": [
     "SimSun",
     "Songti SC",
@@ -3332,7 +3332,7 @@
    ]
   },
   "zh-Hant": {
-   "brush": "LXGW WenKai TC",
+   "brush": "Yuji Boku",
    "os": [
     "PMingLiU",
     "Songti TC",
@@ -3341,7 +3341,7 @@
    ]
   },
   "es": {
-   "brush": "Courgette",
+   "brush": "Dancing Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3350,7 +3350,7 @@
    ]
   },
   "fr": {
-   "brush": "Courgette",
+   "brush": "Dancing Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3359,7 +3359,7 @@
    ]
   },
   "de": {
-   "brush": "Courgette",
+   "brush": "Grenze Gotisch",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3368,7 +3368,7 @@
    ]
   },
   "pt-BR": {
-   "brush": "Courgette",
+   "brush": "Dancing Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3377,7 +3377,7 @@
    ]
   },
   "vi": {
-   "brush": "Mali",
+   "brush": "Dancing Script",
    "os": [
     "Times New Roman",
     "Georgia",
@@ -3393,7 +3393,7 @@
    ]
   },
   "th": {
-   "brush": "Sriracha",
+   "brush": "Charmonman",
    "os": [
     "Leelawadee UI",
     "Thonburi",
@@ -3402,7 +3402,7 @@
    ]
   },
   "ar": {
-   "brush": "Aref Ruqaa",
+   "brush": "Mirza",
    "os": [
     "Traditional Arabic",
     "Geeza Pro",

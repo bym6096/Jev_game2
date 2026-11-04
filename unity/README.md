@@ -92,7 +92,7 @@ python3 server.py                 # Windows: python server.py
 
 ## 글꼴
 이름은 프로필 언어마다 다른 글꼴로 새깁니다. 우선순위: `Resources/JevFonts/<언어코드>.ttf`(예: `ko.ttf`, `ja.ttf`, `th.ttf`) → 컴퓨터에 깔린 글꼴.
-데스크톱에서는 깔린 글꼴로 바로 보이지만, **모바일·WebGL에는 쓸 만한 시스템 글꼴이 없으니 TTF를 넣어야 합니다.** 웹 버전과 같은 붓글씨·캘리그라피 글꼴(모두 Google Fonts, OFL): ko 가비아 봄바람(예비 Gamja Flower) · en/es/fr/de/pt-BR Courgette · ja Klee One · zh-Hans Ma Shan Zheng · zh-Hant LXGW WenKai TC · vi Mali · ru Marck Script · th Sriracha · ar Aref Ruqaa (가비아 봄바람 외에는 모두 Google Fonts, OFL). (유니티 쪽 구슬은 아직 옛 무광 점토 스타일이고, 구슬 속에서 글씨가 빛나는 연출은 웹에만 먼저 적용됨.) 화면 글씨(UI)는 `JevFonts/ui.ttf`가 있으면 그것을 씁니다. 글꼴 파일은 `Dynamic` 모드로 가져옵니다(기본값).
+데스크톱에서는 깔린 글꼴로 바로 보이지만, **모바일·WebGL에는 쓸 만한 시스템 글꼴이 없으니 TTF를 넣어야 합니다.** 웹 버전과 같은 붓글씨·캘리그라피 글꼴(모두 Google Fonts, OFL): ko 가비아 봄바람(예비 Gamja Flower) · en/es/fr/pt-BR/vi Dancing Script · de Grenze Gotisch · ja Klee One · zh-Hans Liu Jian Mao Cao · zh-Hant Yuji Boku · ru Marck Script · th Charmonman · ar Mirza (가비아 봄바람 외에는 모두 Google Fonts, OFL). (유니티 쪽 구슬은 아직 옛 무광 점토 스타일이고, 구슬 속에서 글씨가 빛나는 연출은 웹에만 먼저 적용됨.) 화면 글씨(UI)는 `JevFonts/ui.ttf`가 있으면 그것을 씁니다. 글꼴 파일은 `Dynamic` 모드로 가져옵니다(기본값).
 
 ## 알려진 한계 (솔직하게)
 - **이 환경에서는 유니티를 돌려 보지 못했습니다.** 코드는 문법 검사와 눈으로 읽는 검토만 했고, 첫 실행에서 컴파일 오류나 화면 어긋남이 나올 수 있습니다. 오류가 나면 Console 내용을 그대로 알려 주세요.
