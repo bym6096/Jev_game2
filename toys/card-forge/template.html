@@ -351,7 +351,8 @@ function cleanHero(h){
     conf:n(h.conf,0,1), runner_up_conf:n(h.runner_up_conf,0,1), vague:!!h.vague, aggression:n(h.aggression,0,5), toughness:n(h.toughness,0,5), cards:cNum(h.cards,0,99,0)};
 }
 let collection = [];
-try { const raw = JSON.parse(localStorage.getItem("forge-collection-v3") || "[]"); if(Array.isArray(raw)) collection = raw.map(cleanCard).filter(Boolean); } catch(e) {}
+try { localStorage.removeItem("forge-collection-v3"); } catch(e) {}   // 2026-11-04: everything made so far was cleared on purpose (new storage key v4)
+try { const raw = JSON.parse(localStorage.getItem("forge-collection-v4") || "[]"); if(Array.isArray(raw)) collection = raw.map(cleanCard).filter(Boolean); } catch(e) {}
 const keyOf = c => c.id || c.name;
 const byName = n => SAMPLES.find(c=>c.name===n);
 const byKey = k => collection.find(c=>keyOf(c)===k) || SAMPLES.find(c=>keyOf(c)===k);
@@ -434,7 +435,7 @@ function lum(hex){ const f = i => { const v = parseInt(hex.slice(i,i+2),16)/255;
 function orbSize(c, small){ const m = Math.min(12, Math.max(0, c.mana ?? 4)); return Math.round((74 + m*4.1) * (small ? 1 : 1.7)); }
 // the name goes on in at most two lines: split at the space nearest the middle, or between letters for scripts without spaces
 function engrave(c, d){
-  const lang = BRUSH[c.lang] ? c.lang : "en", wide = WIDE.has(lang), unit = wide ? 1 : lang==="ar" ? .55 : .5;
+  const lang = BRUSH[c.lang] ? c.lang : "en", wide = WIDE.has(lang), unit = lang==="th" ? .5 : wide ? 1 : lang==="ar" ? .55 : .5;   // Thai letters are narrow (the old 1em per letter made its names tiny)
   const chars = [...c.name], wd = ch => ch===" " ? .3 : unit, span = (a,b) => { let w=0; for(let i=a;i<b;i++) w+=wd(chars[i]); return w; };
   const n = chars.length, total = span(0,n);
   let lines = [[0,n]];
@@ -448,7 +449,7 @@ function engrave(c, d){
   }
   const maxW = Math.max(...lines.map(l=>span(...l)), .5);
   const fs = Math.max(8, Math.min(d*.27, d*(lines.length>1?.68:.74)/maxW, d*.56/(lines.length*1.12)));
-  const BOOST = {ko:1.28, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.1, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
+  const BOOST = {ko:1.28, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.6, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
   // pre-printed words (the blank's own) are cut shallower; they sit at the start or the end of the name
   let fa = 0, fb = 0; const fr = c.frag ? [...c.frag].length : 0;
   if(fr && c.fragPos==="pre" && c.name.startsWith(c.frag)) fb = fr; else if(fr && c.fragPos==="suf" && c.name.endsWith(c.frag)) { fa = n-fr; fb = n; }
@@ -567,7 +568,7 @@ async function forgeName(typed){
   card = onBlank(maybeVariant(card), t, fr);
   show(card);
   if(!collection.some(c=>keyOf(c)===keyOf(card))){ collection.unshift(card);
-    try{ localStorage.setItem("forge-collection-v3", JSON.stringify(collection.slice(0,300))); }catch(e){} }
+    try{ localStorage.setItem("forge-collection-v4", JSON.stringify(collection.slice(0,300))); }catch(e){} }
   renderGallery();
   $("name").value=""; drawBlank(true);
 }
@@ -667,7 +668,7 @@ $("langs").addEventListener("click",e=>{ const b=e.target.closest("[data-l]"); i
   try{ localStorage.setItem("forge-profile-v1", JSON.stringify({lang:curLang})); }catch(e){}
   applyProfile(); drawBlank(); renderDeck(); if(deck.length) judgeHero(); });
 $("wipe").onclick=()=>{ if(!window.confirm("만든 구슬, 덱, 주인공, 프로필이 모두 지워집니다. 지울까요?")) return;
-  try{ ["forge-collection-v3","forge-deck-v1","forge-hero-v1","forge-profile-v1","forge-code"].forEach(k=>localStorage.removeItem(k)); }catch(e){}
+  try{ ["forge-collection-v3","forge-collection-v4","forge-deck-v1","forge-hero-v1","forge-profile-v1","forge-code"].forEach(k=>localStorage.removeItem(k)); }catch(e){}
   location.reload(); };
 $("newprofile").onclick=()=>{ if(!window.confirm("언어를 바꾸면 지금 덱과 주인공이 지워집니다. 만든 구슬은 진열장에 남습니다. 바꿀까요?")) return;
   curLang=null; deck=[]; heroSeq++; try{ localStorage.removeItem("forge-profile-v1"); localStorage.removeItem("forge-hero-v1"); }catch(e){}
