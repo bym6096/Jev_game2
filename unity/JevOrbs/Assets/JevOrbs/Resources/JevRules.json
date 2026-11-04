@@ -3293,7 +3293,7 @@
  },
  "fonts": {
   "ko": {
-   "brush": "Song Myung",
+   "brush": "Nanum Brush Script",
    "os": [
     "Batang",
     "Malgun Gothic",
@@ -3304,7 +3304,7 @@
    ]
   },
   "en": {
-   "brush": "IM Fell English",
+   "brush": "Kaushan Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3313,7 +3313,7 @@
    ]
   },
   "ja": {
-   "brush": "Shippori Mincho",
+   "brush": "Yuji Boku",
    "os": [
     "Yu Mincho",
     "Hiragino Mincho ProN",
@@ -3323,7 +3323,7 @@
    ]
   },
   "zh-Hans": {
-   "brush": "ZCOOL XiaoWei",
+   "brush": "Ma Shan Zheng",
    "os": [
     "SimSun",
     "Songti SC",
@@ -3332,7 +3332,7 @@
    ]
   },
   "zh-Hant": {
-   "brush": "Noto Serif TC",
+   "brush": "Ma Shan Zheng",
    "os": [
     "PMingLiU",
     "Songti TC",
@@ -3341,7 +3341,7 @@
    ]
   },
   "es": {
-   "brush": "IM Fell English",
+   "brush": "Kaushan Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3350,7 +3350,7 @@
    ]
   },
   "fr": {
-   "brush": "IM Fell English",
+   "brush": "Kaushan Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3359,7 +3359,7 @@
    ]
   },
   "de": {
-   "brush": "IM Fell English",
+   "brush": "Kaushan Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3368,7 +3368,7 @@
    ]
   },
   "pt-BR": {
-   "brush": "IM Fell English",
+   "brush": "Kaushan Script",
    "os": [
     "Georgia",
     "Palatino Linotype",
@@ -3377,7 +3377,7 @@
    ]
   },
   "vi": {
-   "brush": "EB Garamond",
+   "brush": "Pacifico",
    "os": [
     "Times New Roman",
     "Georgia",
@@ -3385,7 +3385,7 @@
    ]
   },
   "ru": {
-   "brush": "Cormorant Garamond",
+   "brush": "Marck Script",
    "os": [
     "Times New Roman",
     "Georgia",
@@ -3393,7 +3393,7 @@
    ]
   },
   "th": {
-   "brush": "Noto Serif Thai",
+   "brush": "Charmonman",
    "os": [
     "Leelawadee UI",
     "Thonburi",
@@ -3402,7 +3402,7 @@
    ]
   },
   "ar": {
-   "brush": "Amiri",
+   "brush": "Aref Ruqaa",
    "os": [
     "Traditional Arabic",
     "Geeza Pro",

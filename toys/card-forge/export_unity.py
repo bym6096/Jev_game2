@@ -24,19 +24,19 @@ VARIANT_RATE = 0.12   # gacha: chance a card is quietly read a different way (VA
 # OS fonts to try, per language, when no font file is dropped into Resources/JevFonts/<lang>.ttf.
 # "brush" is the Google Fonts family the web version engraves with (use it for the dropped-in file).
 FONTS = {
-    "ko": {"brush": "Song Myung", "os": ["Batang", "Malgun Gothic", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif CJK KR", "Noto Sans CJK KR"]},
-    "en": {"brush": "IM Fell English", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "ja": {"brush": "Shippori Mincho", "os": ["Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Meiryo", "MS Mincho"]},
-    "zh-Hans": {"brush": "ZCOOL XiaoWei", "os": ["SimSun", "Songti SC", "Noto Serif CJK SC", "Microsoft YaHei"]},
-    "zh-Hant": {"brush": "Noto Serif TC", "os": ["PMingLiU", "Songti TC", "Noto Serif CJK TC", "Microsoft JhengHei"]},
-    "es": {"brush": "IM Fell English", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "fr": {"brush": "IM Fell English", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "de": {"brush": "IM Fell English", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "pt-BR": {"brush": "IM Fell English", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
-    "vi": {"brush": "EB Garamond", "os": ["Times New Roman", "Georgia", "Arial"]},
-    "ru": {"brush": "Cormorant Garamond", "os": ["Times New Roman", "Georgia", "Arial"]},
-    "th": {"brush": "Noto Serif Thai", "os": ["Leelawadee UI", "Thonburi", "Tahoma", "Noto Sans Thai"]},
-    "ar": {"brush": "Amiri", "os": ["Traditional Arabic", "Geeza Pro", "Arial", "Tahoma"]},
+    "ko": {"brush": "Nanum Brush Script", "os": ["Batang", "Malgun Gothic", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif CJK KR", "Noto Sans CJK KR"]},
+    "en": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "ja": {"brush": "Yuji Boku", "os": ["Yu Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Meiryo", "MS Mincho"]},
+    "zh-Hans": {"brush": "Ma Shan Zheng", "os": ["SimSun", "Songti SC", "Noto Serif CJK SC", "Microsoft YaHei"]},
+    "zh-Hant": {"brush": "Ma Shan Zheng", "os": ["PMingLiU", "Songti TC", "Noto Serif CJK TC", "Microsoft JhengHei"]},
+    "es": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "fr": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "de": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "pt-BR": {"brush": "Kaushan Script", "os": ["Georgia", "Palatino Linotype", "Times New Roman", "Arial"]},
+    "vi": {"brush": "Pacifico", "os": ["Times New Roman", "Georgia", "Arial"]},
+    "ru": {"brush": "Marck Script", "os": ["Times New Roman", "Georgia", "Arial"]},
+    "th": {"brush": "Charmonman", "os": ["Leelawadee UI", "Thonburi", "Tahoma", "Noto Sans Thai"]},
+    "ar": {"brush": "Aref Ruqaa", "os": ["Traditional Arabic", "Geeza Pro", "Arial", "Tahoma"]},
 }
 
 

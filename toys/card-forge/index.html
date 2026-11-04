@@ -1,7 +1,7 @@
 <title>빈 구슬 공방</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IM+Fell+English&family=EB+Garamond:wght@700&family=Cormorant+Garamond:wght@700&family=Shippori+Mincho:wght@800&family=Zen+Antique&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@900&family=Noto+Serif+TC:wght@900&family=Amiri:wght@700&family=Noto+Serif+Thai:wght@800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@500;600&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Song+Myung&family=Yuji+Boku&family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@900&family=Kaushan+Script&family=Pacifico&family=Marck+Script&family=Charmonman:wght@700&family=Aref+Ruqaa:wght@700&display=swap">
 <style>
 /* Layout: 위 = 빈 구슬 고르기 + 이름 쓰기 + 방금 만든 구슬, 아래 = 수집한 구슬 진열장 */
 :root{
@@ -177,24 +177,37 @@ button.ghost{background:#fff;color:var(--fg);border:2px solid var(--line);box-sh
 code{background:#0001}
 .bar{background:#0001}
 .herocard .title,.profilebar b,.herocard .passive b{color:#d98200}
-/* beads: matte clay, lit from the upper left, with faceted shading; no glass gloss */
-.orb{--hi:color-mix(in srgb,var(--el) 74%,#fff);--lo:color-mix(in srgb,var(--el) 74%,#1a1030);
-  background:var(--facets),radial-gradient(circle at 36% 30%,var(--hi) 0,var(--el) 46%,var(--lo) 100%);background-size:100% 100%,auto;background-blend-mode:soft-light,normal;
-  box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,0 calc(var(--d)*.09) calc(var(--d)*.1) #1d5a2a55}
-.orb::before{opacity:.3;width:30%;height:18%;left:20%;top:13%}
-.orb::after{opacity:.55}
-.orb.t0{filter:saturate(.8) brightness(.96)}
-.orb.t0::before{opacity:.12}
-.orb.t1::before{opacity:.22}
-.orb.t2{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,inset 0 0 0 calc(var(--d)*.012) #fff7,0 calc(var(--d)*.09) calc(var(--d)*.1) #1d5a2a55}
-.orb.t2::before{opacity:.55;box-shadow:none}
-.orb.t3{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,inset 0 0 0 calc(var(--d)*.016) #ffe08a,0 0 0 3px #e9b730,0 calc(var(--d)*.09) calc(var(--d)*.1) #1d5a2a55}
-/* dark names would sink into a bright scene: they glow from inside, like the packs' lanterns and pumpkins */
-.orb.dark{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,0 0 calc(var(--d)*.34) color-mix(in srgb,var(--el) 70%,transparent),0 calc(var(--d)*.09) calc(var(--d)*.1) #1d5a2a55}
-.orb.dark.t3{box-shadow:inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103040,inset 0 0 0 calc(var(--d)*.016) #ffe08a,0 0 0 3px #e9b730,0 0 calc(var(--d)*.34) color-mix(in srgb,var(--el) 70%,transparent)}
-.orb.t3::after{opacity:.16}   /* the gold-vein texture read as dirt on the brighter pack colors */
+/* beads: a faceted glass ball lit from below, like the crystal lamps: a deep core, a bright rim, and the name glowing INSIDE it (not cut into the surface) */
+.orb{--core:color-mix(in srgb,var(--el) 50%,#160c2e);--rim:color-mix(in srgb,var(--el) 70%,#fff);--glow:#ffd98a;
+  background:radial-gradient(ellipse at 50% 96%,#ffe7a8b0 0,#ffe7a800 40%),var(--facets),
+    radial-gradient(circle at 50% 52%,var(--core) 0,color-mix(in srgb,var(--el) 74%,#160c2e) 32%,var(--el) 64%,var(--rim) 100%);
+  background-size:100% 100%,100% 100%,auto;background-blend-mode:normal,soft-light,normal;
+  box-shadow:inset 0 0 calc(var(--d)*.16) calc(var(--d)*.015) #ffffff70,inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103033,
+    0 0 calc(var(--d)*.22) color-mix(in srgb,var(--el) 20%,transparent)}
+.orb.light{--core:color-mix(in srgb,var(--el) 58%,#40260c)}
+.orb::before{opacity:.75;width:30%;height:17%;left:19%;top:11%;translate:calc(var(--px,0)*5%) calc(var(--py,0)*5%);transition:translate .12s}
+.orb::after{opacity:.28}
+/* the name: light from inside the glass, with a soft halo; a little blur-halo layer gives it depth */
+.orb .eng,.orb.light .eng,.orb.dark .eng{color:color-mix(in srgb,var(--el) 14%,#fffbea);-webkit-text-stroke:var(--sw,0px) currentColor;
+  text-shadow:0 0 .08em #fff,0 0 .3em color-mix(in srgb,var(--el) 35%,var(--glow)),0 0 .75em color-mix(in srgb,var(--el) 55%,#ffb347),0 .04em .1em #0006;
+  translate:calc(var(--px,0)*-4%) calc(var(--py,0)*-4%);transition:translate .12s}
+.orb.t0{filter:saturate(.75) brightness(.92);--glow:#f0d9a0}
+.orb.t0 .eng{filter:none;opacity:.8}
+.orb.t0::before{opacity:.25}
+.orb.t1::before{opacity:.6}
+.orb.t2::before{opacity:.95;box-shadow:0 0 calc(var(--d)*.05) #fff9}
+.orb.t3{box-shadow:inset 0 0 calc(var(--d)*.16) calc(var(--d)*.015) #ffffff70,inset 0 0 0 calc(var(--d)*.016) #ffe08a,0 0 0 3px #e9b730,0 0 calc(var(--d)*.3) #ffcf5a88}
+.orb.t3::after{opacity:.12}
 .orb.indeck{outline-color:#ffd23f}
-.orb.blank{--hi:color-mix(in srgb,var(--el) 70%,#fff)}
+.orb.blank{--core:color-mix(in srgb,var(--el) 80%,#fff)}
+/* the wooden seat under every bead, with a little warm LED light under it */
+.seat{position:relative;display:inline-grid;place-items:center;padding-bottom:calc(var(--d)*.13)}
+.seat .orb{position:relative;z-index:1}
+.seat::before{content:"";position:absolute;left:50%;bottom:calc(var(--d)*.02);width:calc(var(--d)*.9);height:calc(var(--d)*.3);transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(ellipse at 50% 60%,#ffd27acc 0,#ffd27a00 68%);pointer-events:none}
+.seat::after{content:"";position:absolute;left:50%;bottom:0;width:calc(var(--d)*.72);height:calc(var(--d)*.18);transform:translateX(-50%);border-radius:50%/62%;pointer-events:none;
+  background:linear-gradient(#f3cf9b,#d29a58 52%,#a46e38);box-shadow:inset 0 2px 0 #fbe0b4,0 calc(var(--d)*.05) calc(var(--d)*.06) #1d5a2a66}
+@media (prefers-reduced-motion:reduce){.orb .eng,.orb::before{translate:none;transition:none}}
 /* popup keeps a dark chunky panel so the white-on-dark text stays readable on the bright page */
 #tip{--muted:#b9bfe3;--fg:#fff8e8;--line:#4a4f86;background:#262a52;border-width:2px;box-shadow:0 5px 0 #14173a,0 14px 26px #1d4d7a66}
 .tip-h{background:linear-gradient(135deg,color-mix(in srgb,var(--tel) 45%,#262a52),#262a52 88%)}
@@ -393,8 +406,8 @@ function onBlank(card, t, fr){
 }
 
 
-const BRUSH = {ko:"'Song Myung'", en:"'IM Fell English','EB Garamond'", ja:"'Shippori Mincho','Zen Antique'", "zh-Hans":"'ZCOOL XiaoWei','Noto Serif SC'", "zh-Hant":"'Noto Serif TC'", ar:"'Amiri'",
-  es:"'IM Fell English','EB Garamond'", fr:"'IM Fell English','EB Garamond'", de:"'IM Fell English','EB Garamond'", "pt-BR":"'IM Fell English','EB Garamond'", vi:"'EB Garamond'", ru:"'Cormorant Garamond'", th:"'Noto Serif Thai'"};
+const BRUSH = {ko:"'Nanum Brush Script','Song Myung'", en:"'Kaushan Script'", ja:"'Yuji Boku','Noto Serif TC'", "zh-Hans":"'Ma Shan Zheng','Yuji Boku'", "zh-Hant":"'Ma Shan Zheng','Yuji Boku','Noto Serif TC'", ar:"'Aref Ruqaa'",
+  es:"'Kaushan Script'", fr:"'Kaushan Script'", de:"'Kaushan Script'", "pt-BR":"'Kaushan Script'", vi:"'Pacifico','Charmonman'", ru:"'Marck Script'", th:"'Charmonman'"};   // brush / calligraphy hands, one per script
 const WIDE = new Set(["ko","ja","zh-Hans","zh-Hant","th"]);   // one em per letter; the rest are narrow script
 const BREAK_ANYWHERE = new Set(["ko","ja","zh-Hans","zh-Hant"]);   // scripts where a name may wrap between any two letters
 const FAMS = {"불": 0, "물": 0, "얼음": 0, "번개": 0, "바람": 0, "대지": 0, "빛": 0, "어둠": 0, "폭풍": 0, "용암": 0, "별": 0, "달": 0, "바다": 0, "숲": 0, "산": 1, "강철": 1, "유리": 1, "모래": 1, "독": 1, "기름": 1, "종이": 1, "고무": 1, "나무": 1, "돌": 1, "금": 1, "수정": 1, "천": 1, "식물": 2, "짐승": 2, "벌레": 2, "피": 2, "뼈": 2, "균": 2, "영혼": 2, "꿈": 2, "과일": 2, "새": 2, "물고기": 2, "용": 2, "유령": 2, "꽃": 2, "알": 2, "악마": 2, "시간": 3, "공간": 3, "소리": 3, "중력": 3, "운": 3, "기억": 3, "감정": 3, "혼돈": 3, "공포": 3, "희망": 3, "정의": 3, "허공": 3, "음식": 4, "전기": 4, "기계": 4, "돈": 4, "언어": 4, "잠": 4, "웃음": 4, "온기": 4, "운동": 4, "약": 4, "옷": 4, "도구": 4, "무기": 4, "탈것": 4, "집": 4, "책": 4, "사랑": 5, "가족": 5, "우정": 5, "인연": 5, "이별": 5, "질투": 5, "권력": 5, "사람": 5, "영웅": 5, "악당": 5, "아이": 5, "왕": 5, "도둑": 5, "음악": 6, "예술": 6, "놀이": 6, "믿음": 6, "법": 6, "전쟁": 6, "지식": 6, "이야기": 6, "신화": 6, "마법": 6, "춤": 6, "축제": 6, "과학": 6};   // element name -> family 0..6 (same table as forge.ELEMENT_FAMILY_OF); picks the bead's inner pattern
@@ -435,6 +448,7 @@ function engrave(c, d){
   }
   const maxW = Math.max(...lines.map(l=>span(...l)), .5);
   const fs = Math.max(8, Math.min(d*.27, d*(lines.length>1?.68:.74)/maxW, d*.56/(lines.length*1.12)));
+  const BOOST = {ko:1.28, ja:1.1, "zh-Hans":1.1, "zh-Hant":1.1, th:1.1, ar:1.1}[lang] || 1, fsb = Math.min(d*.32, fs*BOOST);   // brush faces run small
   // pre-printed words (the blank's own) are cut shallower; they sit at the start or the end of the name
   let fa = 0, fb = 0; const fr = c.frag ? [...c.frag].length : 0;
   if(fr && c.fragPos==="pre" && c.name.startsWith(c.frag)) fb = fr; else if(fr && c.fragPos==="suf" && c.name.endsWith(c.frag)) { fa = n-fr; fb = n; }
@@ -442,7 +456,7 @@ function engrave(c, d){
     for(let i=a;i<b;i++){ const dim = i>=fa && i<fb; if(dim!==open){ s += dim ? "<i>" : "</i>"; open = dim; } s += esc(chars[i]); }
     return `<span class="ln">${s}${open?"</i>":""}</span>`; }).join("");
   const pw = Number.isFinite(c.mana_power) ? c.mana_power : (c.mana ?? 0), sw = Math.min(1.6, Math.max(0, pw/8)) * (d<120 ? .6 : 1);   // stronger name, deeper cut
-  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fs.toFixed(1)}px;--sw:${sw.toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
+  return {html, dir: lang==="ar" ? "rtl" : "ltr", style:`--bf:${BRUSH[lang]},var(--f-display);--fs:${fsb.toFixed(1)}px;--sw:${(sw*(wide?.9:.5)).toFixed(2)}px;--wd:${lang==="ar"?"270deg":"90deg"}`};
 }
 function cardHTML(c, small){
   const scrib = c.status==="scribble", broken = c.status==="shattered", d = orbSize(c, small);
@@ -453,10 +467,10 @@ function cardHTML(c, small){
   const label = scrib ? `${c.name} — 수상한 낙서` : `${c.name} — ${c.element} ${c.kind}, 마나 ${c.mana}${broken?", 파손":""}`;
   const e = engrave(c, d), key = keyOf(c); shown.set(key, c);
   const orb = `<div class="${cls}" style="--el:${packColor(color)};--d:${d}px" data-n="${esc(key)}" tabindex="0" role="img" aria-label="${esc(label)}"><span class="eng" dir="${e.dir}" style="${e.style}">${e.html}</span>${broken?`<i class="crack"></i>`:""}</div>`;
-  return small ? `<div class="orbcell">${orb}</div>` : orb;
+  return small ? `<div class="orbcell"><span class="seat" style="--d:${d}px">${orb}</span></div>` : `<span class="seat" style="--d:${d}px">${orb}</span>`;
 }
 function blankOrb(t, forging){
-  return `<div class="orb blank t${t} ${lum(TIER_TINT[t])>.2?"light":"dark"}${forging?" forging":""}" style="--el:${TIER_TINT[t]};--d:170px" aria-hidden="true"></div>`;
+  return `<span class="seat" style="--d:170px"><div class="orb blank t${t} ${lum(TIER_TINT[t])>.2?"light":"dark"}${forging?" forging":""}" style="--el:${TIER_TINT[t]};--d:170px" aria-hidden="true"></div></span>`;
 }
 function manaWhy(c){
   if(c.mana_stats===undefined) return "";
@@ -497,6 +511,11 @@ function showTip(orb){
   tipEl.innerHTML = tipHTML(c); tipEl.style.setProperty("--tel", isHex(c.color) ? c.color : "#8a99a8");
   placeTip(); tipEl.classList.add("on");
 }
+// the writing hangs inside the ball: it shifts a little against the pointer (parallax), the highlight the other way
+document.addEventListener("pointermove", e => { const o = orbOf(e.target); if(!o || e.pointerType==="touch") return; const r = o.getBoundingClientRect();
+  o.style.setProperty("--px", Math.max(-1,Math.min(1,(e.clientX-r.left-r.width/2)/(r.width/2))).toFixed(2));
+  o.style.setProperty("--py", Math.max(-1,Math.min(1,(e.clientY-r.top-r.height/2)/(r.height/2))).toFixed(2)); });
+document.addEventListener("pointerout", e => { const o = orbOf(e.target); if(o && !o.contains(e.relatedTarget)){ o.style.removeProperty("--px"); o.style.removeProperty("--py"); } });
 const orbOf = t => t instanceof Element ? t.closest(".orb[data-n]") : null;
 document.addEventListener("pointerover", e => { if(e.pointerType==="touch") return; const o = orbOf(e.target); if(o) showTip(o); });
 document.addEventListener("pointerout", e => { const o = orbOf(e.target); if(o && !o.contains(e.relatedTarget)) hideTip(); });
@@ -516,7 +535,7 @@ function renderGallery(){
 }
 function show(c){
   current=c; updateDeckBtn(); hideTip();
-  const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.firstElementChild;
+  const st=$("stage");st.innerHTML=cardHTML(c,false);const el=st.querySelector(".orb");
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
   const why = manaWhy(c);
