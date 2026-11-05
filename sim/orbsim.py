@@ -104,7 +104,7 @@ class Game:
         g.due, g.bot, g.reward_pick, g.pool_names, g.stages, g.turns_per = due, bot, reward_pick, pool_names or [], stages, turns
         g.bag = [copy.copy(o) for o in bag]; g.draw = []; g.disc = []; g.hand = []
         g.hp = g.max_hp = g.cfg["hp"]; g.shield = 0; g.gold = 0; g.res = dict.fromkeys(RAW, 0); g.items = 0
-        g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
+        g.pick_key = None; g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
     # --- helpers
     def reshuffle(g):
         g.draw = [o for o in g.bag if o.fate != "passive"]; g.R.shuffle(g.draw)
@@ -310,7 +310,7 @@ class Game:
             if g.pool_names and si < g.stages - 1 and not died:                                                       # reward: write one new orb
                 cands = [g.RR.choice(g.pool_names) for _ in range(3 if g.reward_pick == "best3" else 1)]
                 if g.reward_pick == "bestall": cands = g.pool_names
-                g.bag.append(copy.copy(max(cands, key=lambda o: est_total_value(o) / (o.mana + .5)) if len(cands) > 1 else cands[0]))
+                g.bag.append(copy.copy(max(cands, key=g.pick_key or (lambda o: est_total_value(o) / (o.mana + .5))) if len(cands) > 1 else cands[0]))
         return g.result()
     def result(g): return {"deaths": g.deaths, "cleared": g.cleared, "gold": g.gold, "hp": g.hp, "failed": g.failed, "score": 100 * g.cleared + g.gold, "kills": g.stats["kills"], "played": dict(g.played), "contrib": dict(g.contrib)}
 
