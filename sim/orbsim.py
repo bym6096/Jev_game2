@@ -23,15 +23,15 @@ class Orb:
     def __init__(s, **k): s.__dict__.update(k)
     def __repr__(s): return f"<{s.name} {s.role} {[v for v,_ in s.verbs]} {s.life} m{s.mana}>"
 
-def verb_probs(name):
-    src = V4 if name in V4 else V3
+def verb_probs(name, extra=None):
+    src = extra if (extra and name in extra) else (V4 if name in V4 else V3)
     return {o: mp(src[name], "verb", o) for o in src[name][0]["verb"]["probabilities"]}
 def select_verbs(p, rel=.4, floor=.2, cap=3):
     rk = sorted(p, key=lambda o: -p[o]); return [(o, p[o]) for i, o in enumerate(rk[:cap]) if i == 0 or p[o] >= max(rel * p[rk[0]], floor)]
 
-def make_orb(name, grade="깨끗한", cost_model="naive", gold_mult=1.0):
-    r = V3[name]; r2 = V2.get(name) or PROD.get(name)
-    vp = verb_probs(name); vs = select_verbs(vp); p1 = vs[0][1]; amb = p1 < .4
+def make_orb(name, grade="깨끗한", cost_model="naive", gold_mult=1.0, extra=None):
+    ex = extra or {}; r = ex.get(name) or V3[name]; r2 = ex.get(name) or V2.get(name) or PROD.get(name)
+    vp = verb_probs(name, extra); vs = select_verbs(vp); p1 = vs[0][1]; amb = p1 < .4
     pw = sum(a["power"]["score"] for a in r) / len(r); pe = pw * (1.0 if p1 >= .5 else .85 if p1 >= .4 else .6)
     role, timing, trig, rng, mat = (best(r, k) for k in ("role", "timing", "trigger", "range", "material"))
     if amb:
@@ -106,7 +106,7 @@ class Game:
         g.due, g.bot, g.reward_pick, g.pool_names, g.stages, g.turns_per = due, bot, reward_pick, pool_names or [], stages, turns
         g.bag = [copy.copy(o) for o in bag]; g.draw = []; g.disc = []; g.hand = []
         g.hp = g.max_hp = g.cfg["hp"]; g.shield = 0; g.gold = 0; g.res = dict.fromkeys(RAW, 0); g.items = 0
-        g.pick_key = None; g.fam_turn = collections.Counter(); g.cap_b = 6; g.cap_s = 5; g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
+        g.pick_key = None; g.reward_fn = None; g.fam_turn = collections.Counter(); g.cap_b = 6; g.cap_s = 5; g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
     # --- helpers
     def reshuffle(g):
         g.draw = [o for o in g.bag if o.fate != "passive"]; g.R.shuffle(g.draw)
@@ -302,12 +302,14 @@ class Game:
             g0 = g.gold; died = False
             g.pool = {k: int(30 * rc) for k in RAW}; g.pool["land"] = int(g.cfg["land"] * rc) if g.cfg.get("land") else 10**9; g.en = []; g.summons = []; g.kills = 0; g.uses = collections.Counter(); g.amp = 1.0; g.dmgb = 0.0
             g.fx = [f for f in g.fx if f["o"].life in ("run", "forever")]; g.buildings = [b for b in g.buildings if b["life"] in ("run", "forever")]
-            lvl = 1 + si; waves = {1: 3, 5: 4, 9: 5}
+            lvl = 1 + int(si * g.cfg.get("lvl_step", 1.0)); boss = (si + 1) % 4 == 0 and g.stages > 4
+            if boss: lvl += 1
+            waves = {1: 3, 5: 4, 9: 5}
             g.disc = []; g.reshuffle(); g.hand = []
             for g.turn in range(1, g.turns_per + 1):
                 if g.turn in waves:
-                    for _ in range(max(1, round(waves[g.turn] * ec * (1 + g.cfg.get("grow", .35) * si)))): g.spawn(lvl)
-                g.disc += g.hand; g.hand = []; g.mana = g.cfg["mana"]; g.drawn(g.cfg["hand"])
+                    for _ in range(max(1, round(waves[g.turn] * ec * (1 + g.cfg.get("grow", .35) * si) * (1.3 if boss else 1.0)))): g.spawn(lvl)
+                g.disc += g.hand; g.hand = []; g.mana = g.cfg["mana"] + int(g.cfg.get("mana_per3", 0) * (si // 3)); g.drawn(g.cfg["hand"])
                 g.bot_turn(); g.upkeep()
                 if g.failed:
                     if g.failed == "사망" and g.cfg.get("death") == "forfeit": died = True; g.failed = None; g.deaths += 1; break
@@ -317,7 +319,9 @@ class Game:
             else: g.stats["g_sale"] += int(sum(g.res.values()) * .3); g.gold += int(sum(g.res.values()) * .3); g.res = dict.fromkeys(RAW, 0)
             if g.gold < g.due[si]: g.failed = f"정산 실패(스테이지 {si+1})"; return g.result()
             g.gold -= g.due[si]; g.cleared += 1; g.hp = min(g.max_hp, g.hp + g.cfg["rest"])
-            if g.pool_names and si < g.stages - 1 and not died:                                                       # reward: write one new orb
+            if getattr(g, "reward_fn", None) and si < g.stages - 1 and not died:
+                for o in g.reward_fn(g, si): g.bag.append(copy.copy(o))
+            elif g.pool_names and si < g.stages - 1 and not died:                                                       # reward: write one new orb
                 cands = [g.RR.choice(g.pool_names) for _ in range(3 if g.reward_pick == "best3" else 1)]
                 if g.reward_pick == "bestall": cands = g.pool_names
                 g.bag.append(copy.copy(max(cands, key=g.pick_key or (lambda o: est_total_value(o) / (o.mana + .5))) if len(cands) > 1 else cands[0]))
