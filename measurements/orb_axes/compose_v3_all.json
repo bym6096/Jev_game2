@@ -1,0 +1,5251 @@
+[
+{
+"name": "절대영도",
+"text": "이번 런 동안 맵 전체의 적 행동 불가 2턴",
+"cost": "마나 8",
+"role": "cast",
+"life": "run",
+"verbs": [
+"control"
+],
+"p1": 0.73,
+"pw": 4.38,
+"pe": 4.38,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "플라즈마",
+"text": "주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.8933333333333333,
+"pw": 2.6366666666666667,
+"pe": 2.6366666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "초전도체",
+"text": "건물(체력 6) 설치, 이번 런 동안 유지 — 매 턴 마나 +1",
+"cost": "마나 3 + 광석 3 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"energy"
+],
+"p1": 0.7133333333333333,
+"pw": 2.2933333333333334,
+"pe": 2.2933333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "사건의지평선",
+"text": "이번 런 동안 주변 1칸의 적 행동 불가 2턴",
+"cost": "마나 5",
+"role": "cast",
+"life": "run",
+"verbs": [
+"control"
+],
+"p1": 0.6766666666666666,
+"pw": 3.79,
+"pe": 3.79,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "진공붕괴",
+"text": "주변 1칸의 적에 피해 5",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.8433333333333333,
+"pw": 3.97,
+"pe": 3.97,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "반물질",
+"text": "맵 전체의 적에 피해 3",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.92,
+"pw": 3.6666666666666665,
+"pe": 3.6666666666666665,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "중성자별",
+"text": "맵 전체의 적에 피해 3",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.72,
+"pw": 3.6533333333333333,
+"pe": 3.6533333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "감마선폭발",
+"text": "주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.99,
+"pw": 3.0,
+"pe": 3.0,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "핵융합",
+"text": "마나 +2",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"energy"
+],
+"p1": 0.7166666666666667,
+"pw": 3.5533333333333332,
+"pe": 3.5533333333333332,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "타키온",
+"text": "4칸 이동 후 이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo"
+],
+"p1": 0.67,
+"pw": 2.743333333333333,
+"pe": 2.743333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "영점진동",
+"text": "이번 스테이지 동안 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"recycle"
+],
+"p1": 0.29,
+"pw": 2.66,
+"pe": 1.596,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "초신성",
+"text": "주변 1칸의 적에 피해 5 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9233333333333333,
+"pw": 3.7233333333333336,
+"pe": 3.7233333333333336,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "볼텍스",
+"text": "이번 스테이지 동안 주변 1칸의 적 행동 불가 2턴",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.7,
+"pw": 2.88,
+"pe": 2.88,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "특이점",
+"text": "다음 구슬 효과 ×2",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"amplify"
+],
+"p1": 0.23666666666666666,
+"pw": 4.47,
+"pe": 2.682,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "방사능누출",
+"text": "이번 스테이지 동안 주변 1칸의 적 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 0.7233333333333333,
+"pw": 2.3466666666666667,
+"pe": 2.3466666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "암흑물질",
+"text": "맵 전체의 적에 피해 2; 마나 +1",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"energy"
+],
+"p1": 0.3233333333333333,
+"pw": 3.5766666666666667,
+"pe": 2.146,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "쿼크글루온",
+"text": "맵 전체의 적에 피해 2; 마나 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"energy"
+],
+"p1": 0.32,
+"pw": 2.7966666666666664,
+"pe": 1.6779999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "중력파",
+"text": "맵 전체의 적에 피해 3; 맵 전체의 적 행동 불가 2턴",
+"cost": "마나 4",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"control"
+],
+"p1": 0.6833333333333333,
+"pw": 3.44,
+"pe": 3.44,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "극초음속",
+"text": "4칸 이동 후 이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo"
+],
+"p1": 0.87,
+"pw": 2.73,
+"pe": 2.73,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "대전류",
+"text": "이번 스테이지 동안 매 턴 직선 3칸의 적에 피해 1",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.3566666666666667,
+"pw": 2.81,
+"pe": 1.686,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "차가운불꽃",
+"text": "이번 스테이지 동안 매 턴 적 1에 피해 1; 적 1 행동 불가 1턴",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage",
+"control"
+],
+"p1": 0.51,
+"pw": 2.3433333333333333,
+"pe": 2.3433333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마른번개",
+"text": "직선 3칸의 적에 피해 4",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.85,
+"pw": 2.02,
+"pe": 2.02,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "어두운빛",
+"text": "3턴 동안 매 턴 적 1 공격 -1; 적 1에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.26,
+"pw": 1.9666666666666666,
+"pe": 1.18,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "젖은숯",
+"text": "마나 +1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"energy"
+],
+"p1": 0.18,
+"pw": 0.7133333333333334,
+"pe": 0.428,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "맹독치유",
+"text": "이번 스테이지 동안 매 턴 아군 1 체력 1 회복",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"heal"
+],
+"p1": 0.8066666666666666,
+"pw": 2.28,
+"pe": 2.28,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무거운깃털",
+"text": "2칸 이동 후 적 1 공격 -1; 적 1 행동 불가 1턴",
+"cost": "마나 2",
+"role": "move",
+"life": "instant",
+"verbs": [
+"debuff",
+"control"
+],
+"p1": 0.49333333333333335,
+"pw": 0.96,
+"pe": 0.816,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "뜨거운얼음",
+"text": "3턴 동안 매 턴 땅 1 1개를 다른 것으로 변환; 적 1에 피해 1; 적 1 행동 불가 1턴",
+"cost": "마나 3",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"transform",
+"damage",
+"control"
+],
+"p1": 0.29333333333333333,
+"pw": 1.7133333333333334,
+"pe": 1.028,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "조용한폭발",
+"text": "2턴 뒤: 주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.93,
+"pw": 2.51,
+"pe": 2.51,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "투명한벽돌",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 아군 1에 방어막 1",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard"
+],
+"p1": 0.7333333333333333,
+"pw": 0.81,
+"pe": 0.81,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "느린광속",
+"text": "3칸 이동 후 1턴 뒤: 이번 스테이지 동안 적 1 공격 -1",
+"cost": "마나 2",
+"role": "move",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 0.7266666666666667,
+"pw": 1.9666666666666666,
+"pe": 1.9666666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "부드러운칼날",
+"text": "적 1에 피해 4",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9366666666666666,
+"pw": 1.5066666666666666,
+"pe": 1.5066666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "건조한해일",
+"text": "이번 스테이지 동안 매 턴 맵 전체의 적에 피해 1; 맵 전체의 적 공격 -1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.29,
+"pw": 2.3033333333333332,
+"pe": 1.382,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "살아있는시체",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "turns",
+"verbs": [
+"recycle"
+],
+"p1": 0.3933333333333333,
+"pw": 1.9566666666666666,
+"pe": 1.174,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "고요한태풍",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적 행동 불가 2턴; 주변 1칸의 적에 피해 1",
+"cost": "마나 4",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control",
+"damage"
+],
+"p1": 0.42,
+"pw": 2.9766666666666666,
+"pe": 2.5301666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "눈먼주시자",
+"text": "매 턴: 맵 전체의 적 공격 -1; 주머니 위 3개 확인",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"debuff",
+"peek"
+],
+"p1": 0.49,
+"pw": 3.35,
+"pe": 2.8475,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "가벼운납",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성; 이번 턴 행동 +1",
+"cost": "마나 2 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create",
+"tempo"
+],
+"p1": 0.21333333333333335,
+"pw": 0.8666666666666667,
+"pe": 0.52,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자비로운참수",
+"text": "적 1에 피해 6",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9466666666666667,
+"pw": 2.48,
+"pe": 2.48,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "메마른눈물",
+"text": "적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"debuff"
+],
+"p1": 0.2733333333333333,
+"pw": 1.42,
+"pe": 0.852,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "질서있는혼돈",
+"text": "이번 스테이지 동안 매 턴 맵 전체의 땅 1개를 다른 것으로 변환; 맵 전체의 적 행동 불가 1턴 ＋ 효과 50~150% 무작위",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"transform",
+"control"
+],
+"p1": 0.28,
+"pw": 2.7966666666666664,
+"pe": 1.6779999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "얼어붙은용암",
+"text": "이번 스테이지 동안 적 1 행동 불가 2턴",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.74,
+"pw": 2.5466666666666664,
+"pe": 2.5466666666666664,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "즉사",
+"text": "적 1에 피해 7",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.94,
+"pw": 3.0833333333333335,
+"pe": 3.0833333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무적",
+"text": "이번 스테이지 동안 아군 1에 방어막 2 ［주머니에 있으면 자동］",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.83,
+"pw": 3.9966666666666666,
+"pe": 3.9966666666666666,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "쿨타임0",
+"text": "1턴 뒤: 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle"
+],
+"p1": 0.72,
+"pw": 0.5633333333333334,
+"pe": 0.5633333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "흡혈",
+"text": "피격 시 발동 — 적 1에게서 골드 5 탈취 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.7066666666666667,
+"pw": 2.0666666666666664,
+"pe": 2.0666666666666664,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "데미지반사",
+"text": "피격 시 발동 — 이번 스테이지 동안 매 턴 아군 1에 방어막 1; 적 1에 피해 1 ［주머니에 있으면 자동］",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"guard",
+"damage"
+],
+"p1": 0.4533333333333333,
+"pw": 2.09,
+"pe": 1.7764999999999997,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "방어무시",
+"text": "적 1에 피해 6; 적 1 공격 -2",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.5633333333333334,
+"pw": 2.5966666666666667,
+"pe": 2.5966666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무한관통",
+"text": "직선 3칸의 적에 피해 7",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.96,
+"pw": 3.71,
+"pe": 3.71,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "확정치명타",
+"text": "피격 시 발동 — 적 1에 피해 6",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.7633333333333333,
+"pw": 2.7,
+"pe": 2.7,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "절대은신",
+"text": "이번 스테이지 동안 아군 1에 방어막 2",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.5433333333333333,
+"pw": 3.8033333333333332,
+"pe": 3.8033333333333332,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "광역도발",
+"text": "주변 1칸의 적 행동 불가 1턴 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.6666666666666666,
+"pw": 2.333333333333333,
+"pe": 2.333333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자동부활",
+"text": "사망 시 발동 — 버린 구슬 1개를 주머니로 되돌림; 아군 1 체력 5 회복 ［주머니에 있으면 자동］",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle",
+"heal"
+],
+"p1": 0.58,
+"pw": 3.16,
+"pe": 3.16,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "영구빙결",
+"text": "이번 런 동안 적 1 행동 불가 2턴",
+"cost": "마나 4",
+"role": "cast",
+"life": "run",
+"verbs": [
+"control"
+],
+"p1": 1.0,
+"pw": 3.2866666666666666,
+"pe": 3.2866666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자원강탈",
+"text": "적 1에게서 골드 6 탈취",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.9866666666666667,
+"pw": 2.5433333333333334,
+"pe": 2.5433333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "사거리무한",
+"text": "5칸 이동 후 이번 런 동안 매 턴 버린 구슬 1개를 주머니로 되돌림; 다음 구슬 효과 ×2",
+"cost": "마나 7",
+"role": "move",
+"life": "run",
+"verbs": [
+"recycle",
+"amplify"
+],
+"p1": 0.5466666666666667,
+"pw": 3.2133333333333334,
+"pe": 3.2133333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "시간정지",
+"text": "이번 스테이지 동안 맵 전체의 적 행동 불가 2턴",
+"cost": "마나 5",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.99,
+"pw": 3.7266666666666666,
+"pe": 3.7266666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "상태이상면역",
+"text": "이번 스테이지 동안 매 턴 아군 1에 방어막 1; 아군 1 공격 +1; 아군 1의 효과 1개 제거 ［주머니에 있으면 자동］",
+"cost": "마나 4",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"guard",
+"buff",
+"remove"
+],
+"p1": 0.46,
+"pw": 2.52,
+"pe": 2.142,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "공격속도상한돌파",
+"text": "이번 스테이지 동안 매 턴 이번 턴 행동 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"tempo"
+],
+"p1": 0.7433333333333333,
+"pw": 2.4766666666666666,
+"pe": 2.4766666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "골드두배",
+"text": "다음 구슬 효과 ×2; 골드 1 획득 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"amplify",
+"money"
+],
+"p1": 0.54,
+"pw": 1.8733333333333333,
+"pe": 1.8733333333333333,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "맵전체타격",
+"text": "맵 전체의 적에 피해 3",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9833333333333333,
+"pw": 3.5566666666666666,
+"pe": 3.5566666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "장판지속",
+"text": "건물(체력 3) 설치, 이번 스테이지 동안 유지 — 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"recycle"
+],
+"p1": 0.3933333333333333,
+"pw": 1.56,
+"pe": 0.9359999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "흑염룡",
+"text": "적대 짐승 웨이브 Lv3 소환 (처치 시 골드 6)",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.85,
+"pw": 3.7333333333333334,
+"pe": 3.7333333333333334,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "엑스칼리버",
+"text": "적 1에 피해 9",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9266666666666667,
+"pw": 4.0,
+"pe": 4.0,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "롱기누스의창",
+"text": "적 1에 피해 9",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.96,
+"pw": 3.94,
+"pe": 3.94,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "오리하르콘",
+"text": "건물(체력 6) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성; 골드 1 획득",
+"cost": "마나 3 + 광석 3 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"create",
+"money"
+],
+"p1": 0.39,
+"pw": 3.7666666666666666,
+"pe": 2.26,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "미스릴",
+"text": "건물(체력 6) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 3 + 광석 3 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"create"
+],
+"p1": 0.43666666666666665,
+"pw": 2.8833333333333333,
+"pe": 2.450833333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "데스노트",
+"text": "적 1에 피해 9 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.7866666666666667,
+"pw": 3.9066666666666667,
+"pe": 3.9066666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마안",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득; 아군 1에 방어막 1",
+"cost": "마나 2 + 골드 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money",
+"guard"
+],
+"p1": 0.2833333333333333,
+"pw": 1.73,
+"pe": 1.038,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "현자의돌",
+"text": "골드 4 획득",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.5933333333333334,
+"pw": 3.7133333333333334,
+"pe": 3.7133333333333334,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "우로보로스",
+"text": "이번 런 동안 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 6",
+"role": "cast",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.99,
+"pw": 3.8466666666666667,
+"pe": 3.8466666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "네크로노미콘",
+"text": "적대 정령 웨이브 Lv2 소환 (처치 시 골드 4) ＋ 위험: 사용자도 피해",
+"cost": "마나 4",
+"role": "summon",
+"life": "stage",
+"verbs": [
+"damage",
+"recycle"
+],
+"p1": 0.3666666666666667,
+"pw": 3.88,
+"pe": 2.328,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "궁니르",
+"text": "적 1에 피해 5",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.21666666666666667,
+"pw": 3.28,
+"pe": 1.9679999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "판도라의상자",
+"text": "맵 전체의 적 공격 -1 ＋ 위험: 사용자도 피해 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"debuff"
+],
+"p1": 0.30666666666666664,
+"pw": 3.83,
+"pe": 2.298,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "묠니르",
+"text": "적 1에 피해 9",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9366666666666666,
+"pw": 3.91,
+"pe": 3.91,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "성배",
+"text": "건물(체력 9) 설치, 이번 런 동안 유지 — 매 턴 아군 1 체력 3 회복",
+"cost": "마나 4 + 광석 4 + 골드 4",
+"role": "build",
+"life": "run",
+"verbs": [
+"heal"
+],
+"p1": 0.61,
+"pw": 3.876666666666667,
+"pe": 3.876666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "세계수수액",
+"text": "골드 1 획득; 골드 1 채집",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money",
+"harvest"
+],
+"p1": 0.36,
+"pw": 1.85,
+"pe": 1.11,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "드래곤브레스",
+"text": "직선 3칸의 적에 피해 6",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9733333333333333,
+"pw": 2.9433333333333334,
+"pe": 2.9433333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "묵시록",
+"text": "2턴 뒤: 맵 전체의 적에 피해 3; 주머니 위 3개 확인",
+"cost": "마나 4",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"peek"
+],
+"p1": 0.49666666666666665,
+"pw": 3.83,
+"pe": 3.2555,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "아포칼립스",
+"text": "맵 전체의 적에 피해 4 ＋ 위험: 사용자도 피해",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9566666666666667,
+"pw": 4.073333333333333,
+"pe": 4.073333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "영혼수확자",
+"text": "사망 시 발동 — 적 1에게서 골드 6 탈취 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.41,
+"pw": 3.09,
+"pe": 2.6264999999999996,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마검",
+"text": "적 1에 피해 6",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9333333333333333,
+"pw": 2.59,
+"pe": 2.59,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "억까",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.3433333333333333,
+"pw": 1.1666666666666665,
+"pe": 0.6999999999999998,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "날먹",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.2833333333333333,
+"pw": 0.9566666666666667,
+"pe": 0.574,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "극딜",
+"text": "적 1에 피해 6",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9533333333333333,
+"pw": 2.28,
+"pe": 2.28,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "가성비",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득",
+"cost": "마나 1 + 골드 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.7566666666666667,
+"pw": 0.7,
+"pe": 0.7,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "창렬",
+"text": "병사(체력 4) 소환, 이번 스테이지 동안 — 매 턴 아군 1 공격 +1",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"buff"
+],
+"p1": 0.25333333333333335,
+"pw": 2.2266666666666666,
+"pe": 1.3359999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "혜자",
+"text": "정령(체력 3) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.26333333333333336,
+"pw": 1.6466666666666667,
+"pe": 0.988,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "존버",
+"text": "이번 스테이지 동안 아군 1에 방어막 1",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.28,
+"pw": 0.7733333333333333,
+"pe": 0.46399999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "똥겜",
+"text": "주머니의 구슬 1개 영구 폐기",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash"
+],
+"p1": 0.5533333333333333,
+"pw": 0.36,
+"pe": 0.36,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "갓겜",
+"text": "골드 3 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.5066666666666667,
+"pw": 2.8333333333333335,
+"pe": 2.8333333333333335,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "누킹",
+"text": "주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9633333333333333,
+"pw": 3.0266666666666664,
+"pe": 3.0266666666666664,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "물몸",
+"text": "3턴 동안 매 턴 아군 1 체력 2 회복; 아군 1에 방어막 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"heal",
+"guard"
+],
+"p1": 0.22333333333333333,
+"pw": 1.5566666666666666,
+"pe": 0.9339999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "딜찍누",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.25,
+"pw": 1.1533333333333333,
+"pe": 0.692,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "뇌절",
+"text": "버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle"
+],
+"p1": 0.19,
+"pw": 0.63,
+"pe": 0.378,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "든든한국밥",
+"text": "아군 1 체력 2 회복",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"heal"
+],
+"p1": 0.31,
+"pw": 0.7666666666666667,
+"pe": 0.46,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "버스승객",
+"text": "일꾼(체력 2) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득; 구슬 1개 더 뽑기",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money",
+"draw"
+],
+"p1": 0.39,
+"pw": 0.7266666666666667,
+"pe": 0.436,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "막타",
+"text": "적 1에 피해 5",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.75,
+"pw": 2.13,
+"pe": 2.13,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "떡상",
+"text": "다음 구슬 효과 ×2; 골드 1 획득 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"amplify",
+"money"
+],
+"p1": 0.39,
+"pw": 1.8133333333333332,
+"pe": 1.0879999999999999,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "떡락",
+"text": "적 1에 피해 2 ＋ 효과 50~150% 무작위",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.25,
+"pw": 1.1133333333333333,
+"pe": 0.6679999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "민트초코",
+"text": "골드 1 획득; 식량 아이템 1개 생성",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money",
+"create"
+],
+"p1": 0.25666666666666665,
+"pw": 0.54,
+"pe": 0.324,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "침묵의나선",
+"text": "이번 스테이지 동안 주변 1칸의 적 행동 불가 1턴",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.6433333333333333,
+"pw": 2.47,
+"pe": 2.47,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "엔트로피",
+"text": "이번 스테이지 동안 매 턴 주머니의 구슬 1개 영구 폐기; 맵 전체의 땅 1개를 다른 것으로 변환 ＋ 효과 50~150% 무작위",
+"cost": "마나 4",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"trash",
+"transform"
+],
+"p1": 0.24333333333333335,
+"pw": 3.3366666666666664,
+"pe": 2.002,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "인과율",
+"text": "2턴 뒤: 버린 구슬 1개를 주머니로 되돌림; 다음 구슬 효과 ×2 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle",
+"amplify"
+],
+"p1": 0.37,
+"pw": 3.78,
+"pe": 2.268,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "허무",
+"text": "주머니의 구슬 1개 영구 폐기; 맵 전체의 아군의 효과 1개 제거",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash",
+"remove"
+],
+"p1": 0.5066666666666667,
+"pw": 1.2533333333333334,
+"pe": 1.2533333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "절망",
+"text": "맵 전체의 적 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"debuff"
+],
+"p1": 0.7933333333333333,
+"pw": 1.8466666666666667,
+"pe": 1.8466666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "질투",
+"text": "적 1에게서 골드 4 탈취",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.5266666666666667,
+"pw": 1.25,
+"pe": 1.25,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "탐욕",
+"text": "골드 2 획득; 적 1에게서 골드 3 탈취",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money",
+"steal"
+],
+"p1": 0.61,
+"pw": 1.65,
+"pe": 1.65,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "나태",
+"text": "1턴 뒤: 3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.65,
+"pw": 0.7166666666666667,
+"pe": 0.7166666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "열등감",
+"text": "3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.7,
+"pw": 0.4666666666666667,
+"pe": 0.4666666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자본주의",
+"text": "건물(체력 7) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 5 + 골드 3 + 골드 3",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.9766666666666667,
+"pw": 2.9533333333333336,
+"pe": 2.9533333333333336,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "공리주의",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.39,
+"pw": 1.7666666666666666,
+"pe": 1.0599999999999998,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "데자뷔",
+"text": "매 턴: 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle"
+],
+"p1": 0.9033333333333333,
+"pw": 1.41,
+"pe": 1.41,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "망각",
+"text": "주머니의 구슬 1개 영구 폐기",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash"
+],
+"p1": 0.8233333333333333,
+"pw": 2.9166666666666665,
+"pe": 2.9166666666666665,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "고독",
+"text": "3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.35333333333333333,
+"pw": 1.13,
+"pe": 0.6779999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "트라우마",
+"text": "3턴 동안 적 1 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.7233333333333333,
+"pw": 1.19,
+"pe": 1.19,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "아이러니",
+"text": "버린 구슬 1개를 주머니로 되돌림; 땅 1 1개를 다른 것으로 변환",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle",
+"transform"
+],
+"p1": 0.42333333333333334,
+"pw": 0.6466666666666667,
+"pe": 0.5496666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "우울",
+"text": "3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.8333333333333333,
+"pw": 0.7866666666666667,
+"pe": 0.7866666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "광기",
+"text": "이번 스테이지 동안 적 1 공격 -1 ＋ 효과 50~150% 무작위",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 0.4866666666666667,
+"pw": 2.22,
+"pe": 1.887,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "희생",
+"text": "적 1에 피해 3 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.35333333333333333,
+"pw": 1.8066666666666666,
+"pe": 1.0839999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "카타르시스",
+"text": "아군 1의 효과 1개 제거",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"remove"
+],
+"p1": 0.6233333333333333,
+"pw": 2.5366666666666666,
+"pe": 2.5366666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "윤회",
+"text": "5칸 이동 후 사망 시 발동 — 이번 런 동안 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 6",
+"role": "move",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.9933333333333333,
+"pw": 3.17,
+"pe": 3.17,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "바나나껍질",
+"text": "적이 다가오면 발동 — 3턴 동안 적 1 공격 -1; 적 1 행동 불가 1턴",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"control"
+],
+"p1": 0.4033333333333333,
+"pw": 0.1366666666666667,
+"pe": 0.11616666666666668,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "레고블록",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 1회용 아이템 1개 생성",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create"
+],
+"p1": 0.7533333333333333,
+"pw": 0.6633333333333333,
+"pe": 0.6633333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "젖은수건",
+"text": "아군 1의 효과 1개 제거",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"remove"
+],
+"p1": 0.3933333333333333,
+"pw": 0.23,
+"pe": 0.138,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "USB메모리",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.4033333333333333,
+"pw": 0.7133333333333333,
+"pe": 0.6063333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "압정",
+"text": "건물(체력 1) 설치, 이번 런 동안 유지 — 매 턴 적 1 행동 불가 1턴",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"control"
+],
+"p1": 0.6566666666666666,
+"pw": 0.21,
+"pe": 0.21,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "커피머신",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득; 마나 +1; 식량 아이템 1개 생성",
+"cost": "마나 3 + 식량 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money",
+"energy",
+"create"
+],
+"p1": 0.28,
+"pw": 0.7533333333333333,
+"pe": 0.45199999999999996,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "뽁뽁이",
+"text": "짐승(체력 2) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.18333333333333332,
+"pw": 0.51,
+"pe": 0.306,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "진공청소기",
+"text": "주머니의 구슬 1개 영구 폐기; 구슬 1개 더 뽑기; 주변 1칸의 아군의 효과 1개 제거",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash",
+"draw",
+"remove"
+],
+"p1": 0.44666666666666666,
+"pw": 0.8533333333333333,
+"pe": 0.7253333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "지우개",
+"text": "아군 1의 효과 1개 제거",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"remove"
+],
+"p1": 0.9733333333333333,
+"pw": 0.39,
+"pe": 0.39,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "박스테이프",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create"
+],
+"p1": 0.4166666666666667,
+"pw": 0.7266666666666667,
+"pe": 0.6176666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "각설탕",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.35,
+"pw": 0.53,
+"pe": 0.318,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "이태리타월",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 아군 1 체력 1 회복",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"heal"
+],
+"p1": 0.24333333333333335,
+"pw": 0.7766666666666667,
+"pe": 0.466,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "모기향",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적 공격 -1; 주변 1칸의 적에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.31666666666666665,
+"pw": 0.5266666666666667,
+"pe": 0.316,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "파리채",
+"text": "적 1에 피해 1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.49333333333333335,
+"pw": 0.29333333333333333,
+"pe": 0.24933333333333332,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "젖은신문지",
+"text": "주머니의 구슬 1개 영구 폐기 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash"
+],
+"p1": 0.42,
+"pw": 0.16666666666666666,
+"pe": 0.14166666666666666,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "종이비행기",
+"text": "2칸 이동 후 이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo"
+],
+"p1": 0.38333333333333336,
+"pw": 0.2,
+"pe": 0.12,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "고무줄",
+"text": "2칸 이동 후 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.52,
+"pw": 0.33,
+"pe": 0.33,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "이쑤시개",
+"text": "적 1에 피해 3",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.32,
+"pw": 1.6033333333333333,
+"pe": 0.962,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "돋보기",
+"text": "주머니 위 2개 확인",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"peek"
+],
+"p1": 0.9366666666666666,
+"pw": 0.66,
+"pe": 0.66,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "형광펜",
+"text": "3턴 동안 매 턴 주머니 위 2개 확인",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"peek"
+],
+"p1": 0.28,
+"pw": 0.46,
+"pe": 0.276,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "아드레날린",
+"text": "3턴 동안 매 턴 아군 1 공격 +1; 이번 턴 행동 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"buff",
+"tempo"
+],
+"p1": 0.5366666666666667,
+"pw": 1.1466666666666667,
+"pe": 1.1466666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "파상풍",
+"text": "1턴 뒤: 적 1에 피해 3; 적 1 공격 -1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.43,
+"pw": 1.3733333333333333,
+"pe": 1.1673333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "동맥경화",
+"text": "1턴 뒤: 3턴 동안 적 1 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.7733333333333333,
+"pw": 1.2766666666666666,
+"pe": 1.2766666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "카페인쇼크",
+"text": "이번 턴 행동 +1; 마나 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"tempo",
+"energy"
+],
+"p1": 0.3166666666666667,
+"pw": 1.7533333333333334,
+"pe": 1.052,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "편두통",
+"text": "3턴 동안 매 턴 적 1 공격 -1; 적 1에 피해 1 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.5433333333333333,
+"pw": 0.6133333333333333,
+"pe": 0.6133333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "젖산축적",
+"text": "1턴 뒤: 3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.6266666666666667,
+"pw": 0.87,
+"pe": 0.87,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "저혈당",
+"text": "3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.5166666666666667,
+"pw": 0.6033333333333333,
+"pe": 0.6033333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "복합골절",
+"text": "적 1에 피해 4",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.6866666666666666,
+"pw": 1.3333333333333335,
+"pe": 1.3333333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "뇌진탕",
+"text": "주변 1칸의 적에 피해 3; 주변 1칸의 적 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.51,
+"pw": 2.2866666666666666,
+"pe": 2.2866666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "급성위염",
+"text": "3턴 동안 매 턴 적 1 공격 -1; 적 1에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.45999999999999996,
+"pw": 0.7133333333333333,
+"pe": 0.6063333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "면역결핍",
+"text": "이번 스테이지 동안 적 1 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 0.9033333333333333,
+"pw": 1.8066666666666666,
+"pe": 1.8066666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "호르몬폭주",
+"text": "이번 스테이지 동안 매 턴 다음 구슬 효과 ×2; 아군 1 공격 +1 ＋ 효과 50~150% 무작위",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"amplify",
+"buff"
+],
+"p1": 0.34,
+"pw": 2.6166666666666667,
+"pe": 1.57,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "동상",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 적 1 행동 불가 1턴",
+"cost": "마나 2 + 광석 2 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"control"
+],
+"p1": 0.5033333333333334,
+"pw": 1.53,
+"pe": 1.53,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "탈수",
+"text": "적 1에게서 골드 4 탈취",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.4066666666666667,
+"pw": 1.5633333333333335,
+"pe": 1.3288333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "과호흡",
+"text": "3턴 동안 매 턴 마나 +1; 적 1 공격 -1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"energy",
+"debuff"
+],
+"p1": 0.21333333333333335,
+"pw": 0.8266666666666667,
+"pe": 0.496,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "환각",
+"text": "이번 스테이지 동안 매 턴 땅 1 1개를 다른 것으로 변환; 적 1 공격 -1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"transform",
+"debuff"
+],
+"p1": 0.4166666666666667,
+"pw": 1.9333333333333333,
+"pe": 1.6433333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "심실세동",
+"text": "3턴 동안 매 턴 적 1 공격 -1; 적 1에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.30666666666666664,
+"pw": 1.41,
+"pe": 0.846,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "세포괴사",
+"text": "적 1에 피해 5",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9,
+"pw": 1.84,
+"pe": 1.84,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "신경마비",
+"text": "이번 스테이지 동안 적 1 행동 불가 1턴",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.8099999999999999,
+"pw": 2.0733333333333333,
+"pe": 2.0733333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "도파민과다",
+"text": "3턴 동안 매 턴 다음 구슬 효과 ×2; 아군 1 공격 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"amplify",
+"buff"
+],
+"p1": 0.3666666666666667,
+"pw": 1.5366666666666666,
+"pe": 0.9219999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자폭",
+"text": "주변 1칸의 적에 피해 3 ＋ 위험: 사용자도 피해 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.96,
+"pw": 1.9166666666666667,
+"pe": 1.9166666666666667,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "동귀어진",
+"text": "3칸 이동 후 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"recycle"
+],
+"p1": 0.25333333333333335,
+"pw": 2.533333333333333,
+"pe": 1.5199999999999998,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "폭주",
+"text": "이번 스테이지 동안 매 턴 이번 턴 행동 +1 ＋ 효과 50~150% 무작위",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"tempo"
+],
+"p1": 0.61,
+"pw": 2.486666666666667,
+"pe": 2.486666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "엔진과열",
+"text": "3턴 동안 매 턴 적 1에 피해 2; 적 1 공격 -1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.41,
+"pw": 1.1033333333333333,
+"pe": 0.9378333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "유리대포",
+"text": "직선 3칸의 적에 피해 5",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9633333333333333,
+"pw": 2.3133333333333335,
+"pe": 2.3133333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "시한폭탄",
+"text": "2턴 뒤: 이번 스테이지 동안 매 턴 주변 1칸의 적에 피해 1 ＋ 위험: 사용자도 피해 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.9516666666666667,
+"pw": 2.138333333333333,
+"pe": 2.138333333333333,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "흡혈역류",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적에게서 골드 1 탈취 ＋ 위험: 사용자도 피해",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"steal"
+],
+"p1": 0.6799999999999999,
+"pw": 2.64,
+"pe": 2.64,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "영혼저당",
+"text": "적 1에게서 골드 4 탈취; 골드 1 획득 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal",
+"money"
+],
+"p1": 0.2866666666666667,
+"pw": 2.8000000000000003,
+"pe": 1.6800000000000002,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "생명력제물",
+"text": "아군 1 체력 4 회복; 적 1에 피해 2 ＋ 위험: 사용자도 피해 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"heal",
+"damage"
+],
+"p1": 0.3,
+"pw": 2.1166666666666667,
+"pe": 1.27,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "피아식별불가",
+"text": "땅 1 1개를 다른 것으로 변환; 주머니 위 2개 확인",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"transform",
+"peek"
+],
+"p1": 0.30333333333333334,
+"pw": 1.55,
+"pe": 0.9299999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "오버클럭",
+"text": "이번 스테이지 동안 매 턴 이번 턴 행동 +1; 아군 1 공격 +1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"tempo",
+"buff"
+],
+"p1": 0.5766666666666667,
+"pw": 1.9766666666666666,
+"pe": 1.9766666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "방사능오염",
+"text": "이번 런 동안 주변 1칸의 적 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 3",
+"role": "cast",
+"life": "run",
+"verbs": [
+"debuff"
+],
+"p1": 0.8433333333333333,
+"pw": 2.28,
+"pe": 2.28,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "저주받은피",
+"text": "이번 스테이지 동안 적 1 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 0.76,
+"pw": 1.9766666666666666,
+"pe": 1.9766666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "부메랑",
+"text": "버린 구슬 1개를 주머니로 되돌림; 직선 3칸의 적에 피해 2",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle",
+"damage"
+],
+"p1": 0.655,
+"pw": 1.115,
+"pe": 1.115,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "잔탄소진",
+"text": "3턴 동안 매 턴 주변 1칸의 적에 피해 1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"damage"
+],
+"p1": 0.18666666666666668,
+"pw": 2.2033333333333336,
+"pe": 1.322,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "누전",
+"text": "주변 1칸의 적에 피해 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.5666666666666667,
+"pw": 1.0266666666666666,
+"pe": 1.0266666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "역풍",
+"text": "주변 1칸의 적 행동 불가 1턴; 주변 1칸의 적 공격 -1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"control",
+"debuff"
+],
+"p1": 0.47,
+"pw": 2.04,
+"pe": 1.734,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자해공갈",
+"text": "적 1에 피해 3 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.41333333333333333,
+"pw": 0.99,
+"pe": 0.8415,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "파멸의계약",
+"text": "이번 런 동안 매 턴 적 1에 피해 1 ＋ 위험: 사용자도 피해",
+"cost": "마나 4",
+"role": "cast",
+"life": "run",
+"verbs": [
+"damage"
+],
+"p1": 0.76,
+"pw": 3.506666666666667,
+"pe": 3.506666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "붕괴위험",
+"text": "2턴 뒤: 주변 1칸의 적에 피해 3",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.71,
+"pw": 2.21,
+"pe": 2.21,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "냥냥펀치",
+"text": "적 1에 피해 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.97,
+"pw": 0.7033333333333334,
+"pe": 0.7033333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "쌉가능",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.17,
+"pw": 0.9866666666666667,
+"pe": 0.592,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "어둠의다크",
+"text": "이번 스테이지 동안 매 턴 적 1에 피해 1; 적 1 공격 -1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage",
+"debuff"
+],
+"p1": 0.52,
+"pw": 2.3066666666666666,
+"pe": 2.3066666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "운명의데스티니",
+"text": "주머니 위 3개 확인 ＋ 효과 50~150% 무작위",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"peek"
+],
+"p1": 0.66,
+"pw": 3.5033333333333334,
+"pe": 3.5033333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "폭발폭발폭발",
+"text": "주변 1칸의 적에 피해 3",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9533333333333333,
+"pw": 2.3933333333333335,
+"pe": 2.3933333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "불얼음번개독",
+"text": "이번 스테이지 동안 매 턴 적 1에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.8066666666666666,
+"pw": 2.9533333333333336,
+"pe": 2.9533333333333336,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "이것은구슬이다",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create"
+],
+"p1": 0.5533333333333333,
+"pw": 0.44666666666666666,
+"pe": 0.44666666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "아무것도아님",
+"text": "주머니의 구슬 1개 영구 폐기; 아군 1의 효과 1개 제거",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash",
+"remove"
+],
+"p1": 0.6166666666666667,
+"pw": 0.14,
+"pe": 0.14,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "테스트용구슬1호",
+"text": "1회용 아이템 1개 생성",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"create"
+],
+"p1": 0.3433333333333333,
+"pw": 0.25333333333333335,
+"pe": 0.152,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "123456789",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.32,
+"pw": 0.5499999999999999,
+"pe": 0.32999999999999996,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "물음표느낌표",
+"text": "주머니 위 2개 확인",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"peek"
+],
+"p1": 0.5566666666666668,
+"pw": 0.30333333333333334,
+"pe": 0.30333333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무지개빛총공격",
+"text": "맵 전체의 적에 피해 3",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9866666666666667,
+"pw": 3.19,
+"pe": 3.19,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "내일월요일",
+"text": "1턴 뒤: 3턴 동안 매 턴 주머니 위 2개 확인",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"peek"
+],
+"p1": 0.7366666666666667,
+"pw": 0.36333333333333334,
+"pe": 0.36333333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "칼퇴근",
+"text": "2칸 이동 후 이번 턴 행동 +1; 골드 1 획득",
+"cost": "마나 2",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo",
+"money"
+],
+"p1": 0.23666666666666666,
+"pw": 0.6766666666666666,
+"pe": 0.40599999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "기가차드",
+"text": "병사(체력 5) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.4033333333333333,
+"pw": 2.1533333333333333,
+"pe": 1.8303333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "최후의만찬",
+"text": "맵 전체의 적에 피해 2 ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.27666666666666667,
+"pw": 3.0733333333333333,
+"pe": 1.8439999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "갓난아기주먹",
+"text": "적 1에 피해 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.8833333333333333,
+"pw": 0.51,
+"pe": 0.51,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "핵폭탄급방귀",
+"text": "주변 1칸의 적에 피해 4 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.76,
+"pw": 2.97,
+"pe": 2.97,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "제로수렴",
+"text": "1턴 뒤: 맵 전체의 아군의 효과 1개 제거",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"remove"
+],
+"p1": 0.18333333333333335,
+"pw": 2.5733333333333333,
+"pe": 1.5439999999999998,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무한대발산",
+"text": "매 턴: 다음 구슬 효과 ×2 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"amplify"
+],
+"p1": 0.6866666666666666,
+"pw": 3.9466666666666668,
+"pe": 3.9466666666666668,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "화염검",
+"text": "적 1에 피해 6",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 1.0,
+"pw": 2.3966666666666665,
+"pe": 2.3966666666666665,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "방패",
+"text": "피격 시 발동 — 3턴 동안 아군 1에 방어막 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"guard"
+],
+"p1": 1.0,
+"pw": 1.0933333333333335,
+"pe": 1.0933333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "치유의 샘",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 아군 체력 1 회복",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"heal"
+],
+"p1": 0.99,
+"pw": 2.04,
+"pe": 2.04,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "금화 주머니",
+"text": "골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 1.0,
+"pw": 0.9533333333333333,
+"pe": 0.9533333333333333,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "곡괭이",
+"text": "광석 1 채집",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"harvest"
+],
+"p1": 0.95,
+"pw": 0.9533333333333333,
+"pe": 0.9533333333333333,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "씨앗",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 1턴 뒤: 땅 1의 식물 1 성장 → 식량 생산 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 1 + 식량 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"grow"
+],
+"p1": 0.9866666666666667,
+"pw": 0.66,
+"pe": 0.66,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "텃밭",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 땅 1의 식물 1 성장 → 식량 생산; 식량 1 채집",
+"cost": "마나 2 + 식량 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"grow",
+"harvest"
+],
+"p1": 0.7,
+"pw": 0.6433333333333333,
+"pe": 0.6433333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "성벽",
+"text": "건물(체력 5) 설치, 이번 런 동안 유지 — 매 턴 직선 3칸의 아군에 방어막 1",
+"cost": "마나 2 + 광석 2 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard"
+],
+"p1": 0.9833333333333333,
+"pw": 1.9566666666666666,
+"pe": 1.9566666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "병사",
+"text": "병사(체력 3) 소환, 이번 스테이지 동안 — 매 턴 적 1에 피해 1",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.5333333333333333,
+"pw": 0.95,
+"pe": 0.95,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "순간이동",
+"text": "4칸 이동 후 이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo"
+],
+"p1": 0.7666666666666667,
+"pw": 2.546666666666667,
+"pe": 2.546666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "독",
+"text": "3턴 동안 적 1 공격 -1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff"
+],
+"p1": 0.73,
+"pw": 1.3333333333333333,
+"pe": 1.3333333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "함정",
+"text": "건물(체력 3) 설치, 이번 스테이지 동안 유지 — 매 턴 적이 다가오면 발동 — 1턴 뒤: 적 1 행동 불가 1턴",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.8966666666666667,
+"pw": 0.9333333333333333,
+"pe": 0.9333333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "폭풍",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적에 피해 1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.7733333333333333,
+"pw": 2.8166666666666664,
+"pe": 2.8166666666666664,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "화살",
+"text": "직선 3칸의 적에 피해 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.98,
+"pw": 0.8933333333333333,
+"pe": 0.8933333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "눈덩이",
+"text": "적 1 행동 불가 1턴 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.7,
+"pw": 0.8333333333333334,
+"pe": 0.8333333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "도박",
+"text": "골드 1 획득 ＋ 효과 50~150% 무작위",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.8666666666666667,
+"pw": 0.8733333333333333,
+"pe": 0.8733333333333333,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "저주",
+"text": "이번 스테이지 동안 적 1 공격 -1 ＋ 위험: 사용자도 피해",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff"
+],
+"p1": 1.0,
+"pw": 2.03,
+"pe": 2.03,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "얼음",
+"text": "3턴 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"control"
+],
+"p1": 0.9166666666666667,
+"pw": 1.3433333333333335,
+"pe": 1.3433333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "나침반",
+"text": "3칸 이동 후 주머니 위 2개 확인",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"peek"
+],
+"p1": 0.8333333333333333,
+"pw": 1.0966666666666667,
+"pe": 1.0966666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "수정 구슬",
+"text": "마나 +1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"energy"
+],
+"p1": 0.20333333333333334,
+"pw": 1.4533333333333334,
+"pe": 0.872,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "자석",
+"text": "3칸 이동 후 구슬 1개 더 뽑기",
+"cost": "마나 1",
+"role": "move",
+"life": "instant",
+"verbs": [
+"draw"
+],
+"p1": 0.93,
+"pw": 1.1533333333333333,
+"pe": 1.1533333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "파쇄기",
+"text": "주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9733333333333333,
+"pw": 2.62,
+"pe": 2.62,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "폭죽",
+"text": "주변 1칸의 적에 피해 2 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.97,
+"pw": 1.4966666666666666,
+"pe": 1.4966666666666666,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "포션",
+"text": "3턴 동안 매 턴 아군 1 체력 2 회복 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"heal"
+],
+"p1": 0.7733333333333333,
+"pw": 0.99,
+"pe": 0.99,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "망루",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 주변 1칸의 아군에 방어막 1",
+"cost": "마나 2 + 광석 2 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard"
+],
+"p1": 0.8033333333333333,
+"pw": 1.48,
+"pe": 1.48,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "거울",
+"text": "주머니 위 2개 확인; 땅 1 1개를 다른 것으로 변환",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"peek",
+"transform"
+],
+"p1": 0.5566666666666666,
+"pw": 1.58,
+"pe": 1.58,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "시계",
+"text": "1턴 뒤: 3턴 동안 매 턴 이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"tempo"
+],
+"p1": 0.5666666666666667,
+"pw": 1.1966666666666668,
+"pe": 1.1966666666666668,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "연금술",
+"text": "땅 1 1개를 다른 것으로 변환",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"transform"
+],
+"p1": 0.6566666666666667,
+"pw": 2.4333333333333336,
+"pe": 2.4333333333333336,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "이자",
+"text": "매 턴: 골드 1 획득 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.9,
+"pw": 0.91,
+"pe": 0.91,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "낮잠",
+"text": "3턴 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"control"
+],
+"p1": 0.75,
+"pw": 0.35,
+"pe": 0.35,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "모닥불",
+"text": "건물(체력 2) 설치, 이번 스테이지 동안 유지 — 매 턴 주변 1칸의 적에 피해 1; 주머니의 구슬 1개 영구 폐기",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"damage",
+"trash"
+],
+"p1": 0.25,
+"pw": 0.7666666666666667,
+"pe": 0.46,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "벌 떼",
+"text": "적대 짐승 웨이브 Lv2 소환 (처치 시 골드 4) ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.7033333333333334,
+"pw": 1.6966666666666665,
+"pe": 1.6966666666666665,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "산사태",
+"text": "주변 1칸의 적에 피해 4",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.6966666666666667,
+"pw": 2.4566666666666666,
+"pe": 2.4566666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "깃발",
+"text": "건물(체력 2) 설치, 이번 스테이지 동안 유지 — 매 턴 아군 1에 방어막 1; 아군 1 공격 +1",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"guard",
+"buff"
+],
+"p1": 0.3,
+"pw": 1.0166666666666666,
+"pe": 0.61,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "전쟁 북",
+"text": "주변 1칸의 적에 피해 3; 주변 1칸의 아군 공격 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"buff"
+],
+"p1": 0.51,
+"pw": 1.8733333333333333,
+"pe": 1.8733333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "안개",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적 공격 -1; 주머니 위 2개 확인",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff",
+"peek"
+],
+"p1": 0.38,
+"pw": 1.25,
+"pe": 0.75,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "부적",
+"text": "3턴 동안 아군 1에 방어막 2 ［주머니에 있으면 자동］",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"guard"
+],
+"p1": 0.6433333333333333,
+"pw": 1.42,
+"pe": 1.42,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "수박",
+"text": "식량 1 채집; 땅 1의 식물 1 성장 → 식량 생산",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"harvest",
+"grow"
+],
+"p1": 0.46,
+"pw": 0.6666666666666666,
+"pe": 0.5666666666666667,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "베개",
+"text": "건물(체력 2) 설치, 이번 스테이지 동안 유지 — 매 턴 적 1 행동 불가 1턴; 아군 1 체력 1 회복",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"control",
+"heal"
+],
+"p1": 0.5766666666666667,
+"pw": 0.39666666666666667,
+"pe": 0.39666666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "낡은 신발",
+"text": "2칸 이동 후 이번 턴 행동 +1; 주머니의 구슬 1개 영구 폐기",
+"cost": "마나 2",
+"role": "move",
+"life": "instant",
+"verbs": [
+"tempo",
+"trash"
+],
+"p1": 0.22666666666666666,
+"pw": 0.3466666666666667,
+"pe": 0.208,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "상인",
+"text": "일꾼(체력 3) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 1.0,
+"pw": 0.9833333333333333,
+"pe": 0.9833333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "도서관",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 주머니 위 2개 확인",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"peek"
+],
+"p1": 0.3566666666666667,
+"pw": 1.5233333333333334,
+"pe": 0.914,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "대장장이",
+"text": "일꾼(체력 4) 소환, 이번 스테이지 동안 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"create"
+],
+"p1": 0.9233333333333333,
+"pw": 1.3233333333333335,
+"pe": 1.3233333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "번개",
+"text": "직선 3칸의 적에 피해 4",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.94,
+"pw": 2.2466666666666666,
+"pe": 2.2466666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "운석",
+"text": "주변 1칸의 적에 피해 4 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.96,
+"pw": 2.79,
+"pe": 2.79,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "지진",
+"text": "주변 1칸의 적에 피해 4 ＋ 효과 50~150% 무작위",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.9266666666666666,
+"pw": 2.9233333333333333,
+"pe": 2.9233333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "불사조",
+"text": "짐승(체력 9) 소환, 이번 스테이지 동안 — 매 턴 사망 시 발동 — 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"recycle"
+],
+"p1": 0.9166666666666667,
+"pw": 3.7933333333333334,
+"pe": 3.7933333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "가시덤불",
+"text": "건물(체력 3) 설치, 이번 스테이지 동안 유지 — 매 턴 적이 다가오면 발동 — 주변 1칸의 적 행동 불가 1턴; 주변 1칸의 아군에 방어막 1",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"control",
+"guard"
+],
+"p1": 0.45,
+"pw": 0.9866666666666667,
+"pe": 0.8386666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "투명 망토",
+"text": "3턴 동안 매 턴 아군 1에 방어막 2; 주머니 위 2개 확인",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"guard",
+"peek"
+],
+"p1": 0.4066666666666667,
+"pw": 1.6433333333333333,
+"pe": 1.3968333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "양봉장",
+"text": "건물(체력 3) 설치, 이번 스테이지 동안 유지 — 매 턴 땅 1의 식물 1 성장 → 식량 생산; 식량 1 채집 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 2 + 식량 2 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"grow",
+"harvest"
+],
+"p1": 0.43333333333333335,
+"pw": 1.24,
+"pe": 1.054,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "새로운 시작",
+"text": "버린 구슬 1개를 주머니로 되돌림; 1회용 아이템 1개 생성 ［1회용］",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"recycle",
+"create"
+],
+"p1": 0.44,
+"pw": 0.8633333333333333,
+"pe": 0.7338333333333332,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "used_up"
+},
+{
+"name": "복권",
+"text": "골드 1 획득 ＋ 효과 50~150% 무작위 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.9266666666666667,
+"pw": 0.9533333333333334,
+"pe": 0.9533333333333334,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "used_up"
+},
+{
+"name": "피리",
+"text": "주변 1칸의 적 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.24666666666666667,
+"pw": 0.79,
+"pe": 0.474,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "블랙홀",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적 행동 불가 2턴; 구슬 2개 더 뽑기",
+"cost": "마나 5",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control",
+"draw"
+],
+"p1": 0.44999999999999996,
+"pw": 4.006666666666667,
+"pe": 3.405666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "통나무",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 나무 1 채집",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"harvest"
+],
+"p1": 0.6866666666666666,
+"pw": 0.7266666666666667,
+"pe": 0.7266666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "오두막",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 아군 1에 방어막 1; 나무 아이템 1개 생성; 나무 1 채집",
+"cost": "마나 3 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard",
+"create",
+"harvest"
+],
+"p1": 0.35333333333333333,
+"pw": 0.6866666666666666,
+"pe": 0.412,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "판자",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 나무 아이템 1개 생성; 나무 1 채집",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create",
+"harvest"
+],
+"p1": 0.5066666666666667,
+"pw": 0.55,
+"pe": 0.55,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "제재소",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 적 1 행동 불가 1턴; 골드 1 획득",
+"cost": "마나 2 + 골드 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"control",
+"money"
+],
+"p1": 0.29333333333333333,
+"pw": 1.52,
+"pe": 0.9119999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "참나무",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 땅 1의 식물 1 성장 → 나무 생산; 나무 1 채집",
+"cost": "마나 2 + 나무 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"grow",
+"harvest"
+],
+"p1": 0.43,
+"pw": 1.4233333333333333,
+"pe": 1.2098333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "장작",
+"text": "3턴 동안 매 턴 마나 +1; 나무 1 채집",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"energy",
+"harvest"
+],
+"p1": 0.49,
+"pw": 0.62,
+"pe": 0.527,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "철광석",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 광석 1 채집 ［1회용］",
+"cost": "마나 1 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"harvest"
+],
+"p1": 0.83,
+"pw": 0.8066666666666666,
+"pe": 0.8066666666666666,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "대장간",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 1 + 광석 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create"
+],
+"p1": 0.8200000000000001,
+"pw": 1.3433333333333335,
+"pe": 1.3433333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "보석",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득",
+"cost": "마나 2 + 광석 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.8833333333333333,
+"pw": 1.3733333333333333,
+"pe": 1.3733333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "갑옷",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 아군 1에 방어막 1",
+"cost": "마나 1 + 광석 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard"
+],
+"p1": 0.95,
+"pw": 1.2266666666666666,
+"pe": 1.2266666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "석상",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 아군 1에 방어막 1; 적 1 행동 불가 1턴",
+"cost": "마나 2 + 광석 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard",
+"control"
+],
+"p1": 0.4066666666666667,
+"pw": 1.6,
+"pe": 1.36,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "쇠사슬",
+"text": "3턴 동안 직선 3칸의 적 행동 불가 1턴 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"control"
+],
+"p1": 0.9633333333333333,
+"pw": 1.16,
+"pe": 1.16,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "빵",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 식량 아이템 1개 생성; 골드 1 획득",
+"cost": "마나 2 + 식량 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"create",
+"money"
+],
+"p1": 0.38333333333333336,
+"pw": 0.6033333333333333,
+"pe": 0.36199999999999993,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "사과",
+"text": "땅 1의 식물 1 성장 → 식량 생산; 식량 1 채집",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"grow",
+"harvest"
+],
+"p1": 0.34,
+"pw": 0.5166666666666667,
+"pe": 0.31,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "스튜",
+"text": "아군 1 체력 2 회복",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"heal"
+],
+"p1": 0.23333333333333334,
+"pw": 0.7033333333333334,
+"pe": 0.422,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "밀밭",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 식량 1 채집",
+"cost": "마나 2 + 식량 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"harvest"
+],
+"p1": 0.7233333333333333,
+"pw": 1.1033333333333333,
+"pe": 1.1033333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "닭",
+"text": "짐승(체력 2) 소환, 이번 스테이지 동안 — 매 턴 땅 1의 식물 1 성장 → 식량 생산",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"grow"
+],
+"p1": 0.55,
+"pw": 0.7466666666666667,
+"pe": 0.7466666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "물고기",
+"text": "짐승(체력 3) 소환, 이번 스테이지 동안 — 매 턴 식량 1 채집; 구슬 1개 더 뽑기",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"harvest",
+"draw"
+],
+"p1": 0.5133333333333333,
+"pw": 0.7933333333333333,
+"pe": 0.7933333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "보물상자",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득",
+"cost": "마나 2 + 골드 2 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.9233333333333333,
+"pw": 1.4233333333333333,
+"pe": 1.4233333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "은행",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득 ＋ 사용할 때마다 +1 성장",
+"cost": "마나 1 + 골드 2 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 1.0,
+"pw": 1.2966666666666666,
+"pe": 1.2966666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "월급",
+"text": "매 턴: 골드 1 획득",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"money"
+],
+"p1": 0.99,
+"pw": 0.7166666666666667,
+"pe": 0.7166666666666667,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "상점",
+"text": "건물(체력 3) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득",
+"cost": "마나 1 + 골드 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money"
+],
+"p1": 0.99,
+"pw": 0.89,
+"pe": 0.89,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "분노",
+"text": "이번 스테이지 동안 매 턴 적 1에 피해 1",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.86,
+"pw": 1.84,
+"pe": 1.84,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "용기",
+"text": "아군 1 공격 +2 ［주머니에 있으면 자동］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"buff"
+],
+"p1": 0.95,
+"pw": 1.4866666666666666,
+"pe": 1.4866666666666666,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "기사",
+"text": "병사(체력 4) 소환, 이번 스테이지 동안 — 매 턴 적 1에 피해 1; 아군 1에 방어막 1",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage",
+"guard"
+],
+"p1": 0.4033333333333333,
+"pw": 1.7333333333333334,
+"pe": 1.4733333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "궁수",
+"text": "병사(체력 3) 소환, 이번 스테이지 동안 — 매 턴 적 1에 피해 1",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.8566666666666667,
+"pw": 1.0566666666666666,
+"pe": 1.0566666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "농부",
+"text": "일꾼(체력 2) 소환, 이번 스테이지 동안 — 매 턴 땅 1의 식물 1 성장 → 식량 생산; 식량 1 채집",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"grow",
+"harvest"
+],
+"p1": 0.4966666666666667,
+"pw": 0.81,
+"pe": 0.6885,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "일꾼",
+"text": "일꾼(체력 2) 소환, 이번 스테이지 동안 — 매 턴 자원 1 채집; 골드 1 획득",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"harvest",
+"money"
+],
+"p1": 0.41333333333333333,
+"pw": 0.7366666666666667,
+"pe": 0.6261666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마을주민",
+"text": "일꾼(체력 2) 소환, 이번 스테이지 동안 — 매 턴 골드 1 획득; 1회용 아이템 1개 생성 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"money",
+"create"
+],
+"p1": 0.26666666666666666,
+"pw": 0.83,
+"pe": 0.49799999999999994,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "늑대",
+"text": "적대 짐승 웨이브 Lv2 소환 (처치 시 골드 4)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.7466666666666667,
+"pw": 1.6333333333333333,
+"pe": 1.6333333333333333,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "곰",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.29333333333333333,
+"pw": 1.4533333333333334,
+"pe": 0.872,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "드래곤",
+"text": "적대 짐승 웨이브 Lv3 소환 (처치 시 골드 6)",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.8133333333333334,
+"pw": 3.4366666666666665,
+"pe": 3.4366666666666665,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "슬라임",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.24333333333333335,
+"pw": 0.7066666666666667,
+"pe": 0.424,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "고블린",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"steal",
+"create"
+],
+"p1": 0.26666666666666666,
+"pw": 0.8466666666666667,
+"pe": 0.508,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "해골",
+"text": "적대 정령 웨이브 Lv2 소환 (처치 시 골드 4)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.76,
+"pw": 1.5433333333333334,
+"pe": 1.5433333333333334,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "좀비",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2) ＋ 사용할 때마다 +1 성장",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"recycle",
+"damage"
+],
+"p1": 0.42666666666666664,
+"pw": 1.26,
+"pe": 1.071,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "유령",
+"text": "적대 정령 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"recycle",
+"remove"
+],
+"p1": 0.22999999999999998,
+"pw": 1.6366666666666665,
+"pe": 0.9819999999999999,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "정령",
+"text": "정령(체력 3) 소환, 이번 스테이지 동안 — 매 턴 1회용 아이템 1개 생성",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"create"
+],
+"p1": 0.29333333333333333,
+"pw": 2.07,
+"pe": 1.2419999999999998,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "천사",
+"text": "정령(체력 7) 소환, 이번 스테이지 동안 — 매 턴 아군 1 체력 2 회복",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"heal"
+],
+"p1": 0.6133333333333333,
+"pw": 3.0433333333333334,
+"pe": 3.0433333333333334,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "악마",
+"text": "적대 정령 웨이브 Lv2 소환 (처치 시 골드 4) ＋ 위험: 사용자도 피해",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage"
+],
+"p1": 0.78,
+"pw": 2.8833333333333333,
+"pe": 2.8833333333333333,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "요정",
+"text": "정령(체력 2) 소환, 이번 스테이지 동안 — 매 턴 아군 1 공격 +1",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"buff"
+],
+"p1": 0.27,
+"pw": 1.2466666666666666,
+"pe": 0.7479999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "골렘",
+"text": "기계(체력 6) 소환, 이번 스테이지 동안 동안 — 매 턴 아군 1에 방어막 2; 적 1에 피해 1",
+"cost": "마나 3",
+"role": "summon",
+"life": "stage",
+"verbs": [
+"guard",
+"damage"
+],
+"p1": 0.48333333333333334,
+"pw": 2.8266666666666667,
+"pe": 2.4026666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "로봇",
+"text": "기계(체력 2) 소환, 이번 스테이지 동안 — 매 턴 광석 아이템 1개 생성",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"create"
+],
+"p1": 0.2833333333333333,
+"pw": 1.18,
+"pe": 0.708,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "허수아비",
+"text": "기계(체력 2) 소환, 이번 스테이지 동안 동안 — 매 턴 아군 1에 방어막 1",
+"cost": "마나 1",
+"role": "summon",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.36666666666666664,
+"pw": 0.4633333333333333,
+"pe": 0.27799999999999997,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "수호신",
+"text": "정령(체력 7) 소환, 이번 스테이지 동안 동안 — 매 턴 아군 1에 방어막 2 ［주머니에 있으면 자동］",
+"cost": "마나 3",
+"role": "summon",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.97,
+"pw": 3.1966666666666668,
+"pe": 3.1966666666666668,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "도적",
+"text": "적대 병사 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.96,
+"pw": 1.01,
+"pe": 1.01,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "마법사",
+"text": "적 1에 피해 3; 아군 1 공격 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"damage",
+"buff"
+],
+"p1": 0.30333333333333334,
+"pw": 1.9366666666666665,
+"pe": 1.162,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "용사",
+"text": "병사(체력 6) 소환, 이번 스테이지 동안 — 매 턴 적 1에 피해 2; 아군 1 공격 +1",
+"cost": "마나 2",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"damage",
+"buff"
+],
+"p1": 0.4033333333333333,
+"pw": 2.8966666666666665,
+"pe": 2.4621666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "쥐떼",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"steal"
+],
+"p1": 0.2733333333333333,
+"pw": 1.3066666666666666,
+"pe": 0.7839999999999999,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "거미",
+"text": "적대 짐승 웨이브 Lv1 소환 (처치 시 골드 2)",
+"cost": "마나 1",
+"role": "summon",
+"life": "instant",
+"verbs": [
+"control"
+],
+"p1": 0.83,
+"pw": 0.93,
+"pe": 0.93,
+"notes": [
+"적을 부르는 구슬: 위험 감수 보상형"
+],
+"fate": "returns"
+},
+{
+"name": "영원",
+"text": "건물(체력 8) 설치, 이번 런 동안 유지 — 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 6 + 나무 4 + 골드 3",
+"role": "build",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.8966666666666667,
+"pw": 3.6533333333333333,
+"pe": 3.6533333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "불멸",
+"text": "이번 런 동안 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 4",
+"role": "cast",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.91,
+"pw": 3.8933333333333335,
+"pe": 3.8933333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "영구기관",
+"text": "건물(체력 9) 설치, 이번 런 동안 유지 — 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 4 + 나무 4 + 골드 4",
+"role": "build",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.7266666666666667,
+"pw": 3.96,
+"pe": 3.96,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "영원한불꽃",
+"text": "이번 스테이지 동안 매 턴 버린 구슬 1개를 주머니로 되돌림; 적 1에 피해 1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"recycle",
+"damage"
+],
+"p1": 0.42333333333333334,
+"pw": 3.45,
+"pe": 2.9325,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "운명",
+"text": "주머니 위 3개 확인 ＋ 효과 50~150% 무작위",
+"cost": "마나 3",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"peek"
+],
+"p1": 0.6266666666666667,
+"pw": 3.6633333333333336,
+"pe": 3.6633333333333336,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "세계의법칙",
+"text": "이번 런 동안 매 턴 맵 전체의 땅 1개를 다른 것으로 변환; 맵 전체의 적 행동 불가 2턴",
+"cost": "마나 6",
+"role": "cast",
+"life": "run",
+"verbs": [
+"transform",
+"control"
+],
+"p1": 0.31666666666666665,
+"pw": 4.57,
+"pe": 2.742,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "무한지속",
+"text": "건물(체력 8) 설치, 이번 런 동안 유지 — 매 턴 버린 구슬 1개를 주머니로 되돌림 ［주머니에 있으면 자동］",
+"cost": "마나 4 + 나무 4 + 골드 3",
+"role": "build",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.84,
+"pw": 3.4466666666666668,
+"pe": 3.4466666666666668,
+"notes": [],
+"fate": "passive"
+},
+{
+"name": "일회용",
+"text": "주머니의 구슬 1개 영구 폐기 ［1회용］",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"trash"
+],
+"p1": 0.6533333333333333,
+"pw": 0.4766666666666667,
+"pe": 0.4766666666666667,
+"notes": [],
+"fate": "used_up"
+},
+{
+"name": "찰나",
+"text": "이번 턴 행동 +1",
+"cost": "마나 1",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"tempo"
+],
+"p1": 0.9033333333333333,
+"pw": 1.6433333333333333,
+"pe": 1.6433333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "하룻밤",
+"text": "1턴 뒤: 이번 스테이지 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.37666666666666665,
+"pw": 0.9433333333333334,
+"pe": 0.566,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "평생",
+"text": "이번 런 동안 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 2",
+"role": "cast",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.6433333333333333,
+"pw": 1.8166666666666667,
+"pe": 1.8166666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "대대로",
+"text": "건물(체력 4) 설치, 이번 런 동안 유지 — 매 턴 버린 구슬 1개를 주머니로 되돌림",
+"cost": "마나 3 + 나무 2 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"recycle"
+],
+"p1": 0.48666666666666664,
+"pw": 1.73,
+"pe": 1.4705,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "폭우",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적에 피해 1",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.6666666666666666,
+"pw": 2.563333333333333,
+"pe": 2.563333333333333,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "가뭄",
+"text": "이번 스테이지 동안 매 턴 맵 전체의 적 공격 -1; 맵 전체의 적에 피해 1",
+"cost": "마나 4",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"debuff",
+"damage"
+],
+"p1": 0.5866666666666667,
+"pw": 2.526666666666667,
+"pe": 2.526666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "한파",
+"text": "이번 스테이지 동안 맵 전체의 적 행동 불가 2턴",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.8133333333333334,
+"pw": 2.526666666666667,
+"pe": 2.526666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "야영지",
+"text": "건물(체력 2) 설치, 이번 스테이지 동안 유지 — 매 턴 나무 아이템 1개 생성",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"create"
+],
+"p1": 0.23333333333333334,
+"pw": 0.94,
+"pe": 0.564,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "진지",
+"text": "건물(체력 3) 설치, 이번 스테이지 동안 유지 — 매 턴 아군 1에 방어막 1",
+"cost": "마나 1 + 광석 2 + 골드 1",
+"role": "build",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.9033333333333333,
+"pw": 1.2266666666666666,
+"pe": 1.2266666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "포위전",
+"text": "이번 스테이지 동안 주변 1칸의 적 행동 불가 1턴 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.86,
+"pw": 2.1033333333333335,
+"pe": 2.1033333333333335,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "장마",
+"text": "이번 스테이지 동안 매 턴 맵 전체의 땅의 식물 1 성장",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"grow"
+],
+"p1": 0.23333333333333334,
+"pw": 1.9166666666666665,
+"pe": 1.15,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "방어진",
+"text": "건물(체력 4) 설치, 이번 스테이지 동안 유지 — 매 턴 아군 1에 방어막 1",
+"cost": "마나 1 + 광석 2 + 골드 2",
+"role": "build",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.9466666666666667,
+"pw": 1.5966666666666667,
+"pe": 1.5966666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "결계",
+"text": "건물(체력 6) 설치, 이번 스테이지 동안 유지 — 매 턴 적이 다가오면 발동 — 주변 1칸의 아군에 방어막 1",
+"cost": "마나 3 + 나무 3 + 골드 2",
+"role": "build",
+"life": "stage",
+"verbs": [
+"guard"
+],
+"p1": 0.78,
+"pw": 2.4066666666666667,
+"pe": 2.4066666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "축제",
+"text": "이번 스테이지 동안 매 턴 맵 전체의 아군 공격 +1; 골드 1 획득; 다음 구슬 효과 ×2",
+"cost": "마나 3",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"buff",
+"money",
+"amplify"
+],
+"p1": 0.32,
+"pw": 1.5033333333333334,
+"pe": 0.902,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "사기충천",
+"text": "맵 전체의 적에게서 골드 2 탈취; 골드 1 획득",
+"cost": "마나 2",
+"role": "cast",
+"life": "instant",
+"verbs": [
+"steal",
+"money"
+],
+"p1": 0.36,
+"pw": 2.586666666666667,
+"pe": 1.552,
+"notes": [
+"즉시 획득은 효율 낮음(×0.5)"
+],
+"fate": "returns"
+},
+{
+"name": "연기",
+"text": "3턴 동안 주변 1칸의 적 공격 -1; 주변 1칸의 아군에 방어막 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"debuff",
+"guard"
+],
+"p1": 0.25666666666666665,
+"pw": 0.8766666666666666,
+"pe": 0.5259999999999999,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "최면",
+"text": "이번 스테이지 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"control"
+],
+"p1": 0.99,
+"pw": 1.8566666666666667,
+"pe": 1.8566666666666667,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마취",
+"text": "3턴 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"control"
+],
+"p1": 0.98,
+"pw": 1.0466666666666666,
+"pe": 1.0466666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "졸음",
+"text": "3턴 동안 적 1 행동 불가 1턴",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"control"
+],
+"p1": 0.98,
+"pw": 0.6,
+"pe": 0.6,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "불길",
+"text": "이번 스테이지 동안 매 턴 주변 1칸의 적에 피해 1",
+"cost": "마나 2",
+"role": "cast",
+"life": "stage",
+"verbs": [
+"damage"
+],
+"p1": 0.88,
+"pw": 1.9566666666666666,
+"pe": 1.9566666666666666,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "주문",
+"text": "3턴 동안 매 턴 적 1에 피해 2",
+"cost": "마나 1",
+"role": "cast",
+"life": "turns",
+"verbs": [
+"damage"
+],
+"p1": 0.19666666666666666,
+"pw": 1.5966666666666667,
+"pe": 0.958,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "마을",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 골드 1 획득; 1회용 아이템 1개 생성 ＋ 인접한 구슬·건물마다 +1",
+"cost": "마나 2 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"money",
+"create"
+],
+"p1": 0.30333333333333334,
+"pw": 1.0533333333333335,
+"pe": 0.632,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "다리",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 직선 3칸의 적 행동 불가 1턴; 광석 아이템 1개 생성",
+"cost": "마나 2 + 광석 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"control",
+"create"
+],
+"p1": 0.30333333333333334,
+"pw": 1.02,
+"pe": 0.612,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "우물",
+"text": "건물(체력 2) 설치, 이번 런 동안 유지 — 매 턴 자원 1 채집",
+"cost": "마나 1 + 나무 1 + 골드 1",
+"role": "build",
+"life": "run",
+"verbs": [
+"harvest"
+],
+"p1": 0.30666666666666664,
+"pw": 0.93,
+"pe": 0.558,
+"notes": [],
+"fate": "returns"
+},
+{
+"name": "요새",
+"text": "건물(체력 6) 설치, 이번 런 동안 유지 — 매 턴 아군 1에 방어막 2",
+"cost": "마나 3 + 광석 3 + 골드 2",
+"role": "build",
+"life": "run",
+"verbs": [
+"guard"
+],
+"p1": 0.9533333333333333,
+"pw": 2.4533333333333336,
+"pe": 2.4533333333333336,
+"notes": [],
+"fate": "returns"
+}
+]
