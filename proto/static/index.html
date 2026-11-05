@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>구슬 공방 — 헥스 프로토타입</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>구슬 공방 <small>헥스 프로토타입</small></h1>
+  <div class="hdr-actions">
+    <label>스테이지 <select id="stype"><option value="balanced">균형</option><option value="hostile">적 많음</option><option value="rich">자원 많음</option></select></label>
+    <button id="newgame">새 게임</button>
+  </div>
+</header>
+<main id="app" hidden>
+  <section id="setup" hidden>
+    <h2>① 빈 구슬에 이름 쓰기</h2>
+    <p class="hint">빈 구슬에는 말이 미리 새겨져 있을 수 있습니다. 다시 뽑을 수 없으니 받은 그대로 빈칸을 채우세요. Jev가 합쳐진 전체 이름을 읽어 구슬의 효과를 정합니다.</p>
+    <div id="blanks"></div>
+    <div class="row"><button id="start" class="primary">스테이지 시작 →</button><span class="hint" id="setup-note"></span></div>
+    <details><summary>가진 구슬 (시작 8개)</summary><div id="bagnames" class="tags"></div></details>
+  </section>
+  <section id="play" hidden>
+    <div id="hud"></div>
+    <div class="board">
+      <div class="mapwrap"><svg id="map" viewBox="-330 -300 660 600" aria-label="헥스 맵"></svg><div id="toast" role="status"></div></div>
+      <aside>
+        <div id="legend" class="hint"></div>
+        <div id="log"></div>
+      </aside>
+    </div>
+    <div class="handbar"><div id="hand"></div><button id="endturn" class="primary">턴 종료</button></div>
+  </section>
+  <section id="over" hidden></section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
