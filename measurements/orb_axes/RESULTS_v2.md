@@ -1,0 +1,4180 @@
+# 시험 결과 전체 — v2 (새 축: 재료·지속 기간·구슬의 운명·발동 조건·소환물·아군/적대)
+
+이름 하나당 같은 질문을 3번 물어 평균. 확률 0~1. 선택 축은 상위 항목만(첫째는 항상, 나머지는 0.10 이상). **소환물·아군/적대는 소환 역할일 때만 의미가 있음**(모든 이름에 물었으므로 나머지에서는 무시).
+
+
+## 과학·물리
+
+### 절대영도
+- 동사: control 0.75 / damage 0.09
+- 역할: cast 0.75 / build 0.10
+- 시점: now 0.62 / repeating 0.26
+- 발동 조건: none 0.69 / approach 0.12 / turn 0.11
+- 범위: wide 0.78 / around 0.12
+- 재료: none 0.95
+- 지속 기간: forever 0.86
+- 구슬의 운명: returns 0.74 / passive 0.14 / used_up 0.12
+- 소환물 종류: spirit 0.78 / beast 0.14
+- 아군/적대: hostile 0.70 / ally 0.30
+- 성질: scaling 0.17, risky 0.26, random 0.08, network 0.14
+- 힘: 4.4 | 지시문으로 읽힘 0.02
+### 플라즈마   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: damage 0.87 / energy 0.09
+- 역할: cast 0.93
+- 시점: now 0.93
+- 발동 조건: none 0.90
+- 범위: around 0.67 / one 0.13 / line 0.12
+- 재료: none 0.99
+- 지속 기간: turns 0.37 / instant 0.35 / forever 0.13
+- 구슬의 운명: returns 0.86 / used_up 0.11
+- 소환물 종류: spirit 0.64 / construct 0.27
+- 아군/적대: ally 0.54 / hostile 0.46
+- 성질: scaling 0.14, risky 0.11, random 0.17, network 0.11
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 초전도체   ⚠ 3번 중 1순위가 바뀐 축: role, range
+- 동사: energy 0.71 / tempo 0.09 / amplify 0.09
+- 역할: build 0.46 / cast 0.45
+- 시점: now 0.69 / repeating 0.18 / trigger 0.12
+- 발동 조건: none 0.91
+- 범위: wide 0.27 / line 0.23 / self 0.18
+- 재료: ore 0.73 / none 0.27
+- 지속 기간: forever 0.53 / run 0.38
+- 구슬의 운명: returns 0.72 / passive 0.21
+- 소환물 종류: construct 0.88
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.14, risky 0.06, random 0.05, network 0.33
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 사건의지평선
+- 동사: control 0.69 / draw 0.08 / damage 0.06 / remove 0.06
+- 역할: cast 0.49 / build 0.34 / move 0.12
+- 시점: trigger 0.55 / now 0.38
+- 발동 조건: approach 0.49 / none 0.45
+- 범위: around 0.57 / wide 0.39
+- 재료: none 0.99
+- 지속 기간: forever 0.84
+- 구슬의 운명: returns 0.69 / used_up 0.23
+- 소환물 종류: spirit 0.57 / beast 0.34
+- 아군/적대: hostile 0.74 / ally 0.26
+- 성질: scaling 0.40, risky 0.22, random 0.16, network 0.12
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 진공붕괴
+- 동사: damage 0.86 / remove 0.07
+- 역할: cast 0.97
+- 시점: now 0.79 / delayed 0.14
+- 발동 조건: none 0.79
+- 범위: around 0.60 / wide 0.23 / one 0.14
+- 재료: none 1.00
+- 지속 기간: instant 0.62 / forever 0.33
+- 구슬의 운명: returns 0.59 / used_up 0.37
+- 소환물 종류: spirit 0.57 / beast 0.26 / construct 0.12
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.40, risky 0.42, random 0.20, network 0.18
+- 힘: 4.0 | 지시문으로 읽힘 0.02
+### 반물질   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: damage 0.92
+- 역할: cast 0.84
+- 시점: now 0.80 / trigger 0.17
+- 발동 조건: none 0.87
+- 범위: wide 0.44 / around 0.40 / one 0.12
+- 재료: none 0.99
+- 지속 기간: instant 0.39 / forever 0.38 / run 0.17
+- 구슬의 운명: returns 0.68 / used_up 0.27
+- 소환물 종류: spirit 0.56 / construct 0.30
+- 아군/적대: hostile 0.69 / ally 0.31
+- 성질: scaling 0.14, risky 0.25, random 0.10, network 0.10
+- 힘: 3.6 | 지시문으로 읽힘 0.02
+### 중성자별   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: damage 0.70 / control 0.09 / energy 0.08 / guard 0.05
+- 역할: cast 0.36 / summon 0.32 / build 0.29
+- 시점: now 0.84
+- 발동 조건: none 0.87
+- 범위: around 0.46 / wide 0.34 / one 0.13
+- 재료: none 0.53 / ore 0.47
+- 지속 기간: forever 0.82 / run 0.15
+- 구슬의 운명: returns 0.78 / used_up 0.17
+- 소환물 종류: spirit 0.50 / beast 0.24 / construct 0.22
+- 아군/적대: hostile 0.59 / ally 0.41
+- 성질: scaling 0.19, risky 0.18, random 0.10, network 0.11
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 감마선폭발
+- 동사: damage 0.98
+- 역할: cast 1.00
+- 시점: now 0.96
+- 발동 조건: none 0.81
+- 범위: around 0.91
+- 재료: none 0.99
+- 지속 기간: instant 0.97
+- 구슬의 운명: used_up 0.50 / returns 0.49
+- 소환물 종류: spirit 0.61 / soldier 0.14 / construct 0.14
+- 아군/적대: hostile 0.64 / ally 0.36
+- 성질: scaling 0.13, risky 0.27, random 0.23, network 0.28
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 핵융합   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: energy 0.72 / transform 0.12 / damage 0.06 / money 0.05
+- 역할: cast 0.68 / build 0.28
+- 시점: now 0.79 / repeating 0.15
+- 발동 조건: none 0.92
+- 범위: wide 0.48 / around 0.40
+- 재료: none 0.98
+- 지속 기간: forever 0.33 / run 0.33 / instant 0.25
+- 구슬의 운명: returns 0.81 / used_up 0.16
+- 소환물 종류: construct 0.74 / spirit 0.20
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.51, risky 0.13, random 0.08, network 0.19
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 타키온   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: tempo 0.65 / damage 0.16 / buff 0.06
+- 역할: move 0.54 / cast 0.31 / summon 0.11
+- 시점: now 0.85
+- 발동 조건: none 0.84
+- 범위: line 0.35 / wide 0.26 / one 0.18
+- 재료: none 0.95
+- 지속 기간: forever 0.36 / instant 0.34 / run 0.16
+- 구슬의 운명: returns 0.79 / used_up 0.14
+- 소환물 종류: spirit 0.38 / construct 0.30 / soldier 0.16
+- 아군/적대: hostile 0.55 / ally 0.45
+- 성질: scaling 0.14, risky 0.09, random 0.13, network 0.10
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 영점진동   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: recycle 0.30 / remove 0.19 / control 0.11 / amplify 0.10 / energy 0.07
+- 역할: cast 0.81 / move 0.10
+- 시점: repeating 0.64 / now 0.23
+- 발동 조건: none 0.61 / turn 0.27
+- 범위: around 0.51 / one 0.20 / wide 0.13
+- 재료: none 0.99
+- 지속 기간: forever 0.31 / turns 0.30 / instant 0.29
+- 구슬의 운명: returns 0.77 / passive 0.13
+- 소환물 종류: spirit 0.69 / construct 0.26
+- 아군/적대: ally 0.60 / hostile 0.40
+- 성질: scaling 0.18, risky 0.14, random 0.22, network 0.31
+- 힘: 2.7 | 지시문으로 읽힘 0.03
+### 초신성
+- 동사: damage 0.93
+- 역할: cast 0.95
+- 시점: now 0.76 / delayed 0.18
+- 발동 조건: none 0.71 / death 0.14 / turn 0.10
+- 범위: around 0.62 / wide 0.37
+- 재료: none 0.98
+- 지속 기간: instant 0.88
+- 구슬의 운명: used_up 0.68 / returns 0.30
+- 소환물 종류: spirit 0.80 / beast 0.15
+- 아군/적대: hostile 0.72 / ally 0.28
+- 성질: scaling 0.22, risky 0.37, random 0.34, network 0.14
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 볼텍스
+- 동사: control 0.70 / damage 0.15 / draw 0.08
+- 역할: cast 0.63 / move 0.30
+- 시점: now 0.68 / repeating 0.23
+- 발동 조건: none 0.71 / approach 0.20
+- 범위: around 0.93
+- 재료: none 1.00
+- 지속 기간: turns 0.49 / instant 0.20 / run 0.11
+- 구슬의 운명: returns 0.88
+- 소환물 종류: spirit 0.87
+- 아군/적대: hostile 0.62 / ally 0.38
+- 성질: scaling 0.20, risky 0.14, random 0.58, network 0.24
+- 힘: 2.9 | 지시문으로 읽힘 0.02
+### 특이점
+- 동사: amplify 0.26 / transform 0.17 / control 0.14 / damage 0.14 / draw 0.08
+- 역할: cast 0.62 / build 0.24
+- 시점: now 0.71 / trigger 0.14 / delayed 0.12
+- 발동 조건: none 0.81
+- 범위: wide 0.68 / around 0.18 / one 0.12
+- 재료: none 0.98
+- 지속 기간: forever 0.70 / instant 0.22
+- 구슬의 운명: returns 0.65 / used_up 0.31
+- 소환물 종류: spirit 0.65 / construct 0.24
+- 아군/적대: hostile 0.55 / ally 0.45
+- 성질: scaling 0.50, risky 0.19, random 0.30, network 0.13
+- 힘: 4.4 | 지시문으로 읽힘 0.01
+### 방사능누출   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: debuff 0.71 / damage 0.26
+- 역할: cast 0.87 / build 0.11
+- 시점: repeating 0.41 / now 0.26 / delayed 0.24
+- 발동 조건: none 0.80 / approach 0.11
+- 범위: around 0.62 / wide 0.19 / line 0.15
+- 재료: none 0.90 / ore 0.10
+- 지속 기간: run 0.36 / turns 0.29 / stage 0.20
+- 구슬의 운명: used_up 0.45 / returns 0.43 / passive 0.11
+- 소환물 종류: beast 0.42 / spirit 0.41 / construct 0.12
+- 아군/적대: hostile 0.98
+- 성질: scaling 0.37, risky 0.74, random 0.35, network 0.24
+- 힘: 2.4 | 지시문으로 읽힘 0.01
+### 암흑물질
+- 동사: damage 0.37 / energy 0.18 / control 0.13 / create 0.07 / draw 0.06
+- 역할: cast 0.62 / build 0.19 / summon 0.16
+- 시점: now 0.85
+- 발동 조건: none 0.92
+- 범위: wide 0.69 / around 0.19
+- 재료: none 0.99
+- 지속 기간: forever 0.85
+- 구슬의 운명: returns 0.73 / used_up 0.17
+- 소환물 종류: spirit 0.83 / beast 0.12
+- 아군/적대: hostile 0.76 / ally 0.24
+- 성질: scaling 0.19, risky 0.17, random 0.13, network 0.11
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 쿼크글루온
+- 동사: damage 0.34 / energy 0.20 / transform 0.11 / create 0.11 / control 0.09
+- 역할: cast 0.65 / summon 0.20
+- 시점: now 0.85
+- 발동 조건: none 0.92
+- 범위: wide 0.44 / one 0.20 / around 0.20
+- 재료: none 0.97
+- 지속 기간: forever 0.63 / run 0.15 / instant 0.14
+- 구슬의 운명: returns 0.79 / used_up 0.14
+- 소환물 종류: spirit 0.57 / construct 0.19 / beast 0.17
+- 아군/적대: ally 0.64 / hostile 0.36
+- 성질: scaling 0.15, risky 0.08, random 0.27, network 0.28
+- 힘: 2.8 | 지시문으로 읽힘 0.03
+### 중력파   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: damage 0.69 / control 0.28
+- 역할: cast 0.92
+- 시점: now 0.73 / trigger 0.16
+- 발동 조건: none 0.84
+- 범위: around 0.48 / wide 0.47
+- 재료: none 1.00
+- 지속 기간: instant 0.70 / forever 0.13 / turns 0.11
+- 구슬의 운명: returns 0.78 / used_up 0.18
+- 소환물 종류: spirit 0.78 / construct 0.14
+- 아군/적대: ally 0.69 / hostile 0.31
+- 성질: scaling 0.16, risky 0.11, random 0.13, network 0.35
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 극초음속
+- 동사: tempo 0.88 / damage 0.08
+- 역할: move 0.62 / cast 0.36
+- 시점: now 0.96
+- 발동 조건: none 0.87
+- 범위: line 0.39 / one 0.24 / wide 0.14
+- 재료: none 0.97
+- 지속 기간: instant 0.75 / turns 0.12
+- 구슬의 운명: returns 0.79 / used_up 0.15
+- 소환물 종류: construct 0.61 / soldier 0.23 / beast 0.11
+- 아군/적대: ally 0.71 / hostile 0.29
+- 성질: scaling 0.10, risky 0.08, random 0.08, network 0.08
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 대전류
+- 동사: damage 0.39 / control 0.15 / money 0.10 / amplify 0.09 / energy 0.05
+- 역할: cast 0.55 / move 0.36
+- 시점: now 0.47 / repeating 0.38
+- 발동 조건: none 0.56 / turn 0.18 / approach 0.16
+- 범위: line 0.58 / wide 0.20 / around 0.19
+- 재료: none 0.81 / gold 0.13
+- 지속 기간: turns 0.36 / instant 0.20 / run 0.18
+- 구슬의 운명: returns 0.80 / used_up 0.13
+- 소환물 종류: spirit 0.53 / soldier 0.26 / beast 0.10
+- 아군/적대: ally 0.55 / hostile 0.45
+- 성질: scaling 0.38, risky 0.16, random 0.15, network 0.51
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+
+## 모순 어구
+
+### 차가운불꽃
+- 동사: damage 0.53 / control 0.39
+- 역할: cast 0.94
+- 시점: now 0.83
+- 발동 조건: none 0.87
+- 범위: around 0.49 / one 0.29 / line 0.11
+- 재료: none 1.00
+- 지속 기간: turns 0.62 / instant 0.16 / forever 0.14
+- 구슬의 운명: returns 0.85
+- 소환물 종류: spirit 0.80 / beast 0.17
+- 아군/적대: ally 0.57 / hostile 0.43
+- 성질: scaling 0.10, risky 0.12, random 0.10, network 0.07
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 마른번개
+- 동사: damage 0.85
+- 역할: cast 0.94
+- 시점: now 0.76 / trigger 0.16
+- 발동 조건: none 0.70 / hit 0.12
+- 범위: line 0.50 / one 0.26 / around 0.18
+- 재료: none 1.00
+- 지속 기간: instant 0.67 / turns 0.17
+- 구슬의 운명: returns 0.84 / used_up 0.13
+- 소환물 종류: spirit 0.86 / beast 0.11
+- 아군/적대: ally 0.54 / hostile 0.46
+- 성질: scaling 0.10, risky 0.20, random 0.26, network 0.12
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 어두운빛   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: debuff 0.28 / damage 0.25 / energy 0.13 / peek 0.09 / remove 0.07
+- 역할: cast 0.83
+- 시점: now 0.82
+- 발동 조건: none 0.88
+- 범위: around 0.35 / line 0.23 / wide 0.20
+- 재료: none 0.98
+- 지속 기간: forever 0.36 / turns 0.27 / instant 0.19
+- 구슬의 운명: returns 0.74 / passive 0.16
+- 소환물 종류: spirit 0.88
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.12, risky 0.19, random 0.10, network 0.07
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 젖은숯   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: energy 0.15 / damage 0.15 / debuff 0.14 / trash 0.13 / control 0.08
+- 역할: cast 0.52 / build 0.37
+- 시점: now 0.80 / trigger 0.10
+- 발동 조건: none 0.83
+- 범위: one 0.50 / self 0.20 / around 0.19
+- 재료: wood 0.79 / ore 0.13
+- 지속 기간: turns 0.38 / run 0.30 / forever 0.15
+- 구슬의 운명: returns 0.65 / used_up 0.31
+- 소환물 종류: spirit 0.42 / beast 0.21 / construct 0.20
+- 아군/적대: hostile 0.59 / ally 0.41
+- 성질: scaling 0.11, risky 0.13, random 0.07, network 0.06
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 맹독치유
+- 동사: heal 0.83 / debuff 0.09
+- 역할: cast 0.99
+- 시점: now 0.81
+- 발동 조건: none 0.65 / hit 0.22
+- 범위: one 0.60 / self 0.18 / around 0.13
+- 재료: none 0.96
+- 지속 기간: instant 0.56 / turns 0.37
+- 구슬의 운명: returns 0.86 / used_up 0.11
+- 소환물 종류: spirit 0.69 / beast 0.23
+- 아군/적대: ally 0.74 / hostile 0.26
+- 성질: scaling 0.13, risky 0.46, random 0.06, network 0.13
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 무거운깃털   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: debuff 0.50 / control 0.20 / tempo 0.07
+- 역할: move 0.48 / cast 0.27 / summon 0.20
+- 시점: now 0.65 / delayed 0.16 / trigger 0.10
+- 발동 조건: none 0.80
+- 범위: one 0.66 / self 0.21
+- 재료: none 0.85
+- 지속 기간: forever 0.27 / instant 0.24 / turns 0.24
+- 구슬의 운명: returns 0.76 / passive 0.13 / used_up 0.11
+- 소환물 종류: beast 0.87
+- 아군/적대: ally 0.67 / hostile 0.33
+- 성질: scaling 0.08, risky 0.19, random 0.16, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 뜨거운얼음   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: transform 0.30 / control 0.26 / damage 0.25 / trash 0.06
+- 역할: cast 0.72 / build 0.19
+- 시점: now 0.78 / trigger 0.13
+- 발동 조건: none 0.84 / approach 0.10
+- 범위: around 0.41 / one 0.34 / self 0.11
+- 재료: none 0.76 / ore 0.23
+- 지속 기간: forever 0.36 / turns 0.33 / run 0.17
+- 구슬의 운명: returns 0.80 / used_up 0.15
+- 소환물 종류: beast 0.41 / spirit 0.38 / construct 0.17
+- 아군/적대: hostile 0.57 / ally 0.43
+- 성질: scaling 0.11, risky 0.16, random 0.14, network 0.06
+- 힘: 1.7 | 지시문으로 읽힘 0.01
+### 조용한폭발
+- 동사: damage 0.93
+- 역할: cast 0.95
+- 시점: delayed 0.43 / now 0.37 / trigger 0.20
+- 발동 조건: none 0.58 / approach 0.27
+- 범위: around 0.92
+- 재료: none 0.96
+- 지속 기간: instant 0.82 / turns 0.12
+- 구슬의 운명: returns 0.63 / used_up 0.29
+- 소환물 종류: spirit 0.47 / soldier 0.23 / beast 0.20
+- 아군/적대: hostile 0.52 / ally 0.48
+- 성질: scaling 0.16, risky 0.25, random 0.33, network 0.18
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 투명한벽돌
+- 동사: guard 0.73 / create 0.16 / peek 0.09
+- 역할: build 0.96
+- 시점: now 0.66 / trigger 0.31
+- 발동 조건: none 0.63 / approach 0.32
+- 범위: one 0.50 / line 0.29 / around 0.13
+- 재료: ore 0.79 / none 0.19
+- 지속 기간: run 0.83 / forever 0.10
+- 구슬의 운명: returns 0.74 / used_up 0.16
+- 소환물 종류: construct 0.68 / spirit 0.19
+- 아군/적대: ally 0.73 / hostile 0.27
+- 성질: scaling 0.07, risky 0.06, random 0.06, network 0.10
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 느린광속   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: debuff 0.72 / tempo 0.22
+- 역할: move 0.53 / cast 0.40
+- 시점: delayed 0.90
+- 발동 조건: none 0.63 / turn 0.28
+- 범위: line 0.30 / self 0.26 / one 0.20
+- 재료: none 0.96
+- 지속 기간: turns 0.40 / forever 0.33 / run 0.13
+- 구슬의 운명: returns 0.83
+- 소환물 종류: spirit 0.50 / construct 0.25 / beast 0.15
+- 아군/적대: ally 0.69 / hostile 0.31
+- 성질: scaling 0.10, risky 0.09, random 0.06, network 0.09
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 부드러운칼날
+- 동사: damage 0.95
+- 역할: cast 0.87
+- 시점: now 0.80 / trigger 0.17
+- 발동 조건: none 0.77 / hit 0.16
+- 범위: one 0.64 / line 0.22
+- 재료: ore 0.89
+- 지속 기간: run 0.40 / forever 0.27 / instant 0.19
+- 구슬의 운명: returns 0.88
+- 소환물 종류: soldier 0.73 / spirit 0.11 / beast 0.10
+- 아군/적대: ally 0.63 / hostile 0.37
+- 성질: scaling 0.08, risky 0.09, random 0.06, network 0.06
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 건조한해일
+- 동사: damage 0.30 / debuff 0.24 / remove 0.07 / harvest 0.06
+- 역할: cast 0.88
+- 시점: now 0.49 / repeating 0.39
+- 발동 조건: none 0.69 / turn 0.22
+- 범위: wide 0.47 / around 0.29 / line 0.11
+- 재료: none 0.94
+- 지속 기간: stage 0.72 / turns 0.13
+- 구슬의 운명: returns 0.70 / used_up 0.23
+- 소환물 종류: spirit 0.71 / beast 0.15
+- 아군/적대: hostile 0.58 / ally 0.42
+- 성질: scaling 0.13, risky 0.18, random 0.14, network 0.08
+- 힘: 2.4 | 지시문으로 읽힘 0.03
+### 살아있는시체   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: recycle 0.40 / damage 0.18 / control 0.12 / heal 0.11 / transform 0.06
+- 역할: summon 0.85
+- 시점: now 0.66 / repeating 0.19 / trigger 0.11
+- 발동 조건: none 0.57 / death 0.31
+- 범위: one 0.63 / self 0.22
+- 재료: none 0.77 / food 0.17
+- 지속 기간: forever 0.39 / run 0.36 / turns 0.19
+- 구슬의 운명: returns 0.72 / used_up 0.17 / passive 0.11
+- 소환물 종류: beast 0.57 / spirit 0.35
+- 아군/적대: hostile 0.94
+- 성질: scaling 0.38, risky 0.47, random 0.10, network 0.19
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 고요한태풍
+- 동사: control 0.44 / damage 0.38
+- 역할: cast 0.68 / move 0.13 / summon 0.12
+- 시점: now 0.53 / delayed 0.23 / repeating 0.16
+- 발동 조건: none 0.73 / turn 0.13 / approach 0.11
+- 범위: around 0.74 / wide 0.20
+- 재료: none 0.99
+- 지속 기간: stage 0.66 / turns 0.17
+- 구슬의 운명: returns 0.79 / used_up 0.13
+- 소환물 종류: spirit 0.78 / beast 0.19
+- 아군/적대: hostile 0.52 / ally 0.48
+- 성질: scaling 0.22, risky 0.12, random 0.49, network 0.14
+- 힘: 3.0 | 지시문으로 읽힘 0.01
+### 눈먼주시자
+- 동사: debuff 0.54 / peek 0.30
+- 역할: cast 0.50 / summon 0.36 / build 0.11
+- 시점: repeating 0.47 / now 0.37 / trigger 0.14
+- 발동 조건: none 0.62 / approach 0.20 / turn 0.13
+- 범위: wide 0.57 / around 0.19 / self 0.11
+- 재료: none 0.88
+- 지속 기간: forever 0.53 / run 0.22 / turns 0.14
+- 구슬의 운명: returns 0.60 / passive 0.24 / used_up 0.16
+- 소환물 종류: spirit 0.94
+- 아군/적대: ally 0.55 / hostile 0.45
+- 성질: scaling 0.15, risky 0.38, random 0.20, network 0.16
+- 힘: 3.3 | 지시문으로 읽힘 0.03
+### 가벼운납   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: create 0.25 / tempo 0.18 / money 0.12 / buff 0.10 / harvest 0.07
+- 역할: build 0.32 / move 0.26 / cast 0.25
+- 시점: now 0.80
+- 발동 조건: none 0.88
+- 범위: one 0.51 / self 0.29
+- 재료: ore 0.95
+- 지속 기간: forever 0.30 / run 0.29 / instant 0.25
+- 구슬의 운명: returns 0.69 / used_up 0.18 / passive 0.12
+- 소환물 종류: construct 0.31 / worker 0.23 / beast 0.18
+- 아군/적대: ally 0.70 / hostile 0.30
+- 성질: scaling 0.09, risky 0.08, random 0.09, network 0.06
+- 힘: 0.8 | 지시문으로 읽힘 0.03
+### 자비로운참수
+- 동사: damage 0.93
+- 역할: cast 0.94
+- 시점: now 0.90
+- 발동 조건: none 0.64 / death 0.17 / hit 0.13
+- 범위: one 0.84
+- 재료: none 0.67 / ore 0.23
+- 지속 기간: instant 0.88
+- 구슬의 운명: returns 0.76 / used_up 0.21
+- 소환물 종류: soldier 0.62 / spirit 0.30
+- 아군/적대: ally 0.51 / hostile 0.49
+- 성질: scaling 0.09, risky 0.41, random 0.07, network 0.09
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 메마른눈물   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: debuff 0.28 / heal 0.14 / remove 0.14 / damage 0.10 / money 0.07
+- 역할: cast 0.77 / build 0.12
+- 시점: now 0.67 / trigger 0.18
+- 발동 조건: none 0.77
+- 범위: one 0.54 / self 0.32
+- 재료: none 0.98
+- 지속 기간: instant 0.34 / forever 0.33 / run 0.17
+- 구슬의 운명: returns 0.60 / used_up 0.34
+- 소환물 종류: spirit 0.92
+- 아군/적대: hostile 0.53 / ally 0.47
+- 성질: scaling 0.10, risky 0.49, random 0.08, network 0.06
+- 힘: 1.4 | 지시문으로 읽힘 0.02
+### 질서있는혼돈
+- 동사: transform 0.28 / control 0.23 / recycle 0.15 / money 0.08 / amplify 0.06
+- 역할: cast 0.62 / summon 0.14 / build 0.14
+- 시점: now 0.60 / repeating 0.27 / trigger 0.12
+- 발동 조건: none 0.87 / turn 0.11
+- 범위: wide 0.59 / around 0.26
+- 재료: none 0.96
+- 지속 기간: forever 0.70 / run 0.14 / turns 0.11
+- 구슬의 운명: returns 0.77 / used_up 0.14
+- 소환물 종류: spirit 0.83
+- 아군/적대: ally 0.62 / hostile 0.38
+- 성질: scaling 0.15, risky 0.20, random 0.77, network 0.18
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 얼어붙은용암
+- 동사: control 0.74 / transform 0.14 / damage 0.08
+- 역할: cast 0.72 / build 0.22
+- 시점: now 0.74 / trigger 0.11
+- 발동 조건: none 0.78 / approach 0.14
+- 범위: around 0.53 / one 0.28 / line 0.11
+- 재료: none 0.63 / ore 0.36
+- 지속 기간: forever 0.48 / turns 0.28 / run 0.14
+- 구슬의 운명: returns 0.75 / used_up 0.21
+- 소환물 종류: beast 0.66 / spirit 0.21 / construct 0.12
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.10, risky 0.15, random 0.08, network 0.09
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+
+## 게임 키워드
+
+### 즉사
+- 동사: damage 0.93
+- 역할: cast 0.97
+- 시점: now 0.83 / trigger 0.15
+- 발동 조건: none 0.67 / hit 0.14 / death 0.13
+- 범위: one 0.79 / wide 0.11
+- 재료: none 0.89
+- 지속 기간: instant 0.93
+- 구슬의 운명: returns 0.52 / used_up 0.40
+- 소환물 종류: spirit 0.50 / soldier 0.34 / beast 0.13
+- 아군/적대: hostile 0.72 / ally 0.28
+- 성질: scaling 0.10, risky 0.49, random 0.12, network 0.09
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 무적
+- 동사: guard 0.86 / buff 0.12
+- 역할: cast 0.81 / build 0.14
+- 시점: now 0.43 / repeating 0.40 / trigger 0.17
+- 발동 조건: none 0.86
+- 범위: self 0.72 / wide 0.14 / one 0.12
+- 재료: none 0.91
+- 지속 기간: forever 0.74 / turns 0.19
+- 구슬의 운명: returns 0.53 / passive 0.40
+- 소환물 종류: soldier 0.66 / spirit 0.21
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.10, risky 0.08, random 0.06, network 0.06
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 쿨타임0
+- 동사: recycle 0.71 / tempo 0.11 / energy 0.10
+- 역할: cast 0.94
+- 시점: delayed 0.69 / now 0.23
+- 발동 조건: turn 0.68 / none 0.27
+- 범위: self 0.67 / one 0.19
+- 재료: none 0.94
+- 지속 기간: turns 0.61 / instant 0.32
+- 구슬의 운명: returns 0.96
+- 소환물 종류: construct 0.42 / spirit 0.35 / worker 0.16
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.12, risky 0.09, random 0.08, network 0.07
+- 힘: 0.6 | 지시문으로 읽힘 0.08
+### 흡혈
+- 동사: steal 0.75 / heal 0.20
+- 역할: cast 0.99
+- 시점: now 0.43 / trigger 0.30 / repeating 0.27
+- 발동 조건: hit 0.80 / none 0.13
+- 범위: one 0.73 / self 0.10
+- 재료: none 0.91
+- 지속 기간: instant 0.44 / turns 0.38 / forever 0.11
+- 구슬의 운명: returns 0.78 / passive 0.14
+- 소환물 종류: beast 0.53 / spirit 0.41
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.51, risky 0.63, random 0.07, network 0.18
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 데미지반사
+- 동사: guard 0.43 / damage 0.36 / amplify 0.10 / recycle 0.06
+- 역할: cast 0.88 / build 0.12
+- 시점: trigger 1.00
+- 발동 조건: hit 0.98
+- 범위: self 0.68 / around 0.19 / one 0.10
+- 재료: none 0.97
+- 지속 기간: turns 0.32 / forever 0.24 / run 0.21
+- 구슬의 운명: passive 0.64 / returns 0.34
+- 소환물 종류: spirit 0.45 / soldier 0.24 / construct 0.22
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.16, risky 0.19, random 0.08, network 0.21
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 방어무시
+- 동사: damage 0.60 / debuff 0.21 / buff 0.07 / amplify 0.05
+- 역할: cast 0.98
+- 시점: now 0.71 / trigger 0.26
+- 발동 조건: none 0.60 / hit 0.38
+- 범위: one 0.65 / wide 0.18
+- 재료: none 0.92
+- 지속 기간: instant 0.42 / turns 0.30 / forever 0.20
+- 구슬의 운명: returns 0.76 / used_up 0.12 / passive 0.12
+- 소환물 종류: soldier 0.73 / spirit 0.13 / beast 0.11
+- 아군/적대: ally 0.57 / hostile 0.43
+- 성질: scaling 0.13, risky 0.10, random 0.06, network 0.12
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 무한관통
+- 동사: damage 0.96
+- 역할: cast 0.90
+- 시점: now 0.86
+- 발동 조건: none 0.74 / hit 0.22
+- 범위: line 0.60 / wide 0.35
+- 재료: none 0.95
+- 지속 기간: forever 0.60 / instant 0.32
+- 구슬의 운명: returns 0.91
+- 소환물 종류: soldier 0.54 / spirit 0.29 / beast 0.12
+- 아군/적대: ally 0.70 / hostile 0.30
+- 성질: scaling 0.24, risky 0.11, random 0.06, network 0.27
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 확정치명타
+- 동사: damage 0.79 / peek 0.07
+- 역할: cast 0.87
+- 시점: now 0.54 / trigger 0.30 / delayed 0.14
+- 발동 조건: hit 0.54 / none 0.30
+- 범위: one 0.70 / line 0.12
+- 재료: none 0.79 / gold 0.16
+- 지속 기간: instant 0.80
+- 구슬의 운명: returns 0.64 / used_up 0.30
+- 소환물 종류: soldier 0.70 / spirit 0.18
+- 아군/적대: ally 0.59 / hostile 0.41
+- 성질: scaling 0.17, risky 0.37, random 0.38, network 0.16
+- 힘: 2.7 | 지시문으로 읽힘 0.04
+### 절대은신
+- 동사: guard 0.58 / buff 0.15 / control 0.10 / remove 0.07 / peek 0.05
+- 역할: cast 0.87
+- 시점: now 0.59 / repeating 0.23 / trigger 0.18
+- 발동 조건: none 0.69 / approach 0.22
+- 범위: self 0.75 / one 0.13
+- 재료: none 0.98
+- 지속 기간: forever 0.69 / turns 0.23
+- 구슬의 운명: returns 0.66 / passive 0.28
+- 소환물 종류: spirit 0.75 / soldier 0.18
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.11, risky 0.13, random 0.07, network 0.09
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 광역도발
+- 동사: control 0.69 / draw 0.13 / guard 0.07
+- 역할: cast 0.96
+- 시점: now 0.72 / trigger 0.18
+- 발동 조건: none 0.49 / approach 0.39
+- 범위: around 0.59 / wide 0.39
+- 재료: none 0.96
+- 지속 기간: turns 0.56 / instant 0.38
+- 구슬의 운명: returns 0.87 / used_up 0.10
+- 소환물 종류: soldier 0.80 / spirit 0.10
+- 아군/적대: ally 0.58 / hostile 0.42
+- 성질: scaling 0.13, risky 0.17, random 0.08, network 0.72
+- 힘: 2.3 | 지시문으로 읽힘 0.03
+### 자동부활   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: recycle 0.67 / heal 0.33
+- 역할: cast 0.88
+- 시점: trigger 0.89
+- 발동 조건: death 0.92
+- 범위: self 0.76 / one 0.21
+- 재료: none 0.97
+- 지속 기간: forever 0.38 / instant 0.35 / turns 0.15
+- 구슬의 운명: returns 0.56 / passive 0.33 / used_up 0.11
+- 소환물 종류: spirit 0.90
+- 아군/적대: ally 0.90 / hostile 0.10
+- 성질: scaling 0.14, risky 0.19, random 0.11, network 0.10
+- 힘: 3.2 | 지시문으로 읽힘 0.02
+### 영구빙결
+- 동사: control 1.00
+- 역할: cast 0.95
+- 시점: now 0.83 / repeating 0.14
+- 발동 조건: none 0.81
+- 범위: one 0.61 / around 0.20 / wide 0.14
+- 재료: none 0.99
+- 지속 기간: forever 1.00
+- 구슬의 운명: returns 0.84 / used_up 0.11
+- 소환물 종류: spirit 0.56 / construct 0.28 / beast 0.13
+- 아군/적대: ally 0.63 / hostile 0.37
+- 성질: scaling 0.10, risky 0.12, random 0.04, network 0.10
+- 힘: 3.2 | 지시문으로 읽힘 0.01
+### 자원강탈
+- 동사: steal 0.98
+- 역할: cast 0.94
+- 시점: now 0.88
+- 발동 조건: none 0.78 / turn 0.10
+- 범위: one 0.70 / wide 0.10
+- 재료: gold 0.54 / none 0.34 / ore 0.10
+- 지속 기간: instant 0.84
+- 구슬의 운명: returns 0.84 / used_up 0.12
+- 소환물 종류: soldier 0.44 / spirit 0.26 / beast 0.21
+- 아군/적대: hostile 0.72 / ally 0.28
+- 성질: scaling 0.25, risky 0.23, random 0.08, network 0.22
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 사거리무한   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: recycle 0.54 / amplify 0.23 / control 0.08
+- 역할: cast 0.35 / move 0.33 / build 0.27
+- 시점: repeating 0.76 / trigger 0.16
+- 발동 조건: approach 0.44 / none 0.41 / turn 0.13
+- 범위: wide 0.69 / around 0.19 / line 0.10
+- 재료: none 0.79 / gold 0.15
+- 지속 기간: forever 0.91
+- 구슬의 운명: returns 0.84 / used_up 0.11
+- 소환물 종류: spirit 0.58 / construct 0.14 / worker 0.10
+- 아군/적대: hostile 0.57 / ally 0.43
+- 성질: scaling 0.58, risky 0.19, random 0.25, network 0.52
+- 힘: 3.2 | 지시문으로 읽힘 0.03
+### 시간정지
+- 동사: control 0.99
+- 역할: cast 1.00
+- 시점: now 0.91
+- 발동 조건: none 0.80 / turn 0.16
+- 범위: wide 0.95
+- 재료: none 1.00
+- 지속 기간: turns 0.82 / forever 0.10
+- 구슬의 운명: returns 0.90
+- 소환물 종류: spirit 0.92
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.10, risky 0.14, random 0.07, network 0.07
+- 힘: 3.7 | 지시문으로 읽힘 0.02
+### 상태이상면역
+- 동사: guard 0.45 / remove 0.27 / buff 0.26
+- 역할: cast 0.83 / build 0.12
+- 시점: repeating 0.72 / trigger 0.23
+- 발동 조건: none 0.88
+- 범위: self 0.78 / one 0.12
+- 재료: none 0.97
+- 지속 기간: forever 0.70 / turns 0.15 / run 0.12
+- 구슬의 운명: passive 0.73 / returns 0.21
+- 소환물 종류: spirit 0.63 / soldier 0.21
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.08, risky 0.08, random 0.06, network 0.09
+- 힘: 2.4 | 지시문으로 읽힘 0.02
+### 공격속도상한돌파
+- 동사: tempo 0.75 / buff 0.18 / amplify 0.05
+- 역할: cast 0.94
+- 시점: now 0.62 / repeating 0.30
+- 발동 조건: none 0.83
+- 범위: self 0.79 / wide 0.12
+- 재료: none 0.73 / ore 0.21
+- 지속 기간: forever 0.46 / turns 0.26 / instant 0.19
+- 구슬의 운명: returns 0.49 / used_up 0.29 / passive 0.22
+- 소환물 종류: soldier 0.62 / spirit 0.19 / construct 0.10
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.24, risky 0.11, random 0.08, network 0.12
+- 힘: 2.4 | 지시문으로 읽힘 0.02
+### 골드두배
+- 동사: amplify 0.56 / money 0.44
+- 역할: cast 0.97
+- 시점: now 0.82 / repeating 0.16
+- 발동 조건: none 0.85 / turn 0.12
+- 범위: self 0.52 / one 0.31 / wide 0.14
+- 재료: gold 0.99
+- 지속 기간: instant 0.60 / turns 0.16 / forever 0.12
+- 구슬의 운명: returns 0.72 / used_up 0.19
+- 소환물 종류: worker 0.58 / spirit 0.35
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.88, risky 0.17, random 0.16, network 0.08
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 맵전체타격
+- 동사: damage 0.98
+- 역할: cast 1.00
+- 시점: now 0.99
+- 발동 조건: none 0.75 / turn 0.22
+- 범위: wide 1.00
+- 재료: none 0.96
+- 지속 기간: instant 0.94
+- 구슬의 운명: returns 0.80 / used_up 0.19
+- 소환물 종류: spirit 0.73 / soldier 0.15
+- 아군/적대: ally 0.66 / hostile 0.34
+- 성질: scaling 0.09, risky 0.12, random 0.10, network 0.51
+- 힘: 3.5 | 지시문으로 읽힘 0.02
+### 장판지속   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: recycle 0.37 / amplify 0.17 / control 0.15 / money 0.06
+- 역할: build 0.88 / cast 0.11
+- 시점: repeating 0.97
+- 발동 조건: turn 0.53 / none 0.28 / approach 0.18
+- 범위: around 0.43 / wide 0.28 / line 0.17
+- 재료: none 0.67 / wood 0.15
+- 지속 기간: turns 0.33 / forever 0.30 / run 0.26
+- 구슬의 운명: returns 0.70 / passive 0.22
+- 소환물 종류: spirit 0.47 / worker 0.26 / construct 0.16
+- 아군/적대: ally 0.71 / hostile 0.29
+- 성질: scaling 0.36, risky 0.15, random 0.11, network 0.31
+- 힘: 1.6 | 지시문으로 읽힘 0.03
+
+## 신화·전설
+
+### 흑염룡   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: damage 0.84 / trash 0.06
+- 역할: summon 0.74 / cast 0.21
+- 시점: now 0.88
+- 발동 조건: none 0.85
+- 범위: around 0.34 / one 0.26 / line 0.18
+- 재료: none 0.86
+- 지속 기간: forever 0.39 / run 0.36 / turns 0.16
+- 구슬의 운명: returns 0.77 / used_up 0.16
+- 소환물 종류: beast 0.79 / spirit 0.21
+- 아군/적대: hostile 0.61 / ally 0.39
+- 성질: scaling 0.23, risky 0.25, random 0.17, network 0.12
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 엑스칼리버
+- 동사: damage 0.93
+- 역할: cast 0.86
+- 시점: now 0.87 / trigger 0.12
+- 발동 조건: none 0.84
+- 범위: one 0.37 / around 0.21 / line 0.20
+- 재료: ore 0.90
+- 지속 기간: forever 0.69 / run 0.25
+- 구슬의 운명: returns 0.87
+- 소환물 종류: soldier 0.75 / spirit 0.21
+- 아군/적대: ally 0.92
+- 성질: scaling 0.14, risky 0.25, random 0.12, network 0.10
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+### 롱기누스의창
+- 동사: damage 0.96
+- 역할: cast 0.81
+- 시점: now 0.79 / trigger 0.19
+- 발동 조건: none 0.64 / hit 0.24
+- 범위: one 0.58 / line 0.35
+- 재료: ore 0.76 / wood 0.16
+- 지속 기간: forever 0.53 / run 0.37
+- 구슬의 운명: returns 0.77 / used_up 0.20
+- 소환물 종류: soldier 0.50 / spirit 0.40
+- 아군/적대: ally 0.72 / hostile 0.28
+- 성질: scaling 0.09, risky 0.46, random 0.09, network 0.09
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 오리하르콘   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: create 0.36 / money 0.31 / guard 0.08 / buff 0.06 / harvest 0.06
+- 역할: build 0.49 / cast 0.35 / summon 0.11
+- 시점: now 0.88
+- 발동 조건: none 0.94
+- 범위: one 0.31 / self 0.27 / wide 0.26
+- 재료: ore 0.91
+- 지속 기간: forever 0.64 / run 0.31
+- 구슬의 운명: returns 0.64 / used_up 0.18 / passive 0.18
+- 소환물 종류: spirit 0.46 / construct 0.25 / soldier 0.12
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.15, risky 0.14, random 0.10, network 0.08
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 미스릴   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: create 0.40 / harvest 0.18 / guard 0.17 / money 0.11 / buff 0.07
+- 역할: build 0.54 / cast 0.27 / summon 0.12
+- 시점: now 0.90
+- 발동 조건: none 0.93
+- 범위: one 0.39 / self 0.35
+- 재료: ore 1.00
+- 지속 기간: forever 0.52 / run 0.40
+- 구슬의 운명: returns 0.72 / passive 0.14 / used_up 0.14
+- 소환물 종류: soldier 0.31 / construct 0.30 / spirit 0.17
+- 아군/적대: ally 0.76 / hostile 0.24
+- 성질: scaling 0.11, risky 0.08, random 0.08, network 0.08
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 데스노트
+- 동사: damage 0.79 / remove 0.09 / control 0.05
+- 역할: cast 0.90
+- 시점: now 0.64 / trigger 0.31
+- 발동 조건: none 0.54 / death 0.37
+- 범위: one 0.51 / wide 0.41
+- 재료: none 0.89
+- 지속 기간: forever 0.66 / instant 0.20 / run 0.12
+- 구슬의 운명: returns 0.74 / used_up 0.17
+- 소환물 종류: spirit 0.91
+- 아군/적대: hostile 0.81 / ally 0.19
+- 성질: scaling 0.22, risky 0.68, random 0.10, network 0.12
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 마안
+- 동사: money 0.30 / guard 0.24 / damage 0.09 / control 0.06
+- 역할: build 0.33 / summon 0.24 / move 0.22
+- 시점: now 0.55 / trigger 0.19 / delayed 0.13
+- 발동 조건: none 0.68 / approach 0.16
+- 범위: one 0.34 / self 0.23 / around 0.21
+- 재료: gold 0.39 / none 0.30 / ore 0.20
+- 지속 기간: run 0.36 / forever 0.28 / instant 0.20
+- 구슬의 운명: returns 0.71 / used_up 0.18 / passive 0.11
+- 소환물 종류: soldier 0.32 / spirit 0.24 / beast 0.20
+- 아군/적대: ally 0.55 / hostile 0.45
+- 성질: scaling 0.22, risky 0.21, random 0.22, network 0.19
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 현자의돌   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: money 0.63 / transform 0.11 / amplify 0.08 / create 0.07
+- 역할: cast 0.53 / build 0.37
+- 시점: now 0.70 / repeating 0.18 / trigger 0.10
+- 발동 조건: none 0.86
+- 범위: self 0.30 / wide 0.30 / one 0.21
+- 재료: ore 0.68 / none 0.19 / gold 0.13
+- 지속 기간: forever 0.53 / run 0.39
+- 구슬의 운명: returns 0.59 / passive 0.26 / used_up 0.15
+- 소환물 종류: spirit 0.69 / construct 0.21
+- 아군/적대: ally 0.94
+- 성질: scaling 0.26, risky 0.20, random 0.23, network 0.09
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 우로보로스
+- 동사: recycle 0.99
+- 역할: cast 0.52 / summon 0.22 / move 0.14
+- 시점: repeating 0.84 / now 0.11
+- 발동 조건: none 0.63 / turn 0.21 / death 0.11
+- 범위: around 0.74 / wide 0.17
+- 재료: none 0.91
+- 지속 기간: forever 0.92
+- 구슬의 운명: returns 0.88
+- 소환물 종류: beast 0.69 / spirit 0.31
+- 아군/적대: hostile 0.72 / ally 0.28
+- 성질: scaling 0.45, risky 0.49, random 0.14, network 0.41
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 네크로노미콘
+- 동사: damage 0.40 / recycle 0.19 / heal 0.10 / create 0.06 / control 0.05
+- 역할: summon 0.60 / cast 0.39
+- 시점: now 0.83
+- 발동 조건: none 0.55 / death 0.32
+- 범위: wide 0.53 / around 0.19 / self 0.14
+- 재료: none 0.98
+- 지속 기간: forever 0.58 / run 0.33
+- 구슬의 운명: returns 0.78 / passive 0.13
+- 소환물 종류: spirit 0.86 / beast 0.12
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.41, risky 0.79, random 0.12, network 0.16
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 궁니르   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: damage 0.24 / recycle 0.15 / money 0.13 / guard 0.06 / heal 0.06
+- 역할: summon 0.33 / cast 0.33 / build 0.18
+- 시점: now 0.62 / trigger 0.13 / delayed 0.13
+- 발동 조건: none 0.67 / turn 0.12
+- 범위: wide 0.29 / one 0.24 / around 0.19
+- 재료: none 0.52 / ore 0.23 / gold 0.16
+- 지속 기간: forever 0.49 / run 0.27 / instant 0.13
+- 구슬의 운명: returns 0.69 / used_up 0.21 / passive 0.11
+- 소환물 종류: spirit 0.57 / beast 0.26 / soldier 0.12
+- 아군/적대: hostile 0.58 / ally 0.42
+- 성질: scaling 0.24, risky 0.39, random 0.19, network 0.19
+- 힘: 3.3 | 지시문으로 읽힘 0.02
+### 판도라의상자
+- 동사: debuff 0.28 / create 0.18 / transform 0.11 / damage 0.08 / money 0.07
+- 역할: cast 0.57 / summon 0.26 / build 0.15
+- 시점: now 0.63 / trigger 0.31
+- 발동 조건: none 0.74 / approach 0.15
+- 범위: wide 0.44 / around 0.26 / one 0.21
+- 재료: none 0.82
+- 지속 기간: forever 0.52 / instant 0.24 / run 0.17
+- 구슬의 운명: used_up 0.61 / returns 0.36
+- 소환물 종류: spirit 0.78 / beast 0.16
+- 아군/적대: hostile 0.85 / ally 0.15
+- 성질: scaling 0.20, risky 0.89, random 0.82, network 0.11
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 묠니르
+- 동사: damage 0.94
+- 역할: cast 0.94
+- 시점: now 0.83 / trigger 0.14
+- 발동 조건: none 0.76 / hit 0.11
+- 범위: one 0.35 / around 0.27 / wide 0.19
+- 재료: none 0.78 / ore 0.21
+- 지속 기간: forever 0.51 / instant 0.30 / run 0.15
+- 구슬의 운명: returns 0.94
+- 소환물 종류: spirit 0.82
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.13, risky 0.22, random 0.14, network 0.09
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 성배   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: heal 0.56 / money 0.20 / energy 0.07
+- 역할: cast 0.44 / build 0.40 / summon 0.13
+- 시점: now 0.74 / repeating 0.15 / trigger 0.10
+- 발동 조건: none 0.80
+- 범위: wide 0.31 / self 0.29 / one 0.23
+- 재료: ore 0.43 / gold 0.34 / none 0.20
+- 지속 기간: forever 0.50 / run 0.46
+- 구슬의 운명: returns 0.73 / used_up 0.13 / passive 0.13
+- 소환물 종류: spirit 0.90
+- 아군/적대: ally 0.93
+- 성질: scaling 0.18, risky 0.35, random 0.13, network 0.11
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 세계수수액   ⚠ 3번 중 1순위가 바뀐 축: lifetime, material
+- 동사: money 0.36 / harvest 0.21 / grow 0.07 / energy 0.07 / steal 0.06
+- 역할: cast 0.40 / build 0.31 / summon 0.15
+- 시점: now 0.56 / repeating 0.27 / delayed 0.12
+- 발동 조건: none 0.81
+- 범위: wide 0.55 / one 0.19 / self 0.15
+- 재료: gold 0.36 / food 0.33 / wood 0.18
+- 지속 기간: run 0.29 / turns 0.24 / forever 0.24
+- 구슬의 운명: returns 0.58 / used_up 0.34
+- 소환물 종류: beast 0.40 / worker 0.31 / spirit 0.23
+- 아군/적대: ally 0.52 / hostile 0.48
+- 성질: scaling 0.30, risky 0.14, random 0.14, network 0.23
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 드래곤브레스
+- 동사: damage 0.98
+- 역할: cast 0.98
+- 시점: now 0.93
+- 발동 조건: none 0.76 / approach 0.12
+- 범위: line 0.64 / around 0.31
+- 재료: none 1.00
+- 지속 기간: instant 0.59 / turns 0.37
+- 구슬의 운명: returns 0.84 / used_up 0.14
+- 소환물 종류: beast 0.85 / spirit 0.14
+- 아군/적대: hostile 0.71 / ally 0.29
+- 성질: scaling 0.16, risky 0.20, random 0.11, network 0.17
+- 힘: 3.0 | 지시문으로 읽힘 0.01
+### 묵시록
+- 동사: damage 0.47 / peek 0.40
+- 역할: cast 0.84
+- 시점: delayed 0.37 / now 0.31 / trigger 0.28
+- 발동 조건: none 0.70 / turn 0.16 / death 0.10
+- 범위: wide 0.94
+- 재료: none 0.96
+- 지속 기간: forever 0.71 / run 0.13
+- 구슬의 운명: returns 0.63 / used_up 0.29
+- 소환물 종류: spirit 0.83 / beast 0.14
+- 아군/적대: hostile 0.86 / ally 0.14
+- 성질: scaling 0.25, risky 0.50, random 0.20, network 0.14
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 아포칼립스
+- 동사: damage 0.96
+- 역할: cast 0.94
+- 시점: now 0.66 / delayed 0.25
+- 발동 조건: none 0.82
+- 범위: wide 0.98
+- 재료: none 0.96
+- 지속 기간: forever 0.69 / instant 0.15 / run 0.12
+- 구슬의 운명: returns 0.53 / used_up 0.43
+- 소환물 종류: spirit 0.60 / beast 0.32
+- 아군/적대: hostile 0.94
+- 성질: scaling 0.29, risky 0.62, random 0.28, network 0.13
+- 힘: 4.1 | 지시문으로 읽힘 0.02
+### 영혼수확자
+- 동사: steal 0.40 / damage 0.20 / harvest 0.19 / draw 0.11
+- 역할: cast 0.83 / summon 0.15
+- 시점: now 0.61 / trigger 0.24 / repeating 0.14
+- 발동 조건: death 0.84 / none 0.12
+- 범위: one 0.43 / around 0.31 / wide 0.18
+- 재료: none 0.98
+- 지속 기간: instant 0.52 / forever 0.20 / run 0.19
+- 구슬의 운명: returns 0.85 / used_up 0.11
+- 소환물 종류: spirit 0.86 / beast 0.11
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.33, risky 0.62, random 0.09, network 0.15
+- 힘: 3.1 | 지시문으로 읽힘 0.02
+### 마검
+- 동사: damage 0.92
+- 역할: cast 0.81
+- 시점: now 0.85 / trigger 0.10
+- 발동 조건: none 0.76 / hit 0.11
+- 범위: one 0.47 / line 0.29 / self 0.15
+- 재료: ore 0.66 / none 0.30
+- 지속 기간: run 0.35 / forever 0.27 / instant 0.24
+- 구슬의 운명: returns 0.85
+- 소환물 종류: soldier 0.63 / spirit 0.31
+- 아군/적대: ally 0.61 / hostile 0.39
+- 성질: scaling 0.17, risky 0.19, random 0.09, network 0.10
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+
+## 게임 은어·밈
+
+### 억까
+- 동사: money 0.33 / steal 0.12 / damage 0.11 / amplify 0.08
+- 역할: cast 0.44 / summon 0.24 / move 0.16
+- 시점: now 0.63 / trigger 0.20
+- 발동 조건: none 0.77
+- 범위: self 0.38 / one 0.34 / wide 0.13
+- 재료: none 0.46 / gold 0.38 / food 0.11
+- 지속 기간: instant 0.50 / turns 0.17 / run 0.16
+- 구슬의 운명: returns 0.71 / used_up 0.21
+- 소환물 종류: spirit 0.30 / beast 0.23 / soldier 0.21
+- 아군/적대: hostile 0.52 / ally 0.48
+- 성질: scaling 0.24, risky 0.39, random 0.27, network 0.15
+- 힘: 1.2 | 지시문으로 읽힘 0.03
+### 날먹
+- 동사: money 0.30 / tempo 0.15 / damage 0.11 / steal 0.10 / trash 0.05
+- 역할: cast 0.73
+- 시점: now 0.87
+- 발동 조건: none 0.77 / turn 0.12
+- 범위: self 0.55 / one 0.28
+- 재료: food 0.56 / gold 0.21 / none 0.19
+- 지속 기간: instant 0.70
+- 구슬의 운명: used_up 0.53 / returns 0.38
+- 소환물 종류: beast 0.39 / soldier 0.23 / worker 0.20
+- 아군/적대: ally 0.60 / hostile 0.40
+- 성질: scaling 0.15, risky 0.27, random 0.18, network 0.09
+- 힘: 1.0 | 지시문으로 읽힘 0.03
+### 극딜
+- 동사: damage 0.96
+- 역할: cast 1.00
+- 시점: now 0.90
+- 발동 조건: none 0.63 / hit 0.26
+- 범위: one 0.83
+- 재료: none 0.90
+- 지속 기간: instant 0.94
+- 구슬의 운명: returns 0.81 / used_up 0.17
+- 소환물 종류: soldier 0.83
+- 아군/적대: ally 0.77 / hostile 0.23
+- 성질: scaling 0.18, risky 0.27, random 0.15, network 0.12
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 가성비   ⚠ 3번 중 1순위가 바뀐 축: role, lifetime
+- 동사: money 0.76 / amplify 0.11 / buff 0.06
+- 역할: build 0.43 / cast 0.41 / summon 0.13
+- 시점: now 0.80 / repeating 0.12
+- 발동 조건: none 0.93
+- 범위: self 0.44 / wide 0.29 / one 0.21
+- 재료: gold 0.55 / none 0.43
+- 지속 기간: forever 0.34 / run 0.31 / instant 0.25
+- 구슬의 운명: returns 0.69 / used_up 0.18 / passive 0.13
+- 소환물 종류: worker 0.83
+- 아군/적대: ally 0.90
+- 성질: scaling 0.15, risky 0.09, random 0.08, network 0.08
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 창렬   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: buff 0.24 / money 0.18 / damage 0.14 / amplify 0.12
+- 역할: summon 0.39 / cast 0.36 / build 0.15
+- 시점: now 0.70 / repeating 0.13 / trigger 0.11
+- 발동 조건: none 0.78 / turn 0.11
+- 범위: one 0.27 / self 0.26 / wide 0.21
+- 재료: none 0.63 / gold 0.25
+- 지속 기간: run 0.34 / instant 0.26 / forever 0.24
+- 구슬의 운명: returns 0.67 / used_up 0.19 / passive 0.14
+- 소환물 종류: soldier 0.45 / spirit 0.30 / worker 0.13
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.23, risky 0.15, random 0.18, network 0.20
+- 힘: 2.2 | 지시문으로 읽힘 0.02
+### 혜자   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: money 0.25 / heal 0.20 / buff 0.17 / peek 0.07
+- 역할: summon 0.58 / cast 0.18 / build 0.15
+- 시점: now 0.66 / repeating 0.17 / trigger 0.11
+- 발동 조건: none 0.80 / turn 0.10
+- 범위: self 0.50 / one 0.26 / wide 0.12
+- 재료: none 0.59 / gold 0.24
+- 지속 기간: run 0.31 / forever 0.30 / instant 0.22
+- 구슬의 운명: returns 0.70 / passive 0.17 / used_up 0.13
+- 소환물 종류: spirit 0.45 / worker 0.34 / soldier 0.13
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.21, risky 0.15, random 0.18, network 0.15
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 존버
+- 동사: guard 0.42 / control 0.16 / money 0.12 / recycle 0.09 / tempo 0.06
+- 역할: cast 0.45 / build 0.30 / summon 0.12
+- 시점: repeating 0.39 / delayed 0.22 / trigger 0.22
+- 발동 조건: none 0.50 / turn 0.32 / approach 0.14
+- 범위: self 0.71 / wide 0.11 / one 0.10
+- 재료: none 0.79 / gold 0.15
+- 지속 기간: turns 0.49 / run 0.22 / forever 0.16
+- 구슬의 운명: returns 0.52 / passive 0.33 / used_up 0.14
+- 소환물 종류: soldier 0.50 / worker 0.27 / spirit 0.13
+- 아군/적대: ally 0.76 / hostile 0.24
+- 성질: scaling 0.19, risky 0.29, random 0.17, network 0.11
+- 힘: 0.8 | 지시문으로 읽힘 0.03
+### 똥겜
+- 동사: trash 0.57 / money 0.16 / debuff 0.15 / damage 0.05
+- 역할: cast 0.65 / build 0.21
+- 시점: now 0.89
+- 발동 조건: none 0.93
+- 범위: self 0.47 / wide 0.26 / one 0.19
+- 재료: none 0.79 / gold 0.14
+- 지속 기간: run 0.35 / forever 0.31 / instant 0.23
+- 구슬의 운명: returns 0.69 / used_up 0.21
+- 소환물 종류: beast 0.53 / worker 0.16 / spirit 0.16
+- 아군/적대: hostile 0.72 / ally 0.28
+- 성질: scaling 0.15, risky 0.29, random 0.15, network 0.09
+- 힘: 0.4 | 지시문으로 읽힘 0.03
+### 갓겜   ⚠ 3번 중 1순위가 바뀐 축: lifetime, range
+- 동사: money 0.48 / buff 0.16 / amplify 0.07 / tempo 0.05
+- 역할: cast 0.57 / build 0.23 / summon 0.15
+- 시점: now 0.80 / repeating 0.12
+- 발동 조건: none 0.82 / turn 0.13
+- 범위: wide 0.42 / self 0.40 / one 0.13
+- 재료: none 0.68 / gold 0.29
+- 지속 기간: forever 0.29 / instant 0.26 / run 0.24
+- 구슬의 운명: returns 0.65 / used_up 0.22 / passive 0.13
+- 소환물 종류: spirit 0.74 / worker 0.13
+- 아군/적대: ally 0.70 / hostile 0.30
+- 성질: scaling 0.42, risky 0.20, random 0.25, network 0.11
+- 힘: 2.7 | 지시문으로 읽힘 0.03
+### 누킹
+- 동사: damage 0.96
+- 역할: cast 0.97
+- 시점: now 0.81 / delayed 0.15
+- 발동 조건: none 0.72 / approach 0.11
+- 범위: around 0.58 / wide 0.28 / one 0.12
+- 재료: none 0.81 / gold 0.13
+- 지속 기간: instant 0.90
+- 구슬의 운명: returns 0.61 / used_up 0.38
+- 소환물 종류: construct 0.38 / soldier 0.33 / spirit 0.19
+- 아군/적대: ally 0.54 / hostile 0.46
+- 성질: scaling 0.19, risky 0.30, random 0.21, network 0.20
+- 힘: 3.0 | 지시문으로 읽힘 0.03
+### 물몸
+- 동사: guard 0.25 / heal 0.20 / buff 0.12 / transform 0.09 / control 0.07
+- 역할: cast 0.42 / summon 0.28 / move 0.20
+- 시점: now 0.56 / trigger 0.24 / repeating 0.18
+- 발동 조건: none 0.70 / hit 0.14
+- 범위: self 0.85
+- 재료: none 0.83
+- 지속 기간: forever 0.39 / turns 0.29 / run 0.19
+- 구슬의 운명: returns 0.63 / passive 0.23 / used_up 0.14
+- 소환물 종류: beast 0.48 / spirit 0.34
+- 아군/적대: ally 0.60 / hostile 0.40
+- 성질: scaling 0.14, risky 0.17, random 0.12, network 0.09
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 딜찍누
+- 동사: money 0.26 / peek 0.13 / damage 0.11 / steal 0.11 / amplify 0.09
+- 역할: cast 0.55 / move 0.18 / summon 0.16
+- 시점: now 0.61 / trigger 0.25
+- 발동 조건: none 0.65 / approach 0.11 / turn 0.10
+- 범위: one 0.41 / self 0.26 / wide 0.12
+- 재료: none 0.46 / gold 0.37 / food 0.11
+- 지속 기간: instant 0.54 / run 0.15 / turns 0.15
+- 구슬의 운명: returns 0.67 / used_up 0.20 / passive 0.13
+- 소환물 종류: soldier 0.26 / worker 0.25 / spirit 0.22
+- 아군/적대: ally 0.56 / hostile 0.44
+- 성질: scaling 0.24, risky 0.33, random 0.43, network 0.27
+- 힘: 1.1 | 지시문으로 읽힘 0.04
+### 뇌절   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: recycle 0.22 / trash 0.17 / debuff 0.13 / amplify 0.11 / money 0.08
+- 역할: cast 0.67 / summon 0.14 / move 0.11
+- 시점: now 0.60 / repeating 0.26 / trigger 0.11
+- 발동 조건: none 0.86
+- 범위: self 0.58 / one 0.16 / wide 0.12
+- 재료: none 0.92
+- 지속 기간: turns 0.44 / instant 0.32 / run 0.13
+- 구슬의 운명: returns 0.64 / used_up 0.24 / passive 0.12
+- 소환물 종류: spirit 0.36 / worker 0.23 / beast 0.16
+- 아군/적대: hostile 0.60 / ally 0.40
+- 성질: scaling 0.15, risky 0.25, random 0.13, network 0.11
+- 힘: 0.6 | 지시문으로 읽힘 0.03
+### 든든한국밥
+- 동사: heal 0.32 / money 0.21 / buff 0.17 / energy 0.08 / create 0.06
+- 역할: cast 0.42 / summon 0.28 / build 0.25
+- 시점: now 0.89
+- 발동 조건: none 0.93
+- 범위: self 0.63 / one 0.21
+- 재료: food 0.98
+- 지속 기간: instant 0.47 / run 0.26 / turns 0.19
+- 구슬의 운명: returns 0.58 / used_up 0.32
+- 소환물 종류: worker 0.63 / spirit 0.19
+- 아군/적대: ally 0.91
+- 성질: scaling 0.12, risky 0.07, random 0.07, network 0.10
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 버스승객   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: money 0.34 / draw 0.20 / control 0.17 / create 0.07
+- 역할: summon 0.64 / move 0.33
+- 시점: now 0.76 / trigger 0.13 / repeating 0.10
+- 발동 조건: none 0.76 / approach 0.13
+- 범위: one 0.45 / wide 0.21 / around 0.17
+- 재료: none 0.80 / gold 0.15
+- 지속 기간: turns 0.31 / run 0.28 / instant 0.26
+- 구슬의 운명: returns 0.71 / used_up 0.21
+- 소환물 종류: worker 1.00
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.15, risky 0.08, random 0.12, network 0.35
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 막타   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: damage 0.75 / control 0.07 / guard 0.06
+- 역할: cast 0.87
+- 시점: now 0.68 / trigger 0.26
+- 발동 조건: none 0.43 / hit 0.36
+- 범위: one 0.44 / around 0.28 / line 0.17
+- 재료: none 0.35 / ore 0.32 / gold 0.19
+- 지속 기간: instant 0.75
+- 구슬의 운명: returns 0.74 / used_up 0.22
+- 소환물 종류: soldier 0.66 / spirit 0.14
+- 아군/적대: hostile 0.52 / ally 0.48
+- 성질: scaling 0.17, risky 0.25, random 0.15, network 0.17
+- 힘: 2.2 | 지시문으로 읽힘 0.02
+### 떡상
+- 동사: amplify 0.36 / money 0.21 / grow 0.13 / buff 0.09
+- 역할: cast 0.62 / build 0.18 / move 0.10
+- 시점: now 0.43 / repeating 0.28 / delayed 0.20
+- 발동 조건: none 0.74 / turn 0.14
+- 범위: self 0.39 / one 0.26 / wide 0.21
+- 재료: food 0.39 / gold 0.34 / none 0.24
+- 지속 기간: turns 0.39 / instant 0.25 / run 0.17
+- 구슬의 운명: returns 0.59 / used_up 0.23 / passive 0.19
+- 소환물 종류: spirit 0.33 / worker 0.26 / beast 0.22
+- 아군/적대: ally 0.66 / hostile 0.34
+- 성질: scaling 0.79, risky 0.20, random 0.53, network 0.14
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 떡락
+- 동사: damage 0.23 / money 0.19 / debuff 0.06 / steal 0.05 / transform 0.05
+- 역할: cast 0.54 / move 0.22 / build 0.13
+- 시점: now 0.48 / trigger 0.25 / delayed 0.19
+- 발동 조건: none 0.66 / turn 0.12
+- 범위: one 0.34 / self 0.25 / around 0.21
+- 재료: food 0.60 / none 0.21 / gold 0.16
+- 지속 기간: instant 0.55 / turns 0.21 / run 0.12
+- 구슬의 운명: returns 0.65 / used_up 0.25
+- 소환물 종류: beast 0.29 / spirit 0.27 / worker 0.20
+- 아군/적대: hostile 0.53 / ally 0.47
+- 성질: scaling 0.23, risky 0.51, random 0.66, network 0.14
+- 힘: 1.1 | 지시문으로 읽힘 0.03
+### 민트초코
+- 동사: money 0.25 / create 0.21 / heal 0.11 / control 0.07 / transform 0.06
+- 역할: cast 0.52 / build 0.27 / summon 0.13
+- 시점: now 0.88
+- 발동 조건: none 0.95
+- 범위: self 0.45 / one 0.35 / around 0.11
+- 재료: food 0.94
+- 지속 기간: instant 0.29 / turns 0.27 / run 0.21
+- 구슬의 운명: returns 0.68 / used_up 0.23
+- 소환물 종류: beast 0.37 / spirit 0.30 / worker 0.22
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.09, risky 0.06, random 0.09, network 0.07
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+
+## 추상·감정
+
+### 침묵의나선
+- 동사: control 0.62 / debuff 0.12 / recycle 0.12
+- 역할: cast 0.50 / build 0.25 / move 0.21
+- 시점: repeating 0.42 / now 0.29 / delayed 0.19
+- 발동 조건: none 0.58 / approach 0.23 / turn 0.16
+- 범위: around 0.54 / line 0.39
+- 재료: none 0.95
+- 지속 기간: run 0.34 / forever 0.29 / turns 0.28
+- 구슬의 운명: returns 0.80 / used_up 0.12
+- 소환물 종류: spirit 0.73 / beast 0.19
+- 아군/적대: hostile 0.53 / ally 0.47
+- 성질: scaling 0.25, risky 0.17, random 0.08, network 0.30
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 엔트로피   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: trash 0.26 / transform 0.24 / debuff 0.16 / damage 0.10 / energy 0.06
+- 역할: cast 0.86
+- 시점: repeating 0.44 / now 0.28 / delayed 0.24
+- 발동 조건: none 0.79 / turn 0.14
+- 범위: wide 0.82 / around 0.13
+- 재료: none 1.00
+- 지속 기간: forever 0.90
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 소환물 종류: spirit 0.83
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.49, risky 0.28, random 0.86, network 0.27
+- 힘: 3.3 | 지시문으로 읽힘 0.02
+### 인과율   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: recycle 0.37 / amplify 0.34 / money 0.05 / debuff 0.05
+- 역할: cast 0.86
+- 시점: trigger 0.50 / delayed 0.36 / now 0.12
+- 발동 조건: none 0.66 / hit 0.11 / turn 0.10
+- 범위: wide 0.86
+- 재료: none 0.98
+- 지속 기간: forever 0.99
+- 구슬의 운명: returns 0.63 / passive 0.26 / used_up 0.10
+- 소환물 종류: spirit 0.96
+- 아군/적대: ally 0.75 / hostile 0.25
+- 성질: scaling 0.39, risky 0.21, random 0.30, network 0.60
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 허무
+- 동사: trash 0.51 / remove 0.36
+- 역할: cast 0.76 / build 0.12
+- 시점: now 0.79
+- 발동 조건: none 0.89
+- 범위: wide 0.52 / self 0.28 / one 0.13
+- 재료: none 0.98
+- 지속 기간: forever 0.53 / instant 0.24 / turns 0.18
+- 구슬의 운명: returns 0.65 / used_up 0.20 / passive 0.14
+- 소환물 종류: spirit 0.89
+- 아군/적대: ally 0.57 / hostile 0.43
+- 성질: scaling 0.10, risky 0.20, random 0.16, network 0.06
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 절망
+- 동사: debuff 0.78 / damage 0.08
+- 역할: cast 0.88
+- 시점: now 0.77 / trigger 0.12
+- 발동 조건: none 0.86
+- 범위: wide 0.48 / self 0.25 / around 0.13
+- 재료: none 0.99
+- 지속 기간: forever 0.45 / turns 0.38
+- 구슬의 운명: returns 0.65 / used_up 0.22 / passive 0.13
+- 소환물 종류: spirit 0.85 / beast 0.13
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.18, risky 0.58, random 0.12, network 0.06
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 질투
+- 동사: steal 0.51 / debuff 0.20 / transform 0.12 / amplify 0.07
+- 역할: cast 0.83
+- 시점: now 0.54 / trigger 0.34 / repeating 0.10
+- 발동 조건: none 0.78
+- 범위: self 0.39 / one 0.28 / wide 0.19
+- 재료: none 0.98
+- 지속 기간: turns 0.63 / forever 0.18
+- 구슬의 운명: returns 0.66 / passive 0.22 / used_up 0.12
+- 소환물 종류: spirit 0.85 / beast 0.13
+- 아군/적대: hostile 0.80 / ally 0.20
+- 성질: scaling 0.24, risky 0.31, random 0.10, network 0.13
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 탐욕   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: money 0.66 / steal 0.29
+- 역할: cast 0.75 / build 0.15
+- 시점: now 0.54 / repeating 0.34 / trigger 0.10
+- 발동 조건: none 0.87
+- 범위: self 0.53 / wide 0.33
+- 재료: none 0.57 / gold 0.43
+- 지속 기간: forever 0.63 / run 0.16 / turns 0.14
+- 구슬의 운명: returns 0.71 / passive 0.17 / used_up 0.12
+- 소환물 종류: spirit 0.68 / beast 0.26
+- 아군/적대: hostile 0.86 / ally 0.14
+- 성질: scaling 0.50, risky 0.35, random 0.10, network 0.08
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 나태
+- 동사: debuff 0.68 / control 0.19 / money 0.07
+- 역할: cast 0.61 / summon 0.16 / build 0.13
+- 시점: delayed 0.40 / now 0.29 / repeating 0.26
+- 발동 조건: none 0.66 / turn 0.28
+- 범위: self 0.59 / wide 0.19 / one 0.12
+- 재료: none 0.96
+- 지속 기간: turns 0.50 / forever 0.31 / run 0.11
+- 구슬의 운명: returns 0.56 / passive 0.33 / used_up 0.12
+- 소환물 종류: spirit 0.55 / beast 0.24 / worker 0.18
+- 아군/적대: hostile 0.57 / ally 0.43
+- 성질: scaling 0.16, risky 0.15, random 0.07, network 0.06
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 열등감
+- 동사: debuff 0.69 / transform 0.08 / money 0.06
+- 역할: cast 0.80
+- 시점: now 0.58 / trigger 0.25 / repeating 0.16
+- 발동 조건: none 0.87
+- 범위: self 0.73 / wide 0.13
+- 재료: none 0.99
+- 지속 기간: turns 0.66 / run 0.16 / forever 0.15
+- 구슬의 운명: returns 0.56 / passive 0.28 / used_up 0.16
+- 소환물 종류: spirit 0.81 / beast 0.12
+- 아군/적대: hostile 0.57 / ally 0.43
+- 성질: scaling 0.21, risky 0.32, random 0.07, network 0.08
+- 힘: 0.4 | 지시문으로 읽힘 0.02
+### 자본주의
+- 동사: money 0.98
+- 역할: build 0.47 / cast 0.42
+- 시점: now 0.61 / repeating 0.31
+- 발동 조건: none 0.88 / turn 0.10
+- 범위: wide 0.84
+- 재료: gold 0.89 / none 0.11
+- 지속 기간: forever 0.87 / run 0.12
+- 구슬의 운명: returns 0.80 / used_up 0.12
+- 소환물 종류: worker 0.74 / spirit 0.21
+- 아군/적대: ally 0.59 / hostile 0.41
+- 성질: scaling 0.81, risky 0.11, random 0.12, network 0.35
+- 힘: 2.9 | 지시문으로 읽힘 0.02
+### 공리주의
+- 동사: money 0.41 / amplify 0.17 / buff 0.13 / transform 0.08
+- 역할: cast 0.78 / build 0.15
+- 시점: now 0.78 / repeating 0.12
+- 발동 조건: none 0.92
+- 범위: wide 0.92
+- 재료: none 0.97
+- 지속 기간: forever 0.90
+- 구슬의 운명: returns 0.81
+- 소환물 종류: spirit 0.75 / worker 0.16
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.13, risky 0.12, random 0.07, network 0.26
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+### 데자뷔
+- 동사: recycle 0.89
+- 역할: cast 0.67 / move 0.26
+- 시점: repeating 0.35 / now 0.33 / trigger 0.21
+- 발동 조건: none 0.74 / turn 0.16
+- 범위: self 0.64 / wide 0.19
+- 재료: none 0.98
+- 지속 기간: instant 0.70 / turns 0.23
+- 구슬의 운명: returns 0.86
+- 소환물 종류: spirit 0.96
+- 아군/적대: ally 0.77 / hostile 0.23
+- 성질: scaling 0.10, risky 0.15, random 0.17, network 0.08
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 망각
+- 동사: trash 0.85 / remove 0.13
+- 역할: cast 0.88
+- 시점: now 0.75 / trigger 0.10
+- 발동 조건: none 0.84
+- 범위: wide 0.37 / one 0.30 / self 0.22
+- 재료: none 0.99
+- 지속 기간: forever 0.72 / instant 0.11
+- 구슬의 운명: returns 0.71 / used_up 0.22
+- 소환물 종류: spirit 0.95
+- 아군/적대: hostile 0.62 / ally 0.38
+- 성질: scaling 0.12, risky 0.36, random 0.13, network 0.08
+- 힘: 2.9 | 지시문으로 읽힘 0.02
+### 고독
+- 동사: debuff 0.36 / control 0.10 / remove 0.09 / guard 0.08 / buff 0.06
+- 역할: cast 0.56 / summon 0.24 / move 0.11
+- 시점: now 0.59 / repeating 0.23 / trigger 0.14
+- 발동 조건: none 0.78
+- 범위: self 0.80
+- 재료: none 0.99
+- 지속 기간: turns 0.43 / forever 0.31 / run 0.19
+- 구슬의 운명: returns 0.67 / passive 0.20 / used_up 0.13
+- 소환물 종류: spirit 0.90
+- 아군/적대: ally 0.62 / hostile 0.38
+- 성질: scaling 0.12, risky 0.31, random 0.08, network 0.06
+- 힘: 1.1 | 지시문으로 읽힘 0.02
+### 트라우마
+- 동사: debuff 0.74 / damage 0.09 / control 0.05
+- 역할: cast 0.84
+- 시점: now 0.42 / trigger 0.32 / delayed 0.15
+- 발동 조건: none 0.71 / hit 0.18
+- 범위: self 0.56 / one 0.17 / wide 0.17
+- 재료: none 0.99
+- 지속 기간: forever 0.75 / run 0.16
+- 구슬의 운명: returns 0.62 / used_up 0.20 / passive 0.18
+- 소환물 종류: spirit 0.89
+- 아군/적대: hostile 0.77 / ally 0.23
+- 성질: scaling 0.16, risky 0.70, random 0.12, network 0.07
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 아이러니   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: recycle 0.37 / transform 0.35 / debuff 0.10 / amplify 0.07 / money 0.06
+- 역할: cast 0.84
+- 시점: now 0.45 / trigger 0.43
+- 발동 조건: none 0.91
+- 범위: self 0.38 / wide 0.29 / one 0.25
+- 재료: none 0.98
+- 지속 기간: forever 0.44 / instant 0.33 / turns 0.16
+- 구슬의 운명: returns 0.72 / passive 0.19
+- 소환물 종류: spirit 0.82
+- 아군/적대: ally 0.66 / hostile 0.34
+- 성질: scaling 0.11, risky 0.23, random 0.20, network 0.09
+- 힘: 0.7 | 지시문으로 읽힘 0.03
+### 우울
+- 동사: debuff 0.84
+- 역할: cast 0.80
+- 시점: now 0.61 / repeating 0.27
+- 발동 조건: none 0.86
+- 범위: self 0.69 / around 0.10
+- 재료: none 0.99
+- 지속 기간: turns 0.89
+- 구슬의 운명: returns 0.68 / passive 0.19 / used_up 0.13
+- 소환물 종류: spirit 0.86 / beast 0.11
+- 아군/적대: ally 0.54 / hostile 0.46
+- 성질: scaling 0.13, risky 0.37, random 0.09, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 광기   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: debuff 0.48 / damage 0.17 / transform 0.11 / control 0.10
+- 역할: cast 0.84 / summon 0.11
+- 시점: now 0.68 / repeating 0.18 / trigger 0.11
+- 발동 조건: none 0.90
+- 범위: wide 0.32 / around 0.30 / self 0.28
+- 재료: none 0.99
+- 지속 기간: turns 0.69 / forever 0.21
+- 구슬의 운명: returns 0.68 / passive 0.16 / used_up 0.16
+- 소환물 종류: spirit 0.59 / beast 0.38
+- 아군/적대: hostile 0.93
+- 성질: scaling 0.25, risky 0.59, random 0.77, network 0.09
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 희생
+- 동사: damage 0.31 / trash 0.20 / energy 0.10 / transform 0.07 / steal 0.07
+- 역할: cast 0.84 / summon 0.11
+- 시점: now 0.78 / trigger 0.19
+- 발동 조건: none 0.53 / death 0.41
+- 범위: self 0.43 / one 0.34 / wide 0.13
+- 재료: none 0.93
+- 지속 기간: instant 0.79 / run 0.12
+- 구슬의 운명: returns 0.55 / used_up 0.42
+- 소환물 종류: spirit 0.74 / soldier 0.13
+- 아군/적대: hostile 0.55 / ally 0.45
+- 성질: scaling 0.11, risky 0.92, random 0.11, network 0.09
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 카타르시스
+- 동사: remove 0.65 / heal 0.16 / trash 0.12
+- 역할: cast 0.95
+- 시점: now 0.87 / trigger 0.10
+- 발동 조건: none 0.70 / death 0.16
+- 범위: self 0.55 / wide 0.20 / around 0.19
+- 재료: none 0.99
+- 지속 기간: instant 0.87
+- 구슬의 운명: returns 0.62 / used_up 0.34
+- 소환물 종류: spirit 0.97
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.11, risky 0.25, random 0.12, network 0.10
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 윤회   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: recycle 1.00
+- 역할: move 0.39 / cast 0.36 / summon 0.22
+- 시점: repeating 0.69 / delayed 0.18
+- 발동 조건: death 0.70 / none 0.18 / turn 0.11
+- 범위: wide 0.61 / self 0.22 / one 0.10
+- 재료: none 0.96
+- 지속 기간: forever 0.90
+- 구슬의 운명: returns 0.90
+- 소환물 종류: spirit 0.99
+- 아군/적대: ally 0.71 / hostile 0.29
+- 성질: scaling 0.28, risky 0.30, random 0.26, network 0.24
+- 힘: 3.2 | 지시문으로 읽힘 0.01
+
+## 일상 사물
+
+### 바나나껍질
+- 동사: debuff 0.39 / control 0.30 / trash 0.20
+- 역할: cast 0.65 / build 0.17 / move 0.16
+- 시점: trigger 0.82 / now 0.16
+- 발동 조건: approach 0.74 / none 0.24
+- 범위: one 0.33 / self 0.24 / around 0.22
+- 재료: food 0.98
+- 지속 기간: turns 0.47 / instant 0.33 / run 0.11
+- 구슬의 운명: returns 0.44 / used_up 0.41 / passive 0.15
+- 소환물 종류: beast 0.40 / spirit 0.28 / worker 0.22
+- 아군/적대: hostile 0.58 / ally 0.42
+- 성질: scaling 0.07, risky 0.23, random 0.30, network 0.06
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 레고블록
+- 동사: create 0.73 / guard 0.11
+- 역할: build 0.91
+- 시점: now 0.92
+- 발동 조건: none 0.92
+- 범위: one 0.43 / around 0.20 / self 0.16
+- 재료: none 0.47 / ore 0.30 / wood 0.19
+- 지속 기간: run 0.79 / forever 0.15
+- 구슬의 운명: returns 0.77 / used_up 0.19
+- 소환물 종류: construct 0.74 / worker 0.26
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.23, risky 0.05, random 0.10, network 0.31
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 젖은수건   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: remove 0.39 / heal 0.13 / trash 0.12 / debuff 0.08 / control 0.07
+- 역할: cast 0.67 / build 0.18 / move 0.13
+- 시점: now 0.84
+- 발동 조건: none 0.83
+- 범위: self 0.45 / one 0.37
+- 재료: none 0.69 / wood 0.25
+- 지속 기간: turns 0.37 / run 0.36 / instant 0.14
+- 구슬의 운명: returns 0.75 / used_up 0.20
+- 소환물 종류: worker 0.45 / spirit 0.28 / construct 0.21
+- 아군/적대: ally 0.74 / hostile 0.26
+- 성질: scaling 0.06, risky 0.07, random 0.05, network 0.05
+- 힘: 0.2 | 지시문으로 읽힘 0.03
+### USB메모리   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: money 0.36 / create 0.18 / transform 0.17 / recycle 0.10 / draw 0.05
+- 역할: build 0.41 / move 0.28 / cast 0.25
+- 시점: now 0.86 / trigger 0.11
+- 발동 조건: none 0.90
+- 범위: self 0.53 / one 0.32
+- 재료: ore 0.78 / none 0.16
+- 지속 기간: run 0.49 / forever 0.48
+- 구슬의 운명: returns 0.92
+- 소환물 종류: construct 0.94
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.11, risky 0.05, random 0.06, network 0.16
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 압정
+- 동사: control 0.64 / guard 0.10 / create 0.09 / damage 0.05
+- 역할: build 0.68 / cast 0.19 / move 0.11
+- 시점: now 0.54 / trigger 0.41
+- 발동 조건: approach 0.48 / none 0.45
+- 범위: one 0.69 / around 0.16
+- 재료: ore 0.90
+- 지속 기간: run 0.54 / forever 0.21 / instant 0.19
+- 구슬의 운명: returns 0.63 / used_up 0.27
+- 소환물 종류: construct 0.43 / worker 0.30 / soldier 0.17
+- 아군/적대: ally 0.51 / hostile 0.49
+- 성질: scaling 0.11, risky 0.12, random 0.08, network 0.14
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 커피머신   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: money 0.27 / energy 0.25 / create 0.22 / buff 0.11 / recycle 0.07
+- 역할: build 0.71 / summon 0.17 / cast 0.11
+- 시점: now 0.81 / repeating 0.15
+- 발동 조건: none 0.86
+- 범위: self 0.54 / one 0.27 / around 0.12
+- 재료: food 0.81 / ore 0.17
+- 지속 기간: run 0.91
+- 구슬의 운명: returns 0.96
+- 소환물 종류: construct 0.99
+- 아군/적대: ally 0.91
+- 성질: scaling 0.12, risky 0.06, random 0.08, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 뽁뽁이   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: money 0.18 / create 0.10 / amplify 0.10 / damage 0.09 / control 0.08
+- 역할: cast 0.38 / summon 0.30 / build 0.17
+- 시점: now 0.63 / trigger 0.19 / repeating 0.12
+- 발동 조건: none 0.69 / approach 0.15
+- 범위: one 0.35 / self 0.33 / around 0.23
+- 재료: none 0.61 / gold 0.17 / food 0.14
+- 지속 기간: instant 0.35 / turns 0.25 / run 0.23
+- 구슬의 운명: returns 0.62 / used_up 0.28 / passive 0.10
+- 소환물 종류: beast 0.43 / spirit 0.30 / worker 0.12
+- 아군/적대: ally 0.75 / hostile 0.25
+- 성질: scaling 0.19, risky 0.15, random 0.28, network 0.11
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 진공청소기
+- 동사: trash 0.41 / draw 0.28 / remove 0.23
+- 역할: cast 0.50 / summon 0.29 / move 0.18
+- 시점: now 0.81 / repeating 0.16
+- 발동 조건: none 0.73 / approach 0.19
+- 범위: around 0.54 / line 0.26
+- 재료: ore 0.68 / none 0.26
+- 지속 기간: run 0.66 / instant 0.14 / forever 0.11
+- 구슬의 운명: returns 0.94
+- 소환물 종류: construct 0.99
+- 아군/적대: ally 0.91
+- 성질: scaling 0.10, risky 0.05, random 0.06, network 0.22
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 지우개
+- 동사: remove 0.98
+- 역할: cast 0.89
+- 시점: now 0.94
+- 발동 조건: none 0.88
+- 범위: one 0.73 / around 0.10
+- 재료: none 0.74 / ore 0.13
+- 지속 기간: instant 0.76 / run 0.13
+- 구슬의 운명: returns 0.90
+- 소환물 종류: worker 0.36 / spirit 0.32 / construct 0.31
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.06, risky 0.06, random 0.07, network 0.06
+- 힘: 0.4 | 지시문으로 읽힘 0.02
+### 박스테이프
+- 동사: create 0.41 / control 0.18 / guard 0.15 / money 0.08
+- 역할: build 0.56 / cast 0.25 / move 0.14
+- 시점: now 0.65 / trigger 0.23
+- 발동 조건: none 0.78 / approach 0.12
+- 범위: one 0.51 / line 0.23 / self 0.14
+- 재료: ore 0.39 / wood 0.22 / none 0.20
+- 지속 기간: run 0.45 / instant 0.26 / forever 0.20
+- 구슬의 운명: returns 0.76 / used_up 0.18
+- 소환물 종류: construct 0.46 / worker 0.37 / beast 0.11
+- 아군/적대: ally 0.51 / hostile 0.49
+- 성질: scaling 0.15, risky 0.10, random 0.11, network 0.14
+- 힘: 0.7 | 지시문으로 읽힘 0.03
+### 각설탕
+- 동사: money 0.35 / create 0.14 / harvest 0.06 / control 0.06 / debuff 0.05
+- 역할: cast 0.48 / build 0.27 / move 0.13
+- 시점: now 0.75
+- 발동 조건: none 0.84
+- 범위: one 0.41 / self 0.37
+- 재료: food 0.89
+- 지속 기간: instant 0.33 / run 0.29 / forever 0.21
+- 구슬의 운명: returns 0.47 / used_up 0.45
+- 소환물 종류: worker 0.37 / beast 0.22 / spirit 0.19
+- 아군/적대: ally 0.72 / hostile 0.28
+- 성질: scaling 0.15, risky 0.16, random 0.14, network 0.08
+- 힘: 0.5 | 지시문으로 읽힘 0.03
+### 이태리타월   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: heal 0.22 / create 0.17 / remove 0.14 / money 0.09 / trash 0.06
+- 역할: build 0.32 / cast 0.30 / move 0.19
+- 시점: now 0.75 / repeating 0.11 / trigger 0.10
+- 발동 조건: none 0.82
+- 범위: self 0.34 / one 0.33 / wide 0.12
+- 재료: none 0.51 / wood 0.20 / gold 0.11
+- 지속 기간: run 0.45 / forever 0.19 / instant 0.17
+- 구슬의 운명: returns 0.72 / used_up 0.16 / passive 0.11
+- 소환물 종류: worker 0.51 / soldier 0.13 / construct 0.12
+- 아군/적대: ally 0.75 / hostile 0.25
+- 성질: scaling 0.11, risky 0.08, random 0.10, network 0.14
+- 힘: 0.8 | 지시문으로 읽힘 0.04
+### 모기향
+- 동사: debuff 0.36 / damage 0.20 / control 0.14 / remove 0.13 / trash 0.05
+- 역할: cast 0.71 / build 0.23
+- 시점: repeating 0.62 / now 0.24
+- 발동 조건: none 0.55 / approach 0.38
+- 범위: around 0.76 / self 0.13
+- 재료: none 0.64 / wood 0.22 / food 0.11
+- 지속 기간: turns 0.66 / run 0.24
+- 구슬의 운명: returns 0.39 / passive 0.36 / used_up 0.25
+- 소환물 종류: beast 0.66 / spirit 0.21
+- 아군/적대: hostile 0.66 / ally 0.34
+- 성질: scaling 0.13, risky 0.14, random 0.07, network 0.13
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 파리채
+- 동사: damage 0.44 / control 0.23 / trash 0.09 / draw 0.09 / remove 0.08
+- 역할: cast 0.83 / move 0.10
+- 시점: now 0.64 / trigger 0.28
+- 발동 조건: none 0.58 / approach 0.31
+- 범위: one 0.44 / around 0.32 / line 0.16
+- 재료: wood 0.64 / none 0.19 / ore 0.12
+- 지속 기간: run 0.43 / instant 0.32 / forever 0.14
+- 구슬의 운명: returns 0.95
+- 소환물 종류: beast 0.47 / construct 0.27 / worker 0.13
+- 아군/적대: hostile 0.68 / ally 0.32
+- 성질: scaling 0.08, risky 0.07, random 0.09, network 0.10
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 젖은신문지
+- 동사: trash 0.42 / debuff 0.10 / peek 0.10 / money 0.09 / control 0.06
+- 역할: cast 0.52 / build 0.33 / move 0.11
+- 시점: now 0.82 / trigger 0.12
+- 발동 조건: none 0.80 / approach 0.12
+- 범위: one 0.46 / self 0.26 / line 0.12
+- 재료: wood 0.75 / none 0.19
+- 지속 기간: turns 0.43 / instant 0.22 / run 0.21
+- 구슬의 운명: used_up 0.50 / returns 0.45
+- 소환물 종류: spirit 0.44 / worker 0.32 / construct 0.18
+- 아군/적대: hostile 0.53 / ally 0.47
+- 성질: scaling 0.11, risky 0.10, random 0.11, network 0.07
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 종이비행기   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: tempo 0.40 / create 0.16 / control 0.10 / peek 0.06 / trash 0.06
+- 역할: move 0.56 / cast 0.21 / summon 0.12
+- 시점: now 0.87
+- 발동 조건: none 0.83
+- 범위: line 0.48 / one 0.27 / self 0.18
+- 재료: wood 0.49 / none 0.46
+- 지속 기간: instant 0.51 / turns 0.21 / run 0.21
+- 구슬의 운명: returns 0.64 / used_up 0.34
+- 소환물 종류: construct 0.86
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.07, risky 0.06, random 0.31, network 0.07
+- 힘: 0.2 | 지시문으로 읽힘 0.01
+### 고무줄
+- 동사: control 0.51 / recycle 0.12 / tempo 0.08 / buff 0.05
+- 역할: move 0.48 / cast 0.36 / build 0.12
+- 시점: now 0.53 / trigger 0.37
+- 발동 조건: none 0.78 / approach 0.13
+- 범위: line 0.50 / one 0.23 / self 0.16
+- 재료: none 0.72 / wood 0.15
+- 지속 기간: run 0.49 / forever 0.19 / instant 0.17
+- 구슬의 운명: returns 0.88
+- 소환물 종류: construct 0.42 / beast 0.32 / worker 0.14
+- 아군/적대: ally 0.73 / hostile 0.27
+- 성질: scaling 0.13, risky 0.11, random 0.17, network 0.50
+- 힘: 0.3 | 지시문으로 읽힘 0.02
+### 이쑤시개
+- 동사: damage 0.35 / create 0.08 / draw 0.08 / money 0.07 / control 0.06
+- 역할: cast 0.41 / move 0.24 / summon 0.21
+- 시점: now 0.55 / trigger 0.28
+- 발동 조건: none 0.63 / approach 0.19
+- 범위: one 0.33 / line 0.26 / self 0.19
+- 재료: food 0.52 / none 0.15 / wood 0.13
+- 지속 기간: instant 0.33 / run 0.28 / forever 0.23
+- 구슬의 운명: returns 0.67 / used_up 0.25
+- 소환물 종류: beast 0.33 / soldier 0.28 / worker 0.16
+- 아군/적대: hostile 0.69 / ally 0.31
+- 성질: scaling 0.20, risky 0.32, random 0.28, network 0.19
+- 힘: 1.4 | 지시문으로 읽힘 0.03
+### 돋보기
+- 동사: peek 0.93 / amplify 0.07
+- 역할: cast 0.87
+- 시점: now 0.81 / trigger 0.14
+- 발동 조건: none 0.77 / approach 0.18
+- 범위: one 0.52 / around 0.17 / self 0.15
+- 재료: ore 0.66 / none 0.26
+- 지속 기간: run 0.45 / forever 0.34 / instant 0.10
+- 구슬의 운명: returns 0.94
+- 소환물 종류: construct 0.47 / worker 0.26 / spirit 0.21
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.18, risky 0.06, random 0.07, network 0.10
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 형광펜
+- 동사: peek 0.27 / amplify 0.17 / create 0.12 / draw 0.08 / remove 0.08
+- 역할: cast 0.74 / build 0.22
+- 시점: now 0.78 / repeating 0.13
+- 발동 조건: none 0.87
+- 범위: line 0.57 / one 0.21 / self 0.12
+- 재료: none 0.53 / ore 0.30
+- 지속 기간: run 0.48 / forever 0.29 / turns 0.16
+- 구슬의 운명: returns 0.87
+- 소환물 종류: worker 0.49 / construct 0.27 / spirit 0.17
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.08, risky 0.05, random 0.07, network 0.07
+- 힘: 0.4 | 지시문으로 읽힘 0.02
+
+## 의학·신체
+
+### 아드레날린
+- 동사: buff 0.52 / tempo 0.40 / energy 0.07
+- 역할: cast 0.88
+- 시점: now 0.64 / trigger 0.28
+- 발동 조건: none 0.68 / hit 0.20
+- 범위: self 0.89
+- 재료: none 1.00
+- 지속 기간: turns 0.87
+- 구슬의 운명: returns 0.54 / passive 0.27 / used_up 0.19
+- 소환물 종류: spirit 0.43 / soldier 0.38 / beast 0.15
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.16, risky 0.31, random 0.18, network 0.07
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 파상풍   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: debuff 0.36 / damage 0.36 / heal 0.10 / control 0.08
+- 역할: cast 0.80
+- 시점: delayed 0.47 / trigger 0.30 / now 0.21
+- 발동 조건: none 0.56 / hit 0.32
+- 범위: self 0.34 / one 0.27 / around 0.16
+- 재료: none 0.88
+- 지속 기간: run 0.32 / instant 0.26 / turns 0.21
+- 구슬의 운명: returns 0.64 / used_up 0.25 / passive 0.11
+- 소환물 종류: beast 0.43 / spirit 0.41 / soldier 0.11
+- 아군/적대: hostile 0.86 / ally 0.14
+- 성질: scaling 0.20, risky 0.49, random 0.08, network 0.12
+- 힘: 1.3 | 지시문으로 읽힘 0.03
+### 동맥경화
+- 동사: debuff 0.80 / control 0.08 / damage 0.05
+- 역할: cast 0.74 / build 0.19
+- 시점: delayed 0.61 / now 0.19 / repeating 0.16
+- 발동 조건: none 0.79
+- 범위: wide 0.34 / one 0.22 / self 0.18
+- 재료: none 0.77
+- 지속 기간: forever 0.65 / run 0.29
+- 구슬의 운명: returns 0.63 / used_up 0.21 / passive 0.16
+- 소환물 종류: beast 0.52 / spirit 0.23 / construct 0.13
+- 아군/적대: hostile 0.83 / ally 0.17
+- 성질: scaling 0.40, risky 0.60, random 0.07, network 0.39
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 카페인쇼크   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: energy 0.33 / tempo 0.31 / buff 0.19 / damage 0.08 / debuff 0.06
+- 역할: cast 0.97
+- 시점: now 0.97
+- 발동 조건: none 0.79 / turn 0.11
+- 범위: self 0.70 / one 0.16
+- 재료: none 0.71 / food 0.28
+- 지속 기간: instant 0.75 / turns 0.25
+- 구슬의 운명: returns 0.60 / used_up 0.36
+- 소환물 종류: spirit 0.47 / beast 0.28
+- 아군/적대: ally 0.53 / hostile 0.47
+- 성질: scaling 0.14, risky 0.49, random 0.31, network 0.08
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 편두통
+- 동사: debuff 0.54 / damage 0.37
+- 역할: cast 0.89
+- 시점: now 0.48 / repeating 0.40
+- 발동 조건: none 0.80
+- 범위: self 0.57 / one 0.21 / around 0.16
+- 재료: none 0.98
+- 지속 기간: turns 0.82 / instant 0.11
+- 구슬의 운명: returns 0.58 / passive 0.21 / used_up 0.21
+- 소환물 종류: spirit 0.60 / beast 0.33
+- 아군/적대: hostile 0.83 / ally 0.17
+- 성질: scaling 0.14, risky 0.71, random 0.10, network 0.06
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 젖산축적
+- 동사: debuff 0.55 / energy 0.09 / damage 0.06
+- 역할: cast 0.74 / build 0.17
+- 시점: delayed 0.48 / repeating 0.25 / now 0.16
+- 발동 조건: none 0.72 / turn 0.13 / hit 0.10
+- 범위: self 0.86
+- 재료: none 0.79 / food 0.17
+- 지속 기간: turns 0.64 / forever 0.13
+- 구슬의 운명: returns 0.49 / passive 0.36 / used_up 0.15
+- 소환물 종류: beast 0.45 / spirit 0.34 / worker 0.10
+- 아군/적대: hostile 0.61 / ally 0.39
+- 성질: scaling 0.45, risky 0.41, random 0.07, network 0.11
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 저혈당   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: debuff 0.52 / heal 0.13 / energy 0.12 / money 0.09 / damage 0.05
+- 역할: cast 0.80
+- 시점: trigger 0.57 / now 0.31
+- 발동 조건: none 0.73 / hit 0.13
+- 범위: self 0.67 / one 0.19
+- 재료: none 0.50 / food 0.46
+- 지속 기간: turns 0.68 / instant 0.16
+- 구슬의 운명: returns 0.63 / used_up 0.21 / passive 0.16
+- 소환물 종류: spirit 0.43 / beast 0.33 / worker 0.14
+- 아군/적대: hostile 0.61 / ally 0.39
+- 성질: scaling 0.11, risky 0.52, random 0.09, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 복합골절
+- 동사: damage 0.71 / debuff 0.16 / control 0.05
+- 역할: cast 0.86
+- 시점: now 0.75 / trigger 0.19
+- 발동 조건: none 0.60 / hit 0.35
+- 범위: one 0.65 / self 0.22
+- 재료: none 0.82 / ore 0.12
+- 지속 기간: instant 0.38 / turns 0.22 / run 0.20
+- 구슬의 운명: returns 0.61 / used_up 0.29
+- 소환물 종류: beast 0.44 / soldier 0.25 / worker 0.10
+- 아군/적대: hostile 0.71 / ally 0.29
+- 성질: scaling 0.13, risky 0.58, random 0.10, network 0.16
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 뇌진탕
+- 동사: damage 0.51 / debuff 0.29 / control 0.19
+- 역할: cast 0.94
+- 시점: now 0.91
+- 발동 조건: none 0.57 / hit 0.28
+- 범위: around 0.68 / one 0.12 / self 0.11
+- 재료: none 0.96
+- 지속 기간: instant 0.66 / turns 0.30
+- 구슬의 운명: returns 0.71 / used_up 0.26
+- 소환물 종류: spirit 0.43 / beast 0.26 / soldier 0.23
+- 아군/적대: hostile 0.70 / ally 0.30
+- 성질: scaling 0.13, risky 0.59, random 0.36, network 0.14
+- 힘: 2.3 | 지시문으로 읽힘 0.03
+### 급성위염
+- 동사: debuff 0.44 / damage 0.33 / heal 0.13
+- 역할: cast 0.81
+- 시점: now 0.82
+- 발동 조건: none 0.88
+- 범위: self 0.68 / one 0.23
+- 재료: none 0.83 / food 0.15
+- 지속 기간: turns 0.65 / stage 0.14
+- 구슬의 운명: returns 0.64 / used_up 0.27
+- 소환물 종류: beast 0.42 / spirit 0.41
+- 아군/적대: hostile 0.79 / ally 0.21
+- 성질: scaling 0.09, risky 0.53, random 0.08, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 면역결핍   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: debuff 0.89
+- 역할: cast 0.91
+- 시점: now 0.53 / repeating 0.33
+- 발동 조건: none 0.78 / hit 0.12
+- 범위: one 0.31 / self 0.29 / wide 0.25
+- 재료: none 0.98
+- 지속 기간: forever 0.47 / turns 0.29 / run 0.18
+- 구슬의 운명: returns 0.65 / used_up 0.18 / passive 0.18
+- 소환물 종류: beast 0.59 / spirit 0.32
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.21, risky 0.66, random 0.08, network 0.21
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 호르몬폭주   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: amplify 0.33 / buff 0.30 / tempo 0.13 / debuff 0.07
+- 역할: cast 0.92
+- 시점: now 0.88
+- 발동 조건: none 0.81
+- 범위: self 0.61 / around 0.23 / wide 0.11
+- 재료: none 0.99
+- 지속 기간: turns 0.75 / instant 0.21
+- 구슬의 운명: returns 0.59 / used_up 0.33
+- 소환물 종류: beast 0.54 / spirit 0.29 / soldier 0.14
+- 아군/적대: hostile 0.76 / ally 0.24
+- 성질: scaling 0.37, risky 0.47, random 0.65, network 0.13
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 동상
+- 동사: control 0.51 / create 0.18 / guard 0.11 / money 0.07 / transform 0.05
+- 역할: build 0.85 / summon 0.11
+- 시점: now 0.62 / trigger 0.20 / repeating 0.11
+- 발동 조건: none 0.61 / approach 0.27
+- 범위: one 0.75 / around 0.11
+- 재료: ore 0.93
+- 지속 기간: run 0.88 / forever 0.11
+- 구슬의 운명: returns 0.53 / passive 0.24 / used_up 0.23
+- 소환물 종류: construct 1.00
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.13, risky 0.13, random 0.08, network 0.11
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 탈수
+- 동사: steal 0.41 / debuff 0.19 / remove 0.17 / damage 0.06
+- 역할: cast 0.91
+- 시점: now 0.82
+- 발동 조건: none 0.85
+- 범위: one 0.50 / around 0.19 / self 0.16
+- 재료: none 0.94
+- 지속 기간: instant 0.64 / turns 0.18 / forever 0.10
+- 구슬의 운명: returns 0.74 / used_up 0.21
+- 소환물 종류: spirit 0.46 / beast 0.22 / construct 0.22
+- 아군/적대: hostile 0.54 / ally 0.46
+- 성질: scaling 0.11, risky 0.35, random 0.07, network 0.08
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+### 과호흡   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: debuff 0.22 / energy 0.22 / tempo 0.12 / heal 0.09 / amplify 0.08
+- 역할: cast 0.89
+- 시점: now 0.52 / repeating 0.34 / trigger 0.12
+- 발동 조건: none 0.80 / turn 0.10
+- 범위: self 0.83
+- 재료: none 0.98
+- 지속 기간: turns 0.66 / instant 0.30
+- 구슬의 운명: returns 0.70 / used_up 0.20
+- 소환물 종류: spirit 0.54 / beast 0.34
+- 아군/적대: hostile 0.57 / ally 0.43
+- 성질: scaling 0.14, risky 0.55, random 0.15, network 0.12
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 환각   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: debuff 0.36 / transform 0.36 / control 0.16
+- 역할: cast 0.95
+- 시점: now 0.80 / repeating 0.11
+- 발동 조건: none 0.83
+- 범위: self 0.39 / around 0.28 / wide 0.18
+- 재료: none 1.00
+- 지속 기간: turns 0.88
+- 구슬의 운명: returns 0.75 / used_up 0.18
+- 소환물 종류: spirit 0.86 / beast 0.13
+- 아군/적대: hostile 0.74 / ally 0.26
+- 성질: scaling 0.10, risky 0.22, random 0.28, network 0.09
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 심실세동
+- 동사: debuff 0.30 / damage 0.23 / control 0.10 / tempo 0.07 / recycle 0.07
+- 역할: cast 0.84
+- 시점: now 0.49 / repeating 0.37 / trigger 0.12
+- 발동 조건: none 0.72 / turn 0.14
+- 범위: self 0.33 / one 0.29 / around 0.20
+- 재료: none 0.96
+- 지속 기간: turns 0.52 / instant 0.24 / forever 0.12
+- 구슬의 운명: returns 0.71 / used_up 0.17 / passive 0.13
+- 소환물 종류: spirit 0.44 / beast 0.33 / construct 0.16
+- 아군/적대: hostile 0.81 / ally 0.19
+- 성질: scaling 0.13, risky 0.44, random 0.47, network 0.13
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 세포괴사
+- 동사: damage 0.88 / debuff 0.09
+- 역할: cast 0.97
+- 시점: now 0.67 / delayed 0.20
+- 발동 조건: none 0.60 / death 0.20 / hit 0.17
+- 범위: one 0.45 / around 0.36
+- 재료: none 0.95
+- 지속 기간: instant 0.82 / turns 0.11
+- 구슬의 운명: returns 0.63 / used_up 0.28
+- 소환물 종류: beast 0.57 / spirit 0.29
+- 아군/적대: hostile 0.83 / ally 0.17
+- 성질: scaling 0.14, risky 0.60, random 0.07, network 0.30
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 신경마비
+- 동사: control 0.79 / debuff 0.20
+- 역할: cast 0.99
+- 시점: now 0.83
+- 발동 조건: none 0.64 / hit 0.26
+- 범위: one 0.58 / around 0.18 / line 0.12
+- 재료: none 0.99
+- 지속 기간: turns 0.85
+- 구슬의 운명: returns 0.77 / used_up 0.13 / passive 0.10
+- 소환물 종류: spirit 0.60 / beast 0.29
+- 아군/적대: hostile 0.76 / ally 0.24
+- 성질: scaling 0.10, risky 0.46, random 0.05, network 0.29
+- 힘: 2.1 | 지시문으로 읽힘 0.02
+### 도파민과다
+- 동사: amplify 0.38 / buff 0.24 / money 0.09 / debuff 0.09 / energy 0.06
+- 역할: cast 0.83
+- 시점: now 0.62 / repeating 0.31
+- 발동 조건: none 0.87
+- 범위: self 0.70 / wide 0.14
+- 재료: none 0.98
+- 지속 기간: turns 0.72 / instant 0.15
+- 구슬의 운명: returns 0.54 / used_up 0.26 / passive 0.20
+- 소환물 종류: spirit 0.65 / beast 0.24
+- 아군/적대: hostile 0.64 / ally 0.36
+- 성질: scaling 0.31, risky 0.35, random 0.14, network 0.09
+- 힘: 1.5 | 지시문으로 읽힘 0.03
+
+## 위험·희생
+
+### 자폭
+- 동사: damage 0.97
+- 역할: cast 1.00
+- 시점: now 0.81 / trigger 0.12
+- 발동 조건: none 0.63 / approach 0.22
+- 범위: around 0.75 / self 0.21
+- 재료: none 0.94
+- 지속 기간: instant 1.00
+- 구슬의 운명: used_up 0.94
+- 소환물 종류: construct 0.37 / soldier 0.36 / beast 0.16
+- 아군/적대: hostile 0.80 / ally 0.20
+- 성질: scaling 0.07, risky 0.95, random 0.36, network 0.26
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 동귀어진
+- 동사: recycle 0.26 / transform 0.20 / amplify 0.14 / money 0.07 / control 0.07
+- 역할: move 0.47 / cast 0.37 / summon 0.12
+- 시점: now 0.56 / trigger 0.21 / repeating 0.17
+- 발동 조건: none 0.65 / death 0.12
+- 범위: wide 0.54 / self 0.16 / one 0.12
+- 재료: none 0.78 / gold 0.16
+- 지속 기간: forever 0.50 / run 0.20 / instant 0.16
+- 구슬의 운명: returns 0.70 / used_up 0.16 / passive 0.14
+- 소환물 종류: spirit 0.71 / soldier 0.12
+- 아군/적대: ally 0.78 / hostile 0.22
+- 성질: scaling 0.24, risky 0.29, random 0.22, network 0.62
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 폭주   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: tempo 0.63 / damage 0.20 / buff 0.07
+- 역할: cast 0.63 / move 0.33
+- 시점: now 0.73 / repeating 0.17
+- 발동 조건: none 0.78 / turn 0.10
+- 범위: around 0.31 / line 0.30 / self 0.20
+- 재료: none 0.91
+- 지속 기간: turns 0.68 / instant 0.21
+- 구슬의 운명: returns 0.73 / used_up 0.21
+- 소환물 종류: beast 0.57 / soldier 0.21 / construct 0.12
+- 아군/적대: hostile 0.83 / ally 0.17
+- 성질: scaling 0.35, risky 0.45, random 0.74, network 0.17
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 엔진과열
+- 동사: damage 0.42 / debuff 0.35 / trash 0.08 / energy 0.05
+- 역할: cast 0.88
+- 시점: now 0.47 / trigger 0.25 / repeating 0.15
+- 발동 조건: none 0.72 / turn 0.18
+- 범위: self 0.40 / one 0.27 / around 0.24
+- 재료: none 0.91
+- 지속 기간: turns 0.66 / instant 0.26
+- 구슬의 운명: returns 0.63 / used_up 0.28
+- 소환물 종류: construct 0.92
+- 아군/적대: hostile 0.89 / ally 0.11
+- 성질: scaling 0.41, risky 0.48, random 0.10, network 0.09
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 유리대포
+- 동사: damage 0.97
+- 역할: cast 0.71 / build 0.24
+- 시점: now 0.82 / trigger 0.13
+- 발동 조건: none 0.61 / approach 0.23
+- 범위: line 0.52 / one 0.29 / around 0.18
+- 재료: ore 0.88
+- 지속 기간: run 0.52 / instant 0.37
+- 구슬의 운명: returns 0.81 / used_up 0.17
+- 소환물 종류: construct 0.91
+- 아군/적대: ally 0.67 / hostile 0.33
+- 성질: scaling 0.12, risky 0.21, random 0.16, network 0.13
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 시한폭탄
+- 동사: damage 0.94
+- 역할: cast 0.72 / build 0.28
+- 시점: delayed 0.97
+- 발동 조건: turn 0.76 / none 0.16
+- 범위: around 0.70 / one 0.19
+- 재료: none 0.59 / ore 0.38
+- 지속 기간: turns 0.62 / instant 0.32
+- 구슬의 운명: used_up 0.87
+- 소환물 종류: construct 0.88
+- 아군/적대: hostile 0.94
+- 성질: scaling 0.18, risky 0.74, random 0.45, network 0.12
+- 힘: 2.2 | 지시문으로 읽힘 0.01
+### 흡혈역류
+- 동사: steal 0.68 / heal 0.19 / damage 0.05
+- 역할: cast 0.79 / move 0.18
+- 시점: repeating 0.59 / now 0.28
+- 발동 조건: none 0.36 / hit 0.36 / turn 0.14
+- 범위: around 0.48 / line 0.31
+- 재료: none 0.94
+- 지속 기간: turns 0.62 / instant 0.21
+- 구슬의 운명: returns 0.82 / used_up 0.11
+- 소환물 종류: spirit 0.66 / beast 0.29
+- 아군/적대: hostile 0.70 / ally 0.30
+- 성질: scaling 0.51, risky 0.66, random 0.09, network 0.51
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 영혼저당
+- 동사: steal 0.28 / money 0.21 / control 0.18 / energy 0.15 / debuff 0.05
+- 역할: cast 0.65 / summon 0.26
+- 시점: now 0.64 / trigger 0.28
+- 발동 조건: none 0.61 / death 0.30
+- 범위: one 0.58 / self 0.31
+- 재료: none 0.96
+- 지속 기간: forever 0.60 / run 0.29
+- 구슬의 운명: returns 0.70 / used_up 0.26
+- 소환물 종류: spirit 0.99
+- 아군/적대: hostile 0.69 / ally 0.31
+- 성질: scaling 0.17, risky 0.88, random 0.09, network 0.09
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 생명력제물
+- 동사: heal 0.32 / steal 0.20 / damage 0.19 / energy 0.14
+- 역할: cast 0.75 / summon 0.19
+- 시점: now 0.83 / trigger 0.13
+- 발동 조건: none 0.61 / death 0.26
+- 범위: one 0.70 / self 0.20
+- 재료: none 0.95
+- 지속 기간: instant 0.86
+- 구슬의 운명: used_up 0.68 / returns 0.29
+- 소환물 종류: spirit 0.53 / beast 0.41
+- 아군/적대: hostile 0.66 / ally 0.34
+- 성질: scaling 0.14, risky 0.91, random 0.08, network 0.11
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 피아식별불가   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: transform 0.30 / peek 0.22 / remove 0.12 / debuff 0.11 / trash 0.08
+- 역할: cast 0.66 / summon 0.16 / move 0.11
+- 시점: now 0.50 / trigger 0.44
+- 발동 조건: none 0.74 / approach 0.18
+- 범위: self 0.34 / wide 0.31 / one 0.26
+- 재료: none 0.89
+- 지속 기간: forever 0.39 / instant 0.33 / turns 0.19
+- 구슬의 운명: returns 0.59 / used_up 0.21 / passive 0.20
+- 소환물 종류: spirit 0.59 / beast 0.17
+- 아군/적대: hostile 0.61 / ally 0.39
+- 성질: scaling 0.10, risky 0.15, random 0.23, network 0.13
+- 힘: 1.6 | 지시문으로 읽힘 0.04
+### 오버클럭
+- 동사: tempo 0.60 / buff 0.22 / amplify 0.16
+- 역할: cast 0.90
+- 시점: now 0.75 / repeating 0.22
+- 발동 조건: none 0.76 / turn 0.21
+- 범위: self 0.62 / one 0.25
+- 재료: none 0.94
+- 지속 기간: turns 0.87
+- 구슬의 운명: returns 0.90
+- 소환물 종류: construct 0.88
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.25, risky 0.35, random 0.10, network 0.11
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 방사능오염
+- 동사: debuff 0.84 / damage 0.11
+- 역할: cast 0.73 / build 0.25
+- 시점: repeating 0.65 / now 0.16 / delayed 0.16
+- 발동 조건: none 0.76 / approach 0.14
+- 범위: around 0.64 / wide 0.29
+- 재료: none 0.90
+- 지속 기간: forever 0.52 / run 0.42
+- 구슬의 운명: returns 0.50 / used_up 0.27 / passive 0.23
+- 소환물 종류: spirit 0.49 / beast 0.39
+- 아군/적대: hostile 0.98
+- 성질: scaling 0.33, risky 0.74, random 0.23, network 0.26
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 저주받은피
+- 동사: debuff 0.77 / money 0.07 / heal 0.06
+- 역할: cast 0.90
+- 시점: now 0.47 / repeating 0.30 / trigger 0.18
+- 발동 조건: none 0.73 / hit 0.11
+- 범위: one 0.45 / self 0.25 / around 0.13
+- 재료: none 0.87
+- 지속 기간: forever 0.74 / turns 0.18
+- 구슬의 운명: returns 0.53 / used_up 0.28 / passive 0.19
+- 소환물 종류: spirit 0.74 / beast 0.22
+- 아군/적대: hostile 0.93
+- 성질: scaling 0.18, risky 0.92, random 0.13, network 0.09
+- 힘: 2.1 | 지시문으로 읽힘 0.02
+### 부메랑
+- 동사: recycle 0.66 / damage 0.31
+- 역할: cast 0.56 / move 0.43
+- 시점: now 0.54 / delayed 0.18 / trigger 0.15
+- 발동 조건: none 0.63 / hit 0.21
+- 범위: line 0.68 / one 0.23
+- 재료: wood 0.92
+- 지속 기간: instant 0.61 / run 0.22 / forever 0.12
+- 구슬의 운명: returns 0.99
+- 소환물 종류: soldier 0.40 / construct 0.32 / spirit 0.15
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.09, risky 0.17, random 0.26, network 0.15
+- 힘: 1.1 | 지시문으로 읽힘 0.02
+### 잔탄소진
+- 동사: damage 0.23 / trash 0.12 / money 0.10 / create 0.08 / debuff 0.07
+- 역할: cast 0.57 / build 0.15 / move 0.14
+- 시점: now 0.48 / delayed 0.23 / repeating 0.17
+- 발동 조건: none 0.59 / turn 0.13 / approach 0.13
+- 범위: around 0.38 / wide 0.21 / line 0.18
+- 재료: ore 0.41 / none 0.35
+- 지속 기간: instant 0.37 / turns 0.23 / forever 0.18
+- 구슬의 운명: returns 0.59 / used_up 0.33
+- 소환물 종류: spirit 0.32 / soldier 0.20 / beast 0.19
+- 아군/적대: hostile 0.62 / ally 0.38
+- 성질: scaling 0.23, risky 0.28, random 0.20, network 0.20
+- 힘: 2.2 | 지시문으로 읽힘 0.04
+### 누전
+- 동사: damage 0.60 / energy 0.15
+- 역할: cast 0.85
+- 시점: trigger 0.68 / now 0.23
+- 발동 조건: none 0.66 / approach 0.17
+- 범위: around 0.49 / line 0.22 / one 0.12
+- 재료: none 0.94
+- 지속 기간: instant 0.81 / turns 0.11
+- 구슬의 운명: returns 0.57 / used_up 0.24 / passive 0.20
+- 소환물 종류: construct 0.47 / spirit 0.39
+- 아군/적대: hostile 0.74 / ally 0.26
+- 성질: scaling 0.16, risky 0.59, random 0.19, network 0.47
+- 힘: 1.0 | 지시문으로 읽힘 0.02
+### 역풍   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: control 0.47 / debuff 0.17 / damage 0.09 / amplify 0.07
+- 역할: cast 0.64 / move 0.34
+- 시점: trigger 0.53 / now 0.35
+- 발동 조건: none 0.62 / turn 0.17 / approach 0.13
+- 범위: around 0.57 / line 0.25
+- 재료: none 0.99
+- 지속 기간: instant 0.39 / turns 0.38 / stage 0.20
+- 구슬의 운명: returns 0.84
+- 소환물 종류: spirit 0.89
+- 아군/적대: hostile 0.54 / ally 0.46
+- 성질: scaling 0.16, risky 0.31, random 0.34, network 0.21
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 자해공갈
+- 동사: damage 0.42 / control 0.20 / debuff 0.15 / money 0.09 / steal 0.07
+- 역할: cast 0.90
+- 시점: now 0.64 / trigger 0.34
+- 발동 조건: none 0.76
+- 범위: self 0.62 / one 0.31
+- 재료: none 0.93
+- 지속 기간: instant 0.61 / turns 0.24
+- 구슬의 운명: returns 0.73 / used_up 0.20
+- 소환물 종류: spirit 0.51 / soldier 0.24 / beast 0.20
+- 아군/적대: hostile 0.80 / ally 0.20
+- 성질: scaling 0.10, risky 0.86, random 0.11, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.04
+### 파멸의계약
+- 동사: damage 0.76 / money 0.08
+- 역할: cast 0.76 / summon 0.12 / build 0.11
+- 시점: now 0.55 / trigger 0.35
+- 발동 조건: none 0.75 / death 0.12
+- 범위: one 0.42 / wide 0.32 / self 0.13
+- 재료: none 0.94
+- 지속 기간: run 0.56 / forever 0.41
+- 구슬의 운명: returns 0.64 / used_up 0.31
+- 소환물 종류: spirit 0.89
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.21, risky 0.87, random 0.17, network 0.15
+- 힘: 3.5 | 지시문으로 읽힘 0.02
+### 붕괴위험   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: damage 0.73 / debuff 0.09
+- 역할: cast 0.84 / build 0.13
+- 시점: trigger 0.56 / delayed 0.21 / now 0.20
+- 발동 조건: none 0.73 / approach 0.13
+- 범위: around 0.58 / wide 0.16 / one 0.16
+- 재료: none 0.93
+- 지속 기간: turns 0.31 / instant 0.27 / forever 0.19
+- 구슬의 운명: returns 0.50 / used_up 0.28 / passive 0.22
+- 소환물 종류: spirit 0.35 / beast 0.33 / construct 0.15
+- 아군/적대: hostile 0.89 / ally 0.11
+- 성질: scaling 0.23, risky 0.50, random 0.34, network 0.17
+- 힘: 2.2 | 지시문으로 읽힘 0.02
+
+## 장난·한계
+
+### 냥냥펀치
+- 동사: damage 0.97
+- 역할: cast 0.95
+- 시점: now 0.93
+- 발동 조건: none 0.68 / hit 0.19
+- 범위: one 0.76
+- 재료: none 0.89
+- 지속 기간: instant 0.91
+- 구슬의 운명: returns 0.88 / used_up 0.11
+- 소환물 종류: beast 0.92
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.12, risky 0.11, random 0.19, network 0.11
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 쌉가능
+- 동사: money 0.19 / remove 0.11 / trash 0.10 / damage 0.08 / debuff 0.07
+- 역할: cast 0.67 / build 0.13 / move 0.13
+- 시점: now 0.59 / trigger 0.28
+- 발동 조건: none 0.79 / turn 0.10
+- 범위: self 0.41 / one 0.29 / wide 0.18
+- 재료: none 0.75 / gold 0.15
+- 지속 기간: instant 0.52 / forever 0.18 / turns 0.17
+- 구슬의 운명: returns 0.60 / used_up 0.26 / passive 0.14
+- 소환물 종류: spirit 0.33 / worker 0.29 / beast 0.17
+- 아군/적대: ally 0.60 / hostile 0.40
+- 성질: scaling 0.14, risky 0.25, random 0.25, network 0.11
+- 힘: 1.0 | 지시문으로 읽힘 0.06
+### 어둠의다크
+- 동사: damage 0.54 / debuff 0.21 / remove 0.06
+- 역할: cast 0.69 / summon 0.18
+- 시점: now 0.82
+- 발동 조건: none 0.88
+- 범위: wide 0.29 / one 0.24 / around 0.23
+- 재료: none 0.96
+- 지속 기간: forever 0.57 / turns 0.16 / run 0.15
+- 구슬의 운명: returns 0.81 / used_up 0.13
+- 소환물 종류: spirit 0.68 / beast 0.26
+- 아군/적대: hostile 0.89 / ally 0.11
+- 성질: scaling 0.13, risky 0.24, random 0.11, network 0.08
+- 힘: 2.3 | 지시문으로 읽힘 0.03
+### 운명의데스티니
+- 동사: peek 0.67 / recycle 0.08
+- 역할: cast 0.82
+- 시점: now 0.46 / trigger 0.33 / delayed 0.14
+- 발동 조건: none 0.79 / turn 0.15
+- 범위: wide 0.69 / self 0.19
+- 재료: none 0.98
+- 지속 기간: forever 0.92
+- 구슬의 운명: returns 0.62 / passive 0.22 / used_up 0.16
+- 소환물 종류: spirit 0.98
+- 아군/적대: ally 0.76 / hostile 0.24
+- 성질: scaling 0.13, risky 0.30, random 0.64, network 0.09
+- 힘: 3.5 | 지시문으로 읽힘 0.02
+### 폭발폭발폭발
+- 동사: damage 0.95
+- 역할: cast 1.00
+- 시점: now 0.86
+- 발동 조건: none 0.75 / approach 0.17
+- 범위: around 0.90
+- 재료: none 0.96
+- 지속 기간: instant 0.97
+- 구슬의 운명: returns 0.52 / used_up 0.47
+- 소환물 종류: beast 0.26 / soldier 0.25 / construct 0.25
+- 아군/적대: hostile 0.60 / ally 0.40
+- 성질: scaling 0.28, risky 0.38, random 0.44, network 0.31
+- 힘: 2.4 | 지시문으로 읽힘 0.02
+### 불얼음번개독   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: damage 0.79 / debuff 0.15 / control 0.06
+- 역할: cast 0.92
+- 시점: now 0.78 / repeating 0.11
+- 발동 조건: none 0.74 / approach 0.11
+- 범위: around 0.38 / one 0.32 / line 0.17
+- 재료: none 0.99
+- 지속 기간: turns 0.49 / instant 0.27 / forever 0.13
+- 구슬의 운명: returns 0.75 / used_up 0.18
+- 소환물 종류: beast 0.49 / spirit 0.45
+- 아군/적대: hostile 0.78 / ally 0.22
+- 성질: scaling 0.11, risky 0.24, random 0.17, network 0.13
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 이것은구슬이다   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: create 0.50 / money 0.25 / trash 0.07
+- 역할: build 0.51 / cast 0.35
+- 시점: now 0.94
+- 발동 조건: none 0.96
+- 범위: one 0.51 / self 0.44
+- 재료: ore 0.85 / none 0.11
+- 지속 기간: forever 0.57 / run 0.34
+- 구슬의 운명: returns 0.75 / used_up 0.14 / passive 0.11
+- 소환물 종류: spirit 0.49 / construct 0.38
+- 아군/적대: ally 0.88 / hostile 0.12
+- 성질: scaling 0.09, risky 0.07, random 0.16, network 0.07
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+### 아무것도아님   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: trash 0.61 / remove 0.33
+- 역할: cast 0.71 / build 0.18
+- 시점: now 0.88
+- 발동 조건: none 0.97
+- 범위: self 0.64 / one 0.22 / wide 0.11
+- 재료: none 0.98
+- 지속 기간: instant 0.46 / forever 0.46
+- 구슬의 운명: returns 0.53 / used_up 0.24 / passive 0.24
+- 소환물 종류: spirit 0.68 / worker 0.17
+- 아군/적대: ally 0.61 / hostile 0.39
+- 성질: scaling 0.06, risky 0.09, random 0.09, network 0.05
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 테스트용구슬1호   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: create 0.32 / trash 0.16 / money 0.12 / recycle 0.12 / peek 0.10
+- 역할: cast 0.77 / build 0.15
+- 시점: now 0.91
+- 발동 조건: none 0.93
+- 범위: self 0.59 / one 0.33
+- 재료: none 0.67 / ore 0.28
+- 지속 기간: run 0.33 / forever 0.26 / instant 0.24
+- 구슬의 운명: returns 0.87 / used_up 0.12
+- 소환물 종류: construct 0.44 / worker 0.24 / spirit 0.24
+- 아군/적대: ally 0.91
+- 성질: scaling 0.07, risky 0.06, random 0.23, network 0.07
+- 힘: 0.2 | 지시문으로 읽힘 0.01
+### 123456789   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: money 0.31 / trash 0.11 / amplify 0.10 / peek 0.08 / recycle 0.07
+- 역할: cast 0.47 / build 0.24 / move 0.16
+- 시점: now 0.53 / delayed 0.35
+- 발동 조건: none 0.86 / turn 0.10
+- 범위: one 0.36 / wide 0.27 / self 0.22
+- 재료: none 0.67 / gold 0.25
+- 지속 기간: instant 0.35 / forever 0.35 / run 0.15
+- 구슬의 운명: returns 0.62 / used_up 0.27 / passive 0.11
+- 소환물 종류: construct 0.27 / spirit 0.26 / worker 0.26
+- 아군/적대: ally 0.64 / hostile 0.36
+- 성질: scaling 0.14, risky 0.12, random 0.18, network 0.08
+- 힘: 0.5 | 지시문으로 읽힘 0.24
+### 물음표느낌표
+- 동사: peek 0.52 / amplify 0.07 / money 0.07 / transform 0.06 / trash 0.05
+- 역할: cast 0.85
+- 시점: now 0.52 / trigger 0.42
+- 발동 조건: none 0.90
+- 범위: one 0.41 / self 0.30 / around 0.12
+- 재료: none 0.95
+- 지속 기간: instant 0.63 / turns 0.15 / forever 0.12
+- 구슬의 운명: returns 0.71 / used_up 0.21
+- 소환물 종류: spirit 0.75 / beast 0.10
+- 아군/적대: ally 0.66 / hostile 0.34
+- 성질: scaling 0.08, risky 0.15, random 0.41, network 0.06
+- 힘: 0.3 | 지시문으로 읽힘 0.05
+### 무지개빛총공격
+- 동사: damage 0.98
+- 역할: cast 1.00
+- 시점: now 0.97
+- 발동 조건: none 0.82 / turn 0.12
+- 범위: wide 0.71 / around 0.13 / line 0.12
+- 재료: none 0.98
+- 지속 기간: instant 0.93
+- 구슬의 운명: returns 0.77 / used_up 0.21
+- 소환물 종류: spirit 0.62 / soldier 0.31
+- 아군/적대: ally 0.68 / hostile 0.32
+- 성질: scaling 0.09, risky 0.14, random 0.23, network 0.34
+- 힘: 3.1 | 지시문으로 읽힘 0.02
+### 내일월요일
+- 동사: peek 0.72 / tempo 0.10 / money 0.05 / recycle 0.05
+- 역할: cast 0.68 / move 0.13 / build 0.10
+- 시점: delayed 0.77 / now 0.10
+- 발동 조건: turn 0.87 / none 0.13
+- 범위: self 0.42 / wide 0.30 / one 0.24
+- 재료: none 0.94
+- 지속 기간: turns 0.55 / instant 0.16 / stage 0.13
+- 구슬의 운명: returns 0.60 / used_up 0.29 / passive 0.11
+- 소환물 종류: spirit 0.48 / worker 0.35
+- 아군/적대: ally 0.81 / hostile 0.19
+- 성질: scaling 0.09, risky 0.08, random 0.11, network 0.05
+- 힘: 0.4 | 지시문으로 읽힘 0.01
+### 칼퇴근   ⚠ 3번 중 1순위가 바뀐 축: verb, role
+- 동사: money 0.25 / tempo 0.24 / control 0.14 / remove 0.11 / trash 0.06
+- 역할: move 0.48 / cast 0.44
+- 시점: now 0.54 / trigger 0.23 / repeating 0.12
+- 발동 조건: turn 0.54 / none 0.44
+- 범위: self 0.77
+- 재료: none 0.73 / gold 0.25
+- 지속 기간: instant 0.59 / turns 0.19 / run 0.12
+- 구슬의 운명: returns 0.75 / used_up 0.18
+- 소환물 종류: worker 0.83 / spirit 0.10
+- 아군/적대: ally 0.88 / hostile 0.12
+- 성질: scaling 0.12, risky 0.11, random 0.08, network 0.09
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 기가차드   ⚠ 3번 중 1순위가 바뀐 축: lifetime, material
+- 동사: money 0.38 / damage 0.11 / steal 0.09 / amplify 0.09 / buff 0.05
+- 역할: summon 0.37 / cast 0.26 / move 0.20
+- 시점: now 0.79
+- 발동 조건: none 0.87
+- 범위: one 0.38 / self 0.29 / wide 0.20
+- 재료: gold 0.43 / none 0.41
+- 지속 기간: run 0.35 / forever 0.32 / instant 0.19
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 소환물 종류: soldier 0.33 / beast 0.32 / worker 0.20
+- 아군/적대: ally 0.58 / hostile 0.42
+- 성질: scaling 0.22, risky 0.16, random 0.17, network 0.15
+- 힘: 2.1 | 지시문으로 읽힘 0.02
+### 최후의만찬
+- 동사: damage 0.27 / recycle 0.08 / money 0.08 / heal 0.08 / debuff 0.07
+- 역할: cast 0.60 / summon 0.26
+- 시점: now 0.77 / trigger 0.15
+- 발동 조건: none 0.63 / death 0.21 / turn 0.13
+- 범위: wide 0.49 / around 0.23 / one 0.13
+- 재료: food 0.62 / none 0.33
+- 지속 기간: instant 0.66 / run 0.15
+- 구슬의 운명: returns 0.51 / used_up 0.43
+- 소환물 종류: spirit 0.84
+- 아군/적대: hostile 0.52 / ally 0.48
+- 성질: scaling 0.10, risky 0.66, random 0.10, network 0.54
+- 힘: 3.1 | 지시문으로 읽힘 0.02
+### 갓난아기주먹
+- 동사: damage 0.88
+- 역할: cast 0.62 / summon 0.34
+- 시점: now 0.87
+- 발동 조건: none 0.84
+- 범위: one 0.61 / self 0.18 / around 0.15
+- 재료: none 0.84
+- 지속 기간: instant 0.62 / run 0.16 / forever 0.11
+- 구슬의 운명: returns 0.73 / used_up 0.22
+- 소환물 종류: soldier 0.46 / beast 0.33 / worker 0.17
+- 아군/적대: ally 0.74 / hostile 0.26
+- 성질: scaling 0.20, risky 0.10, random 0.16, network 0.06
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 핵폭탄급방귀
+- 동사: damage 0.77 / debuff 0.17
+- 역할: cast 0.96
+- 시점: now 0.89
+- 발동 조건: none 0.82 / approach 0.12
+- 범위: around 0.78 / wide 0.19
+- 재료: none 0.90
+- 지속 기간: instant 0.96
+- 구슬의 운명: used_up 0.62 / returns 0.36
+- 소환물 종류: spirit 0.49 / beast 0.42
+- 아군/적대: hostile 0.65 / ally 0.35
+- 성질: scaling 0.12, risky 0.38, random 0.25, network 0.09
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 제로수렴
+- 동사: remove 0.20 / recycle 0.17 / control 0.11 / money 0.08 / heal 0.07
+- 역할: cast 0.65 / move 0.21
+- 시점: delayed 0.33 / repeating 0.31 / now 0.28
+- 발동 조건: none 0.67 / turn 0.18 / approach 0.11
+- 범위: wide 0.32 / around 0.27 / one 0.20
+- 재료: none 0.91
+- 지속 기간: forever 0.49 / instant 0.27 / turns 0.13
+- 구슬의 운명: returns 0.77 / used_up 0.13
+- 소환물 종류: spirit 0.64 / construct 0.19
+- 아군/적대: ally 0.69 / hostile 0.31
+- 성질: scaling 0.22, risky 0.12, random 0.11, network 0.25
+- 힘: 2.5 | 지시문으로 읽힘 0.03
+### 무한대발산
+- 동사: amplify 0.69 / grow 0.13 / recycle 0.09
+- 역할: cast 0.72 / summon 0.14
+- 시점: repeating 0.72 / now 0.21
+- 발동 조건: none 0.79 / turn 0.15
+- 범위: wide 0.85 / around 0.11
+- 재료: none 0.91
+- 지속 기간: forever 0.86
+- 구슬의 운명: returns 0.80 / used_up 0.15
+- 소환물 종류: spirit 0.67 / beast 0.16 / construct 0.11
+- 아군/적대: hostile 0.59 / ally 0.41
+- 성질: scaling 0.89, risky 0.21, random 0.26, network 0.28
+- 힘: 4.0 | 지시문으로 읽힘 0.02
+
+## 기존56
+
+### 화염검   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: damage 1.00
+- 역할: cast 0.94
+- 시점: now 0.94
+- 발동 조건: none 0.69 / hit 0.25
+- 범위: one 0.40 / line 0.35 / around 0.18
+- 재료: none 0.67 / ore 0.33
+- 지속 기간: run 0.34 / turns 0.24 / instant 0.24
+- 구슬의 운명: returns 0.89
+- 소환물 종류: soldier 0.71 / spirit 0.22
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.12, risky 0.12, random 0.07, network 0.10
+- 힘: 2.4 | 지시문으로 읽힘 0.01
+### 방패   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: guard 1.00
+- 역할: build 0.48 / cast 0.48
+- 시점: trigger 0.72 / now 0.26
+- 발동 조건: none 0.54 / hit 0.36
+- 범위: self 0.65 / one 0.27
+- 재료: ore 0.91
+- 지속 기간: run 0.55 / forever 0.23 / turns 0.15
+- 구슬의 운명: returns 0.66 / passive 0.28
+- 소환물 종류: soldier 0.91
+- 아군/적대: ally 0.94
+- 성질: scaling 0.10, risky 0.07, random 0.04, network 0.09
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 치유의 샘
+- 동사: heal 0.99
+- 역할: cast 0.57 / build 0.42
+- 시점: repeating 0.58 / now 0.39
+- 발동 조건: none 0.73 / turn 0.13
+- 범위: around 0.76
+- 재료: none 0.99
+- 지속 기간: run 0.61 / forever 0.17 / turns 0.11
+- 구슬의 운명: returns 0.84
+- 소환물 종류: spirit 0.96
+- 아군/적대: ally 0.99
+- 성질: scaling 0.16, risky 0.05, random 0.05, network 0.16
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 금화 주머니
+- 동사: money 1.00
+- 역할: cast 0.73 / build 0.18
+- 시점: now 0.58 / repeating 0.39
+- 발동 조건: none 0.90
+- 범위: self 0.86
+- 재료: gold 1.00
+- 지속 기간: run 0.68 / forever 0.27
+- 구슬의 운명: returns 0.60 / passive 0.33
+- 소환물 종류: worker 0.79 / spirit 0.13
+- 아군/적대: ally 0.95
+- 성질: scaling 0.38, risky 0.09, random 0.14, network 0.05
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 곡괭이
+- 동사: harvest 0.95
+- 역할: cast 0.51 / build 0.42
+- 시점: now 0.89
+- 발동 조건: none 0.85
+- 범위: one 0.50 / line 0.23 / around 0.16
+- 재료: ore 0.95
+- 지속 기간: run 0.62 / forever 0.19 / instant 0.15
+- 구슬의 운명: returns 0.95
+- 소환물 종류: worker 0.92
+- 아군/적대: ally 0.93
+- 성질: scaling 0.17, risky 0.10, random 0.06, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 씨앗   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: grow 0.98
+- 역할: build 0.75 / summon 0.13 / cast 0.12
+- 시점: delayed 0.68 / now 0.18 / repeating 0.12
+- 발동 조건: none 0.62 / turn 0.19 / approach 0.15
+- 범위: one 0.43 / around 0.37
+- 재료: food 0.90
+- 지속 기간: run 0.79
+- 구슬의 운명: returns 0.50 / used_up 0.45
+- 소환물 종류: worker 0.58 / spirit 0.22 / beast 0.18
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.75, risky 0.11, random 0.19, network 0.16
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 텃밭
+- 동사: grow 0.66 / harvest 0.33
+- 역할: build 0.88
+- 시점: repeating 0.56 / now 0.29 / delayed 0.13
+- 발동 조건: none 0.71 / turn 0.18 / approach 0.10
+- 범위: around 0.56 / one 0.20 / line 0.14
+- 재료: food 1.00
+- 지속 기간: run 0.92
+- 구슬의 운명: returns 0.80 / used_up 0.11
+- 소환물 종류: worker 0.97
+- 아군/적대: ally 0.92
+- 성질: scaling 0.37, risky 0.05, random 0.07, network 0.29
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 성벽
+- 동사: guard 0.98
+- 역할: build 0.99
+- 시점: now 0.73 / trigger 0.23
+- 발동 조건: none 0.66 / approach 0.30
+- 범위: line 0.64 / around 0.28
+- 재료: ore 0.95
+- 지속 기간: run 0.94
+- 구슬의 운명: returns 0.76 / used_up 0.14
+- 소환물 종류: construct 0.72 / soldier 0.21
+- 아군/적대: ally 0.91
+- 성질: scaling 0.16, risky 0.07, random 0.05, network 0.23
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 병사
+- 동사: damage 0.51 / guard 0.21 / create 0.16 / buff 0.05
+- 역할: summon 0.97
+- 시점: now 0.95
+- 발동 조건: none 0.84
+- 범위: one 0.74
+- 재료: food 0.43 / none 0.29 / gold 0.18
+- 지속 기간: turns 0.42 / run 0.35 / stage 0.14
+- 구슬의 운명: returns 0.63 / used_up 0.32
+- 소환물 종류: soldier 1.00
+- 아군/적대: ally 0.95
+- 성질: scaling 0.21, risky 0.09, random 0.07, network 0.36
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 순간이동
+- 동사: tempo 0.77 / control 0.13 / buff 0.07
+- 역할: move 0.99
+- 시점: now 0.99
+- 발동 조건: none 0.90
+- 범위: self 0.63 / one 0.24 / line 0.12
+- 재료: none 1.00
+- 지속 기간: instant 0.97
+- 구슬의 운명: returns 0.96
+- 소환물 종류: spirit 0.87
+- 아군/적대: ally 0.91
+- 성질: scaling 0.07, risky 0.08, random 0.12, network 0.15
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 시한폭탄
+- 동사: damage 0.95
+- 역할: cast 0.74 / build 0.26
+- 시점: delayed 0.97
+- 발동 조건: turn 0.74 / none 0.18
+- 범위: around 0.67 / one 0.22
+- 재료: none 0.60 / ore 0.37
+- 지속 기간: turns 0.61 / instant 0.34
+- 구슬의 운명: used_up 0.88
+- 소환물 종류: construct 0.87
+- 아군/적대: hostile 0.92
+- 성질: scaling 0.17, risky 0.73, random 0.44, network 0.11
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 독
+- 동사: debuff 0.74 / damage 0.22
+- 역할: cast 0.60 / summon 0.31
+- 시점: now 0.65 / trigger 0.17 / delayed 0.11
+- 발동 조건: none 0.68 / approach 0.16
+- 범위: one 0.54 / self 0.16 / around 0.14
+- 재료: none 0.83
+- 지속 기간: instant 0.34 / forever 0.26 / turns 0.23
+- 구슬의 운명: returns 0.67 / used_up 0.22 / passive 0.11
+- 소환물 종류: beast 0.97
+- 아군/적대: hostile 0.89 / ally 0.11
+- 성질: scaling 0.20, risky 0.47, random 0.12, network 0.09
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 함정
+- 동사: control 0.91 / damage 0.06
+- 역할: build 0.80 / cast 0.20
+- 시점: trigger 1.00
+- 발동 조건: approach 0.97
+- 범위: around 0.47 / one 0.32 / line 0.19
+- 재료: none 0.62 / ore 0.24
+- 지속 기간: turns 0.41 / run 0.35 / instant 0.12
+- 구슬의 운명: returns 0.47 / used_up 0.35 / passive 0.18
+- 소환물 종류: construct 0.74 / soldier 0.11
+- 아군/적대: hostile 0.84 / ally 0.16
+- 성질: scaling 0.10, risky 0.49, random 0.21, network 0.18
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 폭풍
+- 동사: damage 0.80 / control 0.18
+- 역할: cast 0.94
+- 시점: now 0.88
+- 발동 조건: none 0.78 / turn 0.11
+- 범위: around 0.85 / wide 0.11
+- 재료: none 1.00
+- 지속 기간: stage 0.53 / turns 0.28 / instant 0.16
+- 구슬의 운명: returns 0.82 / used_up 0.15
+- 소환물 종류: spirit 0.89
+- 아군/적대: hostile 0.59 / ally 0.41
+- 성질: scaling 0.14, risky 0.15, random 0.60, network 0.11
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 화살   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: damage 0.98
+- 역할: cast 0.89
+- 시점: now 0.90
+- 발동 조건: none 0.74 / hit 0.13
+- 범위: line 0.50 / one 0.49
+- 재료: wood 0.90
+- 지속 기간: instant 0.86
+- 구슬의 운명: returns 0.57 / used_up 0.41
+- 소환물 종류: soldier 0.89
+- 아군/적대: ally 0.68 / hostile 0.32
+- 성질: scaling 0.11, risky 0.10, random 0.13, network 0.12
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 눈덩이   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: control 0.69 / damage 0.11 / create 0.09
+- 역할: cast 0.45 / build 0.33 / summon 0.17
+- 시점: now 0.66 / trigger 0.22
+- 발동 조건: none 0.56 / approach 0.34
+- 범위: around 0.56 / one 0.31
+- 재료: none 0.95
+- 지속 기간: run 0.32 / turns 0.32 / instant 0.14
+- 구슬의 운명: returns 0.60 / used_up 0.35
+- 소환물 종류: beast 0.47 / construct 0.47
+- 아군/적대: hostile 0.53 / ally 0.47
+- 성질: scaling 0.72, risky 0.09, random 0.13, network 0.11
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 도박
+- 동사: money 0.86 / amplify 0.06
+- 역할: cast 0.90
+- 시점: now 0.80 / trigger 0.15
+- 발동 조건: none 0.81 / turn 0.14
+- 범위: self 0.52 / wide 0.22 / one 0.12
+- 재료: gold 0.79 / none 0.20
+- 지속 기간: instant 0.66 / run 0.14
+- 구슬의 운명: returns 0.77 / used_up 0.21
+- 소환물 종류: worker 0.49 / spirit 0.36
+- 아군/적대: ally 0.62 / hostile 0.38
+- 성질: scaling 0.25, risky 0.92, random 0.96, network 0.11
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 저주
+- 동사: debuff 1.00
+- 역할: cast 1.00
+- 시점: repeating 0.44 / now 0.42
+- 발동 조건: none 0.76
+- 범위: one 0.68 / around 0.17
+- 재료: none 1.00
+- 지속 기간: forever 0.62 / turns 0.31
+- 구슬의 운명: returns 0.69 / used_up 0.18 / passive 0.13
+- 소환물 종류: spirit 0.94
+- 아군/적대: hostile 0.96
+- 성질: scaling 0.21, risky 0.92, random 0.21, network 0.12
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 얼음
+- 동사: control 0.92
+- 역할: cast 0.75 / build 0.21
+- 시점: now 0.84
+- 발동 조건: none 0.84
+- 범위: around 0.55 / one 0.19
+- 재료: none 0.90 / ore 0.10
+- 지속 기간: forever 0.40 / turns 0.28 / run 0.19
+- 구슬의 운명: returns 0.83
+- 소환물 종류: construct 0.51 / spirit 0.31 / beast 0.17
+- 아군/적대: ally 0.59 / hostile 0.41
+- 성질: scaling 0.25, risky 0.07, random 0.07, network 0.08
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 나침반   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: peek 0.84
+- 역할: move 0.71 / cast 0.26
+- 시점: now 0.83
+- 발동 조건: none 0.84
+- 범위: self 0.30 / line 0.29 / wide 0.27
+- 재료: ore 0.87 / none 0.10
+- 지속 기간: run 0.52 / forever 0.41
+- 구슬의 운명: returns 0.87 / passive 0.12
+- 소환물 종류: construct 0.80 / spirit 0.12
+- 아군/적대: ally 0.97
+- 성질: scaling 0.08, risky 0.05, random 0.10, network 0.20
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 수정 구슬   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: energy 0.23 / money 0.13 / create 0.11 / control 0.10 / heal 0.08
+- 역할: cast 0.42 / build 0.39 / move 0.12
+- 시점: now 0.89
+- 발동 조건: none 0.88
+- 범위: one 0.47 / self 0.28 / around 0.19
+- 재료: ore 0.98
+- 지속 기간: run 0.43 / forever 0.36 / instant 0.10
+- 구슬의 운명: returns 0.68 / used_up 0.22
+- 소환물 종류: spirit 0.75 / construct 0.18
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.14, risky 0.10, random 0.21, network 0.10
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 부메랑
+- 동사: recycle 0.61 / damage 0.35
+- 역할: cast 0.59 / move 0.40
+- 시점: now 0.57 / trigger 0.15 / repeating 0.15
+- 발동 조건: none 0.64 / hit 0.21
+- 범위: line 0.68 / one 0.23
+- 재료: wood 0.91
+- 지속 기간: instant 0.65 / run 0.20
+- 구슬의 운명: returns 0.99
+- 소환물 종류: soldier 0.45 / construct 0.29 / spirit 0.14
+- 아군/적대: ally 0.81 / hostile 0.19
+- 성질: scaling 0.08, risky 0.17, random 0.27, network 0.15
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 자석   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: draw 0.94 / control 0.05
+- 역할: move 0.66 / cast 0.29
+- 시점: now 0.53 / repeating 0.30 / trigger 0.17
+- 발동 조건: approach 0.50 / none 0.47
+- 범위: around 0.71 / line 0.10
+- 재료: ore 0.85 / none 0.14
+- 지속 기간: run 0.46 / forever 0.35 / turns 0.11
+- 구슬의 운명: returns 0.67 / passive 0.29
+- 소환물 종류: construct 0.85
+- 아군/적대: ally 0.76 / hostile 0.24
+- 성질: scaling 0.16, risky 0.06, random 0.07, network 0.27
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 파쇄기
+- 동사: damage 0.98
+- 역할: cast 0.86
+- 시점: now 0.93
+- 발동 조건: none 0.80
+- 범위: around 0.62 / one 0.26
+- 재료: ore 0.65 / none 0.30
+- 지속 기간: instant 0.54 / run 0.33
+- 구슬의 운명: returns 0.81 / used_up 0.17
+- 소환물 종류: construct 0.95
+- 아군/적대: hostile 0.55 / ally 0.45
+- 성질: scaling 0.11, risky 0.22, random 0.07, network 0.14
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+### 폭죽
+- 동사: damage 0.97
+- 역할: cast 0.97
+- 시점: now 0.71 / delayed 0.24
+- 발동 조건: none 0.67 / approach 0.20
+- 범위: around 0.95
+- 재료: ore 0.64 / none 0.30
+- 지속 기간: instant 0.91
+- 구슬의 운명: used_up 0.71 / returns 0.28
+- 소환물 종류: construct 0.51 / spirit 0.23 / soldier 0.11
+- 아군/적대: ally 0.57 / hostile 0.43
+- 성질: scaling 0.12, risky 0.28, random 0.57, network 0.16
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 포션
+- 동사: heal 0.77 / buff 0.13
+- 역할: cast 0.96
+- 시점: now 0.94
+- 발동 조건: none 0.85
+- 범위: self 0.69 / one 0.26
+- 재료: none 0.76 / food 0.21
+- 지속 기간: turns 0.98
+- 구슬의 운명: used_up 0.78 / returns 0.21
+- 소환물 종류: spirit 0.82 / worker 0.10
+- 아군/적대: ally 0.90 / hostile 0.10
+- 성질: scaling 0.12, risky 0.14, random 0.15, network 0.09
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 망루
+- 동사: guard 0.78 / peek 0.20
+- 역할: build 0.97
+- 시점: now 0.47 / trigger 0.26 / repeating 0.25
+- 발동 조건: approach 0.62 / none 0.34
+- 범위: around 0.61 / line 0.18 / wide 0.10
+- 재료: ore 0.63 / wood 0.29
+- 지속 기간: run 0.98
+- 구슬의 운명: returns 0.74 / passive 0.15 / used_up 0.11
+- 소환물 종류: soldier 0.73 / construct 0.21
+- 아군/적대: ally 0.91
+- 성질: scaling 0.16, risky 0.07, random 0.05, network 0.20
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 거울
+- 동사: peek 0.52 / transform 0.41
+- 역할: cast 0.50 / build 0.28 / move 0.19
+- 시점: now 0.60 / trigger 0.37
+- 발동 조건: none 0.75 / approach 0.20
+- 범위: one 0.27 / around 0.24 / line 0.19
+- 재료: ore 0.86 / none 0.13
+- 지속 기간: run 0.58 / forever 0.32
+- 구슬의 운명: returns 0.93
+- 소환물 종류: spirit 0.81 / construct 0.17
+- 아군/적대: ally 0.73 / hostile 0.27
+- 성질: scaling 0.12, risky 0.15, random 0.12, network 0.12
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 시계
+- 동사: tempo 0.57 / control 0.18 / peek 0.10 / recycle 0.07
+- 역할: cast 0.63 / build 0.23 / move 0.10
+- 시점: delayed 0.79 / repeating 0.17
+- 발동 조건: turn 0.81 / none 0.17
+- 범위: wide 0.56 / self 0.21 / one 0.15
+- 재료: ore 0.75 / none 0.20
+- 지속 기간: run 0.42 / forever 0.27 / turns 0.25
+- 구슬의 운명: returns 0.90
+- 소환물 종류: construct 0.89
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.20, risky 0.13, random 0.11, network 0.07
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 연금술   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: transform 0.66 / create 0.18 / money 0.16
+- 역할: cast 0.75 / build 0.22
+- 시점: now 0.79 / repeating 0.12
+- 발동 조건: none 0.89
+- 범위: self 0.28 / one 0.27 / wide 0.23
+- 재료: none 0.46 / gold 0.28 / ore 0.26
+- 지속 기간: run 0.42 / forever 0.32 / instant 0.12
+- 구슬의 운명: returns 0.92
+- 소환물 종류: spirit 0.61 / worker 0.35
+- 아군/적대: ally 0.90
+- 성질: scaling 0.36, risky 0.18, random 0.13, network 0.13
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 이자   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: money 0.89
+- 역할: cast 0.62 / build 0.23
+- 시점: repeating 0.77 / now 0.12
+- 발동 조건: none 0.60 / turn 0.34
+- 범위: one 0.28 / self 0.28 / wide 0.26
+- 재료: gold 0.96
+- 지속 기간: instant 0.34 / turns 0.26 / run 0.19
+- 구슬의 운명: returns 0.65 / passive 0.22 / used_up 0.13
+- 소환물 종류: worker 0.52 / spirit 0.29
+- 아군/적대: ally 0.74 / hostile 0.26
+- 성질: scaling 0.85, risky 0.21, random 0.11, network 0.13
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 낮잠
+- 동사: control 0.79 / energy 0.09 / heal 0.07
+- 역할: cast 0.75 / move 0.12
+- 시점: now 0.62 / delayed 0.24
+- 발동 조건: none 0.67 / turn 0.26
+- 범위: self 0.87
+- 재료: none 0.96
+- 지속 기간: turns 0.84
+- 구슬의 운명: returns 0.69 / used_up 0.18 / passive 0.13
+- 소환물 종류: spirit 0.36 / worker 0.31 / beast 0.30
+- 아군/적대: ally 0.88 / hostile 0.12
+- 성질: scaling 0.08, risky 0.08, random 0.09, network 0.04
+- 힘: 0.4 | 지시문으로 읽힘 0.02
+### 모닥불   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: damage 0.27 / trash 0.23 / energy 0.16 / buff 0.14
+- 역할: build 0.82 / cast 0.17
+- 시점: repeating 0.51 / now 0.44
+- 발동 조건: none 0.58 / approach 0.29 / turn 0.10
+- 범위: around 0.84
+- 재료: wood 0.96
+- 지속 기간: turns 0.78 / stage 0.13
+- 구슬의 운명: returns 0.70 / used_up 0.21
+- 소환물 종류: spirit 0.73 / construct 0.11
+- 아군/적대: ally 0.74 / hostile 0.26
+- 성질: scaling 0.16, risky 0.16, random 0.11, network 0.12
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 벌 떼   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: damage 0.70 / grow 0.08
+- 역할: summon 0.96
+- 시점: now 0.85 / repeating 0.12
+- 발동 조건: none 0.71 / approach 0.19
+- 범위: around 0.78
+- 재료: food 0.47 / none 0.46
+- 지속 기간: turns 0.51 / instant 0.19 / stage 0.13
+- 구슬의 운명: returns 0.70 / used_up 0.26
+- 소환물 종류: beast 0.99
+- 아군/적대: hostile 0.73 / ally 0.27
+- 성질: scaling 0.63, risky 0.15, random 0.24, network 0.76
+- 힘: 1.7 | 지시문으로 읽힘 0.01
+### 산사태
+- 동사: damage 0.69 / control 0.27
+- 역할: cast 0.88 / move 0.10
+- 시점: now 0.60 / trigger 0.27 / delayed 0.10
+- 발동 조건: none 0.73 / approach 0.14
+- 범위: around 0.54 / line 0.37
+- 재료: ore 0.59 / none 0.39
+- 지속 기간: instant 0.78
+- 구슬의 운명: returns 0.60 / used_up 0.36
+- 소환물 종류: beast 0.51 / spirit 0.24 / construct 0.14
+- 아군/적대: hostile 0.90 / ally 0.10
+- 성질: scaling 0.35, risky 0.35, random 0.63, network 0.24
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 깃발
+- 동사: guard 0.29 / buff 0.24 / control 0.12 / create 0.11 / peek 0.06
+- 역할: build 0.80 / cast 0.12
+- 시점: now 0.66 / trigger 0.25
+- 발동 조건: none 0.63 / approach 0.31
+- 범위: one 0.40 / wide 0.21 / around 0.18
+- 재료: wood 0.51 / none 0.37
+- 지속 기간: run 0.75 / forever 0.11
+- 구슬의 운명: returns 0.67 / passive 0.21 / used_up 0.12
+- 소환물 종류: soldier 0.54 / spirit 0.17 / worker 0.15
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.13, risky 0.10, random 0.12, network 0.21
+- 힘: 1.0 | 지시문으로 읽힘 0.02
+### 전쟁 북   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: damage 0.53 / buff 0.37
+- 역할: cast 0.76 / summon 0.14
+- 시점: now 0.72 / trigger 0.13 / repeating 0.11
+- 발동 조건: none 0.66 / turn 0.16 / approach 0.14
+- 범위: around 0.57 / wide 0.28
+- 재료: wood 0.76 / ore 0.10
+- 지속 기간: instant 0.30 / turns 0.27 / run 0.25
+- 구슬의 운명: returns 0.84 / used_up 0.12
+- 소환물 종류: soldier 0.68 / construct 0.16
+- 아군/적대: ally 0.63 / hostile 0.37
+- 성질: scaling 0.18, risky 0.20, random 0.18, network 0.25
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 안개   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: debuff 0.39 / peek 0.23 / guard 0.14 / control 0.14
+- 역할: cast 0.84 / build 0.12
+- 시점: now 0.77 / repeating 0.16
+- 발동 조건: none 0.66 / approach 0.25
+- 범위: around 0.79
+- 재료: none 1.00
+- 지속 기간: turns 0.48 / stage 0.46
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 소환물 종류: spirit 0.97
+- 아군/적대: ally 0.58 / hostile 0.42
+- 성질: scaling 0.10, risky 0.10, random 0.24, network 0.15
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 부적
+- 동사: guard 0.64 / buff 0.12 / money 0.05
+- 역할: cast 0.69 / build 0.29
+- 시점: trigger 0.53 / now 0.36
+- 발동 조건: none 0.58 / approach 0.31
+- 범위: self 0.52 / one 0.26 / around 0.13
+- 재료: none 0.95
+- 지속 기간: turns 0.49 / run 0.21 / instant 0.15
+- 구슬의 운명: used_up 0.43 / passive 0.37 / returns 0.20
+- 소환물 종류: spirit 0.96
+- 아군/적대: ally 0.93
+- 성질: scaling 0.18, risky 0.24, random 0.58, network 0.11
+- 힘: 1.4 | 지시문으로 읽힘 0.02
+### 수박
+- 동사: harvest 0.43 / grow 0.34 / heal 0.06
+- 역할: cast 0.55 / build 0.24 / summon 0.15
+- 시점: now 0.86
+- 발동 조건: none 0.87
+- 범위: one 0.41 / around 0.27 / self 0.23
+- 재료: food 1.00
+- 지속 기간: run 0.34 / instant 0.26 / forever 0.22
+- 구슬의 운명: returns 0.57 / used_up 0.32 / passive 0.11
+- 소환물 종류: beast 0.58 / worker 0.27
+- 아군/적대: ally 0.64 / hostile 0.36
+- 성질: scaling 0.10, risky 0.06, random 0.12, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 베개
+- 동사: control 0.59 / heal 0.27 / guard 0.05
+- 역할: build 0.62 / cast 0.19 / move 0.13
+- 시점: now 0.71 / trigger 0.12 / repeating 0.11
+- 발동 조건: none 0.74 / approach 0.14
+- 범위: self 0.58 / one 0.29
+- 재료: none 0.58 / wood 0.35
+- 지속 기간: run 0.67 / forever 0.15
+- 구슬의 운명: returns 0.67 / passive 0.21 / used_up 0.12
+- 소환물 종류: worker 0.28 / spirit 0.28 / construct 0.22
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.07, risky 0.06, random 0.08, network 0.06
+- 힘: 0.4 | 지시문으로 읽힘 0.01
+### 낡은 신발   ⚠ 3번 중 1순위가 바뀐 축: verb, material
+- 동사: tempo 0.24 / trash 0.21 / money 0.12 / buff 0.12 / debuff 0.08
+- 역할: move 0.52 / cast 0.22 / build 0.15
+- 시점: now 0.87
+- 발동 조건: none 0.80 / approach 0.14
+- 범위: self 0.72 / one 0.22
+- 재료: wood 0.42 / none 0.33 / ore 0.13
+- 지속 기간: run 0.71 / forever 0.19
+- 구슬의 운명: returns 0.73 / used_up 0.22
+- 소환물 종류: worker 0.43 / construct 0.27 / spirit 0.19
+- 아군/적대: ally 0.62 / hostile 0.38
+- 성질: scaling 0.09, risky 0.13, random 0.10, network 0.05
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 상인
+- 동사: money 1.00
+- 역할: summon 0.74 / build 0.15
+- 시점: now 0.67 / repeating 0.27
+- 발동 조건: none 0.88
+- 범위: self 0.38 / one 0.35 / wide 0.19
+- 재료: gold 0.99
+- 지속 기간: run 0.63 / forever 0.19
+- 구슬의 운명: returns 0.84
+- 소환물 종류: worker 1.00
+- 아군/적대: ally 0.98
+- 성질: scaling 0.40, risky 0.09, random 0.14, network 0.26
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 도서관
+- 동사: peek 0.36 / draw 0.15 / energy 0.12 / buff 0.11 / money 0.10
+- 역할: build 0.97
+- 시점: now 0.87
+- 발동 조건: none 0.84
+- 범위: around 0.31 / wide 0.26 / one 0.21
+- 재료: none 0.78 / wood 0.20
+- 지속 기간: run 0.98
+- 구슬의 운명: returns 0.83
+- 소환물 종류: worker 0.68 / spirit 0.17 / construct 0.12
+- 아군/적대: ally 0.93
+- 성질: scaling 0.27, risky 0.05, random 0.06, network 0.20
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 대장장이   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: create 0.91
+- 역할: summon 0.53 / build 0.40
+- 시점: now 0.89
+- 발동 조건: none 0.88
+- 범위: one 0.35 / self 0.33 / around 0.17
+- 재료: ore 0.99
+- 지속 기간: run 0.74 / forever 0.13
+- 구슬의 운명: returns 0.85
+- 소환물 종류: worker 0.99
+- 아군/적대: ally 0.98
+- 성질: scaling 0.24, risky 0.07, random 0.06, network 0.11
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 번개
+- 동사: damage 0.95
+- 역할: cast 0.99
+- 시점: now 0.92
+- 발동 조건: none 0.77
+- 범위: line 0.44 / around 0.28 / one 0.23
+- 재료: none 1.00
+- 지속 기간: instant 0.92
+- 구슬의 운명: returns 0.84 / used_up 0.13
+- 소환물 종류: spirit 0.89
+- 아군/적대: ally 0.68 / hostile 0.32
+- 성질: scaling 0.11, risky 0.15, random 0.29, network 0.24
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 운석
+- 동사: damage 0.96
+- 역할: cast 0.93
+- 시점: now 0.72 / delayed 0.22
+- 발동 조건: none 0.69 / hit 0.15
+- 범위: around 0.74 / one 0.18
+- 재료: ore 0.97
+- 지속 기간: instant 0.74 / forever 0.13
+- 구슬의 운명: used_up 0.57 / returns 0.41
+- 소환물 종류: construct 0.38 / beast 0.26 / spirit 0.20
+- 아군/적대: hostile 0.77 / ally 0.23
+- 성질: scaling 0.11, risky 0.27, random 0.55, network 0.09
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 지진
+- 동사: damage 0.92 / control 0.08
+- 역할: cast 0.99
+- 시점: now 0.91
+- 발동 조건: none 0.81
+- 범위: around 0.76 / wide 0.22
+- 재료: none 0.98
+- 지속 기간: instant 0.87
+- 구슬의 운명: returns 0.70 / used_up 0.28
+- 소환물 종류: spirit 0.84 / beast 0.11
+- 아군/적대: hostile 0.78 / ally 0.22
+- 성질: scaling 0.13, risky 0.25, random 0.63, network 0.31
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 불사조
+- 동사: recycle 0.93
+- 역할: summon 0.81 / cast 0.14
+- 시점: trigger 0.40 / now 0.29 / repeating 0.27
+- 발동 조건: death 0.80 / none 0.17
+- 범위: self 0.41 / one 0.23 / wide 0.18
+- 재료: none 0.95
+- 지속 기간: forever 0.68 / run 0.20
+- 구슬의 운명: returns 0.78 / used_up 0.18
+- 소환물 종류: beast 0.51 / spirit 0.49
+- 아군/적대: ally 0.88 / hostile 0.12
+- 성질: scaling 0.45, risky 0.33, random 0.12, network 0.09
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 가시덤불
+- 동사: control 0.50 / guard 0.28 / damage 0.10 / grow 0.09
+- 역할: build 0.84 / cast 0.14
+- 시점: trigger 0.65 / now 0.26
+- 발동 조건: approach 0.83 / none 0.15
+- 범위: around 0.66 / line 0.21
+- 재료: wood 0.89 / none 0.10
+- 지속 기간: run 0.74 / turns 0.14
+- 구슬의 운명: returns 0.69 / used_up 0.19 / passive 0.12
+- 소환물 종류: beast 0.70 / spirit 0.15
+- 아군/적대: hostile 0.79 / ally 0.21
+- 성질: scaling 0.13, risky 0.28, random 0.06, network 0.21
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 투명 망토   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: guard 0.39 / peek 0.35 / buff 0.13
+- 역할: cast 0.73 / move 0.15 / build 0.10
+- 시점: now 0.51 / repeating 0.29 / trigger 0.20
+- 발동 조건: none 0.78 / approach 0.16
+- 범위: self 0.93
+- 재료: none 0.93
+- 지속 기간: turns 0.44 / run 0.27 / forever 0.27
+- 구슬의 운명: passive 0.53 / returns 0.43
+- 소환물 종류: spirit 0.84 / soldier 0.12
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.07, risky 0.08, random 0.07, network 0.07
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+### 양봉장
+- 동사: grow 0.45 / harvest 0.27 / money 0.19
+- 역할: build 0.85
+- 시점: repeating 0.44 / now 0.42
+- 발동 조건: none 0.72 / turn 0.16
+- 범위: around 0.33 / one 0.29 / self 0.15
+- 재료: food 0.67 / gold 0.28
+- 지속 기간: run 0.92
+- 구슬의 운명: returns 0.78 / used_up 0.11 / passive 0.10
+- 소환물 종류: worker 0.61 / beast 0.36
+- 아군/적대: ally 0.78 / hostile 0.22
+- 성질: scaling 0.62, risky 0.14, random 0.20, network 0.31
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 새로운 시작
+- 동사: recycle 0.46 / create 0.37
+- 역할: cast 0.68 / build 0.24
+- 시점: now 0.88
+- 발동 조건: turn 0.50 / none 0.48
+- 범위: wide 0.48 / self 0.38
+- 재료: none 0.94
+- 지속 기간: instant 0.49 / run 0.30
+- 구슬의 운명: used_up 0.57 / returns 0.39
+- 소환물 종류: spirit 0.55 / worker 0.39
+- 아군/적대: ally 0.95
+- 성질: scaling 0.14, risky 0.07, random 0.16, network 0.08
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 복권
+- 동사: money 0.92
+- 역할: cast 0.94
+- 시점: now 0.64 / delayed 0.18 / trigger 0.17
+- 발동 조건: none 0.75 / turn 0.20
+- 범위: self 0.56 / one 0.21 / wide 0.19
+- 재료: gold 0.83 / none 0.17
+- 지속 기간: instant 0.86
+- 구슬의 운명: used_up 0.67 / returns 0.28
+- 소환물 종류: spirit 0.48 / worker 0.38
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.18, risky 0.92, random 0.97, network 0.07
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 피리
+- 동사: control 0.25 / draw 0.16 / buff 0.12 / amplify 0.11 / tempo 0.08
+- 역할: cast 0.58 / summon 0.23 / move 0.14
+- 시점: now 0.69 / trigger 0.15 / repeating 0.13
+- 발동 조건: none 0.67 / approach 0.23
+- 범위: around 0.38 / line 0.21 / wide 0.16
+- 재료: wood 0.71 / ore 0.15 / none 0.10
+- 지속 기간: run 0.38 / instant 0.25 / turns 0.22
+- 구슬의 운명: returns 0.89
+- 소환물 종류: beast 0.33 / spirit 0.26 / worker 0.23
+- 아군/적대: ally 0.75 / hostile 0.25
+- 성질: scaling 0.12, risky 0.11, random 0.12, network 0.12
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 블랙홀   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: control 0.45 / draw 0.39 / damage 0.06 / steal 0.05
+- 역할: cast 0.66 / build 0.16 / move 0.16
+- 시점: now 0.76 / repeating 0.17
+- 발동 조건: none 0.68 / approach 0.27
+- 범위: around 0.62 / wide 0.26 / one 0.10
+- 재료: none 1.00
+- 지속 기간: forever 0.74 / run 0.17
+- 구슬의 운명: returns 0.79 / used_up 0.15
+- 소환물 종류: spirit 0.63 / beast 0.29
+- 아군/적대: hostile 0.83 / ally 0.17
+- 성질: scaling 0.51, risky 0.32, random 0.28, network 0.15
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+
+## 보충·재료
+
+### 통나무
+- 동사: harvest 0.66 / create 0.17 / guard 0.08
+- 역할: build 0.77 / cast 0.11 / move 0.10
+- 시점: now 0.89
+- 발동 조건: none 0.86
+- 범위: one 0.67 / line 0.20 / self 0.10
+- 재료: wood 1.00
+- 지속 기간: run 0.82 / forever 0.11
+- 구슬의 운명: returns 0.71 / used_up 0.22
+- 소환물 종류: worker 0.48 / construct 0.38 / beast 0.11
+- 아군/적대: ally 0.78 / hostile 0.22
+- 성질: scaling 0.12, risky 0.06, random 0.06, network 0.07
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 오두막
+- 동사: guard 0.35 / create 0.31 / harvest 0.25 / money 0.06
+- 역할: build 0.96
+- 시점: now 0.93
+- 발동 조건: none 0.79 / approach 0.15
+- 범위: one 0.71 / around 0.17
+- 재료: wood 0.98
+- 지속 기간: run 0.98
+- 구슬의 운명: returns 0.69 / used_up 0.25
+- 소환물 종류: worker 0.83
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.13, risky 0.05, random 0.06, network 0.10
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 판자
+- 동사: create 0.50 / harvest 0.25 / guard 0.17
+- 역할: build 0.89
+- 시점: now 0.89
+- 발동 조건: none 0.86
+- 범위: one 0.56 / self 0.22 / line 0.13
+- 재료: wood 1.00
+- 지속 기간: run 0.82
+- 구슬의 운명: returns 0.67 / used_up 0.26
+- 소환물 종류: worker 0.67 / construct 0.29
+- 아군/적대: ally 0.84 / hostile 0.16
+- 성질: scaling 0.12, risky 0.07, random 0.07, network 0.09
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 제재소
+- 동사: control 0.30 / money 0.19 / debuff 0.12 / harvest 0.08 / create 0.07
+- 역할: build 0.76 / cast 0.17
+- 시점: now 0.50 / repeating 0.24 / trigger 0.19
+- 발동 조건: none 0.67 / approach 0.18
+- 범위: wide 0.32 / around 0.26 / one 0.22
+- 재료: gold 0.32 / wood 0.29 / ore 0.21
+- 지속 기간: run 0.77
+- 구슬의 운명: returns 0.78 / used_up 0.13
+- 소환물 종류: worker 0.56 / construct 0.21 / soldier 0.11
+- 아군/적대: ally 0.55 / hostile 0.45
+- 성질: scaling 0.22, risky 0.25, random 0.10, network 0.18
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 참나무   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: harvest 0.43 / grow 0.42 / guard 0.10
+- 역할: build 0.75 / summon 0.12
+- 시점: now 0.75 / repeating 0.11
+- 발동 조건: none 0.78 / approach 0.13
+- 범위: one 0.40 / around 0.27 / self 0.16
+- 재료: wood 1.00
+- 지속 기간: run 0.96
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 소환물 종류: spirit 0.55 / beast 0.25
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.52, risky 0.07, random 0.07, network 0.10
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 장작   ⚠ 3번 중 1순위가 바뀐 축: role
+- 동사: energy 0.48 / harvest 0.27 / trash 0.12 / create 0.07
+- 역할: build 0.48 / cast 0.45
+- 시점: now 0.65 / repeating 0.20
+- 발동 조건: none 0.82
+- 범위: one 0.37 / around 0.24 / self 0.23
+- 재료: wood 1.00
+- 지속 기간: turns 0.60 / run 0.23
+- 구슬의 운명: returns 0.59 / used_up 0.36
+- 소환물 종류: worker 0.51 / spirit 0.25 / construct 0.11
+- 아군/적대: ally 0.82 / hostile 0.18
+- 성질: scaling 0.14, risky 0.09, random 0.06, network 0.07
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 철광석
+- 동사: harvest 0.82 / create 0.10 / money 0.08
+- 역할: build 0.62 / cast 0.27
+- 시점: now 0.88
+- 발동 조건: none 0.93
+- 범위: one 0.64 / self 0.20
+- 재료: ore 1.00
+- 지속 기간: run 0.47 / forever 0.41
+- 구슬의 운명: used_up 0.50 / returns 0.39 / passive 0.10
+- 소환물 종류: worker 0.50 / construct 0.40
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.16, risky 0.05, random 0.04, network 0.07
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 대장간
+- 동사: create 0.83 / money 0.07
+- 역할: build 0.96
+- 시점: now 0.78 / repeating 0.17
+- 발동 조건: none 0.85
+- 범위: around 0.41 / one 0.30 / self 0.12
+- 재료: ore 1.00
+- 지속 기간: run 0.98
+- 구슬의 운명: returns 0.88
+- 소환물 종류: worker 0.87 / construct 0.11
+- 아군/적대: ally 0.94
+- 성질: scaling 0.27, risky 0.07, random 0.06, network 0.11
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 보석   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: money 0.90 / create 0.06
+- 역할: build 0.53 / cast 0.39
+- 시점: now 0.86
+- 발동 조건: none 0.91
+- 범위: one 0.48 / self 0.31
+- 재료: ore 0.98
+- 지속 기간: forever 0.47 / run 0.45
+- 구슬의 운명: returns 0.64 / used_up 0.20 / passive 0.15
+- 소환물 종류: spirit 0.40 / worker 0.27 / construct 0.27
+- 아군/적대: ally 0.89 / hostile 0.11
+- 성질: scaling 0.23, risky 0.10, random 0.16, network 0.07
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 갑옷
+- 동사: guard 0.96
+- 역할: build 0.47 / cast 0.39 / summon 0.12
+- 시점: now 0.79 / trigger 0.16
+- 발동 조건: none 0.79 / hit 0.11
+- 범위: self 0.61 / one 0.34
+- 재료: ore 0.98
+- 지속 기간: run 0.51 / forever 0.24 / turns 0.21
+- 구슬의 운명: returns 0.60 / passive 0.32
+- 소환물 종류: soldier 0.93
+- 아군/적대: ally 0.87 / hostile 0.13
+- 성질: scaling 0.14, risky 0.08, random 0.05, network 0.08
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 석상
+- 동사: guard 0.43 / control 0.31 / create 0.13
+- 역할: build 0.82 / summon 0.14
+- 시점: now 0.68 / trigger 0.20
+- 발동 조건: none 0.65 / approach 0.26
+- 범위: one 0.72 / around 0.11
+- 재료: ore 0.98
+- 지속 기간: run 0.78 / forever 0.22
+- 구슬의 운명: returns 0.59 / used_up 0.22 / passive 0.19
+- 소환물 종류: construct 1.00
+- 아군/적대: ally 0.67 / hostile 0.33
+- 성질: scaling 0.11, risky 0.14, random 0.08, network 0.09
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 쇠사슬
+- 동사: control 0.97
+- 역할: cast 0.53 / move 0.35 / build 0.10
+- 시점: now 0.59 / trigger 0.36
+- 발동 조건: none 0.58 / approach 0.33
+- 범위: line 0.63 / one 0.24
+- 재료: ore 0.99
+- 지속 기간: run 0.35 / turns 0.28 / forever 0.25
+- 구슬의 운명: returns 0.90
+- 소환물 종류: soldier 0.30 / construct 0.30 / beast 0.28
+- 아군/적대: hostile 0.67 / ally 0.33
+- 성질: scaling 0.13, risky 0.31, random 0.08, network 0.86
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 빵
+- 동사: create 0.38 / money 0.22 / harvest 0.11 / grow 0.06
+- 역할: build 0.42 / cast 0.34 / summon 0.18
+- 시점: now 0.89
+- 발동 조건: none 0.92
+- 범위: one 0.51 / self 0.36
+- 재료: food 1.00
+- 지속 기간: instant 0.45 / run 0.32 / turns 0.11
+- 구슬의 운명: returns 0.64 / used_up 0.29
+- 소환물 종류: worker 0.63 / beast 0.18
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.13, risky 0.08, random 0.11, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 사과   ⚠ 3번 중 1순위가 바뀐 축: verb, lifetime
+- 동사: harvest 0.34 / grow 0.31 / heal 0.19 / money 0.06
+- 역할: cast 0.55 / build 0.26 / move 0.10
+- 시점: now 0.83 / trigger 0.10
+- 발동 조건: none 0.85
+- 범위: one 0.64 / self 0.19 / around 0.12
+- 재료: food 0.99
+- 지속 기간: run 0.35 / instant 0.32 / forever 0.18
+- 구슬의 운명: returns 0.67 / used_up 0.25
+- 소환물 종류: worker 0.41 / beast 0.28 / spirit 0.26
+- 아군/적대: ally 0.75 / hostile 0.25
+- 성질: scaling 0.14, risky 0.13, random 0.10, network 0.06
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 스튜   ⚠ 3번 중 1순위가 바뀐 축: lifetime, range
+- 동사: heal 0.26 / create 0.16 / money 0.15 / harvest 0.08 / transform 0.07
+- 역할: cast 0.56 / build 0.23 / summon 0.17
+- 시점: now 0.62 / delayed 0.21 / repeating 0.14
+- 발동 조건: none 0.81 / turn 0.12
+- 범위: one 0.32 / around 0.32 / self 0.24
+- 재료: food 0.99
+- 지속 기간: turns 0.34 / run 0.27 / instant 0.22
+- 구슬의 운명: returns 0.69 / used_up 0.27
+- 소환물 종류: worker 0.60 / beast 0.25 / spirit 0.10
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.17, risky 0.09, random 0.10, network 0.10
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 밀밭
+- 동사: harvest 0.74 / grow 0.24
+- 역할: build 0.78 / cast 0.15
+- 시점: now 0.53 / repeating 0.29 / delayed 0.15
+- 발동 조건: none 0.82
+- 범위: around 0.59 / wide 0.14 / one 0.13
+- 재료: food 1.00
+- 지속 기간: run 0.85
+- 구슬의 운명: returns 0.71 / used_up 0.20
+- 소환물 종류: worker 0.84
+- 아군/적대: ally 0.81 / hostile 0.19
+- 성질: scaling 0.39, risky 0.06, random 0.07, network 0.17
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 닭   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: grow 0.53 / money 0.12 / harvest 0.08 / damage 0.06
+- 역할: summon 0.80 / cast 0.11
+- 시점: now 0.82 / repeating 0.11
+- 발동 조건: none 0.92
+- 범위: one 0.60 / self 0.31
+- 재료: food 0.91
+- 지속 기간: run 0.31 / instant 0.30 / forever 0.24
+- 구슬의 운명: returns 0.75 / used_up 0.18
+- 소환물 종류: beast 0.99
+- 아군/적대: ally 0.59 / hostile 0.41
+- 성질: scaling 0.26, risky 0.11, random 0.13, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 물고기   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: harvest 0.49 / draw 0.46
+- 역할: summon 0.87
+- 시점: now 0.86
+- 발동 조건: none 0.87
+- 범위: one 0.75 / self 0.10
+- 재료: food 0.98
+- 지속 기간: run 0.42 / forever 0.32 / instant 0.13
+- 구슬의 운명: returns 0.76 / used_up 0.18
+- 소환물 종류: beast 1.00
+- 아군/적대: ally 0.65 / hostile 0.35
+- 성질: scaling 0.16, risky 0.09, random 0.16, network 0.10
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 보물상자
+- 동사: money 0.92
+- 역할: build 0.58 / cast 0.33
+- 시점: now 0.74 / trigger 0.23
+- 발동 조건: none 0.64 / approach 0.31
+- 범위: one 0.61 / self 0.25
+- 재료: gold 0.91
+- 지속 기간: run 0.71 / instant 0.14 / forever 0.11
+- 구슬의 운명: returns 0.59 / used_up 0.37
+- 소환물 종류: construct 0.43 / worker 0.27 / spirit 0.25
+- 아군/적대: ally 0.90 / hostile 0.10
+- 성질: scaling 0.25, risky 0.17, random 0.58, network 0.08
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 은행
+- 동사: money 1.00
+- 역할: build 0.81 / cast 0.10
+- 시점: now 0.55 / repeating 0.37
+- 발동 조건: none 0.83 / turn 0.11
+- 범위: wide 0.38 / one 0.28 / self 0.21
+- 재료: gold 1.00
+- 지속 기간: run 0.83 / forever 0.10
+- 구슬의 운명: returns 0.86
+- 소환물 종류: worker 0.84
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.69, risky 0.10, random 0.08, network 0.31
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 월급
+- 동사: money 0.99
+- 역할: cast 0.66 / summon 0.22 / build 0.11
+- 시점: repeating 0.92
+- 발동 조건: turn 0.80 / none 0.20
+- 범위: self 0.72 / wide 0.18
+- 재료: gold 0.99
+- 지속 기간: instant 0.36 / run 0.29 / turns 0.20
+- 구슬의 운명: returns 0.57 / used_up 0.25 / passive 0.18
+- 소환물 종류: worker 0.96
+- 아군/적대: ally 0.96
+- 성질: scaling 0.18, risky 0.07, random 0.07, network 0.15
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 상점
+- 동사: money 0.99
+- 역할: build 0.95
+- 시점: now 0.67 / repeating 0.26
+- 발동 조건: none 0.81 / approach 0.11
+- 범위: one 0.33 / around 0.24 / wide 0.20
+- 재료: gold 0.99
+- 지속 기간: run 0.94
+- 구슬의 운명: returns 0.79 / used_up 0.11
+- 소환물 종류: worker 0.99
+- 아군/적대: ally 0.94
+- 성질: scaling 0.25, risky 0.07, random 0.09, network 0.18
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 분노
+- 동사: damage 0.82 / buff 0.11
+- 역할: cast 0.92
+- 시점: now 0.68 / trigger 0.25
+- 발동 조건: none 0.77
+- 범위: self 0.41 / around 0.32 / wide 0.14
+- 재료: none 1.00
+- 지속 기간: turns 0.86
+- 구슬의 운명: returns 0.74 / used_up 0.14 / passive 0.12
+- 소환물 종류: spirit 0.66 / beast 0.18 / soldier 0.15
+- 아군/적대: hostile 0.77 / ally 0.23
+- 성질: scaling 0.21, risky 0.26, random 0.15, network 0.07
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 용기
+- 동사: buff 0.95
+- 역할: cast 0.77 / summon 0.13
+- 시점: now 0.78 / trigger 0.19
+- 발동 조건: none 0.87
+- 범위: self 0.80
+- 재료: none 0.99
+- 지속 기간: turns 0.41 / instant 0.23 / forever 0.20
+- 구슬의 운명: returns 0.65 / passive 0.25 / used_up 0.10
+- 소환물 종류: soldier 0.59 / spirit 0.31
+- 아군/적대: ally 0.92
+- 성질: scaling 0.12, risky 0.16, random 0.10, network 0.07
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+
+## 보충·소환물
+
+### 기사
+- 동사: damage 0.38 / guard 0.29 / buff 0.21 / create 0.05
+- 역할: summon 0.88
+- 시점: now 0.90
+- 발동 조건: none 0.85
+- 범위: one 0.54 / self 0.35
+- 재료: ore 0.62 / none 0.32
+- 지속 기간: run 0.49 / forever 0.18 / turns 0.17
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 소환물 종류: soldier 1.00
+- 아군/적대: ally 0.95
+- 성질: scaling 0.20, risky 0.11, random 0.08, network 0.16
+- 힘: 1.7 | 지시문으로 읽힘 0.01
+### 궁수
+- 동사: damage 0.85
+- 역할: summon 0.90
+- 시점: now 0.80 / trigger 0.12
+- 발동 조건: none 0.79 / approach 0.11
+- 범위: one 0.44 / line 0.44
+- 재료: wood 0.43 / none 0.38
+- 지속 기간: run 0.45 / forever 0.21 / turns 0.15
+- 구슬의 운명: returns 0.82 / used_up 0.12
+- 소환물 종류: soldier 1.00
+- 아군/적대: ally 0.93
+- 성질: scaling 0.15, risky 0.07, random 0.09, network 0.12
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 농부   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: grow 0.49 / harvest 0.48
+- 역할: summon 0.93
+- 시점: now 0.55 / repeating 0.38
+- 발동 조건: none 0.78 / turn 0.19
+- 범위: one 0.47 / self 0.30
+- 재료: food 0.98
+- 지속 기간: run 0.64 / turns 0.15 / forever 0.12
+- 구슬의 운명: returns 0.83 / used_up 0.11
+- 소환물 종류: worker 1.00
+- 아군/적대: ally 0.99
+- 성질: scaling 0.30, risky 0.06, random 0.07, network 0.16
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 일꾼
+- 동사: harvest 0.41 / money 0.21 / create 0.12 / buff 0.10 / tempo 0.07
+- 역할: summon 0.96
+- 시점: now 0.68 / repeating 0.29
+- 발동 조건: none 0.84 / turn 0.13
+- 범위: one 0.62 / self 0.18 / wide 0.10
+- 재료: none 0.45 / food 0.33 / gold 0.19
+- 지속 기간: run 0.50 / turns 0.32
+- 구슬의 운명: returns 0.78 / used_up 0.17
+- 소환물 종류: worker 1.00
+- 아군/적대: ally 1.00
+- 성질: scaling 0.21, risky 0.07, random 0.05, network 0.25
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 마을주민   ⚠ 3번 중 1순위가 바뀐 축: range
+- 동사: money 0.28 / create 0.21 / grow 0.14 / harvest 0.13 / buff 0.09
+- 역할: summon 0.96
+- 시점: now 0.84 / repeating 0.12
+- 발동 조건: none 0.84
+- 범위: around 0.40 / one 0.40 / wide 0.12
+- 재료: none 0.51 / food 0.38 / gold 0.10
+- 지속 기간: run 0.54 / turns 0.22 / forever 0.13
+- 구슬의 운명: returns 0.72 / used_up 0.21
+- 소환물 종류: worker 1.00
+- 아군/적대: ally 0.96
+- 성질: scaling 0.18, risky 0.06, random 0.08, network 0.75
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 늑대
+- 동사: damage 0.76 / steal 0.08 / buff 0.05
+- 역할: summon 0.92
+- 시점: now 0.84
+- 발동 조건: none 0.79 / approach 0.13
+- 범위: one 0.66 / self 0.12 / line 0.12
+- 재료: food 0.73 / none 0.23
+- 지속 기간: run 0.41 / forever 0.26 / turns 0.19
+- 구슬의 운명: returns 0.82 / used_up 0.13
+- 소환물 종류: beast 1.00
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.19, risky 0.13, random 0.14, network 0.43
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 곰   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: damage 0.33 / guard 0.18 / control 0.14 / buff 0.09 / money 0.06
+- 역할: summon 0.77 / cast 0.10
+- 시점: now 0.85
+- 발동 조건: none 0.87
+- 범위: one 0.49 / self 0.32 / around 0.11
+- 재료: none 0.51 / food 0.40
+- 지속 기간: forever 0.41 / run 0.32 / instant 0.14
+- 구슬의 운명: returns 0.72 / used_up 0.16 / passive 0.12
+- 소환물 종류: beast 1.00
+- 아군/적대: hostile 0.79 / ally 0.21
+- 성질: scaling 0.13, risky 0.09, random 0.10, network 0.09
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 드래곤
+- 동사: damage 0.79 / money 0.06 / create 0.06
+- 역할: summon 0.94
+- 시점: now 0.92
+- 발동 조건: none 0.91
+- 범위: one 0.61 / around 0.15 / self 0.11
+- 재료: none 0.70 / food 0.17
+- 지속 기간: run 0.46 / forever 0.27 / turns 0.19
+- 구슬의 운명: returns 0.80 / used_up 0.17
+- 소환물 종류: beast 0.99
+- 아군/적대: hostile 0.67 / ally 0.33
+- 성질: scaling 0.37, risky 0.13, random 0.13, network 0.10
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 슬라임   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: control 0.23 / grow 0.20 / transform 0.14 / debuff 0.13 / damage 0.11
+- 역할: summon 0.94
+- 시점: now 0.87
+- 발동 조건: none 0.79 / approach 0.13
+- 범위: one 0.54 / around 0.20 / self 0.16
+- 재료: none 0.91
+- 지속 기간: run 0.49 / turns 0.30 / forever 0.12
+- 구슬의 운명: returns 0.76 / used_up 0.20
+- 소환물 종류: beast 1.00
+- 아군/적대: hostile 0.79 / ally 0.21
+- 성질: scaling 0.49, risky 0.09, random 0.12, network 0.14
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 고블린   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: steal 0.27 / create 0.21 / damage 0.20 / money 0.17
+- 역할: summon 0.98
+- 시점: now 0.92
+- 발동 조건: none 0.88
+- 범위: one 0.75 / self 0.13
+- 재료: none 0.61 / gold 0.16 / food 0.10
+- 지속 기간: run 0.36 / turns 0.25 / instant 0.16
+- 구슬의 운명: returns 0.71 / used_up 0.25
+- 소환물 종류: beast 0.85 / soldier 0.14
+- 아군/적대: hostile 0.89 / ally 0.11
+- 성질: scaling 0.18, risky 0.09, random 0.12, network 0.27
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 해골   ⚠ 3번 중 1순위가 바뀐 축: material
+- 동사: damage 0.77 / recycle 0.09
+- 역할: summon 0.65 / cast 0.22 / build 0.13
+- 시점: now 0.78 / trigger 0.13
+- 발동 조건: none 0.64 / death 0.24
+- 범위: one 0.63 / self 0.17 / around 0.13
+- 재료: ore 0.48 / none 0.46
+- 지속 기간: run 0.45 / forever 0.36
+- 구슬의 운명: returns 0.64 / used_up 0.28
+- 소환물 종류: spirit 0.65 / beast 0.23
+- 아군/적대: hostile 0.94
+- 성질: scaling 0.19, risky 0.44, random 0.12, network 0.09
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 좀비   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: recycle 0.44 / damage 0.24 / debuff 0.08 / control 0.07 / transform 0.07
+- 역할: summon 0.98
+- 시점: now 0.80 / repeating 0.13
+- 발동 조건: none 0.70 / death 0.18
+- 범위: one 0.68 / around 0.11
+- 재료: none 0.79 / food 0.17
+- 지속 기간: run 0.34 / forever 0.31 / turns 0.24
+- 구슬의 운명: returns 0.72 / used_up 0.24
+- 소환물 종류: beast 0.92
+- 아군/적대: hostile 0.97
+- 성질: scaling 0.61, risky 0.36, random 0.10, network 0.29
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 유령
+- 동사: recycle 0.25 / remove 0.18 / damage 0.17 / control 0.15 / peek 0.10
+- 역할: summon 0.86 / cast 0.11
+- 시점: now 0.77 / repeating 0.11 / trigger 0.11
+- 발동 조건: none 0.71 / approach 0.16
+- 범위: one 0.56 / self 0.15 / around 0.14
+- 재료: none 1.00
+- 지속 기간: forever 0.42 / turns 0.26 / run 0.24
+- 구슬의 운명: returns 0.75 / used_up 0.19
+- 소환물 종류: spirit 1.00
+- 아군/적대: hostile 0.82 / ally 0.18
+- 성질: scaling 0.12, risky 0.20, random 0.13, network 0.10
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 정령   ⚠ 3번 중 1순위가 바뀐 축: lifetime
+- 동사: create 0.31 / buff 0.15 / control 0.14 / recycle 0.09 / energy 0.06
+- 역할: summon 0.89
+- 시점: now 0.84
+- 발동 조건: none 0.84
+- 범위: one 0.52 / around 0.20 / self 0.11
+- 재료: none 0.99
+- 지속 기간: forever 0.39 / run 0.36 / turns 0.17
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 소환물 종류: spirit 1.00
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.16, risky 0.11, random 0.15, network 0.19
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 천사
+- 동사: heal 0.62 / buff 0.11 / guard 0.10 / damage 0.06
+- 역할: summon 0.92
+- 시점: now 0.90
+- 발동 조건: none 0.90
+- 범위: one 0.42 / wide 0.22 / around 0.19
+- 재료: none 0.98
+- 지속 기간: forever 0.54 / run 0.30
+- 구슬의 운명: returns 0.76 / used_up 0.17
+- 소환물 종류: spirit 1.00
+- 아군/적대: ally 0.97
+- 성질: scaling 0.15, risky 0.10, random 0.10, network 0.14
+- 힘: 3.1 | 지시문으로 읽힘 0.01
+### 악마
+- 동사: damage 0.77 / debuff 0.10
+- 역할: summon 0.88 / cast 0.11
+- 시점: now 0.90
+- 발동 조건: none 0.92
+- 범위: one 0.47 / wide 0.21 / self 0.14
+- 재료: none 0.99
+- 지속 기간: forever 0.67 / run 0.19
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 소환물 종류: spirit 0.51 / beast 0.49
+- 아군/적대: hostile 0.99
+- 성질: scaling 0.21, risky 0.67, random 0.26, network 0.09
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 요정
+- 동사: buff 0.29 / create 0.12 / control 0.10 / heal 0.08 / grow 0.07
+- 역할: summon 0.94
+- 시점: now 0.86
+- 발동 조건: none 0.81
+- 범위: one 0.61 / self 0.18 / around 0.11
+- 재료: none 0.88
+- 지속 기간: run 0.34 / forever 0.30 / turns 0.21
+- 구슬의 운명: returns 0.75 / used_up 0.18
+- 소환물 종류: spirit 0.98
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.19, risky 0.09, random 0.25, network 0.17
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 골렘
+- 동사: guard 0.48 / damage 0.24 / create 0.10 / control 0.07 / buff 0.05
+- 역할: summon 0.94
+- 시점: now 0.90
+- 발동 조건: none 0.76 / approach 0.14
+- 범위: one 0.68 / self 0.22
+- 재료: ore 0.96
+- 지속 기간: run 0.66 / turns 0.19
+- 구슬의 운명: returns 0.72 / used_up 0.19
+- 소환물 종류: construct 1.00
+- 아군/적대: ally 0.67 / hostile 0.33
+- 성질: scaling 0.19, risky 0.15, random 0.08, network 0.14
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 로봇
+- 동사: create 0.24 / damage 0.17 / buff 0.11 / guard 0.10 / money 0.10
+- 역할: summon 0.93
+- 시점: now 0.84 / repeating 0.12
+- 발동 조건: none 0.88
+- 범위: one 0.66 / self 0.23
+- 재료: ore 0.98
+- 지속 기간: run 0.65 / turns 0.18 / forever 0.10
+- 구슬의 운명: returns 0.84 / used_up 0.13
+- 소환물 종류: construct 1.00
+- 아군/적대: ally 0.86 / hostile 0.14
+- 성질: scaling 0.19, risky 0.06, random 0.07, network 0.17
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 허수아비
+- 동사: guard 0.41 / control 0.17 / transform 0.16
+- 역할: summon 0.55 / build 0.40
+- 시점: now 0.58 / trigger 0.28 / repeating 0.11
+- 발동 조건: approach 0.61 / none 0.33
+- 범위: one 0.57 / around 0.21 / self 0.15
+- 재료: wood 0.77 / food 0.15
+- 지속 기간: run 0.59 / turns 0.20 / forever 0.10
+- 구슬의 운명: returns 0.71 / used_up 0.21
+- 소환물 종류: construct 0.71 / soldier 0.13 / worker 0.11
+- 아군/적대: ally 0.66 / hostile 0.34
+- 성질: scaling 0.09, risky 0.18, random 0.10, network 0.11
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+### 수호신
+- 동사: guard 0.97
+- 역할: summon 0.68 / cast 0.17 / build 0.15
+- 시점: trigger 0.48 / repeating 0.34 / now 0.17
+- 발동 조건: none 0.60 / approach 0.30
+- 범위: around 0.44 / self 0.21 / wide 0.16
+- 재료: none 0.98
+- 지속 기간: forever 0.56 / run 0.40
+- 구슬의 운명: passive 0.49 / returns 0.43
+- 소환물 종류: spirit 0.99
+- 아군/적대: ally 0.99
+- 성질: scaling 0.15, risky 0.10, random 0.11, network 0.24
+- 힘: 3.2 | 지시문으로 읽힘 0.01
+### 도적
+- 동사: steal 0.96
+- 역할: summon 0.70 / move 0.16 / cast 0.14
+- 시점: now 0.73 / trigger 0.19
+- 발동 조건: none 0.74 / approach 0.15
+- 범위: one 0.49 / self 0.35
+- 재료: gold 0.68 / none 0.29
+- 지속 기간: run 0.39 / instant 0.20 / forever 0.20
+- 구슬의 운명: returns 0.82 / used_up 0.13
+- 소환물 종류: soldier 0.63 / worker 0.32
+- 아군/적대: hostile 0.80 / ally 0.20
+- 성질: scaling 0.18, risky 0.14, random 0.22, network 0.14
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 마법사
+- 동사: damage 0.29 / buff 0.22 / energy 0.21 / create 0.07 / transform 0.06
+- 역할: cast 0.52 / summon 0.44
+- 시점: now 0.93
+- 발동 조건: none 0.88
+- 범위: self 0.45 / one 0.29 / around 0.13
+- 재료: none 0.99
+- 지속 기간: run 0.46 / forever 0.28 / turns 0.15
+- 구슬의 운명: returns 0.86
+- 소환물 종류: spirit 0.85
+- 아군/적대: ally 0.88 / hostile 0.12
+- 성질: scaling 0.30, risky 0.07, random 0.10, network 0.12
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 용사   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: buff 0.43 / damage 0.38 / create 0.09
+- 역할: summon 0.93
+- 시점: now 0.93
+- 발동 조건: none 0.91
+- 범위: one 0.53 / self 0.39
+- 재료: none 0.82 / ore 0.10
+- 지속 기간: run 0.54 / forever 0.26 / turns 0.11
+- 구슬의 운명: returns 0.79 / used_up 0.14
+- 소환물 종류: soldier 0.99
+- 아군/적대: ally 0.99
+- 성질: scaling 0.35, risky 0.09, random 0.09, network 0.12
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 쥐떼   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: steal 0.30 / damage 0.16 / grow 0.15 / create 0.08 / money 0.07
+- 역할: summon 0.97
+- 시점: now 0.83 / repeating 0.14
+- 발동 조건: none 0.80
+- 범위: around 0.65 / one 0.15
+- 재료: food 0.71 / none 0.23
+- 지속 기간: turns 0.48 / instant 0.18 / run 0.15
+- 구슬의 운명: returns 0.70 / used_up 0.26
+- 소환물 종류: beast 1.00
+- 아군/적대: hostile 0.81 / ally 0.19
+- 성질: scaling 0.56, risky 0.11, random 0.15, network 0.55
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 거미
+- 동사: control 0.84
+- 역할: summon 0.88
+- 시점: now 0.61 / trigger 0.29
+- 발동 조건: none 0.55 / approach 0.40
+- 범위: one 0.44 / around 0.25 / line 0.19
+- 재료: none 0.73 / food 0.17
+- 지속 기간: run 0.44 / forever 0.24 / turns 0.20
+- 구슬의 운명: returns 0.79 / used_up 0.14
+- 소환물 종류: beast 1.00
+- 아군/적대: hostile 0.91
+- 성질: scaling 0.43, risky 0.16, random 0.11, network 0.58
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+
+## 보충·영구
+
+### 영원
+- 동사: recycle 0.89 / amplify 0.06
+- 역할: build 0.68 / cast 0.25
+- 시점: repeating 0.88
+- 발동 조건: none 0.87 / turn 0.10
+- 범위: wide 0.81 / self 0.11
+- 재료: none 0.99
+- 지속 기간: forever 1.00
+- 구슬의 운명: returns 0.82
+- 소환물 종류: spirit 0.97
+- 아군/적대: ally 0.81 / hostile 0.19
+- 성질: scaling 0.18, risky 0.11, random 0.08, network 0.07
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 불멸
+- 동사: recycle 0.89 / heal 0.06
+- 역할: cast 0.55 / build 0.22 / summon 0.21
+- 시점: repeating 0.71 / now 0.23
+- 발동 조건: none 0.75 / death 0.18
+- 범위: self 0.49 / wide 0.33 / one 0.15
+- 재료: none 0.96
+- 지속 기간: forever 0.99
+- 구슬의 운명: returns 0.75 / passive 0.13 / used_up 0.12
+- 소환물 종류: spirit 0.93
+- 아군/적대: ally 0.76 / hostile 0.24
+- 성질: scaling 0.20, risky 0.13, random 0.06, network 0.07
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 영구기관
+- 동사: recycle 0.68 / energy 0.16 / money 0.11
+- 역할: build 0.72 / cast 0.14 / summon 0.12
+- 시점: repeating 0.96
+- 발동 조건: none 0.77 / turn 0.20
+- 범위: wide 0.55 / self 0.25 / one 0.16
+- 재료: none 0.84 / gold 0.11
+- 지속 기간: forever 0.97
+- 구슬의 운명: returns 0.86 / passive 0.12
+- 소환물 종류: construct 0.96
+- 아군/적대: ally 0.65 / hostile 0.35
+- 성질: scaling 0.54, risky 0.20, random 0.08, network 0.13
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 영원한불꽃   ⚠ 3번 중 1순위가 바뀐 축: verb
+- 동사: damage 0.39 / recycle 0.39 / energy 0.08 / trash 0.07
+- 역할: cast 0.68 / build 0.29
+- 시점: repeating 0.88 / now 0.11
+- 발동 조건: none 0.85
+- 범위: wide 0.30 / one 0.23 / around 0.22
+- 재료: none 1.00
+- 지속 기간: forever 0.96
+- 구슬의 운명: returns 0.78 / passive 0.13
+- 소환물 종류: spirit 0.92
+- 아군/적대: ally 0.69 / hostile 0.31
+- 성질: scaling 0.21, risky 0.14, random 0.09, network 0.09
+- 힘: 3.5 | 지시문으로 읽힘 0.01
+### 운명
+- 동사: peek 0.64 / recycle 0.11 / transform 0.06 / debuff 0.05 / control 0.05
+- 역할: cast 0.85
+- 시점: now 0.44 / trigger 0.36 / delayed 0.15
+- 발동 조건: none 0.76 / turn 0.16
+- 범위: wide 0.74 / self 0.14
+- 재료: none 0.99
+- 지속 기간: forever 0.97
+- 구슬의 운명: returns 0.60 / passive 0.24 / used_up 0.16
+- 소환물 종류: spirit 1.00
+- 아군/적대: ally 0.70 / hostile 0.30
+- 성질: scaling 0.15, risky 0.41, random 0.58, network 0.08
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 세계의법칙
+- 동사: transform 0.29 / control 0.21 / amplify 0.17 / money 0.06 / recycle 0.06
+- 역할: cast 0.83 / build 0.12
+- 시점: now 0.45 / repeating 0.39 / trigger 0.15
+- 발동 조건: none 0.88 / turn 0.10
+- 범위: wide 1.00
+- 재료: none 0.99
+- 지속 기간: forever 1.00
+- 구슬의 운명: returns 0.72 / passive 0.16 / used_up 0.12
+- 소환물 종류: spirit 0.98
+- 아군/적대: ally 0.67 / hostile 0.33
+- 성질: scaling 0.19, risky 0.15, random 0.15, network 0.22
+- 힘: 4.6 | 지시문으로 읽힘 0.02
+### 무한지속
+- 동사: recycle 0.86 / amplify 0.08
+- 역할: build 0.54 / cast 0.43
+- 시점: repeating 0.99
+- 발동 조건: none 0.69 / turn 0.31
+- 범위: wide 0.56 / self 0.26 / one 0.14
+- 재료: none 0.96
+- 지속 기간: forever 0.98
+- 구슬의 운명: returns 0.87 / passive 0.11
+- 소환물 종류: spirit 0.69 / construct 0.14
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.42, risky 0.14, random 0.08, network 0.10
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 일회용
+- 동사: trash 0.62 / create 0.13 / tempo 0.06 / recycle 0.05
+- 역할: cast 0.99
+- 시점: now 0.98
+- 발동 조건: none 0.87
+- 범위: one 0.64 / self 0.30
+- 재료: none 0.92
+- 지속 기간: instant 0.97
+- 구슬의 운명: used_up 1.00
+- 소환물 종류: construct 0.41 / worker 0.26 / spirit 0.25
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.05, risky 0.34, random 0.11, network 0.06
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+### 찰나
+- 동사: tempo 0.90
+- 역할: cast 0.70 / move 0.28
+- 시점: now 0.97
+- 발동 조건: none 0.79 / turn 0.15
+- 범위: self 0.37 / one 0.28 / wide 0.19
+- 재료: none 0.95
+- 지속 기간: instant 0.98
+- 구슬의 운명: returns 0.70 / used_up 0.26
+- 소환물 종류: spirit 0.71 / soldier 0.20
+- 아군/적대: ally 0.79 / hostile 0.21
+- 성질: scaling 0.11, risky 0.17, random 0.17, network 0.08
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 하룻밤
+- 동사: control 0.35 / tempo 0.17 / money 0.13 / recycle 0.12
+- 역할: cast 0.76 / build 0.11
+- 시점: delayed 0.50 / now 0.37 / repeating 0.11
+- 발동 조건: turn 0.71 / none 0.27
+- 범위: wide 0.43 / self 0.24 / one 0.20
+- 재료: none 0.93
+- 지속 기간: turns 0.49 / stage 0.40
+- 구슬의 운명: returns 0.56 / used_up 0.39
+- 소환물 종류: spirit 0.76 / worker 0.13
+- 아군/적대: ally 0.69 / hostile 0.31
+- 성질: scaling 0.14, risky 0.24, random 0.17, network 0.06
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 평생
+- 동사: recycle 0.65 / money 0.08 / amplify 0.07
+- 역할: cast 0.50 / build 0.36
+- 시점: repeating 0.69 / now 0.18 / delayed 0.10
+- 발동 조건: none 0.66 / death 0.22 / turn 0.10
+- 범위: self 0.53 / wide 0.37
+- 재료: none 0.95
+- 지속 기간: forever 0.66 / run 0.34
+- 구슬의 운명: returns 0.55 / used_up 0.27 / passive 0.18
+- 소환물 종류: spirit 0.82 / worker 0.12
+- 아군/적대: ally 0.85 / hostile 0.15
+- 성질: scaling 0.15, risky 0.18, random 0.09, network 0.05
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 대대로
+- 동사: recycle 0.51 / amplify 0.18 / grow 0.11 / money 0.10
+- 역할: build 0.46 / cast 0.21 / summon 0.17
+- 시점: repeating 0.81
+- 발동 조건: none 0.71 / turn 0.17
+- 범위: wide 0.56 / self 0.27
+- 재료: none 0.65 / gold 0.24
+- 지속 기간: forever 0.67 / run 0.29
+- 구슬의 운명: returns 0.73 / passive 0.16 / used_up 0.11
+- 소환물 종류: spirit 0.65 / worker 0.20
+- 아군/적대: ally 0.80 / hostile 0.20
+- 성질: scaling 0.52, risky 0.14, random 0.15, network 0.45
+- 힘: 1.7 | 지시문으로 읽힘 0.03
