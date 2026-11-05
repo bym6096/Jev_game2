@@ -1,0 +1,72 @@
+선택 질문 1순위가 3번 중 달라진 이름: 2/56
+확률 평균 흔들림 0.006, 0.1 이상 흔들린 칸 3/952
+1순위 확률 중앙 0.76 (최소 0.21) | 2순위 중앙 0.15 | 3순위 중앙 0.02
+
+동사 기대값 60개 (있어야 함 39, 없어야 함 21)
+| 방식 | 평균 개수 | 있어야 하는 것이 포함 | 없어야 하는 것이 섞임 | 개수 분포 |
+|---|---|---|---|---|
+| 선택 1순위만 | 1.0 | 32/39 | 0/21 | {1: 56} |
+| 선택 상위 2 | 2.0 | 38/39 | 4/21 | {2: 56} |
+| 선택 상위 3 | 3.0 | 38/39 | 6/21 | {3: 56} |
+| 선택 상위 5 | 5.0 | 38/39 | 10/21 | {5: 56} |
+| 선택 상대규칙(1순위의 40%↑, 최대 3) | 1.5 | 36/39 | 0/21 | {1: 37, 2: 10, 3: 9} |
+| 예/아니오 0.5↑ 최대 3(없으면 1개) | 1.7 | 37/39 | 0/21 | {1: 23, 2: 25, 3: 8} |
+| 예/아니오 0.5↑ 제한 없음 | 1.6 | 33/39 | 0/21 | {0: 10, 1: 13, 2: 25, 3: 5, 4: 2, 5: 1} |
+
+이름 | 선택 질문 상위 4 (확률) | 예/아니오 0.5↑
+화염검 | damage 1.00, guard 0.00, heal 0.00, money 0.00 | damage 0.91
+방패 | guard 1.00, damage 0.00, heal 0.00, money 0.00 | guard 0.98
+치유의 샘 | heal 1.00, damage 0.00, guard 0.00, money 0.00 | heal 0.98, energy 0.85, buff 0.55
+금화 주머니 | money 1.00, damage 0.00, guard 0.00, heal 0.00 | money 0.96, draw 0.55
+곡괭이 | harvest 0.96, remove 0.02, damage 0.01, money 0.01 | harvest 0.88, draw 0.56
+씨앗 | grow 0.98, harvest 0.02, damage 0.00, guard 0.00 | grow 0.97, harvest 0.69
+텃밭 | grow 0.68, harvest 0.31, money 0.01, damage 0.00 | grow 0.96, harvest 0.81
+성벽 | guard 1.00, damage 0.00, heal 0.00, money 0.00 | guard 0.98, control 0.62
+병사 | damage 0.68, guard 0.16, buff 0.05, money 0.04 | damage 0.79, guard 0.61
+순간이동 | tempo 0.39, control 0.28, buff 0.22, transform 0.06 | —
+시한폭탄 | damage 0.90, remove 0.04, tempo 0.02, debuff 0.02 | damage 0.88, remove 0.74
+독 | debuff 0.76, damage 0.19, money 0.02, control 0.01 | debuff 0.84, damage 0.75
+함정 | control 0.89, damage 0.09, debuff 0.02, guard 0.01 | control 0.92, damage 0.72, guard 0.64, debuff 0.58
+폭풍 | damage 0.81, control 0.17, debuff 0.02, buff 0.00 | damage 0.71
+화살 | damage 0.99, control 0.01, guard 0.00, heal 0.00 | damage 0.85
+눈덩이 | control 0.80, damage 0.09, grow 0.04, debuff 0.03 | control 0.75, debuff 0.54
+도박 | money 0.96, transform 0.02, peek 0.01, debuff 0.00 | money 0.52
+저주 | debuff 1.00, damage 0.00, guard 0.00, heal 0.00 | debuff 0.95, damage 0.61
+얼음 | control 0.94, damage 0.02, debuff 0.02, guard 0.01 | control 0.91, debuff 0.76
+나침반 | peek 0.86, buff 0.06, control 0.05, draw 0.01 | —
+수정 구슬 | energy 0.21, money 0.14, control 0.14, guard 0.10 | —
+부메랑 | recycle 0.68, damage 0.27, draw 0.03, control 0.01 | recycle 0.97, damage 0.69, draw 0.68
+자석 | draw 0.95, control 0.04, money 0.01, damage 0.00 | draw 0.93, control 0.59
+파쇄기 | damage 0.77, remove 0.22, trash 0.02, guard 0.00 | damage 0.91, remove 0.91
+폭죽 | damage 0.99, control 0.01, guard 0.00, heal 0.00 | damage 0.69
+포션 | heal 0.71, energy 0.16, buff 0.09, money 0.02 | energy 0.87, heal 0.84, buff 0.73
+망루 | guard 0.76, peek 0.21, damage 0.02, money 0.01 | guard 0.90, peek 0.54
+거울 | transform 0.49, peek 0.48, guard 0.01, control 0.01 | transform 0.82, peek 0.57
+시계 | tempo 0.90, control 0.06, peek 0.02, money 0.01 | recycle 0.52
+연금술 | transform 0.87, money 0.13, damage 0.00, guard 0.00 | transform 0.93
+이자 | money 0.95, grow 0.03, heal 0.01, damage 0.00 | money 0.78, grow 0.54
+낮잠 | control 0.67, energy 0.27, heal 0.02, tempo 0.01 | energy 0.83, control 0.71
+모닥불 | damage 0.32, buff 0.21, energy 0.19, harvest 0.08 | —
+벌 떼 | damage 0.72, grow 0.09, control 0.06, harvest 0.05 | damage 0.60, grow 0.56
+산사태 | damage 0.61, control 0.27, remove 0.08, draw 0.01 | damage 0.72, control 0.58, remove 0.55
+깃발 | guard 0.29, buff 0.23, control 0.17, peek 0.15 | —
+전쟁 북 | damage 0.55, buff 0.37, money 0.03, tempo 0.02 | damage 0.67, buff 0.66
+안개 | debuff 0.42, peek 0.23, guard 0.17, control 0.15 | debuff 0.67, guard 0.54
+부적 | guard 0.64, buff 0.16, money 0.06, damage 0.04 | guard 0.80, buff 0.50
+수박 | harvest 0.46, grow 0.31, heal 0.08, money 0.04 | grow 0.75
+베개 | control 0.64, energy 0.18, heal 0.14, guard 0.02 | energy 0.66, control 0.63
+낡은 신발 | trash 0.23, recycle 0.18, buff 0.16, debuff 0.11 | —
+상인 | money 1.00, damage 0.00, guard 0.00, heal 0.00 | money 0.95
+도서관 | peek 0.49, draw 0.13, buff 0.12, money 0.11 | —
+대장장이 | harvest 0.29, transform 0.24, money 0.13, buff 0.10 | —
+번개 | damage 0.95, control 0.04, energy 0.01, guard 0.00 | damage 0.79
+운석 | damage 0.97, money 0.02, control 0.01, harvest 0.00 | damage 0.84, remove 0.58
+지진 | damage 0.91, control 0.08, debuff 0.01, remove 0.00 | damage 0.83, remove 0.61
+불사조 | recycle 0.53, heal 0.41, damage 0.04, transform 0.02 | recycle 0.91, heal 0.87
+가시덤불 | control 0.50, guard 0.34, grow 0.07, damage 0.07 | guard 0.84, control 0.69, debuff 0.63, damage 0.62, grow 0.53
+투명 망토 | guard 0.40, peek 0.32, buff 0.18, transform 0.05 | guard 0.52
+양봉장 | grow 0.43, harvest 0.32, money 0.23, guard 0.01 | grow 0.85, harvest 0.59, draw 0.51
+새로운 시작 | recycle 0.27, transform 0.17, heal 0.12, tempo 0.10 | —
+복권 | money 0.95, draw 0.02, peek 0.02, transform 0.01 | money 0.68
+피리 | control 0.30, buff 0.17, debuff 0.10, tempo 0.09 | —
+블랙홀 | draw 0.54, control 0.31, remove 0.12, damage 0.02 | draw 0.94, control 0.81, remove 0.77, damage 0.73
