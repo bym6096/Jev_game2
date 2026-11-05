@@ -1,8 +1,10 @@
-"""Orb construction for the web prototype: starter orbs from measured Jev data, new orbs from a live Jev call. Shares make_orb with the simulator."""
+"""Orb construction for the web prototype (self-contained: uses only proto/vendor and proto/data, so it runs on Vercel with Root Directory = proto).
+Starter orbs are precomputed from measured Jev data (data/starter_orbs.json); new orbs come from a live Jev call."""
 import os, re, sys, json, random
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, "..")
-sys.path.insert(0, os.path.join(ROOT, "sim")); sys.path.insert(0, os.path.join(ROOT, "measurements", "orb_axes")); sys.path.insert(0, os.path.join(ROOT, "toys", "card-forge"))
-import orbsim as S, axes_v3, axes_v2, axes_v4, forge
+HERE = os.path.dirname(os.path.abspath(__file__)); VEN = os.path.join(HERE, "vendor")
+for p in (VEN, HERE):
+    if p not in sys.path: sys.path.insert(0, p)
+import orbmake as S, axes_v3, axes_v2, axes_v4, forge
 GM, CM = .25, "value"
 STARTER = ["금화 주머니", "화염검", "화염검", "방패", "곡괭이", "병사", "벌목장", "광산"]
 RES = {"wood": "나무", "ore": "광석", "food": "식량", "gold": "골드", None: "자원"}
@@ -20,10 +22,8 @@ def vtext(v, m, mt, o):
 def describe(o):
     body = "; ".join(vtext(v, m, mt, o) for v, m, mt in o["payload"])
     life = LIFE.get(o["life"], "")
-    if o["role"] == "build":
-        b = o["bcost"]; t = f"건물(체력 {o['hp']}) 설치 — 매 턴 {body}"
-    elif o["role"] == "summon":
-        t = f"{UNIT.get(o['unit'],'병사')} 소환 — 매 턴 {body}" if not o["hostile"] else f"적대 {UNIT.get(o['unit'],'짐승')} 웨이브 Lv{o['lvl']} 소환 (처치 보상 일부)"
+    if o["role"] == "build": t = f"건물(체력 {o['hp']}) 설치 — 매 턴 {body}"
+    elif o["role"] == "summon": t = f"{UNIT.get(o['unit'],'병사')} 소환 — 매 턴 {body}" if not o["hostile"] else f"적대 {UNIT.get(o['unit'],'짐승')} 웨이브 Lv{o['lvl']} 소환 (처치 보상 일부)"
     else:
         t = (life + ("" if o["life"] == "instant" else "매 턴 ") + body) if o["life"] != "instant" else body
         if o["timing"] == "delayed": t = f"{o['delay']}턴 뒤: {t}"
@@ -36,7 +36,7 @@ def to_dict(o):
     d = dict(name=o.name, role=o.role, payload=[list(p) for p in o.payload], rng=o.rng, life=o.life, timing=o.timing, trig=o.trig, mat=o.mat, fate=o.fate, mod=o.mod, pe=round(o.pe, 2),
              mana=o.mana, hp=o.hp, bcost=list(o.bcost) if o.bcost else None, unit=o.unit, hostile=o.hostile, lvl=o.lvl, delay=o.delay, bag_only=o.bag_only, B=round(o.B, 1), amb=o.amb)
     d["text"] = describe(d); return d
-def starter_orbs(): return [to_dict(S.make_orb(n, cost_model=CM, gold_mult=GM)) for n in STARTER]
+def starter_orbs(): return json.load(open(os.path.join(HERE, "data", "starter_orbs.json"), encoding="utf-8"))
 def scribble(name):
     d = dict(name=name, role="cast", payload=[["tempo", 1, None]], rng="single", life="instant", timing="now", trig="none", mat=None, fate="returns", mod=None, pe=0, mana=1, hp=1, bcost=None, unit="soldier", hostile=False, lvl=1, delay=1, bag_only=True, B=1, amb=True)
     d["text"] = "수상한 낙서 — 아무 효과도 없다(손패만 차지)"; d["scribble"] = True; return d
@@ -48,13 +48,8 @@ def jev_request(full):
 def orb_from_jev(full):
     d = forge.call_jev(jev_request(full)); a = d["answers"]
     if a["guard"]["probabilities"].get("instructs_the_evaluator", 0) > .5: return scribble(full)
-    o = S.make_orb(full, cost_model=CM, gold_mult=GM, extra={full: [a]}); r = to_dict(o); r["answers_brief"] = {"verb": max(a["verb"]["probabilities"], key=a["verb"]["probabilities"].get)}; return r
-# --- pre-written fragments (same lists and join rule as the toy)
-def _lst(t, var):
-    m = re.search(r"const " + var + r' = \((.*?)\)\.split\("\|"\)', t, re.S); return "".join(re.findall(r'"([^"]*)"', m.group(1))).split("|")
-_T = open(os.path.join(ROOT, "toys", "card-forge", "template.html"), encoding="utf-8").read()
-PRE, SP, ATT = _lst(_T, "PRE"), _lst(_T, "SUF_SP"), _lst(_T, "SUF_ATT")
-FRAGS = [("pre", x, True) for x in PRE] + [("suf", x, True) for x in SP] + [("suf", x, False) for x in ATT]
+    return to_dict(S.make_orb(full, cost_model=CM, gold_mult=GM, extra={full: [a]}))
+FRAGS = [tuple(x) for x in json.load(open(os.path.join(HERE, "data", "fragments.json"), encoding="utf-8"))] if os.path.exists(os.path.join(HERE, "data", "fragments.json")) else []
 TIERS = {"낡은": (5, 1.0), "평범한": (7, .5), "깨끗한": (9, .25), "금박": (12, .1)}
 def new_blank(tier, R):
     cap, p = TIERS[tier]; fr = R.choice(FRAGS) if R.random() < p else None

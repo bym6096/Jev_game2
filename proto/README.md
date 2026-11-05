@@ -1,15 +1,23 @@
 # 구슬 공방 — 헥스 프로토타입 (웹)
 
-한 스테이지(15턴)를 직접 플레이해 보는 프로토타입. 규칙은 **파이썬**(`engine.py`), 새 구슬은 **실제 Jev 호출**(`orbs.py`, 구슬 만드는 규칙은 `sim/orbsim.py`와 공유), 화면은 브라우저(`static/`)가 그리기만 한다. 모든 수치는 임시 값.
+한 스테이지(15턴)를 직접 플레이해 보는 프로토타입. 규칙은 **파이썬**(`engine.py`), 새 구슬은 **실제 Jev 호출**(`orbs.py`, 구슬 만드는 규칙은 `sim/orbsim.py`에서 생성한 `vendor/orbmake.py`), 화면은 브라우저(`index.html`·`app.js`)가 그리기만 한다. **서버는 기억이 없다**: 게임 상태 전체가 서명된 덩어리(약 7KB)로 요청마다 오가므로 Vercel 서버리스에 그대로 올릴 수 있다. 모든 수치는 임시 값.
 
 ![플레이 화면](docs/play.png)
 
-## 실행
+## 실행 (내 PC)
 ```
 python proto/server.py            # http://localhost:8010  (PORT 환경 변수로 변경)
 ```
 - 새 구슬을 만들 때 Jev를 부르므로 **`JEV_API_KEY` 환경 변수**가 필요하다(클라우드는 프록시가 붙여 줌). 키 없이도 시작 구슬 8개로 플레이는 된다(구슬 만들기만 실패).
 - 윈도우 PowerShell: `$env:JEV_API_KEY="..."` 후 `python proto/server.py`.
+
+## 웹에 올리기 (Vercel)
+빈 구슬 공방 장난감과 같은 방식이다. **새 Vercel 프로젝트**를 만든다(장난감 프로젝트와 별개).
+1. Vercel에서 이 GitHub 저장소를 Import, **Root Directory = `proto`**, Framework Preset = Other.
+2. 환경 변수: `JEV_API_KEY`(필수, 장난감과 같은 키), `STATE_SECRET`(권장, 아무 긴 무작위 문자열; 없으면 `JEV_API_KEY`로 서명), `ACCESS_CODE`(선택, 걸면 화면이 코드를 물어봄 — 공개 주소의 Jev 비용을 막고 싶을 때).
+3. Production Branch를 이 브랜치(또는 main에 합친 뒤 main)로 지정하고 Deploy. 열면 `index.html`이 뜨고 `/api/app`이 함수다.
+- **proto 폴더만으로 완결**되게 만들었다(Vercel은 Root Directory 밖 파일을 못 가져올 수 있어서). 시뮬레이터·축·`forge.py`가 바뀌면 `python proto/sync_vendor.py`로 `vendor/`와 `data/`를 다시 만들고, `python proto/sync_vendor.py --check`로 어긋남을 확인한다.
+- 주의: 이 저장소 작업 환경에서 Vercel 자체는 시험하지 못했다(같은 코드를 `proto`만 복사한 폴더에서 실제 Jev 호출과 함수 핸들러로 시험함).
 
 ## 한 판의 흐름
 1. **빈 구슬 2개에 이름 쓰기**: 평범한(새겨진 말 50%)·깨끗한(25%) 빈 구슬. **재뽑기 없음.** 새겨진 말은 이름과 합쳐져 Jev가 전체를 읽고, 글자 수 한도(8자)에 포함된다.
@@ -30,8 +38,8 @@ python proto/server.py            # http://localhost:8010  (PORT 환경 변수�
 - **구슬 한계(마나 5~12)와 파손 없음**, 구슬 값이 비용(가치 기반)으로 들어가 있음.
 - 겨냥은 자동(가장 가까운 적 등), 소환물은 제자리에서 싸움(이동 없음), `move`는 시전으로 처리, `remove`·`transform`은 효과 없음.
 - 한국어만, 이름 규칙은 장난감의 `forge.check_name`을 그대로 사용.
-- 세션은 서버 메모리에만 있음(서버를 끄면 사라짐).
+- 게임 상태는 화면이 들고 있다(새로고침하면 사라짐, 저장 기능 없음).
 - 한 스테이지 정산 150은 무작위 봇 38%, 건물 우선 봇 64% 통과(시험 값). 적 많음 스테이지가 가장 쉬운 것은 시뮬레이터에서 확인한 약점 그대로(처치 보상이 커서).
 
 ## 파일
-`engine.py` 헥스 규칙 · `orbs.py` 구슬 만들기·설명·새겨진 말 · `server.py` 서버/API · `static/` 화면
+`engine.py` 헥스 규칙 · `orbs.py` 구슬 만들기·설명·새겨진 말 · `core.py` 상태 없는 요청 처리 · `server.py` 내 PC용 서버 · `api/app.py` Vercel 함수 · `index.html`/`style.css`/`app.js` 화면 · `vendor/`·`data/` 생성물(`sync_vendor.py`)

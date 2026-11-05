@@ -1,0 +1,255 @@
+[
+ {
+  "name": "금화 주머니",
+  "role": "cast",
+  "payload": [
+   [
+    "money",
+    2,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "instant",
+  "timing": "now",
+  "trig": "none",
+  "mat": "gold",
+  "fate": "returns",
+  "mod": null,
+  "pe": 0.95,
+  "mana": 1,
+  "hp": 15,
+  "bcost": null,
+  "unit": "worker",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 14.5,
+  "amb": false,
+  "text": "골드 2"
+ },
+ {
+  "name": "화염검",
+  "role": "cast",
+  "payload": [
+   [
+    "damage",
+    29,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "instant",
+  "timing": "now",
+  "trig": "none",
+  "mat": null,
+  "fate": "returns",
+  "mod": null,
+  "pe": 2.4,
+  "mana": 2,
+  "hp": 29,
+  "bcost": null,
+  "unit": "soldier",
+  "hostile": false,
+  "lvl": 2,
+  "delay": 2,
+  "bag_only": false,
+  "B": 29.0,
+  "amb": false,
+  "text": "적 1에 피해 29"
+ },
+ {
+  "name": "화염검",
+  "role": "cast",
+  "payload": [
+   [
+    "damage",
+    29,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "instant",
+  "timing": "now",
+  "trig": "none",
+  "mat": null,
+  "fate": "returns",
+  "mod": null,
+  "pe": 2.4,
+  "mana": 2,
+  "hp": 29,
+  "bcost": null,
+  "unit": "soldier",
+  "hostile": false,
+  "lvl": 2,
+  "delay": 2,
+  "bag_only": false,
+  "B": 29.0,
+  "amb": false,
+  "text": "적 1에 피해 29"
+ },
+ {
+  "name": "방패",
+  "role": "cast",
+  "payload": [
+   [
+    "guard",
+    8,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "turns",
+  "timing": "now",
+  "trig": "hit",
+  "mat": "ore",
+  "fate": "returns",
+  "mod": null,
+  "pe": 1.09,
+  "mana": 1,
+  "hp": 16,
+  "bcost": null,
+  "unit": "soldier",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 15.9,
+  "amb": false,
+  "text": "피격 시 발동 — 3턴 동안 매 턴 방어막 +8"
+ },
+ {
+  "name": "곡괭이",
+  "role": "cast",
+  "payload": [
+   [
+    "harvest",
+    7,
+    "ore"
+   ]
+  ],
+  "rng": "single",
+  "life": "instant",
+  "timing": "now",
+  "trig": "none",
+  "mat": "ore",
+  "fate": "returns",
+  "mod": null,
+  "pe": 0.96,
+  "mana": 2,
+  "hp": 15,
+  "bcost": null,
+  "unit": "worker",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 14.6,
+  "amb": false,
+  "text": "광석 7 채집(근처 자원 타일)"
+ },
+ {
+  "name": "병사",
+  "role": "summon",
+  "payload": [
+   [
+    "damage",
+    4,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "instant",
+  "timing": "now",
+  "trig": "none",
+  "mat": "food",
+  "fate": "returns",
+  "mod": null,
+  "pe": 0.95,
+  "mana": 2,
+  "hp": 14,
+  "bcost": null,
+  "unit": "soldier",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 14.5,
+  "amb": false,
+  "text": "병사 소환 — 매 턴 적 1에 피해 4"
+ },
+ {
+  "name": "벌목장",
+  "role": "build",
+  "payload": [
+   [
+    "harvest",
+    5,
+    "wood"
+   ],
+   [
+    "process",
+    3,
+    null
+   ]
+  ],
+  "rng": "single",
+  "life": "run",
+  "timing": "repeating",
+  "trig": "none",
+  "mat": "wood",
+  "fate": "returns",
+  "mod": null,
+  "pe": 1.06,
+  "mana": 4,
+  "hp": 16,
+  "bcost": [
+   "wood",
+   2,
+   1
+  ],
+  "unit": "worker",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 15.6,
+  "amb": false,
+  "text": "건물(체력 16) 설치 — 매 턴 나무 5 채집(근처 자원 타일); 원료 3개를 골드 ×1.5로 가공"
+ },
+ {
+  "name": "광산",
+  "role": "build",
+  "payload": [
+   [
+    "harvest",
+    6,
+    "ore"
+   ]
+  ],
+  "rng": "single",
+  "life": "run",
+  "timing": "repeating",
+  "trig": "none",
+  "mat": "ore",
+  "fate": "returns",
+  "mod": null,
+  "pe": 1.37,
+  "mana": 4,
+  "hp": 19,
+  "bcost": [
+   "ore",
+   2,
+   1
+  ],
+  "unit": "worker",
+  "hostile": false,
+  "lvl": 1,
+  "delay": 1,
+  "bag_only": false,
+  "B": 18.7,
+  "amb": false,
+  "text": "건물(체력 19) 설치 — 매 턴 광석 6 채집(근처 자원 타일)"
+ }
+]

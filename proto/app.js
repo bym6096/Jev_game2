@@ -4,16 +4,19 @@ const $ = (id) => document.getElementById(id);
 const px = (q, r) => [S * SQ3 * (q + r / 2), S * 1.5 * r];
 const hexPts = (cx, cy, s = S - 1.5) => Array.from({ length: 6 }, (_, i) => { const a = Math.PI / 180 * (60 * i - 30); return `${(cx + s * Math.cos(a)).toFixed(1)},${(cy + s * Math.sin(a)).toFixed(1)}`; }).join(" ");
 const key = (q, r) => q + "," + r;
-async function api(path, body) {
-  const res = await fetch(path, body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-  return res.json();
+let accessCode = ""; try { accessCode = localStorage.getItem("proto-code") || ""; } catch (e) {}
+async function api(op, body = {}) {
+  const send = async () => (await fetch("/api/app", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ op, code: accessCode, blob: st && st.blob, ...body }) })).json();
+  let v = await send();
+  if (v.need_code) { const c = window.prompt("접근 코드를 입력하세요"); if (c) { accessCode = c; try { localStorage.setItem("proto-code", c); } catch (e) {} v = await send(); } }
+  return v;
 }
 function toast(t) { const e = $("toast"); e.textContent = t; e.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("show"), 2200); }
 function el(tag, attrs = {}, ...kids) { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const k of kids) e.append(k); return e; }
 function svg(tag, attrs = {}, ...kids) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); for (const k of kids) e.append(k); return e; }
 
 async function newGame() {
-  sel = null; const v = await api("/api/new", { stage_type: $("stype").value }); st = v; $("app").hidden = false; render();
+  sel = null; const v = await api("new", { stage_type: $("stype").value }); st = v; $("app").hidden = false; render();
 }
 function render() {
   $("setup").hidden = st.phase !== "setup"; $("play").hidden = st.phase !== "play" && st.phase !== "over"; $("over").hidden = st.phase !== "over";
@@ -28,7 +31,7 @@ function renderSetup() {
     const btn = el("button", { class: "primary", onclick: async () => {
       if (!input.value.trim()) return toast("이름을 쓰세요");
       btn.disabled = true; btn.textContent = "Jev가 읽는 중…";
-      const v = await api("/api/write", { sid: st.sid, idx: i, text: input.value });
+      const v = await api("write", { idx: i, text: input.value });
       if (v.error) { toast(v.error); btn.disabled = false; btn.textContent = "구슬 만들기"; return; }
       st = v; renderSetup();
     } }, "구슬 만들기");
@@ -101,16 +104,16 @@ function renderLog() { $("log").replaceChildren(...st.log.map((t) => el("div", {
 async function playCard(idx, tile) {
   if (busy) return; const h = st.hand.find((x) => x.idx === idx); if (!h) return;
   if (h.need_tile && !tile) { sel = sel === idx ? null : idx; renderMap(); renderHand(); if (sel !== null) toast(h.hint.length ? "초록 칸을 추천합니다" : "놓을 칸을 고르세요"); return; }
-  busy = true; const v = await api("/api/play", { sid: st.sid, idx, tile }); busy = false; sel = null;
+  busy = true; const v = await api("play", { idx, tile }); busy = false; sel = null;
   if (v.action && v.action.error) toast(v.action.error);
   st = v; render();
 }
-async function endTurn() { if (busy) return; busy = true; sel = null; const v = await api("/api/end_turn", { sid: st.sid }); busy = false; st = v; render(); }
+async function endTurn() { if (busy) return; busy = true; sel = null; const v = await api("end_turn"); busy = false; st = v; render(); }
 function renderOver() {
   const r = st.result, o = $("over");
   o.innerHTML = ""; o.append(el("h2", { class: r.pass ? "pass" : "fail" }, r.pass ? "정산 통과!" : "정산 실패"));
   const rows = [["모은 골드", `${r.gold} / 필요 ${r.due}`], ["처치한 적", r.kills], ["진행한 턴", r.turns], ["쓰러졌는가", r.died ? "예 (이 스테이지의 골드 몰수)" : "아니오"], ["골드 출처", `처치 ${r.src.g_bounty || 0} · 돈 구슬 ${r.src.g_money || 0} · 가공 ${r.src.g_process || 0}`], ["인접 시너지 발동", r.src.adj_bonus || 0]];
   const t = el("table", {}); rows.forEach(([a, b]) => t.append(el("tr", {}, el("td", {}, a), el("td", {}, String(b))))); o.append(t, el("button", { class: "primary", onclick: newGame }, "다시 하기")); setTimeout(() => o.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
 }
-$("newgame").addEventListener("click", newGame); $("start").addEventListener("click", async () => { st = await api("/api/start", { sid: st.sid }); render(); }); $("endturn").addEventListener("click", endTurn);
+$("newgame").addEventListener("click", newGame); $("start").addEventListener("click", async () => { st = await api("start"); render(); }); $("endturn").addEventListener("click", endTurn);
 newGame();
