@@ -1,0 +1,257 @@
+﻿블록,이름,동사1,p,동사2,p,동사3,p,역할,p,시점,p,범위,p,대상,p,지속,p,돈시점,p,scaling,risky,random,network,conditional,힘,지시문확률,동사 3번 1순위
+과학·물리,절대영도,control,0.753,damage,0.073,,,lasting,0.66,now,0.53,wide,0.767,all,0.57,returns,0.647,none,0.943,0.173,0.293,0.093,0.17,0.523,4.38,0.017,control/control/control
+과학·물리,플라즈마,damage,0.903,energy,0.07,,,instant,0.843,now,0.9,around,0.683,all,0.7,returns,0.79,none,0.963,0.147,0.103,0.163,0.117,0.287,2.66,0.017,damage/damage/damage
+과학·물리,초전도체,energy,0.71,amplify,0.093,tempo,0.083,lasting,0.453,now,0.59,wide,0.28,land,0.553,returns,0.603,none,0.947,0.13,0.06,0.057,0.31,0.903,2.31,0.01,energy/energy/energy
+과학·물리,사건의지평선,control,0.71,draw,0.087,remove,0.057,lasting,0.383,trigger,0.573,around,0.6,all,0.833,returns,0.537,none,0.95,0.357,0.22,0.153,0.123,0.42,3.8,0.02,control/control/control
+과학·물리,진공붕괴,damage,0.84,remove,0.087,,,instant,0.857,now,0.767,around,0.59,all,0.763,returns,0.553,none,0.957,0.393,0.413,0.207,0.167,0.333,3.94,0.02,damage/damage/damage
+과학·물리,반물질,damage,0.923,,,,,instant,0.813,now,0.827,around,0.42,all,0.9,returns,0.563,none,0.957,0.15,0.24,0.103,0.1,0.473,3.64,0.013,damage/damage/damage
+과학·물리,중성자별,damage,0.68,energy,0.1,control,0.097,build,0.317,now,0.763,around,0.44,all,0.75,returns,0.597,none,0.963,0.193,0.193,0.097,0.117,0.36,3.61,0.01,damage/damage/damage
+과학·물리,감마선폭발,damage,0.99,,,,,instant,0.98,now,0.957,around,0.903,all,0.783,returns,0.507,none,0.913,0.13,0.307,0.253,0.27,0.197,3.02,0.02,damage/damage/damage
+과학·물리,핵융합,energy,0.743,damage,0.073,transform,0.07,instant,0.557,now,0.707,wide,0.477,all,0.6,returns,0.713,none,0.93,0.497,0.127,0.08,0.2,0.73,3.57,0.013,energy/energy/energy
+과학·물리,타키온,tempo,0.62,damage,0.153,buff,0.067,move,0.417,now,0.83,line,0.323,all,0.52,returns,0.7,none,0.91,0.143,0.097,0.127,0.097,0.273,2.71,0.013,tempo/tempo/tempo
+과학·물리,영점진동,recycle,0.313,remove,0.15,amplify,0.12,lasting,0.523,ongoing,0.67,around,0.513,all,0.537,returns,0.697,none,0.877,0.187,0.137,0.223,0.3,0.423,2.62,0.023,recycle/recycle/recycle
+과학·물리,초신성,damage,0.933,,,,,instant,0.92,now,0.74,around,0.623,all,0.877,used_up,0.65,none,0.85,0.227,0.367,0.373,0.137,0.403,3.72,0.013,damage/damage/damage
+과학·물리,볼텍스,control,0.697,damage,0.173,draw,0.08,lasting,0.6,now,0.573,around,0.93,all,0.847,returns,0.7,none,0.923,0.203,0.147,0.577,0.24,0.18,2.89,0.01,control/control/control
+과학·물리,특이점,amplify,0.223,control,0.153,damage,0.143,instant,0.473,now,0.72,wide,0.61,all,0.82,returns,0.58,none,0.923,0.473,0.193,0.3,0.123,0.427,4.45,0.01,control/amplify/amplify
+과학·물리,방사능누출,debuff,0.723,damage,0.25,,,lasting,0.877,ongoing,0.703,around,0.627,all,0.67,used_up,0.423,none,0.937,0.37,0.743,0.36,0.213,0.173,2.38,0.02,debuff/debuff/debuff
+과학·물리,암흑물질,damage,0.343,energy,0.197,control,0.123,instant,0.343,now,0.76,wide,0.717,all,0.69,returns,0.637,none,0.98,0.19,0.177,0.133,0.117,0.203,3.58,0.01,damage/damage/damage
+과학·물리,쿼크글루온,damage,0.367,energy,0.19,transform,0.113,instant,0.54,now,0.793,wide,0.433,all,0.727,returns,0.73,none,0.97,0.143,0.083,0.273,0.31,0.21,2.83,0.027,damage/damage/damage
+과학·물리,중력파,damage,0.69,control,0.287,,,instant,0.84,now,0.703,around,0.49,all,0.887,returns,0.753,none,0.967,0.167,0.1,0.13,0.35,0.22,3.44,0.013,damage/damage/damage
+과학·물리,극초음속,tempo,0.887,damage,0.083,,,instant,0.5,now,0.943,line,0.377,all,0.44,returns,0.773,none,0.823,0.1,0.08,0.08,0.08,0.237,2.69,0.01,tempo/tempo/tempo
+과학·물리,대전류,damage,0.387,control,0.14,money,0.097,lasting,0.353,ongoing,0.55,line,0.57,all,0.607,returns,0.693,none,0.733,0.373,0.16,0.147,0.513,0.343,2.8,0.017,damage/damage/damage
+모순 어구,차가운불꽃,damage,0.523,control,0.4,,,instant,0.76,now,0.773,around,0.537,all,0.497,returns,0.77,none,0.967,0.1,0.113,0.107,0.073,0.413,2.29,0.01,damage/damage/damage
+모순 어구,마른번개,damage,0.85,,,,,instant,0.87,now,0.74,line,0.49,all,0.453,returns,0.763,none,0.91,0.103,0.193,0.273,0.113,0.47,1.99,0.01,damage/damage/damage
+모순 어구,어두운빛,debuff,0.263,damage,0.247,energy,0.137,instant,0.43,now,0.73,around,0.363,all,0.49,returns,0.68,none,0.963,0.117,0.187,0.1,0.083,0.517,2.03,0.017,debuff/damage/debuff
+모순 어구,젖은숯,energy,0.15,trash,0.143,debuff,0.133,instant,0.36,now,0.743,one,0.537,land,0.717,returns,0.58,none,0.953,0.11,0.13,0.073,0.06,0.4,0.72,0.01,debuff/trash/energy
+모순 어구,맹독치유,heal,0.807,debuff,0.113,damage,0.05,instant,0.82,now,0.707,one,0.62,ally,0.413,returns,0.84,none,0.947,0.127,0.507,0.06,0.123,0.257,2.26,0.01,heal/heal/heal
+모순 어구,무거운깃털,debuff,0.523,control,0.19,tempo,0.053,move,0.383,now,0.64,one,0.64,ally,0.337,returns,0.707,none,0.967,0.08,0.167,0.157,0.07,0.203,0.98,0.01,debuff/debuff/debuff
+모순 어구,뜨거운얼음,transform,0.333,damage,0.243,control,0.24,instant,0.473,now,0.643,around,0.417,land,0.7,returns,0.69,none,0.947,0.1,0.16,0.133,0.07,0.483,1.67,0.013,transform/transform/transform
+모순 어구,조용한폭발,damage,0.937,,,,,instant,0.87,delayed,0.463,around,0.91,all,0.59,returns,0.65,none,0.813,0.163,0.263,0.307,0.17,0.42,2.45,0.017,damage/damage/damage
+모순 어구,투명한벽돌,guard,0.74,create,0.16,peek,0.087,build,0.947,now,0.517,one,0.493,land,0.84,stays,0.65,none,0.963,0.07,0.067,0.06,0.1,0.16,0.81,0.02,guard/guard/guard
+모순 어구,느린광속,debuff,0.717,tempo,0.22,,,lasting,0.49,delayed,0.873,line,0.323,all,0.57,returns,0.753,none,0.723,0.103,0.087,0.06,0.093,0.183,1.97,0.013,debuff/debuff/debuff
+모순 어구,부드러운칼날,damage,0.953,,,,,instant,0.84,now,0.737,one,0.623,enemy,0.613,returns,0.817,none,0.96,0.08,0.097,0.057,0.07,0.13,1.45,0.02,damage/damage/damage
+모순 어구,건조한해일,damage,0.307,debuff,0.23,remove,0.077,lasting,0.55,now,0.46,wide,0.46,land,0.66,returns,0.613,none,0.873,0.14,0.173,0.14,0.08,0.547,2.37,0.027,damage/damage/damage
+모순 어구,살아있는시체,recycle,0.377,damage,0.18,control,0.13,summon,0.853,now,0.55,one,0.633,enemy,0.64,returns,0.49,none,0.947,0.327,0.457,0.1,0.173,0.353,1.96,0.01,recycle/recycle/recycle
+모순 어구,고요한태풍,control,0.443,damage,0.347,,,lasting,0.507,now,0.457,around,0.723,all,0.69,returns,0.703,none,0.89,0.207,0.12,0.487,0.127,0.313,2.95,0.017,control/control/control
+모순 어구,눈먼주시자,debuff,0.513,peek,0.31,,,lasting,0.42,ongoing,0.537,wide,0.59,enemy,0.44,returns,0.557,none,0.913,0.153,0.363,0.213,0.167,0.377,3.31,0.02,debuff/debuff/debuff
+모순 어구,가벼운납,tempo,0.213,create,0.183,buff,0.117,build,0.32,now,0.733,one,0.503,land,0.49,returns,0.573,none,0.813,0.083,0.087,0.083,0.063,0.127,0.81,0.023,create/tempo/tempo
+모순 어구,자비로운참수,damage,0.927,,,,,instant,0.93,now,0.897,one,0.85,enemy,0.863,returns,0.74,none,0.95,0.093,0.403,0.067,0.097,0.187,2.53,0.02,damage/damage/damage
+모순 어구,메마른눈물,debuff,0.27,remove,0.147,heal,0.143,instant,0.55,now,0.62,one,0.547,land,0.503,returns,0.553,none,0.933,0.097,0.493,0.09,0.057,0.21,1.52,0.017,debuff/debuff/debuff
+모순 어구,질서있는혼돈,transform,0.263,control,0.213,recycle,0.16,lasting,0.553,now,0.483,wide,0.587,all,0.78,returns,0.707,none,0.867,0.147,0.2,0.773,0.187,0.19,2.78,0.02,transform/transform/transform
+모순 어구,얼어붙은용암,control,0.757,transform,0.13,damage,0.077,lasting,0.35,now,0.643,around,0.52,land,0.73,returns,0.627,none,0.937,0.107,0.157,0.08,0.087,0.37,2.58,0.017,control/control/control
+게임 키워드,즉사,damage,0.927,,,,,instant,0.96,now,0.84,one,0.763,enemy,0.677,returns,0.45,none,0.72,0.093,0.5,0.133,0.097,0.323,2.85,0.027,damage/damage/damage
+게임 키워드,무적,guard,0.857,buff,0.123,,,lasting,0.827,ongoing,0.713,self,0.687,ally,0.82,returns,0.577,none,0.98,0.1,0.08,0.06,0.057,0.197,3.95,0.01,guard/guard/guard
+게임 키워드,쿨타임0,recycle,0.733,tempo,0.1,energy,0.093,instant,0.857,delayed,0.67,self,0.693,ally,0.693,returns,0.943,none,0.853,0.107,0.1,0.083,0.08,0.49,0.61,0.06,recycle/recycle/recycle
+게임 키워드,흡혈,steal,0.737,heal,0.217,,,instant,0.69,now,0.383,one,0.73,enemy,0.58,returns,0.763,none,0.853,0.5,0.637,0.073,0.183,0.497,2.07,0.01,steal/steal/steal
+게임 키워드,데미지반사,guard,0.433,damage,0.357,amplify,0.107,lasting,0.717,trigger,0.997,self,0.693,enemy,0.503,passive,0.53,none,0.963,0.177,0.207,0.08,0.223,0.637,2.03,0.017,guard/guard/guard
+게임 키워드,방어무시,damage,0.587,debuff,0.21,buff,0.07,instant,0.76,now,0.573,one,0.64,enemy,0.653,returns,0.71,none,0.95,0.13,0.107,0.06,0.123,0.483,2.58,0.017,damage/damage/damage
+게임 키워드,무한관통,damage,0.947,,,,,instant,0.863,now,0.82,line,0.62,all,0.433,returns,0.9,none,0.903,0.257,0.11,0.063,0.24,0.21,3.79,0.013,damage/damage/damage
+게임 키워드,확정치명타,damage,0.793,peek,0.067,,,instant,0.887,now,0.54,one,0.763,enemy,0.683,returns,0.603,none,0.81,0.16,0.383,0.39,0.147,0.643,2.75,0.033,damage/damage/damage
+게임 키워드,절대은신,guard,0.61,buff,0.13,control,0.11,lasting,0.843,ongoing,0.473,self,0.75,ally,0.817,returns,0.653,none,0.967,0.11,0.123,0.063,0.097,0.433,3.82,0.017,guard/guard/guard
+게임 키워드,광역도발,control,0.677,draw,0.147,guard,0.053,lasting,0.607,now,0.677,around,0.57,enemy,0.49,returns,0.81,none,0.947,0.133,0.167,0.083,0.73,0.383,2.36,0.02,control/control/control
+게임 키워드,자동부활,recycle,0.647,heal,0.353,,,lasting,0.57,trigger,0.91,self,0.763,ally,0.88,returns,0.533,none,0.967,0.14,0.183,0.11,0.097,0.48,3.15,0.017,recycle/recycle/recycle
+게임 키워드,영구빙결,control,1.0,,,,,lasting,0.937,now,0.74,one,0.637,all,0.407,returns,0.633,none,0.943,0.1,0.117,0.04,0.103,0.33,3.28,0.01,control/control/control
+게임 키워드,자원강탈,steal,0.98,,,,,instant,0.923,now,0.83,one,0.73,enemy,0.687,returns,0.873,now,0.61,0.247,0.243,0.073,0.22,0.167,2.52,0.013,steal/steal/steal
+게임 키워드,사거리무한,recycle,0.523,amplify,0.257,control,0.083,lasting,0.547,ongoing,0.707,wide,0.66,all,0.557,returns,0.687,none,0.807,0.593,0.193,0.27,0.527,0.327,3.25,0.023,recycle/recycle/recycle
+게임 키워드,시간정지,control,0.99,,,,,lasting,0.75,now,0.753,wide,0.947,all,0.947,returns,0.907,none,0.843,0.097,0.133,0.06,0.08,0.337,3.66,0.017,control/control/control
+게임 키워드,상태이상면역,guard,0.44,buff,0.283,remove,0.257,lasting,0.933,ongoing,0.83,self,0.773,ally,0.82,passive,0.63,none,0.973,0.087,0.077,0.063,0.093,0.237,2.46,0.02,guard/guard/guard
+게임 키워드,공격속도상한돌파,tempo,0.77,buff,0.17,,,lasting,0.777,ongoing,0.52,self,0.78,ally,0.86,returns,0.463,none,0.933,0.233,0.107,0.083,0.113,0.547,2.36,0.023,tempo/tempo/tempo
+게임 키워드,골드두배,amplify,0.527,money,0.473,,,instant,0.833,now,0.777,self,0.527,ally,0.72,returns,0.613,now,0.673,0.857,0.17,0.163,0.08,0.32,1.86,0.027,amplify/amplify/amplify
+게임 키워드,맵전체타격,damage,0.977,,,,,instant,0.99,now,1.0,wide,1.0,all,0.857,returns,0.84,none,0.857,0.087,0.123,0.1,0.53,0.21,3.55,0.02,damage/damage/damage
+게임 키워드,장판지속,recycle,0.39,amplify,0.19,control,0.153,lasting,0.903,ongoing,0.98,around,0.44,land,0.84,stays,0.89,steady,0.6,0.33,0.153,0.107,0.3,0.55,1.65,0.03,recycle/recycle/recycle
+신화·전설,흑염룡,damage,0.84,trash,0.067,,,summon,0.767,now,0.843,around,0.303,enemy,0.327,returns,0.703,none,0.957,0.233,0.257,0.163,0.103,0.403,3.71,0.01,damage/damage/damage
+신화·전설,엑스칼리버,damage,0.937,,,,,instant,0.743,now,0.873,one,0.423,enemy,0.427,returns,0.78,none,0.967,0.14,0.253,0.113,0.097,0.553,4.0,0.013,damage/damage/damage
+신화·전설,롱기누스의창,damage,0.953,,,,,instant,0.8,now,0.807,one,0.563,enemy,0.753,returns,0.697,none,0.967,0.097,0.473,0.097,0.09,0.36,3.93,0.01,damage/damage/damage
+신화·전설,오리하르콘,money,0.333,create,0.3,guard,0.087,build,0.49,now,0.837,self,0.293,land,0.713,returns,0.53,none,0.89,0.15,0.13,0.11,0.073,0.237,3.75,0.017,money/create/money
+신화·전설,미스릴,create,0.3,harvest,0.207,guard,0.197,build,0.527,now,0.847,one,0.377,land,0.77,returns,0.65,none,0.943,0.107,0.077,0.08,0.067,0.177,2.85,0.013,create/create/create
+신화·전설,데스노트,damage,0.793,remove,0.087,control,0.063,instant,0.843,now,0.633,one,0.517,enemy,0.797,returns,0.697,none,0.97,0.217,0.693,0.1,0.11,0.63,3.93,0.023,damage/damage/damage
+신화·전설,마안,money,0.297,guard,0.243,damage,0.09,build,0.307,now,0.54,one,0.313,land,0.32,returns,0.537,none,0.747,0.237,0.227,0.227,0.2,0.22,1.72,0.023,money/money/guard
+신화·전설,현자의돌,money,0.603,transform,0.123,amplify,0.083,instant,0.423,now,0.69,wide,0.31,ally,0.46,returns,0.527,none,0.833,0.257,0.19,0.24,0.09,0.373,3.72,0.01,money/money/money
+신화·전설,우로보로스,recycle,0.987,,,,,lasting,0.527,ongoing,0.807,around,0.733,all,0.59,returns,0.77,none,0.727,0.44,0.493,0.147,0.367,0.253,3.86,0.02,recycle/recycle/recycle
+신화·전설,네크로노미콘,damage,0.353,recycle,0.167,heal,0.1,summon,0.82,now,0.797,wide,0.53,enemy,0.517,returns,0.73,none,0.963,0.45,0.79,0.117,0.16,0.303,3.87,0.02,damage/damage/damage
+신화·전설,궁니르,damage,0.233,money,0.13,recycle,0.13,instant,0.307,now,0.613,wide,0.297,ally,0.287,returns,0.573,none,0.85,0.25,0.38,0.2,0.193,0.417,3.29,0.027,damage/damage/damage
+신화·전설,판도라의상자,debuff,0.293,create,0.21,transform,0.1,summon,0.463,now,0.597,wide,0.477,all,0.887,used_up,0.617,none,0.927,0.197,0.89,0.82,0.11,0.293,3.83,0.017,debuff/debuff/debuff
+신화·전설,묠니르,damage,0.947,,,,,instant,0.837,now,0.797,one,0.4,all,0.413,returns,0.92,none,0.95,0.14,0.247,0.137,0.09,0.423,3.9,0.017,damage/damage/damage
+신화·전설,성배,heal,0.583,money,0.2,energy,0.067,build,0.303,now,0.65,wide,0.313,ally,0.623,returns,0.63,none,0.903,0.187,0.343,0.13,0.103,0.377,3.88,0.01,heal/heal/heal
+신화·전설,세계수수액,money,0.36,harvest,0.25,grow,0.073,instant,0.353,now,0.517,wide,0.527,land,0.55,returns,0.513,none,0.733,0.287,0.14,0.14,0.21,0.22,1.77,0.023,money/money/money
+신화·전설,드래곤브레스,damage,0.98,,,,,instant,0.88,now,0.897,line,0.677,all,0.49,returns,0.813,none,0.927,0.153,0.203,0.1,0.183,0.277,2.95,0.02,damage/damage/damage
+신화·전설,묵시록,damage,0.453,peek,0.43,,,instant,0.66,delayed,0.39,wide,0.943,all,0.84,returns,0.557,none,0.927,0.243,0.493,0.197,0.123,0.267,3.81,0.02,damage/peek/damage
+신화·전설,아포칼립스,damage,0.96,,,,,instant,0.823,now,0.627,wide,0.983,all,0.94,returns,0.507,none,0.927,0.29,0.617,0.293,0.13,0.187,4.08,0.017,damage/damage/damage
+신화·전설,영혼수확자,steal,0.45,harvest,0.18,damage,0.173,instant,0.81,now,0.577,one,0.407,enemy,0.69,returns,0.74,none,0.903,0.33,0.627,0.09,0.147,0.36,3.08,0.013,steal/steal/steal
+신화·전설,마검,damage,0.933,,,,,instant,0.767,now,0.803,one,0.49,enemy,0.497,returns,0.763,none,0.933,0.16,0.173,0.093,0.097,0.237,2.6,0.01,damage/damage/damage
+게임 은어·밈,억까,money,0.31,steal,0.143,damage,0.127,instant,0.473,now,0.603,self,0.38,enemy,0.52,returns,0.563,none,0.76,0.26,0.403,0.267,0.157,0.217,1.22,0.043,money/money/money
+게임 은어·밈,날먹,money,0.263,tempo,0.133,damage,0.1,instant,0.79,now,0.847,self,0.543,ally,0.48,used_up,0.45,none,0.607,0.153,0.297,0.177,0.083,0.217,0.96,0.037,money/money/money
+게임 은어·밈,극딜,damage,0.95,,,,,instant,0.997,now,0.897,one,0.837,enemy,0.85,returns,0.787,none,0.803,0.19,0.273,0.157,0.13,0.607,2.28,0.017,damage/damage/damage
+게임 은어·밈,가성비,money,0.763,amplify,0.11,buff,0.057,instant,0.373,now,0.717,self,0.417,ally,0.733,returns,0.607,none,0.69,0.153,0.087,0.077,0.09,0.147,0.69,0.013,money/money/money
+게임 은어·밈,창렬,buff,0.23,money,0.187,damage,0.137,summon,0.37,now,0.657,one,0.27,ally,0.57,returns,0.587,none,0.877,0.237,0.153,0.19,0.223,0.253,2.24,0.03,buff/money/buff
+게임 은어·밈,혜자,money,0.257,heal,0.18,buff,0.173,summon,0.49,now,0.623,self,0.477,ally,0.64,returns,0.553,none,0.823,0.223,0.15,0.18,0.14,0.203,1.62,0.023,money/money/money
+게임 은어·밈,존버,guard,0.347,control,0.187,money,0.15,lasting,0.583,ongoing,0.41,self,0.683,ally,0.713,returns,0.463,none,0.757,0.187,0.28,0.183,0.097,0.353,0.86,0.027,guard/guard/guard
+게임 은어·밈,똥겜,trash,0.593,money,0.147,debuff,0.137,instant,0.627,now,0.853,self,0.503,all,0.557,returns,0.583,none,0.937,0.143,0.337,0.147,0.08,0.103,0.36,0.03,trash/trash/trash
+게임 은어·밈,갓겜,money,0.473,buff,0.163,amplify,0.077,instant,0.513,now,0.76,wide,0.45,ally,0.587,returns,0.567,none,0.82,0.387,0.173,0.257,0.113,0.243,2.67,0.027,money/money/money
+게임 은어·밈,누킹,damage,0.967,,,,,instant,0.943,now,0.807,around,0.6,all,0.677,returns,0.573,none,0.817,0.187,0.3,0.213,0.207,0.25,3.02,0.023,damage/damage/damage
+게임 은어·밈,물몸,heal,0.22,guard,0.2,buff,0.123,lasting,0.313,now,0.47,self,0.833,ally,0.68,returns,0.53,none,0.917,0.137,0.167,0.117,0.097,0.64,1.56,0.017,guard/guard/heal
+게임 은어·밈,딜찍누,money,0.26,peek,0.15,steal,0.13,instant,0.587,now,0.573,one,0.403,enemy,0.387,returns,0.62,none,0.69,0.237,0.32,0.463,0.237,0.297,1.15,0.043,money/money/money
+게임 은어·밈,뇌절,recycle,0.207,trash,0.167,debuff,0.133,instant,0.597,now,0.53,self,0.6,ally,0.367,returns,0.623,none,0.927,0.15,0.26,0.137,0.12,0.12,0.64,0.037,recycle/trash/trash
+게임 은어·밈,든든한국밥,heal,0.323,money,0.203,buff,0.173,instant,0.553,now,0.83,self,0.623,ally,0.81,returns,0.5,none,0.953,0.13,0.073,0.087,0.11,0.137,0.78,0.017,heal/heal/heal
+게임 은어·밈,버스승객,money,0.32,draw,0.19,control,0.187,summon,0.603,now,0.7,one,0.457,all,0.513,returns,0.62,none,0.8,0.153,0.073,0.123,0.35,0.137,0.69,0.01,money/money/money
+게임 은어·밈,막타,damage,0.717,guard,0.063,control,0.063,instant,0.867,now,0.62,one,0.367,enemy,0.587,returns,0.61,none,0.757,0.177,0.273,0.147,0.177,0.357,2.05,0.027,damage/damage/damage
+게임 은어·밈,떡상,amplify,0.387,money,0.187,grow,0.143,instant,0.38,now,0.36,self,0.38,ally,0.597,returns,0.533,none,0.597,0.82,0.187,0.45,0.14,0.573,1.83,0.023,amplify/amplify/amplify
+게임 은어·밈,떡락,damage,0.233,money,0.197,debuff,0.06,instant,0.52,now,0.503,one,0.35,enemy,0.36,returns,0.567,none,0.84,0.22,0.503,0.65,0.14,0.24,1.1,0.023,damage/damage/damage
+게임 은어·밈,민트초코,money,0.273,create,0.173,heal,0.123,instant,0.51,now,0.847,self,0.46,ally,0.393,returns,0.667,none,0.973,0.093,0.06,0.097,0.07,0.11,0.54,0.01,money/money/money
+추상·감정,침묵의나선,control,0.633,debuff,0.127,recycle,0.117,lasting,0.52,ongoing,0.537,around,0.487,all,0.57,returns,0.623,none,0.93,0.243,0.18,0.083,0.34,0.237,2.46,0.013,control/control/control
+추상·감정,엔트로피,transform,0.247,trash,0.23,debuff,0.163,lasting,0.58,ongoing,0.453,wide,0.797,all,0.817,returns,0.713,none,0.94,0.467,0.29,0.867,0.27,0.23,3.3,0.013,transform/transform/transform
+추상·감정,인과율,recycle,0.377,amplify,0.337,,,instant,0.447,trigger,0.547,wide,0.857,all,0.907,returns,0.603,none,0.867,0.367,0.21,0.303,0.61,0.34,3.83,0.023,recycle/recycle/recycle
+추상·감정,허무,trash,0.497,remove,0.377,,,instant,0.62,now,0.77,wide,0.507,all,0.607,returns,0.563,none,0.97,0.1,0.207,0.153,0.06,0.117,1.29,0.017,trash/trash/trash
+추상·감정,절망,debuff,0.787,damage,0.077,,,lasting,0.45,now,0.693,wide,0.49,all,0.47,returns,0.567,none,0.97,0.213,0.577,0.12,0.057,0.14,1.96,0.01,debuff/debuff/debuff
+추상·감정,질투,steal,0.483,debuff,0.21,transform,0.153,lasting,0.503,now,0.497,self,0.383,enemy,0.52,returns,0.623,none,0.957,0.23,0.317,0.107,0.127,0.313,1.27,0.01,steal/steal/steal
+추상·감정,탐욕,money,0.607,steal,0.327,,,lasting,0.407,ongoing,0.45,self,0.507,ally,0.487,returns,0.643,none,0.53,0.493,0.37,0.093,0.083,0.18,1.68,0.017,money/money/money
+추상·감정,나태,debuff,0.667,control,0.2,money,0.057,lasting,0.687,delayed,0.377,self,0.6,ally,0.407,returns,0.623,none,0.863,0.16,0.143,0.07,0.057,0.157,0.72,0.013,debuff/debuff/debuff
+추상·감정,열등감,debuff,0.7,transform,0.067,money,0.057,lasting,0.49,now,0.433,self,0.743,ally,0.763,returns,0.56,none,0.967,0.197,0.323,0.077,0.08,0.177,0.46,0.01,debuff/debuff/debuff
+추상·감정,자본주의,money,0.98,,,,,lasting,0.383,ongoing,0.493,wide,0.853,all,0.637,returns,0.653,none,0.453,0.82,0.117,0.117,0.343,0.177,2.95,0.017,money/money/money
+추상·감정,공리주의,money,0.43,amplify,0.17,buff,0.113,instant,0.547,now,0.677,wide,0.903,all,0.953,returns,0.683,none,0.953,0.123,0.123,0.07,0.253,0.113,1.7,0.02,money/money/money
+추상·감정,데자뷔,recycle,0.903,,,,,instant,0.473,now,0.34,self,0.593,ally,0.433,returns,0.807,none,0.933,0.103,0.167,0.183,0.077,0.143,1.48,0.01,recycle/recycle/recycle
+추상·감정,망각,trash,0.823,remove,0.157,,,instant,0.477,now,0.717,wide,0.407,enemy,0.53,returns,0.637,none,0.963,0.107,0.367,0.127,0.08,0.143,2.87,0.017,trash/trash/trash
+추상·감정,고독,debuff,0.353,control,0.107,guard,0.093,lasting,0.463,now,0.443,self,0.777,ally,0.583,returns,0.627,none,0.967,0.12,0.3,0.077,0.063,0.24,1.11,0.01,debuff/debuff/debuff
+추상·감정,트라우마,debuff,0.713,damage,0.103,control,0.053,lasting,0.597,now,0.353,self,0.573,enemy,0.367,returns,0.577,none,0.987,0.173,0.683,0.13,0.067,0.147,1.22,0.013,debuff/debuff/debuff
+추상·감정,아이러니,recycle,0.377,transform,0.347,debuff,0.097,instant,0.66,now,0.423,self,0.36,all,0.68,returns,0.68,none,0.957,0.11,0.23,0.187,0.087,0.25,0.68,0.03,recycle/transform/recycle
+추상·감정,우울,debuff,0.84,,,,,lasting,0.687,ongoing,0.523,self,0.683,all,0.4,returns,0.67,none,0.973,0.123,0.393,0.09,0.06,0.137,0.76,0.01,debuff/debuff/debuff
+추상·감정,광기,debuff,0.46,damage,0.177,control,0.117,lasting,0.543,now,0.603,wide,0.347,all,0.57,returns,0.667,none,0.97,0.247,0.587,0.76,0.09,0.24,2.23,0.01,debuff/debuff/debuff
+추상·감정,희생,damage,0.323,trash,0.193,energy,0.103,instant,0.827,now,0.757,self,0.4,ally,0.677,used_up,0.503,none,0.927,0.113,0.92,0.11,0.1,0.333,1.8,0.017,damage/damage/damage
+추상·감정,카타르시스,remove,0.64,heal,0.17,trash,0.11,instant,0.88,now,0.877,self,0.587,ally,0.657,returns,0.567,none,0.923,0.11,0.253,0.123,0.093,0.2,2.59,0.017,remove/remove/remove
+추상·감정,윤회,recycle,1.0,,,,,move,0.31,ongoing,0.44,wide,0.623,all,0.697,returns,0.837,none,0.807,0.27,0.297,0.26,0.237,0.217,3.15,0.02,recycle/recycle/recycle
+일상 사물,바나나껍질,debuff,0.383,control,0.347,trash,0.177,lasting,0.38,trigger,0.79,one,0.313,all,0.577,used_up,0.353,none,0.967,0.07,0.243,0.307,0.063,0.17,0.15,0.017,debuff/debuff/control
+일상 사물,레고블록,create,0.787,guard,0.067,,,build,0.94,now,0.89,one,0.463,land,0.907,returns,0.487,none,0.953,0.233,0.047,0.103,0.327,0.22,0.65,0.023,create/create/create
+일상 사물,젖은수건,remove,0.403,heal,0.14,trash,0.11,instant,0.573,now,0.773,self,0.427,land,0.46,returns,0.657,none,0.977,0.063,0.07,0.05,0.05,0.26,0.23,0.023,remove/remove/remove
+일상 사물,USB메모리,money,0.393,transform,0.19,recycle,0.1,build,0.36,now,0.817,self,0.567,ally,0.593,returns,0.853,none,0.87,0.11,0.047,0.057,0.167,0.2,0.74,0.017,money/money/money
+일상 사물,압정,control,0.693,guard,0.08,create,0.057,build,0.67,now,0.483,one,0.683,land,0.687,stays,0.523,none,0.92,0.11,0.117,0.083,0.143,0.19,0.22,0.02,control/control/control
+일상 사물,커피머신,energy,0.287,money,0.257,create,0.207,build,0.713,now,0.76,self,0.55,ally,0.58,returns,0.753,none,0.82,0.123,0.067,0.077,0.087,0.273,0.76,0.01,energy/energy/money
+일상 사물,뽁뽁이,money,0.18,create,0.11,amplify,0.107,instant,0.38,now,0.597,one,0.36,ally,0.4,returns,0.533,none,0.873,0.177,0.13,0.277,0.117,0.19,0.56,0.027,money/money/money
+일상 사물,진공청소기,trash,0.397,draw,0.33,remove,0.193,instant,0.487,now,0.747,around,0.543,land,0.757,returns,0.913,none,0.907,0.1,0.05,0.06,0.23,0.263,0.84,0.013,trash/trash/trash
+일상 사물,지우개,remove,0.98,,,,,instant,0.9,now,0.907,one,0.73,land,0.733,returns,0.93,none,0.967,0.063,0.06,0.06,0.06,0.117,0.38,0.023,remove/remove/remove
+일상 사물,박스테이프,create,0.363,control,0.2,guard,0.15,build,0.53,now,0.623,one,0.493,land,0.697,returns,0.597,none,0.85,0.153,0.103,0.11,0.137,0.157,0.65,0.037,create/create/create
+일상 사물,각설탕,money,0.343,create,0.14,harvest,0.063,instant,0.503,now,0.747,one,0.413,ally,0.39,used_up,0.407,none,0.857,0.15,0.18,0.15,0.087,0.203,0.57,0.04,money/money/money
+일상 사물,이태리타월,heal,0.25,remove,0.143,create,0.127,instant,0.32,now,0.673,self,0.343,land,0.447,returns,0.593,none,0.947,0.11,0.083,0.103,0.14,0.16,0.8,0.033,heal/heal/heal
+일상 사물,모기향,debuff,0.353,damage,0.207,remove,0.137,lasting,0.737,ongoing,0.787,around,0.767,enemy,0.48,stays,0.38,none,0.96,0.127,0.147,0.07,0.127,0.313,0.54,0.02,debuff/debuff/debuff
+일상 사물,파리채,damage,0.493,control,0.217,remove,0.083,instant,0.83,now,0.653,one,0.447,enemy,0.633,returns,0.93,none,0.947,0.077,0.07,0.08,0.103,0.167,0.27,0.017,damage/damage/damage
+일상 사물,젖은신문지,trash,0.43,peek,0.117,debuff,0.103,instant,0.383,now,0.777,one,0.47,land,0.807,used_up,0.44,none,0.93,0.107,0.097,0.113,0.07,0.28,0.18,0.02,trash/trash/trash
+일상 사물,종이비행기,tempo,0.433,create,0.123,control,0.103,move,0.507,now,0.84,line,0.52,ally,0.47,returns,0.54,none,0.963,0.07,0.06,0.3,0.07,0.287,0.19,0.017,tempo/tempo/tempo
+일상 사물,고무줄,control,0.547,recycle,0.117,tempo,0.063,move,0.447,now,0.49,line,0.493,all,0.33,returns,0.793,none,0.94,0.123,0.1,0.163,0.48,0.573,0.28,0.01,control/control/control
+일상 사물,이쑤시개,damage,0.32,draw,0.083,money,0.077,instant,0.463,now,0.563,one,0.33,enemy,0.377,returns,0.593,none,0.863,0.187,0.303,0.267,0.18,0.29,1.27,0.03,damage/damage/damage
+일상 사물,돋보기,peek,0.937,amplify,0.06,,,instant,0.643,now,0.743,one,0.517,land,0.373,returns,0.917,none,0.96,0.203,0.057,0.077,0.11,0.337,0.64,0.023,peek/peek/peek
+일상 사물,형광펜,peek,0.34,amplify,0.167,draw,0.093,lasting,0.453,now,0.66,line,0.563,land,0.517,returns,0.773,none,0.977,0.073,0.04,0.063,0.07,0.247,0.44,0.023,peek/peek/peek
+의학·신체,아드레날린,buff,0.547,tempo,0.373,energy,0.063,instant,0.483,now,0.567,self,0.88,ally,0.763,returns,0.537,none,0.86,0.16,0.313,0.17,0.08,0.66,1.18,0.01,buff/buff/buff
+의학·신체,파상풍,damage,0.373,debuff,0.35,control,0.123,instant,0.537,trigger,0.35,self,0.343,all,0.493,returns,0.58,none,0.977,0.217,0.513,0.087,0.117,0.48,1.4,0.02,debuff/debuff/damage
+의학·신체,동맥경화,debuff,0.8,control,0.067,damage,0.053,lasting,0.647,delayed,0.587,wide,0.287,enemy,0.417,returns,0.547,none,0.893,0.437,0.607,0.06,0.4,0.16,1.24,0.013,debuff/debuff/debuff
+의학·신체,카페인쇼크,energy,0.327,tempo,0.303,buff,0.173,instant,0.877,now,0.95,self,0.653,ally,0.39,returns,0.61,none,0.747,0.14,0.477,0.293,0.077,0.307,1.76,0.017,energy/tempo/energy
+의학·신체,편두통,debuff,0.56,damage,0.35,,,instant,0.593,ongoing,0.6,self,0.547,enemy,0.42,returns,0.573,none,0.963,0.133,0.707,0.093,0.063,0.123,0.61,0.017,debuff/debuff/debuff
+의학·신체,젖산축적,debuff,0.633,damage,0.063,energy,0.06,lasting,0.703,delayed,0.42,self,0.843,ally,0.373,returns,0.387,none,0.923,0.45,0.417,0.067,0.103,0.447,0.87,0.017,debuff/debuff/debuff
+의학·신체,저혈당,debuff,0.51,heal,0.153,energy,0.127,instant,0.56,trigger,0.55,self,0.71,ally,0.413,returns,0.57,none,0.947,0.117,0.523,0.093,0.073,0.62,0.66,0.017,debuff/debuff/debuff
+의학·신체,복합골절,damage,0.657,debuff,0.207,control,0.057,instant,0.747,now,0.737,one,0.653,enemy,0.633,returns,0.58,none,0.983,0.133,0.573,0.1,0.15,0.137,1.33,0.027,damage/damage/damage
+의학·신체,뇌진탕,damage,0.547,debuff,0.267,control,0.17,instant,0.817,now,0.873,around,0.657,all,0.483,returns,0.64,none,0.933,0.137,0.62,0.397,0.137,0.167,2.35,0.03,damage/damage/damage
+의학·신체,급성위염,debuff,0.457,damage,0.307,heal,0.133,instant,0.663,now,0.657,self,0.69,ally,0.367,returns,0.56,none,0.977,0.09,0.503,0.083,0.063,0.13,0.68,0.017,debuff/debuff/debuff
+의학·신체,면역결핍,debuff,0.91,,,,,lasting,0.887,ongoing,0.633,one,0.3,enemy,0.57,returns,0.58,none,0.963,0.19,0.637,0.077,0.22,0.213,1.78,0.017,debuff/debuff/debuff
+의학·신체,호르몬폭주,buff,0.343,amplify,0.3,tempo,0.117,instant,0.573,now,0.813,self,0.59,all,0.46,returns,0.6,none,0.913,0.373,0.46,0.65,0.12,0.543,2.55,0.013,buff/amplify/amplify
+의학·신체,동상,control,0.493,create,0.2,guard,0.087,build,0.87,now,0.583,one,0.727,land,0.473,stays,0.847,none,0.903,0.127,0.12,0.087,0.103,0.127,1.53,0.013,control/control/control
+의학·신체,탈수,steal,0.473,remove,0.183,debuff,0.143,instant,0.68,now,0.783,one,0.523,land,0.437,returns,0.707,none,0.947,0.113,0.293,0.077,0.09,0.197,1.59,0.017,steal/steal/steal
+의학·신체,과호흡,energy,0.223,debuff,0.21,tempo,0.133,instant,0.603,ongoing,0.46,self,0.84,ally,0.467,returns,0.69,none,0.963,0.137,0.543,0.133,0.113,0.403,0.87,0.02,debuff/debuff/energy
+의학·신체,환각,transform,0.42,debuff,0.297,control,0.177,lasting,0.62,now,0.627,self,0.363,enemy,0.467,returns,0.753,none,0.96,0.107,0.22,0.277,0.087,0.197,1.97,0.017,transform/transform/transform
+의학·신체,심실세동,debuff,0.317,damage,0.253,control,0.103,instant,0.577,ongoing,0.513,self,0.353,all,0.39,returns,0.68,none,0.953,0.133,0.423,0.487,0.133,0.247,1.49,0.027,debuff/debuff/debuff
+의학·신체,세포괴사,damage,0.897,debuff,0.083,,,instant,0.84,now,0.55,one,0.44,enemy,0.6,returns,0.633,none,0.967,0.14,0.607,0.077,0.307,0.177,1.93,0.027,damage/damage/damage
+의학·신체,신경마비,control,0.783,debuff,0.21,,,lasting,0.853,now,0.64,one,0.567,enemy,0.75,returns,0.76,none,0.973,0.09,0.43,0.057,0.293,0.15,2.05,0.013,control/control/control
+의학·신체,도파민과다,amplify,0.423,buff,0.227,money,0.107,lasting,0.45,ongoing,0.52,self,0.673,ally,0.537,returns,0.46,none,0.927,0.327,0.33,0.137,0.093,0.213,1.59,0.023,amplify/amplify/amplify
+위험·희생,자폭,damage,0.967,,,,,instant,1.0,now,0.833,around,0.75,all,0.9,used_up,0.933,none,0.937,0.07,0.95,0.387,0.297,0.283,1.96,0.017,damage/damage/damage
+위험·희생,동귀어진,recycle,0.277,transform,0.197,amplify,0.137,move,0.437,now,0.493,wide,0.53,all,0.65,returns,0.687,none,0.87,0.247,0.283,0.23,0.59,0.373,2.52,0.027,recycle/recycle/recycle
+위험·희생,폭주,tempo,0.593,damage,0.23,buff,0.067,instant,0.503,now,0.643,around,0.35,all,0.54,returns,0.683,none,0.897,0.347,0.47,0.76,0.177,0.427,2.46,0.02,tempo/tempo/tempo
+위험·희생,엔진과열,damage,0.427,debuff,0.357,trash,0.073,instant,0.597,now,0.39,self,0.413,ally,0.44,returns,0.607,none,0.943,0.41,0.49,0.11,0.1,0.327,1.14,0.017,damage/damage/damage
+위험·희생,유리대포,damage,0.96,,,,,instant,0.773,now,0.813,line,0.517,enemy,0.397,returns,0.617,none,0.893,0.14,0.2,0.16,0.13,0.233,2.26,0.01,damage/damage/damage
+위험·희생,시한폭탄,damage,0.96,,,,,instant,0.543,delayed,0.97,around,0.74,all,0.77,used_up,0.67,none,0.787,0.173,0.72,0.463,0.117,0.587,2.16,0.01,damage/damage/damage
+위험·희생,흡혈역류,steal,0.707,heal,0.183,,,lasting,0.53,ongoing,0.613,around,0.483,all,0.42,returns,0.8,none,0.81,0.493,0.627,0.083,0.523,0.423,2.66,0.013,steal/steal/steal
+위험·희생,영혼저당,steal,0.277,money,0.223,control,0.157,instant,0.467,now,0.597,one,0.6,ally,0.413,returns,0.567,none,0.87,0.16,0.887,0.1,0.093,0.287,2.81,0.013,steal/steal/money
+위험·희생,생명력제물,heal,0.287,steal,0.217,damage,0.18,instant,0.76,now,0.843,one,0.68,ally,0.48,used_up,0.69,none,0.95,0.143,0.91,0.077,0.11,0.257,2.04,0.01,heal/heal/heal
+위험·희생,피아식별불가,transform,0.28,peek,0.213,remove,0.13,instant,0.567,now,0.507,self,0.34,all,0.483,returns,0.553,none,0.97,0.097,0.14,0.22,0.113,0.143,1.4,0.033,transform/transform/transform
+위험·희생,오버클럭,tempo,0.593,buff,0.217,amplify,0.16,lasting,0.683,now,0.573,self,0.657,ally,0.773,returns,0.88,none,0.84,0.247,0.323,0.1,0.103,0.68,2.01,0.017,tempo/tempo/tempo
+위험·희생,방사능오염,debuff,0.847,damage,0.11,,,lasting,0.927,ongoing,0.87,around,0.64,land,0.513,stays,0.403,none,0.95,0.343,0.727,0.217,0.29,0.197,2.28,0.013,debuff/debuff/debuff
+위험·희생,저주받은피,debuff,0.797,heal,0.063,steal,0.05,lasting,0.703,ongoing,0.563,one,0.47,enemy,0.577,returns,0.483,none,0.95,0.187,0.92,0.15,0.09,0.247,1.98,0.017,debuff/debuff/debuff
+위험·희생,부메랑,recycle,0.663,damage,0.303,,,instant,0.647,now,0.657,line,0.703,enemy,0.58,returns,0.98,none,0.893,0.083,0.173,0.26,0.157,0.257,1.11,0.013,recycle/recycle/recycle
+위험·희생,잔탄소진,damage,0.17,trash,0.127,money,0.11,instant,0.4,now,0.453,around,0.323,land,0.383,returns,0.523,none,0.827,0.237,0.283,0.19,0.2,0.23,2.15,0.037,damage/damage/damage
+위험·희생,누전,damage,0.56,energy,0.18,debuff,0.05,instant,0.63,trigger,0.687,around,0.47,all,0.55,returns,0.587,none,0.937,0.143,0.577,0.197,0.463,0.27,0.97,0.02,damage/damage/damage
+위험·희생,역풍,control,0.453,debuff,0.197,damage,0.097,instant,0.38,trigger,0.467,around,0.587,all,0.657,returns,0.817,none,0.863,0.177,0.337,0.363,0.2,0.697,2.04,0.013,control/control/control
+위험·희생,자해공갈,damage,0.41,debuff,0.167,control,0.163,instant,0.837,now,0.65,self,0.653,ally,0.597,returns,0.703,none,0.947,0.103,0.86,0.113,0.083,0.19,0.95,0.037,damage/damage/damage
+위험·희생,파멸의계약,damage,0.743,money,0.083,debuff,0.053,lasting,0.453,now,0.523,one,0.407,all,0.55,returns,0.47,none,0.903,0.213,0.877,0.183,0.163,0.373,3.53,0.02,damage/damage/damage
+위험·희생,붕괴위험,damage,0.713,debuff,0.087,,,instant,0.5,trigger,0.553,around,0.61,land,0.713,returns,0.51,none,0.96,0.22,0.497,0.33,0.167,0.287,2.23,0.013,damage/damage/damage
+장난·한계,냥냥펀치,damage,0.97,,,,,instant,0.957,now,0.91,one,0.773,enemy,0.62,returns,0.83,none,0.95,0.12,0.11,0.193,0.107,0.183,0.74,0.013,damage/damage/damage
+장난·한계,쌉가능,money,0.2,remove,0.113,trash,0.1,instant,0.643,now,0.57,self,0.423,ally,0.357,returns,0.593,none,0.893,0.14,0.25,0.257,0.11,0.36,1.02,0.073,money/money/money
+장난·한계,어둠의다크,damage,0.497,debuff,0.237,remove,0.05,instant,0.393,now,0.783,wide,0.313,enemy,0.537,returns,0.727,none,0.97,0.13,0.247,0.113,0.08,0.377,2.3,0.027,damage/damage/damage
+장난·한계,운명의데스티니,peek,0.653,recycle,0.083,,,instant,0.49,now,0.477,wide,0.683,all,0.763,returns,0.543,none,0.933,0.14,0.317,0.637,0.09,0.18,3.58,0.02,peek/peek/peek
+장난·한계,폭발폭발폭발,damage,0.95,amplify,0.05,,,instant,0.987,now,0.883,around,0.91,all,0.88,returns,0.487,none,0.937,0.277,0.383,0.463,0.317,0.2,2.42,0.013,damage/damage/damage
+장난·한계,불얼음번개독,damage,0.813,debuff,0.12,control,0.063,instant,0.69,now,0.733,around,0.423,all,0.5,returns,0.687,none,0.993,0.11,0.237,0.17,0.123,0.223,2.95,0.03,damage/damage/damage
+장난·한계,이것은구슬이다,create,0.507,money,0.213,trash,0.087,instant,0.427,now,0.91,self,0.487,land,0.43,returns,0.617,none,1.0,0.09,0.06,0.16,0.063,0.063,0.43,0.01,create/create/create
+장난·한계,아무것도아님,trash,0.61,remove,0.323,,,instant,0.74,now,0.857,self,0.65,all,0.527,returns,0.467,none,0.993,0.053,0.083,0.093,0.047,0.087,0.12,0.023,trash/trash/trash
+장난·한계,테스트용구슬1호,create,0.317,trash,0.163,recycle,0.123,instant,0.737,now,0.867,self,0.62,ally,0.517,returns,0.83,none,0.977,0.073,0.06,0.227,0.07,0.077,0.22,0.01,create/create/create
+장난·한계,123456789,money,0.32,trash,0.117,amplify,0.097,instant,0.557,now,0.493,one,0.343,all,0.39,returns,0.543,none,0.873,0.15,0.13,0.18,0.083,0.13,0.55,0.243,money/money/money
+장난·한계,물음표느낌표,peek,0.547,money,0.063,transform,0.063,instant,0.843,now,0.527,one,0.423,all,0.667,returns,0.617,none,0.97,0.077,0.167,0.47,0.07,0.11,0.31,0.04,peek/peek/peek
+장난·한계,무지개빛총공격,damage,0.987,,,,,instant,0.983,now,0.933,wide,0.79,all,0.873,returns,0.793,none,0.943,0.097,0.133,0.237,0.363,0.17,3.25,0.02,damage/damage/damage
+장난·한계,내일월요일,peek,0.703,tempo,0.12,money,0.057,instant,0.587,delayed,0.82,self,0.4,all,0.413,returns,0.523,none,0.78,0.09,0.087,0.107,0.053,0.163,0.38,0.01,peek/peek/peek
+장난·한계,칼퇴근,money,0.243,tempo,0.243,control,0.143,instant,0.513,now,0.543,self,0.753,ally,0.803,returns,0.693,payday,0.527,0.103,0.1,0.083,0.087,0.287,0.67,0.023,tempo/money/money
+장난·한계,기가차드,money,0.363,damage,0.097,amplify,0.093,summon,0.33,now,0.723,one,0.35,ally,0.353,returns,0.597,none,0.877,0.233,0.153,0.16,0.16,0.2,2.14,0.027,money/money/money
+장난·한계,최후의만찬,damage,0.25,heal,0.08,money,0.08,instant,0.517,now,0.757,wide,0.467,all,0.48,returns,0.453,none,0.87,0.11,0.673,0.097,0.607,0.27,3.12,0.017,damage/damage/damage
+장난·한계,갓난아기주먹,damage,0.883,,,,,instant,0.64,now,0.88,one,0.61,ally,0.433,returns,0.713,none,0.937,0.2,0.107,0.153,0.06,0.163,0.47,0.023,damage/damage/damage
+장난·한계,핵폭탄급방귀,damage,0.747,debuff,0.193,,,instant,0.897,now,0.857,around,0.76,all,0.81,used_up,0.637,none,0.927,0.13,0.4,0.26,0.09,0.187,2.98,0.02,damage/damage/damage
+장난·한계,제로수렴,remove,0.19,recycle,0.163,control,0.12,instant,0.397,delayed,0.363,wide,0.363,all,0.5,returns,0.727,none,0.767,0.217,0.12,0.1,0.247,0.407,2.55,0.03,remove/remove/remove
+장난·한계,무한대발산,amplify,0.717,grow,0.123,recycle,0.083,lasting,0.467,ongoing,0.697,wide,0.843,all,0.693,returns,0.73,none,0.763,0.88,0.223,0.273,0.293,0.317,4.0,0.013,amplify/amplify/amplify
+기존56,화염검,damage,1.0,,,,,instant,0.887,now,0.913,one,0.47,enemy,0.503,returns,0.853,none,0.963,0.107,0.117,0.06,0.1,0.2,2.39,0.01,damage/damage/damage
+기존56,방패,guard,1.0,,,,,lasting,0.447,trigger,0.647,self,0.607,ally,0.837,returns,0.43,none,0.977,0.1,0.067,0.043,0.1,0.177,1.09,0.01,guard/guard/guard
+기존56,치유의 샘,heal,0.997,,,,,lasting,0.447,ongoing,0.66,around,0.75,ally,0.703,returns,0.71,none,0.927,0.17,0.04,0.043,0.143,0.14,2.03,0.007,heal/heal/heal
+기존56,금화 주머니,money,1.0,,,,,instant,0.533,ongoing,0.487,self,0.85,ally,0.847,returns,0.523,now,0.443,0.367,0.09,0.14,0.053,0.103,1.0,0.01,money/money/money
+기존56,곡괭이,harvest,0.963,,,,,instant,0.513,now,0.863,one,0.483,land,0.98,returns,0.94,none,0.8,0.163,0.097,0.063,0.083,0.193,0.96,0.013,harvest/harvest/harvest
+기존56,씨앗,grow,0.98,,,,,build,0.783,delayed,0.677,one,0.48,land,0.937,stays,0.597,none,0.737,0.753,0.1,0.183,0.167,0.343,0.66,0.01,grow/grow/grow
+기존56,텃밭,grow,0.657,harvest,0.333,,,build,0.75,ongoing,0.673,around,0.563,land,0.847,stays,0.643,none,0.503,0.363,0.053,0.067,0.3,0.243,0.63,0.013,grow/grow/grow
+기존56,성벽,guard,0.97,,,,,build,0.98,now,0.713,line,0.677,land,0.8,stays,0.77,none,0.913,0.157,0.063,0.047,0.227,0.227,1.95,0.013,guard/guard/guard
+기존56,병사,create,0.45,damage,0.34,guard,0.123,summon,0.973,now,0.91,one,0.71,ally,0.867,returns,0.437,none,0.92,0.203,0.097,0.07,0.37,0.12,0.96,0.01,create/damage/create
+기존56,순간이동,tempo,0.767,control,0.11,buff,0.077,move,0.973,now,0.99,self,0.65,ally,0.71,returns,0.96,none,0.757,0.06,0.08,0.13,0.153,0.187,2.5,0.01,tempo/tempo/tempo
+기존56,시한폭탄,damage,0.947,,,,,instant,0.523,delayed,0.967,around,0.71,all,0.77,used_up,0.65,none,0.77,0.17,0.727,0.463,0.117,0.583,2.14,0.01,damage/damage/damage
+기존56,독,debuff,0.747,damage,0.22,,,instant,0.447,now,0.617,one,0.553,enemy,0.583,returns,0.523,none,0.947,0.207,0.477,0.133,0.093,0.23,1.3,0.017,debuff/debuff/debuff
+기존56,함정,control,0.907,damage,0.063,,,build,0.55,trigger,1.0,around,0.45,enemy,0.557,stays,0.957,none,0.853,0.1,0.497,0.21,0.163,0.613,0.93,0.01,control/control/control
+기존56,폭풍,damage,0.823,control,0.147,,,instant,0.747,now,0.86,around,0.853,all,0.797,returns,0.75,none,0.953,0.137,0.153,0.623,0.12,0.223,2.81,0.01,damage/damage/damage
+기존56,화살,damage,0.987,,,,,instant,0.927,now,0.887,one,0.51,enemy,0.637,returns,0.597,none,0.94,0.107,0.1,0.137,0.113,0.173,0.92,0.01,damage/damage/damage
+기존56,눈덩이,control,0.717,damage,0.093,create,0.09,build,0.45,now,0.66,around,0.59,land,0.4,returns,0.387,none,0.957,0.713,0.087,0.133,0.11,0.64,0.82,0.013,control/control/control
+기존56,도박,money,0.85,steal,0.06,amplify,0.05,instant,0.87,now,0.75,self,0.517,all,0.55,returns,0.72,now,0.367,0.253,0.927,0.96,0.117,0.37,0.88,0.02,money/money/money
+기존56,저주,debuff,1.0,,,,,lasting,0.937,ongoing,0.703,one,0.627,enemy,0.85,returns,0.657,none,0.97,0.217,0.913,0.213,0.123,0.203,1.95,0.02,debuff/debuff/debuff
+기존56,얼음,control,0.91,,,,,instant,0.363,now,0.79,around,0.563,land,0.7,returns,0.673,none,0.98,0.263,0.083,0.067,0.077,0.457,1.35,0.01,control/control/control
+기존56,나침반,peek,0.83,buff,0.06,,,move,0.567,now,0.777,line,0.31,ally,0.51,returns,0.79,none,0.96,0.073,0.05,0.107,0.203,0.233,1.12,0.013,peek/peek/peek
+기존56,수정 구슬,energy,0.197,money,0.137,control,0.103,instant,0.37,now,0.837,one,0.453,land,0.55,returns,0.653,none,0.943,0.137,0.1,0.207,0.097,0.13,1.5,0.01,energy/energy/energy
+기존56,부메랑,recycle,0.657,damage,0.307,,,instant,0.64,now,0.647,line,0.69,enemy,0.597,returns,0.98,none,0.88,0.083,0.173,0.247,0.147,0.253,1.14,0.01,recycle/recycle/recycle
+기존56,자석,draw,0.93,control,0.053,,,move,0.607,ongoing,0.44,around,0.693,all,0.74,returns,0.64,none,0.827,0.157,0.06,0.07,0.25,0.423,1.18,0.01,draw/draw/draw
+기존56,파쇄기,damage,0.977,,,,,instant,0.87,now,0.927,around,0.6,land,0.543,returns,0.767,none,0.917,0.11,0.21,0.073,0.14,0.123,2.59,0.013,damage/damage/damage
+기존56,폭죽,damage,0.97,,,,,instant,0.95,now,0.73,around,0.947,all,0.767,used_up,0.67,none,0.893,0.12,0.297,0.563,0.17,0.287,1.51,0.013,damage/damage/damage
+기존56,포션,heal,0.787,buff,0.123,,,instant,0.773,now,0.923,self,0.723,ally,0.607,used_up,0.777,none,0.943,0.117,0.137,0.15,0.08,0.203,1.0,0.01,heal/heal/heal
+기존56,망루,guard,0.737,peek,0.217,,,build,0.95,now,0.387,around,0.643,land,0.823,stays,0.837,none,0.803,0.17,0.06,0.047,0.213,0.28,1.43,0.01,guard/guard/guard
+기존56,거울,peek,0.557,transform,0.383,,,instant,0.36,now,0.55,around,0.263,all,0.52,returns,0.803,none,0.967,0.12,0.157,0.12,0.117,0.257,1.6,0.017,peek/peek/peek
+기존56,시계,tempo,0.577,control,0.157,peek,0.087,lasting,0.51,delayed,0.817,wide,0.603,all,0.697,returns,0.797,none,0.673,0.2,0.123,0.11,0.077,0.21,1.2,0.01,tempo/tempo/tempo
+기존56,연금술,transform,0.663,create,0.19,money,0.147,instant,0.567,now,0.763,one,0.277,land,0.63,returns,0.893,none,0.773,0.377,0.183,0.133,0.133,0.17,2.44,0.017,transform/transform/transform
+기존56,이자,money,0.9,,,,,lasting,0.467,ongoing,0.74,self,0.303,ally,0.5,returns,0.557,saved,0.703,0.863,0.217,0.107,0.133,0.223,0.96,0.013,money/money/money
+기존56,낮잠,control,0.763,energy,0.113,heal,0.073,lasting,0.553,now,0.557,self,0.857,ally,0.687,returns,0.637,none,0.883,0.083,0.077,0.087,0.04,0.153,0.37,0.01,control/control/control
+기존56,모닥불,damage,0.25,trash,0.21,buff,0.163,build,0.657,ongoing,0.64,around,0.843,all,0.473,stays,0.68,none,0.87,0.17,0.163,0.103,0.13,0.353,0.75,0.013,trash/damage/damage
+기존56,벌 떼,damage,0.673,grow,0.07,,,summon,0.94,now,0.777,around,0.793,all,0.487,returns,0.587,none,0.843,0.637,0.16,0.24,0.757,0.31,1.71,0.01,damage/damage/damage
+기존56,산사태,damage,0.683,control,0.27,,,instant,0.703,now,0.633,around,0.54,land,0.637,returns,0.533,none,0.94,0.333,0.347,0.603,0.243,0.43,2.49,0.017,damage/damage/damage
+기존56,깃발,guard,0.32,buff,0.247,control,0.11,build,0.79,now,0.587,one,0.39,land,0.63,stays,0.583,none,0.927,0.133,0.087,0.12,0.207,0.223,1.0,0.02,guard/guard/guard
+기존56,전쟁 북,damage,0.513,buff,0.393,,,instant,0.507,now,0.663,around,0.533,all,0.433,returns,0.747,none,0.913,0.18,0.197,0.17,0.26,0.273,1.79,0.01,damage/damage/damage
+기존56,안개,debuff,0.35,peek,0.227,guard,0.17,lasting,0.827,now,0.56,around,0.773,all,0.713,returns,0.553,none,0.957,0.087,0.103,0.253,0.157,0.377,1.25,0.01,debuff/debuff/debuff
+기존56,부적,guard,0.633,buff,0.133,,,lasting,0.49,trigger,0.463,self,0.513,ally,0.643,used_up,0.533,none,0.923,0.167,0.22,0.567,0.11,0.277,1.43,0.017,guard/guard/guard
+기존56,수박,harvest,0.473,grow,0.297,heal,0.067,instant,0.527,now,0.82,one,0.4,land,0.553,returns,0.36,none,0.963,0.11,0.06,0.11,0.06,0.147,0.66,0.017,harvest/harvest/harvest
+기존56,베개,control,0.59,heal,0.283,,,build,0.513,now,0.667,self,0.573,ally,0.73,returns,0.51,none,0.953,0.077,0.06,0.073,0.063,0.173,0.41,0.01,control/control/control
+기존56,낡은 신발,tempo,0.24,trash,0.2,buff,0.133,move,0.423,now,0.82,self,0.7,ally,0.687,returns,0.697,none,0.943,0.083,0.123,0.093,0.05,0.1,0.34,0.01,tempo/tempo/tempo
+기존56,상인,money,1.0,,,,,summon,0.773,now,0.623,one,0.377,ally,0.56,returns,0.71,steady,0.433,0.393,0.087,0.137,0.267,0.157,0.99,0.01,money/money/money
+기존56,도서관,peek,0.357,draw,0.147,energy,0.123,build,0.903,now,0.79,one,0.26,land,0.663,stays,0.527,none,0.943,0.283,0.053,0.06,0.193,0.113,1.52,0.013,peek/peek/peek
+기존56,대장장이,create,0.937,,,,,summon,0.543,now,0.8,one,0.353,land,0.493,returns,0.76,none,0.867,0.223,0.067,0.063,0.107,0.203,1.31,0.01,create/create/create
+기존56,번개,damage,0.943,,,,,instant,0.967,now,0.9,line,0.433,all,0.71,returns,0.81,none,0.867,0.11,0.133,0.293,0.27,0.317,2.23,0.01,damage/damage/damage
+기존56,운석,damage,0.957,,,,,instant,0.903,now,0.703,around,0.727,land,0.49,used_up,0.533,none,0.88,0.103,0.253,0.557,0.077,0.193,2.76,0.01,damage/damage/damage
+기존56,지진,damage,0.92,control,0.077,,,instant,0.947,now,0.93,around,0.767,all,0.65,returns,0.737,none,0.937,0.137,0.23,0.633,0.383,0.207,2.95,0.01,damage/damage/damage
+기존56,불사조,recycle,0.927,heal,0.05,,,summon,0.813,trigger,0.42,self,0.423,ally,0.717,returns,0.7,none,0.94,0.46,0.363,0.127,0.093,0.69,3.82,0.01,recycle/recycle/recycle
+기존56,가시덤불,control,0.493,guard,0.297,damage,0.093,build,0.72,trigger,0.65,around,0.66,land,0.67,stays,0.837,none,0.953,0.127,0.293,0.063,0.21,0.17,0.96,0.013,control/control/control
+기존56,투명 망토,guard,0.417,peek,0.347,buff,0.11,lasting,0.827,ongoing,0.557,self,0.927,ally,0.823,passive,0.503,none,0.98,0.067,0.08,0.07,0.077,0.547,1.74,0.017,peek/guard/guard
+기존56,양봉장,grow,0.437,harvest,0.22,money,0.183,build,0.783,ongoing,0.523,one,0.313,land,0.577,stays,0.543,none,0.52,0.6,0.16,0.227,0.277,0.39,1.3,0.02,grow/grow/grow
+기존56,새로운 시작,create,0.523,recycle,0.36,,,instant,0.54,now,0.907,wide,0.477,ally,0.52,used_up,0.523,none,0.893,0.157,0.063,0.17,0.077,0.153,0.88,0.01,create/create/create
+기존56,복권,money,0.92,,,,,instant,0.957,now,0.7,self,0.573,ally,0.677,used_up,0.653,now,0.477,0.187,0.923,0.963,0.073,0.363,0.95,0.01,money/money/money
+기존56,피리,control,0.29,draw,0.19,buff,0.113,instant,0.4,now,0.647,around,0.4,all,0.573,returns,0.793,none,0.927,0.117,0.11,0.13,0.12,0.227,0.78,0.013,control/control/control
+기존56,블랙홀,control,0.483,draw,0.38,damage,0.057,lasting,0.46,now,0.593,around,0.663,all,0.92,returns,0.56,none,0.95,0.51,0.317,0.273,0.143,0.243,4.04,0.01,control/control/control
