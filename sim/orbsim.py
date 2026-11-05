@@ -29,7 +29,7 @@ def verb_probs(name):
 def select_verbs(p, rel=.4, floor=.2, cap=3):
     rk = sorted(p, key=lambda o: -p[o]); return [(o, p[o]) for i, o in enumerate(rk[:cap]) if i == 0 or p[o] >= max(rel * p[rk[0]], floor)]
 
-def make_orb(name, grade="깨끗한", cost_model="naive"):
+def make_orb(name, grade="깨끗한", cost_model="naive", gold_mult=1.0):
     r = V3[name]; r2 = V2.get(name) or PROD.get(name)
     vp = verb_probs(name); vs = select_verbs(vp); p1 = vs[0][1]; amb = p1 < .4
     pw = sum(a["power"]["score"] for a in r) / len(r); pe = pw * (1.0 if p1 >= .5 else .85 if p1 >= .4 else .6)
@@ -60,6 +60,7 @@ def make_orb(name, grade="깨끗한", cost_model="naive"):
         mt = mat if v in ("harvest", "grow", "create") else None
         if v == "harvest" and not mt: mt = "ore"
         if v == "grow" and not mt: mt = "food"
+        if v in ("money", "steal") or (mt == "gold" and v in ("harvest", "grow", "create")): m = max(1, round(m * gold_mult))      # direct gold gain nerf
         payload.append((v, m, mt))
     mods = sorted(((sum(a[m]["noul"] for a in r) / len(r), m) for m in ("scaling", "risky", "random", "network")), reverse=True)
     mod = mods[0][1] if mods[0][0] >= .6 and not amb else None
@@ -103,7 +104,7 @@ class Game:
         g.due, g.bot, g.reward_pick, g.pool_names, g.stages, g.turns_per = due, bot, reward_pick, pool_names or [], stages, turns
         g.bag = [copy.copy(o) for o in bag]; g.draw = []; g.disc = []; g.hand = []
         g.hp = g.max_hp = g.cfg["hp"]; g.shield = 0; g.gold = 0; g.res = dict.fromkeys(RAW, 0); g.items = 0
-        g.cleared = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
+        g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
     # --- helpers
     def reshuffle(g):
         g.draw = [o for o in g.bag if o.fate != "passive"]; g.R.shuffle(g.draw)
@@ -288,6 +289,7 @@ class Game:
             if o.fate == "passive": pass
         for si in range(g.stages):
             typ = g.RR.choice(list(STAGE_TYPES)); ec, rc = STAGE_TYPES[typ]; g.stats[typ] += 1
+            g0 = g.gold; died = False
             g.pool = {k: int(30 * rc) for k in RAW}; g.en = []; g.summons = []; g.kills = 0; g.uses = collections.Counter(); g.amp = 1.0; g.dmgb = 0.0
             g.fx = [f for f in g.fx if f["o"].life in ("run", "forever")]; g.buildings = [b for b in g.buildings if b["life"] in ("run", "forever")]
             lvl = 1 + si; waves = {1: 3, 5: 4, 9: 5}
@@ -297,17 +299,20 @@ class Game:
                     for _ in range(max(1, round(waves[g.turn] * ec * (1 + g.cfg.get("grow", .35) * si)))): g.spawn(lvl)
                 g.disc += g.hand; g.hand = []; g.mana = g.cfg["mana"]; g.drawn(g.cfg["hand"])
                 g.bot_turn(); g.upkeep()
-                if g.failed: return g.result()
+                if g.failed:
+                    if g.failed == "사망" and g.cfg.get("death") == "forfeit": died = True; g.failed = None; g.deaths += 1; break
+                    return g.result()
             # stage end: sell leftovers, pay rent
-            g.gold += int(sum(g.res.values()) * .3); g.res = dict.fromkeys(RAW, 0)
+            if died: g.gold = min(g.gold, g0); g.res = dict.fromkeys(RAW, 0); g.hp = int(g.max_hp * .5)       # the stage's net gold and resources are lost
+            else: g.gold += int(sum(g.res.values()) * .3); g.res = dict.fromkeys(RAW, 0)
             if g.gold < g.due[si]: g.failed = f"정산 실패(스테이지 {si+1})"; return g.result()
             g.gold -= g.due[si]; g.cleared += 1; g.hp = min(g.max_hp, g.hp + g.cfg["rest"])
-            if g.pool_names and si < g.stages - 1:                                                       # reward: write one new orb
+            if g.pool_names and si < g.stages - 1 and not died:                                                       # reward: write one new orb
                 cands = [g.RR.choice(g.pool_names) for _ in range(3 if g.reward_pick == "best3" else 1)]
                 if g.reward_pick == "bestall": cands = g.pool_names
                 g.bag.append(copy.copy(max(cands, key=lambda o: est_total_value(o) / (o.mana + .5)) if len(cands) > 1 else cands[0]))
         return g.result()
-    def result(g): return {"cleared": g.cleared, "gold": g.gold, "hp": g.hp, "failed": g.failed, "score": 100 * g.cleared + g.gold, "kills": g.stats["kills"], "played": dict(g.played), "contrib": dict(g.contrib)}
+    def result(g): return {"deaths": g.deaths, "cleared": g.cleared, "gold": g.gold, "hp": g.hp, "failed": g.failed, "score": 100 * g.cleared + g.gold, "kills": g.stats["kills"], "played": dict(g.played), "contrib": dict(g.contrib)}
 
 STARTER = ["금화 주머니", "금화 주머니", "화염검", "화염검", "방패", "곡괭이", "씨앗", "병사"]
 ALL_NAMES = sorted(n for n in V3 if n in V3)
