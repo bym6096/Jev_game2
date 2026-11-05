@@ -1,0 +1,5134 @@
+# 시험 결과 전체 — v3 (합친 발동 조건·단일 범위·지속 기간 문구 4종)
+
+이름 하나당 3번 평균. 지속 기간은 4가지 문구를 한 요청에서 같이 물음: **v2**(이전 문구), **A**(게임 안 효과 기준으로 재작성, 권장), **B**(한 스테이지=15턴 기준), **S**(0~4 점수). 선택 축은 상위 항목만(첫째 항상, 나머지 0.10↑).
+
+
+## 과학·물리
+
+### 절대영도
+- 동사: control 0.73 / damage 0.08
+- 역할: cast 0.73 / build 0.12
+- 시점: now 0.65 / repeating 0.32
+- 발동 조건: none 0.76 / approach 0.13
+- 범위: wide 0.81 / around 0.10
+- 재료: none 0.95
+- 구슬의 운명: returns 0.72 / passive 0.15 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / passive 0.16 / used_up 0.14
+- 지속 기간 v2: forever 0.86
+- 지속 기간 A: forever 0.28 / turns 0.27 / stage 0.24
+- 지속 기간 B: stage 0.48 / turns 0.18 / forever 0.16
+- 지속 기간 S(0~4 점수): 2.86
+- 성질: scaling 0.17, risky 0.27, random 0.09, network 0.16
+- 힘: 4.4 | 지시문으로 읽힘 0.02
+### 플라즈마
+- 동사: damage 0.89 / energy 0.08
+- 역할: cast 0.93
+- 시점: now 0.92
+- 발동 조건: none 0.97
+- 범위: around 0.57 / single 0.29 / line 0.11
+- 재료: none 1.00
+- 구슬의 운명: returns 0.86 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.84 / used_up 0.13
+- 지속 기간 v2: turns 0.38 / instant 0.37 / run 0.11
+- 지속 기간 A: instant 0.56 / turns 0.35
+- 지속 기간 B: instant 0.66 / turns 0.22 / stage 0.10
+- 지속 기간 S(0~4 점수): 1.01
+- 성질: scaling 0.14, risky 0.11, random 0.16, network 0.11
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+### 초전도체
+- 동사: energy 0.71 / amplify 0.09 / tempo 0.08
+- 역할: build 0.47 / cast 0.45
+- 시점: now 0.76 / repeating 0.22
+- 발동 조건: none 0.95
+- 범위: single 0.49 / wide 0.28 / around 0.13
+- 재료: ore 0.74 / none 0.26
+- 구슬의 운명: returns 0.76 / passive 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / passive 0.16
+- 지속 기간 v2: forever 0.53 / run 0.38
+- 지속 기간 A: turns 0.27 / instant 0.27 / run 0.23
+- 지속 기간 B: stage 0.31 / instant 0.26 / turns 0.20
+- 지속 기간 S(0~4 점수): 2.24
+- 성질: scaling 0.14, risky 0.06, random 0.06, network 0.34
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 사건의지평선
+- 동사: control 0.68 / draw 0.10 / damage 0.06 / remove 0.06
+- 역할: cast 0.49 / build 0.34 / move 0.13
+- 시점: now 0.78 / delayed 0.16
+- 발동 조건: none 0.53 / approach 0.43
+- 범위: around 0.50 / wide 0.43
+- 재료: none 0.99
+- 구슬의 운명: returns 0.70 / used_up 0.19 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.65 / used_up 0.24 / passive 0.11
+- 지속 기간 v2: forever 0.83 / run 0.12
+- 지속 기간 A: forever 0.37 / instant 0.22 / stage 0.16
+- 지속 기간 B: stage 0.46 / instant 0.21 / forever 0.17
+- 지속 기간 S(0~4 점수): 2.92
+- 성질: scaling 0.43, risky 0.22, random 0.16, network 0.12
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 진공붕괴
+- 동사: damage 0.84 / remove 0.09
+- 역할: cast 0.97
+- 시점: now 0.82 / delayed 0.16
+- 발동 조건: none 0.93
+- 범위: around 0.56 / wide 0.28 / single 0.15
+- 재료: none 1.00
+- 구슬의 운명: returns 0.56 / used_up 0.41
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.39
+- 지속 기간 v2: instant 0.60 / forever 0.34
+- 지속 기간 A: instant 0.78 / forever 0.14
+- 지속 기간 B: instant 0.75 / stage 0.12
+- 지속 기간 S(0~4 점수): 1.90
+- 성질: scaling 0.40, risky 0.42, random 0.20, network 0.16
+- 힘: 4.0 | 지시문으로 읽힘 0.02
+### 반물질
+- 동사: damage 0.92
+- 역할: cast 0.86
+- 시점: now 0.91
+- 발동 조건: none 0.93
+- 범위: wide 0.47 / around 0.33 / single 0.18
+- 재료: none 1.00
+- 구슬의 운명: returns 0.68 / used_up 0.28
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.28
+- 지속 기간 v2: instant 0.37 / forever 0.35 / run 0.21
+- 지속 기간 A: instant 0.78
+- 지속 기간 B: instant 0.68 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.29
+- 성질: scaling 0.14, risky 0.24, random 0.10, network 0.10
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 중성자별
+- 동사: damage 0.72 / control 0.08 / energy 0.08 / guard 0.05
+- 역할: cast 0.48 / summon 0.26 / build 0.23
+- 시점: now 0.84 / repeating 0.13
+- 발동 조건: none 0.94
+- 범위: wide 0.41 / around 0.33 / single 0.24
+- 재료: none 0.59 / ore 0.41
+- 구슬의 운명: returns 0.79 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.17
+- 지속 기간 v2: forever 0.84 / run 0.13
+- 지속 기간 A: instant 0.46 / run 0.17 / turns 0.16
+- 지속 기간 B: instant 0.35 / stage 0.28 / forever 0.16
+- 지속 기간 S(0~4 점수): 2.20
+- 성질: scaling 0.19, risky 0.18, random 0.10, network 0.12
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 감마선폭발
+- 동사: damage 0.99
+- 역할: cast 1.00
+- 시점: now 0.97
+- 발동 조건: none 0.91
+- 범위: around 0.89
+- 재료: none 0.99
+- 구슬의 운명: returns 0.50 / used_up 0.48
+- 구슬의 운명(자동 문구 재작성): returns 0.50 / used_up 0.49
+- 지속 기간 v2: instant 0.98
+- 지속 기간 A: instant 0.97
+- 지속 기간 B: instant 0.96
+- 지속 기간 S(0~4 점수): 0.15
+- 성질: scaling 0.13, risky 0.28, random 0.23, network 0.27
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 핵융합
+- 동사: energy 0.72 / transform 0.12 / damage 0.06
+- 역할: cast 0.69 / build 0.28
+- 시점: now 0.72 / repeating 0.22
+- 발동 조건: none 0.99
+- 범위: wide 0.50 / around 0.33 / single 0.16
+- 재료: none 0.98
+- 구슬의 운명: returns 0.81 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.81 / used_up 0.15
+- 지속 기간 v2: run 0.36 / forever 0.30 / instant 0.25
+- 지속 기간 A: instant 0.51 / turns 0.17 / forever 0.15
+- 지속 기간 B: instant 0.39 / stage 0.28 / turns 0.15
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.51, risky 0.12, random 0.08, network 0.18
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 타키온
+- 동사: tempo 0.67 / damage 0.15 / buff 0.05
+- 역할: move 0.54 / cast 0.31 / summon 0.12
+- 시점: now 0.90
+- 발동 조건: none 0.96
+- 범위: single 0.43 / line 0.28 / wide 0.24
+- 재료: none 0.95
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.77 / used_up 0.14
+- 지속 기간 v2: forever 0.35 / instant 0.35 / run 0.15
+- 지속 기간 A: instant 0.62 / turns 0.22
+- 지속 기간 B: instant 0.58 / turns 0.19 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.30
+- 성질: scaling 0.14, risky 0.10, random 0.13, network 0.10
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 영점진동
+- 동사: recycle 0.29 / remove 0.18 / control 0.10 / amplify 0.10 / energy 0.08
+- 역할: cast 0.84
+- 시점: repeating 0.70 / now 0.23
+- 발동 조건: none 0.84 / approach 0.10
+- 범위: around 0.40 / single 0.40 / wide 0.13
+- 재료: none 0.99
+- 구슬의 운명: returns 0.74 / passive 0.15 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / passive 0.20 / used_up 0.11
+- 지속 기간 v2: forever 0.32 / turns 0.31 / instant 0.29
+- 지속 기간 A: turns 0.48 / instant 0.36
+- 지속 기간 B: instant 0.68 / turns 0.15 / stage 0.11
+- 지속 기간 S(0~4 점수): 1.60
+- 성질: scaling 0.19, risky 0.13, random 0.20, network 0.31
+- 힘: 2.7 | 지시문으로 읽힘 0.02
+### 초신성
+- 동사: damage 0.92
+- 역할: cast 0.94
+- 시점: now 0.78 / delayed 0.21
+- 발동 조건: none 0.87 / death 0.11
+- 범위: around 0.59 / wide 0.40
+- 재료: none 0.97
+- 구슬의 운명: used_up 0.65 / returns 0.33
+- 구슬의 운명(자동 문구 재작성): used_up 0.68 / returns 0.30
+- 지속 기간 v2: instant 0.87
+- 지속 기간 A: instant 0.90
+- 지속 기간 B: instant 0.85
+- 지속 기간 S(0~4 점수): 0.63
+- 성질: scaling 0.22, risky 0.35, random 0.36, network 0.14
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 볼텍스
+- 동사: control 0.70 / damage 0.15 / draw 0.09
+- 역할: cast 0.64 / move 0.30
+- 시점: now 0.69 / repeating 0.28
+- 발동 조건: none 0.87 / approach 0.11
+- 범위: around 0.91
+- 재료: none 1.00
+- 구슬의 운명: returns 0.86 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.84 / used_up 0.10
+- 지속 기간 v2: turns 0.48 / instant 0.22 / stage 0.12
+- 지속 기간 A: turns 0.48 / instant 0.32 / stage 0.14
+- 지속 기간 B: turns 0.43 / instant 0.37 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.31
+- 성질: scaling 0.19, risky 0.14, random 0.57, network 0.23
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 특이점
+- 동사: amplify 0.24 / transform 0.15 / damage 0.14 / control 0.12 / draw 0.11
+- 역할: cast 0.64 / build 0.23
+- 시점: now 0.78 / delayed 0.16
+- 발동 조건: none 0.96
+- 범위: wide 0.67 / around 0.17 / single 0.16
+- 재료: none 0.98
+- 구슬의 운명: returns 0.69 / used_up 0.28
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.32
+- 지속 기간 v2: forever 0.72 / instant 0.21
+- 지속 기간 A: instant 0.58 / forever 0.23
+- 지속 기간 B: instant 0.40 / stage 0.34 / forever 0.16
+- 지속 기간 S(0~4 점수): 2.53
+- 성질: scaling 0.48, risky 0.20, random 0.31, network 0.13
+- 힘: 4.5 | 지시문으로 읽힘 0.01
+### 방사능누출
+- 동사: debuff 0.72 / damage 0.25
+- 역할: cast 0.85 / build 0.13
+- 시점: repeating 0.45 / now 0.30 / delayed 0.25
+- 발동 조건: none 0.86 / approach 0.11
+- 범위: around 0.63 / wide 0.16 / line 0.15
+- 재료: none 0.89 / ore 0.11
+- 구슬의 운명: used_up 0.51 / returns 0.40
+- 구슬의 운명(자동 문구 재작성): used_up 0.48 / returns 0.35 / passive 0.17
+- 지속 기간 v2: run 0.34 / turns 0.34 / stage 0.18
+- 지속 기간 A: turns 0.53 / stage 0.17 / forever 0.14
+- 지속 기간 B: stage 0.44 / turns 0.36 / instant 0.15
+- 지속 기간 S(0~4 점수): 2.28
+- 성질: scaling 0.36, risky 0.72, random 0.37, network 0.22
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 암흑물질
+- 동사: damage 0.32 / energy 0.21 / control 0.13 / create 0.07 / draw 0.06
+- 역할: cast 0.62 / build 0.18 / summon 0.17
+- 시점: now 0.84 / repeating 0.13
+- 발동 조건: none 0.98
+- 범위: wide 0.71 / single 0.15 / around 0.12
+- 재료: none 0.99
+- 구슬의 운명: returns 0.72 / used_up 0.18 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.19 / passive 0.12
+- 지속 기간 v2: forever 0.85 / run 0.10
+- 지속 기간 A: instant 0.36 / forever 0.24 / turns 0.18
+- 지속 기간 B: instant 0.33 / stage 0.31 / turns 0.16
+- 지속 기간 S(0~4 점수): 2.41
+- 성질: scaling 0.18, risky 0.17, random 0.13, network 0.11
+- 힘: 3.6 | 지시문으로 읽힘 0.01
+### 쿼크글루온
+- 동사: damage 0.32 / energy 0.22 / create 0.13 / transform 0.12 / control 0.08
+- 역할: cast 0.63 / summon 0.23
+- 시점: now 0.88
+- 발동 조건: none 0.98
+- 범위: wide 0.43 / single 0.33 / around 0.16
+- 재료: none 0.98
+- 구슬의 운명: returns 0.82 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.13
+- 지속 기간 v2: forever 0.63 / instant 0.14 / run 0.13
+- 지속 기간 A: instant 0.49 / turns 0.24 / forever 0.12
+- 지속 기간 B: instant 0.36 / stage 0.28 / turns 0.17
+- 지속 기간 S(0~4 점수): 1.83
+- 성질: scaling 0.16, risky 0.08, random 0.28, network 0.30
+- 힘: 2.8 | 지시문으로 읽힘 0.03
+### 중력파
+- 동사: damage 0.68 / control 0.29
+- 역할: cast 0.91
+- 시점: now 0.82 / delayed 0.13
+- 발동 조건: none 0.90
+- 범위: wide 0.57 / around 0.38
+- 재료: none 1.00
+- 구슬의 운명: returns 0.82 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.84 / used_up 0.12
+- 지속 기간 v2: instant 0.66 / forever 0.17 / turns 0.12
+- 지속 기간 A: instant 0.74 / turns 0.19
+- 지속 기간 B: instant 0.65 / turns 0.27
+- 지속 기간 S(0~4 점수): 0.63
+- 성질: scaling 0.16, risky 0.11, random 0.13, network 0.34
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 극초음속
+- 동사: tempo 0.87 / damage 0.09
+- 역할: move 0.60 / cast 0.38
+- 시점: now 0.98
+- 발동 조건: none 0.96
+- 범위: single 0.46 / line 0.34 / wide 0.14
+- 재료: none 0.96
+- 구슬의 운명: returns 0.81 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.14
+- 지속 기간 v2: instant 0.79 / turns 0.10
+- 지속 기간 A: instant 0.82 / turns 0.13
+- 지속 기간 B: instant 0.71 / turns 0.18
+- 지속 기간 S(0~4 점수): 0.60
+- 성질: scaling 0.10, risky 0.08, random 0.08, network 0.08
+- 힘: 2.7 | 지시문으로 읽힘 0.01
+### 대전류
+- 동사: damage 0.36 / control 0.18 / money 0.10 / amplify 0.09
+- 역할: cast 0.53 / move 0.38
+- 시점: repeating 0.51 / now 0.40
+- 발동 조건: none 0.77 / approach 0.14
+- 범위: line 0.54 / wide 0.29 / around 0.15
+- 재료: none 0.85
+- 구슬의 운명: returns 0.79 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.13
+- 지속 기간 v2: turns 0.34 / instant 0.20 / run 0.18
+- 지속 기간 A: turns 0.44 / instant 0.28 / stage 0.18
+- 지속 기간 B: stage 0.36 / instant 0.32 / turns 0.22
+- 지속 기간 S(0~4 점수): 1.78
+- 성질: scaling 0.38, risky 0.16, random 0.16, network 0.51
+- 힘: 2.8 | 지시문으로 읽힘 0.02
+
+## 모순 어구
+
+### 차가운불꽃
+- 동사: damage 0.51 / control 0.41
+- 역할: cast 0.94
+- 시점: now 0.85 / repeating 0.11
+- 발동 조건: none 0.96
+- 범위: single 0.57 / around 0.32 / line 0.10
+- 재료: none 1.00
+- 구슬의 운명: returns 0.86
+- 구슬의 운명(자동 문구 재작성): returns 0.82
+- 지속 기간 v2: turns 0.59 / instant 0.16 / forever 0.15
+- 지속 기간 A: turns 0.65 / instant 0.27
+- 지속 기간 B: instant 0.47 / turns 0.33 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.38
+- 성질: scaling 0.10, risky 0.12, random 0.10, network 0.07
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 마른번개
+- 동사: damage 0.85
+- 역할: cast 0.94
+- 시점: now 0.87
+- 발동 조건: none 0.80 / hit 0.11
+- 범위: line 0.48 / single 0.37 / around 0.13
+- 재료: none 1.00
+- 구슬의 운명: returns 0.82 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.14
+- 지속 기간 v2: instant 0.67 / turns 0.18
+- 지속 기간 A: instant 0.76 / turns 0.17
+- 지속 기간 B: instant 0.69 / turns 0.20
+- 지속 기간 S(0~4 점수): 0.79
+- 성질: scaling 0.11, risky 0.20, random 0.27, network 0.12
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 어두운빛
+- 동사: debuff 0.26 / damage 0.25 / energy 0.13 / peek 0.08 / remove 0.06
+- 역할: cast 0.80 / build 0.10
+- 시점: now 0.84 / repeating 0.13
+- 발동 조건: none 0.94
+- 범위: single 0.38 / line 0.23 / around 0.21
+- 재료: none 0.98
+- 구슬의 운명: returns 0.79 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.74 / passive 0.15 / used_up 0.11
+- 지속 기간 v2: forever 0.38 / turns 0.26 / instant 0.18
+- 지속 기간 A: turns 0.42 / instant 0.34 / stage 0.11
+- 지속 기간 B: instant 0.38 / stage 0.31 / turns 0.24
+- 지속 기간 S(0~4 점수): 1.98
+- 성질: scaling 0.12, risky 0.18, random 0.09, network 0.08
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 젖은숯
+- 동사: energy 0.18 / trash 0.14 / debuff 0.13 / damage 0.12 / control 0.08
+- 역할: cast 0.55 / build 0.34
+- 시점: now 0.83
+- 발동 조건: none 0.92
+- 범위: single 0.87
+- 재료: wood 0.78 / ore 0.14
+- 구슬의 운명: returns 0.64 / used_up 0.31
+- 구슬의 운명(자동 문구 재작성): returns 0.58 / used_up 0.35
+- 지속 기간 v2: turns 0.36 / run 0.33 / forever 0.17
+- 지속 기간 A: instant 0.47 / turns 0.31
+- 지속 기간 B: instant 0.44 / turns 0.36 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.53
+- 성질: scaling 0.11, risky 0.14, random 0.07, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 맹독치유
+- 동사: heal 0.81 / debuff 0.11
+- 역할: cast 0.99
+- 시점: now 0.73 / repeating 0.15 / delayed 0.12
+- 발동 조건: none 0.86 / hit 0.12
+- 범위: single 0.82 / around 0.12
+- 재료: none 0.96
+- 구슬의 운명: returns 0.86 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.84 / used_up 0.12
+- 지속 기간 v2: instant 0.54 / turns 0.39
+- 지속 기간 A: turns 0.62 / instant 0.35
+- 지속 기간 B: instant 0.65 / turns 0.22 / stage 0.11
+- 지속 기간 S(0~4 점수): 0.98
+- 성질: scaling 0.13, risky 0.49, random 0.06, network 0.13
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 무거운깃털
+- 동사: debuff 0.49 / control 0.20 / tempo 0.06
+- 역할: move 0.47 / cast 0.26 / summon 0.21
+- 시점: now 0.73 / delayed 0.16 / repeating 0.11
+- 발동 조건: none 0.92
+- 범위: single 0.92
+- 재료: none 0.87
+- 구슬의 운명: returns 0.75 / passive 0.13 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / passive 0.15 / used_up 0.10
+- 지속 기간 v2: forever 0.29 / run 0.26 / turns 0.23
+- 지속 기간 A: instant 0.45 / turns 0.36
+- 지속 기간 B: turns 0.38 / instant 0.35 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.67
+- 성질: scaling 0.08, risky 0.18, random 0.17, network 0.07
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 뜨거운얼음
+- 동사: transform 0.29 / damage 0.26 / control 0.25 / trash 0.07
+- 역할: cast 0.72 / build 0.19
+- 시점: now 0.84 / repeating 0.12
+- 발동 조건: none 0.93
+- 범위: single 0.71 / around 0.21
+- 재료: none 0.76 / ore 0.23
+- 구슬의 운명: returns 0.77 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.16 / passive 0.12
+- 지속 기간 v2: turns 0.34 / forever 0.34 / run 0.15
+- 지속 기간 A: turns 0.51 / instant 0.33
+- 지속 기간 B: instant 0.45 / turns 0.31 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.49
+- 성질: scaling 0.11, risky 0.16, random 0.13, network 0.06
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+### 조용한폭발
+- 동사: damage 0.93
+- 역할: cast 0.96
+- 시점: delayed 0.66 / now 0.33
+- 발동 조건: none 0.65 / approach 0.27
+- 범위: around 0.86 / single 0.11
+- 재료: none 0.96
+- 구슬의 운명: returns 0.67 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.29
+- 지속 기간 v2: instant 0.84 / turns 0.11
+- 지속 기간 A: instant 0.86
+- 지속 기간 B: instant 0.83 / turns 0.11
+- 지속 기간 S(0~4 점수): 0.54
+- 성질: scaling 0.16, risky 0.27, random 0.33, network 0.17
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 투명한벽돌
+- 동사: guard 0.73 / create 0.16 / peek 0.08
+- 역할: build 0.97
+- 시점: now 0.92
+- 발동 조건: none 0.83 / approach 0.15
+- 범위: single 0.63 / line 0.27
+- 재료: ore 0.82 / none 0.16
+- 구슬의 운명: returns 0.75 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.17 / passive 0.11
+- 지속 기간 v2: run 0.83 / forever 0.11
+- 지속 기간 A: run 0.38 / forever 0.36 / instant 0.12
+- 지속 기간 B: stage 0.42 / turns 0.24 / instant 0.22
+- 지속 기간 S(0~4 점수): 2.65
+- 성질: scaling 0.07, risky 0.06, random 0.06, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 느린광속
+- 동사: debuff 0.73 / tempo 0.22
+- 역할: move 0.52 / cast 0.41
+- 시점: delayed 0.88 / now 0.10
+- 발동 조건: none 0.96
+- 범위: single 0.55 / line 0.28 / wide 0.15
+- 재료: none 0.96
+- 구슬의 운명: returns 0.81
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / passive 0.13
+- 지속 기간 v2: turns 0.41 / forever 0.32 / run 0.13
+- 지속 기간 A: turns 0.64 / instant 0.18
+- 지속 기간 B: turns 0.45 / stage 0.33 / instant 0.12
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.10, risky 0.09, random 0.07, network 0.09
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 부드러운칼날
+- 동사: damage 0.94
+- 역할: cast 0.88
+- 시점: now 0.91
+- 발동 조건: none 0.85 / hit 0.13
+- 범위: single 0.74 / line 0.22
+- 재료: ore 0.87
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.85 / passive 0.10
+- 지속 기간 v2: run 0.44 / forever 0.27 / instant 0.15
+- 지속 기간 A: instant 0.49 / turns 0.28 / run 0.11
+- 지속 기간 B: instant 0.47 / turns 0.24 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.66
+- 성질: scaling 0.08, risky 0.09, random 0.05, network 0.07
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 건조한해일
+- 동사: damage 0.29 / debuff 0.22 / harvest 0.07 / remove 0.07 / control 0.05
+- 역할: cast 0.87
+- 시점: now 0.51 / repeating 0.39 / delayed 0.10
+- 발동 조건: none 0.96
+- 범위: wide 0.53 / around 0.21 / single 0.17
+- 재료: none 0.93
+- 구슬의 운명: returns 0.69 / used_up 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.24 / passive 0.12
+- 지속 기간 v2: stage 0.71 / turns 0.12
+- 지속 기간 A: stage 0.63 / turns 0.23 / instant 0.10
+- 지속 기간 B: stage 0.49 / turns 0.28 / instant 0.15
+- 지속 기간 S(0~4 점수): 1.86
+- 성질: scaling 0.13, risky 0.18, random 0.14, network 0.07
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 살아있는시체
+- 동사: recycle 0.39 / damage 0.18 / control 0.13 / heal 0.11 / transform 0.06
+- 역할: summon 0.86
+- 시점: now 0.71 / repeating 0.24
+- 발동 조건: none 0.73 / death 0.24
+- 범위: single 0.89
+- 재료: none 0.75 / food 0.19
+- 구슬의 운명: returns 0.69 / used_up 0.19 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.21 / passive 0.19
+- 지속 기간 v2: run 0.39 / forever 0.37 / turns 0.18
+- 지속 기간 A: turns 0.40 / instant 0.23 / forever 0.18
+- 지속 기간 B: stage 0.38 / turns 0.30 / instant 0.20
+- 지속 기간 S(0~4 점수): 2.34
+- 성질: scaling 0.37, risky 0.46, random 0.10, network 0.20
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 고요한태풍
+- 동사: control 0.42 / damage 0.38
+- 역할: cast 0.67 / move 0.14 / summon 0.12
+- 시점: now 0.51 / delayed 0.30 / repeating 0.18
+- 발동 조건: none 0.90
+- 범위: around 0.64 / wide 0.30
+- 재료: none 0.99
+- 구슬의 운명: returns 0.79 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / used_up 0.13 / passive 0.12
+- 지속 기간 v2: stage 0.64 / turns 0.17
+- 지속 기간 A: stage 0.64 / turns 0.20 / instant 0.11
+- 지속 기간 B: stage 0.40 / turns 0.33 / instant 0.19
+- 지속 기간 S(0~4 점수): 1.80
+- 성질: scaling 0.21, risky 0.12, random 0.48, network 0.13
+- 힘: 3.0 | 지시문으로 읽힘 0.01
+### 눈먼주시자
+- 동사: debuff 0.49 / peek 0.33 / money 0.05
+- 역할: cast 0.46 / summon 0.38 / build 0.12
+- 시점: repeating 0.53 / now 0.42
+- 발동 조건: none 0.78 / approach 0.17
+- 범위: wide 0.62 / around 0.18 / single 0.16
+- 재료: none 0.89
+- 구슬의 운명: returns 0.62 / passive 0.22 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / passive 0.28 / used_up 0.17
+- 지속 기간 v2: forever 0.51 / run 0.25 / turns 0.13
+- 지속 기간 A: instant 0.30 / turns 0.28 / forever 0.20
+- 지속 기간 B: stage 0.35 / instant 0.28 / forever 0.17
+- 지속 기간 S(0~4 점수): 2.55
+- 성질: scaling 0.14, risky 0.40, random 0.21, network 0.17
+- 힘: 3.4 | 지시문으로 읽힘 0.02
+### 가벼운납
+- 동사: create 0.21 / tempo 0.21 / money 0.11 / buff 0.10 / debuff 0.07
+- 역할: build 0.30 / cast 0.29 / move 0.25
+- 시점: now 0.83
+- 발동 조건: none 0.93
+- 범위: single 0.89
+- 재료: ore 0.97
+- 구슬의 운명: returns 0.74 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.17 / passive 0.13
+- 지속 기간 v2: run 0.30 / forever 0.26 / instant 0.25
+- 지속 기간 A: instant 0.51 / turns 0.21 / forever 0.14
+- 지속 기간 B: instant 0.46 / turns 0.25 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.85
+- 성질: scaling 0.09, risky 0.09, random 0.09, network 0.06
+- 힘: 0.9 | 지시문으로 읽힘 0.02
+### 자비로운참수
+- 동사: damage 0.95
+- 역할: cast 0.93
+- 시점: now 0.98
+- 발동 조건: none 0.82 / death 0.12
+- 범위: single 0.88
+- 재료: none 0.65 / ore 0.25
+- 구슬의 운명: returns 0.79 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.19
+- 지속 기간 v2: instant 0.88
+- 지속 기간 A: instant 0.95
+- 지속 기간 B: instant 0.91
+- 지속 기간 S(0~4 점수): 0.57
+- 성질: scaling 0.09, risky 0.41, random 0.06, network 0.10
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 메마른눈물
+- 동사: debuff 0.27 / heal 0.16 / remove 0.14 / damage 0.09 / money 0.08
+- 역할: cast 0.77 / build 0.12
+- 시점: now 0.75 / delayed 0.13 / repeating 0.12
+- 발동 조건: none 0.90
+- 범위: single 0.91
+- 재료: none 0.98
+- 구슬의 운명: returns 0.61 / used_up 0.33
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / used_up 0.33 / passive 0.12
+- 지속 기간 v2: forever 0.33 / instant 0.29 / run 0.20
+- 지속 기간 A: instant 0.63 / turns 0.21
+- 지속 기간 B: instant 0.54 / turns 0.22 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.66
+- 성질: scaling 0.10, risky 0.50, random 0.08, network 0.05
+- 힘: 1.4 | 지시문으로 읽힘 0.02
+### 질서있는혼돈
+- 동사: transform 0.28 / control 0.23 / recycle 0.15 / money 0.08 / amplify 0.06
+- 역할: cast 0.64 / build 0.14 / summon 0.11
+- 시점: now 0.63 / repeating 0.34
+- 발동 조건: none 0.99
+- 범위: wide 0.57 / single 0.21 / around 0.20
+- 재료: none 0.96
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.16 / passive 0.14
+- 지속 기간 v2: forever 0.68 / turns 0.13 / run 0.13
+- 지속 기간 A: turns 0.40 / instant 0.25 / stage 0.15
+- 지속 기간 B: stage 0.38 / instant 0.26 / turns 0.25
+- 지속 기간 S(0~4 점수): 2.18
+- 성질: scaling 0.15, risky 0.20, random 0.77, network 0.19
+- 힘: 2.8 | 지시문으로 읽힘 0.02
+### 얼어붙은용암
+- 동사: control 0.74 / transform 0.14 / damage 0.07
+- 역할: cast 0.72 / build 0.22
+- 시점: now 0.75 / repeating 0.15 / delayed 0.10
+- 발동 조건: none 0.90
+- 범위: single 0.53 / around 0.36
+- 재료: none 0.62 / ore 0.38
+- 구슬의 운명: returns 0.75 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.73 / used_up 0.21
+- 지속 기간 v2: forever 0.46 / turns 0.30 / run 0.15
+- 지속 기간 A: turns 0.47 / instant 0.26 / forever 0.12
+- 지속 기간 B: turns 0.40 / stage 0.30 / instant 0.22
+- 지속 기간 S(0~4 점수): 2.10
+- 성질: scaling 0.10, risky 0.15, random 0.08, network 0.09
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+
+## 게임 키워드
+
+### 즉사
+- 동사: damage 0.94
+- 역할: cast 0.97
+- 시점: now 0.96
+- 발동 조건: none 0.64 / hit 0.19 / death 0.15
+- 범위: single 0.86
+- 재료: none 0.89
+- 구슬의 운명: returns 0.51 / used_up 0.40
+- 구슬의 운명(자동 문구 재작성): returns 0.50 / used_up 0.40 / passive 0.11
+- 지속 기간 v2: instant 0.93
+- 지속 기간 A: instant 0.97
+- 지속 기간 B: instant 0.94
+- 지속 기간 S(0~4 점수): 0.58
+- 성질: scaling 0.09, risky 0.55, random 0.13, network 0.09
+- 힘: 3.1 | 지시문으로 읽힘 0.02
+### 무적
+- 동사: guard 0.83 / buff 0.14
+- 역할: cast 0.83 / build 0.12
+- 시점: now 0.51 / repeating 0.48
+- 발동 조건: none 0.85 / hit 0.14
+- 범위: single 0.86 / wide 0.12
+- 재료: none 0.92
+- 구슬의 운명: returns 0.51 / passive 0.41
+- 구슬의 운명(자동 문구 재작성): passive 0.63 / returns 0.31
+- 지속 기간 v2: forever 0.75 / turns 0.18
+- 지속 기간 A: turns 0.59 / stage 0.16 / instant 0.10
+- 지속 기간 B: stage 0.38 / turns 0.35 / forever 0.13
+- 지속 기간 S(0~4 점수): 2.41
+- 성질: scaling 0.10, risky 0.08, random 0.06, network 0.06
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+### 쿨타임0
+- 동사: recycle 0.72 / tempo 0.11 / energy 0.09
+- 역할: cast 0.94
+- 시점: delayed 0.63 / now 0.32
+- 발동 조건: none 0.91
+- 범위: single 0.91
+- 재료: none 0.94
+- 구슬의 운명: returns 0.97
+- 구슬의 운명(자동 문구 재작성): returns 0.96
+- 지속 기간 v2: turns 0.55 / instant 0.37
+- 지속 기간 A: instant 0.58 / turns 0.36
+- 지속 기간 B: instant 0.93
+- 지속 기간 S(0~4 점수): 0.86
+- 성질: scaling 0.11, risky 0.09, random 0.08, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.06
+### 흡혈
+- 동사: steal 0.71 / heal 0.24
+- 역할: cast 0.98
+- 시점: now 0.60 / repeating 0.39
+- 발동 조건: hit 0.82 / none 0.14
+- 범위: single 0.86
+- 재료: none 0.91
+- 구슬의 운명: returns 0.79 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / passive 0.17
+- 지속 기간 v2: instant 0.44 / turns 0.39
+- 지속 기간 A: instant 0.56 / turns 0.35
+- 지속 기간 B: instant 0.62 / turns 0.24 / stage 0.11
+- 지속 기간 S(0~4 점수): 0.83
+- 성질: scaling 0.51, risky 0.64, random 0.07, network 0.18
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 데미지반사
+- 동사: guard 0.45 / damage 0.34 / amplify 0.11 / recycle 0.05
+- 역할: cast 0.89 / build 0.11
+- 시점: repeating 0.51 / now 0.46
+- 발동 조건: hit 0.99
+- 범위: single 0.87 / around 0.11
+- 재료: none 0.97
+- 구슬의 운명: passive 0.66 / returns 0.33
+- 구슬의 운명(자동 문구 재작성): passive 0.71 / returns 0.27
+- 지속 기간 v2: turns 0.33 / instant 0.24 / forever 0.22
+- 지속 기간 A: turns 0.41 / instant 0.28 / stage 0.16
+- 지속 기간 B: instant 0.39 / turns 0.29 / stage 0.26
+- 지속 기간 S(0~4 점수): 1.69
+- 성질: scaling 0.18, risky 0.18, random 0.08, network 0.21
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 방어무시
+- 동사: damage 0.56 / debuff 0.25 / buff 0.06 / amplify 0.05
+- 역할: cast 0.98
+- 시점: now 0.91
+- 발동 조건: none 0.67 / hit 0.33
+- 범위: single 0.82 / wide 0.11
+- 재료: none 0.92
+- 구슬의 운명: returns 0.74 / passive 0.14 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.23 / used_up 0.11
+- 지속 기간 v2: instant 0.39 / turns 0.34 / forever 0.19
+- 지속 기간 A: instant 0.61 / turns 0.28
+- 지속 기간 B: instant 0.50 / turns 0.30 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.25
+- 성질: scaling 0.14, risky 0.11, random 0.06, network 0.12
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 무한관통
+- 동사: damage 0.96
+- 역할: cast 0.90
+- 시점: now 0.84 / repeating 0.16
+- 발동 조건: none 0.91
+- 범위: line 0.51 / wide 0.47
+- 재료: none 0.95
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.88
+- 지속 기간 v2: forever 0.63 / instant 0.30
+- 지속 기간 A: instant 0.88
+- 지속 기간 B: instant 0.79 / stage 0.11
+- 지속 기간 S(0~4 점수): 1.05
+- 성질: scaling 0.24, risky 0.11, random 0.06, network 0.28
+- 힘: 3.7 | 지시문으로 읽힘 0.02
+### 확정치명타
+- 동사: damage 0.76 / peek 0.08
+- 역할: cast 0.83
+- 시점: now 0.72 / delayed 0.25
+- 발동 조건: hit 0.52 / none 0.37
+- 범위: single 0.78 / line 0.16
+- 재료: none 0.80 / gold 0.15
+- 구슬의 운명: returns 0.66 / used_up 0.28
+- 구슬의 운명(자동 문구 재작성): returns 0.63 / used_up 0.30
+- 지속 기간 v2: instant 0.78 / forever 0.11
+- 지속 기간 A: instant 0.82
+- 지속 기간 B: instant 0.73 / stage 0.13
+- 지속 기간 S(0~4 점수): 0.82
+- 성질: scaling 0.17, risky 0.36, random 0.36, network 0.16
+- 힘: 2.7 | 지시문으로 읽힘 0.04
+### 절대은신
+- 동사: guard 0.54 / buff 0.15 / control 0.11 / remove 0.09 / peek 0.06
+- 역할: cast 0.87
+- 시점: now 0.63 / repeating 0.36
+- 발동 조건: none 0.90
+- 범위: single 0.91
+- 재료: none 0.98
+- 구슬의 운명: returns 0.67 / passive 0.26
+- 구슬의 운명(자동 문구 재작성): returns 0.58 / passive 0.36
+- 지속 기간 v2: forever 0.66 / turns 0.26
+- 지속 기간 A: turns 0.73 / stage 0.14
+- 지속 기간 B: turns 0.46 / stage 0.40
+- 지속 기간 S(0~4 점수): 2.29
+- 성질: scaling 0.11, risky 0.12, random 0.06, network 0.09
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 광역도발
+- 동사: control 0.67 / draw 0.15 / guard 0.06
+- 역할: cast 0.96
+- 시점: now 0.84 / repeating 0.15
+- 발동 조건: none 0.67 / approach 0.26
+- 범위: around 0.50 / wide 0.48
+- 재료: none 0.96
+- 구슬의 운명: returns 0.86 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.86 / used_up 0.11
+- 지속 기간 v2: turns 0.57 / instant 0.37
+- 지속 기간 A: instant 0.50 / turns 0.40
+- 지속 기간 B: turns 0.51 / instant 0.39
+- 지속 기간 S(0~4 점수): 1.12
+- 성질: scaling 0.13, risky 0.16, random 0.08, network 0.75
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 자동부활
+- 동사: recycle 0.58 / heal 0.42
+- 역할: cast 0.88 / summon 0.10
+- 시점: now 0.47 / repeating 0.38 / delayed 0.15
+- 발동 조건: death 0.97
+- 범위: single 0.97
+- 재료: none 0.98
+- 구슬의 운명: returns 0.57 / passive 0.30 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): passive 0.60 / returns 0.32
+- 지속 기간 v2: instant 0.37 / forever 0.36 / turns 0.16
+- 지속 기간 A: instant 0.58 / turns 0.18 / stage 0.16
+- 지속 기간 B: stage 0.39 / instant 0.36 / turns 0.11
+- 지속 기간 S(0~4 점수): 2.16
+- 성질: scaling 0.14, risky 0.20, random 0.11, network 0.10
+- 힘: 3.2 | 지시문으로 읽힘 0.02
+### 영구빙결
+- 동사: control 1.00
+- 역할: cast 0.95
+- 시점: now 0.81 / repeating 0.18
+- 발동 조건: none 0.94
+- 범위: single 0.78 / wide 0.11
+- 재료: none 0.99
+- 구슬의 운명: returns 0.83 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / passive 0.21 / used_up 0.10
+- 지속 기간 v2: forever 1.00
+- 지속 기간 A: forever 0.73 / turns 0.14
+- 지속 기간 B: stage 0.46 / forever 0.34 / turns 0.11
+- 지속 기간 S(0~4 점수): 3.50
+- 성질: scaling 0.10, risky 0.12, random 0.04, network 0.10
+- 힘: 3.3 | 지시문으로 읽힘 0.01
+### 자원강탈
+- 동사: steal 0.99
+- 역할: cast 0.93
+- 시점: now 0.89 / repeating 0.11
+- 발동 조건: none 0.92
+- 범위: single 0.76
+- 재료: gold 0.60 / none 0.27 / ore 0.11
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.89
+- 지속 기간 v2: instant 0.81
+- 지속 기간 A: instant 0.92
+- 지속 기간 B: instant 0.84
+- 지속 기간 S(0~4 점수): 0.69
+- 성질: scaling 0.26, risky 0.25, random 0.07, network 0.21
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 사거리무한
+- 동사: recycle 0.55 / amplify 0.24 / control 0.08
+- 역할: move 0.34 / cast 0.33 / build 0.29
+- 시점: repeating 0.89 / now 0.10
+- 발동 조건: none 0.54 / approach 0.43
+- 범위: wide 0.70 / around 0.20
+- 재료: none 0.77 / gold 0.17
+- 구슬의 운명: returns 0.82 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / passive 0.15 / used_up 0.11
+- 지속 기간 v2: forever 0.89
+- 지속 기간 A: forever 0.55 / turns 0.16 / instant 0.15
+- 지속 기간 B: stage 0.38 / forever 0.36 / instant 0.13
+- 지속 기간 S(0~4 점수): 3.32
+- 성질: scaling 0.60, risky 0.18, random 0.26, network 0.53
+- 힘: 3.2 | 지시문으로 읽힘 0.03
+### 시간정지
+- 동사: control 0.99
+- 역할: cast 1.00
+- 시점: now 0.90
+- 발동 조건: none 1.00
+- 범위: wide 0.94
+- 재료: none 1.00
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.90
+- 지속 기간 v2: turns 0.80 / forever 0.11
+- 지속 기간 A: turns 0.80 / instant 0.12
+- 지속 기간 B: turns 0.53 / stage 0.29 / instant 0.17
+- 지속 기간 S(0~4 점수): 1.36
+- 성질: scaling 0.10, risky 0.13, random 0.07, network 0.08
+- 힘: 3.7 | 지시문으로 읽힘 0.02
+### 상태이상면역
+- 동사: guard 0.46 / buff 0.28 / remove 0.25
+- 역할: cast 0.82 / build 0.14
+- 시점: repeating 0.80 / now 0.19
+- 발동 조건: none 0.85 / hit 0.14
+- 범위: single 0.94
+- 재료: none 0.97
+- 구슬의 운명: passive 0.77 / returns 0.19
+- 구슬의 운명(자동 문구 재작성): passive 0.83 / returns 0.14
+- 지속 기간 v2: forever 0.71 / turns 0.14 / run 0.12
+- 지속 기간 A: turns 0.37 / stage 0.22 / run 0.17
+- 지속 기간 B: stage 0.53 / turns 0.18 / instant 0.11
+- 지속 기간 S(0~4 점수): 2.65
+- 성질: scaling 0.08, risky 0.08, random 0.06, network 0.09
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 공격속도상한돌파
+- 동사: tempo 0.74 / buff 0.20
+- 역할: cast 0.92
+- 시점: now 0.66 / repeating 0.33
+- 발동 조건: none 0.96
+- 범위: single 0.85 / wide 0.14
+- 재료: none 0.75 / ore 0.21
+- 구슬의 운명: returns 0.48 / used_up 0.30 / passive 0.22
+- 구슬의 운명(자동 문구 재작성): passive 0.38 / returns 0.35 / used_up 0.27
+- 지속 기간 v2: forever 0.48 / turns 0.26 / instant 0.17
+- 지속 기간 A: turns 0.49 / instant 0.20 / stage 0.13
+- 지속 기간 B: stage 0.40 / turns 0.32 / instant 0.17
+- 지속 기간 S(0~4 점수): 2.08
+- 성질: scaling 0.24, risky 0.10, random 0.08, network 0.11
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 골드두배
+- 동사: amplify 0.54 / money 0.46
+- 역할: cast 0.97
+- 시점: now 0.81 / repeating 0.18
+- 발동 조건: none 0.99
+- 범위: single 0.87 / wide 0.11
+- 재료: gold 0.99
+- 구슬의 운명: returns 0.69 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.20 / passive 0.11
+- 지속 기간 v2: instant 0.62 / turns 0.15 / forever 0.12
+- 지속 기간 A: instant 0.82
+- 지속 기간 B: instant 0.72 / stage 0.15
+- 지속 기간 S(0~4 점수): 0.91
+- 성질: scaling 0.88, risky 0.17, random 0.16, network 0.08
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 맵전체타격
+- 동사: damage 0.98
+- 역할: cast 1.00
+- 시점: now 0.99
+- 발동 조건: none 1.00
+- 범위: wide 1.00
+- 재료: none 0.96
+- 구슬의 운명: returns 0.83 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.83 / used_up 0.17
+- 지속 기간 v2: instant 0.94
+- 지속 기간 A: instant 0.97
+- 지속 기간 B: instant 0.96
+- 지속 기간 S(0~4 점수): 0.18
+- 성질: scaling 0.08, risky 0.13, random 0.10, network 0.49
+- 힘: 3.6 | 지시문으로 읽힘 0.02
+### 장판지속
+- 동사: recycle 0.39 / amplify 0.17 / control 0.15 / money 0.05
+- 역할: build 0.84 / cast 0.15
+- 시점: repeating 0.97
+- 발동 조건: none 0.59 / approach 0.38
+- 범위: wide 0.39 / around 0.29 / single 0.17
+- 재료: none 0.72 / wood 0.13
+- 구슬의 운명: returns 0.72 / passive 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.51 / passive 0.42
+- 지속 기간 v2: turns 0.34 / forever 0.27 / run 0.26
+- 지속 기간 A: turns 0.38 / stage 0.31 / forever 0.19
+- 지속 기간 B: stage 0.77 / turns 0.13
+- 지속 기간 S(0~4 점수): 2.67
+- 성질: scaling 0.31, risky 0.14, random 0.10, network 0.28
+- 힘: 1.6 | 지시문으로 읽힘 0.04
+
+## 신화·전설
+
+### 흑염룡
+- 동사: damage 0.85 / trash 0.06
+- 역할: summon 0.74 / cast 0.21
+- 시점: now 0.91
+- 발동 조건: none 0.95
+- 범위: single 0.48 / around 0.22 / wide 0.16
+- 재료: none 0.88
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.74 / used_up 0.16 / passive 0.11
+- 지속 기간 v2: forever 0.41 / run 0.35 / turns 0.14
+- 지속 기간 A: instant 0.40 / turns 0.30 / run 0.15
+- 지속 기간 B: instant 0.41 / stage 0.24 / turns 0.22
+- 지속 기간 S(0~4 점수): 1.90
+- 성질: scaling 0.24, risky 0.25, random 0.17, network 0.12
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 엑스칼리버
+- 동사: damage 0.93
+- 역할: cast 0.86
+- 시점: now 0.97
+- 발동 조건: none 0.93
+- 범위: single 0.46 / around 0.20 / wide 0.18
+- 재료: ore 0.89
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.84
+- 지속 기간 v2: forever 0.71 / run 0.24
+- 지속 기간 A: instant 0.57 / run 0.19 / forever 0.12
+- 지속 기간 B: instant 0.41 / stage 0.25 / forever 0.15
+- 지속 기간 S(0~4 점수): 2.17
+- 성질: scaling 0.14, risky 0.24, random 0.12, network 0.11
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+### 롱기누스의창
+- 동사: damage 0.96
+- 역할: cast 0.81
+- 시점: now 0.98
+- 발동 조건: none 0.79 / hit 0.16
+- 범위: single 0.50 / line 0.44
+- 재료: ore 0.74 / wood 0.17
+- 구슬의 운명: returns 0.74 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.73 / used_up 0.22
+- 지속 기간 v2: forever 0.51 / run 0.36
+- 지속 기간 A: instant 0.70 / run 0.10
+- 지속 기간 B: instant 0.59 / stage 0.16 / turns 0.11
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.10, risky 0.48, random 0.09, network 0.10
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 오리하르콘
+- 동사: create 0.39 / money 0.29 / guard 0.07 / buff 0.06 / harvest 0.05
+- 역할: build 0.52 / cast 0.33 / summon 0.10
+- 시점: now 0.91
+- 발동 조건: none 0.96
+- 범위: single 0.67 / wide 0.24
+- 재료: ore 0.92
+- 구슬의 운명: returns 0.62 / used_up 0.19 / passive 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.20 / passive 0.18
+- 지속 기간 v2: forever 0.65 / run 0.30
+- 지속 기간 A: instant 0.36 / forever 0.27 / run 0.26
+- 지속 기간 B: forever 0.37 / instant 0.26 / stage 0.19
+- 지속 기간 S(0~4 점수): 2.69
+- 성질: scaling 0.15, risky 0.14, random 0.11, network 0.07
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 미스릴
+- 동사: create 0.44 / harvest 0.17 / guard 0.17 / money 0.10 / buff 0.06
+- 역할: build 0.56 / cast 0.25 / summon 0.13
+- 시점: now 0.93
+- 발동 조건: none 0.97
+- 범위: single 0.83
+- 재료: ore 1.00
+- 구슬의 운명: returns 0.71 / passive 0.15 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / passive 0.15 / used_up 0.15
+- 지속 기간 v2: forever 0.51 / run 0.41
+- 지속 기간 A: instant 0.42 / run 0.27 / forever 0.21
+- 지속 기간 B: instant 0.35 / forever 0.28 / stage 0.21
+- 지속 기간 S(0~4 점수): 2.17
+- 성질: scaling 0.11, risky 0.08, random 0.08, network 0.07
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 데스노트
+- 동사: damage 0.79 / remove 0.10 / control 0.06
+- 역할: cast 0.89
+- 시점: now 0.87
+- 발동 조건: none 0.71 / death 0.26
+- 범위: single 0.49 / wide 0.49
+- 재료: none 0.89
+- 구슬의 운명: returns 0.78 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.77 / used_up 0.15
+- 지속 기간 v2: forever 0.64 / instant 0.22 / run 0.13
+- 지속 기간 A: instant 0.59 / forever 0.20
+- 지속 기간 B: instant 0.52 / stage 0.21 / forever 0.17
+- 지속 기간 S(0~4 점수): 1.91
+- 성질: scaling 0.22, risky 0.68, random 0.09, network 0.11
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 마안
+- 동사: money 0.28 / guard 0.26 / damage 0.08 / control 0.05
+- 역할: build 0.32 / summon 0.25 / cast 0.22
+- 시점: now 0.63 / delayed 0.21 / repeating 0.16
+- 발동 조건: none 0.77 / approach 0.13
+- 범위: single 0.58 / around 0.19 / wide 0.13
+- 재료: gold 0.39 / none 0.30 / ore 0.20
+- 구슬의 운명: returns 0.70 / used_up 0.18 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.19 / passive 0.15
+- 지속 기간 v2: run 0.33 / forever 0.29 / instant 0.21
+- 지속 기간 A: instant 0.37 / run 0.23 / turns 0.17
+- 지속 기간 B: instant 0.40 / stage 0.21 / turns 0.20
+- 지속 기간 S(0~4 점수): 1.99
+- 성질: scaling 0.22, risky 0.22, random 0.23, network 0.19
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+### 현자의돌
+- 동사: money 0.59 / transform 0.11 / amplify 0.09 / create 0.07
+- 역할: cast 0.51 / build 0.40
+- 시점: now 0.77 / repeating 0.20
+- 발동 조건: none 0.93
+- 범위: single 0.63 / wide 0.25 / around 0.10
+- 재료: ore 0.69 / none 0.17 / gold 0.13
+- 구슬의 운명: returns 0.59 / passive 0.25 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.54 / passive 0.26 / used_up 0.20
+- 지속 기간 v2: forever 0.52 / run 0.38
+- 지속 기간 A: instant 0.39 / run 0.28 / forever 0.19
+- 지속 기간 B: stage 0.31 / instant 0.29 / forever 0.20
+- 지속 기간 S(0~4 점수): 2.59
+- 성질: scaling 0.28, risky 0.19, random 0.23, network 0.09
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 우로보로스
+- 동사: recycle 0.99
+- 역할: cast 0.50 / summon 0.24 / move 0.15
+- 시점: repeating 0.88 / now 0.10
+- 발동 조건: none 0.84 / death 0.11
+- 범위: around 0.72 / wide 0.17
+- 재료: none 0.92
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.14
+- 지속 기간 v2: forever 0.93
+- 지속 기간 A: forever 0.31 / turns 0.30 / instant 0.18
+- 지속 기간 B: stage 0.38 / turns 0.22 / forever 0.19
+- 지속 기간 S(0~4 점수): 2.85
+- 성질: scaling 0.44, risky 0.48, random 0.14, network 0.41
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 네크로노미콘
+- 동사: damage 0.37 / recycle 0.20 / heal 0.09 / control 0.07 / create 0.07
+- 역할: summon 0.59 / cast 0.39
+- 시점: now 0.84 / repeating 0.10
+- 발동 조건: none 0.81 / death 0.17
+- 범위: wide 0.51 / single 0.31 / around 0.15
+- 재료: none 0.99
+- 구슬의 운명: returns 0.78 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / used_up 0.10 / passive 0.10
+- 지속 기간 v2: forever 0.56 / run 0.36
+- 지속 기간 A: turns 0.34 / instant 0.34 / run 0.16
+- 지속 기간 B: stage 0.31 / instant 0.29 / turns 0.18
+- 지속 기간 S(0~4 점수): 2.36
+- 성질: scaling 0.45, risky 0.78, random 0.11, network 0.18
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+### 궁니르
+- 동사: damage 0.22 / recycle 0.16 / money 0.13 / control 0.06 / guard 0.06
+- 역할: cast 0.34 / summon 0.33 / build 0.18
+- 시점: now 0.70 / repeating 0.15 / delayed 0.15
+- 발동 조건: none 0.80
+- 범위: single 0.41 / wide 0.33 / around 0.18
+- 재료: none 0.52 / ore 0.23 / gold 0.16
+- 구슬의 운명: returns 0.68 / used_up 0.22 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.21 / passive 0.13
+- 지속 기간 v2: forever 0.50 / run 0.25 / instant 0.12
+- 지속 기간 A: instant 0.32 / forever 0.25 / turns 0.21
+- 지속 기간 B: instant 0.29 / forever 0.26 / stage 0.25
+- 지속 기간 S(0~4 점수): 2.34
+- 성질: scaling 0.25, risky 0.39, random 0.19, network 0.20
+- 힘: 3.3 | 지시문으로 읽힘 0.02
+### 판도라의상자
+- 동사: debuff 0.31 / create 0.17 / transform 0.11 / money 0.09 / damage 0.06
+- 역할: cast 0.56 / summon 0.27 / build 0.15
+- 시점: now 0.82 / delayed 0.15
+- 발동 조건: none 0.94
+- 범위: wide 0.42 / single 0.34 / around 0.23
+- 재료: none 0.79
+- 구슬의 운명: used_up 0.66 / returns 0.32
+- 구슬의 운명(자동 문구 재작성): used_up 0.65 / returns 0.33
+- 지속 기간 v2: forever 0.53 / instant 0.22 / run 0.19
+- 지속 기간 A: instant 0.63 / forever 0.12
+- 지속 기간 B: instant 0.45 / stage 0.26 / turns 0.12
+- 지속 기간 S(0~4 점수): 2.31
+- 성질: scaling 0.20, risky 0.88, random 0.83, network 0.11
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 묠니르
+- 동사: damage 0.94
+- 역할: cast 0.94
+- 시점: now 0.95
+- 발동 조건: none 0.90
+- 범위: single 0.44 / around 0.29 / wide 0.16
+- 재료: none 0.76 / ore 0.21
+- 구슬의 운명: returns 0.94
+- 구슬의 운명(자동 문구 재작성): returns 0.93
+- 지속 기간 v2: forever 0.54 / instant 0.25 / run 0.17
+- 지속 기간 A: instant 0.81
+- 지속 기간 B: instant 0.72 / turns 0.11
+- 지속 기간 S(0~4 점수): 1.09
+- 성질: scaling 0.12, risky 0.23, random 0.14, network 0.09
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 성배
+- 동사: heal 0.61 / money 0.18 / energy 0.07
+- 역할: build 0.44 / cast 0.40 / summon 0.12
+- 시점: now 0.76 / repeating 0.22
+- 발동 조건: none 0.93
+- 범위: single 0.58 / wide 0.30 / around 0.11
+- 재료: ore 0.46 / gold 0.32 / none 0.20
+- 구슬의 운명: returns 0.73 / passive 0.15 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / passive 0.17 / used_up 0.12
+- 지속 기간 v2: forever 0.53 / run 0.43
+- 지속 기간 A: run 0.36 / instant 0.26 / forever 0.19
+- 지속 기간 B: stage 0.29 / instant 0.26 / forever 0.25
+- 지속 기간 S(0~4 점수): 2.64
+- 성질: scaling 0.19, risky 0.36, random 0.13, network 0.10
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 세계수수액
+- 동사: money 0.36 / harvest 0.22 / grow 0.07 / energy 0.06 / steal 0.06
+- 역할: cast 0.39 / build 0.32 / summon 0.18
+- 시점: now 0.51 / repeating 0.36 / delayed 0.14
+- 발동 조건: none 0.84
+- 범위: wide 0.58 / single 0.34
+- 재료: gold 0.35 / food 0.30 / wood 0.20
+- 구슬의 운명: returns 0.60 / used_up 0.31
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.32
+- 지속 기간 v2: run 0.32 / forever 0.23 / turns 0.21
+- 지속 기간 A: instant 0.43 / turns 0.32 / run 0.12
+- 지속 기간 B: instant 0.40 / stage 0.23 / turns 0.19
+- 지속 기간 S(0~4 점수): 1.68
+- 성질: scaling 0.28, risky 0.14, random 0.14, network 0.22
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 드래곤브레스
+- 동사: damage 0.97
+- 역할: cast 0.97
+- 시점: now 0.94
+- 발동 조건: none 0.94
+- 범위: line 0.68 / around 0.25
+- 재료: none 1.00
+- 구슬의 운명: returns 0.83 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / used_up 0.17
+- 지속 기간 v2: instant 0.56 / turns 0.40
+- 지속 기간 A: instant 0.52 / turns 0.45
+- 지속 기간 B: instant 0.75 / turns 0.22
+- 지속 기간 S(0~4 점수): 0.45
+- 성질: scaling 0.16, risky 0.20, random 0.10, network 0.18
+- 힘: 2.9 | 지시문으로 읽힘 0.02
+### 묵시록
+- 동사: damage 0.50 / peek 0.38
+- 역할: cast 0.85
+- 시점: delayed 0.49 / now 0.43
+- 발동 조건: none 0.91
+- 범위: wide 0.93
+- 재료: none 0.95
+- 구슬의 운명: returns 0.65 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.57 / used_up 0.35
+- 지속 기간 v2: forever 0.73 / run 0.12
+- 지속 기간 A: instant 0.38 / forever 0.29 / stage 0.14
+- 지속 기간 B: stage 0.54 / instant 0.20 / forever 0.14
+- 지속 기간 S(0~4 점수): 2.77
+- 성질: scaling 0.25, risky 0.50, random 0.20, network 0.13
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 아포칼립스
+- 동사: damage 0.96
+- 역할: cast 0.95
+- 시점: now 0.70 / delayed 0.26
+- 발동 조건: none 0.97
+- 범위: wide 0.97
+- 재료: none 0.97
+- 구슬의 운명: returns 0.56 / used_up 0.40
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / used_up 0.42
+- 지속 기간 v2: forever 0.68 / instant 0.15 / run 0.12
+- 지속 기간 A: instant 0.49 / forever 0.31
+- 지속 기간 B: stage 0.43 / instant 0.38
+- 지속 기간 S(0~4 점수): 2.70
+- 성질: scaling 0.28, risky 0.61, random 0.29, network 0.12
+- 힘: 4.1 | 지시문으로 읽힘 0.02
+### 영혼수확자
+- 동사: steal 0.41 / harvest 0.19 / damage 0.18 / draw 0.12
+- 역할: cast 0.82 / summon 0.16
+- 시점: now 0.78 / repeating 0.20
+- 발동 조건: death 0.77 / none 0.21
+- 범위: single 0.52 / around 0.27 / wide 0.15
+- 재료: none 0.98
+- 구슬의 운명: returns 0.84 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / used_up 0.14
+- 지속 기간 v2: instant 0.50 / run 0.21 / forever 0.18
+- 지속 기간 A: instant 0.85
+- 지속 기간 B: instant 0.78
+- 지속 기간 S(0~4 점수): 1.09
+- 성질: scaling 0.32, risky 0.63, random 0.09, network 0.16
+- 힘: 3.1 | 지시문으로 읽힘 0.01
+### 마검
+- 동사: damage 0.93
+- 역할: cast 0.81
+- 시점: now 0.94
+- 발동 조건: none 0.85 / hit 0.11
+- 범위: single 0.69 / line 0.25
+- 재료: ore 0.68 / none 0.28
+- 구슬의 운명: returns 0.86
+- 구슬의 운명(자동 문구 재작성): returns 0.82
+- 지속 기간 v2: run 0.35 / forever 0.30 / instant 0.22
+- 지속 기간 A: instant 0.55 / run 0.18 / turns 0.16
+- 지속 기간 B: instant 0.57 / turns 0.16 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.58
+- 성질: scaling 0.16, risky 0.18, random 0.09, network 0.10
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+
+## 게임 은어·밈
+
+### 억까
+- 동사: money 0.34 / steal 0.13 / damage 0.12 / amplify 0.08
+- 역할: cast 0.46 / summon 0.23 / move 0.16
+- 시점: now 0.74 / repeating 0.14 / delayed 0.12
+- 발동 조건: none 0.82
+- 범위: single 0.70 / wide 0.16
+- 재료: none 0.44 / gold 0.40 / food 0.10
+- 구슬의 운명: returns 0.69 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.63 / used_up 0.24 / passive 0.13
+- 지속 기간 v2: instant 0.49 / turns 0.17 / run 0.16
+- 지속 기간 A: instant 0.57 / turns 0.17 / run 0.10
+- 지속 기간 B: instant 0.44 / stage 0.21 / turns 0.17
+- 지속 기간 S(0~4 점수): 1.44
+- 성질: scaling 0.25, risky 0.41, random 0.27, network 0.16
+- 힘: 1.2 | 지시문으로 읽힘 0.03
+### 날먹
+- 동사: money 0.28 / tempo 0.13 / damage 0.10 / steal 0.09 / trash 0.06
+- 역할: cast 0.70 / move 0.10
+- 시점: now 0.89
+- 발동 조건: none 0.90
+- 범위: single 0.86
+- 재료: food 0.61 / gold 0.21 / none 0.15
+- 구슬의 운명: used_up 0.44 / returns 0.43 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): used_up 0.47 / returns 0.40 / passive 0.13
+- 지속 기간 v2: instant 0.67 / run 0.11
+- 지속 기간 A: instant 0.74 / turns 0.10
+- 지속 기간 B: instant 0.73 / stage 0.10
+- 지속 기간 S(0~4 점수): 0.70
+- 성질: scaling 0.15, risky 0.28, random 0.18, network 0.09
+- 힘: 1.0 | 지시문으로 읽힘 0.03
+### 극딜
+- 동사: damage 0.95
+- 역할: cast 1.00
+- 시점: now 0.97
+- 발동 조건: none 0.81 / hit 0.17
+- 범위: single 0.89
+- 재료: none 0.89
+- 구슬의 운명: returns 0.82 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.81 / used_up 0.15
+- 지속 기간 v2: instant 0.92
+- 지속 기간 A: instant 0.94
+- 지속 기간 B: instant 0.93
+- 지속 기간 S(0~4 점수): 0.27
+- 성질: scaling 0.18, risky 0.29, random 0.17, network 0.13
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 가성비
+- 동사: money 0.76 / amplify 0.10 / buff 0.06
+- 역할: build 0.49 / cast 0.36 / summon 0.13
+- 시점: now 0.80 / repeating 0.19
+- 발동 조건: none 1.00
+- 범위: single 0.75 / wide 0.22
+- 재료: gold 0.62 / none 0.36
+- 구슬의 운명: returns 0.72 / used_up 0.15 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / passive 0.17 / used_up 0.15
+- 지속 기간 v2: forever 0.32 / run 0.29 / instant 0.27
+- 지속 기간 A: instant 0.51 / run 0.17 / turns 0.14
+- 지속 기간 B: instant 0.34 / stage 0.32 / turns 0.15
+- 지속 기간 S(0~4 점수): 1.97
+- 성질: scaling 0.16, risky 0.09, random 0.08, network 0.08
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 창렬
+- 동사: buff 0.25 / money 0.18 / damage 0.12 / amplify 0.12 / create 0.05
+- 역할: summon 0.42 / cast 0.32 / build 0.16
+- 시점: now 0.74 / repeating 0.19
+- 발동 조건: none 0.89
+- 범위: single 0.56 / wide 0.24 / around 0.13
+- 재료: none 0.62 / gold 0.25
+- 구슬의 운명: returns 0.68 / used_up 0.16 / passive 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / passive 0.25 / used_up 0.15
+- 지속 기간 v2: run 0.33 / forever 0.25 / instant 0.25
+- 지속 기간 A: instant 0.43 / run 0.19 / turns 0.15
+- 지속 기간 B: instant 0.37 / stage 0.26 / turns 0.16
+- 지속 기간 S(0~4 점수): 1.90
+- 성질: scaling 0.24, risky 0.14, random 0.18, network 0.22
+- 힘: 2.2 | 지시문으로 읽힘 0.03
+### 혜자
+- 동사: money 0.26 / heal 0.19 / buff 0.15 / peek 0.07
+- 역할: summon 0.58 / cast 0.19 / build 0.15
+- 시점: now 0.68 / repeating 0.24
+- 발동 조건: none 0.86
+- 범위: single 0.70 / wide 0.15 / around 0.11
+- 재료: none 0.57 / gold 0.25
+- 구슬의 운명: returns 0.72 / passive 0.15 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / passive 0.28 / used_up 0.13
+- 지속 기간 v2: run 0.30 / forever 0.30 / instant 0.22
+- 지속 기간 A: instant 0.38 / turns 0.22 / run 0.18
+- 지속 기간 B: instant 0.40 / stage 0.21 / turns 0.19
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.23, risky 0.15, random 0.19, network 0.14
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 존버
+- 동사: guard 0.28 / control 0.19 / money 0.15 / recycle 0.12 / tempo 0.07
+- 역할: cast 0.49 / build 0.25 / summon 0.14
+- 시점: repeating 0.41 / delayed 0.38 / now 0.21
+- 발동 조건: none 0.84 / approach 0.11
+- 범위: single 0.79 / wide 0.17
+- 재료: none 0.78 / gold 0.15
+- 구슬의 운명: returns 0.52 / passive 0.31 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.52 / passive 0.31 / used_up 0.17
+- 지속 기간 v2: turns 0.44 / run 0.26 / forever 0.17
+- 지속 기간 A: turns 0.49 / stage 0.19 / instant 0.13
+- 지속 기간 B: stage 0.67 / turns 0.12 / forever 0.12
+- 지속 기간 S(0~4 점수): 2.50
+- 성질: scaling 0.18, risky 0.31, random 0.17, network 0.10
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 똥겜
+- 동사: trash 0.55 / money 0.17 / debuff 0.14 / damage 0.06
+- 역할: cast 0.65 / build 0.20
+- 시점: now 0.93
+- 발동 조건: none 1.00
+- 범위: single 0.74 / wide 0.21
+- 재료: none 0.80 / gold 0.13
+- 구슬의 운명: returns 0.69 / used_up 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.25 / passive 0.14
+- 지속 기간 v2: run 0.38 / forever 0.29 / instant 0.22
+- 지속 기간 A: instant 0.64 / run 0.14 / turns 0.11
+- 지속 기간 B: instant 0.59 / stage 0.21
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.15, risky 0.29, random 0.15, network 0.08
+- 힘: 0.4 | 지시문으로 읽힘 0.03
+### 갓겜
+- 동사: money 0.51 / buff 0.15 / amplify 0.07
+- 역할: cast 0.56 / build 0.24 / summon 0.15
+- 시점: now 0.81 / repeating 0.17
+- 발동 조건: none 1.00
+- 범위: single 0.52 / wide 0.44
+- 재료: none 0.70 / gold 0.28
+- 구슬의 운명: returns 0.66 / used_up 0.20 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.20 / passive 0.18
+- 지속 기간 v2: forever 0.30 / instant 0.24 / run 0.23
+- 지속 기간 A: instant 0.44 / turns 0.20 / run 0.17
+- 지속 기간 B: instant 0.33 / stage 0.31 / forever 0.21
+- 지속 기간 S(0~4 점수): 2.00
+- 성질: scaling 0.41, risky 0.17, random 0.26, network 0.11
+- 힘: 2.8 | 지시문으로 읽힘 0.03
+### 누킹
+- 동사: damage 0.96
+- 역할: cast 0.97
+- 시점: now 0.81 / delayed 0.18
+- 발동 조건: none 0.90
+- 범위: around 0.56 / wide 0.31 / single 0.12
+- 재료: none 0.80 / gold 0.13
+- 구슬의 운명: returns 0.62 / used_up 0.37
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.39
+- 지속 기간 v2: instant 0.91
+- 지속 기간 A: instant 0.93
+- 지속 기간 B: instant 0.87
+- 지속 기간 S(0~4 점수): 0.72
+- 성질: scaling 0.20, risky 0.28, random 0.21, network 0.19
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 물몸
+- 동사: heal 0.22 / guard 0.21 / buff 0.11 / transform 0.10 / control 0.09
+- 역할: cast 0.37 / summon 0.34 / move 0.19
+- 시점: now 0.72 / repeating 0.25
+- 발동 조건: none 0.80 / hit 0.14
+- 범위: single 0.90
+- 재료: none 0.83
+- 구슬의 운명: returns 0.66 / passive 0.20 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / passive 0.38 / used_up 0.14
+- 지속 기간 v2: forever 0.34 / turns 0.32 / run 0.21
+- 지속 기간 A: turns 0.40 / instant 0.27 / forever 0.14
+- 지속 기간 B: stage 0.33 / instant 0.24 / turns 0.23
+- 지속 기간 S(0~4 점수): 2.20
+- 성질: scaling 0.13, risky 0.16, random 0.11, network 0.09
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 딜찍누
+- 동사: money 0.25 / peek 0.17 / steal 0.10 / amplify 0.09 / damage 0.09
+- 역할: cast 0.54 / move 0.19 / summon 0.16
+- 시점: now 0.74 / delayed 0.13 / repeating 0.13
+- 발동 조건: none 0.73 / approach 0.11 / hit 0.10
+- 범위: single 0.64 / wide 0.14 / line 0.13
+- 재료: gold 0.42 / none 0.41 / food 0.10
+- 구슬의 운명: returns 0.69 / used_up 0.20 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.65 / used_up 0.20 / passive 0.14
+- 지속 기간 v2: instant 0.58 / run 0.14 / turns 0.13
+- 지속 기간 A: instant 0.62 / turns 0.17
+- 지속 기간 B: instant 0.53 / turns 0.18 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.33
+- 성질: scaling 0.24, risky 0.34, random 0.49, network 0.26
+- 힘: 1.2 | 지시문으로 읽힘 0.05
+### 뇌절
+- 동사: recycle 0.19 / trash 0.16 / debuff 0.15 / damage 0.09 / amplify 0.08
+- 역할: cast 0.67 / summon 0.13 / move 0.11
+- 시점: now 0.66 / repeating 0.29
+- 발동 조건: none 0.96
+- 범위: single 0.75 / wide 0.14
+- 재료: none 0.90
+- 구슬의 운명: returns 0.63 / used_up 0.24 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.24 / passive 0.14
+- 지속 기간 v2: turns 0.46 / instant 0.30 / run 0.13
+- 지속 기간 A: instant 0.58 / turns 0.26
+- 지속 기간 B: instant 0.42 / stage 0.26 / turns 0.21
+- 지속 기간 S(0~4 점수): 1.45
+- 성질: scaling 0.15, risky 0.27, random 0.14, network 0.13
+- 힘: 0.6 | 지시문으로 읽힘 0.04
+### 든든한국밥
+- 동사: heal 0.31 / money 0.19 / buff 0.19 / energy 0.09 / create 0.06
+- 역할: cast 0.43 / summon 0.26 / build 0.25
+- 시점: now 0.85 / repeating 0.13
+- 발동 조건: none 1.00
+- 범위: single 0.87
+- 재료: food 0.97
+- 구슬의 운명: returns 0.59 / used_up 0.31
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / used_up 0.30 / passive 0.16
+- 지속 기간 v2: instant 0.44 / run 0.27 / turns 0.19
+- 지속 기간 A: instant 0.55 / turns 0.21 / run 0.13
+- 지속 기간 B: instant 0.62 / stage 0.17 / turns 0.15
+- 지속 기간 S(0~4 점수): 1.40
+- 성질: scaling 0.13, risky 0.07, random 0.08, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 버스승객
+- 동사: money 0.39 / draw 0.20 / control 0.16 / create 0.06
+- 역할: summon 0.64 / move 0.32
+- 시점: now 0.78 / repeating 0.19
+- 발동 조건: none 0.92
+- 범위: single 0.59 / wide 0.19 / around 0.11
+- 재료: none 0.76 / gold 0.18
+- 구슬의 운명: returns 0.74 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.22
+- 지속 기간 v2: run 0.31 / turns 0.29 / instant 0.23
+- 지속 기간 A: instant 0.57 / turns 0.21
+- 지속 기간 B: instant 0.53 / turns 0.24 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.97
+- 성질: scaling 0.17, risky 0.07, random 0.13, network 0.37
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 막타
+- 동사: damage 0.75 / control 0.06 / guard 0.06
+- 역할: cast 0.87
+- 시점: now 0.86
+- 발동 조건: none 0.59 / hit 0.28
+- 범위: single 0.52 / around 0.27 / line 0.17
+- 재료: none 0.40 / ore 0.26 / gold 0.20
+- 구슬의 운명: returns 0.70 / used_up 0.26
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.25
+- 지속 기간 v2: instant 0.74 / turns 0.11
+- 지속 기간 A: instant 0.81
+- 지속 기간 B: instant 0.74 / turns 0.14
+- 지속 기간 S(0~4 점수): 0.71
+- 성질: scaling 0.17, risky 0.25, random 0.14, network 0.18
+- 힘: 2.1 | 지시문으로 읽힘 0.02
+### 떡상
+- 동사: amplify 0.39 / money 0.21 / grow 0.14 / buff 0.08
+- 역할: cast 0.59 / build 0.20 / move 0.11
+- 시점: now 0.41 / repeating 0.38 / delayed 0.21
+- 발동 조건: none 0.92
+- 범위: single 0.67 / wide 0.24
+- 재료: food 0.40 / gold 0.32 / none 0.25
+- 구슬의 운명: returns 0.61 / used_up 0.23 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.52 / passive 0.25 / used_up 0.23
+- 지속 기간 v2: turns 0.36 / instant 0.24 / run 0.20
+- 지속 기간 A: instant 0.36 / turns 0.30 / run 0.13
+- 지속 기간 B: stage 0.37 / instant 0.28 / turns 0.19
+- 지속 기간 S(0~4 점수): 2.13
+- 성질: scaling 0.80, risky 0.20, random 0.49, network 0.14
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 떡락
+- 동사: damage 0.25 / money 0.17 / debuff 0.06 / trash 0.05
+- 역할: cast 0.53 / move 0.22 / summon 0.13
+- 시점: now 0.64 / delayed 0.26
+- 발동 조건: none 0.80
+- 범위: single 0.65 / around 0.17
+- 재료: food 0.63 / none 0.19 / gold 0.15
+- 구슬의 운명: returns 0.67 / used_up 0.25
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.28 / passive 0.10
+- 지속 기간 v2: instant 0.59 / turns 0.19 / run 0.11
+- 지속 기간 A: instant 0.62 / turns 0.20
+- 지속 기간 B: instant 0.54 / turns 0.24 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.16
+- 성질: scaling 0.22, risky 0.51, random 0.63, network 0.14
+- 힘: 1.1 | 지시문으로 읽힘 0.03
+### 민트초코
+- 동사: money 0.26 / create 0.21 / heal 0.11 / control 0.07 / grow 0.06
+- 역할: cast 0.52 / build 0.28 / summon 0.12
+- 시점: now 0.89
+- 발동 조건: none 1.00
+- 범위: single 0.87
+- 재료: food 0.96
+- 구슬의 운명: returns 0.68 / used_up 0.24
+- 구슬의 운명(자동 문구 재작성): returns 0.65 / used_up 0.25 / passive 0.11
+- 지속 기간 v2: instant 0.31 / turns 0.27 / run 0.21
+- 지속 기간 A: instant 0.56 / turns 0.22 / run 0.11
+- 지속 기간 B: instant 0.53 / turns 0.23 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.34
+- 성질: scaling 0.09, risky 0.06, random 0.09, network 0.07
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+
+## 추상·감정
+
+### 침묵의나선
+- 동사: control 0.64 / debuff 0.13 / recycle 0.12
+- 역할: cast 0.48 / build 0.24 / move 0.23
+- 시점: repeating 0.45 / now 0.31 / delayed 0.24
+- 발동 조건: none 0.77 / approach 0.21
+- 범위: around 0.46 / line 0.44
+- 재료: none 0.95
+- 구슬의 운명: returns 0.80 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / used_up 0.13 / passive 0.12
+- 지속 기간 v2: run 0.36 / turns 0.28 / forever 0.27
+- 지속 기간 A: turns 0.44 / run 0.16 / stage 0.14
+- 지속 기간 B: turns 0.43 / stage 0.34 / instant 0.16
+- 지속 기간 S(0~4 점수): 1.94
+- 성질: scaling 0.25, risky 0.18, random 0.09, network 0.30
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 엔트로피
+- 동사: trash 0.24 / transform 0.24 / debuff 0.17 / damage 0.10 / energy 0.06
+- 역할: cast 0.87
+- 시점: repeating 0.53 / delayed 0.24 / now 0.23
+- 발동 조건: none 0.95
+- 범위: wide 0.75 / around 0.16
+- 재료: none 1.00
+- 구슬의 운명: returns 0.78 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / passive 0.15 / used_up 0.14
+- 지속 기간 v2: forever 0.91
+- 지속 기간 A: turns 0.35 / instant 0.30 / forever 0.20
+- 지속 기간 B: stage 0.36 / instant 0.31 / turns 0.17
+- 지속 기간 S(0~4 점수): 2.76
+- 성질: scaling 0.49, risky 0.30, random 0.87, network 0.30
+- 힘: 3.3 | 지시문으로 읽힘 0.01
+### 인과율
+- 동사: recycle 0.37 / amplify 0.34 / money 0.05
+- 역할: cast 0.87
+- 시점: delayed 0.70 / now 0.24
+- 발동 조건: none 0.78
+- 범위: wide 0.82 / single 0.13
+- 재료: none 0.98
+- 구슬의 운명: returns 0.66 / passive 0.22 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / passive 0.34 / used_up 0.10
+- 지속 기간 v2: forever 0.99
+- 지속 기간 A: instant 0.42 / forever 0.32 / turns 0.16
+- 지속 기간 B: forever 0.34 / stage 0.27 / instant 0.26
+- 지속 기간 S(0~4 점수): 2.95
+- 성질: scaling 0.38, risky 0.22, random 0.28, network 0.62
+- 힘: 3.8 | 지시문으로 읽힘 0.02
+### 허무
+- 동사: trash 0.51 / remove 0.35
+- 역할: cast 0.75 / build 0.12
+- 시점: now 0.83 / repeating 0.10
+- 발동 조건: none 0.97
+- 범위: wide 0.54 / single 0.39
+- 재료: none 0.98
+- 구슬의 운명: returns 0.64 / used_up 0.20 / passive 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.21 / passive 0.18
+- 지속 기간 v2: forever 0.50 / instant 0.23 / turns 0.22
+- 지속 기간 A: instant 0.60 / forever 0.17 / turns 0.14
+- 지속 기간 B: instant 0.63 / stage 0.16 / forever 0.12
+- 지속 기간 S(0~4 점수): 1.65
+- 성질: scaling 0.10, risky 0.21, random 0.15, network 0.07
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 절망
+- 동사: debuff 0.79 / damage 0.08 / remove 0.05
+- 역할: cast 0.88
+- 시점: now 0.79 / repeating 0.16
+- 발동 조건: none 0.94
+- 범위: wide 0.49 / single 0.39 / around 0.10
+- 재료: none 1.00
+- 구슬의 운명: returns 0.59 / used_up 0.25 / passive 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.53 / used_up 0.26 / passive 0.21
+- 지속 기간 v2: forever 0.49 / turns 0.34
+- 지속 기간 A: instant 0.40 / turns 0.29 / forever 0.14
+- 지속 기간 B: stage 0.42 / instant 0.30 / turns 0.13
+- 지속 기간 S(0~4 점수): 2.63
+- 성질: scaling 0.21, risky 0.58, random 0.12, network 0.06
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 질투
+- 동사: steal 0.53 / debuff 0.20 / transform 0.13 / amplify 0.06
+- 역할: cast 0.85
+- 시점: now 0.71 / repeating 0.24
+- 발동 조건: none 0.86
+- 범위: single 0.70 / wide 0.18
+- 재료: none 0.99
+- 구슬의 운명: returns 0.68 / passive 0.21 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.54 / passive 0.35 / used_up 0.11
+- 지속 기간 v2: turns 0.64 / forever 0.18
+- 지속 기간 A: instant 0.43 / turns 0.39
+- 지속 기간 B: instant 0.34 / stage 0.32 / turns 0.25
+- 지속 기간 S(0~4 점수): 2.03
+- 성질: scaling 0.22, risky 0.32, random 0.10, network 0.13
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 탐욕
+- 동사: money 0.61 / steal 0.31 / draw 0.06
+- 역할: cast 0.73 / build 0.15
+- 시점: now 0.54 / repeating 0.43
+- 발동 조건: none 0.97
+- 범위: single 0.58 / wide 0.33
+- 재료: none 0.68 / gold 0.32
+- 구슬의 운명: returns 0.75 / passive 0.14 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / passive 0.30
+- 지속 기간 v2: forever 0.62 / run 0.15 / turns 0.15
+- 지속 기간 A: instant 0.39 / turns 0.33 / forever 0.10
+- 지속 기간 B: stage 0.37 / instant 0.32 / turns 0.20
+- 지속 기간 S(0~4 점수): 2.28
+- 성질: scaling 0.48, risky 0.36, random 0.10, network 0.09
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 나태
+- 동사: debuff 0.65 / control 0.22 / money 0.06
+- 역할: cast 0.58 / summon 0.18 / build 0.13
+- 시점: delayed 0.37 / repeating 0.33 / now 0.30
+- 발동 조건: none 0.94
+- 범위: single 0.76 / wide 0.18
+- 재료: none 0.96
+- 구슬의 운명: returns 0.59 / passive 0.30 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / passive 0.40 / used_up 0.12
+- 지속 기간 v2: turns 0.46 / forever 0.34 / run 0.12
+- 지속 기간 A: turns 0.55 / instant 0.20 / forever 0.11
+- 지속 기간 B: stage 0.44 / turns 0.23 / instant 0.19
+- 지속 기간 S(0~4 점수): 2.58
+- 성질: scaling 0.16, risky 0.15, random 0.07, network 0.05
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 열등감
+- 동사: debuff 0.70 / transform 0.08 / money 0.06
+- 역할: cast 0.80
+- 시점: now 0.67 / repeating 0.29
+- 발동 조건: none 0.98
+- 범위: single 0.75 / wide 0.18
+- 재료: none 1.00
+- 구슬의 운명: returns 0.62 / passive 0.23 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): passive 0.49 / returns 0.39 / used_up 0.12
+- 지속 기간 v2: turns 0.60 / run 0.21 / forever 0.16
+- 지속 기간 A: turns 0.40 / instant 0.34 / forever 0.10
+- 지속 기간 B: stage 0.39 / instant 0.26 / turns 0.16
+- 지속 기간 S(0~4 점수): 2.46
+- 성질: scaling 0.22, risky 0.34, random 0.07, network 0.08
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 자본주의
+- 동사: money 0.98
+- 역할: build 0.47 / cast 0.42
+- 시점: now 0.49 / repeating 0.45
+- 발동 조건: none 1.00
+- 범위: wide 0.81 / single 0.16
+- 재료: gold 0.87 / none 0.13
+- 구슬의 운명: returns 0.82 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.11 / used_up 0.10
+- 지속 기간 v2: forever 0.88 / run 0.11
+- 지속 기간 A: run 0.29 / forever 0.28 / instant 0.25
+- 지속 기간 B: stage 0.42 / instant 0.25 / forever 0.16
+- 지속 기간 S(0~4 점수): 2.97
+- 성질: scaling 0.80, risky 0.11, random 0.11, network 0.33
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 공리주의
+- 동사: money 0.39 / amplify 0.16 / buff 0.13 / transform 0.08
+- 역할: cast 0.78 / build 0.14
+- 시점: now 0.79 / repeating 0.18
+- 발동 조건: none 0.99
+- 범위: wide 0.88
+- 재료: none 0.96
+- 구슬의 운명: returns 0.79 / used_up 0.11 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / passive 0.12 / used_up 0.11
+- 지속 기간 v2: forever 0.91
+- 지속 기간 A: instant 0.44 / forever 0.18 / turns 0.15
+- 지속 기간 B: stage 0.36 / instant 0.30 / forever 0.20
+- 지속 기간 S(0~4 점수): 2.39
+- 성질: scaling 0.12, risky 0.12, random 0.07, network 0.27
+- 힘: 1.8 | 지시문으로 읽힘 0.03
+### 데자뷔
+- 동사: recycle 0.90
+- 역할: cast 0.67 / move 0.25
+- 시점: repeating 0.47 / now 0.37 / delayed 0.15
+- 발동 조건: none 0.92
+- 범위: single 0.69 / wide 0.24
+- 재료: none 0.98
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / passive 0.12
+- 지속 기간 v2: instant 0.69 / turns 0.24
+- 지속 기간 A: instant 0.59 / turns 0.30
+- 지속 기간 B: instant 0.40 / stage 0.29 / turns 0.23
+- 지속 기간 S(0~4 점수): 1.01
+- 성질: scaling 0.11, risky 0.15, random 0.18, network 0.08
+- 힘: 1.4 | 지시문으로 읽힘 0.02
+### 망각
+- 동사: trash 0.82 / remove 0.16
+- 역할: cast 0.87
+- 시점: now 0.81 / delayed 0.11
+- 발동 조건: none 0.92
+- 범위: single 0.54 / wide 0.36
+- 재료: none 0.99
+- 구슬의 운명: returns 0.71 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.63 / used_up 0.24 / passive 0.12
+- 지속 기간 v2: forever 0.70 / instant 0.12
+- 지속 기간 A: instant 0.35 / forever 0.31 / turns 0.23
+- 지속 기간 B: instant 0.29 / stage 0.29 / forever 0.19
+- 지속 기간 S(0~4 점수): 3.05
+- 성질: scaling 0.12, risky 0.36, random 0.13, network 0.08
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 고독
+- 동사: debuff 0.35 / control 0.11 / remove 0.09 / guard 0.08 / buff 0.06
+- 역할: cast 0.56 / summon 0.24 / build 0.10
+- 시점: now 0.67 / repeating 0.28
+- 발동 조건: none 0.95
+- 범위: single 0.85 / wide 0.10
+- 재료: none 0.99
+- 구슬의 운명: returns 0.67 / passive 0.20 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.52 / passive 0.35 / used_up 0.13
+- 지속 기간 v2: turns 0.42 / forever 0.33 / run 0.19
+- 지속 기간 A: turns 0.36 / instant 0.30 / forever 0.14
+- 지속 기간 B: stage 0.42 / instant 0.22 / turns 0.17
+- 지속 기간 S(0~4 점수): 2.72
+- 성질: scaling 0.12, risky 0.31, random 0.08, network 0.06
+- 힘: 1.1 | 지시문으로 읽힘 0.02
+### 트라우마
+- 동사: debuff 0.72 / damage 0.10 / control 0.06
+- 역할: cast 0.83
+- 시점: now 0.44 / delayed 0.28 / repeating 0.27
+- 발동 조건: none 0.79 / hit 0.15
+- 범위: single 0.71 / wide 0.18 / around 0.10
+- 재료: none 0.99
+- 구슬의 운명: returns 0.60 / used_up 0.20 / passive 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.42 / passive 0.40 / used_up 0.18
+- 지속 기간 v2: forever 0.76 / run 0.16
+- 지속 기간 A: turns 0.35 / forever 0.23 / instant 0.20
+- 지속 기간 B: stage 0.39 / forever 0.21 / instant 0.19
+- 지속 기간 S(0~4 점수): 2.92
+- 성질: scaling 0.17, risky 0.68, random 0.13, network 0.07
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 아이러니
+- 동사: recycle 0.42 / transform 0.30 / debuff 0.11 / amplify 0.07 / money 0.05
+- 역할: cast 0.84
+- 시점: now 0.70 / delayed 0.18 / repeating 0.13
+- 발동 조건: none 0.97
+- 범위: single 0.72 / wide 0.21
+- 재료: none 0.97
+- 구슬의 운명: returns 0.73 / passive 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / passive 0.26 / used_up 0.12
+- 지속 기간 v2: forever 0.42 / instant 0.34 / turns 0.16
+- 지속 기간 A: instant 0.59 / turns 0.21 / forever 0.11
+- 지속 기간 B: instant 0.42 / stage 0.30 / turns 0.13
+- 지속 기간 S(0~4 점수): 1.84
+- 성질: scaling 0.12, risky 0.22, random 0.18, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.03
+### 우울
+- 동사: debuff 0.83
+- 역할: cast 0.80
+- 시점: now 0.57 / repeating 0.35
+- 발동 조건: none 0.95
+- 범위: single 0.75 / wide 0.12 / around 0.11
+- 재료: none 0.99
+- 구슬의 운명: returns 0.62 / passive 0.23 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.52 / passive 0.32 / used_up 0.16
+- 지속 기간 v2: turns 0.89
+- 지속 기간 A: turns 0.62 / instant 0.19 / stage 0.11
+- 지속 기간 B: turns 0.42 / stage 0.34 / instant 0.16
+- 지속 기간 S(0~4 점수): 2.34
+- 성질: scaling 0.12, risky 0.38, random 0.08, network 0.05
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 광기
+- 동사: debuff 0.49 / damage 0.18 / control 0.10 / transform 0.09
+- 역할: cast 0.83 / summon 0.12
+- 시점: now 0.73 / repeating 0.24
+- 발동 조건: none 0.95
+- 범위: single 0.38 / wide 0.37 / around 0.24
+- 재료: none 0.99
+- 구슬의 운명: returns 0.69 / passive 0.16 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / passive 0.25 / used_up 0.16
+- 지속 기간 v2: turns 0.65 / forever 0.23
+- 지속 기간 A: turns 0.55 / instant 0.26
+- 지속 기간 B: instant 0.32 / turns 0.32 / stage 0.26
+- 지속 기간 S(0~4 점수): 2.14
+- 성질: scaling 0.24, risky 0.57, random 0.75, network 0.08
+- 힘: 2.2 | 지시문으로 읽힘 0.01
+### 희생
+- 동사: damage 0.35 / trash 0.19 / energy 0.09 / transform 0.07 / steal 0.07
+- 역할: cast 0.85 / summon 0.10
+- 시점: now 0.95
+- 발동 조건: none 0.78 / death 0.20
+- 범위: single 0.80 / wide 0.11
+- 재료: none 0.94
+- 구슬의 운명: returns 0.52 / used_up 0.43
+- 구슬의 운명(자동 문구 재작성): used_up 0.47 / returns 0.47
+- 지속 기간 v2: instant 0.79 / run 0.12
+- 지속 기간 A: instant 0.90
+- 지속 기간 B: instant 0.79 / stage 0.12
+- 지속 기간 S(0~4 점수): 0.87
+- 성질: scaling 0.11, risky 0.92, random 0.11, network 0.09
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 카타르시스
+- 동사: remove 0.62 / heal 0.17 / trash 0.11
+- 역할: cast 0.95
+- 시점: now 0.97
+- 발동 조건: none 0.91
+- 범위: single 0.54 / wide 0.26 / around 0.19
+- 재료: none 0.99
+- 구슬의 운명: returns 0.65 / used_up 0.33
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.35
+- 지속 기간 v2: instant 0.87
+- 지속 기간 A: instant 0.88
+- 지속 기간 B: instant 0.80
+- 지속 기간 S(0~4 점수): 0.56
+- 성질: scaling 0.11, risky 0.25, random 0.12, network 0.10
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 윤회
+- 동사: recycle 0.99
+- 역할: move 0.39 / cast 0.34 / summon 0.24
+- 시점: repeating 0.72 / delayed 0.22
+- 발동 조건: death 0.63 / none 0.36
+- 범위: wide 0.61 / single 0.30
+- 재료: none 0.95
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.84
+- 지속 기간 v2: forever 0.91
+- 지속 기간 A: forever 0.36 / turns 0.25 / instant 0.23
+- 지속 기간 B: forever 0.30 / stage 0.28 / instant 0.17
+- 지속 기간 S(0~4 점수): 2.82
+- 성질: scaling 0.26, risky 0.29, random 0.26, network 0.26
+- 힘: 3.2 | 지시문으로 읽힘 0.02
+
+## 일상 사물
+
+### 바나나껍질
+- 동사: debuff 0.40 / control 0.32 / trash 0.19
+- 역할: cast 0.63 / move 0.18 / build 0.17
+- 시점: now 0.83 / delayed 0.11
+- 발동 조건: approach 0.74 / none 0.25
+- 범위: single 0.70 / around 0.17 / line 0.12
+- 재료: food 0.99
+- 구슬의 운명: returns 0.47 / used_up 0.41 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.46 / used_up 0.43 / passive 0.11
+- 지속 기간 v2: turns 0.44 / instant 0.36 / run 0.11
+- 지속 기간 A: turns 0.57 / instant 0.37
+- 지속 기간 B: turns 0.59 / instant 0.36
+- 지속 기간 S(0~4 점수): 0.95
+- 성질: scaling 0.07, risky 0.21, random 0.31, network 0.06
+- 힘: 0.1 | 지시문으로 읽힘 0.01
+### 레고블록
+- 동사: create 0.75 / guard 0.09
+- 역할: build 0.91
+- 시점: now 0.92
+- 발동 조건: none 0.99
+- 범위: single 0.76 / around 0.12
+- 재료: none 0.46 / ore 0.31 / wood 0.19
+- 구슬의 운명: returns 0.77 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.20
+- 지속 기간 v2: run 0.79 / forever 0.16
+- 지속 기간 A: run 0.38 / instant 0.30 / forever 0.24
+- 지속 기간 B: stage 0.38 / instant 0.24 / forever 0.18
+- 지속 기간 S(0~4 점수): 2.41
+- 성질: scaling 0.23, risky 0.05, random 0.10, network 0.32
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 젖은수건
+- 동사: remove 0.39 / heal 0.17 / trash 0.10 / debuff 0.06 / control 0.05
+- 역할: cast 0.70 / build 0.15 / move 0.13
+- 시점: now 0.89
+- 발동 조건: none 0.96
+- 범위: single 0.91
+- 재료: none 0.68 / wood 0.25
+- 구슬의 운명: returns 0.75 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.23
+- 지속 기간 v2: turns 0.37 / run 0.32 / instant 0.15
+- 지속 기간 A: instant 0.60 / turns 0.27
+- 지속 기간 B: instant 0.53 / turns 0.33 / stage 0.12
+- 지속 기간 S(0~4 점수): 1.28
+- 성질: scaling 0.07, risky 0.07, random 0.06, network 0.05
+- 힘: 0.2 | 지시문으로 읽힘 0.03
+### USB메모리
+- 동사: money 0.40 / create 0.17 / transform 0.15 / recycle 0.09 / draw 0.05
+- 역할: build 0.39 / move 0.31 / cast 0.24
+- 시점: now 0.91
+- 발동 조건: none 0.99
+- 범위: single 0.89
+- 재료: ore 0.75 / none 0.19
+- 구슬의 운명: returns 0.92
+- 구슬의 운명(자동 문구 재작성): returns 0.94
+- 지속 기간 v2: run 0.50 / forever 0.47
+- 지속 기간 A: run 0.38 / instant 0.37 / forever 0.17
+- 지속 기간 B: stage 0.28 / instant 0.28 / forever 0.25
+- 지속 기간 S(0~4 점수): 2.53
+- 성질: scaling 0.11, risky 0.05, random 0.06, network 0.16
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 압정
+- 동사: control 0.66 / guard 0.10 / create 0.09
+- 역할: build 0.70 / cast 0.17 / move 0.11
+- 시점: now 0.84 / repeating 0.10
+- 발동 조건: none 0.51 / approach 0.45
+- 범위: single 0.81 / around 0.11
+- 재료: ore 0.90
+- 구슬의 운명: returns 0.64 / used_up 0.26
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.25
+- 지속 기간 v2: run 0.55 / forever 0.20 / instant 0.19
+- 지속 기간 A: instant 0.40 / forever 0.28 / run 0.19
+- 지속 기간 B: stage 0.38 / instant 0.33 / forever 0.14
+- 지속 기간 S(0~4 점수): 2.68
+- 성질: scaling 0.11, risky 0.12, random 0.08, network 0.14
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 커피머신
+- 동사: money 0.28 / energy 0.27 / create 0.21 / buff 0.11 / recycle 0.05
+- 역할: build 0.71 / summon 0.16 / cast 0.11
+- 시점: now 0.77 / repeating 0.20
+- 발동 조건: none 0.99
+- 범위: single 0.87
+- 재료: food 0.84 / ore 0.13
+- 구슬의 운명: returns 0.95
+- 구슬의 운명(자동 문구 재작성): returns 0.93
+- 지속 기간 v2: run 0.90
+- 지속 기간 A: instant 0.38 / run 0.36 / turns 0.14
+- 지속 기간 B: instant 0.37 / stage 0.26 / turns 0.26
+- 지속 기간 S(0~4 점수): 1.69
+- 성질: scaling 0.12, risky 0.06, random 0.08, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 뽁뽁이
+- 동사: money 0.18 / create 0.11 / damage 0.10 / amplify 0.09 / control 0.07
+- 역할: summon 0.39 / cast 0.34 / build 0.14
+- 시점: now 0.74 / repeating 0.19
+- 발동 조건: none 0.85
+- 범위: single 0.80 / around 0.14
+- 재료: none 0.67 / gold 0.15 / food 0.11
+- 구슬의 운명: returns 0.67 / used_up 0.24
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.24 / passive 0.15
+- 지속 기간 v2: instant 0.35 / run 0.27 / turns 0.20
+- 지속 기간 A: instant 0.54 / turns 0.23
+- 지속 기간 B: instant 0.54 / turns 0.26 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.23
+- 성질: scaling 0.17, risky 0.13, random 0.26, network 0.12
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 진공청소기
+- 동사: trash 0.45 / draw 0.25 / remove 0.23
+- 역할: cast 0.50 / summon 0.26 / move 0.20
+- 시점: now 0.83 / repeating 0.17
+- 발동 조건: none 0.88 / approach 0.12
+- 범위: around 0.48 / single 0.23 / line 0.22
+- 재료: ore 0.65 / none 0.29
+- 구슬의 운명: returns 0.96
+- 구슬의 운명(자동 문구 재작성): returns 0.95
+- 지속 기간 v2: run 0.70 / instant 0.12
+- 지속 기간 A: instant 0.54 / turns 0.18 / run 0.16
+- 지속 기간 B: instant 0.53 / turns 0.25 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.26
+- 성질: scaling 0.10, risky 0.05, random 0.06, network 0.22
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 지우개
+- 동사: remove 0.97
+- 역할: cast 0.88
+- 시점: now 0.99
+- 발동 조건: none 0.98
+- 범위: single 0.84
+- 재료: none 0.70 / ore 0.16 / wood 0.10
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.91
+- 지속 기간 v2: instant 0.79 / run 0.13
+- 지속 기간 A: instant 0.94
+- 지속 기간 B: instant 0.86
+- 지속 기간 S(0~4 점수): 0.58
+- 성질: scaling 0.06, risky 0.06, random 0.06, network 0.06
+- 힘: 0.4 | 지시문으로 읽힘 0.03
+### 박스테이프
+- 동사: create 0.42 / control 0.17 / guard 0.13 / money 0.08
+- 역할: build 0.56 / cast 0.25 / move 0.14
+- 시점: now 0.76 / repeating 0.15
+- 발동 조건: none 0.88
+- 범위: single 0.66 / line 0.22
+- 재료: ore 0.36 / wood 0.22 / none 0.21
+- 구슬의 운명: returns 0.74 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / used_up 0.19
+- 지속 기간 v2: run 0.43 / instant 0.27 / forever 0.19
+- 지속 기간 A: instant 0.40 / forever 0.22 / run 0.21
+- 지속 기간 B: instant 0.39 / stage 0.25 / turns 0.18
+- 지속 기간 S(0~4 점수): 2.08
+- 성질: scaling 0.16, risky 0.10, random 0.11, network 0.15
+- 힘: 0.7 | 지시문으로 읽힘 0.03
+### 각설탕
+- 동사: money 0.35 / create 0.15 / debuff 0.06 / harvest 0.06 / control 0.05
+- 역할: cast 0.48 / build 0.26 / move 0.14
+- 시점: now 0.78 / delayed 0.11 / repeating 0.11
+- 발동 조건: none 0.93
+- 범위: single 0.84
+- 재료: food 0.88
+- 구슬의 운명: used_up 0.46 / returns 0.44 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / used_up 0.43
+- 지속 기간 v2: instant 0.33 / run 0.28 / forever 0.21
+- 지속 기간 A: instant 0.55 / turns 0.20 / run 0.12
+- 지속 기간 B: instant 0.51 / turns 0.20 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.35
+- 성질: scaling 0.15, risky 0.16, random 0.14, network 0.08
+- 힘: 0.5 | 지시문으로 읽힘 0.04
+### 이태리타월
+- 동사: heal 0.24 / create 0.17 / remove 0.13 / money 0.08 / draw 0.06
+- 역할: build 0.32 / cast 0.31 / move 0.21
+- 시점: now 0.82 / repeating 0.13
+- 발동 조건: none 0.90
+- 범위: single 0.71 / wide 0.16
+- 재료: none 0.53 / wood 0.19 / food 0.11
+- 구슬의 운명: returns 0.74 / used_up 0.16 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.20
+- 지속 기간 v2: run 0.45 / forever 0.18 / instant 0.18
+- 지속 기간 A: instant 0.43 / turns 0.20 / run 0.20
+- 지속 기간 B: instant 0.46 / turns 0.22 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.57
+- 성질: scaling 0.11, risky 0.07, random 0.10, network 0.13
+- 힘: 0.8 | 지시문으로 읽힘 0.03
+### 모기향
+- 동사: debuff 0.32 / damage 0.23 / control 0.15 / remove 0.12 / guard 0.06
+- 역할: cast 0.73 / build 0.23
+- 시점: repeating 0.66 / now 0.29
+- 발동 조건: none 0.70 / approach 0.29
+- 범위: around 0.75 / single 0.15
+- 재료: none 0.66 / wood 0.21 / food 0.10
+- 구슬의 운명: returns 0.37 / passive 0.36 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.40 / passive 0.32 / used_up 0.28
+- 지속 기간 v2: turns 0.64 / run 0.24
+- 지속 기간 A: turns 0.62 / stage 0.24
+- 지속 기간 B: stage 0.53 / turns 0.36
+- 지속 기간 S(0~4 점수): 1.64
+- 성질: scaling 0.13, risky 0.14, random 0.07, network 0.13
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 파리채
+- 동사: damage 0.49 / control 0.18 / draw 0.09 / trash 0.09 / remove 0.08
+- 역할: cast 0.85
+- 시점: now 0.87 / repeating 0.12
+- 발동 조건: none 0.72 / approach 0.20
+- 범위: single 0.68 / around 0.18 / line 0.13
+- 재료: wood 0.61 / none 0.18 / ore 0.15
+- 구슬의 운명: returns 0.96
+- 구슬의 운명(자동 문구 재작성): returns 0.94
+- 지속 기간 v2: run 0.40 / instant 0.35 / forever 0.14
+- 지속 기간 A: instant 0.80
+- 지속 기간 B: instant 0.79 / turns 0.13
+- 지속 기간 S(0~4 점수): 0.98
+- 성질: scaling 0.08, risky 0.07, random 0.08, network 0.09
+- 힘: 0.3 | 지시문으로 읽힘 0.02
+### 젖은신문지
+- 동사: trash 0.42 / peek 0.11 / money 0.10 / debuff 0.09 / control 0.05
+- 역할: cast 0.54 / build 0.32 / move 0.11
+- 시점: now 0.89
+- 발동 조건: none 0.93
+- 범위: single 0.89
+- 재료: wood 0.71 / none 0.22
+- 구슬의 운명: used_up 0.53 / returns 0.43
+- 구슬의 운명(자동 문구 재작성): used_up 0.50 / returns 0.45
+- 지속 기간 v2: turns 0.42 / run 0.24 / instant 0.20
+- 지속 기간 A: instant 0.59 / turns 0.24
+- 지속 기간 B: instant 0.56 / turns 0.34
+- 지속 기간 S(0~4 점수): 1.20
+- 성질: scaling 0.10, risky 0.09, random 0.12, network 0.07
+- 힘: 0.2 | 지시문으로 읽힘 0.02
+### 종이비행기
+- 동사: tempo 0.38 / create 0.16 / control 0.10 / peek 0.06 / trash 0.06
+- 역할: move 0.55 / cast 0.21 / summon 0.12
+- 시점: now 0.87
+- 발동 조건: none 0.99
+- 범위: line 0.50 / single 0.45
+- 재료: wood 0.50 / none 0.46
+- 구슬의 운명: returns 0.65 / used_up 0.34
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.37
+- 지속 기간 v2: instant 0.50 / turns 0.25 / run 0.18
+- 지속 기간 A: instant 0.72 / turns 0.15
+- 지속 기간 B: instant 0.65 / turns 0.27
+- 지속 기간 S(0~4 점수): 0.75
+- 성질: scaling 0.07, risky 0.06, random 0.30, network 0.07
+- 힘: 0.2 | 지시문으로 읽힘 0.01
+### 고무줄
+- 동사: control 0.52 / recycle 0.13 / tempo 0.07 / buff 0.05
+- 역할: move 0.51 / cast 0.33 / build 0.12
+- 시점: now 0.78 / repeating 0.11 / delayed 0.11
+- 발동 조건: none 0.85 / approach 0.12
+- 범위: single 0.47 / line 0.46
+- 재료: none 0.71 / wood 0.16
+- 구슬의 운명: returns 0.86 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.86
+- 지속 기간 v2: run 0.49 / forever 0.19 / turns 0.15
+- 지속 기간 A: instant 0.44 / turns 0.34
+- 지속 기간 B: turns 0.39 / instant 0.30 / stage 0.21
+- 지속 기간 S(0~4 점수): 1.57
+- 성질: scaling 0.12, risky 0.10, random 0.16, network 0.48
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 이쑤시개
+- 동사: damage 0.32 / money 0.10 / create 0.10 / draw 0.06 / steal 0.06
+- 역할: cast 0.37 / summon 0.26 / move 0.21
+- 시점: now 0.71 / repeating 0.15 / delayed 0.14
+- 발동 조건: none 0.72 / approach 0.16
+- 범위: single 0.53 / line 0.22 / wide 0.13
+- 재료: food 0.60 / none 0.15 / gold 0.12
+- 구슬의 운명: returns 0.67 / used_up 0.25
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.25
+- 지속 기간 v2: instant 0.34 / run 0.26 / forever 0.22
+- 지속 기간 A: instant 0.46 / turns 0.22 / run 0.16
+- 지속 기간 B: instant 0.44 / stage 0.19 / turns 0.18
+- 지속 기간 S(0~4 점수): 1.67
+- 성질: scaling 0.21, risky 0.31, random 0.28, network 0.20
+- 힘: 1.6 | 지시문으로 읽힘 0.04
+### 돋보기
+- 동사: peek 0.94 / amplify 0.06
+- 역할: cast 0.88
+- 시점: now 0.93
+- 발동 조건: none 0.93
+- 범위: single 0.76 / around 0.13
+- 재료: ore 0.65 / none 0.27
+- 구슬의 운명: returns 0.94
+- 구슬의 운명(자동 문구 재작성): returns 0.92
+- 지속 기간 v2: run 0.45 / forever 0.32 / turns 0.11
+- 지속 기간 A: instant 0.53 / turns 0.27
+- 지속 기간 B: instant 0.49 / turns 0.26 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.75
+- 성질: scaling 0.17, risky 0.06, random 0.07, network 0.11
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 형광펜
+- 동사: peek 0.28 / amplify 0.17 / create 0.12 / draw 0.10 / buff 0.07
+- 역할: cast 0.74 / build 0.22
+- 시점: now 0.78 / repeating 0.20
+- 발동 조건: none 0.95
+- 범위: line 0.53 / single 0.42
+- 재료: none 0.54 / ore 0.30
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.87 / used_up 0.10
+- 지속 기간 v2: run 0.50 / forever 0.28 / turns 0.14
+- 지속 기간 A: turns 0.37 / instant 0.33 / stage 0.14
+- 지속 기간 B: turns 0.32 / instant 0.31 / stage 0.29
+- 지속 기간 S(0~4 점수): 1.81
+- 성질: scaling 0.07, risky 0.05, random 0.07, network 0.07
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+
+## 의학·신체
+
+### 아드레날린
+- 동사: buff 0.54 / tempo 0.39 / energy 0.06
+- 역할: cast 0.89
+- 시점: now 0.87 / repeating 0.12
+- 발동 조건: none 0.83 / hit 0.14
+- 범위: single 0.92
+- 재료: none 1.00
+- 구슬의 운명: returns 0.62 / used_up 0.22 / passive 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.22 / passive 0.18
+- 지속 기간 v2: turns 0.86
+- 지속 기간 A: turns 0.76 / instant 0.17
+- 지속 기간 B: turns 0.69 / instant 0.26
+- 지속 기간 S(0~4 점수): 1.09
+- 성질: scaling 0.16, risky 0.31, random 0.17, network 0.08
+- 힘: 1.1 | 지시문으로 읽힘 0.02
+### 파상풍
+- 동사: damage 0.43 / debuff 0.32 / control 0.08 / heal 0.07
+- 역할: cast 0.80
+- 시점: delayed 0.53 / now 0.39
+- 발동 조건: none 0.59 / hit 0.36
+- 범위: single 0.67 / around 0.12 / wide 0.11
+- 재료: none 0.86
+- 구슬의 운명: returns 0.64 / used_up 0.24 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.24 / passive 0.16
+- 지속 기간 v2: run 0.34 / instant 0.23 / turns 0.21
+- 지속 기간 A: instant 0.42 / turns 0.42
+- 지속 기간 B: instant 0.35 / stage 0.28 / turns 0.25
+- 지속 기간 S(0~4 점수): 2.04
+- 성질: scaling 0.19, risky 0.50, random 0.09, network 0.12
+- 힘: 1.4 | 지시문으로 읽힘 0.02
+### 동맥경화
+- 동사: debuff 0.77 / control 0.08 / damage 0.06
+- 역할: cast 0.75 / build 0.18
+- 시점: delayed 0.65 / repeating 0.19 / now 0.15
+- 발동 조건: none 0.90
+- 범위: single 0.46 / wide 0.28 / line 0.16
+- 재료: none 0.79 / ore 0.10
+- 구슬의 운명: returns 0.62 / used_up 0.21 / passive 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / used_up 0.23 / passive 0.21
+- 지속 기간 v2: forever 0.65 / run 0.30
+- 지속 기간 A: turns 0.39 / forever 0.24 / instant 0.17
+- 지속 기간 B: stage 0.36 / forever 0.25 / turns 0.17
+- 지속 기간 S(0~4 점수): 2.95
+- 성질: scaling 0.44, risky 0.61, random 0.07, network 0.40
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 카페인쇼크
+- 동사: tempo 0.32 / energy 0.30 / buff 0.18 / damage 0.09 / debuff 0.07
+- 역할: cast 0.97
+- 시점: now 0.97
+- 발동 조건: none 0.96
+- 범위: single 0.85
+- 재료: none 0.74 / food 0.25
+- 구슬의 운명: returns 0.56 / used_up 0.40
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / used_up 0.38
+- 지속 기간 v2: instant 0.76 / turns 0.24
+- 지속 기간 A: instant 0.64 / turns 0.35
+- 지속 기간 B: instant 0.60 / turns 0.37
+- 지속 기간 S(0~4 점수): 0.78
+- 성질: scaling 0.14, risky 0.50, random 0.33, network 0.07
+- 힘: 1.8 | 지시문으로 읽힘 0.02
+### 편두통
+- 동사: debuff 0.54 / damage 0.36
+- 역할: cast 0.90
+- 시점: now 0.48 / repeating 0.47
+- 발동 조건: none 0.87
+- 범위: single 0.79 / around 0.14
+- 재료: none 0.97
+- 구슬의 운명: returns 0.55 / used_up 0.23 / passive 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.51 / used_up 0.26 / passive 0.23
+- 지속 기간 v2: turns 0.83 / instant 0.10
+- 지속 기간 A: turns 0.75 / instant 0.18
+- 지속 기간 B: turns 0.55 / instant 0.25 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.40
+- 성질: scaling 0.13, risky 0.72, random 0.10, network 0.06
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 젖산축적
+- 동사: debuff 0.63 / damage 0.06 / energy 0.06
+- 역할: cast 0.78 / build 0.13
+- 시점: delayed 0.50 / repeating 0.29 / now 0.21
+- 발동 조건: none 0.83 / hit 0.15
+- 범위: single 0.92
+- 재료: none 0.80 / food 0.17
+- 구슬의 운명: returns 0.46 / passive 0.37 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): passive 0.47 / returns 0.37 / used_up 0.16
+- 지속 기간 v2: turns 0.65 / forever 0.12
+- 지속 기간 A: turns 0.69 / instant 0.15
+- 지속 기간 B: turns 0.37 / stage 0.29 / instant 0.23
+- 지속 기간 S(0~4 점수): 1.94
+- 성질: scaling 0.43, risky 0.45, random 0.06, network 0.10
+- 힘: 0.9 | 지시문으로 읽힘 0.02
+### 저혈당
+- 동사: debuff 0.52 / heal 0.16 / energy 0.09 / money 0.09 / damage 0.05
+- 역할: cast 0.80
+- 시점: now 0.62 / repeating 0.26 / delayed 0.13
+- 발동 조건: none 0.86 / hit 0.11
+- 범위: single 0.86
+- 재료: none 0.54 / food 0.42
+- 구슬의 운명: returns 0.58 / used_up 0.21 / passive 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.51 / passive 0.25 / used_up 0.24
+- 지속 기간 v2: turns 0.63 / instant 0.19
+- 지속 기간 A: turns 0.57 / instant 0.34
+- 지속 기간 B: instant 0.44 / turns 0.35 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.11, risky 0.51, random 0.09, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 복합골절
+- 동사: damage 0.69 / debuff 0.18 / control 0.05
+- 역할: cast 0.87
+- 시점: now 0.87
+- 발동 조건: none 0.64 / hit 0.34
+- 범위: single 0.90
+- 재료: none 0.83 / ore 0.11
+- 구슬의 운명: returns 0.60 / used_up 0.30 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / used_up 0.31 / passive 0.13
+- 지속 기간 v2: instant 0.34 / turns 0.23 / run 0.20
+- 지속 기간 A: instant 0.62 / turns 0.23
+- 지속 기간 B: instant 0.37 / stage 0.32 / turns 0.25
+- 지속 기간 S(0~4 점수): 1.69
+- 성질: scaling 0.13, risky 0.58, random 0.10, network 0.15
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 뇌진탕
+- 동사: damage 0.51 / debuff 0.28 / control 0.20
+- 역할: cast 0.94
+- 시점: now 0.93
+- 발동 조건: none 0.74 / hit 0.18
+- 범위: around 0.59 / single 0.32
+- 재료: none 0.96
+- 구슬의 운명: returns 0.69 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.28
+- 지속 기간 v2: instant 0.65 / turns 0.30
+- 지속 기간 A: instant 0.70 / turns 0.25
+- 지속 기간 B: instant 0.54 / turns 0.36
+- 지속 기간 S(0~4 점수): 1.16
+- 성질: scaling 0.13, risky 0.61, random 0.35, network 0.14
+- 힘: 2.3 | 지시문으로 읽힘 0.03
+### 급성위염
+- 동사: debuff 0.46 / damage 0.30 / heal 0.13
+- 역할: cast 0.81
+- 시점: now 0.82
+- 발동 조건: none 0.96
+- 범위: single 0.92
+- 재료: none 0.82 / food 0.15
+- 구슬의 운명: returns 0.67 / used_up 0.24
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.27 / passive 0.11
+- 지속 기간 v2: turns 0.65 / stage 0.15 / run 0.10
+- 지속 기간 A: turns 0.71 / instant 0.18
+- 지속 기간 B: turns 0.50 / instant 0.30 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.29
+- 성질: scaling 0.09, risky 0.51, random 0.08, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 면역결핍
+- 동사: debuff 0.90
+- 역할: cast 0.91
+- 시점: now 0.54 / repeating 0.38
+- 발동 조건: none 0.87 / hit 0.10
+- 범위: single 0.64 / wide 0.22 / around 0.13
+- 재료: none 0.98
+- 구슬의 운명: returns 0.62 / used_up 0.19 / passive 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.52 / passive 0.29 / used_up 0.19
+- 지속 기간 v2: forever 0.47 / turns 0.30 / run 0.17
+- 지속 기간 A: turns 0.62 / instant 0.13 / stage 0.11
+- 지속 기간 B: stage 0.43 / turns 0.31 / instant 0.12
+- 지속 기간 S(0~4 점수): 2.39
+- 성질: scaling 0.19, risky 0.64, random 0.08, network 0.21
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 호르몬폭주
+- 동사: amplify 0.34 / buff 0.31 / tempo 0.12 / debuff 0.06
+- 역할: cast 0.92
+- 시점: now 0.91
+- 발동 조건: none 0.97
+- 범위: single 0.55 / around 0.24 / wide 0.19
+- 재료: none 0.99
+- 구슬의 운명: returns 0.57 / used_up 0.35
+- 구슬의 운명(자동 문구 재작성): returns 0.53 / used_up 0.39
+- 지속 기간 v2: turns 0.74 / instant 0.22
+- 지속 기간 A: turns 0.63 / instant 0.31
+- 지속 기간 B: turns 0.53 / instant 0.33 / stage 0.13
+- 지속 기간 S(0~4 점수): 1.15
+- 성질: scaling 0.37, risky 0.47, random 0.65, network 0.13
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 동상
+- 동사: control 0.50 / create 0.18 / guard 0.10 / money 0.08 / transform 0.06
+- 역할: build 0.83 / summon 0.13
+- 시점: now 0.77 / repeating 0.14
+- 발동 조건: none 0.70 / approach 0.26
+- 범위: single 0.91
+- 재료: ore 0.94
+- 구슬의 운명: returns 0.50 / passive 0.29 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / passive 0.30 / used_up 0.22
+- 지속 기간 v2: run 0.87 / forever 0.12
+- 지속 기간 A: run 0.66 / forever 0.21
+- 지속 기간 B: stage 0.33 / instant 0.29 / forever 0.29
+- 지속 기간 S(0~4 점수): 3.03
+- 성질: scaling 0.13, risky 0.12, random 0.09, network 0.10
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 탈수
+- 동사: steal 0.41 / remove 0.19 / debuff 0.18 / damage 0.05
+- 역할: cast 0.89
+- 시점: now 0.82 / repeating 0.14
+- 발동 조건: none 0.95
+- 범위: single 0.72 / around 0.14
+- 재료: none 0.93
+- 구슬의 운명: returns 0.74 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.23
+- 지속 기간 v2: instant 0.60 / turns 0.20 / forever 0.12
+- 지속 기간 A: instant 0.65 / turns 0.26
+- 지속 기간 B: instant 0.62 / turns 0.20 / stage 0.12
+- 지속 기간 S(0~4 점수): 1.54
+- 성질: scaling 0.12, risky 0.31, random 0.07, network 0.08
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 과호흡
+- 동사: energy 0.21 / debuff 0.21 / tempo 0.12 / amplify 0.10 / heal 0.09
+- 역할: cast 0.87
+- 시점: now 0.62 / repeating 0.36
+- 발동 조건: none 0.94
+- 범위: single 0.89
+- 재료: none 0.97
+- 구슬의 운명: returns 0.69 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.22 / passive 0.12
+- 지속 기간 v2: turns 0.65 / instant 0.31
+- 지속 기간 A: turns 0.58 / instant 0.39
+- 지속 기간 B: turns 0.51 / instant 0.40
+- 지속 기간 S(0~4 점수): 0.86
+- 성질: scaling 0.15, risky 0.57, random 0.14, network 0.12
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 환각
+- 동사: transform 0.42 / debuff 0.32 / control 0.16
+- 역할: cast 0.95
+- 시점: now 0.77 / repeating 0.21
+- 발동 조건: none 0.93
+- 범위: single 0.52 / around 0.23 / wide 0.21
+- 재료: none 1.00
+- 구슬의 운명: returns 0.74 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / passive 0.15 / used_up 0.13
+- 지속 기간 v2: turns 0.88
+- 지속 기간 A: turns 0.77 / instant 0.14
+- 지속 기간 B: turns 0.57 / instant 0.20 / stage 0.20
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.10, risky 0.21, random 0.26, network 0.08
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 심실세동
+- 동사: debuff 0.31 / damage 0.22 / control 0.10 / recycle 0.08 / tempo 0.07
+- 역할: cast 0.82
+- 시점: now 0.53 / repeating 0.44
+- 발동 조건: none 0.91
+- 범위: single 0.64 / around 0.18 / wide 0.15
+- 재료: none 0.95
+- 구슬의 운명: returns 0.72 / used_up 0.18 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.19 / passive 0.16
+- 지속 기간 v2: turns 0.52 / instant 0.23 / forever 0.12
+- 지속 기간 A: turns 0.55 / instant 0.32
+- 지속 기간 B: turns 0.41 / instant 0.36 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.53
+- 성질: scaling 0.13, risky 0.43, random 0.49, network 0.14
+- 힘: 1.4 | 지시문으로 읽힘 0.03
+### 세포괴사
+- 동사: damage 0.90 / debuff 0.08
+- 역할: cast 0.96
+- 시점: now 0.63 / delayed 0.25 / repeating 0.12
+- 발동 조건: none 0.75 / death 0.14 / hit 0.10
+- 범위: single 0.64 / around 0.26
+- 재료: none 0.95
+- 구슬의 운명: returns 0.66 / used_up 0.26
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.27
+- 지속 기간 v2: instant 0.81 / turns 0.11
+- 지속 기간 A: instant 0.71 / turns 0.24
+- 지속 기간 B: instant 0.79 / turns 0.13
+- 지속 기간 S(0~4 점수): 1.50
+- 성질: scaling 0.14, risky 0.59, random 0.07, network 0.31
+- 힘: 1.8 | 지시문으로 읽힘 0.03
+### 신경마비
+- 동사: control 0.81 / debuff 0.19
+- 역할: cast 0.99
+- 시점: now 0.85 / repeating 0.12
+- 발동 조건: none 0.82 / hit 0.14
+- 범위: single 0.69 / around 0.17
+- 재료: none 0.99
+- 구슬의 운명: returns 0.80 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.14
+- 지속 기간 v2: turns 0.89
+- 지속 기간 A: turns 0.85
+- 지속 기간 B: turns 0.65 / stage 0.24
+- 지속 기간 S(0~4 점수): 1.64
+- 성질: scaling 0.10, risky 0.42, random 0.06, network 0.29
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 도파민과다
+- 동사: amplify 0.37 / buff 0.23 / money 0.10 / debuff 0.10 / energy 0.07
+- 역할: cast 0.81
+- 시점: now 0.62 / repeating 0.34
+- 발동 조건: none 0.96
+- 범위: single 0.68 / wide 0.19 / around 0.11
+- 재료: none 0.98
+- 구슬의 운명: returns 0.58 / used_up 0.28 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / used_up 0.28 / passive 0.23
+- 지속 기간 v2: turns 0.71 / instant 0.15
+- 지속 기간 A: turns 0.61 / instant 0.28
+- 지속 기간 B: instant 0.37 / stage 0.28 / turns 0.27
+- 지속 기간 S(0~4 점수): 1.66
+- 성질: scaling 0.32, risky 0.33, random 0.14, network 0.09
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+
+## 위험·희생
+
+### 자폭
+- 동사: damage 0.96
+- 역할: cast 1.00
+- 시점: now 0.88 / delayed 0.12
+- 발동 조건: none 0.83 / approach 0.11
+- 범위: around 0.75 / single 0.23
+- 재료: none 0.93
+- 구슬의 운명: used_up 0.92
+- 구슬의 운명(자동 문구 재작성): used_up 0.94
+- 지속 기간 v2: instant 1.00
+- 지속 기간 A: instant 1.00
+- 지속 기간 B: instant 1.00
+- 지속 기간 S(0~4 점수): 0.12
+- 성질: scaling 0.07, risky 0.95, random 0.39, network 0.28
+- 힘: 1.9 | 지시문으로 읽힘 0.02
+### 동귀어진
+- 동사: recycle 0.25 / transform 0.19 / amplify 0.14 / money 0.07 / control 0.06
+- 역할: move 0.46 / cast 0.37 / summon 0.12
+- 시점: now 0.68 / repeating 0.22 / delayed 0.11
+- 발동 조건: none 0.77 / death 0.12
+- 범위: wide 0.65 / single 0.19 / line 0.10
+- 재료: none 0.76 / gold 0.16
+- 구슬의 운명: returns 0.72 / used_up 0.18 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / used_up 0.18 / passive 0.14
+- 지속 기간 v2: forever 0.50 / instant 0.19 / run 0.19
+- 지속 기간 A: instant 0.43 / turns 0.23 / forever 0.14
+- 지속 기간 B: stage 0.40 / instant 0.25 / forever 0.16
+- 지속 기간 S(0~4 점수): 2.30
+- 성질: scaling 0.25, risky 0.29, random 0.24, network 0.59
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 폭주
+- 동사: tempo 0.61 / damage 0.21 / buff 0.07
+- 역할: cast 0.67 / move 0.29
+- 시점: now 0.74 / repeating 0.23
+- 발동 조건: none 0.94
+- 범위: single 0.33 / line 0.26 / around 0.23
+- 재료: none 0.92
+- 구슬의 운명: returns 0.74 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.20
+- 지속 기간 v2: turns 0.68 / instant 0.20
+- 지속 기간 A: turns 0.57 / instant 0.32
+- 지속 기간 B: turns 0.51 / instant 0.31 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.33
+- 성질: scaling 0.34, risky 0.46, random 0.74, network 0.18
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 엔진과열
+- 동사: damage 0.41 / debuff 0.39 / trash 0.08
+- 역할: cast 0.87
+- 시점: now 0.51 / repeating 0.26 / delayed 0.23
+- 발동 조건: none 0.94
+- 범위: single 0.84 / around 0.11
+- 재료: none 0.90
+- 구슬의 운명: returns 0.63 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.26
+- 지속 기간 v2: turns 0.67 / instant 0.25
+- 지속 기간 A: turns 0.53 / instant 0.39
+- 지속 기간 B: turns 0.52 / instant 0.31 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.26
+- 성질: scaling 0.41, risky 0.49, random 0.10, network 0.09
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 유리대포
+- 동사: damage 0.96
+- 역할: cast 0.68 / build 0.28
+- 시점: now 0.93
+- 발동 조건: none 0.78 / approach 0.15
+- 범위: line 0.68 / single 0.17 / around 0.14
+- 재료: ore 0.88
+- 구슬의 운명: returns 0.80 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / used_up 0.19
+- 지속 기간 v2: run 0.53 / instant 0.38
+- 지속 기간 A: instant 0.72 / run 0.12
+- 지속 기간 B: instant 0.79
+- 지속 기간 S(0~4 점수): 0.79
+- 성질: scaling 0.13, risky 0.21, random 0.16, network 0.13
+- 힘: 2.3 | 지시문으로 읽힘 0.01
+### 시한폭탄
+- 동사: damage 0.95
+- 역할: cast 0.71 / build 0.29
+- 시점: delayed 0.99
+- 발동 조건: none 0.51 / approach 0.44
+- 범위: around 0.61 / single 0.34
+- 재료: none 0.63 / ore 0.34
+- 구슬의 운명: used_up 0.90
+- 구슬의 운명(자동 문구 재작성): used_up 0.90
+- 지속 기간 v2: turns 0.59 / instant 0.36
+- 지속 기간 A: turns 0.71 / instant 0.24
+- 지속 기간 B: turns 0.58 / stage 0.23 / instant 0.18
+- 지속 기간 S(0~4 점수): 0.99
+- 성질: scaling 0.16, risky 0.71, random 0.44, network 0.11
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 흡혈역류
+- 동사: steal 0.68 / heal 0.20 / damage 0.05
+- 역할: cast 0.79 / move 0.19
+- 시점: repeating 0.69 / now 0.27
+- 발동 조건: none 0.48 / hit 0.39
+- 범위: around 0.44 / line 0.33 / single 0.16
+- 재료: none 0.92
+- 구슬의 운명: returns 0.84 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.11 / used_up 0.10
+- 지속 기간 v2: turns 0.65 / instant 0.19
+- 지속 기간 A: turns 0.65 / instant 0.21 / stage 0.11
+- 지속 기간 B: turns 0.47 / instant 0.27 / stage 0.22
+- 지속 기간 S(0~4 점수): 1.37
+- 성질: scaling 0.51, risky 0.64, random 0.08, network 0.53
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+### 영혼저당
+- 동사: steal 0.29 / money 0.20 / control 0.17 / energy 0.15 / debuff 0.05
+- 역할: cast 0.66 / summon 0.26
+- 시점: now 0.79 / repeating 0.11 / delayed 0.10
+- 발동 조건: none 0.76 / death 0.21
+- 범위: single 0.93
+- 재료: none 0.97
+- 구슬의 운명: returns 0.69 / used_up 0.26
+- 구슬의 운명(자동 문구 재작성): returns 0.63 / used_up 0.29
+- 지속 기간 v2: forever 0.62 / run 0.26
+- 지속 기간 A: instant 0.33 / turns 0.31 / forever 0.14
+- 지속 기간 B: stage 0.34 / instant 0.30 / forever 0.18
+- 지속 기간 S(0~4 점수): 2.70
+- 성질: scaling 0.16, risky 0.89, random 0.09, network 0.09
+- 힘: 2.8 | 지시문으로 읽힘 0.02
+### 생명력제물
+- 동사: heal 0.30 / damage 0.22 / steal 0.17 / energy 0.16
+- 역할: cast 0.77 / summon 0.17
+- 시점: now 0.93
+- 발동 조건: none 0.84 / death 0.12
+- 범위: single 0.92
+- 재료: none 0.95
+- 구슬의 운명: used_up 0.66 / returns 0.32
+- 구슬의 운명(자동 문구 재작성): used_up 0.66 / returns 0.31
+- 지속 기간 v2: instant 0.86
+- 지속 기간 A: instant 0.91
+- 지속 기간 B: instant 0.83
+- 지속 기간 S(0~4 점수): 0.57
+- 성질: scaling 0.14, risky 0.91, random 0.08, network 0.11
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 피아식별불가
+- 동사: transform 0.30 / peek 0.23 / debuff 0.11 / remove 0.11 / trash 0.07
+- 역할: cast 0.67 / summon 0.15 / move 0.11
+- 시점: now 0.81 / repeating 0.15
+- 발동 조건: none 0.80 / approach 0.17
+- 범위: single 0.58 / wide 0.32
+- 재료: none 0.88
+- 구슬의 운명: returns 0.59 / passive 0.21 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / passive 0.22 / used_up 0.22
+- 지속 기간 v2: forever 0.40 / instant 0.30 / turns 0.19
+- 지속 기간 A: instant 0.55 / turns 0.22 / forever 0.11
+- 지속 기간 B: instant 0.44 / stage 0.29 / turns 0.13
+- 지속 기간 S(0~4 점수): 1.93
+- 성질: scaling 0.10, risky 0.14, random 0.23, network 0.12
+- 힘: 1.6 | 지시문으로 읽힘 0.04
+### 오버클럭
+- 동사: tempo 0.58 / buff 0.23 / amplify 0.16
+- 역할: cast 0.89
+- 시점: now 0.74 / repeating 0.25
+- 발동 조건: none 1.00
+- 범위: single 0.91
+- 재료: none 0.95
+- 구슬의 운명: returns 0.91
+- 구슬의 운명(자동 문구 재작성): returns 0.91
+- 지속 기간 v2: turns 0.86
+- 지속 기간 A: turns 0.81
+- 지속 기간 B: turns 0.69 / stage 0.18 / instant 0.11
+- 지속 기간 S(0~4 점수): 1.28
+- 성질: scaling 0.25, risky 0.32, random 0.09, network 0.11
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 방사능오염
+- 동사: debuff 0.84 / damage 0.11
+- 역할: cast 0.73 / build 0.25
+- 시점: repeating 0.63 / now 0.22 / delayed 0.15
+- 발동 조건: none 0.72 / approach 0.25
+- 범위: around 0.57 / wide 0.36
+- 재료: none 0.91
+- 구슬의 운명: returns 0.48 / used_up 0.30 / passive 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.43 / used_up 0.31 / passive 0.26
+- 지속 기간 v2: forever 0.55 / run 0.39
+- 지속 기간 A: forever 0.37 / turns 0.36 / stage 0.15
+- 지속 기간 B: stage 0.53 / turns 0.21 / forever 0.14
+- 지속 기간 S(0~4 점수): 2.93
+- 성질: scaling 0.37, risky 0.73, random 0.22, network 0.28
+- 힘: 2.3 | 지시문으로 읽힘 0.02
+### 저주받은피
+- 동사: debuff 0.76 / heal 0.07 / money 0.06 / steal 0.05
+- 역할: cast 0.88
+- 시점: now 0.52 / repeating 0.41
+- 발동 조건: none 0.78 / hit 0.11
+- 범위: single 0.76 / around 0.11
+- 재료: none 0.87
+- 구슬의 운명: returns 0.52 / used_up 0.31 / passive 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.47 / used_up 0.30 / passive 0.23
+- 지속 기간 v2: forever 0.74 / turns 0.18
+- 지속 기간 A: turns 0.74 / instant 0.14
+- 지속 기간 B: stage 0.31 / turns 0.30 / instant 0.27
+- 지속 기간 S(0~4 점수): 2.25
+- 성질: scaling 0.20, risky 0.92, random 0.15, network 0.09
+- 힘: 2.0 | 지시문으로 읽힘 0.02
+### 부메랑
+- 동사: recycle 0.65 / damage 0.32
+- 역할: cast 0.57 / move 0.42
+- 시점: now 0.57 / delayed 0.25 / repeating 0.18
+- 발동 조건: none 0.80 / hit 0.17
+- 범위: line 0.69 / single 0.25
+- 재료: wood 0.91
+- 구슬의 운명: returns 0.99
+- 구슬의 운명(자동 문구 재작성): returns 0.98
+- 지속 기간 v2: instant 0.65 / run 0.19
+- 지속 기간 A: instant 0.86
+- 지속 기간 B: instant 0.81 / turns 0.14
+- 지속 기간 S(0~4 점수): 0.41
+- 성질: scaling 0.09, risky 0.17, random 0.26, network 0.16
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 잔탄소진
+- 동사: damage 0.19 / trash 0.12 / money 0.10 / create 0.08 / remove 0.07
+- 역할: cast 0.54 / build 0.17 / summon 0.15
+- 시점: now 0.48 / delayed 0.28 / repeating 0.24
+- 발동 조건: none 0.66 / approach 0.13
+- 범위: around 0.29 / wide 0.29 / single 0.27
+- 재료: ore 0.45 / none 0.31
+- 구슬의 운명: returns 0.57 / used_up 0.34
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.32
+- 지속 기간 v2: instant 0.35 / turns 0.24 / forever 0.19
+- 지속 기간 A: turns 0.39 / instant 0.37 / forever 0.12
+- 지속 기간 B: instant 0.38 / stage 0.24 / turns 0.18
+- 지속 기간 S(0~4 점수): 1.90
+- 성질: scaling 0.24, risky 0.28, random 0.19, network 0.21
+- 힘: 2.2 | 지시문으로 읽힘 0.04
+### 누전
+- 동사: damage 0.57 / energy 0.18 / debuff 0.05
+- 역할: cast 0.87
+- 시점: now 0.67 / repeating 0.22 / delayed 0.12
+- 발동 조건: none 0.58 / approach 0.22 / hit 0.18
+- 범위: around 0.41 / single 0.28 / line 0.17
+- 재료: none 0.95
+- 구슬의 운명: returns 0.62 / used_up 0.23 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.22 / passive 0.19
+- 지속 기간 v2: instant 0.82 / turns 0.10
+- 지속 기간 A: instant 0.79 / turns 0.15
+- 지속 기간 B: instant 0.75 / turns 0.14
+- 지속 기간 S(0~4 점수): 0.84
+- 성질: scaling 0.15, risky 0.55, random 0.20, network 0.41
+- 힘: 1.0 | 지시문으로 읽힘 0.02
+### 역풍
+- 동사: control 0.47 / debuff 0.21 / damage 0.09 / amplify 0.06
+- 역할: cast 0.65 / move 0.33
+- 시점: now 0.71 / repeating 0.16 / delayed 0.13
+- 발동 조건: none 0.71 / hit 0.14 / approach 0.11
+- 범위: around 0.50 / line 0.25 / single 0.16
+- 재료: none 0.99
+- 구슬의 운명: returns 0.85
+- 구슬의 운명(자동 문구 재작성): returns 0.81 / used_up 0.11
+- 지속 기간 v2: instant 0.39 / turns 0.39 / stage 0.19
+- 지속 기간 A: instant 0.39 / turns 0.37 / stage 0.22
+- 지속 기간 B: turns 0.48 / instant 0.38 / stage 0.13
+- 지속 기간 S(0~4 점수): 1.17
+- 성질: scaling 0.17, risky 0.35, random 0.34, network 0.21
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 자해공갈
+- 동사: damage 0.41 / control 0.19 / debuff 0.16 / steal 0.09 / money 0.08
+- 역할: cast 0.90
+- 시점: now 0.93
+- 발동 조건: none 0.82
+- 범위: single 0.90
+- 재료: none 0.92
+- 구슬의 운명: returns 0.74 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.24
+- 지속 기간 v2: instant 0.62 / turns 0.24
+- 지속 기간 A: instant 0.73 / turns 0.20
+- 지속 기간 B: instant 0.65 / turns 0.21 / stage 0.11
+- 지속 기간 S(0~4 점수): 1.14
+- 성질: scaling 0.10, risky 0.86, random 0.10, network 0.10
+- 힘: 1.0 | 지시문으로 읽힘 0.04
+### 파멸의계약
+- 동사: damage 0.76 / money 0.09
+- 역할: cast 0.76 / summon 0.13
+- 시점: now 0.67 / delayed 0.19 / repeating 0.14
+- 발동 조건: none 0.87
+- 범위: single 0.57 / wide 0.33
+- 재료: none 0.94
+- 구슬의 운명: returns 0.65 / used_up 0.29
+- 구슬의 운명(자동 문구 재작성): returns 0.58 / used_up 0.31 / passive 0.11
+- 지속 기간 v2: run 0.52 / forever 0.45
+- 지속 기간 A: forever 0.26 / instant 0.25 / turns 0.22
+- 지속 기간 B: stage 0.36 / instant 0.32 / forever 0.17
+- 지속 기간 S(0~4 점수): 2.92
+- 성질: scaling 0.21, risky 0.87, random 0.19, network 0.16
+- 힘: 3.5 | 지시문으로 읽힘 0.02
+### 붕괴위험
+- 동사: damage 0.71 / debuff 0.09 / guard 0.05
+- 역할: cast 0.85 / build 0.12
+- 시점: delayed 0.58 / now 0.34
+- 발동 조건: none 0.67 / approach 0.22
+- 범위: around 0.56 / single 0.25 / wide 0.15
+- 재료: none 0.94
+- 구슬의 운명: returns 0.52 / used_up 0.24 / passive 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.49 / used_up 0.29 / passive 0.22
+- 지속 기간 v2: turns 0.29 / instant 0.26 / forever 0.19
+- 지속 기간 A: instant 0.46 / turns 0.33 / stage 0.13
+- 지속 기간 B: instant 0.43 / turns 0.28 / stage 0.23
+- 지속 기간 S(0~4 점수): 1.74
+- 성질: scaling 0.24, risky 0.51, random 0.35, network 0.17
+- 힘: 2.2 | 지시문으로 읽힘 0.01
+
+## 장난·한계
+
+### 냥냥펀치
+- 동사: damage 0.97
+- 역할: cast 0.96
+- 시점: now 0.98
+- 발동 조건: none 0.89
+- 범위: single 0.87
+- 재료: none 0.90
+- 구슬의 운명: returns 0.88 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.85 / used_up 0.11
+- 지속 기간 v2: instant 0.93
+- 지속 기간 A: instant 0.92
+- 지속 기간 B: instant 0.91
+- 지속 기간 S(0~4 점수): 0.38
+- 성질: scaling 0.12, risky 0.11, random 0.19, network 0.11
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 쌉가능
+- 동사: money 0.17 / remove 0.12 / trash 0.12 / damage 0.08 / debuff 0.08
+- 역할: cast 0.66 / build 0.13 / move 0.13
+- 시점: now 0.76 / delayed 0.18
+- 발동 조건: none 0.90
+- 범위: single 0.74 / wide 0.19
+- 재료: none 0.76 / gold 0.15
+- 구슬의 운명: returns 0.61 / used_up 0.26 / passive 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.25 / passive 0.15
+- 지속 기간 v2: instant 0.53 / forever 0.19 / turns 0.17
+- 지속 기간 A: instant 0.65 / turns 0.16
+- 지속 기간 B: instant 0.52 / stage 0.20 / turns 0.18
+- 지속 기간 S(0~4 점수): 1.21
+- 성질: scaling 0.14, risky 0.25, random 0.26, network 0.11
+- 힘: 1.0 | 지시문으로 읽힘 0.07
+### 어둠의다크
+- 동사: damage 0.52 / debuff 0.23
+- 역할: cast 0.67 / summon 0.20
+- 시점: now 0.87 / repeating 0.10
+- 발동 조건: none 0.96
+- 범위: single 0.50 / wide 0.30 / around 0.16
+- 재료: none 0.97
+- 구슬의 운명: returns 0.80 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.73 / used_up 0.15 / passive 0.12
+- 지속 기간 v2: forever 0.60 / turns 0.16 / run 0.12
+- 지속 기간 A: turns 0.35 / instant 0.33 / forever 0.16
+- 지속 기간 B: stage 0.36 / instant 0.25 / forever 0.21
+- 지속 기간 S(0~4 점수): 2.16
+- 성질: scaling 0.13, risky 0.25, random 0.11, network 0.07
+- 힘: 2.3 | 지시문으로 읽힘 0.03
+### 운명의데스티니
+- 동사: peek 0.66 / recycle 0.08
+- 역할: cast 0.82
+- 시점: now 0.63 / delayed 0.26 / repeating 0.11
+- 발동 조건: none 0.98
+- 범위: wide 0.67 / single 0.30
+- 재료: none 0.98
+- 구슬의 운명: returns 0.61 / passive 0.21 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): passive 0.44 / returns 0.41 / used_up 0.15
+- 지속 기간 v2: forever 0.93
+- 지속 기간 A: instant 0.38 / forever 0.34 / turns 0.12
+- 지속 기간 B: stage 0.42 / forever 0.27 / instant 0.18
+- 지속 기간 S(0~4 점수): 2.95
+- 성질: scaling 0.13, risky 0.30, random 0.64, network 0.08
+- 힘: 3.5 | 지시문으로 읽힘 0.02
+### 폭발폭발폭발
+- 동사: damage 0.95
+- 역할: cast 1.00
+- 시점: now 0.87
+- 발동 조건: none 0.88 / approach 0.10
+- 범위: around 0.89
+- 재료: none 0.96
+- 구슬의 운명: returns 0.55 / used_up 0.43
+- 구슬의 운명(자동 문구 재작성): returns 0.51 / used_up 0.47
+- 지속 기간 v2: instant 0.97
+- 지속 기간 A: instant 0.98
+- 지속 기간 B: instant 0.97
+- 지속 기간 S(0~4 점수): 0.12
+- 성질: scaling 0.26, risky 0.34, random 0.45, network 0.31
+- 힘: 2.4 | 지시문으로 읽힘 0.01
+### 불얼음번개독
+- 동사: damage 0.81 / debuff 0.13 / control 0.07
+- 역할: cast 0.92
+- 시점: now 0.75 / repeating 0.17
+- 발동 조건: none 0.84
+- 범위: single 0.47 / around 0.33 / line 0.13
+- 재료: none 0.99
+- 구슬의 운명: returns 0.73 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.19 / passive 0.12
+- 지속 기간 v2: turns 0.45 / instant 0.29 / forever 0.13
+- 지속 기간 A: turns 0.76 / instant 0.16
+- 지속 기간 B: instant 0.44 / turns 0.35 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.19
+- 성질: scaling 0.11, risky 0.25, random 0.17, network 0.12
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 이것은구슬이다
+- 동사: create 0.55 / money 0.22 / trash 0.06
+- 역할: build 0.53 / cast 0.35
+- 시점: now 0.96
+- 발동 조건: none 1.00
+- 범위: single 0.94
+- 재료: ore 0.86 / none 0.10
+- 구슬의 운명: returns 0.73 / used_up 0.15 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / passive 0.19 / used_up 0.17
+- 지속 기간 v2: forever 0.55 / run 0.36
+- 지속 기간 A: instant 0.54 / forever 0.22 / run 0.19
+- 지속 기간 B: instant 0.55 / forever 0.18 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.93
+- 성질: scaling 0.09, risky 0.07, random 0.18, network 0.07
+- 힘: 0.4 | 지시문으로 읽힘 0.01
+### 아무것도아님
+- 동사: trash 0.62 / remove 0.31
+- 역할: cast 0.70 / build 0.20
+- 시점: now 0.96
+- 발동 조건: none 1.00
+- 범위: single 0.89 / wide 0.10
+- 재료: none 0.98
+- 구슬의 운명: returns 0.52 / used_up 0.24 / passive 0.24
+- 구슬의 운명(자동 문구 재작성): returns 0.47 / used_up 0.30 / passive 0.23
+- 지속 기간 v2: instant 0.48 / forever 0.43
+- 지속 기간 A: instant 0.83
+- 지속 기간 B: instant 0.89
+- 지속 기간 S(0~4 점수): 0.73
+- 성질: scaling 0.06, risky 0.09, random 0.10, network 0.04
+- 힘: 0.1 | 지시문으로 읽힘 0.02
+### 테스트용구슬1호
+- 동사: create 0.34 / trash 0.15 / money 0.13 / recycle 0.12 / peek 0.10
+- 역할: cast 0.73 / build 0.18
+- 시점: now 0.94
+- 발동 조건: none 1.00
+- 범위: single 0.94
+- 재료: none 0.66 / ore 0.27
+- 구슬의 운명: returns 0.87 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.84 / used_up 0.15
+- 지속 기간 v2: run 0.31 / forever 0.26 / instant 0.24
+- 지속 기간 A: instant 0.67 / turns 0.12 / run 0.10
+- 지속 기간 B: instant 0.63 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.28
+- 성질: scaling 0.08, risky 0.06, random 0.22, network 0.07
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 123456789
+- 동사: money 0.32 / trash 0.11 / amplify 0.09 / recycle 0.08 / peek 0.07
+- 역할: cast 0.48 / build 0.24 / move 0.16
+- 시점: now 0.49 / delayed 0.41 / repeating 0.10
+- 발동 조건: none 0.93
+- 범위: single 0.61 / wide 0.28
+- 재료: none 0.66 / gold 0.26
+- 구슬의 운명: returns 0.62 / used_up 0.27 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.27 / passive 0.12
+- 지속 기간 v2: instant 0.35 / forever 0.33 / run 0.15
+- 지속 기간 A: instant 0.51 / turns 0.24 / forever 0.12
+- 지속 기간 B: instant 0.42 / stage 0.26 / forever 0.14
+- 지속 기간 S(0~4 점수): 1.60
+- 성질: scaling 0.14, risky 0.13, random 0.18, network 0.08
+- 힘: 0.5 | 지시문으로 읽힘 0.22
+### 물음표느낌표
+- 동사: peek 0.56 / money 0.07 / amplify 0.06 / trash 0.05 / transform 0.05
+- 역할: cast 0.83
+- 시점: now 0.84 / delayed 0.11
+- 발동 조건: none 0.98
+- 범위: single 0.77 / wide 0.12
+- 재료: none 0.96
+- 구슬의 운명: returns 0.71 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.22
+- 지속 기간 v2: instant 0.62 / turns 0.16 / forever 0.13
+- 지속 기간 A: instant 0.80 / turns 0.11
+- 지속 기간 B: instant 0.70 / turns 0.14 / stage 0.13
+- 지속 기간 S(0~4 점수): 0.96
+- 성질: scaling 0.07, risky 0.14, random 0.45, network 0.06
+- 힘: 0.3 | 지시문으로 읽힘 0.04
+### 무지개빛총공격
+- 동사: damage 0.99
+- 역할: cast 1.00
+- 시점: now 0.97
+- 발동 조건: none 0.98
+- 범위: wide 0.79 / around 0.10
+- 재료: none 0.98
+- 구슬의 운명: returns 0.81 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / used_up 0.20
+- 지속 기간 v2: instant 0.92
+- 지속 기간 A: instant 0.92
+- 지속 기간 B: instant 0.93
+- 지속 기간 S(0~4 점수): 0.28
+- 성질: scaling 0.09, risky 0.14, random 0.23, network 0.35
+- 힘: 3.2 | 지시문으로 읽힘 0.02
+### 내일월요일
+- 동사: peek 0.74 / tempo 0.10 / recycle 0.05
+- 역할: cast 0.68 / move 0.12 / build 0.11
+- 시점: delayed 0.79 / now 0.11 / repeating 0.10
+- 발동 조건: none 0.97
+- 범위: single 0.72 / wide 0.25
+- 재료: none 0.94
+- 구슬의 운명: returns 0.58 / used_up 0.29 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.53 / used_up 0.29 / passive 0.18
+- 지속 기간 v2: turns 0.59 / instant 0.15 / stage 0.11
+- 지속 기간 A: turns 0.44 / instant 0.39
+- 지속 기간 B: turns 0.57 / instant 0.28 / stage 0.12
+- 지속 기간 S(0~4 점수): 1.61
+- 성질: scaling 0.09, risky 0.08, random 0.11, network 0.05
+- 힘: 0.4 | 지시문으로 읽힘 0.01
+### 칼퇴근
+- 동사: tempo 0.24 / money 0.22 / control 0.14 / remove 0.11 / trash 0.07
+- 역할: move 0.46 / cast 0.46
+- 시점: now 0.65 / repeating 0.18 / delayed 0.16
+- 발동 조건: none 0.97
+- 범위: single 0.83 / wide 0.11
+- 재료: none 0.76 / gold 0.22
+- 구슬의 운명: returns 0.75 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / used_up 0.17 / passive 0.15
+- 지속 기간 v2: instant 0.59 / turns 0.20 / run 0.11
+- 지속 기간 A: instant 0.66 / turns 0.18 / stage 0.11
+- 지속 기간 B: instant 0.48 / stage 0.31 / turns 0.16
+- 지속 기간 S(0~4 점수): 1.37
+- 성질: scaling 0.11, risky 0.10, random 0.08, network 0.09
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 기가차드
+- 동사: money 0.40 / damage 0.10 / steal 0.08 / amplify 0.08 / buff 0.06
+- 역할: summon 0.39 / cast 0.23 / move 0.20
+- 시점: now 0.82 / repeating 0.13
+- 발동 조건: none 0.93
+- 범위: single 0.64 / wide 0.25
+- 재료: none 0.42 / gold 0.39
+- 구슬의 운명: returns 0.68 / used_up 0.22 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.21 / passive 0.12
+- 지속 기간 v2: forever 0.34 / run 0.33 / instant 0.20
+- 지속 기간 A: instant 0.42 / run 0.24 / forever 0.14
+- 지속 기간 B: instant 0.32 / stage 0.29 / forever 0.19
+- 지속 기간 S(0~4 점수): 1.94
+- 성질: scaling 0.23, risky 0.16, random 0.16, network 0.15
+- 힘: 2.2 | 지시문으로 읽힘 0.02
+### 최후의만찬
+- 동사: damage 0.28 / money 0.10 / recycle 0.07 / steal 0.07 / heal 0.07
+- 역할: cast 0.60 / summon 0.26
+- 시점: now 0.85 / delayed 0.11
+- 발동 조건: none 0.82 / death 0.16
+- 범위: wide 0.49 / around 0.25 / single 0.22
+- 재료: food 0.57 / none 0.39
+- 구슬의 운명: returns 0.52 / used_up 0.42
+- 구슬의 운명(자동 문구 재작성): used_up 0.48 / returns 0.45
+- 지속 기간 v2: instant 0.63 / run 0.16 / forever 0.10
+- 지속 기간 A: instant 0.68 / stage 0.11
+- 지속 기간 B: instant 0.46 / stage 0.37
+- 지속 기간 S(0~4 점수): 1.41
+- 성질: scaling 0.11, risky 0.68, random 0.10, network 0.56
+- 힘: 3.1 | 지시문으로 읽힘 0.01
+### 갓난아기주먹
+- 동사: damage 0.88
+- 역할: cast 0.56 / summon 0.39
+- 시점: now 0.94
+- 발동 조건: none 0.92
+- 범위: single 0.91
+- 재료: none 0.84
+- 구슬의 운명: returns 0.74 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.20 / passive 0.10
+- 지속 기간 v2: instant 0.62 / run 0.16 / forever 0.12
+- 지속 기간 A: instant 0.80 / turns 0.13
+- 지속 기간 B: instant 0.65 / turns 0.22 / stage 0.10
+- 지속 기간 S(0~4 점수): 0.89
+- 성질: scaling 0.20, risky 0.10, random 0.16, network 0.07
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+### 핵폭탄급방귀
+- 동사: damage 0.76 / debuff 0.17
+- 역할: cast 0.96
+- 시점: now 0.89 / delayed 0.10
+- 발동 조건: none 0.91
+- 범위: around 0.75 / wide 0.22
+- 재료: none 0.89
+- 구슬의 운명: used_up 0.63 / returns 0.35
+- 구슬의 운명(자동 문구 재작성): used_up 0.67 / returns 0.31
+- 지속 기간 v2: instant 0.96
+- 지속 기간 A: instant 0.93
+- 지속 기간 B: instant 0.87
+- 지속 기간 S(0~4 점수): 0.55
+- 성질: scaling 0.12, risky 0.34, random 0.26, network 0.09
+- 힘: 3.0 | 지시문으로 읽힘 0.02
+### 제로수렴
+- 동사: remove 0.18 / recycle 0.18 / control 0.11 / money 0.09 / heal 0.06
+- 역할: cast 0.67 / move 0.20
+- 시점: delayed 0.39 / repeating 0.32 / now 0.29
+- 발동 조건: none 0.90
+- 범위: wide 0.41 / single 0.32 / around 0.19
+- 재료: none 0.90
+- 구슬의 운명: returns 0.77 / used_up 0.12 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / passive 0.16 / used_up 0.13
+- 지속 기간 v2: forever 0.50 / instant 0.25 / turns 0.13
+- 지속 기간 A: instant 0.47 / turns 0.30
+- 지속 기간 B: instant 0.36 / stage 0.33 / forever 0.14
+- 지속 기간 S(0~4 점수): 2.14
+- 성질: scaling 0.21, risky 0.12, random 0.10, network 0.26
+- 힘: 2.6 | 지시문으로 읽힘 0.03
+### 무한대발산
+- 동사: amplify 0.69 / grow 0.14 / recycle 0.10
+- 역할: cast 0.70 / summon 0.16
+- 시점: repeating 0.79 / now 0.16
+- 발동 조건: none 0.96
+- 범위: wide 0.88
+- 재료: none 0.89
+- 구슬의 운명: returns 0.80 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.16 / passive 0.11
+- 지속 기간 v2: forever 0.88
+- 지속 기간 A: instant 0.41 / forever 0.25 / turns 0.23
+- 지속 기간 B: stage 0.41 / instant 0.25 / turns 0.20
+- 지속 기간 S(0~4 점수): 2.66
+- 성질: scaling 0.88, risky 0.21, random 0.26, network 0.26
+- 힘: 3.9 | 지시문으로 읽힘 0.02
+
+## 기존56
+
+### 화염검
+- 동사: damage 1.00
+- 역할: cast 0.94
+- 시점: now 0.97
+- 발동 조건: none 0.90
+- 범위: single 0.57 / line 0.34
+- 재료: none 0.69 / ore 0.31
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.89
+- 지속 기간 v2: run 0.30 / turns 0.28 / instant 0.22
+- 지속 기간 A: instant 0.55 / turns 0.31
+- 지속 기간 B: instant 0.66 / turns 0.23
+- 지속 기간 S(0~4 점수): 0.96
+- 성질: scaling 0.11, risky 0.12, random 0.07, network 0.09
+- 힘: 2.4 | 지시문으로 읽힘 0.01
+### 방패
+- 동사: guard 1.00
+- 역할: cast 0.50 / build 0.46
+- 시점: now 0.84 / repeating 0.15
+- 발동 조건: hit 0.56 / none 0.41
+- 범위: single 0.92
+- 재료: ore 0.92
+- 구슬의 운명: returns 0.62 / passive 0.33
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / passive 0.36
+- 지속 기간 v2: run 0.52 / forever 0.20 / turns 0.19
+- 지속 기간 A: turns 0.32 / instant 0.31 / run 0.17
+- 지속 기간 B: turns 0.35 / instant 0.30 / stage 0.25
+- 지속 기간 S(0~4 점수): 1.82
+- 성질: scaling 0.10, risky 0.07, random 0.05, network 0.10
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 치유의 샘
+- 동사: heal 0.99
+- 역할: cast 0.58 / build 0.40
+- 시점: repeating 0.61 / now 0.37
+- 발동 조건: none 0.95
+- 범위: around 0.64 / single 0.26
+- 재료: none 0.99
+- 구슬의 운명: returns 0.85
+- 구슬의 운명(자동 문구 재작성): returns 0.82 / passive 0.10
+- 지속 기간 v2: run 0.61 / forever 0.17 / turns 0.11
+- 지속 기간 A: turns 0.33 / instant 0.31 / run 0.16
+- 지속 기간 B: instant 0.44 / turns 0.28 / stage 0.23
+- 지속 기간 S(0~4 점수): 1.85
+- 성질: scaling 0.16, risky 0.04, random 0.04, network 0.15
+- 힘: 2.0 | 지시문으로 읽힘 0.00
+### 금화 주머니
+- 동사: money 1.00
+- 역할: cast 0.76 / build 0.16
+- 시점: now 0.60 / repeating 0.39
+- 발동 조건: none 1.00
+- 범위: single 0.95
+- 재료: gold 1.00
+- 구슬의 운명: returns 0.63 / passive 0.30
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / passive 0.23
+- 지속 기간 v2: run 0.65 / forever 0.29
+- 지속 기간 A: instant 0.41 / run 0.37 / forever 0.15
+- 지속 기간 B: instant 0.34 / stage 0.29 / forever 0.23
+- 지속 기간 S(0~4 점수): 2.58
+- 성질: scaling 0.38, risky 0.08, random 0.14, network 0.06
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 곡괭이
+- 동사: harvest 0.95
+- 역할: cast 0.50 / build 0.43
+- 시점: now 0.93
+- 발동 조건: none 0.99
+- 범위: single 0.75 / line 0.15 / around 0.10
+- 재료: ore 0.95
+- 구슬의 운명: returns 0.95
+- 구슬의 운명(자동 문구 재작성): returns 0.95
+- 지속 기간 v2: run 0.63 / forever 0.18 / instant 0.15
+- 지속 기간 A: instant 0.63 / run 0.18
+- 지속 기간 B: instant 0.52 / stage 0.17 / turns 0.15
+- 지속 기간 S(0~4 점수): 1.50
+- 성질: scaling 0.17, risky 0.10, random 0.06, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 씨앗
+- 동사: grow 0.99
+- 역할: build 0.74 / cast 0.13 / summon 0.12
+- 시점: delayed 0.74 / now 0.14 / repeating 0.11
+- 발동 조건: none 0.78 / approach 0.18
+- 범위: single 0.62 / around 0.26
+- 재료: food 0.90
+- 구슬의 운명: returns 0.49 / used_up 0.47
+- 구슬의 운명(자동 문구 재작성): returns 0.50 / used_up 0.41
+- 지속 기간 v2: run 0.83
+- 지속 기간 A: run 0.39 / instant 0.31 / turns 0.17
+- 지속 기간 B: instant 0.38 / stage 0.27 / turns 0.26
+- 지속 기간 S(0~4 점수): 2.19
+- 성질: scaling 0.75, risky 0.11, random 0.17, network 0.15
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 텃밭
+- 동사: grow 0.70 / harvest 0.29
+- 역할: build 0.86
+- 시점: repeating 0.56 / now 0.27 / delayed 0.16
+- 발동 조건: none 0.93
+- 범위: single 0.47 / around 0.40 / line 0.11
+- 재료: food 1.00
+- 구슬의 운명: returns 0.78 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / passive 0.24
+- 지속 기간 v2: run 0.93
+- 지속 기간 A: run 0.58 / forever 0.12 / stage 0.12
+- 지속 기간 B: stage 0.55 / turns 0.15 / instant 0.13
+- 지속 기간 S(0~4 점수): 2.75
+- 성질: scaling 0.38, risky 0.05, random 0.07, network 0.29
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 성벽
+- 동사: guard 0.98
+- 역할: build 0.99
+- 시점: now 0.94
+- 발동 조건: none 0.86 / approach 0.13
+- 범위: line 0.64 / around 0.25
+- 재료: ore 0.95
+- 구슬의 운명: returns 0.73 / used_up 0.16 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.17 / passive 0.12
+- 지속 기간 v2: run 0.94
+- 지속 기간 A: run 0.74 / forever 0.11
+- 지속 기간 B: stage 0.58 / instant 0.19 / forever 0.11
+- 지속 기간 S(0~4 점수): 3.16
+- 성질: scaling 0.15, risky 0.07, random 0.05, network 0.23
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 병사
+- 동사: damage 0.53 / guard 0.20 / create 0.14 / buff 0.06
+- 역할: summon 0.97
+- 시점: now 0.93
+- 발동 조건: none 0.98
+- 범위: single 0.86
+- 재료: food 0.45 / none 0.28 / gold 0.20
+- 구슬의 운명: returns 0.66 / used_up 0.29
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.31
+- 지속 기간 v2: turns 0.39 / run 0.38 / stage 0.15
+- 지속 기간 A: instant 0.48 / turns 0.18 / stage 0.13
+- 지속 기간 B: instant 0.54 / stage 0.25 / turns 0.16
+- 지속 기간 S(0~4 점수): 1.97
+- 성질: scaling 0.20, risky 0.10, random 0.07, network 0.34
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 순간이동
+- 동사: tempo 0.77 / control 0.12 / buff 0.07
+- 역할: move 0.99
+- 시점: now 1.00
+- 발동 조건: none 1.00
+- 범위: single 0.90
+- 재료: none 0.99
+- 구슬의 운명: returns 0.96
+- 구슬의 운명(자동 문구 재작성): returns 0.96
+- 지속 기간 v2: instant 0.96
+- 지속 기간 A: instant 1.00
+- 지속 기간 B: instant 0.98
+- 지속 기간 S(0~4 점수): 0.14
+- 성질: scaling 0.07, risky 0.08, random 0.12, network 0.15
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 시한폭탄
+- 동사: damage 0.96
+- 역할: cast 0.70 / build 0.30
+- 시점: delayed 0.99
+- 발동 조건: none 0.51 / approach 0.44
+- 범위: around 0.61 / single 0.35
+- 재료: none 0.54 / ore 0.43
+- 구슬의 운명: used_up 0.89
+- 구슬의 운명(자동 문구 재작성): used_up 0.88
+- 지속 기간 v2: turns 0.61 / instant 0.35
+- 지속 기간 A: turns 0.68 / instant 0.27
+- 지속 기간 B: turns 0.58 / stage 0.23 / instant 0.18
+- 지속 기간 S(0~4 점수): 0.94
+- 성질: scaling 0.16, risky 0.71, random 0.46, network 0.11
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 독
+- 동사: debuff 0.73 / damage 0.23
+- 역할: cast 0.50 / summon 0.38
+- 시점: now 0.69 / delayed 0.20 / repeating 0.12
+- 발동 조건: none 0.68 / approach 0.20
+- 범위: single 0.78 / line 0.12
+- 재료: none 0.79
+- 구슬의 운명: returns 0.67 / used_up 0.23 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.23 / passive 0.16
+- 지속 기간 v2: instant 0.33 / turns 0.26 / forever 0.26
+- 지속 기간 A: turns 0.78 / instant 0.16
+- 지속 기간 B: instant 0.56 / turns 0.23 / stage 0.13
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.21, risky 0.47, random 0.13, network 0.09
+- 힘: 1.3 | 지시문으로 읽힘 0.02
+### 함정
+- 동사: control 0.90 / damage 0.08
+- 역할: build 0.82 / cast 0.18
+- 시점: delayed 0.67 / now 0.25
+- 발동 조건: approach 0.98
+- 범위: single 0.39 / around 0.39 / line 0.22
+- 재료: none 0.63 / ore 0.22
+- 구슬의 운명: returns 0.47 / used_up 0.36 / passive 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.46 / used_up 0.36 / passive 0.18
+- 지속 기간 v2: turns 0.42 / run 0.37 / instant 0.10
+- 지속 기간 A: turns 0.42 / instant 0.21 / stage 0.20
+- 지속 기간 B: stage 0.44 / turns 0.38 / instant 0.15
+- 지속 기간 S(0~4 점수): 2.07
+- 성질: scaling 0.10, risky 0.49, random 0.22, network 0.17
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 폭풍
+- 동사: damage 0.77 / control 0.20
+- 역할: cast 0.94
+- 시점: now 0.88 / repeating 0.10
+- 발동 조건: none 0.96
+- 범위: around 0.81 / wide 0.15
+- 재료: none 1.00
+- 구슬의 운명: returns 0.83 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.81 / used_up 0.15
+- 지속 기간 v2: stage 0.54 / turns 0.24 / instant 0.19
+- 지속 기간 A: stage 0.37 / instant 0.37 / turns 0.25
+- 지속 기간 B: instant 0.56 / turns 0.36
+- 지속 기간 S(0~4 점수): 1.01
+- 성질: scaling 0.14, risky 0.14, random 0.59, network 0.12
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 화살
+- 동사: damage 0.98
+- 역할: cast 0.90
+- 시점: now 0.96
+- 발동 조건: none 0.85
+- 범위: line 0.62 / single 0.37
+- 재료: wood 0.90
+- 구슬의 운명: returns 0.58 / used_up 0.41
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / used_up 0.43
+- 지속 기간 v2: instant 0.86
+- 지속 기간 A: instant 0.94
+- 지속 기간 B: instant 0.92
+- 지속 기간 S(0~4 점수): 0.41
+- 성질: scaling 0.11, risky 0.10, random 0.13, network 0.12
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 눈덩이
+- 동사: control 0.70 / create 0.10 / damage 0.09
+- 역할: cast 0.44 / build 0.35 / summon 0.16
+- 시점: now 0.77 / repeating 0.13 / delayed 0.10
+- 발동 조건: none 0.65 / approach 0.30
+- 범위: single 0.58 / around 0.35
+- 재료: none 0.95
+- 구슬의 운명: returns 0.59 / used_up 0.37
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / used_up 0.34
+- 지속 기간 v2: turns 0.34 / run 0.30 / instant 0.13
+- 지속 기간 A: instant 0.50 / turns 0.29 / stage 0.11
+- 지속 기간 B: instant 0.47 / turns 0.32 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.36
+- 성질: scaling 0.71, risky 0.09, random 0.12, network 0.12
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 도박
+- 동사: money 0.87
+- 역할: cast 0.91
+- 시점: now 0.89
+- 발동 조건: none 0.99
+- 범위: single 0.64 / wide 0.24 / around 0.11
+- 재료: gold 0.79 / none 0.20
+- 구슬의 운명: returns 0.79 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.17
+- 지속 기간 v2: instant 0.60 / run 0.19 / turns 0.10
+- 지속 기간 A: instant 0.74 / turns 0.13
+- 지속 기간 B: instant 0.68 / stage 0.16 / turns 0.14
+- 지속 기간 S(0~4 점수): 1.00
+- 성질: scaling 0.25, risky 0.93, random 0.96, network 0.11
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 저주
+- 동사: debuff 1.00
+- 역할: cast 1.00
+- 시점: repeating 0.50 / now 0.44
+- 발동 조건: none 0.84
+- 범위: single 0.73 / around 0.16
+- 재료: none 1.00
+- 구슬의 운명: returns 0.70 / used_up 0.18 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / passive 0.23 / used_up 0.17
+- 지속 기간 v2: forever 0.64 / turns 0.30
+- 지속 기간 A: turns 0.87
+- 지속 기간 B: turns 0.43 / stage 0.35 / instant 0.11
+- 지속 기간 S(0~4 점수): 2.29
+- 성질: scaling 0.21, risky 0.92, random 0.22, network 0.13
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 얼음
+- 동사: control 0.92
+- 역할: cast 0.77 / build 0.19
+- 시점: now 0.84 / repeating 0.13
+- 발동 조건: none 0.91
+- 범위: single 0.50 / around 0.37
+- 재료: none 0.91
+- 구슬의 운명: returns 0.82 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.11 / used_up 0.10
+- 지속 기간 v2: forever 0.43 / turns 0.27 / run 0.17
+- 지속 기간 A: turns 0.52 / instant 0.23 / stage 0.12
+- 지속 기간 B: turns 0.42 / instant 0.30 / stage 0.23
+- 지속 기간 S(0~4 점수): 1.73
+- 성질: scaling 0.26, risky 0.08, random 0.07, network 0.08
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 나침반
+- 동사: peek 0.83 / buff 0.05
+- 역할: move 0.71 / cast 0.26
+- 시점: now 0.88 / repeating 0.12
+- 발동 조건: none 0.97
+- 범위: single 0.46 / line 0.25 / wide 0.24
+- 재료: ore 0.89
+- 구슬의 운명: returns 0.87 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.90
+- 지속 기간 v2: run 0.53 / forever 0.41
+- 지속 기간 A: instant 0.46 / run 0.20 / turns 0.16
+- 지속 기간 B: instant 0.35 / stage 0.31 / turns 0.16
+- 지속 기간 S(0~4 점수): 2.32
+- 성질: scaling 0.08, risky 0.05, random 0.10, network 0.21
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 수정 구슬
+- 동사: energy 0.20 / money 0.14 / control 0.11 / create 0.10 / heal 0.08
+- 역할: cast 0.42 / build 0.40 / move 0.11
+- 시점: now 0.91
+- 발동 조건: none 0.92
+- 범위: single 0.87 / around 0.10
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.72 / used_up 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.19 / passive 0.11
+- 지속 기간 v2: run 0.42 / forever 0.37 / instant 0.11
+- 지속 기간 A: instant 0.45 / run 0.20 / forever 0.17
+- 지속 기간 B: instant 0.38 / stage 0.22 / forever 0.19
+- 지속 기간 S(0~4 점수): 1.96
+- 성질: scaling 0.14, risky 0.09, random 0.22, network 0.10
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 부메랑
+- 동사: recycle 0.66 / damage 0.30
+- 역할: cast 0.52 / move 0.48
+- 시점: now 0.55 / delayed 0.27 / repeating 0.18
+- 발동 조건: none 0.80 / hit 0.17
+- 범위: line 0.66 / single 0.26
+- 재료: wood 0.91
+- 구슬의 운명: returns 0.99
+- 구슬의 운명(자동 문구 재작성): returns 0.99
+- 지속 기간 v2: instant 0.56 / run 0.25 / forever 0.12
+- 지속 기간 A: instant 0.86 / turns 0.10
+- 지속 기간 B: instant 0.82 / turns 0.13
+- 지속 기간 S(0~4 점수): 0.45
+- 성질: scaling 0.08, risky 0.18, random 0.26, network 0.15
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 자석
+- 동사: draw 0.93 / control 0.06
+- 역할: move 0.71 / cast 0.25
+- 시점: now 0.68 / repeating 0.32
+- 발동 조건: none 0.55 / approach 0.45
+- 범위: around 0.58 / single 0.18 / wide 0.12
+- 재료: ore 0.81 / none 0.18
+- 구슬의 운명: returns 0.67 / passive 0.29
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / passive 0.19
+- 지속 기간 v2: run 0.42 / forever 0.41
+- 지속 기간 A: instant 0.32 / turns 0.25 / forever 0.19
+- 지속 기간 B: instant 0.35 / turns 0.27 / stage 0.23
+- 지속 기간 S(0~4 점수): 2.24
+- 성질: scaling 0.16, risky 0.06, random 0.06, network 0.24
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 파쇄기
+- 동사: damage 0.97
+- 역할: cast 0.84 / build 0.10
+- 시점: now 0.97
+- 발동 조건: none 0.89
+- 범위: around 0.50 / single 0.38 / line 0.10
+- 재료: ore 0.66 / none 0.29
+- 구슬의 운명: returns 0.84 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.83 / used_up 0.15
+- 지속 기간 v2: instant 0.45 / run 0.39
+- 지속 기간 A: instant 0.86
+- 지속 기간 B: instant 0.86
+- 지속 기간 S(0~4 점수): 0.57
+- 성질: scaling 0.11, risky 0.22, random 0.08, network 0.14
+- 힘: 2.6 | 지시문으로 읽힘 0.02
+### 폭죽
+- 동사: damage 0.97
+- 역할: cast 0.97
+- 시점: now 0.75 / delayed 0.24
+- 발동 조건: none 0.81 / approach 0.15
+- 범위: around 0.95
+- 재료: ore 0.65 / none 0.29
+- 구슬의 운명: used_up 0.68 / returns 0.31
+- 구슬의 운명(자동 문구 재작성): used_up 0.72 / returns 0.27
+- 지속 기간 v2: instant 0.92
+- 지속 기간 A: instant 0.93
+- 지속 기간 B: instant 0.93
+- 지속 기간 S(0~4 점수): 0.16
+- 성질: scaling 0.12, risky 0.29, random 0.57, network 0.15
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 포션
+- 동사: heal 0.77 / buff 0.12
+- 역할: cast 0.95
+- 시점: now 0.95
+- 발동 조건: none 0.98
+- 범위: single 0.96
+- 재료: none 0.77 / food 0.20
+- 구슬의 운명: used_up 0.77 / returns 0.22
+- 구슬의 운명(자동 문구 재작성): used_up 0.78 / returns 0.21
+- 지속 기간 v2: turns 0.97
+- 지속 기간 A: turns 0.95
+- 지속 기간 B: instant 0.69 / turns 0.24
+- 지속 기간 S(0~4 점수): 1.11
+- 성질: scaling 0.12, risky 0.14, random 0.15, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 망루
+- 동사: guard 0.80 / peek 0.17
+- 역할: build 0.97
+- 시점: now 0.59 / repeating 0.38
+- 발동 조건: none 0.55 / approach 0.44
+- 범위: around 0.50 / single 0.27 / line 0.16
+- 재료: ore 0.62 / wood 0.29
+- 구슬의 운명: returns 0.72 / passive 0.17 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / passive 0.18 / used_up 0.11
+- 지속 기간 v2: run 0.97
+- 지속 기간 A: run 0.75 / stage 0.10
+- 지속 기간 B: stage 0.61 / instant 0.14 / turns 0.12
+- 지속 기간 S(0~4 점수): 3.03
+- 성질: scaling 0.17, risky 0.06, random 0.05, network 0.21
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 거울
+- 동사: peek 0.56 / transform 0.38
+- 역할: cast 0.48 / build 0.29 / move 0.19
+- 시점: now 0.92
+- 발동 조건: none 0.79 / approach 0.17
+- 범위: single 0.52 / wide 0.17 / around 0.17
+- 재료: ore 0.83 / none 0.15
+- 구슬의 운명: returns 0.92
+- 구슬의 운명(자동 문구 재작성): returns 0.88
+- 지속 기간 v2: run 0.55 / forever 0.35
+- 지속 기간 A: instant 0.51 / forever 0.15 / turns 0.14
+- 지속 기간 B: instant 0.48 / stage 0.21 / turns 0.18
+- 지속 기간 S(0~4 점수): 2.20
+- 성질: scaling 0.12, risky 0.14, random 0.11, network 0.12
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 시계
+- 동사: tempo 0.57 / control 0.19 / peek 0.09 / recycle 0.08
+- 역할: cast 0.60 / build 0.26 / move 0.10
+- 시점: delayed 0.78 / repeating 0.19
+- 발동 조건: none 0.93
+- 범위: wide 0.48 / single 0.47
+- 재료: ore 0.73 / none 0.22
+- 구슬의 운명: returns 0.89
+- 구슬의 운명(자동 문구 재작성): returns 0.87
+- 지속 기간 v2: run 0.39 / forever 0.30 / turns 0.26
+- 지속 기간 A: turns 0.61 / instant 0.13 / forever 0.11
+- 지속 기간 B: stage 0.41 / turns 0.35 / instant 0.14
+- 지속 기간 S(0~4 점수): 2.00
+- 성질: scaling 0.21, risky 0.13, random 0.12, network 0.07
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 연금술
+- 동사: transform 0.66 / create 0.20 / money 0.14
+- 역할: cast 0.74 / build 0.23
+- 시점: now 0.77 / repeating 0.13
+- 발동 조건: none 0.99
+- 범위: single 0.65 / wide 0.21 / around 0.11
+- 재료: none 0.51 / ore 0.27 / gold 0.22
+- 구슬의 운명: returns 0.93
+- 구슬의 운명(자동 문구 재작성): returns 0.90
+- 지속 기간 v2: run 0.42 / forever 0.32 / instant 0.14
+- 지속 기간 A: instant 0.49 / turns 0.22 / run 0.17
+- 지속 기간 B: instant 0.47 / stage 0.17 / turns 0.17
+- 지속 기간 S(0~4 점수): 2.04
+- 성질: scaling 0.36, risky 0.18, random 0.14, network 0.13
+- 힘: 2.4 | 지시문으로 읽힘 0.02
+### 이자
+- 동사: money 0.90
+- 역할: cast 0.62 / build 0.23
+- 시점: repeating 0.82 / now 0.10
+- 발동 조건: none 0.92
+- 범위: single 0.62 / wide 0.25
+- 재료: gold 0.96
+- 구슬의 운명: returns 0.63 / passive 0.24 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / passive 0.29 / used_up 0.14
+- 지속 기간 v2: instant 0.32 / turns 0.25 / run 0.21
+- 지속 기간 A: instant 0.40 / turns 0.36 / forever 0.10
+- 지속 기간 B: instant 0.47 / turns 0.30 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.91
+- 성질: scaling 0.86, risky 0.21, random 0.10, network 0.13
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 낮잠
+- 동사: control 0.75 / energy 0.11 / heal 0.09
+- 역할: cast 0.76 / move 0.12
+- 시점: now 0.67 / delayed 0.23
+- 발동 조건: none 0.98
+- 범위: single 0.95
+- 재료: none 0.97
+- 구슬의 운명: returns 0.70 / used_up 0.20 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.60 / passive 0.22 / used_up 0.19
+- 지속 기간 v2: turns 0.83
+- 지속 기간 A: turns 0.75 / instant 0.14
+- 지속 기간 B: turns 0.79 / instant 0.13
+- 지속 기간 S(0~4 점수): 1.08
+- 성질: scaling 0.08, risky 0.07, random 0.09, network 0.04
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 모닥불
+- 동사: damage 0.25 / trash 0.23 / buff 0.16 / energy 0.16
+- 역할: build 0.83 / cast 0.16
+- 시점: repeating 0.53 / now 0.45
+- 발동 조건: none 0.75 / approach 0.23
+- 범위: around 0.80 / single 0.15
+- 재료: wood 0.95
+- 구슬의 운명: returns 0.72 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / used_up 0.17 / passive 0.15
+- 지속 기간 v2: turns 0.77 / stage 0.14
+- 지속 기간 A: turns 0.61 / stage 0.29
+- 지속 기간 B: turns 0.58 / stage 0.24 / instant 0.15
+- 지속 기간 S(0~4 점수): 1.74
+- 성질: scaling 0.16, risky 0.16, random 0.10, network 0.13
+- 힘: 0.8 | 지시문으로 읽힘 0.02
+### 벌 떼
+- 동사: damage 0.70 / grow 0.09 / control 0.05
+- 역할: summon 0.97
+- 시점: now 0.81 / repeating 0.18
+- 발동 조건: none 0.88
+- 범위: around 0.75
+- 재료: none 0.47 / food 0.46
+- 구슬의 운명: returns 0.72 / used_up 0.25
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.27
+- 지속 기간 v2: turns 0.53 / instant 0.18 / stage 0.13
+- 지속 기간 A: instant 0.44 / turns 0.38 / stage 0.12
+- 지속 기간 B: turns 0.44 / instant 0.37 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.50
+- 성질: scaling 0.63, risky 0.15, random 0.25, network 0.77
+- 힘: 1.7 | 지시문으로 읽힘 0.01
+### 산사태
+- 동사: damage 0.70 / control 0.26
+- 역할: cast 0.88 / move 0.10
+- 시점: now 0.78 / delayed 0.19
+- 발동 조건: none 0.78 / approach 0.18
+- 범위: around 0.56 / line 0.33
+- 재료: ore 0.56 / none 0.43
+- 구슬의 운명: returns 0.63 / used_up 0.33
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.37
+- 지속 기간 v2: instant 0.78
+- 지속 기간 A: instant 0.78 / turns 0.12
+- 지속 기간 B: instant 0.68 / turns 0.24
+- 지속 기간 S(0~4 점수): 1.01
+- 성질: scaling 0.34, risky 0.32, random 0.58, network 0.26
+- 힘: 2.5 | 지시문으로 읽힘 0.02
+### 깃발
+- 동사: guard 0.30 / buff 0.23 / create 0.12 / control 0.11 / peek 0.07
+- 역할: build 0.82 / cast 0.11
+- 시점: now 0.83 / repeating 0.14
+- 발동 조건: none 0.78 / approach 0.21
+- 범위: single 0.62 / wide 0.16 / around 0.11
+- 재료: wood 0.50 / none 0.39
+- 구슬의 운명: returns 0.69 / passive 0.17 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / passive 0.18 / used_up 0.14
+- 지속 기간 v2: run 0.75
+- 지속 기간 A: stage 0.62 / run 0.18
+- 지속 기간 B: stage 0.45 / instant 0.33 / turns 0.13
+- 지속 기간 S(0~4 점수): 2.36
+- 성질: scaling 0.13, risky 0.10, random 0.12, network 0.22
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 전쟁 북
+- 동사: damage 0.51 / buff 0.38
+- 역할: cast 0.77 / summon 0.14
+- 시점: now 0.77 / repeating 0.18
+- 발동 조건: none 0.86 / approach 0.11
+- 범위: around 0.55 / wide 0.34
+- 재료: wood 0.77 / ore 0.10
+- 구슬의 운명: returns 0.85 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.85 / used_up 0.12
+- 지속 기간 v2: turns 0.31 / instant 0.29 / run 0.23
+- 지속 기간 A: instant 0.42 / stage 0.25 / turns 0.24
+- 지속 기간 B: instant 0.41 / turns 0.37 / stage 0.20
+- 지속 기간 S(0~4 점수): 1.46
+- 성질: scaling 0.19, risky 0.19, random 0.17, network 0.27
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 안개
+- 동사: debuff 0.38 / peek 0.21 / control 0.16 / guard 0.15 / remove 0.05
+- 역할: cast 0.83 / build 0.12
+- 시점: now 0.75 / repeating 0.21
+- 발동 조건: none 0.86 / approach 0.14
+- 범위: around 0.69 / wide 0.17
+- 재료: none 1.00
+- 구슬의 운명: returns 0.73 / used_up 0.15 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.15 / passive 0.14
+- 지속 기간 v2: stage 0.48 / turns 0.46
+- 지속 기간 A: turns 0.51 / stage 0.39
+- 지속 기간 B: turns 0.72 / instant 0.14 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.33
+- 성질: scaling 0.09, risky 0.11, random 0.25, network 0.16
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 부적
+- 동사: guard 0.64 / buff 0.13
+- 역할: cast 0.71 / build 0.27
+- 시점: now 0.72 / repeating 0.22
+- 발동 조건: none 0.73 / approach 0.17
+- 범위: single 0.85
+- 재료: none 0.95
+- 구슬의 운명: passive 0.44 / used_up 0.39 / returns 0.17
+- 구슬의 운명(자동 문구 재작성): passive 0.66 / used_up 0.23 / returns 0.12
+- 지속 기간 v2: turns 0.51 / run 0.20 / instant 0.15
+- 지속 기간 A: turns 0.45 / instant 0.27 / stage 0.13
+- 지속 기간 B: instant 0.33 / turns 0.29 / stage 0.28
+- 지속 기간 S(0~4 점수): 1.89
+- 성질: scaling 0.17, risky 0.21, random 0.58, network 0.11
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 수박
+- 동사: harvest 0.46 / grow 0.31 / heal 0.07
+- 역할: cast 0.54 / build 0.26 / summon 0.13
+- 시점: now 0.88
+- 발동 조건: none 0.92
+- 범위: single 0.76 / around 0.17
+- 재료: food 1.00
+- 구슬의 운명: returns 0.60 / used_up 0.30
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / used_up 0.30 / passive 0.11
+- 지속 기간 v2: run 0.34 / instant 0.30 / forever 0.21
+- 지속 기간 A: instant 0.57 / turns 0.20 / run 0.11
+- 지속 기간 B: instant 0.52 / turns 0.24 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.25
+- 성질: scaling 0.11, risky 0.06, random 0.11, network 0.06
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 베개
+- 동사: control 0.58 / heal 0.29
+- 역할: build 0.61 / cast 0.18 / move 0.14
+- 시점: now 0.76 / repeating 0.15
+- 발동 조건: none 0.88
+- 범위: single 0.93
+- 재료: none 0.59 / wood 0.33
+- 구슬의 운명: returns 0.69 / passive 0.20 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / passive 0.18 / used_up 0.13
+- 지속 기간 v2: run 0.64 / forever 0.17 / turns 0.11
+- 지속 기간 A: turns 0.26 / instant 0.26 / run 0.19
+- 지속 기간 B: instant 0.31 / turns 0.30 / stage 0.30
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.08, risky 0.06, random 0.07, network 0.06
+- 힘: 0.4 | 지시문으로 읽힘 0.01
+### 낡은 신발
+- 동사: tempo 0.23 / trash 0.21 / money 0.13 / buff 0.13 / debuff 0.08
+- 역할: move 0.50 / cast 0.23 / build 0.16
+- 시점: now 0.91
+- 발동 조건: none 0.94
+- 범위: single 0.97
+- 재료: wood 0.48 / none 0.27 / ore 0.12
+- 구슬의 운명: returns 0.78 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.74 / used_up 0.18
+- 지속 기간 v2: run 0.70 / forever 0.21
+- 지속 기간 A: instant 0.49 / run 0.22 / turns 0.19
+- 지속 기간 B: instant 0.39 / turns 0.33 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.91
+- 성질: scaling 0.08, risky 0.12, random 0.10, network 0.05
+- 힘: 0.3 | 지시문으로 읽힘 0.01
+### 상인
+- 동사: money 1.00
+- 역할: summon 0.78 / build 0.13
+- 시점: now 0.63 / repeating 0.35
+- 발동 조건: none 0.98
+- 범위: single 0.81 / wide 0.15
+- 재료: gold 0.99
+- 구슬의 운명: returns 0.78 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.77 / passive 0.15
+- 지속 기간 v2: run 0.62 / forever 0.19
+- 지속 기간 A: instant 0.40 / run 0.27 / turns 0.14
+- 지속 기간 B: instant 0.44 / stage 0.28 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.18
+- 성질: scaling 0.39, risky 0.09, random 0.15, network 0.25
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 도서관
+- 동사: peek 0.36 / draw 0.15 / energy 0.12 / buff 0.11 / money 0.09
+- 역할: build 0.97
+- 시점: now 0.82 / repeating 0.16
+- 발동 조건: none 0.98
+- 범위: single 0.48 / wide 0.27 / around 0.22
+- 재료: none 0.75 / wood 0.22
+- 구슬의 운명: returns 0.82
+- 구슬의 운명(자동 문구 재작성): returns 0.82
+- 지속 기간 v2: run 0.97
+- 지속 기간 A: run 0.72 / forever 0.13
+- 지속 기간 B: instant 0.37 / stage 0.33 / forever 0.14
+- 지속 기간 S(0~4 점수): 2.70
+- 성질: scaling 0.28, risky 0.06, random 0.06, network 0.21
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 대장장이
+- 동사: create 0.92
+- 역할: summon 0.52 / build 0.40
+- 시점: now 0.87 / repeating 0.10
+- 발동 조건: none 0.99
+- 범위: single 0.85
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.83
+- 지속 기간 v2: run 0.71 / forever 0.14
+- 지속 기간 A: instant 0.43 / run 0.33 / forever 0.12
+- 지속 기간 B: instant 0.49 / stage 0.20 / turns 0.15
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.22, risky 0.07, random 0.07, network 0.11
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 번개
+- 동사: damage 0.94
+- 역할: cast 0.99
+- 시점: now 0.98
+- 발동 조건: none 0.90
+- 범위: line 0.47 / around 0.25 / single 0.24
+- 재료: none 1.00
+- 구슬의 운명: returns 0.84 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.82 / used_up 0.14
+- 지속 기간 v2: instant 0.91
+- 지속 기간 A: instant 0.94
+- 지속 기간 B: instant 0.93
+- 지속 기간 S(0~4 점수): 0.16
+- 성질: scaling 0.11, risky 0.14, random 0.28, network 0.26
+- 힘: 2.2 | 지시문으로 읽힘 0.01
+### 운석
+- 동사: damage 0.96
+- 역할: cast 0.93
+- 시점: now 0.74 / delayed 0.25
+- 발동 조건: none 0.91
+- 범위: around 0.68 / single 0.25
+- 재료: ore 0.97
+- 구슬의 운명: used_up 0.59 / returns 0.39
+- 구슬의 운명(자동 문구 재작성): used_up 0.56 / returns 0.42
+- 지속 기간 v2: instant 0.78 / forever 0.11
+- 지속 기간 A: instant 0.88
+- 지속 기간 B: instant 0.86
+- 지속 기간 S(0~4 점수): 0.58
+- 성질: scaling 0.11, risky 0.28, random 0.56, network 0.08
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 지진
+- 동사: damage 0.93 / control 0.07
+- 역할: cast 0.99
+- 시점: now 0.96
+- 발동 조건: none 0.96
+- 범위: around 0.71 / wide 0.27
+- 재료: none 0.98
+- 구슬의 운명: returns 0.67 / used_up 0.31
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.30
+- 지속 기간 v2: instant 0.88
+- 지속 기간 A: instant 0.89
+- 지속 기간 B: instant 0.83 / turns 0.16
+- 지속 기간 S(0~4 점수): 0.59
+- 성질: scaling 0.13, risky 0.23, random 0.63, network 0.33
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 불사조
+- 동사: recycle 0.92 / heal 0.06
+- 역할: summon 0.84 / cast 0.11
+- 시점: now 0.49 / repeating 0.38 / delayed 0.13
+- 발동 조건: death 0.66 / none 0.33
+- 범위: single 0.80 / wide 0.12
+- 재료: none 0.94
+- 구슬의 운명: returns 0.78 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.73 / used_up 0.17 / passive 0.10
+- 지속 기간 v2: forever 0.63 / run 0.23
+- 지속 기간 A: instant 0.47 / turns 0.22 / forever 0.18
+- 지속 기간 B: instant 0.34 / stage 0.26 / turns 0.19
+- 지속 기간 S(0~4 점수): 2.54
+- 성질: scaling 0.47, risky 0.34, random 0.12, network 0.09
+- 힘: 3.8 | 지시문으로 읽힘 0.01
+### 가시덤불
+- 동사: control 0.45 / guard 0.31 / damage 0.11 / grow 0.10
+- 역할: build 0.84 / cast 0.14
+- 시점: now 0.71 / repeating 0.25
+- 발동 조건: approach 0.70 / none 0.27
+- 범위: around 0.57 / single 0.22 / line 0.20
+- 재료: wood 0.88 / none 0.10
+- 구슬의 운명: returns 0.68 / used_up 0.19 / passive 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.18 / passive 0.17
+- 지속 기간 v2: run 0.74 / turns 0.13
+- 지속 기간 A: run 0.29 / turns 0.24 / forever 0.21
+- 지속 기간 B: turns 0.42 / stage 0.33 / instant 0.17
+- 지속 기간 S(0~4 점수): 2.18
+- 성질: scaling 0.14, risky 0.31, random 0.06, network 0.22
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 투명 망토
+- 동사: guard 0.41 / peek 0.35 / buff 0.11
+- 역할: cast 0.75 / move 0.13 / build 0.11
+- 시점: now 0.59 / repeating 0.40
+- 발동 조건: none 0.91
+- 범위: single 1.00
+- 재료: none 0.93
+- 구슬의 운명: passive 0.58 / returns 0.38
+- 구슬의 운명(자동 문구 재작성): returns 0.51 / passive 0.44
+- 지속 기간 v2: turns 0.43 / run 0.29 / forever 0.24
+- 지속 기간 A: turns 0.74 / stage 0.11
+- 지속 기간 B: turns 0.48 / stage 0.30 / instant 0.12
+- 지속 기간 S(0~4 점수): 1.85
+- 성질: scaling 0.07, risky 0.08, random 0.07, network 0.07
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 양봉장
+- 동사: grow 0.43 / harvest 0.27 / money 0.20 / amplify 0.05
+- 역할: build 0.83
+- 시점: repeating 0.53 / now 0.35 / delayed 0.12
+- 발동 조건: none 0.93
+- 범위: single 0.55 / around 0.23 / wide 0.18
+- 재료: food 0.64 / gold 0.30
+- 구슬의 운명: returns 0.79 / used_up 0.11 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / passive 0.19 / used_up 0.11
+- 지속 기간 v2: run 0.91
+- 지속 기간 A: run 0.58 / stage 0.17 / forever 0.12
+- 지속 기간 B: stage 0.42 / instant 0.23 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.53
+- 성질: scaling 0.63, risky 0.15, random 0.19, network 0.30
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 새로운 시작
+- 동사: recycle 0.44 / create 0.38
+- 역할: cast 0.68 / build 0.24
+- 시점: now 0.92
+- 발동 조건: none 0.98
+- 범위: wide 0.48 / single 0.47
+- 재료: none 0.95
+- 구슬의 운명: used_up 0.58 / returns 0.39
+- 구슬의 운명(자동 문구 재작성): used_up 0.60 / returns 0.35
+- 지속 기간 v2: instant 0.45 / run 0.32
+- 지속 기간 A: instant 0.65 / run 0.13
+- 지속 기간 B: instant 0.55 / stage 0.26
+- 지속 기간 S(0~4 점수): 2.26
+- 성질: scaling 0.15, risky 0.07, random 0.16, network 0.07
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 복권
+- 동사: money 0.93
+- 역할: cast 0.94
+- 시점: now 0.72 / delayed 0.26
+- 발동 조건: none 0.96
+- 범위: single 0.75 / wide 0.21
+- 재료: gold 0.81 / none 0.18
+- 구슬의 운명: used_up 0.60 / returns 0.33
+- 구슬의 운명(자동 문구 재작성): used_up 0.63 / returns 0.32
+- 지속 기간 v2: instant 0.85
+- 지속 기간 A: instant 0.94
+- 지속 기간 B: instant 0.89
+- 지속 기간 S(0~4 점수): 0.67
+- 성질: scaling 0.19, risky 0.92, random 0.97, network 0.07
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 피리
+- 동사: control 0.25 / draw 0.17 / buff 0.14 / amplify 0.12 / tempo 0.08
+- 역할: cast 0.57 / summon 0.25 / move 0.14
+- 시점: now 0.81 / repeating 0.16
+- 발동 조건: none 0.84 / approach 0.14
+- 범위: around 0.40 / single 0.25 / line 0.21
+- 재료: wood 0.71 / ore 0.16
+- 구슬의 운명: returns 0.90
+- 구슬의 운명(자동 문구 재작성): returns 0.88
+- 지속 기간 v2: run 0.40 / instant 0.23 / turns 0.21
+- 지속 기간 A: instant 0.44 / turns 0.39
+- 지속 기간 B: instant 0.48 / turns 0.38 / stage 0.10
+- 지속 기간 S(0~4 점수): 1.33
+- 성질: scaling 0.11, risky 0.11, random 0.12, network 0.11
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 블랙홀
+- 동사: control 0.45 / draw 0.41 / damage 0.05
+- 역할: cast 0.65 / move 0.17 / build 0.17
+- 시점: now 0.79 / repeating 0.20
+- 발동 조건: none 0.76 / approach 0.23
+- 범위: around 0.61 / wide 0.27 / single 0.11
+- 재료: none 1.00
+- 구슬의 운명: returns 0.79 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / used_up 0.15
+- 지속 기간 v2: forever 0.75 / run 0.17
+- 지속 기간 A: turns 0.30 / instant 0.30 / forever 0.20
+- 지속 기간 B: turns 0.35 / stage 0.31 / instant 0.28
+- 지속 기간 S(0~4 점수): 2.05
+- 성질: scaling 0.51, risky 0.32, random 0.29, network 0.15
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+
+## 보충·재료
+
+### 통나무
+- 동사: harvest 0.69 / create 0.16 / guard 0.07
+- 역할: build 0.79 / cast 0.11
+- 시점: now 0.90
+- 발동 조건: none 0.98
+- 범위: single 0.83 / line 0.15
+- 재료: wood 1.00
+- 구슬의 운명: returns 0.72 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.22
+- 지속 기간 v2: run 0.80 / forever 0.13
+- 지속 기간 A: instant 0.38 / run 0.36 / forever 0.17
+- 지속 기간 B: instant 0.43 / stage 0.28 / turns 0.16
+- 지속 기간 S(0~4 점수): 2.04
+- 성질: scaling 0.12, risky 0.05, random 0.06, network 0.07
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 오두막
+- 동사: guard 0.35 / create 0.32 / harvest 0.25
+- 역할: build 0.97
+- 시점: now 0.89
+- 발동 조건: none 0.95
+- 범위: single 0.83 / around 0.13
+- 재료: wood 0.98
+- 구슬의 운명: returns 0.71 / used_up 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.73 / used_up 0.22
+- 지속 기간 v2: run 0.97
+- 지속 기간 A: run 0.72 / stage 0.13
+- 지속 기간 B: stage 0.44 / instant 0.33 / forever 0.13
+- 지속 기간 S(0~4 점수): 2.89
+- 성질: scaling 0.12, risky 0.05, random 0.06, network 0.10
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 판자
+- 동사: create 0.51 / harvest 0.27 / guard 0.15
+- 역할: build 0.88
+- 시점: now 0.93
+- 발동 조건: none 0.97
+- 범위: single 0.88
+- 재료: wood 1.00
+- 구슬의 운명: returns 0.67 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.28
+- 지속 기간 v2: run 0.81
+- 지속 기간 A: run 0.39 / instant 0.34 / forever 0.17
+- 지속 기간 B: instant 0.49 / stage 0.24 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.14
+- 성질: scaling 0.12, risky 0.07, random 0.07, network 0.09
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 제재소
+- 동사: control 0.29 / money 0.24 / debuff 0.11 / harvest 0.07 / create 0.06
+- 역할: build 0.76 / cast 0.18
+- 시점: now 0.53 / repeating 0.36 / delayed 0.11
+- 발동 조건: none 0.82 / approach 0.13
+- 범위: single 0.38 / wide 0.32 / around 0.24
+- 재료: gold 0.37 / wood 0.23 / ore 0.23
+- 구슬의 운명: returns 0.76 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.13
+- 지속 기간 v2: run 0.78
+- 지속 기간 A: run 0.47 / instant 0.19 / turns 0.13
+- 지속 기간 B: stage 0.36 / instant 0.31 / turns 0.23
+- 지속 기간 S(0~4 점수): 2.25
+- 성질: scaling 0.22, risky 0.23, random 0.10, network 0.18
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 참나무
+- 동사: grow 0.43 / harvest 0.41 / guard 0.11
+- 역할: build 0.75 / summon 0.13
+- 시점: now 0.67 / repeating 0.17 / delayed 0.16
+- 발동 조건: none 0.90
+- 범위: single 0.74 / around 0.16
+- 재료: wood 1.00
+- 구슬의 운명: returns 0.77 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / passive 0.16 / used_up 0.12
+- 지속 기간 v2: run 0.97
+- 지속 기간 A: run 0.79
+- 지속 기간 B: stage 0.35 / instant 0.27 / turns 0.19
+- 지속 기간 S(0~4 점수): 2.39
+- 성질: scaling 0.50, risky 0.07, random 0.07, network 0.10
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 장작
+- 동사: energy 0.49 / harvest 0.25 / trash 0.13 / create 0.06
+- 역할: cast 0.48 / build 0.45
+- 시점: now 0.58 / repeating 0.30 / delayed 0.12
+- 발동 조건: none 0.93
+- 범위: single 0.74 / around 0.14
+- 재료: wood 1.00
+- 구슬의 운명: returns 0.56 / used_up 0.39
+- 구슬의 운명(자동 문구 재작성): returns 0.53 / used_up 0.42
+- 지속 기간 v2: turns 0.61 / run 0.24
+- 지속 기간 A: turns 0.42 / instant 0.31 / stage 0.14
+- 지속 기간 B: instant 0.53 / turns 0.29 / stage 0.13
+- 지속 기간 S(0~4 점수): 1.56
+- 성질: scaling 0.13, risky 0.09, random 0.06, network 0.07
+- 힘: 0.6 | 지시문으로 읽힘 0.02
+### 철광석
+- 동사: harvest 0.83 / create 0.10 / money 0.07
+- 역할: build 0.62 / cast 0.25
+- 시점: now 0.88 / repeating 0.10
+- 발동 조건: none 0.99
+- 범위: single 0.91
+- 재료: ore 1.00
+- 구슬의 운명: used_up 0.51 / returns 0.38 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): used_up 0.52 / returns 0.42
+- 지속 기간 v2: forever 0.44 / run 0.42 / instant 0.10
+- 지속 기간 A: instant 0.66 / run 0.16 / forever 0.13
+- 지속 기간 B: instant 0.66 / stage 0.11 / forever 0.11
+- 지속 기간 S(0~4 점수): 1.53
+- 성질: scaling 0.16, risky 0.05, random 0.04, network 0.07
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 대장간
+- 동사: create 0.82 / money 0.08
+- 역할: build 0.96
+- 시점: now 0.72 / repeating 0.24
+- 발동 조건: none 0.99
+- 범위: single 0.61 / around 0.30
+- 재료: ore 1.00
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.87
+- 지속 기간 v2: run 0.99
+- 지속 기간 A: run 0.69 / instant 0.15
+- 지속 기간 B: stage 0.40 / instant 0.28 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.52
+- 성질: scaling 0.28, risky 0.07, random 0.06, network 0.12
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 보석
+- 동사: money 0.88 / create 0.06
+- 역할: build 0.54 / cast 0.38
+- 시점: now 0.86 / repeating 0.13
+- 발동 조건: none 0.99
+- 범위: single 0.89
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.64 / used_up 0.21 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.21 / passive 0.17
+- 지속 기간 v2: forever 0.51 / run 0.41
+- 지속 기간 A: instant 0.48 / run 0.27 / forever 0.16
+- 지속 기간 B: instant 0.52 / forever 0.18 / stage 0.15
+- 지속 기간 S(0~4 점수): 2.16
+- 성질: scaling 0.23, risky 0.10, random 0.16, network 0.07
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 갑옷
+- 동사: guard 0.95
+- 역할: build 0.46 / cast 0.39 / summon 0.13
+- 시점: now 0.89
+- 발동 조건: none 0.85 / hit 0.13
+- 범위: single 0.95
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.61 / passive 0.32
+- 구슬의 운명(자동 문구 재작성): returns 0.57 / passive 0.37
+- 지속 기간 v2: run 0.48 / turns 0.24 / forever 0.24
+- 지속 기간 A: turns 0.37 / run 0.24 / instant 0.17
+- 지속 기간 B: stage 0.31 / turns 0.28 / instant 0.26
+- 지속 기간 S(0~4 점수): 2.29
+- 성질: scaling 0.14, risky 0.09, random 0.05, network 0.08
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 석상
+- 동사: guard 0.41 / control 0.33 / create 0.13
+- 역할: build 0.82 / summon 0.14
+- 시점: now 0.78 / repeating 0.12
+- 발동 조건: none 0.73 / approach 0.23
+- 범위: single 0.89
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.58 / used_up 0.21 / passive 0.20
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / used_up 0.23 / passive 0.21
+- 지속 기간 v2: run 0.74 / forever 0.25
+- 지속 기간 A: run 0.69 / forever 0.18
+- 지속 기간 B: stage 0.38 / instant 0.26 / forever 0.23
+- 지속 기간 S(0~4 점수): 3.13
+- 성질: scaling 0.11, risky 0.13, random 0.08, network 0.09
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 쇠사슬
+- 동사: control 0.96
+- 역할: cast 0.51 / move 0.38
+- 시점: now 0.83 / repeating 0.14
+- 발동 조건: none 0.82 / approach 0.15
+- 범위: line 0.60 / single 0.33
+- 재료: ore 0.99
+- 구슬의 운명: returns 0.91
+- 구슬의 운명(자동 문구 재작성): returns 0.89
+- 지속 기간 v2: run 0.34 / turns 0.26 / forever 0.26
+- 지속 기간 A: turns 0.43 / instant 0.31
+- 지속 기간 B: turns 0.43 / instant 0.28 / stage 0.22
+- 지속 기간 S(0~4 점수): 1.69
+- 성질: scaling 0.12, risky 0.30, random 0.07, network 0.85
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 빵
+- 동사: create 0.38 / money 0.21 / harvest 0.12 / grow 0.07
+- 역할: build 0.43 / cast 0.33 / summon 0.18
+- 시점: now 0.90
+- 발동 조건: none 0.98
+- 범위: single 0.92
+- 재료: food 1.00
+- 구슬의 운명: returns 0.65 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.63 / used_up 0.28
+- 지속 기간 v2: instant 0.41 / run 0.37 / forever 0.11
+- 지속 기간 A: instant 0.65 / run 0.12 / turns 0.12
+- 지속 기간 B: instant 0.68 / turns 0.15 / stage 0.10
+- 지속 기간 S(0~4 점수): 1.10
+- 성질: scaling 0.13, risky 0.08, random 0.11, network 0.08
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 사과
+- 동사: grow 0.34 / harvest 0.32 / heal 0.19 / money 0.06
+- 역할: cast 0.52 / build 0.27 / move 0.10
+- 시점: now 0.87
+- 발동 조건: none 0.92
+- 범위: single 0.91
+- 재료: food 0.99
+- 구슬의 운명: returns 0.60 / used_up 0.30 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.29 / passive 0.10
+- 지속 기간 v2: run 0.38 / instant 0.31 / forever 0.16
+- 지속 기간 A: instant 0.67 / turns 0.15
+- 지속 기간 B: instant 0.65 / turns 0.15 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.11
+- 성질: scaling 0.15, risky 0.14, random 0.10, network 0.06
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 스튜
+- 동사: heal 0.23 / create 0.17 / money 0.16 / transform 0.09 / harvest 0.07
+- 역할: cast 0.54 / build 0.26 / summon 0.16
+- 시점: now 0.50 / delayed 0.30 / repeating 0.20
+- 발동 조건: none 0.98
+- 범위: single 0.65 / around 0.24
+- 재료: food 0.99
+- 구슬의 운명: returns 0.67 / used_up 0.28
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / used_up 0.27
+- 지속 기간 v2: turns 0.32 / run 0.27 / instant 0.23
+- 지속 기간 A: instant 0.37 / turns 0.35 / stage 0.16
+- 지속 기간 B: instant 0.45 / turns 0.30 / stage 0.21
+- 지속 기간 S(0~4 점수): 1.44
+- 성질: scaling 0.17, risky 0.09, random 0.10, network 0.11
+- 힘: 0.7 | 지시문으로 읽힘 0.02
+### 밀밭
+- 동사: harvest 0.72 / grow 0.26
+- 역할: build 0.80 / cast 0.13
+- 시점: now 0.43 / repeating 0.40 / delayed 0.17
+- 발동 조건: none 0.90
+- 범위: around 0.39 / single 0.34 / wide 0.19
+- 재료: food 1.00
+- 구슬의 운명: returns 0.74 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.69 / used_up 0.19 / passive 0.12
+- 지속 기간 v2: run 0.85
+- 지속 기간 A: run 0.37 / instant 0.21 / turns 0.16
+- 지속 기간 B: stage 0.41 / instant 0.29 / turns 0.20
+- 지속 기간 S(0~4 점수): 2.13
+- 성질: scaling 0.39, risky 0.06, random 0.07, network 0.17
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 닭
+- 동사: grow 0.55 / money 0.10 / harvest 0.08 / damage 0.07
+- 역할: summon 0.80 / cast 0.11
+- 시점: now 0.83 / repeating 0.15
+- 발동 조건: none 0.97
+- 범위: single 0.93
+- 재료: food 0.91
+- 구슬의 운명: returns 0.74 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.21 / passive 0.12
+- 지속 기간 v2: instant 0.32 / run 0.28 / forever 0.23
+- 지속 기간 A: instant 0.64 / run 0.12 / turns 0.12
+- 지속 기간 B: instant 0.60 / turns 0.18 / stage 0.14
+- 지속 기간 S(0~4 점수): 1.44
+- 성질: scaling 0.26, risky 0.10, random 0.13, network 0.09
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 물고기
+- 동사: harvest 0.51 / draw 0.44
+- 역할: summon 0.86
+- 시점: now 0.88
+- 발동 조건: none 0.97
+- 범위: single 0.91
+- 재료: food 0.98
+- 구슬의 운명: returns 0.75 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.18 / passive 0.12
+- 지속 기간 v2: run 0.40 / forever 0.31 / instant 0.14
+- 지속 기간 A: instant 0.56 / turns 0.17 / forever 0.12
+- 지속 기간 B: instant 0.57 / turns 0.21 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.52
+- 성질: scaling 0.15, risky 0.09, random 0.16, network 0.09
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 보물상자
+- 동사: money 0.92
+- 역할: build 0.63 / cast 0.29
+- 시점: now 0.91
+- 발동 조건: none 0.80 / approach 0.19
+- 범위: single 0.90
+- 재료: gold 0.88
+- 구슬의 운명: returns 0.55 / used_up 0.40
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / used_up 0.41
+- 지속 기간 v2: run 0.69 / instant 0.15 / forever 0.12
+- 지속 기간 A: instant 0.63 / run 0.19 / forever 0.13
+- 지속 기간 B: instant 0.65 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.45
+- 성질: scaling 0.25, risky 0.17, random 0.59, network 0.08
+- 힘: 1.4 | 지시문으로 읽힘 0.01
+### 은행
+- 동사: money 1.00
+- 역할: build 0.81
+- 시점: now 0.49 / repeating 0.46
+- 발동 조건: none 0.96
+- 범위: single 0.56 / wide 0.33
+- 재료: gold 1.00
+- 구슬의 운명: returns 0.81 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / used_up 0.12
+- 지속 기간 v2: run 0.85
+- 지속 기간 A: run 0.51 / instant 0.26 / forever 0.14
+- 지속 기간 B: instant 0.42 / stage 0.28 / forever 0.12
+- 지속 기간 S(0~4 점수): 2.45
+- 성질: scaling 0.71, risky 0.10, random 0.08, network 0.33
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 월급
+- 동사: money 0.99
+- 역할: cast 0.63 / summon 0.22 / build 0.13
+- 시점: repeating 0.92
+- 발동 조건: none 0.97
+- 범위: single 0.75 / wide 0.23
+- 재료: gold 0.99
+- 구슬의 운명: returns 0.63 / used_up 0.21 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / passive 0.23 / used_up 0.22
+- 지속 기간 v2: instant 0.38 / run 0.26 / turns 0.21
+- 지속 기간 A: instant 0.66 / turns 0.14
+- 지속 기간 B: instant 0.48 / stage 0.34 / turns 0.11
+- 지속 기간 S(0~4 점수): 1.75
+- 성질: scaling 0.18, risky 0.07, random 0.07, network 0.13
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 상점
+- 동사: money 0.99
+- 역할: build 0.96
+- 시점: now 0.62 / repeating 0.37
+- 발동 조건: none 0.97
+- 범위: single 0.65 / wide 0.16 / around 0.16
+- 재료: gold 0.98
+- 구슬의 운명: returns 0.83
+- 구슬의 운명(자동 문구 재작성): returns 0.80 / used_up 0.10
+- 지속 기간 v2: run 0.94
+- 지속 기간 A: run 0.58 / instant 0.18 / forever 0.12
+- 지속 기간 B: instant 0.37 / stage 0.34 / forever 0.12
+- 지속 기간 S(0~4 점수): 2.39
+- 성질: scaling 0.26, risky 0.07, random 0.09, network 0.18
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 분노
+- 동사: damage 0.86 / buff 0.08
+- 역할: cast 0.93
+- 시점: now 0.86 / repeating 0.11
+- 발동 조건: none 0.88
+- 범위: single 0.46 / around 0.34 / wide 0.16
+- 재료: none 1.00
+- 구슬의 운명: returns 0.74 / used_up 0.14 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.65 / passive 0.20 / used_up 0.15
+- 지속 기간 v2: turns 0.86
+- 지속 기간 A: turns 0.49 / instant 0.43
+- 지속 기간 B: turns 0.45 / instant 0.39 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.33
+- 성질: scaling 0.21, risky 0.26, random 0.15, network 0.07
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 용기
+- 동사: buff 0.95
+- 역할: cast 0.77 / summon 0.12
+- 시점: now 0.93
+- 발동 조건: none 0.96
+- 범위: single 0.83 / wide 0.10
+- 재료: none 0.99
+- 구슬의 운명: returns 0.64 / passive 0.28
+- 구슬의 운명(자동 문구 재작성): passive 0.51 / returns 0.41
+- 지속 기간 v2: turns 0.45 / instant 0.22 / forever 0.18
+- 지속 기간 A: instant 0.46 / turns 0.37
+- 지속 기간 B: instant 0.41 / turns 0.27 / stage 0.23
+- 지속 기간 S(0~4 점수): 1.86
+- 성질: scaling 0.13, risky 0.16, random 0.11, network 0.07
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+
+## 보충·소환물
+
+### 기사
+- 동사: damage 0.40 / guard 0.28 / buff 0.19 / create 0.05
+- 역할: summon 0.89
+- 시점: now 0.93
+- 발동 조건: none 0.96
+- 범위: single 0.92
+- 재료: ore 0.58 / none 0.35
+- 구슬의 운명: returns 0.79 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.13 / passive 0.11
+- 지속 기간 v2: run 0.49 / turns 0.18 / forever 0.17
+- 지속 기간 A: instant 0.45 / run 0.18 / turns 0.17
+- 지속 기간 B: instant 0.51 / turns 0.24 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.80
+- 성질: scaling 0.19, risky 0.10, random 0.08, network 0.15
+- 힘: 1.7 | 지시문으로 읽힘 0.01
+### 궁수
+- 동사: damage 0.86
+- 역할: summon 0.90
+- 시점: now 0.82 / repeating 0.17
+- 발동 조건: none 0.94
+- 범위: single 0.50 / line 0.44
+- 재료: wood 0.46 / none 0.35
+- 구슬의 운명: returns 0.83 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.11
+- 지속 기간 v2: run 0.47 / forever 0.20 / turns 0.15
+- 지속 기간 A: instant 0.52 / run 0.19 / turns 0.14
+- 지속 기간 B: instant 0.59 / turns 0.17 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.58
+- 성질: scaling 0.15, risky 0.07, random 0.09, network 0.13
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 농부
+- 동사: grow 0.50 / harvest 0.48
+- 역할: summon 0.92
+- 시점: now 0.49 / repeating 0.47
+- 발동 조건: none 1.00
+- 범위: single 0.90
+- 재료: food 0.98
+- 구슬의 운명: returns 0.82 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / passive 0.18
+- 지속 기간 v2: run 0.67 / turns 0.14 / forever 0.10
+- 지속 기간 A: instant 0.37 / run 0.29 / turns 0.16
+- 지속 기간 B: instant 0.38 / stage 0.35 / turns 0.16
+- 지속 기간 S(0~4 점수): 1.97
+- 성질: scaling 0.33, risky 0.06, random 0.07, network 0.16
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 일꾼
+- 동사: harvest 0.41 / money 0.20 / create 0.12 / buff 0.11 / tempo 0.07
+- 역할: summon 0.96
+- 시점: now 0.60 / repeating 0.38
+- 발동 조건: none 0.99
+- 범위: single 0.86
+- 재료: none 0.44 / food 0.33 / gold 0.21
+- 구슬의 운명: returns 0.78 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.15 / passive 0.13
+- 지속 기간 v2: run 0.51 / turns 0.32
+- 지속 기간 A: instant 0.32 / turns 0.26 / run 0.23
+- 지속 기간 B: stage 0.37 / instant 0.35 / turns 0.20
+- 지속 기간 S(0~4 점수): 2.06
+- 성질: scaling 0.20, risky 0.07, random 0.06, network 0.25
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 마을주민
+- 동사: money 0.27 / create 0.24 / grow 0.15 / harvest 0.12 / buff 0.09
+- 역할: summon 0.96
+- 시점: now 0.77 / repeating 0.21
+- 발동 조건: none 0.99
+- 범위: single 0.60 / around 0.23 / wide 0.15
+- 재료: none 0.58 / food 0.31 / gold 0.10
+- 구슬의 운명: returns 0.68 / used_up 0.24
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.20 / passive 0.13
+- 지속 기간 v2: run 0.56 / turns 0.21 / forever 0.13
+- 지속 기간 A: instant 0.39 / run 0.22 / forever 0.16
+- 지속 기간 B: instant 0.49 / stage 0.31 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.08
+- 성질: scaling 0.19, risky 0.06, random 0.08, network 0.75
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 늑대
+- 동사: damage 0.75 / steal 0.09 / buff 0.05
+- 역할: summon 0.93
+- 시점: now 0.86 / repeating 0.12
+- 발동 조건: none 0.88
+- 범위: single 0.84
+- 재료: food 0.70 / none 0.26
+- 구슬의 운명: returns 0.81 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.74 / used_up 0.14 / passive 0.12
+- 지속 기간 v2: run 0.38 / forever 0.27 / turns 0.19
+- 지속 기간 A: instant 0.48 / turns 0.24 / run 0.11
+- 지속 기간 B: instant 0.48 / turns 0.27 / stage 0.19
+- 지속 기간 S(0~4 점수): 1.74
+- 성질: scaling 0.18, risky 0.13, random 0.14, network 0.40
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 곰
+- 동사: damage 0.29 / guard 0.18 / control 0.14 / buff 0.09 / money 0.06
+- 역할: summon 0.76 / cast 0.11
+- 시점: now 0.89
+- 발동 조건: none 0.95
+- 범위: single 0.87
+- 재료: none 0.54 / food 0.35
+- 구슬의 운명: returns 0.70 / used_up 0.16 / passive 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.17 / passive 0.17
+- 지속 기간 v2: forever 0.43 / run 0.33 / instant 0.12
+- 지속 기간 A: instant 0.48 / turns 0.18 / run 0.17
+- 지속 기간 B: instant 0.49 / turns 0.20 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.89
+- 성질: scaling 0.14, risky 0.08, random 0.10, network 0.08
+- 힘: 1.5 | 지시문으로 읽힘 0.02
+### 드래곤
+- 동사: damage 0.81 / money 0.05 / create 0.05
+- 역할: summon 0.95
+- 시점: now 0.95
+- 발동 조건: none 0.98
+- 범위: single 0.85
+- 재료: none 0.69 / food 0.18
+- 구슬의 운명: returns 0.80 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.15
+- 지속 기간 v2: run 0.45 / forever 0.31 / turns 0.16
+- 지속 기간 A: instant 0.52 / turns 0.15 / run 0.15
+- 지속 기간 B: instant 0.51 / stage 0.21 / turns 0.19
+- 지속 기간 S(0~4 점수): 1.77
+- 성질: scaling 0.36, risky 0.13, random 0.13, network 0.10
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 슬라임
+- 동사: control 0.24 / grow 0.19 / transform 0.13 / damage 0.12 / debuff 0.12
+- 역할: summon 0.93
+- 시점: now 0.88
+- 발동 조건: none 0.85 / approach 0.12
+- 범위: single 0.86
+- 재료: none 0.91
+- 구슬의 운명: returns 0.75 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.22
+- 지속 기간 v2: run 0.51 / turns 0.31 / forever 0.10
+- 지속 기간 A: instant 0.41 / turns 0.26 / forever 0.16
+- 지속 기간 B: instant 0.48 / turns 0.29 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.57
+- 성질: scaling 0.49, risky 0.09, random 0.12, network 0.14
+- 힘: 0.7 | 지시문으로 읽힘 0.01
+### 고블린
+- 동사: steal 0.27 / create 0.23 / damage 0.18 / money 0.17
+- 역할: summon 0.98
+- 시점: now 0.92
+- 발동 조건: none 0.97
+- 범위: single 0.87
+- 재료: none 0.57 / gold 0.19 / food 0.14
+- 구슬의 운명: returns 0.74 / used_up 0.21
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / used_up 0.21
+- 지속 기간 v2: run 0.37 / turns 0.23 / forever 0.19
+- 지속 기간 A: instant 0.56 / turns 0.16 / run 0.12
+- 지속 기간 B: instant 0.58 / turns 0.20 / stage 0.16
+- 지속 기간 S(0~4 점수): 1.69
+- 성질: scaling 0.19, risky 0.09, random 0.11, network 0.28
+- 힘: 0.8 | 지시문으로 읽힘 0.01
+### 해골
+- 동사: damage 0.76 / recycle 0.09
+- 역할: summon 0.65 / cast 0.21 / build 0.13
+- 시점: now 0.88
+- 발동 조건: none 0.71 / death 0.23
+- 범위: single 0.87
+- 재료: none 0.50 / ore 0.44
+- 구슬의 운명: returns 0.70 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.25 / passive 0.11
+- 지속 기간 v2: run 0.42 / forever 0.38
+- 지속 기간 A: instant 0.55 / turns 0.14 / run 0.13
+- 지속 기간 B: instant 0.52 / turns 0.20 / stage 0.17
+- 지속 기간 S(0~4 점수): 1.84
+- 성질: scaling 0.18, risky 0.45, random 0.12, network 0.08
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 좀비
+- 동사: recycle 0.43 / damage 0.22 / debuff 0.08 / control 0.08 / transform 0.07
+- 역할: summon 0.98
+- 시점: now 0.79 / repeating 0.17
+- 발동 조건: none 0.81 / death 0.16
+- 범위: single 0.78 / around 0.10
+- 재료: none 0.79 / food 0.18
+- 구슬의 운명: returns 0.72 / used_up 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.68 / used_up 0.25
+- 지속 기간 v2: run 0.37 / forever 0.30 / turns 0.24
+- 지속 기간 A: instant 0.40 / turns 0.35 / forever 0.11
+- 지속 기간 B: instant 0.35 / turns 0.32 / stage 0.25
+- 지속 기간 S(0~4 점수): 2.16
+- 성질: scaling 0.61, risky 0.36, random 0.10, network 0.31
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 유령
+- 동사: recycle 0.23 / remove 0.20 / damage 0.17 / control 0.17 / peek 0.08
+- 역할: summon 0.86 / cast 0.11
+- 시점: now 0.82 / repeating 0.15
+- 발동 조건: none 0.81 / approach 0.11
+- 범위: single 0.83
+- 재료: none 1.00
+- 구슬의 운명: returns 0.73 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.15 / passive 0.15
+- 지속 기간 v2: forever 0.45 / turns 0.25 / run 0.23
+- 지속 기간 A: instant 0.36 / turns 0.34 / forever 0.14
+- 지속 기간 B: instant 0.37 / turns 0.28 / stage 0.27
+- 지속 기간 S(0~4 점수): 1.89
+- 성질: scaling 0.12, risky 0.19, random 0.13, network 0.11
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 정령
+- 동사: create 0.29 / buff 0.16 / control 0.15 / recycle 0.09 / energy 0.06
+- 역할: summon 0.91
+- 시점: now 0.84 / repeating 0.14
+- 발동 조건: none 0.94
+- 범위: single 0.74 / around 0.13
+- 재료: none 0.99
+- 구슬의 운명: returns 0.72 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.17 / used_up 0.17
+- 지속 기간 v2: forever 0.38 / run 0.37 / turns 0.17
+- 지속 기간 A: instant 0.43 / turns 0.26 / forever 0.14
+- 지속 기간 B: instant 0.47 / stage 0.22 / turns 0.16
+- 지속 기간 S(0~4 점수): 2.12
+- 성질: scaling 0.16, risky 0.11, random 0.16, network 0.20
+- 힘: 2.1 | 지시문으로 읽힘 0.01
+### 천사
+- 동사: heal 0.61 / buff 0.12 / guard 0.11 / damage 0.06
+- 역할: summon 0.92
+- 시점: now 0.90
+- 발동 조건: none 0.97
+- 범위: single 0.67 / wide 0.20 / around 0.11
+- 재료: none 0.98
+- 구슬의 운명: returns 0.77 / used_up 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / passive 0.17 / used_up 0.13
+- 지속 기간 v2: forever 0.59 / run 0.28
+- 지속 기간 A: instant 0.51 / forever 0.15 / turns 0.14
+- 지속 기간 B: instant 0.43 / stage 0.25 / turns 0.15
+- 지속 기간 S(0~4 점수): 2.10
+- 성질: scaling 0.17, risky 0.11, random 0.10, network 0.15
+- 힘: 3.0 | 지시문으로 읽힘 0.01
+### 악마
+- 동사: damage 0.78 / debuff 0.08
+- 역할: summon 0.88 / cast 0.10
+- 시점: now 0.93
+- 발동 조건: none 0.97
+- 범위: single 0.78 / wide 0.12
+- 재료: none 0.99
+- 구슬의 운명: returns 0.81 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.16 / passive 0.14
+- 지속 기간 v2: forever 0.66 / run 0.19
+- 지속 기간 A: instant 0.56 / turns 0.16 / forever 0.13
+- 지속 기간 B: instant 0.54 / stage 0.19 / turns 0.18
+- 지속 기간 S(0~4 점수): 1.72
+- 성질: scaling 0.22, risky 0.65, random 0.27, network 0.08
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 요정
+- 동사: buff 0.27 / create 0.12 / control 0.10 / heal 0.07 / grow 0.06
+- 역할: summon 0.94
+- 시점: now 0.86 / repeating 0.13
+- 발동 조건: none 0.95
+- 범위: single 0.88
+- 재료: none 0.88
+- 구슬의 운명: returns 0.77 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.19 / used_up 0.15
+- 지속 기간 v2: run 0.43 / forever 0.32 / turns 0.14
+- 지속 기간 A: instant 0.47 / turns 0.22 / forever 0.15
+- 지속 기간 B: instant 0.58 / turns 0.19 / stage 0.15
+- 지속 기간 S(0~4 점수): 1.73
+- 성질: scaling 0.18, risky 0.09, random 0.26, network 0.17
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 골렘
+- 동사: guard 0.48 / damage 0.25 / control 0.09 / create 0.09
+- 역할: summon 0.95
+- 시점: now 0.93
+- 발동 조건: none 0.89
+- 범위: single 0.92
+- 재료: ore 0.97
+- 구슬의 운명: returns 0.70 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.64 / used_up 0.20 / passive 0.17
+- 지속 기간 v2: run 0.59 / turns 0.25
+- 지속 기간 A: turns 0.24 / run 0.23 / forever 0.23
+- 지속 기간 B: stage 0.38 / turns 0.27 / instant 0.26
+- 지속 기간 S(0~4 점수): 2.45
+- 성질: scaling 0.19, risky 0.15, random 0.08, network 0.14
+- 힘: 2.8 | 지시문으로 읽힘 0.01
+### 로봇
+- 동사: create 0.28 / damage 0.14 / buff 0.12 / control 0.09 / guard 0.08
+- 역할: summon 0.94
+- 시점: now 0.82 / repeating 0.17
+- 발동 조건: none 0.99
+- 범위: single 0.93
+- 재료: ore 0.98
+- 구슬의 운명: returns 0.85 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.82 / used_up 0.11
+- 지속 기간 v2: run 0.64 / turns 0.17 / forever 0.11
+- 지속 기간 A: instant 0.32 / run 0.25 / turns 0.20
+- 지속 기간 B: instant 0.38 / stage 0.30 / turns 0.23
+- 지속 기간 S(0~4 점수): 2.18
+- 성질: scaling 0.20, risky 0.06, random 0.07, network 0.17
+- 힘: 1.2 | 지시문으로 읽힘 0.01
+### 허수아비
+- 동사: guard 0.37 / transform 0.17 / control 0.16 / debuff 0.05 / draw 0.05
+- 역할: summon 0.57 / build 0.37
+- 시점: now 0.75 / repeating 0.21
+- 발동 조건: none 0.53 / approach 0.45
+- 범위: single 0.81 / around 0.13
+- 재료: wood 0.75 / food 0.16
+- 구슬의 운명: returns 0.69 / used_up 0.23
+- 구슬의 운명(자동 문구 재작성): returns 0.62 / used_up 0.22 / passive 0.16
+- 지속 기간 v2: run 0.59 / turns 0.23
+- 지속 기간 A: stage 0.23 / run 0.23 / turns 0.20
+- 지속 기간 B: stage 0.50 / instant 0.23 / turns 0.19
+- 지속 기간 S(0~4 점수): 2.11
+- 성질: scaling 0.09, risky 0.17, random 0.10, network 0.10
+- 힘: 0.5 | 지시문으로 읽힘 0.02
+### 수호신
+- 동사: guard 0.97
+- 역할: summon 0.62 / cast 0.22 / build 0.16
+- 시점: repeating 0.68 / now 0.31
+- 발동 조건: none 0.69 / approach 0.22
+- 범위: single 0.50 / around 0.30 / wide 0.18
+- 재료: none 0.98
+- 구슬의 운명: passive 0.54 / returns 0.39
+- 구슬의 운명(자동 문구 재작성): passive 0.71 / returns 0.24
+- 지속 기간 v2: forever 0.54 / run 0.42
+- 지속 기간 A: run 0.32 / forever 0.21 / turns 0.20
+- 지속 기간 B: stage 0.52 / forever 0.17 / turns 0.13
+- 지속 기간 S(0~4 점수): 2.90
+- 성질: scaling 0.15, risky 0.10, random 0.11, network 0.27
+- 힘: 3.2 | 지시문으로 읽힘 0.01
+### 도적
+- 동사: steal 0.96
+- 역할: summon 0.64 / move 0.18 / cast 0.16
+- 시점: now 0.82 / repeating 0.16
+- 발동 조건: none 0.89
+- 범위: single 0.89
+- 재료: gold 0.68 / none 0.29
+- 구슬의 운명: returns 0.82 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.79 / passive 0.11 / used_up 0.10
+- 지속 기간 v2: run 0.39 / instant 0.22 / forever 0.21
+- 지속 기간 A: instant 0.57 / turns 0.21
+- 지속 기간 B: instant 0.49 / turns 0.26 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.55
+- 성질: scaling 0.18, risky 0.15, random 0.21, network 0.14
+- 힘: 1.0 | 지시문으로 읽힘 0.01
+### 마법사
+- 동사: damage 0.30 / buff 0.24 / energy 0.20 / transform 0.07 / create 0.06
+- 역할: cast 0.53 / summon 0.43
+- 시점: now 0.93
+- 발동 조건: none 1.00
+- 범위: single 0.84
+- 재료: none 0.98
+- 구슬의 운명: returns 0.87
+- 구슬의 운명(자동 문구 재작성): returns 0.81 / passive 0.12
+- 지속 기간 v2: run 0.46 / forever 0.24 / turns 0.19
+- 지속 기간 A: instant 0.47 / turns 0.29 / run 0.13
+- 지속 기간 B: instant 0.57 / stage 0.18 / turns 0.13
+- 지속 기간 S(0~4 점수): 1.66
+- 성질: scaling 0.28, risky 0.08, random 0.10, network 0.12
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 용사
+- 동사: damage 0.40 / buff 0.40 / create 0.08
+- 역할: summon 0.92
+- 시점: now 0.95
+- 발동 조건: none 0.99
+- 범위: single 0.95
+- 재료: none 0.80 / ore 0.12
+- 구슬의 운명: returns 0.80 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.74 / used_up 0.13 / passive 0.13
+- 지속 기간 v2: run 0.53 / forever 0.22 / turns 0.13
+- 지속 기간 A: instant 0.55 / run 0.16 / turns 0.13
+- 지속 기간 B: instant 0.51 / stage 0.23 / turns 0.14
+- 지속 기간 S(0~4 점수): 2.01
+- 성질: scaling 0.35, risky 0.09, random 0.09, network 0.12
+- 힘: 2.9 | 지시문으로 읽힘 0.01
+### 쥐떼
+- 동사: steal 0.27 / grow 0.17 / damage 0.16 / create 0.08 / money 0.07
+- 역할: summon 0.97
+- 시점: now 0.78 / repeating 0.21
+- 발동 조건: none 0.92
+- 범위: around 0.55 / single 0.21 / wide 0.17
+- 재료: food 0.75 / none 0.19
+- 구슬의 운명: returns 0.71 / used_up 0.25
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / used_up 0.29
+- 지속 기간 v2: turns 0.46 / instant 0.20 / run 0.17
+- 지속 기간 A: instant 0.58 / turns 0.25
+- 지속 기간 B: instant 0.52 / turns 0.33 / stage 0.11
+- 지속 기간 S(0~4 점수): 1.49
+- 성질: scaling 0.55, risky 0.11, random 0.14, network 0.59
+- 힘: 1.3 | 지시문으로 읽힘 0.01
+### 거미
+- 동사: control 0.83
+- 역할: summon 0.88
+- 시점: now 0.82 / repeating 0.15
+- 발동 조건: none 0.71 / approach 0.27
+- 범위: single 0.63 / line 0.17 / around 0.17
+- 재료: none 0.72 / food 0.15
+- 구슬의 운명: returns 0.83 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.77 / used_up 0.13 / passive 0.11
+- 지속 기간 v2: run 0.44 / forever 0.22 / turns 0.19
+- 지속 기간 A: instant 0.47 / turns 0.25 / forever 0.12
+- 지속 기간 B: instant 0.43 / turns 0.32 / stage 0.18
+- 지속 기간 S(0~4 점수): 1.50
+- 성질: scaling 0.44, risky 0.15, random 0.11, network 0.56
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+
+## 보충·영구
+
+### 영원
+- 동사: recycle 0.90 / amplify 0.05
+- 역할: build 0.66 / cast 0.27
+- 시점: repeating 0.89
+- 발동 조건: none 0.99
+- 범위: wide 0.77 / single 0.21
+- 재료: none 0.98
+- 구슬의 운명: returns 0.80 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.59 / passive 0.33
+- 지속 기간 v2: forever 1.00
+- 지속 기간 A: forever 0.77
+- 지속 기간 B: stage 0.52 / forever 0.24
+- 지속 기간 S(0~4 점수): 3.71
+- 성질: scaling 0.18, risky 0.11, random 0.08, network 0.06
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 불멸
+- 동사: recycle 0.91 / heal 0.06
+- 역할: cast 0.54 / build 0.23 / summon 0.21
+- 시점: repeating 0.73 / now 0.25
+- 발동 조건: none 0.75 / death 0.24
+- 범위: single 0.73 / wide 0.26
+- 재료: none 0.96
+- 구슬의 운명: returns 0.76 / passive 0.13 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / passive 0.42
+- 지속 기간 v2: forever 0.99
+- 지속 기간 A: forever 0.72 / run 0.10
+- 지속 기간 B: stage 0.44 / forever 0.26 / turns 0.12
+- 지속 기간 S(0~4 점수): 3.51
+- 성질: scaling 0.19, risky 0.13, random 0.06, network 0.06
+- 힘: 3.9 | 지시문으로 읽힘 0.01
+### 영구기관
+- 동사: recycle 0.73 / energy 0.13 / money 0.10
+- 역할: build 0.70 / cast 0.16 / summon 0.12
+- 시점: repeating 0.97
+- 발동 조건: none 0.97
+- 범위: single 0.49 / wide 0.48
+- 재료: none 0.88
+- 구슬의 운명: returns 0.86 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.32
+- 지속 기간 v2: forever 0.97
+- 지속 기간 A: forever 0.78 / run 0.13
+- 지속 기간 B: stage 0.43 / forever 0.40 / run 0.11
+- 지속 기간 S(0~4 점수): 3.60
+- 성질: scaling 0.52, risky 0.19, random 0.08, network 0.14
+- 힘: 4.0 | 지시문으로 읽힘 0.01
+### 영원한불꽃
+- 동사: recycle 0.42 / damage 0.37 / trash 0.07 / energy 0.06
+- 역할: cast 0.66 / build 0.32
+- 시점: repeating 0.89 / now 0.11
+- 발동 조건: none 0.95
+- 범위: single 0.59 / wide 0.24 / around 0.14
+- 재료: none 1.00
+- 구슬의 운명: returns 0.79 / passive 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.55 / passive 0.37
+- 지속 기간 v2: forever 0.95
+- 지속 기간 A: turns 0.42 / forever 0.38
+- 지속 기간 B: stage 0.48 / forever 0.18 / turns 0.16
+- 지속 기간 S(0~4 점수): 3.31
+- 성질: scaling 0.20, risky 0.13, random 0.09, network 0.09
+- 힘: 3.5 | 지시문으로 읽힘 0.01
+### 운명
+- 동사: peek 0.63 / recycle 0.10 / control 0.06 / debuff 0.06 / transform 0.05
+- 역할: cast 0.86
+- 시점: now 0.61 / delayed 0.28 / repeating 0.11
+- 발동 조건: none 0.93
+- 범위: wide 0.74 / single 0.23
+- 재료: none 0.99
+- 구슬의 운명: returns 0.60 / passive 0.23 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.47 / passive 0.36 / used_up 0.16
+- 지속 기간 v2: forever 0.96
+- 지속 기간 A: instant 0.37 / forever 0.36 / turns 0.11
+- 지속 기간 B: stage 0.44 / forever 0.25 / instant 0.19
+- 지속 기간 S(0~4 점수): 3.11
+- 성질: scaling 0.15, risky 0.41, random 0.61, network 0.09
+- 힘: 3.7 | 지시문으로 읽힘 0.01
+### 세계의법칙
+- 동사: transform 0.32 / control 0.23 / amplify 0.16 / money 0.06 / create 0.05
+- 역할: cast 0.83 / build 0.12
+- 시점: now 0.52 / repeating 0.47
+- 발동 조건: none 0.99
+- 범위: wide 0.99
+- 재료: none 0.99
+- 구슬의 운명: returns 0.72 / passive 0.17 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.23 / used_up 0.11
+- 지속 기간 v2: forever 0.99
+- 지속 기간 A: forever 0.66 / instant 0.11 / run 0.11
+- 지속 기간 B: stage 0.43 / forever 0.33 / instant 0.12
+- 지속 기간 S(0~4 점수): 3.22
+- 성질: scaling 0.18, risky 0.15, random 0.15, network 0.23
+- 힘: 4.6 | 지시문으로 읽힘 0.02
+### 무한지속
+- 동사: recycle 0.84 / amplify 0.10
+- 역할: build 0.54 / cast 0.43
+- 시점: repeating 0.99
+- 발동 조건: none 1.00
+- 범위: single 0.51 / wide 0.46
+- 재료: none 0.95
+- 구슬의 운명: returns 0.89
+- 구슬의 운명(자동 문구 재작성): passive 0.51 / returns 0.46
+- 지속 기간 v2: forever 0.98
+- 지속 기간 A: forever 0.81 / turns 0.10
+- 지속 기간 B: stage 0.67 / forever 0.24
+- 지속 기간 S(0~4 점수): 3.74
+- 성질: scaling 0.43, risky 0.14, random 0.08, network 0.10
+- 힘: 3.4 | 지시문으로 읽힘 0.01
+### 일회용
+- 동사: trash 0.65 / create 0.11 / tempo 0.06 / recycle 0.05
+- 역할: cast 0.99
+- 시점: now 1.00
+- 발동 조건: none 1.00
+- 범위: single 0.97
+- 재료: none 0.90
+- 구슬의 운명: used_up 1.00
+- 구슬의 운명(자동 문구 재작성): used_up 1.00
+- 지속 기간 v2: instant 0.97
+- 지속 기간 A: instant 0.98
+- 지속 기간 B: instant 0.91
+- 지속 기간 S(0~4 점수): 0.11
+- 성질: scaling 0.06, risky 0.37, random 0.12, network 0.06
+- 힘: 0.5 | 지시문으로 읽힘 0.01
+### 찰나
+- 동사: tempo 0.90
+- 역할: cast 0.75 / move 0.24
+- 시점: now 0.99
+- 발동 조건: none 0.91
+- 범위: single 0.78 / wide 0.13
+- 재료: none 0.95
+- 구슬의 운명: returns 0.69 / used_up 0.27
+- 구슬의 운명(자동 문구 재작성): returns 0.67 / used_up 0.26
+- 지속 기간 v2: instant 0.98
+- 지속 기간 A: instant 0.95
+- 지속 기간 B: instant 0.95
+- 지속 기간 S(0~4 점수): 0.18
+- 성질: scaling 0.12, risky 0.18, random 0.17, network 0.08
+- 힘: 1.6 | 지시문으로 읽힘 0.01
+### 하룻밤
+- 동사: control 0.38 / tempo 0.18 / recycle 0.12 / money 0.10 / energy 0.05
+- 역할: cast 0.77 / build 0.10
+- 시점: delayed 0.48 / now 0.41 / repeating 0.11
+- 발동 조건: none 0.96
+- 범위: single 0.50 / wide 0.41
+- 재료: none 0.95
+- 구슬의 운명: returns 0.56 / used_up 0.39
+- 구슬의 운명(자동 문구 재작성): returns 0.54 / used_up 0.39
+- 지속 기간 v2: stage 0.47 / turns 0.43
+- 지속 기간 A: turns 0.54 / stage 0.35
+- 지속 기간 B: turns 0.44 / stage 0.43 / instant 0.11
+- 지속 기간 S(0~4 점수): 1.43
+- 성질: scaling 0.13, risky 0.23, random 0.16, network 0.06
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 평생
+- 동사: recycle 0.64 / money 0.09 / amplify 0.08
+- 역할: cast 0.49 / build 0.38
+- 시점: repeating 0.77 / now 0.16
+- 발동 조건: none 0.92
+- 범위: single 0.59 / wide 0.39
+- 재료: none 0.94
+- 구슬의 운명: returns 0.57 / used_up 0.28 / passive 0.16
+- 구슬의 운명(자동 문구 재작성): passive 0.45 / returns 0.32 / used_up 0.22
+- 지속 기간 v2: forever 0.71 / run 0.29
+- 지속 기간 A: forever 0.62 / run 0.27
+- 지속 기간 B: stage 0.45 / forever 0.31 / run 0.20
+- 지속 기간 S(0~4 점수): 3.52
+- 성질: scaling 0.14, risky 0.19, random 0.09, network 0.05
+- 힘: 1.8 | 지시문으로 읽힘 0.01
+### 대대로
+- 동사: recycle 0.49 / amplify 0.17 / grow 0.13 / money 0.10
+- 역할: build 0.48 / cast 0.19 / summon 0.19
+- 시점: repeating 0.84
+- 발동 조건: none 0.91
+- 범위: wide 0.54 / single 0.35
+- 재료: none 0.66 / gold 0.24
+- 구슬의 운명: returns 0.72 / passive 0.16 / used_up 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.48 / passive 0.42 / used_up 0.10
+- 지속 기간 v2: forever 0.67 / run 0.30
+- 지속 기간 A: forever 0.54 / run 0.27 / turns 0.10
+- 지속 기간 B: forever 0.38 / stage 0.29 / run 0.19
+- 지속 기간 S(0~4 점수): 3.34
+- 성질: scaling 0.49, risky 0.13, random 0.14, network 0.45
+- 힘: 1.7 | 지시문으로 읽힘 0.02
+
+## 보충·지속
+
+### 폭우
+- 동사: damage 0.67 / control 0.10 / grow 0.07 / harvest 0.06
+- 역할: cast 0.98
+- 시점: now 0.84 / repeating 0.14
+- 발동 조건: none 0.98
+- 범위: around 0.65 / wide 0.32
+- 재료: none 1.00
+- 구슬의 운명: returns 0.73 / used_up 0.25
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.27
+- 지속 기간 v2: stage 0.69 / turns 0.15 / instant 0.15
+- 지속 기간 A: stage 0.57 / instant 0.23 / turns 0.20
+- 지속 기간 B: instant 0.51 / turns 0.42
+- 지속 기간 S(0~4 점수): 1.16
+- 성질: scaling 0.13, risky 0.11, random 0.30, network 0.10
+- 힘: 2.6 | 지시문으로 읽힘 0.01
+### 가뭄
+- 동사: debuff 0.59 / damage 0.24
+- 역할: cast 0.98
+- 시점: repeating 0.49 / now 0.34 / delayed 0.18
+- 발동 조건: none 1.00
+- 범위: wide 0.68 / around 0.26
+- 재료: none 0.97
+- 구슬의 운명: returns 0.58 / used_up 0.31 / passive 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.54 / used_up 0.29 / passive 0.17
+- 지속 기간 v2: stage 0.63 / run 0.24
+- 지속 기간 A: stage 0.59 / turns 0.32
+- 지속 기간 B: stage 0.52 / turns 0.37
+- 지속 기간 S(0~4 점수): 2.08
+- 성질: scaling 0.32, risky 0.42, random 0.16, network 0.10
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 한파
+- 동사: control 0.81 / damage 0.11 / debuff 0.08
+- 역할: cast 0.97
+- 시점: now 0.75 / repeating 0.22
+- 발동 조건: none 0.96
+- 범위: wide 0.61 / around 0.34
+- 재료: none 1.00
+- 구슬의 운명: returns 0.74 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.17 / passive 0.12
+- 지속 기간 v2: stage 0.69 / turns 0.25
+- 지속 기간 A: stage 0.54 / turns 0.37
+- 지속 기간 B: turns 0.57 / stage 0.33
+- 지속 기간 S(0~4 점수): 1.52
+- 성질: scaling 0.18, risky 0.20, random 0.08, network 0.10
+- 힘: 2.5 | 지시문으로 읽힘 0.01
+### 야영지
+- 동사: create 0.23 / guard 0.19 / harvest 0.12 / buff 0.10 / money 0.10
+- 역할: build 0.97
+- 시점: now 0.70 / repeating 0.26
+- 발동 조건: none 0.91
+- 범위: around 0.59 / single 0.32
+- 재료: wood 0.49 / food 0.32 / none 0.14
+- 구슬의 운명: returns 0.76 / used_up 0.19
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.19
+- 지속 기간 v2: stage 0.85 / run 0.14
+- 지속 기간 A: stage 0.90
+- 지속 기간 B: stage 0.60 / turns 0.18 / instant 0.16
+- 지속 기간 S(0~4 점수): 2.82
+- 성질: scaling 0.19, risky 0.07, random 0.07, network 0.21
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 진지
+- 동사: guard 0.90
+- 역할: build 0.93
+- 시점: now 0.64 / repeating 0.28
+- 발동 조건: none 0.77 / approach 0.21
+- 범위: single 0.54 / around 0.35
+- 재료: ore 0.42 / none 0.29 / wood 0.19
+- 구슬의 운명: returns 0.74 / used_up 0.14 / passive 0.12
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / passive 0.15 / used_up 0.14
+- 지속 기간 v2: run 0.61 / stage 0.31
+- 지속 기간 A: stage 0.56 / run 0.28
+- 지속 기간 B: stage 0.57 / turns 0.20 / instant 0.13
+- 지속 기간 S(0~4 점수): 2.67
+- 성질: scaling 0.22, risky 0.10, random 0.06, network 0.20
+- 힘: 1.2 | 지시문으로 읽힘 0.02
+### 포위전
+- 동사: control 0.86 / guard 0.07
+- 역할: cast 0.85 / build 0.10
+- 시점: now 0.66 / repeating 0.24 / delayed 0.10
+- 발동 조건: none 0.86 / approach 0.13
+- 범위: around 0.90
+- 재료: none 0.88
+- 구슬의 운명: returns 0.84 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.85 / used_up 0.13
+- 지속 기간 v2: stage 0.93
+- 지속 기간 A: stage 0.90
+- 지속 기간 B: stage 0.49 / turns 0.32 / instant 0.16
+- 지속 기간 S(0~4 점수): 1.77
+- 성질: scaling 0.22, risky 0.14, random 0.07, network 0.70
+- 힘: 2.1 | 지시문으로 읽힘 0.02
+### 장마
+- 동사: grow 0.23 / harvest 0.16 / control 0.15 / debuff 0.13 / draw 0.06
+- 역할: cast 0.89
+- 시점: repeating 0.65 / now 0.22 / delayed 0.13
+- 발동 조건: none 0.96
+- 범위: wide 0.75 / around 0.20
+- 재료: none 1.00
+- 구슬의 운명: returns 0.65 / used_up 0.21 / passive 0.15
+- 구슬의 운명(자동 문구 재작성): returns 0.57 / passive 0.22 / used_up 0.21
+- 지속 기간 v2: stage 0.77 / run 0.19
+- 지속 기간 A: stage 0.78 / turns 0.20
+- 지속 기간 B: turns 0.50 / stage 0.44
+- 지속 기간 S(0~4 점수): 1.63
+- 성질: scaling 0.14, risky 0.13, random 0.25, network 0.10
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 방어진
+- 동사: guard 0.95
+- 역할: build 0.80
+- 시점: now 0.60 / repeating 0.28 / delayed 0.12
+- 발동 조건: none 0.45 / approach 0.38 / hit 0.15
+- 범위: single 0.45 / around 0.42
+- 재료: ore 0.47 / none 0.33 / gold 0.12
+- 구슬의 운명: returns 0.62 / passive 0.21 / used_up 0.17
+- 구슬의 운명(자동 문구 재작성): returns 0.57 / passive 0.26 / used_up 0.17
+- 지속 기간 v2: run 0.55 / turns 0.18 / forever 0.15
+- 지속 기간 A: run 0.35 / turns 0.18 / stage 0.18
+- 지속 기간 B: stage 0.40 / turns 0.24 / instant 0.20
+- 지속 기간 S(0~4 점수): 2.39
+- 성질: scaling 0.21, risky 0.13, random 0.09, network 0.24
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 결계
+- 동사: guard 0.78 / control 0.21
+- 역할: build 0.73 / cast 0.27
+- 시점: now 0.57 / repeating 0.39
+- 발동 조건: approach 0.57 / none 0.42
+- 범위: around 0.86
+- 재료: none 0.98
+- 구슬의 운명: returns 0.71 / passive 0.18 / used_up 0.11
+- 구슬의 운명(자동 문구 재작성): returns 0.66 / passive 0.23 / used_up 0.11
+- 지속 기간 v2: run 0.43 / forever 0.29 / turns 0.19
+- 지속 기간 A: stage 0.41 / turns 0.21 / run 0.18
+- 지속 기간 B: stage 0.60 / turns 0.19 / instant 0.11
+- 지속 기간 S(0~4 점수): 2.66
+- 성질: scaling 0.16, risky 0.17, random 0.09, network 0.47
+- 힘: 2.4 | 지시문으로 읽힘 0.01
+### 축제
+- 동사: buff 0.32 / money 0.26 / amplify 0.23 / draw 0.05
+- 역할: cast 0.61 / build 0.22 / summon 0.14
+- 시점: now 0.74 / repeating 0.24
+- 발동 조건: none 0.96
+- 범위: wide 0.47 / around 0.29 / single 0.23
+- 재료: none 0.79 / food 0.12
+- 구슬의 운명: returns 0.57 / used_up 0.35
+- 구슬의 운명(자동 문구 재작성): returns 0.61 / used_up 0.30
+- 지속 기간 v2: stage 0.44 / turns 0.25 / run 0.23
+- 지속 기간 A: stage 0.37 / turns 0.36 / instant 0.20
+- 지속 기간 B: stage 0.39 / turns 0.31 / instant 0.27
+- 지속 기간 S(0~4 점수): 1.48
+- 성질: scaling 0.13, risky 0.12, random 0.23, network 0.24
+- 힘: 1.5 | 지시문으로 읽힘 0.01
+### 사기충천
+- 동사: steal 0.36 / money 0.26 / damage 0.10 / buff 0.08 / amplify 0.06
+- 역할: cast 0.76 / summon 0.12
+- 시점: now 0.82 / repeating 0.15
+- 발동 조건: none 0.93
+- 범위: wide 0.48 / single 0.32 / around 0.13
+- 재료: none 0.62 / gold 0.36
+- 구슬의 운명: returns 0.62 / used_up 0.25 / passive 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.56 / used_up 0.25 / passive 0.19
+- 지속 기간 v2: instant 0.39 / turns 0.39
+- 지속 기간 A: instant 0.54 / turns 0.29 / stage 0.11
+- 지속 기간 B: instant 0.43 / stage 0.30 / turns 0.21
+- 지속 기간 S(0~4 점수): 1.51
+- 성질: scaling 0.28, risky 0.49, random 0.37, network 0.14
+- 힘: 2.6 | 지시문으로 읽힘 0.03
+### 연기
+- 동사: debuff 0.26 / guard 0.22 / control 0.15 / remove 0.13 / peek 0.08
+- 역할: cast 0.82
+- 시점: now 0.75 / repeating 0.13 / delayed 0.12
+- 발동 조건: none 0.88
+- 범위: around 0.52 / line 0.25 / single 0.21
+- 재료: none 0.98
+- 구슬의 운명: returns 0.72 / used_up 0.22
+- 구슬의 운명(자동 문구 재작성): returns 0.70 / used_up 0.22
+- 지속 기간 v2: turns 0.88
+- 지속 기간 A: turns 0.69 / instant 0.18 / stage 0.11
+- 지속 기간 B: turns 0.63 / instant 0.34
+- 지속 기간 S(0~4 점수): 1.02
+- 성질: scaling 0.11, risky 0.14, random 0.16, network 0.12
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 최면
+- 동사: control 0.99
+- 역할: cast 0.96
+- 시점: now 0.77 / repeating 0.19
+- 발동 조건: none 0.95
+- 범위: single 0.71 / around 0.13
+- 재료: none 1.00
+- 구슬의 운명: returns 0.89
+- 구슬의 운명(자동 문구 재작성): returns 0.86
+- 지속 기간 v2: turns 0.90
+- 지속 기간 A: turns 0.89
+- 지속 기간 B: turns 0.69 / stage 0.21
+- 지속 기간 S(0~4 점수): 1.51
+- 성질: scaling 0.12, risky 0.19, random 0.10, network 0.10
+- 힘: 1.9 | 지시문으로 읽힘 0.01
+### 마취
+- 동사: control 0.98
+- 역할: cast 0.94
+- 시점: now 0.94
+- 발동 조건: none 0.82 / hit 0.11
+- 범위: single 0.84 / around 0.10
+- 재료: none 0.95
+- 구슬의 운명: returns 0.79 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.75 / used_up 0.18
+- 지속 기간 v2: turns 0.87
+- 지속 기간 A: turns 0.88
+- 지속 기간 B: turns 0.79 / instant 0.11
+- 지속 기간 S(0~4 점수): 1.22
+- 성질: scaling 0.08, risky 0.25, random 0.07, network 0.08
+- 힘: 1.0 | 지시문으로 읽힘 0.02
+### 졸음
+- 동사: control 0.98
+- 역할: cast 0.90
+- 시점: now 0.67 / repeating 0.21 / delayed 0.12
+- 발동 조건: none 0.96
+- 범위: single 0.74 / wide 0.13 / around 0.11
+- 재료: none 0.99
+- 구슬의 운명: returns 0.67 / passive 0.17 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.57 / passive 0.28 / used_up 0.15
+- 지속 기간 v2: turns 0.89
+- 지속 기간 A: turns 0.80 / instant 0.13
+- 지속 기간 B: turns 0.59 / stage 0.20 / instant 0.18
+- 지속 기간 S(0~4 점수): 1.43
+- 성질: scaling 0.14, risky 0.15, random 0.08, network 0.05
+- 힘: 0.6 | 지시문으로 읽힘 0.01
+### 불길
+- 동사: damage 0.88 / trash 0.10
+- 역할: cast 0.90
+- 시점: now 0.63 / repeating 0.31
+- 발동 조건: none 0.85 / approach 0.11
+- 범위: around 0.49 / line 0.29 / single 0.20
+- 재료: none 0.98
+- 구슬의 운명: returns 0.74 / used_up 0.18
+- 구슬의 운명(자동 문구 재작성): returns 0.71 / used_up 0.19 / passive 0.10
+- 지속 기간 v2: turns 0.92
+- 지속 기간 A: turns 0.86
+- 지속 기간 B: instant 0.44 / turns 0.42 / stage 0.12
+- 지속 기간 S(0~4 점수): 1.20
+- 성질: scaling 0.47, risky 0.30, random 0.19, network 0.21
+- 힘: 2.0 | 지시문으로 읽힘 0.01
+### 주문
+- 동사: damage 0.20 / transform 0.14 / energy 0.13 / buff 0.12 / control 0.12
+- 역할: cast 0.99
+- 시점: now 0.91
+- 발동 조건: none 0.96
+- 범위: single 0.71 / wide 0.15 / around 0.10
+- 재료: none 0.99
+- 구슬의 운명: returns 0.86 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.85 / used_up 0.14
+- 지속 기간 v2: turns 0.65 / instant 0.31
+- 지속 기간 A: turns 0.58 / instant 0.39
+- 지속 기간 B: instant 0.77 / turns 0.16
+- 지속 기간 S(0~4 점수): 0.78
+- 성질: scaling 0.14, risky 0.14, random 0.13, network 0.12
+- 힘: 1.6 | 지시문으로 읽힘 0.02
+### 마을
+- 동사: money 0.30 / create 0.28 / harvest 0.17 / grow 0.10 / guard 0.09
+- 역할: build 0.91
+- 시점: now 0.81 / repeating 0.17
+- 발동 조건: none 0.99
+- 범위: around 0.47 / single 0.27 / wide 0.24
+- 재료: none 0.31 / gold 0.26 / wood 0.21
+- 구슬의 운명: returns 0.79 / used_up 0.14
+- 구슬의 운명(자동 문구 재작성): returns 0.78 / used_up 0.14
+- 지속 기간 v2: run 0.92
+- 지속 기간 A: run 0.63 / forever 0.16 / instant 0.12
+- 지속 기간 B: stage 0.40 / instant 0.38
+- 지속 기간 S(0~4 점수): 2.84
+- 성질: scaling 0.27, risky 0.05, random 0.07, network 0.76
+- 힘: 1.1 | 지시문으로 읽힘 0.01
+### 다리
+- 동사: control 0.30 / create 0.25 / guard 0.18 / tempo 0.10
+- 역할: build 0.73 / move 0.24
+- 시점: now 0.90
+- 발동 조건: none 0.80 / approach 0.20
+- 범위: line 0.84
+- 재료: ore 0.58 / wood 0.28 / none 0.11
+- 구슬의 운명: returns 0.85 / used_up 0.10
+- 구슬의 운명(자동 문구 재작성): returns 0.83
+- 지속 기간 v2: run 0.84 / forever 0.11
+- 지속 기간 A: run 0.50 / forever 0.20 / instant 0.16
+- 지속 기간 B: instant 0.40 / stage 0.30 / turns 0.18
+- 지속 기간 S(0~4 점수): 2.35
+- 성질: scaling 0.09, risky 0.09, random 0.08, network 0.30
+- 힘: 1.0 | 지시문으로 읽힘 0.02
+### 우물
+- 동사: harvest 0.31 / draw 0.19 / heal 0.12 / energy 0.10 / money 0.09
+- 역할: build 0.94
+- 시점: now 0.52 / repeating 0.41
+- 발동 조건: none 0.87 / approach 0.13
+- 범위: single 0.73 / around 0.21
+- 재료: none 0.68 / ore 0.22
+- 구슬의 운명: returns 0.80 / used_up 0.13
+- 구슬의 운명(자동 문구 재작성): returns 0.72 / passive 0.19
+- 지속 기간 v2: run 0.88
+- 지속 기간 A: run 0.51 / forever 0.25 / instant 0.13
+- 지속 기간 B: stage 0.38 / instant 0.25 / forever 0.18
+- 지속 기간 S(0~4 점수): 2.76
+- 성질: scaling 0.15, risky 0.14, random 0.11, network 0.11
+- 힘: 0.9 | 지시문으로 읽힘 0.01
+### 요새
+- 동사: guard 0.95
+- 역할: build 0.99
+- 시점: now 0.87
+- 발동 조건: none 0.88 / approach 0.12
+- 범위: single 0.63 / around 0.29
+- 재료: ore 0.93
+- 구슬의 운명: returns 0.77 / used_up 0.16
+- 구슬의 운명(자동 문구 재작성): returns 0.76 / used_up 0.16
+- 지속 기간 v2: run 0.98
+- 지속 기간 A: run 0.80
+- 지속 기간 B: stage 0.51 / instant 0.29
+- 지속 기간 S(0~4 점수): 3.21
+- 성질: scaling 0.26, risky 0.08, random 0.05, network 0.17
+- 힘: 2.5 | 지시문으로 읽힘 0.01
