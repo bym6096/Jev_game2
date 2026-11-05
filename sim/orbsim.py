@@ -96,6 +96,8 @@ def cost_from_value(v): return max(1, min(8, round(.9 + .8 * math.log2(1 + v / 4
 def cost_linear(v): return max(1, min(8, round(v / 10)))
 
 # ---- the game ---------------------------------------------------------------------------------------------------------------------------
+FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco",
+       "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 STAGE_TYPES = {"balanced": (1.0, 1.0), "hostile": (1.6, .5), "rich": (.6, 2.0)}
 class Game:
     def __init__(g, bag, seed, due, rng_cfg=None, bot="greedy", reward_pick="best3", pool_names=None, cost_model="naive", stages=3, turns=15, cfg=None):
@@ -104,7 +106,7 @@ class Game:
         g.due, g.bot, g.reward_pick, g.pool_names, g.stages, g.turns_per = due, bot, reward_pick, pool_names or [], stages, turns
         g.bag = [copy.copy(o) for o in bag]; g.draw = []; g.disc = []; g.hand = []
         g.hp = g.max_hp = g.cfg["hp"]; g.shield = 0; g.gold = 0; g.res = dict.fromkeys(RAW, 0); g.items = 0
-        g.pick_key = None; g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
+        g.pick_key = None; g.fam_turn = collections.Counter(); g.cap_b = 6; g.cap_s = 5; g.cleared = 0; g.deaths = 0; g.failed = None; g.buildings = []; g.fx = []; g.stats = collections.Counter(); g.played = collections.Counter(); g.contrib = collections.Counter()
     # --- helpers
     def reshuffle(g):
         g.draw = [o for o in g.bag if o.fate != "passive"]; g.R.shuffle(g.draw)
@@ -127,27 +129,29 @@ class Game:
             bonus = 1 + g.dmgb
             if v in ("damage", "drain"):
                 for e in g.targets(o):
-                    e["hp"] -= m * bonus; g.contrib[o.name] += m * bonus * RATE["damage"]
+                    b2 = bonus * (g.cfg.get("weak_bonus", 1.0) if (e["weak"] > 0 or e["stun"] > 0) else 1.0)
+                    e["hp"] -= m * b2; g.contrib[o.name] += m * b2 * RATE["damage"]
                     if v == "drain": g.hp = min(g.max_hp, g.hp + m // 2)
                 g.reap(o)
             elif v == "guard": g.shield = min(40, g.shield + m); g.contrib[o.name] += m * RATE["guard"] if g.en else 0
             elif v == "heal":
                 h = min(m, g.max_hp - g.hp); g.hp += h; g.contrib[o.name] += h * RATE["heal"]
-            elif v == "money": g.gold += m; g.contrib[o.name] += m
+            elif v == "money": g.stats["g_money"] += m; g.gold += m; g.contrib[o.name] += m
             elif v == "steal":
-                if g.en: g.gold += m; g.contrib[o.name] += m
+                if g.en: g.stats["g_money"] += m; g.gold += m; g.contrib[o.name] += m
             elif v in ("harvest", "grow") and mt == "gold":
                 g.gold += m; g.contrib[o.name] += m * RATE["harvest"]
             elif v in ("harvest", "grow"):
                 if v == "harvest":
                     take = min(m, g.pool[mt]); g.pool[mt] -= take
-                else: take = m
+                else:
+                    take = min(m, g.pool["land"]); g.pool["land"] -= take
                 g.res[mt] += take; g.contrib[o.name] += take * RATE["harvest"]
             elif v == "process":
                 raw = [k for k in RAW if g.res[k] > 0]; n = 0
                 for k in raw:
                     t = min(m - n, g.res[k]); g.res[k] -= t; n += t
-                g.gold += int(n * 1.5); g.contrib[o.name] += n * 0.9 * RATE["process"]
+                g.stats["g_process"] += int(n * g.cfg.get("process_ratio", 1.5)); g.gold += int(n * g.cfg.get("process_ratio", 1.5)); g.contrib[o.name] += n * 0.9 * RATE["process"]
             elif v == "buff": g.dmgb = min(1.0, g.dmgb + m / 60)
             elif v == "debuff":
                 for e in g.targets(o): e["weak"] = max(e["weak"], 3); g.contrib[o.name] += RATE["debuff"] * m
@@ -172,16 +176,17 @@ class Game:
             elif v == "amplify": g.amp = 2.0
     def reap(g, o=None):
         for e in [e for e in g.en if e["hp"] <= 0]:
-            g.en.remove(e); g.gold += e["bounty"]; g.kills += 1; g.stats["kills"] += 1
+            g.en.remove(e); g.gold += e["bounty"]; g.kills += 1; g.stats["kills"] += 1; g.stats["g_bounty"] += e["bounty"]
+            if e.get("farm"): g.stats["g_bounty_farm"] += e["bounty"]
             if o is not None: g.contrib[o.name] += e["bounty"]
     # --- playing an orb
     def can_play(g, o):
         if o.mana > g.mana: return False
         if o.role == "build":
             mt, x, y = o.bcost
-            if mt == "gold": return g.gold >= x + y and len(g.buildings) < 6
-            return g.res[mt] >= x and g.gold >= y and len(g.buildings) < 6
-        if o.role == "summon" and not o.hostile: return len(g.summons) < 5
+            if mt == "gold": return g.gold >= x + y and len(g.buildings) < g.cap_b
+            return g.res[mt] >= x and g.gold >= y and len(g.buildings) < g.cap_b
+        if o.role == "summon" and not o.hostile: return len(g.summons) < g.cap_s
         return True
     def play(g, o):
         g.mana -= o.mana; g.played[o.name] += 1; g.uses[o.name] += 1
@@ -192,32 +197,34 @@ class Game:
             g.buildings.append({"o": o, "hp": o.hp, "age": 0, "life": o.life})
         elif o.role == "summon":
             if o.hostile:
-                for _ in range(2): g.spawn(o.lvl)
+                for _ in range(2): g.spawn(o.lvl); g.en[-1]["farm"] = True; g.en[-1]["bounty"] = max(1, round(g.en[-1]["bounty"] * g.cfg.get("farm_bounty", 1.0)))
             else: g.summons.append({"o": o, "hp": o.hp, "age": 0})
         else:
+            fam = FAM.get(o.payload[0][0], "misc"); fm = g.cfg.get("fam_decay", 1.0) ** g.fam_turn[fam]; g.fam_turn[fam] += 1
             if o.trig != "none":
                 g.fx.append({"kind": "trig", "o": o, "cond": o.trig, "uses": 1 if o.life == "instant" else 3, "left": 99})
             elif o.timing == "delayed": g.fx.append({"kind": "delay", "o": o, "at": g.turn + o.delay})
-            elif o.life == "instant": g.apply(o, o.payload)
-            elif o.bag_only: g.apply(o, o.payload); g.fx.append({"kind": "dur", "o": o, "left": {"turns": 3, "stage": 10, "run": 24, "forever": 24}[o.life] if o.life != "turns" else 3, "charges": 3})
+            elif o.life == "instant": g.apply(o, o.payload, fm)
+            elif o.bag_only: g.apply(o, o.payload, fm); g.fx.append({"kind": "dur", "o": o, "left": {"turns": 3, "stage": 10, "run": 24, "forever": 24}[o.life] if o.life != "turns" else 3, "charges": 3})
             else:
-                g.apply(o, o.payload); g.fx.append({"kind": "dur", "o": o, "left": {"turns": 3, "stage": 10**6, "run": 10**6, "forever": 10**6}[o.life], "charges": 99})
+                g.apply(o, o.payload, fm); g.fx.append({"kind": "dur", "o": o, "left": {"turns": 3, "stage": 10**6, "run": 10**6, "forever": 10**6}[o.life], "charges": 99})
         g.amp = 1.0 if o.payload[0][0] != "amplify" else g.amp
         if o.fate == "used_up": g.bag.remove(o); g.stats["exhausted"] += 1
         else: g.disc.append(o)
         g.hand.remove(o)
     def spawn(g, lvl):
-        g.en.append({"ring": 6, "hp": (14 + 8 * lvl) * g.cfg["ehp"], "atk": (3 + 2 * lvl) * g.cfg["eatk"], "lvl": lvl, "bounty": 1 + lvl, "stun": 0, "weak": 0})
+        g.en.append({"ring": 6, "hp": (14 + 8 * lvl) * g.cfg["ehp"], "atk": (3 + 2 * lvl) * g.cfg["eatk"], "lvl": lvl, "bounty": g.cfg.get("bounty0", 1) + g.cfg.get("bountyk", 1) * lvl, "stun": 0, "weak": 0})
     # --- bot: choose the best affordable subset of the hand (brute force, <=5 orbs)
-    def value(g, o):
+    def value(g, o, depth=0):
         threat = len(g.en) > 0; t_left = max(1, g.turns_per - g.turn)
         v = 0
         for p, m, mt in o.payload:
-            if p in ("damage", "drain"): r = (min(m * NT[o.rng], sum(e["hp"] for e in g.targets(o))) * RATE["damage"]) if threat else 0
+            if p in ("damage", "drain"): r = (min(m * NT[o.rng], sum(e["hp"] for e in g.targets(o))) * RATE["damage"]) * (g.cfg.get("weak_bonus", 1.0) if any(e["weak"] > 0 or e["stun"] > 0 for e in g.targets(o)) else 1.0) if threat else 0
             elif p == "guard": r = m * RATE["guard"] if threat and g.shield < 30 else 0
             elif p == "heal": r = min(m, g.max_hp - g.hp) * RATE["heal"]
-            elif p in ("debuff", "control"): r = (RATE[p] * (min(NT[o.rng], len(g.en)))) * (m if p == "debuff" else 1) if threat else 0
+            elif p in ("debuff", "control"): r = (RATE[p] * (min(NT[o.rng], len(g.en)))) * (m if p == "debuff" else 1) * (1.4 if (depth == 0 and any(x.payload[0][0] in ("damage", "drain") for x in g.hand if x is not o)) else 1.0) if threat else 0
             elif p == "steal": r = m if threat else 0
+            elif p == "amplify": r = 0.5 * max([g.value(x, 1) for x in g.hand if x is not o and x.payload[0][0] != "amplify"] + [0]) if depth == 0 else 0
             elif p in BAG_V: r = RATE[p] if not (p == "energy" and len(g.hand) < 2) else 0
             elif p == "process": r = .6 * min(m, sum(g.res.values()))
             elif p == "buff": r = m * RATE["buff"] if threat else 0
@@ -229,6 +236,7 @@ class Game:
             v = per * n if not (o.role == "summon" and o.hostile) else (o.lvl * 2 * 2 - o.lvl * 4 * (1 if g.hp < 30 else 0.5))
         return v
     def bot_turn(g):
+        g.fam_turn = collections.Counter()
         if g.items and g.hp < g.max_hp * .5: g.items -= 1; g.hp = min(g.max_hp, g.hp + 15)
         if g.res["food"] >= 2 and g.hp < g.max_hp * .6: g.res["food"] -= 2; g.hp = min(g.max_hp, g.hp + 6)
         guard = 0
@@ -288,9 +296,11 @@ class Game:
         for o in g.bag:
             if o.fate == "passive": pass
         for si in range(g.stages):
-            typ = g.RR.choice(list(STAGE_TYPES)); ec, rc = STAGE_TYPES[typ]; g.stats[typ] += 1
+            typ = g.RR.choice(list(STAGE_TYPES)); typ = g.cfg.get("force_type") or typ; ec, rc = STAGE_TYPES[typ]; g.stats[typ] += 1
+            nb = sum(1 for o in g.bag if o.role == "build"); ns = sum(1 for o in g.bag if o.role == "summon" and not o.hostile); nn = max(1, len(g.bag))
+            g.cap_b = g.cfg.get("cap_b", 6) + (g.cfg.get("hero_b", 0) if nb >= .4 * nn else 0); g.cap_s = g.cfg.get("cap_s", 5) + (g.cfg.get("hero_s", 0) if ns >= .4 * nn else 0)
             g0 = g.gold; died = False
-            g.pool = {k: int(30 * rc) for k in RAW}; g.en = []; g.summons = []; g.kills = 0; g.uses = collections.Counter(); g.amp = 1.0; g.dmgb = 0.0
+            g.pool = {k: int(30 * rc) for k in RAW}; g.pool["land"] = int(g.cfg["land"] * rc) if g.cfg.get("land") else 10**9; g.en = []; g.summons = []; g.kills = 0; g.uses = collections.Counter(); g.amp = 1.0; g.dmgb = 0.0
             g.fx = [f for f in g.fx if f["o"].life in ("run", "forever")]; g.buildings = [b for b in g.buildings if b["life"] in ("run", "forever")]
             lvl = 1 + si; waves = {1: 3, 5: 4, 9: 5}
             g.disc = []; g.reshuffle(); g.hand = []
@@ -304,7 +314,7 @@ class Game:
                     return g.result()
             # stage end: sell leftovers, pay rent
             if died: g.gold = min(g.gold, g0); g.res = dict.fromkeys(RAW, 0); g.hp = int(g.max_hp * .5)       # the stage's net gold and resources are lost
-            else: g.gold += int(sum(g.res.values()) * .3); g.res = dict.fromkeys(RAW, 0)
+            else: g.stats["g_sale"] += int(sum(g.res.values()) * .3); g.gold += int(sum(g.res.values()) * .3); g.res = dict.fromkeys(RAW, 0)
             if g.gold < g.due[si]: g.failed = f"정산 실패(스테이지 {si+1})"; return g.result()
             g.gold -= g.due[si]; g.cleared += 1; g.hp = min(g.max_hp, g.hp + g.cfg["rest"])
             if g.pool_names and si < g.stages - 1 and not died:                                                       # reward: write one new orb
@@ -312,7 +322,7 @@ class Game:
                 if g.reward_pick == "bestall": cands = g.pool_names
                 g.bag.append(copy.copy(max(cands, key=g.pick_key or (lambda o: est_total_value(o) / (o.mana + .5))) if len(cands) > 1 else cands[0]))
         return g.result()
-    def result(g): return {"deaths": g.deaths, "cleared": g.cleared, "gold": g.gold, "hp": g.hp, "failed": g.failed, "score": 100 * g.cleared + g.gold, "kills": g.stats["kills"], "played": dict(g.played), "contrib": dict(g.contrib)}
+    def result(g): return {"src": dict(g.stats), "deaths": g.deaths, "cleared": g.cleared, "gold": g.gold, "hp": g.hp, "failed": g.failed, "score": 100 * g.cleared + g.gold, "kills": g.stats["kills"], "played": dict(g.played), "contrib": dict(g.contrib)}
 
 STARTER = ["금화 주머니", "금화 주머니", "화염검", "화염검", "방패", "곡괭이", "씨앗", "병사"]
 ALL_NAMES = sorted(n for n in V3 if n in V3)
