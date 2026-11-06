@@ -4,7 +4,7 @@ import os, re, sys, json, random
 HERE = os.path.dirname(os.path.abspath(__file__)); VEN = os.path.join(HERE, "vendor")
 for p in (VEN, HERE):
     if p not in sys.path: sys.path.insert(0, p)
-import orbmake as S, axes_v3, axes_v2, axes_v4, forge
+import orbmake as S, axes_v3, axes_v2, axes_v4, forge, engine
 GM, CM = .25, "value"
 STARTER = ["금화 주머니", "화염검", "화염검", "방패", "곡괭이", "병사", "벌목장", "광산"]
 RES = {"wood": "나무", "ore": "광석", "food": "식량", "gold": "골드", None: "자원"}
@@ -12,8 +12,11 @@ LIFE = {"instant": "", "turns": "3턴 동안 ", "stage": "이번 스테이지 �
 COND = {"hit": "피격 시", "death": "사망 시", "orb": "다른 구슬을 쓸 때", "approach": "적이 다가오면"}
 MOD = {"scaling": "쓸수록 +10% 성장", "risky": "위험: 사용자도 피해", "random": "효과 50~150% 무작위", "network": "인접 건물이 많을수록 강해짐"}
 UNIT = {"soldier": "병사", "worker": "일꾼", "beast": "짐승", "spirit": "정령", "construct": "기계"}
+# 누구를 맞히는가: 즉발 시전은 플레이어가 직접 고르고, 건물·소환물·지속·지연·조건부 효과는 자동으로 가장 가까운 적(건물·소환물은 사거리 3칸)
+TG_MANUAL = {"single": "고른 적 1", "line": "고른 적과 그 옆의 적 1", "around": "고른 적 주변 무리(1칸)", "wide": "모든 적"}
+TG_AUTO = {"single": "가장 가까운 적 1", "line": "가까운 적 2", "around": "가장 가까운 적 주변 무리(1칸)", "wide": "모든 적"}
 def vtext(v, m, mt, o):
-    tg = {"single": "적 1", "line": "적 2", "around": "적 무리(1칸)", "wide": "모든 적"}[o["rng"]]
+    tg = TG_MANUAL[o["rng"]] if engine.manual_target(o) else TG_AUTO[o["rng"]]
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
             "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집(근처 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"아군 피해 +{max(1,m//2)}", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
@@ -30,6 +33,7 @@ def describe(o):
         t = (life + ("" if o["life"] == "instant" else "매 턴 ") + body) if o["life"] != "instant" else body
         if o["timing"] == "delayed": t = f"{o['delay']}턴 뒤: {t}"
         if o["trig"] != "none": t = f"{COND[o['trig']]} 발동 — {t}"
+    if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.RANGE}칸)"
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"

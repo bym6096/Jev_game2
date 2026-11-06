@@ -220,3 +220,17 @@ button.mini{font-size:11.5px;padding:1px 8px;border-radius:6px;color:var(--mute)
 .tiprow b.up{color:var(--mint)}.tiprow b.down{color:var(--rose)}
 .tipwhy{margin-top:4px;color:var(--rose);font-weight:600;font-size:12.5px}
 .tiphint{margin-top:4px;color:var(--mute);font-size:12px}
+
+/* ---------- 대상 고르기 · 사거리 · 이펙트 ---------- */
+.unit.tgt{cursor:crosshair}.unit.tgt .tok-e{stroke:var(--brass);stroke-width:3.6;filter:drop-shadow(0 0 7px rgba(227,176,79,.95))}
+.unit.tgt-hit .tok-e,.unit.drop .tok-e{fill:#a63a42;stroke:#fff;stroke-width:3.6;filter:drop-shadow(0 0 9px rgba(255,255,255,.8))}
+.rng{fill:rgba(239,123,123,.2);stroke:rgba(255,150,150,.75);stroke-width:1.8;pointer-events:none}
+.rng-eco{fill:rgba(111,211,168,.2);stroke:rgba(111,211,168,.75);stroke-width:2.2;pointer-events:none}
+.rng-dim{fill:rgba(111,211,168,.05);stroke:rgba(111,211,168,.25);stroke-width:1.2;pointer-events:none}
+.bolt{stroke-width:3.6;stroke-linecap:round;fill:none;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:bolt .34s ease-out forwards;pointer-events:none;filter:drop-shadow(0 0 4px currentColor)}
+@keyframes bolt{0%{stroke-dashoffset:var(--len);opacity:1}55%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.impact{transform-box:fill-box;transform-origin:center;animation:impact .42s ease-out .14s both;pointer-events:none}
+@keyframes impact{0%{transform:scale(.2);opacity:.95}100%{transform:scale(3);opacity:0}}
+.muzzle{fill:none;stroke-width:2.5;transform-box:fill-box;transform-origin:center;animation:muzzle .3s ease-out both;pointer-events:none}
+@keyframes muzzle{0%{transform:scale(.5);opacity:1}100%{transform:scale(2);opacity:0}}
+.float.gain{fill:#ffe08a}.float.trig{fill:#cbbcff}

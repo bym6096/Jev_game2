@@ -44,9 +44,9 @@ def handle(body):
         return 200, view(S)
     if op == "play":
         t = body.get("tile")
-        try: r = g.play(int(body.get("idx", -1)), tuple(int(x) for x in t) if t else None)
+        try: r = g.play(int(body.get("idx", -1)), tuple(int(x) for x in t) if t else None, int(body["target"]) if body.get("target") is not None else None)
         except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}
-        v = view(S); v["action"] = r; return 200, v
+        v = view(S); v["action"] = r; v["events"] = list(getattr(g, "events", [])); return 200, v
     if op == "preview":
         # 복사본으로 턴 종료를 미리 돌려 본다(난수 상태까지 덩어리에 들어 있어 실제 턴 종료와 결과가 같다). 저장하지 않는다.
         if g.phase != "play": return 200, {"preview": None}
@@ -64,5 +64,5 @@ def handle(body):
               "kills": sum(1 for i in id1 if i not in id2), "spawn": sum(1 for i in id2 if i not in id1), "moves": moves, "own": own, "dead": [[e["q"], e["r"]] for i, e in id1.items() if i not in id2], "spawned": [[e["q"], e["r"]] for i, e in id2.items() if i not in id1]}
         return 200, {"preview": pv}
     if op == "end_turn":
-        r = g.end_turn(); v = view(S); v["action"] = r; return 200, v
+        r = g.end_turn(); v = view(S); v["action"] = r; v["events"] = list(getattr(g, "events", [])); return 200, v
     return 404, {"error": "알 수 없는 요청"}
