@@ -13,6 +13,7 @@ FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "guard
 NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
 RAW = ("wood", "ore", "food")
 STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hostile": dict(name="적 많음", enemy=1.6, trees=4, ores=3), "rich": dict(name="자원 많음", enemy=.6, trees=14, ores=10)}
+WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
 CFG = dict(hp=100, mana=6, hand=5, ehp=.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=2, bountyk=2, farm_bounty=.3, land=25, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1)
 
 class HexGame:
@@ -51,7 +52,7 @@ class HexGame:
     def next_turn(s):
         s.turn += 1
         if s.turn > s.cfg["turns"]: return s.finish()
-        waves = {1: 3, 5: 4, 9: 5}
+        waves = WAVES
         if s.turn in waves:
             n = max(1, round(waves[s.turn] * STAGE_TYPES[s.stage_type]["enemy"]));
             for _ in range(n): s.spawn(s.cfg["lvl"])
@@ -287,4 +288,4 @@ class HexGame:
                 "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"]} for u in s.summons],
                 "enemies": [{"id": e["id"], "q": e["q"], "r": e["r"], "hp": round(e["hp"]), "max": round(e["max"]), "lvl": e["lvl"], "stun": e["stun"], "weak": e["weak"]} for e in s.enemies],
                 "fx": [{"name": f["o"]["name"], "kind": f["kind"], "cond": f.get("cond")} for f in s.fx], "log": s.logs[-14:], "result": s.result, "caps": {"b": getattr(s, "cap_b", s.cfg["cap_b"]), "s": getattr(s, "cap_s", s.cfg["cap_s"])},
-                "buildings_n": len(s.buildings), "summons_n": len(s.summons)}
+                "buildings_n": len(s.buildings), "summons_n": len(s.summons), "waves": [[t, max(1, round(n * STAGE_TYPES[s.stage_type]["enemy"]))] for t, n in sorted(WAVES.items())]}
