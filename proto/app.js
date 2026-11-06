@@ -155,7 +155,7 @@ function renderMap() {
   hexLayer.innerHTML = ""; ghostLayer.innerHTML = "";
   for (let q = -R; q <= R; q++) for (let r = Math.max(-R, -q - R); r <= Math.min(R, -q + R); r++) {
     const [x, y] = px(q, r), k = key(q, r), t = res.get(k);
-    const cls = "hex" + (t ? " " + t.t : "") + (q === pos[0] && r === pos[1] ? " home" : "") + (ok.has(k) ? " ok" : "") + (hint.has(k) ? " hint" : "");
+    const cls = "hex" + (t ? " " + t.t : "") + (q === pos[0] && r === pos[1] ? " home" : "") + (ok.has(k) ? " ok" : "") + (hint.has(k) ? " hint" : "") + (c && c.need_target && hexd(q, r, pos[0], pos[1]) <= st.cast_range ? " cr" : "");
     const p = svg("polygon", { points: hexPts(x, y), class: cls });
     p.dataset.q = q; p.dataset.r = r;
     if (ok.has(k)) {
@@ -203,7 +203,7 @@ function syncUnits() {
       u = { g: tokenFor(kind, d), kind }; units.set(id, u);
       u.g.style.transition = "none"; u.g.style.transform = tf; unitLayer.append(u.g);
       u.g.addEventListener("pointerenter", () => { inspectUnit(u); showRange(u); showAoe(u); }); u.g.addEventListener("pointerleave", () => { clearRange(); clearAoe(); });
-      u.g.addEventListener("click", () => { const c = selCard(); if (c && c.need_target && u.kind === "e") return playCard(sel, null, u.d.id); pinned = id; inspectUnit(u); });
+      u.g.addEventListener("click", () => { const c = selCard(); if (c && c.need_target && u.kind === "e") return c.target_ids.includes(u.d.id) ? playCard(sel, null, u.d.id) : toast(`사거리(${st.cast_range}칸) 밖의 적입니다`); pinned = id; inspectUnit(u); });
       requestAnimationFrame(() => requestAnimationFrame(() => { u.g.style.transition = ""; u.g.classList.remove("enter"); }));
     } else u.g.style.transform = tf;
     u.d = d;
@@ -244,17 +244,35 @@ function inspectUnit(u) {
   else if (u.kind === "e") box.replaceChildren(el("b", {}, `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
   else box.replaceChildren(...[el("b", {}, d.name), el("div", { class: "sub" }, `${d.kind === "plant" ? "식물" : u.kind === "b" ? "건물" : "소환물"} · ${hp}`), d.kind === "plant" ? el("p", {}, d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null, d.text ? el("p", { class: "sub" }, d.text) : null].filter(Boolean));
 }
+let fxGroups = [];
+const COND_KO = { hit: "피격 시", death: "사망 시", orb: "다른 구슬을 쓸 때", approach: "적이 다가오면" };
+function groupFx() {
+  const m = new Map(); st.fx.forEach((f) => { const k = f.name + "|" + f.kind; const g = m.get(k) || { f, n: 0 }; g.n++; m.set(k, g); }); return [...m.values()];
+}
+function fxInfo(g) {   // 작동 중인 효과 하나의 설명: 종류·남은 시간·발동 조건·문구
+  const f = g.f, rows = [], kind = f.kind === "dur" ? "지속 효과" : f.kind === "trig" ? "조건부 효과" : "대기 중인 효과";
+  if (f.kind === "dur") { rows.push(["남은 시간", f.left == null ? "이번 스테이지가 끝날 때까지" : `${f.left}턴`]); if (f.charges != null && f.charges < 99) rows.push(["남은 횟수", `${f.charges}회`]); }
+  if (f.kind === "trig") { rows.push(["발동 조건", COND_KO[f.cond] || f.cond]); if (f.uses != null) rows.push(["남은 발동", `${f.uses}회`]); }
+  if (f.kind === "delay") rows.push(["발동", f.at - st.turn <= 0 ? "이번 턴 종료 시" : `${f.at - st.turn}턴 뒤 (${f.at}턴)`]);
+  if (g.n > 1) rows.push(["겹침", `${g.n}개 (각각 따로 작동)`]);
+  return { title: f.name, kind, rows, text: f.text };
+}
+function inspectFx(i) {
+  const g = fxGroups[i]; if (!g) return false; const d = fxInfo(g);
+  $("inspect").replaceChildren(el("b", {}, d.title), el("div", { class: "sub" }, d.kind), ...d.rows.map(([a, b]) => tipRow(a, b)), el("p", {}, d.text), el("p", { class: "sub" }, "같은 칩을 다시 누르면 닫힙니다.")); return true;
+}
 function renderSide() {
+  fxGroups = groupFx();
   const c = selCard(), box = $("inspect");
-  if (pinned && units.get(pinned)) inspectUnit(units.get(pinned));
-  else if (c) box.replaceChildren(el("b", {}, c.o.name), el("div", { class: "sub" }, `${ROLE[c.o.role] || c.o.role} · 마나 ${c.o.mana}`), el("p", {}, c.o.text), el("p", { class: "sub" }, c.need_tile ? (c.hint.length ? "초록 칸(✦)에 놓으면 보너스가 붙습니다. " : "노란 칸 중 하나를 고르세요. ") + "Enter(또는 더블클릭): 추천 칸에 바로 놓기 · 칸으로 끌어다 놓아도 됩니다." : c.need_target ? "지도의 적을 눌러 대상을 고르세요. Enter(또는 더블클릭): 가장 가까운 적." : ""));
+  if (pinned && String(pinned).startsWith("fx:") && inspectFx(+String(pinned).slice(3))) { /* 작동 중인 효과를 눌러 둔 상태 */ }
+  else if (pinned && units.get(pinned)) inspectUnit(units.get(pinned));
+  else if (c) box.replaceChildren(el("b", {}, c.o.name), el("div", { class: "sub" }, `${ROLE[kindOf(c.o)] || c.o.role} · 마나 ${c.o.mana}`), el("p", {}, c.o.text), el("p", { class: "sub" }, c.need_tile ? (c.hint.length ? "초록 칸(✦)에 놓으면 보너스가 붙습니다. " : "노란 칸 중 하나를 고르세요. ") + "Enter(또는 더블클릭): 추천 칸에 바로 놓기 · 칸으로 끌어다 놓아도 됩니다." : c.need_target ? `지도의 적(금색 테두리, 내 위치에서 ${st.cast_range}칸 안)을 눌러 대상을 고르세요. Enter(또는 더블클릭): 가장 가까운 적.` : ""));
   else box.replaceChildren(el("b", {}, "정보"), el("p", { class: "sub" }, "구슬을 누르면 효과가, 지도 위의 칸·유닛에 올리면 상태가 여기에 보입니다."));
-  const fx = $("effects"); fx.hidden = !st.fx.length;
-  if (st.fx.length) {
-    const grp = new Map();
-    st.fx.forEach((f) => { const t = f.name + (f.kind === "delay" ? " (대기)" : f.kind === "trig" ? " (조건부)" : ""); const g = grp.get(t) || { n: 0, cond: f.cond }; g.n++; grp.set(t, g); });
-    fx.replaceChildren(el("h3", {}, "작동 중인 효과"), el("div", { class: "chips" }, ...[...grp].map(([t, g]) => el("span", { title: g.cond && g.cond !== "none" ? `발동 조건: ${g.cond}` : "" }, t + (g.n > 1 ? ` ×${g.n}` : "")))));
-  }
+  const fx = $("effects"); fx.hidden = !fxGroups.length;
+  if (fxGroups.length) fx.replaceChildren(el("h3", {}, "작동 중인 효과 (눌러서 보기)"), el("div", { class: "chips" }, ...fxGroups.map((g, i) => {
+    const f = g.f, label = f.name + (f.kind === "delay" ? " (대기)" : f.kind === "trig" ? " (조건부)" : "") + (g.n > 1 ? ` ×${g.n}` : "");
+    return el("button", { class: "chipbtn", type: "button", "data-fxi": String(i), "aria-pressed": String(pinned === "fx:" + i), onclick: () => { pinned = pinned === "fx:" + i ? null : "fx:" + i; renderSide(); } }, label);
+  })));
   const nx = (st.waves || []).find((w) => w[0] > st.turn), f = $("forecast");
   f.replaceChildren(el("i"), el("span", {}, nx ? `다음 웨이브: ${nx[0] - st.turn}턴 뒤(${nx[0]}턴), 적 ${nx[1]}마리` : "남은 웨이브가 없습니다"));
   const lg = $("log"); lg.replaceChildren(...st.log.map((t) => el("div", {}, t))); lg.scrollTop = 1e6;
@@ -354,7 +372,7 @@ function startDrag(e, h, cardEl) {
   const x0 = e.clientX, y0 = e.clientY; let dragging = false, chip = null, over = null;
   const pick = (x, y) => {   // 칸을 놓는 구슬은 놓을 수 있는 칸, 대상을 고르는 구슬은 적
     const t = document.elementFromPoint(x, y); if (!t || !t.closest) return null;
-    if (h.need_target) { const g = t.closest("g.unit"); return g && (g.dataset.uid || "")[0] === "e" ? g : null; }
+    if (h.need_target) { const g = t.closest("g.unit"), id = g && g.dataset.uid || ""; return id[0] === "e" && h.target_ids.includes(+id.slice(1)) ? g : null; }
     return t.closest(".hex.ok");
   };
   const move = (ev) => {
@@ -442,6 +460,7 @@ function tipOrb(h) {
     kd === "plant" ? tipRow("성장", `${st.grow_turns}턴 자란 뒤 수확`) : null,
     kd === "move" ? tipRow("이동", `주변 ${o.mv || 2}칸 안의 빈 칸`) : null,
     h.need_target ? tipRow("대상", "직접 고름") : null,
+    o.role === "cast" && o.payload.some((p) => ENEMY_V.includes(p[0])) ? tipRow("사거리", `${st.cast_range}칸 (내 위치 기준)`) : null,
     h.why ? el("div", { class: "tipwhy" }, h.why) : el("div", { class: "tiphint" }, h.need_target ? "눌러서 대상 고르기 · 적에게 끌어다 놓기 · 더블클릭: 가장 가까운 적" : h.need_tile ? (kd === "move" ? "눌러서 이동할 칸 고르기" : "눌러서 칸 고르기 · 끌어다 놓기 · 더블클릭: 추천 칸") : "눌러서 바로 쓰기")) };
 }
 function tipUnit(u) {
@@ -499,12 +518,12 @@ function showRange(u) {
   }
 }
 function clearRange() { if (rangeLayer) rangeLayer.innerHTML = ""; }
-function markTargets() {
-  const c = selCard(), on = !!(c && c.need_target);
-  for (const u of units.values()) { u.g.classList.toggle("tgt", on && u.kind === "e"); u.g.classList.remove("tgt-hit"); }
+function markTargets() {   // 고를 수 있는 적(사거리 안)은 금색 테두리, 사거리 밖의 적은 흐리게
+  const c = selCard(), on = !!(c && c.need_target), ids = new Set(on ? c.target_ids.map((i) => "e" + i) : []);
+  for (const [id, u] of units) { u.g.classList.toggle("tgt", on && ids.has(id)); u.g.classList.toggle("far", on && u.kind === "e" && !ids.has(id)); u.g.classList.remove("tgt-hit"); }
 }
 function aoeSet(c, e) {   // 서버의 targets()와 같은 규칙: 고른 적 + (두 명이면 그 옆의 가장 가까운 적 / 주변 무리면 1칸 안 / 전체면 모두)
-  const rest = [...units.values()].filter((x) => x.kind === "e" && x.d.id !== e.id).map((x) => x.d).sort((a, b) => hexd(a.q, a.r, e.q, e.r) - hexd(b.q, b.r, e.q, e.r) || a.id - b.id), rng = c.o.rng;
+  const rest = [...units.values()].filter((x) => x.kind === "e" && x.d.id !== e.id && c.target_ids.includes(x.d.id)).map((x) => x.d).sort((a, b) => hexd(a.q, a.r, e.q, e.r) - hexd(b.q, b.r, e.q, e.r) || a.id - b.id), rng = c.o.rng;
   if (rng === "single") return [e]; if (rng === "line") return [e, ...rest.slice(0, 1)];
   if (rng === "around") return [e, ...rest.filter((x) => hexd(x.q, x.r, e.q, e.r) <= 1)].slice(0, 6);
   return [e, ...rest];
@@ -532,3 +551,9 @@ function drawEvent(e) {
     [line, dot, src].forEach((n) => { n.addEventListener("animationend", () => n.remove()); fxLayer.append(n); });
   } else if (e.k === "pop") floatAt(e.a[0], e.a[1], e.text, { up: "heal", down: "bad", trig: "trig" }[e.tone] || "gain");
 }
+
+function tipFx(i) {
+  const g = fxGroups[i]; if (!g) return null; const d = fxInfo(g);
+  return { key: `fx${i}:${d.title}:${st.turn}:${g.n}:${g.f.left}:${g.f.uses}`, build: () => el("div", { class: "tipbox r-cast" }, el("div", { class: "tiph" }, el("b", {}, d.title), el("span", { class: "tipm" }, d.kind)), ...d.rows.map(([a, b]) => tipRow(a, b)), el("p", {}, d.text), el("div", { class: "tiphint" }, "눌러서 오른쪽 정보창에 고정")) };
+}
+(function () { const root = $("effects"); root.addEventListener("pointermove", (e) => { const c = e.target.closest && e.target.closest("[data-fxi]"); const t = c && tipFx(+c.dataset.fxi); if (t) showTip(t, e); else hideTip(); }); root.addEventListener("pointerleave", hideTip); })();

@@ -1,6 +1,6 @@
 """Orb construction for the web prototype (self-contained: uses only proto/vendor and proto/data, so it runs on Vercel with Root Directory = proto).
 Starter orbs are precomputed from measured Jev data (data/starter_orbs.json); new orbs come from a live Jev call."""
-import os, re, sys, json, random
+import os, re, sys, json, random, math
 HERE = os.path.dirname(os.path.abspath(__file__)); VEN = os.path.join(HERE, "vendor")
 for p in (VEN, HERE):
     if p not in sys.path: sys.path.insert(0, p)
@@ -33,14 +33,27 @@ def describe(o):
         t = (life + ("" if o["life"] == "instant" else "매 턴 ") + body) if o["life"] != "instant" else body
         if o["timing"] == "delayed": t = f"{o['delay']}턴 뒤: {t}"
         if o["trig"] != "none": t = f"{COND[o['trig']]} 발동 — {t}"
-    if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.RANGE}칸)"
+    if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.unit_range(o)}칸)"
+    elif o["role"] == "cast" and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.CAST_RANGE}칸)"
+    if o["role"] == "cast" and o["life"] in ("stage", "run", "forever") and o["timing"] != "delayed" and o["trig"] == "none": t += " [작동 중에는 다시 쓸 수 없음]"
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"
     return t
+# 값어치 재평가(디렉터 지적: "무한 자원 생성 구슬은 강한데 마나가 너무 싸다"). 측정 모델(est_total_value)은 그대로 두고 프로토 쪽에서만 가격을 손본다.
+# 지속형 골드 수입(건물·지속 시전의 money/steal/골드 채집)은 값어치가 곧바로 정산액이 되는데, 로그 비용 곡선에 눌려 너무 싸다. 그래서 이런 구슬만
+# 값어치를 1.5배로 치고 곡선을 가파르게(계수 .8→1.0) 해서 마나를 올리고, 건물이면 골드 비용도 턴당 수입의 2배 이상으로 올린다. 가격은 올리기만 하고 내리지 않는다.
+# (다른 구슬은 그대로: 광산·벌목장 같은 자원 건물이나 즉발 효과의 값은 건드리지 않음)
+def gold_income(o): return sum(m for v, m, mt in o.payload if v in ("money", "steal") or (mt == "gold" and v in ("harvest", "grow", "create")))
+def repriced_mana(o):
+    if not (gold_income(o) and (o.role in ("build", "summon") or o.life != "instant")): return o.mana
+    v = S.est_total_value(o) * 1.5
+    return max(o.mana, max(1, min(8, round(.9 + 1.0 * math.log2(1 + v / 4)))))
 def to_dict(o):
     d = dict(name=o.name, role=o.role, payload=[list(p) for p in o.payload], rng=o.rng, life=o.life, timing=o.timing, trig=o.trig, mat=o.mat, fate=o.fate, mod=o.mod, pe=round(o.pe, 2),
              mana=o.mana, hp=o.hp, bcost=list(o.bcost) if o.bcost else None, unit=o.unit, hostile=o.hostile, lvl=o.lvl, delay=o.delay, bag_only=o.bag_only, B=round(o.B, 1), amb=o.amb)
+    d["mana"] = repriced_mana(o)
+    if d["bcost"] and o.role == "build" and gold_income(o): d["bcost"][2] = max(d["bcost"][2], 2 * gold_income(o))
     d["text"] = describe(d); return d
 def _hand(name, **kw):
     d = dict(name=name, role="cast", payload=[], rng="single", life="instant", timing="now", trig="none", mat=None, fate="returns", mod=None, pe=1.0, mana=1, hp=1, bcost=None, unit="soldier", hostile=False, lvl=1, delay=1, bag_only=False, B=10, amb=False)
