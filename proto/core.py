@@ -47,6 +47,22 @@ def handle(body):
         try: r = g.play(int(body.get("idx", -1)), tuple(int(x) for x in t) if t else None)
         except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}
         v = view(S); v["action"] = r; return 200, v
+    if op == "preview":
+        # 복사본으로 턴 종료를 미리 돌려 본다(난수 상태까지 덩어리에 들어 있어 실제 턴 종료와 결과가 같다). 저장하지 않는다.
+        if g.phase != "play": return 200, {"preview": None}
+        v1 = g.view(); g2 = unpack(body.get("blob", ""))["g"]; g2.end_turn(); v2 = g2.view()
+        id1 = {e["id"]: e for e in v1["enemies"]}; id2 = {e["id"]: e for e in v2["enemies"]}
+        moves = [{"id": i, "from": [e["q"], e["r"]], "to": [id2[i]["q"], id2[i]["r"]]} for i, e in id1.items() if i in id2 and (e["q"], e["r"]) != (id2[i]["q"], id2[i]["r"])]
+        own = []
+        for k in ("buildings", "summons"):
+            n = {x["id"]: x for x in v2[k]}
+            for x in v1[k]:
+                y = n.get(x["id"])
+                if y is None: own.append({"id": x["id"], "kind": k, "q": x["q"], "r": x["r"], "name": x["name"], "lost": True, "dmg": x["hp"]})
+                elif y["hp"] < x["hp"]: own.append({"id": x["id"], "kind": k, "q": x["q"], "r": x["r"], "name": x["name"], "lost": False, "dmg": x["hp"] - y["hp"]})
+        pv = {"over": v2["phase"] == "over", "result": v2["result"], "hp": v2["hp"] - v1["hp"], "gold": v2["gold"] - v1["gold"], "res": {k: v2["res"][k] - v1["res"][k] for k in v1["res"]},
+              "kills": sum(1 for i in id1 if i not in id2), "spawn": sum(1 for i in id2 if i not in id1), "moves": moves, "own": own, "dead": [[e["q"], e["r"]] for i, e in id1.items() if i not in id2], "spawned": [[e["q"], e["r"]] for i, e in id2.items() if i not in id1]}
+        return 200, {"preview": pv}
     if op == "end_turn":
         r = g.end_turn(); v = view(S); v["action"] = r; return 200, v
     return 404, {"error": "알 수 없는 요청"}

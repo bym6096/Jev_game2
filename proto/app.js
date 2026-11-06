@@ -1,5 +1,6 @@
 const S = 34, SQ3 = Math.sqrt(3), R = 5;
 let st = null, prev = null, sel = null, busy = false, pinned = null;
+let history = [], startState = null, pv = null, pvSeq = 0, showPv = true, dragMoved = false;
 const $ = (id) => document.getElementById(id);
 const px = (q, r) => [S * SQ3 * (q + r / 2), S * 1.5 * r];
 const hexPts = (cx, cy, s = S - 1.5) => Array.from({ length: 6 }, (_, i) => { const a = Math.PI / 180 * (60 * i - 30); return `${(cx + s * Math.cos(a)).toFixed(1)},${(cy + s * Math.sin(a)).toFixed(1)}`; }).join(" ");
@@ -27,7 +28,7 @@ const bcostText = (o) => o.role === "build" && o.bcost ? `비용: ${RES[o.bcost[
 
 /* ---------- 흐름 ---------- */
 async function newGame() {
-  if (busy) return; busy = true; sel = null; pinned = null; prev = null;
+  if (busy) return; busy = true; sel = null; pinned = null; prev = null; history = []; startState = null; pv = null;
   const v = await api("new", { stage_type: $("stype").value }); busy = false;
   if (v.error) return alert(v.error);
   st = v; $("over").hidden = true; $("app").hidden = false; resetMap(); render();
@@ -36,7 +37,7 @@ function render() {
   const setup = st.phase === "setup";
   $("setup").hidden = !setup; $("play").hidden = setup;
   if (setup) renderSetup();
-  else { renderHud(); renderMap(); renderHand(); renderSide(); runDiff(); }
+  else { renderHud(); renderMap(); renderHand(); renderSide(); runDiff(); if (st.phase === "play") fetchPreview(); else { pv = null; renderPreview(); } }
   $("over").hidden = st.phase !== "over"; if (st.phase === "over") renderOver();
   prev = st;
 }
@@ -92,11 +93,12 @@ function renderHud() {
 }
 
 /* ---------- 지도 ---------- */
-let hexLayer, unitLayer, ghostLayer, floatLayer, units = new Map();
+let hexLayer, unitLayer, previewLayer, ghostLayer, floatLayer, units = new Map();
 function resetMap() {
   const m = $("map"); m.innerHTML = ""; units = new Map();
-  hexLayer = svg("g"); unitLayer = svg("g"); ghostLayer = svg("g", { class: "ghost" }); floatLayer = svg("g");
-  m.append(hexLayer, unitLayer, ghostLayer, floatLayer);
+  const defs = svg("defs", {}, svg("marker", { id: "arr", viewBox: "0 0 10 10", refX: 8, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto-start-reverse" }, svg("path", { d: "M0,0 L10,5 L0,10 z", fill: "#ef7b7b" })));
+  hexLayer = svg("g"); unitLayer = svg("g"); previewLayer = svg("g", { class: "pvlayer" }); ghostLayer = svg("g", { class: "ghost" }); floatLayer = svg("g");
+  m.append(defs, hexLayer, unitLayer, previewLayer, ghostLayer, floatLayer);
 }
 function selCard() { return sel !== null && st ? st.hand.find((h) => h.idx === sel) : null; }
 function renderMap() {
@@ -109,6 +111,7 @@ function renderMap() {
     const cls = "hex" + (t ? " " + t.t : "") + (q === 0 && r === 0 ? " home" : "") + (ok.has(k) ? " ok" : "") + (hint.has(k) ? " hint" : "");
     const p = svg("polygon", { points: hexPts(x, y), class: cls });
     if (ok.has(k)) {
+      p.dataset.q = q; p.dataset.r = r;
       p.addEventListener("click", () => playCard(sel, [q, r]));
       p.addEventListener("pointerenter", () => ghost(c, x, y)); p.addEventListener("pointerleave", () => ghostLayer.replaceChildren());
     } else if (t) p.addEventListener("pointerenter", () => inspectTile(t));
@@ -191,7 +194,7 @@ function inspectUnit(u) {
 function renderSide() {
   const c = selCard(), box = $("inspect");
   if (pinned && units.get(pinned)) inspectUnit(units.get(pinned));
-  else if (c) box.replaceChildren(el("b", {}, c.o.name), el("div", { class: "sub" }, `${ROLE[c.o.role] || c.o.role} · 마나 ${c.o.mana}`), el("p", {}, c.o.text), el("p", { class: "sub" }, c.need_tile ? (c.hint.length ? "초록 칸(✦)에 놓으면 보너스가 붙습니다." : "노란 칸 중 하나를 고르세요.") : ""));
+  else if (c) box.replaceChildren(el("b", {}, c.o.name), el("div", { class: "sub" }, `${ROLE[c.o.role] || c.o.role} · 마나 ${c.o.mana}`), el("p", {}, c.o.text), el("p", { class: "sub" }, c.need_tile ? (c.hint.length ? "초록 칸(✦)에 놓으면 보너스가 붙습니다. " : "노란 칸 중 하나를 고르세요. ") + "Enter(또는 더블클릭): 추천 칸에 바로 놓기 · 칸으로 끌어다 놓아도 됩니다." : ""));
   else box.replaceChildren(el("b", {}, "정보"), el("p", { class: "sub" }, "구슬을 누르면 효과가, 지도 위의 칸·유닛에 올리면 상태가 여기에 보입니다."));
   const fx = $("effects"); fx.hidden = !st.fx.length;
   if (st.fx.length) {
@@ -209,12 +212,16 @@ function renderHand() {
   const hd = $("hand"); hd.innerHTML = "";
   st.hand.forEach((h, n) => {
     const o = h.o, dis = !!h.why || st.phase !== "play";
+    let card0 = null;
     const card = el("div", { class: `orb r-${o.role}` + (dis ? " dis" : "") + (sel === h.idx ? " sel" : ""), tabindex: "0", role: "listitem", "aria-label": `${o.name}, 마나 ${o.mana}${h.why ? ", 쓸 수 없음: " + h.why : ""}`, "aria-disabled": String(dis),
-      onclick: () => { if (dis) return toast(h.why || "지금은 쓸 수 없습니다"); playCard(h.idx); },
+      onclick: () => { if (dragMoved) { dragMoved = false; return; } if (dis) return toast(h.why || "지금은 쓸 수 없습니다"); playCard(h.idx); },
       onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); if (dis) toast(h.why || "지금은 쓸 수 없습니다"); else playCard(h.idx); } },
-      onpointerenter: () => { if (sel === null && !pinned) peek(h); } },
+      onpointerenter: () => { if (sel === null && !pinned) peek(h); },
+      onpointerdown: (e) => { if (!dis && h.need_tile) startDrag(e, h, card0); },
+      ondblclick: () => { if (!dis && h.need_tile) quick(h); } },
       el("div", { class: "top1" }, el("div", { class: "bead" }, String(o.mana)), el("div", {}, el("div", { class: "nm" }, o.name), el("div", { class: "role" }, ROLE[o.role] || o.role))),
       el("div", { class: "tx" }, o.text));
+    card0 = card;
     const bc = bcostText(o); if (bc) card.append(el("div", { class: "cost" }, bc));
     if (h.why) card.append(el("div", { class: "why" }, h.why));
     if (n < 9) card.append(el("span", { class: "key", "aria-hidden": "true" }, String(n + 1)));
@@ -222,7 +229,10 @@ function renderHand() {
   });
   if (!st.hand.length) hd.append(el("span", { class: "empty" }, "손패가 없습니다. 턴을 끝내면 새로 뽑습니다."));
   $("endturn").disabled = st.phase !== "play" || busy;
-  $("piles").innerHTML = `주머니 ${st.bag}<br>뽑을 것 ${st.draw} · 버린 것 ${st.disc}`;
+  const usable = st.hand.filter((h) => !h.why).length;
+  $("endturn").classList.toggle("ready", st.phase === "play" && !usable);
+  $("undo").disabled = busy || !history.length;
+  $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
 }
 function peek(h) { $("inspect").replaceChildren(el("b", {}, h.o.name), el("div", { class: "sub" }, `${ROLE[h.o.role] || h.o.role} · 마나 ${h.o.mana}`), el("p", {}, h.o.text)); }
 
@@ -234,6 +244,7 @@ async function playCard(idx, tile) {
   busy = true; const v = await api("play", { idx, tile }); busy = false; sel = null;
   if (v.error) return toast(v.error);
   if (v.action && v.action.error) toast(v.action.error);
+  if (!(v.action && v.action.error)) pushHistory();
   st = v; render();
 }
 async function endTurn() {
@@ -241,14 +252,14 @@ async function endTurn() {
   $("endturn").disabled = true; $("endturn").firstChild.textContent = "적 행동 중…";
   const v = await api("end_turn"); busy = false; $("endturn").firstChild.textContent = "턴 종료";
   if (v.error) { toast(v.error); return render(); }
-  st = v; render();
+  pushHistory(); st = v; render();
 }
 function renderOver() {
   const r = st.result, o = $("over");
   const rows = [["모은 골드", `${r.gold} / 필요 ${r.due}`], ["처치한 적", r.kills], ["진행한 턴", r.turns], ["쓰러졌는가", r.died ? "예 (이 스테이지의 골드 몰수)" : "아니오"], ["골드 출처", `처치 ${r.src.g_bounty || 0} · 돈 구슬 ${r.src.g_money || 0} · 가공 ${r.src.g_process || 0}`], ["인접 시너지 발동", r.src.adj_bonus || 0]];
   const t = el("table", {}); rows.forEach(([a, b]) => t.append(el("tr", {}, el("td", {}, a), el("td", {}, String(b)))));
   const again = el("button", { class: "primary big", type: "button", onclick: newGame }, "다시 하기");
-  o.replaceChildren(el("div", { class: "result", role: "dialog", "aria-modal": "true", "aria-label": "스테이지 결과" }, el("h2", { class: r.pass ? "pass" : "fail" }, r.pass ? "정산 통과" : "정산 실패"), t, el("div", { class: "acts" }, el("button", { type: "button", onclick: () => { o.hidden = true; } }, "지도 보기"), again)));
+  o.replaceChildren(el("div", { class: "result", role: "dialog", "aria-modal": "true", "aria-label": "스테이지 결과" }, el("h2", { class: r.pass ? "pass" : "fail" }, r.pass ? "정산 통과" : "정산 실패"), t, el("div", { class: "acts" }, el("button", { type: "button", onclick: () => { o.hidden = true; } }, "지도 보기"), startState ? el("button", { type: "button", title: "같은 맵·같은 주머니·같은 적 등장으로 다시 시작합니다", onclick: replay }, "같은 판 다시") : null, again)));
   setTimeout(() => again.focus(), 50);
 }
 
@@ -256,12 +267,92 @@ function renderOver() {
 document.addEventListener("keydown", (e) => {
   if (!st || st.phase !== "play" || e.ctrlKey || e.metaKey || e.altKey) return;
   const tag = (e.target.tagName || "").toLowerCase(); if (tag === "input" || tag === "select") return;
-  if (e.key >= "1" && e.key <= "9") { const h = st.hand[+e.key - 1]; if (h) { e.preventDefault(); if (h.why) toast(h.why); else playCard(h.idx); } }
+  if (e.key >= "1" && e.key <= "9") { const h = st.hand[+e.key - 1]; if (h) { e.preventDefault(); if (h.why) toast(h.why); else if (sel === h.idx && h.need_tile) quick(h); else playCard(h.idx); } }
+  else if (e.key === "z" || e.key === "Z" || e.key === "ㅋ") { e.preventDefault(); undo(); }
   else if (e.key === "Escape") { if (sel !== null) { sel = null; pinned = null; renderHud(); renderMap(); renderHand(); renderSide(); } }
-  else if ((e.key === " " || e.key === "Enter") && tag !== "button" && !e.target.classList.contains("orb")) { e.preventDefault(); endTurn(); }
+  else if ((e.key === " " || e.key === "Enter") && tag !== "button" && !e.target.classList.contains("orb")) { e.preventDefault(); const c = selCard(); if (c) quick(c); else endTurn(); }
 });
 $("map").addEventListener("pointerleave", () => { if (st && st.phase === "play") renderSide(); });
 $("newgame").addEventListener("click", newGame);
-$("start").addEventListener("click", async () => { if (busy) return; busy = true; const v = await api("start"); busy = false; if (v.error) return toast(v.error); st = v; resetMap(); render(); });
+$("start").addEventListener("click", async () => { if (busy) return; busy = true; const v = await api("start"); busy = false; if (v.error) return toast(v.error); st = v; startState = v; history = []; resetMap(); render(); });
 $("endturn").addEventListener("click", endTurn);
+$("undo").addEventListener("click", undo);
+document.addEventListener("keydown", (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === "z" || e.key === "Z") && st && st.phase !== "setup") { e.preventDefault(); undo(); } });
 newGame();
+
+
+/* ---------- 되돌리기 · 같은 판 다시 ---------- */
+function pushHistory() { history.push(st); if (history.length > 80) history.shift(); }
+function undo() {
+  if (busy || !st || st.phase === "setup") return;
+  if (!history.length) return toast("되돌릴 행동이 없습니다");
+  st = history.pop(); sel = null; pinned = null; prev = null; $("over").hidden = true; render(); toast("되돌렸습니다");
+}
+function replay() { if (!startState) return; st = startState; history = []; sel = null; pinned = null; prev = null; $("over").hidden = true; resetMap(); render(); }
+
+/* ---------- 빠른 배치 · 끌어다 놓기 ---------- */
+const bestTile = (c) => (c.hint.length ? c.hint[0] : c.tiles[0]);
+function quick(h) { if (!h.tiles.length) return toast("놓을 수 있는 칸이 없습니다"); playCard(h.idx, bestTile(h)); }
+function startDrag(e, h, cardEl) {
+  if (e.button > 0 || busy) return;
+  const x0 = e.clientX, y0 = e.clientY; let dragging = false, chip = null, over = null;
+  const tileAt = (x, y) => { const t = document.elementFromPoint(x, y); return t && t.closest && t.closest(".hex.ok"); };
+  const move = (ev) => {
+    if (!dragging) {
+      if (Math.hypot(ev.clientX - x0, ev.clientY - y0) < 8) return;
+      dragging = true; dragMoved = true; sel = h.idx; renderHud(); renderMap(); renderSide();
+      document.querySelectorAll(".orb.sel").forEach((n) => n.classList.remove("sel")); cardEl.classList.add("sel");
+      chip = el("div", { class: "dragchip r-" + h.o.role }, h.o.name); document.body.append(chip);
+    }
+    chip.style.transform = `translate(${ev.clientX + 12}px,${ev.clientY + 12}px)`;
+    const t = tileAt(ev.clientX, ev.clientY);
+    if (t !== over) { if (over) over.classList.remove("drop"); over = t; if (over) over.classList.add("drop"); }
+  };
+  const end = (ev) => {
+    window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", end); window.removeEventListener("pointercancel", end);
+    if (!dragging) return;
+    if (chip) chip.remove();
+    const t = ev.type === "pointerup" ? tileAt(ev.clientX, ev.clientY) : null;
+    setTimeout(() => { dragMoved = false; }, 0);
+    if (t) playCard(h.idx, [+t.dataset.q, +t.dataset.r]);
+    else { sel = null; renderHud(); renderMap(); renderHand(); renderSide(); toast("칸 위에 놓아야 합니다"); }
+  };
+  window.addEventListener("pointermove", move); window.addEventListener("pointerup", end); window.addEventListener("pointercancel", end);
+}
+
+/* ---------- 턴 종료 예측 ---------- */
+async function fetchPreview() {
+  const my = ++pvSeq; if (previewLayer) previewLayer.innerHTML = ""; $("turnpreview").classList.add("stale");
+  const v = await api("preview"); if (my !== pvSeq) return;
+  pv = v && v.preview ? v.preview : null; $("turnpreview").classList.remove("stale"); renderPreview();
+}
+function renderPreview() {
+  const box = $("turnpreview"), L = previewLayer; if (L) L.innerHTML = "";
+  const head = el("div", { class: "pvhead" }, el("h3", {}, "턴 종료하면"), el("button", { type: "button", class: "mini", "aria-pressed": String(showPv), title: "지도에 적 이동·피해 예측을 겹쳐 보입니다", onclick: () => { showPv = !showPv; renderPreview(); } }, showPv ? "지도 표시 끄기" : "지도 표시 켜기"));
+  if (!st || st.phase !== "play") { box.replaceChildren(head, el("p", { class: "sub" }, "플레이 중에 표시됩니다.")); return; }
+  if (!pv) { box.replaceChildren(head, el("p", { class: "sub" }, "계산 중…")); return; }
+  const sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n);
+  const rows = [];
+  if (pv.over) {
+    const r = pv.result; rows.push(el("div", { class: "pvrow" }, el("span", {}, "마지막 턴입니다 · 정산 예상"), el("b", { class: r.pass ? "up" : "down" }, `골드 ${r.gold} / ${r.due} ${r.pass ? "통과" : "실패"}`)));
+    if (r.died) rows.push(el("div", { class: "pvrow" }, el("span", {}, "체력이 바닥나 쓰러집니다"), el("b", { class: "down" }, "골드 몰수")));
+  } else {
+    if (pv.gold) rows.push(el("div", { class: "pvrow" }, el("span", {}, "골드"), el("b", { class: pv.gold > 0 ? "up" : "down" }, sg(pv.gold))));
+    const rs = ["wood", "ore", "food"].filter((k) => pv.res[k]).map((k) => `${{ wood: "🌲", ore: "⛏", food: "🌾" }[k]}${sg(pv.res[k])}`);
+    if (rs.length) rows.push(el("div", { class: "pvrow" }, el("span", {}, "자원"), el("b", { class: "up" }, rs.join("  "))));
+    if (pv.hp) rows.push(el("div", { class: "pvrow" }, el("span", {}, "체력"), el("b", { class: pv.hp > 0 ? "up" : "down" }, sg(pv.hp))));
+    if (pv.kills) rows.push(el("div", { class: "pvrow" }, el("span", {}, "적 처치"), el("b", { class: "up" }, `${pv.kills}마리`)));
+    for (const o of pv.own) rows.push(el("div", { class: "pvrow" }, el("span", {}, `${o.name} (${o.kind === "buildings" ? "건물" : "소환"})`), el("b", { class: "down" }, o.lost ? "파괴됨" : `피해 −${o.dmg}`)));
+    if (pv.spawn) rows.push(el("div", { class: "pvrow" }, el("span", {}, "새 적 등장"), el("b", { class: "down" }, `${pv.spawn}마리`)));
+  }
+  if (!rows.length) rows.push(el("p", { class: "sub" }, "큰 변화가 없습니다."));
+  box.replaceChildren(head, ...rows);
+  if (!showPv || !L) return;
+  for (const m of pv.moves) {
+    const [x1, y1] = px(...m.from), [x2, y2] = px(...m.to), dx = x2 - x1, dy = y2 - y1, d = Math.hypot(dx, dy) || 1, k = 14 / d;
+    L.append(svg("line", { x1: x1 + dx * k, y1: y1 + dy * k, x2: x2 - dx * k, y2: y2 - dy * k, class: "pv-arrow", "marker-end": "url(#arr)" }));
+  }
+  for (const [q, r] of pv.dead) { const [x, y] = px(q, r); L.append(svg("text", { x, y: y + 7, class: "pv-x gold" }, "✕")); }
+  for (const [q, r] of pv.spawned) { const [x, y] = px(q, r); L.append(svg("polygon", { points: hexPts(x, y), class: "pv-spawn" })); }
+  for (const o of pv.own) { const [x, y] = px(o.q, o.r); L.append(o.lost ? svg("text", { x, y: y + 7, class: "pv-x" }, "✕") : svg("text", { x: x + 15, y: y - 12, class: "pv-dmg" }, `−${o.dmg}`)); }
+}
