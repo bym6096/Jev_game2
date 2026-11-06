@@ -24,6 +24,50 @@ async function api(op, body = {}) {
 function toast(t) { const e = $("toast"); e.textContent = t; e.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("show"), 2400); }
 function el(tag, attrs = {}, ...kids) { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const k of kids) if (k != null) e.append(k); return e; }
 function svg(tag, attrs = {}, ...kids) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; }
+/* ---------- 구슬 모양 (card-forge 참고) ----------
+   색 = 효과 종류(+이름으로 살짝 변주), 크기 = 마나, 속무늬 = 구슬 종류, 겉에는 새긴 이름만. */
+const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", remove: "#7a8a92", transform: "#c070d0" };
+const MAT_COLOR = { wood: "#5fa84f", ore: "#8a97a8", food: "#9ab84a", gold: "#e0b03a" };
+const PATTERN = { build: "repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)", summon: "repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)", move: "radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)" };
+const hash = (str) => { let h = 2166136261; for (const c of str) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
+function hexToHsl(hex) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255, g = parseInt(hex.slice(3, 5), 16) / 255, b = parseInt(hex.slice(5, 7), 16) / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
+  let h = 0, sat = 0; if (d) { sat = d / (1 - Math.abs(2 * l - 1)); h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h *= 60; if (h < 0) h += 360; }
+  return [h, sat * 100, l * 100];
+}
+function orbColor(o) {
+  if (o.scribble) return "#777777";
+  const verb = o.verb || (o.payload && o.payload[0] && o.payload[0][0]), mat = o.mat || (o.payload && o.payload[0] && o.payload[0][2]);
+  const base = (verb === "harvest" ? MAT_COLOR[mat] : VERB_COLOR[verb]) || "#8a99a8", [h, sat, l] = hexToHsl(base), n = hash(o.name);
+  return `hsl(${((h + (n % 25) - 12) + 360) % 360} ${Math.max(35, sat - (n >> 5) % 8)}% ${l + ((n >> 9) % 9) - 4}%)`;
+}
+const orbSize = (o) => Math.round(78 + Math.min(12, Math.max(0, o.mana ?? 4)) * 4.2);
+// 이름은 두 줄까지: 공백이 있으면 가운데에 가까운 공백에서, 없으면 글자 사이에서 나눈다(한 줄이 구슬의 ~22%보다 작아지는 경우만).
+function engrave(name, d) {
+  const ch = [...name], wd = (c) => c === " " ? .3 : /[ᄀ-ᇿ㄰-㆏가-힯一-鿿぀-ヿ]/.test(c) ? 1 : .55;
+  const span = (a, b) => ch.slice(a, b).reduce((t, c) => t + wd(c), 0), n = ch.length, total = span(0, n);
+  let lines = [[0, n]];
+  if (total > 3.4) {
+    let best = null; const cut = !ch.includes(" ");
+    for (let i = 1; i < n; i++) {
+      if (ch[i] !== " " && !cut) continue; if (cut && n >= 4 && (i < 2 || n - i < 2)) continue;
+      const a = [0, i], b = [ch[i] === " " ? i + 1 : i, n]; if (b[0] >= n) continue;
+      const w = Math.max(span(...a), span(...b)); if (!best || w < best.w) best = { w, l: [a, b] };
+    }
+    if (best && best.w < total * .9) lines = best.l;
+  }
+  const maxW = Math.max(...lines.map((l) => span(...l)), .5);
+  const fs = Math.max(9, Math.min(d * .27, d * (lines.length > 1 ? .68 : .74) / maxW, d * .56 / (lines.length * 1.12)));
+  return { lines: lines.map(([a, b]) => ch.slice(a, b).join("").trim()), fs: Math.min(d * .32, fs) };
+}
+function sphere(o, d = orbSize(o)) {
+  const e = engrave(o.name, d), eng = el("span", { class: "eng" });
+  e.lines.forEach((l) => eng.append(el("span", { class: "ln" }, l)));
+  return el("div", { class: "sphere" + (o.scribble ? " scribble" : ""), style: `--el:${orbColor(o)};--d:${d}px;--fs:${e.fs.toFixed(1)}px;--pat:${PATTERN[o.role] || "none"}` }, eng);
+}
+// 구슬 밑에 한 줄로 보이는 효과 요약(자세한 문장은 오른쪽 정보창)
+const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: () => "강화", debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
+function brief(o) { if (o.scribble) return "낙서"; return (o.payload || []).slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
 const bcostText = (o) => o.role === "build" && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
 
 /* ---------- 흐름 ---------- */
@@ -64,7 +108,7 @@ function renderSetup() {
     nm.append(input);
     if (f && f.pos === "suf") nm.append(el("span", { class: "frag" }, (f.sp ? " " : "") + f.t));
     const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? " · 새겨진 말이 붙어 있음" : " · 새겨진 말 없음"}`)), nm, btn);
-    if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text));
+    if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });
   $("bagnames").replaceChildren(...st.bag_names.map((n) => el("span", {}, n)));
@@ -211,18 +255,20 @@ function renderSide() {
 function renderHand() {
   const hd = $("hand"); hd.innerHTML = "";
   st.hand.forEach((h, n) => {
-    const o = h.o, dis = !!h.why || st.phase !== "play";
+    const o = h.o, dis = !!h.why || st.phase !== "play", d = orbSize(o);
     let card0 = null;
-    const card = el("div", { class: `orb r-${o.role}` + (dis ? " dis" : "") + (sel === h.idx ? " sel" : ""), tabindex: "0", role: "listitem", "aria-label": `${o.name}, 마나 ${o.mana}${h.why ? ", 쓸 수 없음: " + h.why : ""}`, "aria-disabled": String(dis),
+    const card = el("div", { class: `orb r-${o.role}` + (dis ? " dis" : "") + (sel === h.idx ? " sel" : ""), style: `--d:${d}px`, tabindex: "0", role: "listitem", title: `${o.name} (마나 ${o.mana})\n${o.text}`,
+      "aria-label": `${o.name}, 마나 ${o.mana}, ${o.text}${h.why ? ", 쓸 수 없음: " + h.why : ""}`, "aria-disabled": String(dis),
       onclick: () => { if (dragMoved) { dragMoved = false; return; } if (dis) return toast(h.why || "지금은 쓸 수 없습니다"); playCard(h.idx); },
       onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); if (dis) toast(h.why || "지금은 쓸 수 없습니다"); else playCard(h.idx); } },
       onpointerenter: () => { if (sel === null && !pinned) peek(h); },
       onpointerdown: (e) => { if (!dis && h.need_tile) startDrag(e, h, card0); },
       ondblclick: () => { if (!dis && h.need_tile) quick(h); } },
-      el("div", { class: "top1" }, el("div", { class: "bead" }, String(o.mana)), el("div", {}, el("div", { class: "nm" }, o.name), el("div", { class: "role" }, ROLE[o.role] || o.role))),
-      el("div", { class: "tx" }, o.text));
+      sphere(o, d), el("span", { class: "mbadge", "aria-hidden": "true" }, String(o.mana)));
     card0 = card;
-    const bc = bcostText(o); if (bc) card.append(el("div", { class: "cost" }, bc));
+    const cap = el("div", { class: "cap" }, el("span", { class: "role" }, ROLE[o.role] || o.role), brief(o));
+    const bc = bcostText(o); if (bc) cap.append(el("span", { class: "cost" }, bc.replace("비용: ", "")));
+    card.append(cap);
     if (h.why) card.append(el("div", { class: "why" }, h.why));
     if (n < 9) card.append(el("span", { class: "key", "aria-hidden": "true" }, String(n + 1)));
     hd.append(card);
@@ -302,9 +348,9 @@ function startDrag(e, h, cardEl) {
       if (Math.hypot(ev.clientX - x0, ev.clientY - y0) < 8) return;
       dragging = true; dragMoved = true; sel = h.idx; renderHud(); renderMap(); renderSide();
       document.querySelectorAll(".orb.sel").forEach((n) => n.classList.remove("sel")); cardEl.classList.add("sel");
-      chip = el("div", { class: "dragchip r-" + h.o.role }, h.o.name); document.body.append(chip);
+      chip = el("div", { class: "dragchip" }, sphere(h.o, 68)); document.body.append(chip);
     }
-    chip.style.transform = `translate(${ev.clientX + 12}px,${ev.clientY + 12}px)`;
+    chip.style.transform = `translate(${ev.clientX - 34}px,${ev.clientY - 34}px)`;
     const t = tileAt(ev.clientX, ev.clientY);
     if (t !== over) { if (over) over.classList.remove("drop"); over = t; if (over) over.classList.add("drop"); }
   };

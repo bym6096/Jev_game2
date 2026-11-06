@@ -3,7 +3,7 @@ import os, sys, json, traceback
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import core
-FILES = {"/": ("index.html", "text/html; charset=utf-8"), "/index.html": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8")}
+FILES = {"/": ("index.html", "text/html; charset=utf-8"), "/index.html": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/fonts/GabiaBombaram.woff2": ("fonts/GabiaBombaram.woff2", "font/woff2")}
 class H(BaseHTTPRequestHandler):
     def log_message(s, *a): pass
     def send(s, code, body, ctype="application/json; charset=utf-8"):

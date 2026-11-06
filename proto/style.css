@@ -1,3 +1,4 @@
+@font-face{font-family:"Gabia Bombaram";src:url("/fonts/GabiaBombaram.woff2") format("woff2");font-display:swap}   /* 구슬에 새기는 한국어 이름 글꼴(toys/card-forge와 같은 것) */
 /* 구슬 공방 — 작업대 위의 유리구슬: 짙은 청록 바탕, 황동 포인트.
    구슬 종류는 색으로 구분(시전=보라, 건물=황동, 소환=민트, 이동=하늘). */
 :root{
@@ -45,8 +46,10 @@ main{min-height:0;overflow:auto}
 .namebox input{flex:1;min-width:0;background:transparent;border:0;padding:10px 12px;font-size:17px;outline:none}
 .namebox input:disabled{color:var(--mute)}
 .frag{display:grid;place-items:center;padding:0 12px;background:rgba(227,176,79,.16);color:var(--brass);font-weight:700;font-size:17px;white-space:pre}
-.made{border-radius:10px;padding:10px 12px;background:rgba(111,211,168,.1);border:1px solid rgba(111,211,168,.35);font-size:14px}
-.made b{display:block;font-size:16px}.made.scr{background:rgba(239,123,123,.1);border-color:rgba(239,123,123,.4)}
+.made{border-radius:12px;padding:12px;background:rgba(111,211,168,.08);border:1px solid rgba(111,211,168,.3);font-size:14px;display:flex;gap:14px;align-items:center}
+.made .sphere{flex:none;animation:orbin .7s cubic-bezier(.2,.9,.3,1.15)}
+.made b{display:block;font-size:16px}
+@keyframes orbin{from{transform:scale(.25);opacity:0}to{transform:scale(1);opacity:1}}.made.scr{background:rgba(239,123,123,.1);border-color:rgba(239,123,123,.4)}
 .setup-foot{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
 #setup-note{color:var(--mute);font-size:14px}
 .bagbox{margin-top:22px;color:var(--mute)}.bagbox summary{cursor:pointer}
@@ -130,20 +133,29 @@ aside{display:flex;flex-direction:column;gap:10px;min-height:0}
 
 /* ---------- 손패 ---------- */
 .dock{display:flex;gap:12px;align-items:stretch}
-#hand{display:flex;gap:10px;flex:1;min-width:0;overflow-x:auto;padding:14px 4px 6px;scroll-snap-type:x proximity}
-.orb{--c:var(--violet);position:relative;flex:0 0 188px;min-height:132px;text-align:left;display:flex;flex-direction:column;gap:5px;padding:10px 12px 9px 12px;border:1px solid var(--line2);border-top:3px solid var(--c);border-radius:12px;background:linear-gradient(180deg,var(--panel2),var(--panel));cursor:pointer;scroll-snap-align:start;transition:transform .14s,border-color .14s,box-shadow .14s}
+#hand{display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto;padding:12px 6px 4px;scroll-snap-type:x proximity;align-items:flex-start}
+/* 구슬: card-forge의 유리구슬을 줄여 옮긴 것. 색=효과 종류, 크기=마나, 겉에는 새긴 이름만(자세한 설명은 오른쪽 정보창). */
+.orb{--c:var(--violet);position:relative;flex:0 0 auto;width:calc(var(--d) + 22px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 4px 4px;border-radius:16px;background:none;border:0;cursor:pointer;scroll-snap-align:start;text-align:center}
 .orb.r-build{--c:var(--r-build)}.orb.r-summon{--c:var(--r-summon)}.orb.r-move{--c:var(--r-move)}.orb.r-cast{--c:var(--r-cast)}
-.orb:hover:not(.dis){transform:translateY(-5px);border-color:var(--c)}
-.orb.sel{transform:translateY(-9px);border-color:var(--c);box-shadow:0 0 0 2px var(--c),0 10px 22px rgba(0,0,0,.4)}
-.orb.dis{cursor:not-allowed}.orb.dis .nm,.orb.dis .tx{opacity:.55}
-.orb .top1{display:flex;align-items:center;gap:8px}
-.bead{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#07202b;background:radial-gradient(circle at 32% 28%,#d6ecff,#5a9be8 62%,#2d63b8);box-shadow:inset 0 -3px 4px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.4)}
-.nm{font-weight:700;font-size:15.5px;line-height:1.2}
-.role{font-size:11.5px;font-weight:700;color:var(--c)}
-.tx{font-size:12.5px;color:#c4d7d6;line-height:1.4}
-.cost{margin-top:auto;font-size:12px;color:var(--mute)}
-.why{font-size:12px;font-weight:600;color:var(--rose)}
-.key{position:absolute;right:8px;top:8px;font:600 11px var(--font);color:var(--mute);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.sphere{--el:#8a99a8;--d:100px;--core:color-mix(in srgb,var(--el) 50%,#160c2e);--rim:color-mix(in srgb,var(--el) 70%,#fff);--glow:#ffd98a;
+  position:relative;width:var(--d);height:var(--d);border-radius:50%;display:grid;place-items:center;isolation:isolate;transition:transform .18s ease,box-shadow .18s ease,filter .18s;
+  background:radial-gradient(ellipse at 50% 96%,#ffe7a8b0 0,#ffe7a800 40%),radial-gradient(circle at 50% 52%,var(--core) 0,color-mix(in srgb,var(--el) 74%,#160c2e) 32%,var(--el) 64%,var(--rim) 100%);
+  box-shadow:inset 0 0 calc(var(--d)*.16) calc(var(--d)*.015) #ffffff70,inset calc(var(--d)*-.04) calc(var(--d)*-.06) calc(var(--d)*.1) #1a103033,0 calc(var(--d)*.08) calc(var(--d)*.16) #000a,0 0 calc(var(--d)*.22) color-mix(in srgb,var(--el) 24%,transparent)}
+.sphere::before{content:"";position:absolute;left:19%;top:11%;width:30%;height:17%;border-radius:50%;transform:rotate(-28deg);z-index:3;pointer-events:none;opacity:.75;background:radial-gradient(ellipse at 50% 42%,#ffffffe0,#fff0 72%)}
+.sphere::after{content:"";position:absolute;inset:0;border-radius:50%;z-index:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.5;background:var(--pat,none),radial-gradient(circle at 70% 80%,#fff8 0,#fff0 34%);background-size:150% 150%,auto;background-position:center}
+.eng{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;font-family:"Gabia Bombaram","Gamja Flower","Nanum Brush Script",var(--font);font-size:var(--fs);line-height:1.12;font-weight:400;text-align:center;white-space:nowrap;pointer-events:none;
+  color:color-mix(in srgb,var(--el) 14%,#fffbea);text-shadow:0 0 .04em #fff7,0 0 .15em color-mix(in srgb,var(--el) 35%,var(--glow)),0 .03em .06em #0005}
+.eng .ln{display:block}
+.sphere.scribble{filter:grayscale(.75) brightness(.9)}.sphere.scribble .eng{transform:rotate(-9deg);text-decoration:line-through wavy;text-decoration-thickness:1px}
+.orb:hover:not(.dis) .sphere{transform:translateY(-5px) scale(1.06)}
+.orb.sel .sphere{transform:translateY(-8px) scale(1.08);box-shadow:inset 0 0 calc(var(--d)*.16) calc(var(--d)*.015) #ffffff70,0 0 0 3px var(--brass),0 0 26px 4px rgba(227,176,79,.55),0 calc(var(--d)*.1) calc(var(--d)*.2) #000a}
+.orb.dis{cursor:not-allowed}.orb.dis .sphere{filter:saturate(.3) brightness(.62)}
+.mbadge{position:absolute;right:calc(50% - var(--d)/2 - 8px);top:2px;z-index:4;min-width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13.5px;color:#07202b;background:radial-gradient(circle at 32% 28%,#d6ecff,#5a9be8 62%,#2d63b8);box-shadow:inset 0 -3px 4px rgba(0,0,0,.25),0 1px 4px rgba(0,0,0,.55)}
+.cap{font-size:12.5px;line-height:1.3;color:#c4d7d6;max-width:100%}
+.cap .role{font-weight:700;color:var(--c);margin-right:4px}
+.cap .cost{display:block;color:var(--mute);font-size:11.5px}
+.why{font-size:12px;font-weight:600;color:var(--rose);line-height:1.25}
+.key{position:absolute;left:4px;top:4px;z-index:4;font:600 11px var(--font);color:var(--mute);border:1px solid var(--line2);border-radius:4px;padding:0 5px;background:rgba(10,24,30,.6)}
 .empty{color:var(--mute);align-self:center;padding:0 8px}
 .turnctl{display:flex;flex-direction:column;gap:8px;justify-content:flex-end;width:168px;flex:none}
 .piles{font-size:12.5px;color:var(--mute);text-align:center;line-height:1.35}
@@ -162,9 +174,8 @@ button.mini{font-size:11.5px;padding:1px 8px;border-radius:6px;color:var(--mute)
 .pv-dmg{font-size:13px;font-weight:800;text-anchor:middle;fill:#ff9a9a;paint-order:stroke;stroke:#000;stroke-width:3.5px;pointer-events:none}
 .pv-spawn{fill:rgba(239,123,123,.12);stroke:var(--rose);stroke-width:2;stroke-dasharray:4 3;pointer-events:none;animation:pulse 1.4s ease-in-out infinite}
 .hex.drop{fill:#8a7430!important;stroke:#ffe08a;stroke-width:4}
-.dragchip{position:fixed;left:0;top:0;z-index:20;pointer-events:none;padding:5px 12px;border-radius:999px;background:var(--panel2);border:2px solid var(--c,var(--brass));font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-.dragchip.r-build{--c:var(--r-build)}.dragchip.r-summon{--c:var(--r-summon)}.dragchip.r-move{--c:var(--r-move)}.dragchip.r-cast{--c:var(--r-cast)}
-.orb{touch-action:pan-x;user-select:none}
+.dragchip{position:fixed;left:0;top:0;z-index:20;pointer-events:none;opacity:.92;filter:drop-shadow(0 10px 14px rgba(0,0,0,.55))}
+.orb{touch-action:pan-x;user-select:none;-webkit-user-select:none}
 .piles b{color:var(--ink);font-weight:600}
 #undo{padding:7px 10px;font-size:14px}
 #endturn.ready{animation:ready 1.6s ease-in-out infinite}
@@ -187,10 +198,9 @@ button.mini{font-size:11.5px;padding:1px 8px;border-radius:6px;color:var(--mute)
   .mapwrap{aspect-ratio:1.1;min-height:0}
   aside{display:grid;grid-template-columns:1fr 1fr}.logbox{grid-column:1 / -1;max-height:150px}
   .dock{position:sticky;bottom:0;background:linear-gradient(transparent,var(--bg) 18%);padding-bottom:10px;margin:0 -10px;padding-left:10px;padding-right:10px}
-  .orb{flex-basis:164px;min-height:124px}
   .turnctl{width:96px;justify-content:center}.piles{display:none}#undo kbd{display:none}
   #endturn{flex:0 0 auto;min-height:76px}
-  #endturn kbd,.key{display:none}
+  #endturn kbd{display:none}
   .top h1 small{display:none}
   .stat.wide{flex-basis:100%;order:-1}
 }
