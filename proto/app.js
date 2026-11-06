@@ -5,7 +5,8 @@ const $ = (id) => document.getElementById(id);
 const px = (q, r) => [S * SQ3 * (q + r / 2), S * 1.5 * r];
 const hexPts = (cx, cy, s = S - 1.5) => Array.from({ length: 6 }, (_, i) => { const a = Math.PI / 180 * (60 * i - 30); return `${(cx + s * Math.cos(a)).toFixed(1)},${(cy + s * Math.sin(a)).toFixed(1)}`; }).join(" ");
 const key = (q, r) => q + "," + r;
-const ROLE = { cast: "시전", build: "건물", summon: "소환", move: "이동" };
+const ROLE = { cast: "시전", build: "건물", summon: "소환", move: "이동", plant: "식물" };
+const kindOf = (o) => (o.role === "build" && o.payload && o.payload[0] && (o.payload[0][0] === "grow" || (o.payload[0][0] === "harvest" && o.payload[0][2] === "food")) ? "plant" : o.role);
 const RES = { wood: "나무", ore: "광석", food: "식량", gold: "골드" };
 const GLYPH = { tree: "🌲", ore: "⛏" };
 
@@ -26,9 +27,9 @@ function el(tag, attrs = {}, ...kids) { const e = document.createElement(tag); f
 function svg(tag, attrs = {}, ...kids) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; }
 /* ---------- 구슬 모양 (card-forge 참고) ----------
    색 = 효과 종류(+이름으로 살짝 변주), 크기 = 마나, 속무늬 = 구슬 종류, 겉에는 새긴 이름만. */
-const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", remove: "#7a8a92", transform: "#c070d0" };
+const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", remove: "#7a8a92", transform: "#c070d0", move: "#6db7ea" };
 const MAT_COLOR = { wood: "#5fa84f", ore: "#8a97a8", food: "#9ab84a", gold: "#e0b03a" };
-const PATTERN = { build: "repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)", summon: "repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)", move: "radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)" };
+const PATTERN = { build: "repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)", summon: "repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)", move: "radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)", plant: "radial-gradient(circle at 28% 72%,#fff7 0,#fff0 42%),radial-gradient(circle at 72% 30%,#fff5 0,#fff0 36%)" };
 const hash = (str) => { let h = 2166136261; for (const c of str) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
 function hexToHsl(hex) {
   const r = parseInt(hex.slice(1, 3), 16) / 255, g = parseInt(hex.slice(3, 5), 16) / 255, b = parseInt(hex.slice(5, 7), 16) / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
@@ -38,7 +39,7 @@ function hexToHsl(hex) {
 function orbColor(o) {
   if (o.scribble) return "#777777";
   const verb = o.verb || (o.payload && o.payload[0] && o.payload[0][0]), mat = o.mat || (o.payload && o.payload[0] && o.payload[0][2]);
-  const base = (verb === "harvest" ? MAT_COLOR[mat] : VERB_COLOR[verb]) || "#8a99a8", [h, sat, l] = hexToHsl(base), n = hash(o.name);
+  const base = ((verb === "harvest" || verb === "grow") ? MAT_COLOR[mat] : VERB_COLOR[verb]) || VERB_COLOR[verb] || "#8a99a8", [h, sat, l] = hexToHsl(base), n = hash(o.name);
   return `hsl(${((h + (n % 25) - 12) + 360) % 360} ${Math.max(35, sat - (n >> 5) % 8)}% ${l + ((n >> 9) % 9) - 4}%)`;
 }
 const orbSize = (o) => Math.round(78 + Math.min(12, Math.max(0, o.mana ?? 4)) * 4.2);
@@ -63,11 +64,11 @@ function engrave(name, d) {
 function sphere(o, d = orbSize(o)) {
   const e = engrave(o.name, d), eng = el("span", { class: "eng" });
   e.lines.forEach((l) => eng.append(el("span", { class: "ln" }, l)));
-  return el("div", { class: "sphere" + (o.scribble ? " scribble" : ""), style: `--el:${orbColor(o)};--d:${d}px;--fs:${e.fs.toFixed(1)}px;--pat:${PATTERN[o.role] || "none"}` }, eng);
+  return el("div", { class: "sphere" + (o.scribble ? " scribble" : ""), style: `--el:${orbColor(o)};--d:${d}px;--fs:${e.fs.toFixed(1)}px;--pat:${PATTERN[kindOf(o)] || "none"}` }, eng);
 }
 // 구슬 밑에 한 줄로 보이는 효과 요약(자세한 문장은 오른쪽 정보창)
 const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: () => "강화", debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
-function brief(o) { if (o.scribble) return "낙서"; return (o.payload || []).slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
+function brief(o) { if (o.scribble) return "낙서"; if (o.role === "move") return `${o.mv || 2}칸`; return (o.payload || []).filter((p) => p[0] !== "move").slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
 const bcostText = (o) => o.role === "build" && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
 
 /* ---------- 흐름 ---------- */
@@ -78,6 +79,7 @@ async function newGame() {
   st = v; $("over").hidden = true; $("app").hidden = false; resetMap(); render();
 }
 function render() {
+  hideTip();
   const setup = st.phase === "setup";
   $("setup").hidden = !setup; $("play").hidden = setup;
   if (setup) renderSetup();
@@ -111,6 +113,7 @@ function renderSetup() {
     if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });
+  document.querySelector(".bagbox summary").textContent = `가진 구슬 (시작 ${st.bag_names.length}개)`;
   $("bagnames").replaceChildren(...st.bag_names.map((n) => el("span", {}, n)));
   const done = st.blanks.filter((b) => b.orb).length;
   $("setup-note").textContent = done < 2 ? `만든 구슬 ${done}/2 · 건너뛰고 시작해도 됩니다` : "준비 완료";
@@ -133,7 +136,7 @@ function renderHud() {
     stat("mana", "마나", el("div", { class: "v" }, `${st.mana}`, el("small", {}, `/ ${st.max_mana}${spend ? ` (−${spend})` : ""}`)), mana),
     Object.assign(stat("gold", "골드 · 정산까지", el("div", { class: "v" }, `${st.gold}`, el("small", {}, `/ ${st.due}`)), el("div", { class: "meter gold" + (st.gold >= st.due ? " met" : "") }, el("i", { style: `width:${goldPct}%` }))), { className: "stat wide" }),
     stat("res", "자원", el("div", { class: "v res" }, el("span", { "data-stat": "wood" }, "🌲", el("b", {}, ` ${st.res.wood}`)), el("span", { "data-stat": "ore" }, "⛏", el("b", {}, ` ${st.res.ore}`)), el("span", { "data-stat": "food" }, "🌾", el("b", {}, ` ${st.res.food}`)))),
-    stat("slots", "배치", el("div", { class: "v" }, `건물 ${st.buildings_n}/${st.caps.b}`, el("small", {}, `소환 ${st.summons_n}/${st.caps.s}`))));
+    stat("slots", "배치", el("div", { class: "v" }, `건물 ${st.buildings_n}/${st.caps.b}`, el("small", {}, `식물 ${st.plants_n}/${st.caps.p} · 소환 ${st.summons_n}/${st.caps.s}`))));
 }
 
 /* ---------- 지도 ---------- */
@@ -148,14 +151,14 @@ function selCard() { return sel !== null && st ? st.hand.find((h) => h.idx === s
 function renderMap() {
   const c = selCard();
   const ok = new Set(c ? c.tiles.map((t) => key(...t)) : []), hint = new Set(c ? c.hint.map((t) => key(...t)) : []);
-  const res = new Map(st.tiles.map((t) => [key(t.q, t.r), t]));
+  const res = new Map(st.tiles.map((t) => [key(t.q, t.r), t])), pos = st.pos || [0, 0];
   hexLayer.innerHTML = ""; ghostLayer.innerHTML = "";
   for (let q = -R; q <= R; q++) for (let r = Math.max(-R, -q - R); r <= Math.min(R, -q + R); r++) {
     const [x, y] = px(q, r), k = key(q, r), t = res.get(k);
-    const cls = "hex" + (t ? " " + t.t : "") + (q === 0 && r === 0 ? " home" : "") + (ok.has(k) ? " ok" : "") + (hint.has(k) ? " hint" : "");
+    const cls = "hex" + (t ? " " + t.t : "") + (q === pos[0] && r === pos[1] ? " home" : "") + (ok.has(k) ? " ok" : "") + (hint.has(k) ? " hint" : "");
     const p = svg("polygon", { points: hexPts(x, y), class: cls });
+    p.dataset.q = q; p.dataset.r = r;
     if (ok.has(k)) {
-      p.dataset.q = q; p.dataset.r = r;
       p.addEventListener("click", () => playCard(sel, [q, r]));
       p.addEventListener("pointerenter", () => ghost(c, x, y)); p.addEventListener("pointerleave", () => ghostLayer.replaceChildren());
     } else if (t) p.addEventListener("pointerenter", () => inspectTile(t));
@@ -167,7 +170,7 @@ function renderMap() {
 }
 function ghost(c, x, y) {
   if (!c) return;
-  const g = svg("g", { transform: `translate(${x},${y})` }, svg("rect", { x: -15, y: -15, width: 30, height: 30, rx: 8, class: c.o.role === "build" ? "tok-b" : "tok-s" }), svg("text", { y: 1, class: "glyph" }, c.o.role === "build" ? "🏠" : "🛡️"), svg("text", { y: 28, class: "ulab" }, c.o.name.slice(0, 5)));
+  const kd = kindOf(c.o), g = svg("g", { transform: `translate(${x},${y})` }, svg("rect", { x: -15, y: -15, width: 30, height: 30, rx: 8, class: kd === "build" ? "tok-b" : kd === "plant" ? "tok-g" : kd === "move" ? "tok-p" : "tok-s" }), svg("text", { y: 1, class: "glyph" }, { build: "🏠", plant: "🌱", move: "🧙" }[kd] || "🛡️"), svg("text", { y: 28, class: "ulab" }, c.o.name.slice(0, 5)));
   ghostLayer.replaceChildren(g);
 }
 // 유닛은 id로 이어 붙여 움직임이 부드럽게 보이게 한다.
@@ -176,6 +179,7 @@ function tokenFor(kind, d) {
   if (kind === "p") g.append(svg("circle", { r: 17, class: "tok-p" }), svg("text", { class: "glyph" }, "🧙"));
   else if (kind === "e") g.append(svg("circle", { r: 15, class: "tok-e" }), svg("text", { class: "glyph", "data-g": "1" }, "👹"), svg("circle", { cx: 12, cy: -12, r: 8, fill: "#3a1418", stroke: "#ef7b7b", "stroke-width": 1.5 }), svg("text", { x: 12, y: -9, class: "badge" }, `${d.lvl}`));
   else if (kind === "s") g.append(svg("circle", { r: 15, class: "tok-s" }), svg("text", { class: "glyph" }, "🛡️"));
+  else if (d.kind === "plant") g.append(svg("circle", { r: 15, class: "tok-g" }), svg("text", { class: "glyph", "data-pg": "1" }, "🌱"));
   else g.append(svg("rect", { x: -15, y: -15, width: 30, height: 30, rx: 8, class: "tok-b" }), svg("text", { class: "glyph" }, "🏠"));
   if (kind !== "p") {
     g.append(svg("rect", { x: -16, y: -26, width: 32, height: 5, rx: 2.5, class: "hpbg" }), svg("rect", { x: -16, y: -26, width: 32, height: 5, rx: 2.5, class: "hpfg " + (kind === "e" ? "e" : "a"), "data-hp": "1" }));
@@ -183,9 +187,11 @@ function tokenFor(kind, d) {
   }
   return g;
 }
+// 식물 모양: 씨앗 → 자라는 중 → 다 자라면 거두는 작물(식량 🌾 · 골드 🌻 · 나무 🌳)
+const plantGlyph = (d) => (d.age === 0 ? "🌱" : d.age <= st.grow_turns ? "🌿" : { food: "🌾", gold: "🌻", wood: "🌳" }[d.mat] || "🌾");
 function syncUnits() {
   const want = new Map();
-  want.set("p", { kind: "p", d: { q: 0, r: 0 } });
+  want.set("p", { kind: "p", d: { q: (st.pos || [0, 0])[0], r: (st.pos || [0, 0])[1] } });
   st.buildings.forEach((b) => want.set("b" + b.id, { kind: "b", d: b }));
   st.summons.forEach((u) => want.set("s" + u.id, { kind: "s", d: u }));
   st.enemies.forEach((e) => want.set("e" + e.id, { kind: "e", d: e }));
@@ -202,6 +208,8 @@ function syncUnits() {
     u.d = d;
     const hp = u.g.querySelector("[data-hp]"); if (hp) hp.setAttribute("width", String(32 * Math.max(0, d.hp) / d.max));
     const gl = u.g.querySelector("[data-g]"); if (gl) gl.textContent = d.stun ? "💤" : "👹";
+    const pg = u.g.querySelector("[data-pg]"); if (pg) pg.textContent = plantGlyph(d);
+    u.g.dataset.uid = id;
   }
 }
 function floatAt(q, r, text, cls) {
@@ -231,9 +239,9 @@ function inspectTile(t) { $("inspect").replaceChildren(el("b", {}, t.t === "tree
 function inspectUnit(u) {
   const d = u.d, hp = `체력 ${d.hp}/${d.max}`;
   const box = $("inspect");
-  if (u.kind === "p") box.replaceChildren(el("b", {}, "나"), el("div", { class: "sub" }, `체력 ${st.hp}/${st.max_hp}${st.shield ? ` · 방어 ${st.shield}` : ""}`), el("p", {}, "건물과 소환물은 내 주변 2칸 안에 놓을 수 있습니다."));
+  if (u.kind === "p") box.replaceChildren(el("b", {}, "나"), el("div", { class: "sub" }, `체력 ${st.hp}/${st.max_hp}${st.shield ? ` · 방어 ${st.shield}` : ""}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다. 이동 구슬로 자리를 옮길 수 있습니다."));
   else if (u.kind === "e") box.replaceChildren(el("b", {}, `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
-  else box.replaceChildren(el("b", {}, d.name), el("div", { class: "sub" }, `${u.kind === "b" ? "건물" : "소환물"} · ${hp}`));
+  else box.replaceChildren(el("b", {}, d.name), el("div", { class: "sub" }, `${d.kind === "plant" ? "식물" : u.kind === "b" ? "건물" : "소환물"} · ${hp}`), d.kind === "plant" ? el("p", {}, d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null, d.text ? el("p", { class: "sub" }, d.text) : null);
 }
 function renderSide() {
   const c = selCard(), box = $("inspect");
@@ -257,7 +265,7 @@ function renderHand() {
   st.hand.forEach((h, n) => {
     const o = h.o, dis = !!h.why || st.phase !== "play", d = orbSize(o);
     let card0 = null;
-    const card = el("div", { class: `orb r-${o.role}` + (dis ? " dis" : "") + (sel === h.idx ? " sel" : ""), style: `--d:${d}px`, tabindex: "0", role: "listitem", title: `${o.name} (마나 ${o.mana})\n${o.text}`,
+    const card = el("div", { class: `orb r-${kindOf(o)}` + (dis ? " dis" : "") + (sel === h.idx ? " sel" : ""), style: `--d:${d}px`, "data-idx": String(h.idx), tabindex: "0", role: "listitem",
       "aria-label": `${o.name}, 마나 ${o.mana}, ${o.text}${h.why ? ", 쓸 수 없음: " + h.why : ""}`, "aria-disabled": String(dis),
       onclick: () => { if (dragMoved) { dragMoved = false; return; } if (dis) return toast(h.why || "지금은 쓸 수 없습니다"); playCard(h.idx); },
       onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); if (dis) toast(h.why || "지금은 쓸 수 없습니다"); else playCard(h.idx); } },
@@ -266,7 +274,7 @@ function renderHand() {
       ondblclick: () => { if (!dis && h.need_tile) quick(h); } },
       sphere(o, d), el("span", { class: "mbadge", "aria-hidden": "true" }, String(o.mana)));
     card0 = card;
-    const cap = el("div", { class: "cap" }, el("span", { class: "role" }, ROLE[o.role] || o.role), brief(o));
+    const cap = el("div", { class: "cap" }, el("span", { class: "role" }, ROLE[kindOf(o)] || o.role), brief(o));
     const bc = bcostText(o); if (bc) cap.append(el("span", { class: "cost" }, bc.replace("비용: ", "")));
     card.append(cap);
     if (h.why) card.append(el("div", { class: "why" }, h.why));
@@ -286,7 +294,7 @@ function peek(h) { $("inspect").replaceChildren(el("b", {}, h.o.name), el("div",
 async function playCard(idx, tile) {
   if (busy) return; const h = st.hand.find((x) => x.idx === idx); if (!h) return;
   pinned = null;
-  if (h.need_tile && !tile) { sel = sel === idx ? null : idx; renderHud(); renderMap(); renderHand(); renderSide(); if (sel !== null) toast(h.hint.length ? "초록 칸(✦)을 추천합니다" : "놓을 칸을 고르세요"); return; }
+  if (h.need_tile && !tile) { sel = sel === idx ? null : idx; renderHud(); renderMap(); renderHand(); renderSide(); if (sel !== null) toast(h.o.role === "move" ? "이동할 칸을 고르세요" : h.hint.length ? "초록 칸(✦)을 추천합니다" : "놓을 칸을 고르세요"); return; }
   busy = true; const v = await api("play", { idx, tile }); busy = false; sel = null;
   if (v.error) return toast(v.error);
   if (v.action && v.action.error) toast(v.action.error);
@@ -338,7 +346,7 @@ function replay() { if (!startState) return; st = startState; history = []; sel 
 
 /* ---------- 빠른 배치 · 끌어다 놓기 ---------- */
 const bestTile = (c) => (c.hint.length ? c.hint[0] : c.tiles[0]);
-function quick(h) { if (!h.tiles.length) return toast("놓을 수 있는 칸이 없습니다"); playCard(h.idx, bestTile(h)); }
+function quick(h) { if (h.o.role === "move") return playCard(h.idx); if (!h.tiles.length) return toast("놓을 수 있는 칸이 없습니다"); playCard(h.idx, bestTile(h)); }
 function startDrag(e, h, cardEl) {
   if (e.button > 0 || busy) return;
   const x0 = e.clientX, y0 = e.clientY; let dragging = false, chip = null, over = null;
@@ -348,7 +356,7 @@ function startDrag(e, h, cardEl) {
       if (Math.hypot(ev.clientX - x0, ev.clientY - y0) < 8) return;
       dragging = true; dragMoved = true; sel = h.idx; renderHud(); renderMap(); renderSide();
       document.querySelectorAll(".orb.sel").forEach((n) => n.classList.remove("sel")); cardEl.classList.add("sel");
-      chip = el("div", { class: "dragchip" }, sphere(h.o, 68)); document.body.append(chip);
+      chip = el("div", { class: "dragchip" }, sphere(h.o, 68)); document.body.append(chip); hideTip();
     }
     chip.style.transform = `translate(${ev.clientX - 34}px,${ev.clientY - 34}px)`;
     const t = tileAt(ev.clientX, ev.clientY);
@@ -388,7 +396,7 @@ function renderPreview() {
     if (rs.length) rows.push(el("div", { class: "pvrow" }, el("span", {}, "자원"), el("b", { class: "up" }, rs.join("  "))));
     if (pv.hp) rows.push(el("div", { class: "pvrow" }, el("span", {}, "체력"), el("b", { class: pv.hp > 0 ? "up" : "down" }, sg(pv.hp))));
     if (pv.kills) rows.push(el("div", { class: "pvrow" }, el("span", {}, "적 처치"), el("b", { class: "up" }, `${pv.kills}마리`)));
-    for (const o of pv.own) rows.push(el("div", { class: "pvrow" }, el("span", {}, `${o.name} (${o.kind === "buildings" ? "건물" : "소환"})`), el("b", { class: "down" }, o.lost ? "파괴됨" : `피해 −${o.dmg}`)));
+    for (const o of pv.own) rows.push(el("div", { class: "pvrow" }, el("span", {}, `${o.name} (${o.kind === "summons" ? "소환" : ((st.buildings.find((b) => b.id === o.id) || {}).kind === "plant" ? "식물" : "건물")})`), el("b", { class: "down" }, o.lost ? "파괴됨" : `피해 −${o.dmg}`)));
     if (pv.spawn) rows.push(el("div", { class: "pvrow" }, el("span", {}, "새 적 등장"), el("b", { class: "down" }, `${pv.spawn}마리`)));
   }
   if (!rows.length) rows.push(el("p", { class: "sub" }, "큰 변화가 없습니다."));
@@ -402,3 +410,62 @@ function renderPreview() {
   for (const [q, r] of pv.spawned) { const [x, y] = px(q, r); L.append(svg("polygon", { points: hexPts(x, y), class: "pv-spawn" })); }
   for (const o of pv.own) { const [x, y] = px(o.q, o.r); L.append(o.lost ? svg("text", { x, y: y + 7, class: "pv-x" }, "✕") : svg("text", { x: x + 15, y: y - 12, class: "pv-dmg" }, `−${o.dmg}`)); }
 }
+
+
+/* ---------- 툴팁: 구슬·유닛·칸에 마우스를 올리면 커서 옆에 뜬다(오른쪽 정보창은 그대로) ---------- */
+let tipEl = null, tipKey = null;
+function hideTip() { if (tipEl) tipEl.hidden = true; tipKey = null; }
+function placeTip(e) {
+  const w = tipEl.offsetWidth, h = tipEl.offsetHeight; let x = e.clientX + 16, y = e.clientY + 16;
+  if (x + w > innerWidth - 8) x = e.clientX - w - 16; if (y + h > innerHeight - 8) y = innerHeight - h - 8; if (x < 8) x = 8;
+  tipEl.style.transform = `translate(${x}px,${Math.max(8, y)}px)`;
+}
+function showTip(c, e) {
+  if (!tipEl) return; if (tipKey !== c.key) { tipEl.replaceChildren(c.build()); tipKey = c.key; }
+  tipEl.hidden = false; placeTip(e);
+}
+const tipRow = (label, val, cls = "") => el("div", { class: "tiprow" }, el("span", {}, label), el("b", { class: cls }, val));
+function tipOrb(h) {
+  const o = h.o, kd = kindOf(o), bc = bcostText(o).replace("비용: ", "");
+  return { key: `o${h.idx}:${h.iid}:${st.mana}`, build: () => el("div", { class: "tipbox r-" + kd },
+    el("div", { class: "tiph" }, el("b", {}, o.name), el("span", { class: "tipm" }, `마나 ${o.mana}`)),
+    el("div", { class: "tipk" }, ROLE[kd] || o.role),
+    el("p", {}, o.text),
+    bc ? tipRow("재료", bc) : null,
+    kd === "plant" ? tipRow("성장", `${st.grow_turns}턴 자란 뒤 수확`) : null,
+    kd === "move" ? tipRow("이동", `주변 ${o.mv || 2}칸 안의 빈 칸`) : null,
+    h.why ? el("div", { class: "tipwhy" }, h.why) : el("div", { class: "tiphint" }, h.need_tile ? (kd === "move" ? "눌러서 이동할 칸 고르기" : "눌러서 칸 고르기 · 끌어다 놓기 · 더블클릭: 추천 칸") : "눌러서 바로 쓰기")) };
+}
+function tipUnit(u) {
+  const d = u.d, hp = `${d.hp}/${d.max}`;
+  return { key: `u${u.g.dataset.uid}:${d.hp}:${d.q},${d.r}:${pvSeq}:${d.age ?? ""}`, build: () => {
+    if (u.kind === "p") return el("div", { class: "tipbox" }, el("div", { class: "tiph" }, el("b", {}, "나")), tipRow("체력", `${st.hp}/${st.max_hp}`), st.shield ? tipRow("방어", `+${st.shield}`) : null, tipRow("마나", `${st.mana}/${st.max_mana}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다."));
+    if (u.kind === "e") {
+      const mv = pv && pv.moves.find((m) => m.id === d.id);
+      return el("div", { class: "tipbox r-enemy" }, el("div", { class: "tiph" }, el("b", {}, `적 Lv${d.lvl}`)), tipRow("체력", hp, "down"), d.stun ? tipRow("상태", "행동 불가") : null, d.weak ? tipRow("상태", "약화(피해 ×1.5로 받음)") : null,
+        el("p", {}, d.stun ? "이번 턴에는 움직이지 못합니다." : "가장자리에서 걸어와 길을 막은 건물·식물·소환물을 공격합니다."), pv ? el("div", { class: "tiphint" }, mv ? "이번 턴 종료 시: 한 칸 이동" : "이번 턴 종료 시: 제자리(공격 중일 수 있음)") : null);
+    }
+    const hit = pv && pv.own.find((o) => o.id === d.id), plant = d.kind === "plant";
+    const grow = plant ? (d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null;
+    return el("div", { class: "tipbox r-" + (plant ? "plant" : u.kind === "s" ? "summon" : "build") }, el("div", { class: "tiph" }, el("b", {}, d.name), el("span", { class: "tipm" }, plant ? "식물" : u.kind === "s" ? "소환물" : "건물")),
+      tipRow("체력", hp), grow ? tipRow("성장", grow, d.age <= st.grow_turns ? "" : "up") : null, d.text ? el("p", {}, d.text) : null,
+      hit ? el("div", { class: "tipwhy" }, hit.lost ? "이번 턴 종료 시 파괴됩니다" : `이번 턴 종료 시 피해 −${hit.dmg}`) : null);
+  } };
+}
+function tipTile(h) {
+  const q = +h.dataset.q, r = +h.dataset.r, t = st.tiles.find((x) => x.q === q && x.r === r), ok = h.classList.contains("ok"), c = selCard();
+  if (!t && !ok) return null;
+  return { key: `t${q},${r}:${t ? t.amt : ""}:${ok}:${sel}`, build: () => el("div", { class: "tipbox" },
+    t ? el("div", { class: "tiph" }, el("b", {}, t.t === "tree" ? "나무 자원 칸" : "광석 자원 칸")) : el("div", { class: "tiph" }, el("b", {}, c && c.o.role === "move" ? "이동할 수 있는 칸" : "놓을 수 있는 칸")),
+    t ? tipRow("남은 양", String(t.amt)) : null,
+    t ? el("p", {}, "채집 건물을 이 칸 옆(1칸 이내)에 지으면 ×1.5로 모입니다.") : null,
+    ok && h.classList.contains("hint") ? el("div", { class: "tiphint" }, "보너스 칸: 맞는 자원 옆이거나 다른 계열 건물 옆") : null,
+    ok && c ? el("div", { class: "tiphint" }, `${c.o.name} — ${c.o.role === "move" ? "여기로 이동" : "여기에 놓기"}`) : null) };
+}
+function wireTips() {
+  tipEl = el("div", { id: "tip", role: "tooltip", hidden: "" }); document.body.append(tipEl);
+  const track = (root, resolve) => { root.addEventListener("pointermove", (e) => { if (!st || e.buttons) return hideTip(); const c = resolve(e.target); if (c) showTip(c, e); else hideTip(); }); root.addEventListener("pointerleave", hideTip); };
+  track($("map"), (t) => { const g = t.closest && t.closest("g.unit"); if (g && g.dataset.uid && units.get(g.dataset.uid)) return tipUnit(units.get(g.dataset.uid)); const hx = t.closest && t.closest(".hex"); return hx ? tipTile(hx) : null; });
+  track($("hand"), (t) => { const c = t.closest && t.closest(".orb"); const h = c && st.hand.find((x) => String(x.idx) === c.dataset.idx); return h ? tipOrb(h) : null; });
+}
+wireTips();

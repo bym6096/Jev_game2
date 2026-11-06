@@ -106,6 +106,7 @@ main{min-height:0;overflow:auto}
 .tok-e{fill:#7a2f36;stroke:var(--rose);stroke-width:2.2}
 .tok-s{fill:#1f5c4a;stroke:var(--mint);stroke-width:2.2}
 .tok-b{fill:#5b4620;stroke:var(--brass);stroke-width:2.2}
+.tok-g{fill:#27502c;stroke:#8ad36a;stroke-width:2.2}
 .tok-p{fill:#2c3f78;stroke:var(--sky);stroke-width:2.6}
 .glyph{font-size:19px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
 .ulab{font-size:10.5px;font-weight:700;text-anchor:middle;fill:var(--ink);paint-order:stroke;stroke:rgba(0,0,0,.7);stroke-width:3px;pointer-events:none}
@@ -136,7 +137,7 @@ aside{display:flex;flex-direction:column;gap:10px;min-height:0}
 #hand{display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto;padding:12px 6px 4px;scroll-snap-type:x proximity;align-items:flex-start}
 /* 구슬: card-forge의 유리구슬을 줄여 옮긴 것. 색=효과 종류, 크기=마나, 겉에는 새긴 이름만(자세한 설명은 오른쪽 정보창). */
 .orb{--c:var(--violet);position:relative;flex:0 0 auto;width:calc(var(--d) + 22px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 4px 4px;border-radius:16px;background:none;border:0;cursor:pointer;scroll-snap-align:start;text-align:center}
-.orb.r-build{--c:var(--r-build)}.orb.r-summon{--c:var(--r-summon)}.orb.r-move{--c:var(--r-move)}.orb.r-cast{--c:var(--r-cast)}
+.orb.r-plant{--c:#8ad36a}.orb.r-build{--c:var(--r-build)}.orb.r-summon{--c:var(--r-summon)}.orb.r-move{--c:var(--r-move)}.orb.r-cast{--c:var(--r-cast)}
 .sphere{--el:#8a99a8;--d:100px;--core:color-mix(in srgb,var(--el) 50%,#160c2e);--rim:color-mix(in srgb,var(--el) 70%,#fff);--glow:#ffd98a;
   position:relative;width:var(--d);height:var(--d);border-radius:50%;display:grid;place-items:center;isolation:isolate;transition:transform .18s ease,box-shadow .18s ease,filter .18s;
   background:radial-gradient(ellipse at 50% 96%,#ffe7a8b0 0,#ffe7a800 40%),radial-gradient(circle at 50% 52%,var(--core) 0,color-mix(in srgb,var(--el) 74%,#160c2e) 32%,var(--el) 64%,var(--rim) 100%);
@@ -207,3 +208,15 @@ button.mini{font-size:11.5px;padding:1px 8px;border-radius:6px;color:var(--mute)
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* ---------- 툴팁 ---------- */
+#tip{position:fixed;left:0;top:0;z-index:40;max-width:290px;pointer-events:none;background:#0a1a20;border:1px solid var(--line2);border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.45;box-shadow:0 12px 28px rgba(0,0,0,.55)}
+.tipbox{--c:var(--line2);border-left:3px solid var(--c);padding-left:9px;margin-left:-3px}
+.tipbox.r-build{--c:var(--r-build)}.tipbox.r-plant{--c:#8ad36a}.tipbox.r-summon{--c:var(--r-summon)}.tipbox.r-move{--c:var(--r-move)}.tipbox.r-cast{--c:var(--r-cast)}.tipbox.r-enemy{--c:var(--rose)}
+.tiph{display:flex;justify-content:space-between;align-items:baseline;gap:14px}.tiph b{font-size:15px}.tipm{color:var(--mute);font-size:12px;white-space:nowrap}
+.tipk{font-size:12px;font-weight:700;color:var(--c);margin-bottom:2px}
+.tipbox p{margin:3px 0 4px;color:#d3e3e1}
+.tiprow{display:flex;justify-content:space-between;gap:14px;color:var(--mute);font-size:12.5px}.tiprow b{color:var(--ink);font-weight:600;text-align:right}
+.tiprow b.up{color:var(--mint)}.tiprow b.down{color:var(--rose)}
+.tipwhy{margin-top:4px;color:var(--rose);font-weight:600;font-size:12.5px}
+.tiphint{margin-top:4px;color:var(--mute);font-size:12px}
