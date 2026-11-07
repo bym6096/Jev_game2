@@ -65,13 +65,16 @@ def starter_orbs(): return json.load(open(os.path.join(HERE, "data", "starter_or
 def scribble(name):
     d = dict(name=name, role="cast", payload=[["tempo", 1, None]], rng="single", life="instant", timing="now", trig="none", mat=None, fate="returns", mod=None, pe=0, mana=1, hp=1, bcost=None, unit="soldier", hostile=False, lvl=1, delay=1, bag_only=True, B=1, amb=True)
     d["text"] = "수상한 낙서 — 아무 효과도 없다(손패만 차지)"; d["scribble"] = True; return d
-def jev_request(full):
-    bq = axes_v3.build_request(full); bq["questions"]["verb"]["criteria"] = axes_v4.VERBS
+LANG_NAMES = {"ko": "Korean", "en": "English", "ja": "Japanese", "zh-Hans": "Simplified Chinese", "zh-Hant": "Traditional Chinese", "es": "Spanish", "fr": "French", "de": "German", "pt-BR": "Brazilian Portuguese", "vi": "Vietnamese", "ru": "Russian", "th": "Thai", "ar": "Arabic"}
+def jev_request(full, lang="ko"):
+    bq = axes_v3.build_request(full, lang if lang in ("ko", "en") else "en")         # 측정된 질문지는 한국어·영어만 있다. 다른 언어는 "이 이름은 <언어>로 쓴 것" 한 줄만 덧붙인다(card-forge와 같은 방식)
+    if lang not in ("ko", "en") and lang in LANG_NAMES: bq["state"] += f"\nThe orb name above is written in {LANG_NAMES[lang]}."
+    bq["questions"]["verb"]["criteria"] = axes_v4.VERBS
     for k in ("unit", "allegiance"):
         i, o = axes_v2.CHOICES[k]; bq["questions"][k] = {"type": "choice", "instructions": i, "criteria": o}
     return bq
-def orb_from_jev(full):
-    d = forge.call_jev(jev_request(full)); a = d["answers"]
+def orb_from_jev(full, lang="ko"):
+    d = forge.call_jev(jev_request(full, lang)); a = d["answers"]
     if a["guard"]["probabilities"].get("instructs_the_evaluator", 0) > .5: return scribble(full)
     return to_dict(S.make_orb(full, cost_model=CM, gold_mult=GM, extra={full: [a]}))
 FRAGS = [tuple(x) for x in json.load(open(os.path.join(HERE, "data", "fragments.json"), encoding="utf-8"))] if os.path.exists(os.path.join(HERE, "data", "fragments.json")) else []

@@ -3,7 +3,7 @@ Env vars (set in Vercel project settings): JEV_API_KEY (required), ACCESS_CODE (
 import json, os, sys
 from http.server import BaseHTTPRequestHandler
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import forge
+import forge, forge_orb
 
 class handler(BaseHTTPRequestHandler):
     def _send(self, code, body):
@@ -48,7 +48,7 @@ class handler(BaseHTTPRequestHandler):
         if not key:
             return self._send(500, {"error": "서버에 JEV_API_KEY가 없습니다. Vercel 환경 변수를 넣은 뒤 다시 배포(Redeploy)하세요"})
         try:
-            card, _ = forge.forge(name, lang)
+            card = forge_orb.forge_orb(name, lang) if body.get("engine") != "old" else forge.forge(name, lang)[0]   # 기본은 게임 프로토타입과 같은 구슬 엔진, "old"는 옛 카드 엔진
         except Exception as e:
             return self._send(502, {"error": f"Jev 호출 실패: {e}"})
         self._send(200, card)

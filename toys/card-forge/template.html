@@ -126,6 +126,7 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .tstat.atk{background:#b8362b}.tstat.def{background:#38506b}
 .tip-foot{font-size:12px;color:var(--muted);margin-left:auto}
 .tip-foot.bad{color:#ff8a7a}
+.tip-facts{display:flex;flex-wrap:wrap;gap:4px 6px}.tip-facts span{font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:0 7px}.tip-facts i{font-style:normal;color:var(--muted);margin-right:3px}
 .tip-note{color:var(--muted)}
 .shake{animation:shake .5s}
 @keyframes shake{20%{transform:translateX(-8px) rotate(-2deg)}40%{transform:translateX(8px) rotate(2deg)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
@@ -232,6 +233,7 @@ code{background:#0001}
     </div>
     <div class="profilebar" id="profilebar" hidden>
       <span class="hint">이름 언어</span><b id="curlang"></b>
+      <span class="hint">구슬 엔진</span><select id="engine" title="이름을 읽어 구슬을 만드는 규칙. 기본은 게임 프로토타입과 같은 엔진"><option value="orb">구슬 엔진 (게임 프로토타입과 같음)</option><option value="old">옛 카드 엔진</option></select>
       <button class="ghost" id="newprofile">프로필 바꾸기</button>
       <button class="ghost" id="wipe">저장 데이터 모두 지우기</button>
     </div>
@@ -340,6 +342,12 @@ function cleanCard(c){
   for(const k of ["mana_power","mana_stats","mana_effect"]) if(c[k] !== undefined) o[k] = cNum(c[k],-99,99,0);
   if(c.power !== undefined) o.power = Number(c.power) || 0;
   if(Array.isArray(c.effects)) o.effects = cList(c.effects, 8, cFx);
+  if(c.orb && typeof c.orb === "object"){   // 구슬 엔진(게임 프로토타입과 같은 엔진)이 만든 구슬의 상세
+    const q = c.orb, sn = (v, n) => v == null ? null : cNum(v, 0, 999, 0);
+    o.engine = "orb";
+    o.orb = {role:cStr(q.role,12), kind:cStr(q.kind,12), text:cStr(q.text,300), life:cStr(q.life,12), timing:cStr(q.timing,12), trig:cStr(q.trig,12), fate:cStr(q.fate,12), rng:cStr(q.rng,12), mod:q.mod ? cStr(q.mod,12) : null,
+      hp:cNum(q.hp,0,999,1), cost:cStr(q.cost,40), range:sn(q.range), unit:q.unit ? cStr(q.unit,12) : null, mv:sn(q.mv), pe:Number(q.pe) || 0, hostile:!!q.hostile, lvl:cNum(q.lvl,0,99,1), delay:cNum(q.delay,0,99,1),
+      payload:cList(q.payload, 6, p => Array.isArray(p) ? [cStr(p[0],20), cNum(p[1],0,999,0), p[2] ? cStr(p[2],12) : null] : null)}; }
   if(c.alt && typeof c.alt === "object"){   // runner-up readings for the gacha; only a fresh server card carries them
     const t = (a, n) => Array.isArray(a) && a.length >= n ? a : null;
     o.alt = {element:cList(c.alt.element, 6, a => t(a,3) ? [cStr(a[0],20), cNum(a[1],0,6,0), cNum(a[2]*1000,0,1000,0)/1000] : null),
@@ -392,7 +400,7 @@ function maybeVariant(card){
 }
 function onBlank(card, t, fr){
   const T=TIERS[t]; const c={...card, tier:t, cap:T.cap, frag:fr?fr.t:null, fragPos:fr?fr.pos:null};
-  if(c.mana_power!==undefined){ // same rule as forge.apply_mana, re-run because a gacha re-read may change the effect
+  if(c.mana_power!==undefined && !c.orb){ // same rule as forge.apply_mana, re-run because a gacha re-read may change the effect
     const statless=STATLESS.has(c.kind); const base=Math.max(c.mana_power, statless?0:c.mana_stats);
     c.effect_value=Math.max(1, Math.ceil((base+1)/2*(statless?1.5:1)));
     if(c.effects){ c.effects=c.effects.filter(e=>!e.combo).map((e,i)=> e.unique ? {...e,value:c.effect_value}
@@ -479,19 +487,36 @@ function blankOrb(t, forging){
   return `<span class="seat" style="--d:170px"><div class="orb blank t${t} ${lum(TIER_TINT[t])>.2?"light":"dark"}${forging?" forging":""}" style="--el:${TIER_TINT[t]};--d:170px" aria-hidden="true"></div></span>`;
 }
 function manaWhy(c){
+  if(c.orb) return ` (이름의 힘 ${c.mana_power})`;
   if(c.mana_stats===undefined) return "";
   const fx = c.mana_effect ? ` ${c.mana_effect>0?"+":"−"} 효과 ${Math.abs(c.mana_effect)}` : "";
   return STATLESS.has(c.kind) ? ` (이름의 힘 ${c.mana_power}${fx})` : ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})`;
 }
 // --- the popup: what a bead holds, shown while the pointer (or focus) is on it ---
+const LIFE_KO = {instant:"즉발", turns:"3턴", stage:"한 스테이지", run:"한 런", forever:"영구"}, TIMING_KO = {now:"즉시", delayed:"지연", repeating:"매 턴"}, TRIG_KO = {none:"없음", hit:"피격 시", death:"사망 시", orb:"다른 구슬을 쓸 때", approach:"적이 다가오면"},
+  RNG_KO = {single:"적 1", line:"적 2", around:"주변 무리", wide:"모든 적"}, FATE_KO = {returns:"주머니로 돌아옴", used_up:"1회용", passive:"주머니에 있으면 자동"}, MOD_KO = {scaling:"쓸수록 성장", risky:"위험", random:"무작위", network:"인접 시너지"},
+  UNIT_KO = {soldier:"병사", worker:"일꾼", beast:"짐승", spirit:"정령", construct:"기계"};
+function orbBody(c){   // 구슬 엔진이 읽은 결과: 효과 문장과 구슬의 성질
+  const o = c.orb, f = [["종류", c.element], ["지속", LIFE_KO[o.life] || o.life], ["발동", TIMING_KO[o.timing] || o.timing]];
+  if(o.trig !== "none") f.push(["조건", TRIG_KO[o.trig] || o.trig]);
+  if(o.role === "cast" || o.role === "build" || o.role === "summon") f.push(["범위", RNG_KO[o.rng] || o.rng]);
+  if(o.range) f.push(["사거리", o.range + "칸"]);
+  if(o.role === "build" || o.role === "summon") f.push(["체력", o.hp]);
+  if(o.cost) f.push(["재료", o.cost]);
+  if(o.role === "summon" && o.unit) f.push(["소환물", UNIT_KO[o.unit] || o.unit]);
+  if(o.role === "move" && o.mv) f.push(["이동", o.mv + "칸"]);
+  if(o.mod) f.push(["성질", MOD_KO[o.mod] || o.mod]);
+  f.push(["주머니", FATE_KO[o.fate] || o.fate]);
+  return `<div class="tfx"><b>${esc(c.element)}</b> ${esc(o.text)}</div><div class="tip-facts">${f.map(([a, b]) => `<span><i>${esc(a)}</i> ${esc(String(b))}</span>`).join("")}</div>`;
+}
 function tipHTML(c){
   const lang = BRUSH[c.lang] ? c.lang : "en", nameStyle = `font-family:${BRUSH[lang]},var(--f-display)`;
   if(c.status==="scribble") return `<div class="tip-h"><div class="tip-t"><div class="tip-name" lang="${esc(c.lang||"")}" style="${nameStyle}" dir="auto">${esc(c.name)}</div><div class="tip-sub">수상한 낙서</div></div></div>
     <div class="tip-b"><div class="tip-note">${esc(c.reason||"구슬이 이름이 아니라 명령을 읽었다")}</div></div>`;
   const broken = c.status==="shattered", cap = c.cap ?? 8, list = c.effects ?? [{name:c.effect, desc:c.effect_desc, value:c.effect_value}];
-  const fx = list.length ? list.map(e=>`<div class="tfx${e.unique?" uniq":""}${e.combo?" combo":""}"><b>${e.unique?"✦ ":e.combo?"◆ ":""}${esc(e.name)} ${e.value}</b> ${esc(e.desc)}${e.combo?` <span>(${esc(e.from)})</span>`:""}</div>`).join("")
+  const fx = c.orb ? orbBody(c) : list.length ? list.map(e=>`<div class="tfx${e.unique?" uniq":""}${e.combo?" combo":""}"><b>${e.unique?"✦ ":e.combo?"◆ ":""}${esc(e.name)} ${e.value}</b> ${esc(e.desc)}${e.combo?` <span>(${esc(e.from)})</span>`:""}</div>`).join("")
     : `<div class="tfx none">효과 없음</div>`;
-  const stats = STATLESS.has(c.kind) ? "" : `<span class="tstat atk">공격 ${c.attack}</span><span class="tstat def">방어 ${c.defense}</span>`;
+  const stats = (c.orb || STATLESS.has(c.kind)) ? "" : `<span class="tstat atk">공격 ${c.attack}</span><span class="tstat def">방어 ${c.defense}</span>`;
   return `<div class="tip-h"><div class="tip-mana">${c.mana}</div><div class="tip-t"><div class="tip-name" lang="${esc(c.lang||"")}" style="${nameStyle}" dir="auto">${esc(c.name)}</div>
       <div class="tip-sub">${esc(c.element)} · ${esc(c.kind)} · ${TIERS[c.tier??2].name}</div></div></div>
     <div class="tip-b">${fx}${c.themes.length?`<div class="tip-themes">${c.themes.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`:""}
@@ -545,7 +570,7 @@ function show(c){
   el.classList.add("reveal");
   if(c.status!=="ok") setTimeout(()=>el.classList.add("shake"),550);
   const why = manaWhy(c);
-  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${(c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음"}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}이 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "구슬이 이름 대신 명령을 읽었습니다";
+  $("status").textContent = c.status==="ok" ? `마나 ${c.mana} / ${c.cap??8}${why} · ${c.element} · ${c.orb ? c.orb.text : ((c.effects??[{name:c.effect}]).map(e=>e.name).join(" · ")||"효과 없음")}` : c.status==="shattered" ? `${TIERS[c.tier??2].name}이 이름의 무게(마나 ${c.mana})를 견디지 못했습니다` : "구슬이 이름 대신 명령을 읽었습니다";
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let online = null;
@@ -559,9 +584,9 @@ async function forgeName(typed){
   if(online!==false){
     try{
       let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
-      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code})});
+      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code,engine:engineSel})});
       if(r.status===403){ const c=window.prompt("입장 코드를 입력하세요"); if(c){ try{ localStorage.setItem("forge-code",c); }catch(e){}
-        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code:c})}); } }
+        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code:c,engine:engineSel})}); } }
       if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
     }catch(e){ online=false; }
   }
@@ -657,6 +682,8 @@ $("deckclear").onclick=()=>{ deck=[]; deckChanged(); };
 
 
 // --- profile: the language chosen once decides which letters a name may use ---
+let engineSel = "orb"; try{ if(localStorage.getItem("forge-engine")==="old") engineSel = "old"; }catch(e){}
+$("engine").value = engineSel; $("engine").onchange = () => { engineSel = $("engine").value; try{ localStorage.setItem("forge-engine", engineSel); }catch(e){} };
 let curLang = null; try{ const p=JSON.parse(localStorage.getItem("forge-profile-v1")||"null"); if(p && LANGS[p.lang]) curLang=p.lang; }catch(e){}
 function applyProfile(){
   const has = !!curLang;

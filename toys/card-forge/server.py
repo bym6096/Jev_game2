@@ -3,7 +3,7 @@ Set JEV_API_KEY in the environment (or .env.local) first. Run: python server.py 
 Add --lan to let other devices on the same Wi-Fi open it (they then spend your Jev key)."""
 import json, os, sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import forge
+import forge, forge_orb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAX_BODY = 8192
@@ -68,7 +68,7 @@ class H(BaseHTTPRequestHandler):
         if err:
             return self._send(400, {"error": err})
         try:
-            card, _ = forge.forge(name, lang)
+            card = forge_orb.forge_orb(name, lang) if body.get("engine") != "old" else forge.forge(name, lang)[0]   # 기본은 게임 프로토타입과 같은 구슬 엔진, "old"는 옛 카드 엔진
         except Exception as e:
             return self._send(502, {"error": f"Jev 호출 실패: {e}"})
         self._send(200, card)
