@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+proto/.playtest_state
+playtest/*.tmp

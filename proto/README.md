@@ -31,6 +31,9 @@
 - **빠른 배치**: 구슬을 칸으로 **끌어다 놓기**, 구슬 **더블클릭**, 구슬 선택 뒤 **Enter**(또는 같은 숫자 키 한 번 더)로 추천(초록) 칸에 바로 놓기.
 - 구슬은 `1`~`9`, 턴 종료는 `Space`, 선택 취소는 `Esc`. 구슬을 고르면 마나 소모·놓을 자리가 미리 보이고, 쓸 구슬이 없으면 턴 종료 버튼이 깜빡인다. 턴이 끝나면 변화가 숫자로 뜬다.
 
+## 텍스트 플레이(브라우저 없이)
+`python3 proto/playtest.py help` — 셸 명령만으로 한 판을 돌리는 도구(new·write·start·state·map·play·preview·end·orb). 다른 모델·사람의 시험 플레이용이며 지침은 저장소 루트의 `PLAYTEST.md`.
+
 ## 실행 (내 PC)
 ```
 python proto/server.py            # http://localhost:8010  (PORT 환경 변수로 변경)
