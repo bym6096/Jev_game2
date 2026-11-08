@@ -306,7 +306,7 @@ function renderHand() {
   const usable = st.hand.filter((h) => !h.why).length;
   $("endturn").classList.toggle("ready", st.phase === "play" && !usable);
   $("undo").disabled = busy || !history.length;
-  $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
+  $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}${st.exh ? ` · 소멸 ${st.exh}` : ""}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
 }
 function peek(h) { $("inspect").replaceChildren(el("b", {}, h.o.name), el("div", { class: "sub" }, `${ROLE[h.o.role] || h.o.role} · 마나 ${h.o.mana}`), el("p", {}, h.o.text)); }
 

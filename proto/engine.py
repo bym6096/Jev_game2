@@ -15,6 +15,9 @@ CAST_RANGE = 4                                       # 플레이어가 쓴 공�
 UNIT_RANGE = {"soldier": 1, "worker": 1, "beast": 1, "spirit": 2, "construct": 2}   # 소환물 종류별 공격 사거리(병사는 근접)
 def unit_range(o): return 2 if o["role"] == "build" else UNIT_RANGE.get(o.get("unit"), 1)   # 건물은 2칸
 ICON = {"wood": "🌲", "ore": "⛏", "food": "🌾", "gold": "🪙"}
+def sustained(o):
+    """한 번 쓰면 스테이지(이상) 내내 이어지는 시전 구슬. 효과가 쌓이지 않으므로 값어치가 '한 번 쓴 값'이고, 쓰면 그 스테이지 동안 소멸한다(슬레이 더 스파이어의 소멸)."""
+    return o["role"] == "cast" and o["life"] in ("stage", "run", "forever") and o["timing"] != "delayed" and o["trig"] == "none"
 def manual_target(o):   # 플레이어가 직접 대상을 고르는 구슬: 즉발 시전 중 적을 겨냥하는 것(지속·지연·조건부·건물·소환물은 자동으로 가장 가까운 적)
     return o["role"] == "cast" and o["life"] == "instant" and o["timing"] != "delayed" and o["trig"] == "none" and o["fate"] != "passive" and any(p[0] in ENEMY_V for p in o["payload"])
 NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
@@ -44,7 +47,7 @@ class HexGame:
         for i in range(max(0, st["ores"] - 2)): s.tiles[free.pop()] = {"t": "ore", "amt": s.tile_amt()}
         s.land = s.cfg["land"] * (2 if stage_type == "rich" else 1 if stage_type == "balanced" else 1) if True else 0
         s.buildings = []; s.summons = []; s.enemies = []; s.fx = []; s.logs = []; s.kills = 0; s.turn = 0; s.phase = "setup"; s.result = None
-        s.draw = []; s.disc = []; s.hand = []; s.mana = 0; s.amp = 1.0; s.dmgb = 0.0; s.fam_turn = collections.Counter(); s.g0 = s.gold; s.died = False; s.stats = collections.Counter()
+        s.draw = []; s.disc = []; s.exh = []; s.hand = []; s.mana = 0; s.amp = 1.0; s.dmgb = 0.0; s.fam_turn = collections.Counter(); s.g0 = s.gold; s.died = False; s.stats = collections.Counter()
         s.uid = 1; s.warned = set()
     # ---- bag
     def add_orb(s, o):
@@ -59,7 +62,7 @@ class HexGame:
         s.phase = "play"; s.turn = 0; nb_ = sum(1 for i in s.bag if s.inst[i]["o"]["role"] == "build" and not is_plant(s.inst[i]["o"])); ns = sum(1 for i in s.bag if s.inst[i]["o"]["role"] == "summon" and not s.inst[i]["o"]["hostile"]); n = max(1, len(s.bag))
         s.cap_b = s.cfg["cap_b"] + (s.cfg["hero_b"] if nb_ >= .4 * n else 0); s.cap_s = s.cfg["cap_s"] + (s.cfg["hero_s"] if ns >= .4 * n else 0)
         if nb_ >= .4 * n: s.log(f"주머니의 건물 구슬이 많아 '건축가' 전직: 건물 {s.cap_b}칸")
-        s.draw = [i for i in s.bag if s.inst[i]["o"]["fate"] != "passive"]; s.R.shuffle(s.draw); s.disc = []; s.hand = []
+        s.draw = [i for i in s.bag if s.inst[i]["o"]["fate"] != "passive"]; s.R.shuffle(s.draw); s.disc = []; s.exh = []; s.hand = []
         s.next_turn()
     def drawn(s, n):
         for _ in range(n):
@@ -101,7 +104,7 @@ class HexGame:
         if o["role"] == "move" and not s.valid_tiles(iid): return "이동할 빈 칸이 없음"
         if o["role"] != "move" and s.needs_tile(o) and not s.valid_tiles(iid): return "놓을 수 있는 빈 칸이 없음"
         if manual_target(o) and not s.in_range(): return f"사거리({CAST_RANGE}칸) 안에 적이 없음"
-        if o["role"] == "cast" and o["life"] in ("stage", "run", "forever") and o["timing"] != "delayed" and o["trig"] == "none" and any(f["kind"] == "dur" and f["o"]["name"] == o["name"] for f in s.fx): return "이미 작동 중"
+        if sustained(o) and any(f["kind"] == "dur" and f["o"]["name"] == o["name"] for f in s.fx): return "이미 작동 중"
         return None
     def in_range(s): return [e for e in s.enemies if hd((e["q"], e["r"]), s.pos) <= CAST_RANGE]
     def needs_target(s, o): return manual_target(o) and bool(s.in_range())
@@ -160,8 +163,16 @@ class HexGame:
         if o["payload"][0][0] != "amplify": s.amp = 1.0
         s.hand.remove(iid)
         if o["fate"] == "used_up": s.bag.remove(iid); s.stats["exhausted"] += 1
+        elif sustained(o): s.exhaust(iid)       # 지속 구슬은 쓰면 이 스테이지 동안 소멸(주머니엔 남아 다음 스테이지에 돌아옴) — 손패에 못 쓰는 채로 남지 않게
         else: s.disc.append(iid)
         s.pick = None; s.check_end_of_stage_death(); return {"ok": True}
+    def exhaust(s, iid):
+        """소멸: 이 스테이지가 끝날 때까지 뽑는 순환(손패·뽑을 것·버린 것)에서 빠진다. 같은 이름의 다른 사본도 함께 소멸한다(효과가 쌓이지 않아 어차피 못 쓰고 손패만 막으므로)."""
+        name = s.inst[iid]["o"]["name"]; s.exh = getattr(s, "exh", [])
+        for pile in (s.hand, s.draw, s.disc):
+            for i in [i for i in pile if i == iid or s.inst[i]["o"]["name"] == name]: pile.remove(i); s.exh.append(i)
+        if iid not in s.exh: s.exh.append(iid)
+        s.stats["exhausted_stage"] += 1; s.log(f"{name}: 소멸(이 스테이지 동안 다시 나오지 않음)")
     # ---- effects
     def add_dur(s, iid, o, left, charges):   # 같은 구슬의 지속 효과는 쌓이지 않고 시간만 갱신(쌓이면 매 턴 다시 써서 비용 대비 값어치가 폭주함)
         f = next((f for f in s.fx if f["kind"] == "dur" and f["o"]["name"] == o["name"]), None)
@@ -330,7 +341,7 @@ class HexGame:
             vt = s.valid_tiles(iid) if (s.needs_tile(o) and not why) else []
             playable.append({"idx": idx, "iid": iid, "o": o, "why": why, "need_tile": s.needs_tile(o), "need_target": bool(s.needs_target(o) and not why), "target_ids": [e["id"] for e in s.in_range()] if (s.needs_target(o) and not why) else [], "tiles": [list(t) for t in vt], "hint": [list(t) for t in vt if s.tile_hint(o, t)]})
         return {"phase": s.phase, "turn": s.turn, "turns": s.cfg["turns"], "stage_type": s.stage_type, "stage_name": STAGE_TYPES[s.stage_type]["name"], "hp": round(s.hp), "max_hp": s.max_hp, "shield": s.shield, "mana": s.mana, "max_mana": s.cfg["mana"],
-                "gold": s.gold, "res": s.res, "items": s.items, "due": s.cfg["due"], "land": s.land, "bag": len(s.bag), "draw": len(s.draw), "disc": len(s.disc), "dmgb": round(s.dmgb, 2),
+                "gold": s.gold, "res": s.res, "items": s.items, "due": s.cfg["due"], "land": s.land, "bag": len(s.bag), "draw": len(s.draw), "disc": len(s.disc), "exh": len(getattr(s, "exh", [])), "dmgb": round(s.dmgb, 2),
                 "tiles": [{"q": t[0], "r": t[1], **d} for t, d in s.tiles.items() if d["amt"] > 0], "hand": playable,
                 "buildings": [{"id": b["id"], "q": b["q"], "r": b["r"], "hp": round(b["hp"]), "max": b["max"], "name": b["o"]["name"], "fam": FAM.get(b["o"]["payload"][0][0]), "kind": "plant" if is_plant(b["o"]) else "building", "age": b["age"], "mat": b["o"].get("mat"), "text": b["o"]["text"], "verbs": [p[0] for p in b["o"]["payload"]], "rng": b["o"]["rng"], "range": unit_range(b["o"])} for b in s.buildings],
                 "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"], "text": u["o"]["text"], "verbs": [p[0] for p in u["o"]["payload"]], "rng": u["o"]["rng"], "range": unit_range(u["o"])} for u in s.summons],

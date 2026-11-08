@@ -35,7 +35,7 @@ def describe(o):
         if o["trig"] != "none": t = f"{COND[o['trig']]} 발동 — {t}"
     if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.unit_range(o)}칸)"
     elif o["role"] == "cast" and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.CAST_RANGE}칸)"
-    if o["role"] == "cast" and o["life"] in ("stage", "run", "forever") and o["timing"] != "delayed" and o["trig"] == "none": t += " [작동 중에는 다시 쓸 수 없음]"
+    if engine.sustained(o): t += " [소멸: 쓰면 이 스테이지 동안 다시 나오지 않음]"
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"

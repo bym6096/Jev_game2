@@ -37,9 +37,14 @@ g = engine.HexGame(orbs.starter_orbs(), seed=7); g.start(); g.enemies = []
 sol = next(o for o in orbs.starter_orbs() if o["name"] == "병사"); assert engine.unit_range(sol) == 1 and engine.unit_range({"role": "build", "unit": "worker"}) == 2
 aura = orbs._hand("무한 자원", role="cast", payload=[["money", 1, None]], life="run", timing="repeating", mana=1)
 a1, a2 = g.add_orb(aura), g.add_orb(aura); g.hand = [a1, a2]; g.mana = 6
-assert g.play(0).get("ok"); assert g.view()["hand"][0]["why"] == "이미 작동 중", "같은 지속 효과는 쌓이지 않는다"
-assert len([f for f in g.fx if f["kind"] == "dur"]) == 1
-print("사거리·중첩 방지 OK")
+assert engine.sustained(aura) and not engine.sustained(sol)
+assert g.play(0).get("ok"); assert len([f for f in g.fx if f["kind"] == "dur"]) == 1
+assert g.view()["hand"] == [] and g.view()["exh"] == 2, "지속 구슬은 쓰면 소멸하고 같은 사본도 함께 빠진다(못 쓰는 채 손패에 남지 않음)"
+assert a1 not in g.disc + g.draw + g.hand and a2 not in g.disc + g.draw + g.hand and a1 in g.bag, "순환에서만 빠지고 주머니엔 남는다"
+for _ in range(6): g.end_turn(); assert all(g.inst[i]["o"]["name"] != "무한 자원" for i in g.hand), "소멸한 구슬은 다시 뽑히지 않는다"
+assert [h for h in g.view()["hand"] if h["why"] == "이미 작동 중"] == []
+g2 = engine.HexGame(orbs.starter_orbs() + [aura], seed=7); g2.start(); assert g2.view()["exh"] == 0, "새 스테이지는 소멸 더미가 비어 있다(다시 나옴)"
+print("사거리·중첩 방지·소멸 OK")
 
 # 4) 무작위 봇 — 예외 없음
 stat = collections.Counter()
