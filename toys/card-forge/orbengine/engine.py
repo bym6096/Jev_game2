@@ -8,6 +8,11 @@ TILES = [(q, r) for q in range(-R, R + 1) for r in range(max(-R, -q - R), min(R,
 def hd(a, b): dq, dr = a[0] - b[0], a[1] - b[1]; return (abs(dq) + abs(dr) + abs(dq + dr)) // 2
 def nb(p): return [(p[0] + d[0], p[1] + d[1]) for d in DIRS]
 def key(p): return f"{p[0]},{p[1]}"
+def josa(w, a="이", b="가"):
+    """받침이 있으면 a(이·은·을), 없으면 b(가·는·를). 한글이 아니면 a(b) 꼴."""
+    c = w[-1] if w else ""
+    if not ("가" <= c <= "힣"): return f"{w}{a}({b})"
+    return w + (a if (ord(c) - 0xAC00) % 28 else b)
 FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco",
        "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 ENEMY_V = ("damage", "drain", "debuff", "control", "burn")   # 적을 겨냥하는 동사
@@ -52,6 +57,7 @@ def manual_target(o):   # 플레이어가 직접 대상을 고르는 구슬: 즉
     return o["role"] == "cast" and o["life"] == "instant" and o["timing"] != "delayed" and o["trig"] == "none" and o["fate"] != "passive" and any(p[0] in ENEMY_V for p in o["payload"])
 NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
 RAW = ("wood", "ore", "food")
+PASSIVE_K = .7                                      # 자동 구슬(손패에 안 오고 주머니에 있으면 일함)의 효과 배율
 STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hostile": dict(name="적 많음", enemy=1.6, trees=4, ores=3), "rich": dict(name="자원 많음", enemy=.6, trees=14, ores=10)}
 WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
 CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=3, bountyk=3, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2)
@@ -82,7 +88,7 @@ class HexGame:
     # ---- bag
     def add_orb(s, o):
         i = s.nid; s.nid += 1; s.inst[i] = {"id": i, "o": copy.deepcopy(o), "uses": 0}; s.bag.append(i); return i
-    def log(s, t): s.logs.append(t); s.logs = s.logs[-60:]
+    def log(s, t): s.logs.append(t); s.logs = s.logs[-60:]; s.recent = getattr(s, "recent", []) + [t]
     def tile_amt(s): return round(s.cfg["tile_amt"] * s.R.uniform(.75, 1.25))   # 자원 칸 하나의 양(스테이지당 수십)
     def ev(s, what, a, b=None, **kw):   # 화면 이펙트용 사건 기록(공격·생산·발동). 위치는 칸 좌표
         e = getattr(s, "events", None)
@@ -93,6 +99,9 @@ class HexGame:
         s.cap_b = s.cfg["cap_b"] + (s.cfg["hero_b"] if nb_ >= .4 * n else 0); s.cap_s = s.cfg["cap_s"] + (s.cfg["hero_s"] if ns >= .4 * n else 0)
         if nb_ >= .4 * n: s.log(f"주머니의 건물 구슬이 많아 '건축가' 전직: 건물 {s.cap_b}칸")
         s.draw = [i for i in s.bag if s.inst[i]["o"]["fate"] != "passive"]; s.R.shuffle(s.draw); s.disc = []; s.exh = []; s.hand = []
+        for i in s.bag:                                          # 자동(주머니에 있으면 자동) 반응 구슬: 손패에 오지 않으니 스테이지 시작에 반응을 깔아 둔다(자동 효과와 같은 ×PASSIVE_K)
+            o = s.inst[i]["o"]
+            if o["fate"] == "passive" and o["role"] == "cast" and o["trig"] != "none": s.add_trig(i, o, PASSIVE_K)
         s.next_turn()
     def drawn(s, n):
         for _ in range(n):
@@ -158,7 +167,7 @@ class HexGame:
         return any(FAM.get(b["o"]["payload"][0][0]) not in (None, fam) for b in s.buildings if hd((b["q"], b["r"]), t) == 1)
     def play(s, hand_idx, tile=None, target=None):
         if s.phase != "play": return {"error": "플레이 중이 아닙니다"}
-        s.events = []; s.pick = None
+        s.events = []; s.pick = None; s.recent = []
         if hand_idx < 0 or hand_idx >= len(s.hand): return {"error": "손패에 없는 구슬입니다"}
         iid = s.hand[hand_idx]; it = s.inst[iid]; o = it["o"]; why = s.reason(iid)
         if why: return {"error": why}
@@ -216,10 +225,10 @@ class HexGame:
         s.stats["exhausted_stage"] += 1; s.log(f"{name}: 소멸(이 스테이지 동안 다시 나오지 않음)")
     # ---- 사건 알림과 반응
     def trig_uses(s, o): return trig_uses(o)
-    def add_trig(s, iid, o):
+    def add_trig(s, iid, o, k=1.0):
         f = next((f for f in s.fx if f["kind"] == "trig" and f["o"]["name"] == o["name"]), None)
         if f: f["uses"] = max(f["uses"], s.trig_uses(o)); s.log(f"{o['name']}: 반응 갱신")        # 같은 반응은 쌓이지 않고 횟수만 갱신
-        else: s.fx.append({"kind": "trig", "iid": iid, "o": o, "cond": o["trig"], "uses": s.trig_uses(o), "tn": 0}); s.log(f"{o['name']}: 발동 대기({COND_KO.get(o['trig'], o['trig'])})")
+        else: s.fx.append({"kind": "trig", "iid": iid, "o": o, "cond": o["trig"], "uses": s.trig_uses(o), "tn": 0, "k": k}); s.log(f"{o['name']}: 발동 대기({COND_KO.get(o['trig'], o['trig'])})")
     def add_mult(s, iid, o, stat, pct, left):
         f = next((f for f in s.fx if f["kind"] == "mult" and f["o"]["name"] == o["name"]), None)
         if f: f["pct"] = max(f["pct"], pct); f["left"] = max(f["left"], left)
@@ -237,7 +246,7 @@ class HexGame:
                 c = f.get("cond")
                 if f["kind"] != "trig" or c in ("approach", "death") or f["uses"] <= 0 or f.get("tn", 0) >= TRIG_PER_TURN or not trig_match(c, kind, info): continue
                 f["tn"] = f.get("tn", 0) + 1; f["uses"] -= 1; s.stats["reactions"] += 1
-                s.ev("pop", s.pos, text=f"{f['o']['name']} 발동", tone="trig"); s.apply(f["o"], f["o"]["payload"])
+                s.ev("pop", s.pos, text=f"{f['o']['name']} 발동", tone="trig"); s.apply(f["o"], f["o"]["payload"], f.get("k", 1.0))
             for grp in (s.buildings, s.summons):
                 for b in list(grp):
                     o = b["o"]; c = o["trig"]
@@ -341,11 +350,11 @@ class HexGame:
         for e in [e for e in s.enemies if e["hp"] <= 0]:
             if e not in s.enemies: continue                       # 반응이 같은 reap 안에서 이미 치웠을 수 있음
             b_ = max(1, round(e["bounty"] * s.mm("income")))      # 골드 수입 증폭은 처치 보상에도
-            s.enemies.remove(e); s.gold += b_; s.kills += 1; s.stats["g_bounty"] += b_; s.emit("kill")
+            s.enemies.remove(e); s.gold += b_; s.kills += 1; s.stats["g_bounty"] += b_; s.log(f"적 #{e['id']} 처치: 골드 +{b_}"); s.emit("kill")
     # ---- end turn
     def end_turn(s):
         if s.phase != "play": return {"error": "플레이 중이 아닙니다"}
-        s.events = []; s.pick = None
+        s.events = []; s.pick = None; s.recent = []
         s.amp = 1.0
         if s.items and s.hp < s.max_hp * .5: s.items -= 1; s.hp = min(s.max_hp, s.hp + 15); s.log("아이템 사용: 체력 15")
         if s.res["food"] >= 2 and s.hp < s.max_hp * .6: s.res["food"] -= 2; s.hp = min(s.max_hp, s.hp + 6); s.log("식량을 먹었다: 체력 6")
@@ -363,7 +372,7 @@ class HexGame:
                 if f["left"] <= 0: s.fx.remove(f); s.log(f"{o['name']}: {BOOST_KO.get(f['stat'], f['stat'])} 증폭이 끝났다")
         for i in s.bag:
             o = s.inst[i]["o"]
-            if o["fate"] == "passive" and o["role"] == "cast" and o["trig"] == "none": s.apply(o, o["payload"], .7)
+            if o["fate"] == "passive" and o["role"] == "cast" and o["trig"] == "none": s.apply(o, o["payload"], PASSIVE_K)
         for b in list(s.buildings):
             b["age"] += 1; o = b["o"]
             if is_plant(o) and b["age"] <= s.cfg["grow_turns"]: continue          # 식물은 자라는 동안 수확 없음
@@ -383,11 +392,11 @@ class HexGame:
         s.tick_burn()
         s.enemy_phase()
         for f in s.fx:
-            if f["kind"] == "trig" and f["cond"] == "approach" and f["uses"] > 0 and any(hd((e["q"], e["r"]), s.pos) <= 3 for e in s.enemies): s.ev("pop", s.pos, text=f"{f['o']['name']} 발동", tone="trig"); s.apply(f["o"], f["o"]["payload"]); f["uses"] -= 1
+            if f["kind"] == "trig" and f["cond"] == "approach" and f["uses"] > 0 and any(hd((e["q"], e["r"]), s.pos) <= 3 for e in s.enemies): s.ev("pop", s.pos, text=f"{f['o']['name']} 발동", tone="trig"); s.apply(f["o"], f["o"]["payload"], f.get("k", 1.0)); f["uses"] -= 1
         s.dmgb *= .75
         if s.hp <= 0:
             for f in s.fx:
-                if f["kind"] == "trig" and f["cond"] == "death" and f["uses"] > 0 and s.hp <= 0: s.hp = 1; s.apply(f["o"], f["o"]["payload"]); f["uses"] -= 1; s.log(f"{f['o']['name']}: 죽음에서 돌아왔다")
+                if f["kind"] == "trig" and f["cond"] == "death" and f["uses"] > 0 and s.hp <= 0: s.hp = 1; s.apply(f["o"], f["o"]["payload"], f.get("k", 1.0)); f["uses"] -= 1; s.log(f"{f['o']['name']}: 죽음에서 돌아왔다")
         if s.hp <= 0: s.died = True; s.log("쓰러졌다 — 이 스테이지에서 번 골드와 자원을 잃는다"); return s.finish()
         s.next_turn(); return {"ok": True}
     def tick_burn(s):
@@ -418,7 +427,7 @@ class HexGame:
                     s.emit("hit")
                 else:
                     t["hp"] -= atk
-                    if t["hp"] <= 0: (s.buildings if t in s.buildings else s.summons).remove(t); s.log(f"{t['o']['name']}이(가) 파괴되었다"); s.emit("lost")
+                    if t["hp"] <= 0: (s.buildings if t in s.buildings else s.summons).remove(t); s.log(f"{josa(t['o']['name'])} 파괴되었다"); s.emit("lost")
                 continue
             occ = s.occupied(); opts = [p for p in nb(pos) if p in set(TILES) and p not in occ and p not in s.tiles]
             if opts:
@@ -443,11 +452,11 @@ class HexGame:
             o = s.inst[iid]["o"]; why = s.reason(iid) if s.phase == "play" else "대기"
             vt = s.valid_tiles(iid) if (s.needs_tile(o) and not why) else []
             playable.append({"idx": idx, "iid": iid, "o": o, "why": why, "need_tile": s.needs_tile(o), "need_target": bool(s.needs_target(o) and not why), "target_ids": [e["id"] for e in s.in_range()] if (s.needs_target(o) and not why) else [], "tiles": [list(t) for t in vt], "hint": [list(t) for t in vt if s.tile_hint(o, t)]})
-        return {"phase": s.phase, "turn": s.turn, "turns": s.cfg["turns"], "stage_type": s.stage_type, "stage_name": STAGE_TYPES[s.stage_type]["name"], "hp": round(s.hp), "max_hp": s.max_hp, "shield": s.shield, "mana": s.mana, "max_mana": s.cfg["mana"],
+        return {"phase": s.phase, "turn": s.turn, "turns": s.cfg["turns"], "stage_type": s.stage_type, "stage_name": STAGE_TYPES[s.stage_type]["name"], "hp": round(s.hp), "max_hp": s.max_hp, "shield": round(s.shield), "mana": s.mana, "max_mana": s.cfg["mana"],
                 "gold": s.gold, "res": s.res, "items": s.items, "due": s.cfg["due"], "land": s.land, "bag": len(s.bag), "draw": len(s.draw), "disc": len(s.disc), "exh": len(getattr(s, "exh", [])), "dmgb": round(s.dmgb, 2),
                 "tiles": [{"q": t[0], "r": t[1], **d} for t, d in s.tiles.items() if d["amt"] > 0], "hand": playable,
                 "buildings": [{"id": b["id"], "q": b["q"], "r": b["r"], "hp": round(b["hp"]), "max": b["max"], "name": b["o"]["name"], "fam": FAM.get(b["o"]["payload"][0][0]), "kind": "plant" if is_plant(b["o"]) else "building", "age": b["age"], "mat": b["o"].get("mat"), "text": b["o"]["text"], "verbs": [p[0] for p in b["o"]["payload"]], "rng": b["o"]["rng"], "range": unit_range(b["o"])} for b in s.buildings],
                 "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"], "text": u["o"]["text"], "verbs": [p[0] for p in u["o"]["payload"]], "rng": u["o"]["rng"], "range": unit_range(u["o"])} for u in s.summons],
                 "enemies": [{"id": e["id"], "q": e["q"], "r": e["r"], "hp": round(e["hp"]), "max": round(e["max"]), "lvl": e["lvl"], "stun": e["stun"], "weak": e["weak"], "burn": e.get("burn", 0)} for e in s.enemies],
-                "fx": [{"name": f["o"]["name"], "kind": f["kind"], "cond": f.get("cond"), "text": f["o"]["text"], "life": f["o"]["life"], "left": (f["left"] if f.get("left", 10 ** 6) < 1000 else None), "uses": f.get("uses"), "charges": f.get("charges"), "at": f.get("at")} for f in s.fx], "log": s.logs[-14:], "result": s.result, "caps": {"b": getattr(s, "cap_b", s.cfg["cap_b"]), "s": getattr(s, "cap_s", s.cfg["cap_s"]), "p": s.cfg["cap_p"]},
+                "fx": [{"name": f["o"]["name"], "kind": f["kind"], "cond": f.get("cond"), "text": f["o"]["text"], "life": f["o"]["life"], "left": (f["left"] if f.get("left", 10 ** 6) < 1000 else None), "uses": f.get("uses"), "charges": f.get("charges"), "at": f.get("at")} for f in s.fx], "log": s.logs[-14:], "recent": getattr(s, "recent", [])[-20:], "result": s.result, "caps": {"b": getattr(s, "cap_b", s.cfg["cap_b"]), "s": getattr(s, "cap_s", s.cfg["cap_s"]), "p": s.cfg["cap_p"]},
                 "buildings_n": sum(1 for b in s.buildings if not is_plant(b["o"])), "plants_n": sum(1 for b in s.buildings if is_plant(b["o"])), "summons_n": len(s.summons), "pos": list(s.pos), "grow_turns": s.cfg["grow_turns"], "cast_range": CAST_RANGE, "waves": [[t, max(1, round(n * STAGE_TYPES[s.stage_type]["enemy"]))] for t, n in sorted(WAVES.items())]}

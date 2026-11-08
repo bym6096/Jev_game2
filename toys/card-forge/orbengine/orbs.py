@@ -16,7 +16,9 @@ UNIT = {"soldier": "병사", "worker": "일꾼", "beast": "짐승", "spirit": "�
 TG_MANUAL = {"single": "고른 적 1", "line": "고른 적과 그 옆의 적 1", "around": "고른 적 주변 무리(1칸)", "wide": "모든 적"}
 TG_AUTO = {"single": "가장 가까운 적 1", "line": "가까운 적 2", "around": "가장 가까운 적 주변 무리(1칸)", "wide": "모든 적"}
 EVENT_COND = ("orb", "orb_attack", "orb_eco", "orb_plant", "orb_build", "orb_summon", "orb_defense", "kill", "harvest")      # 사건이 일어날 때마다 터지는 반응(나머지 hit·death·approach는 상황 반응)
-def cond_every(c): s = COND[c]; return s + "마다" if s.endswith("때") else s
+def cond_every(c):
+    if c == "hit": return "피격될 때마다"
+    s = COND[c]; return s + "마다" if s.endswith("때") else s
 def every(o):   # 건물·소환물이 일하는 때: 평소엔 매 턴, 반응형이면 사건마다
     c = o["trig"]
     if c == "none" and o["timing"] == "delayed": return f"처음 {o['delay']}턴은 쉬고 그다음부터 매 턴 "
@@ -24,7 +26,7 @@ def every(o):   # 건물·소환물이 일하는 때: 평소엔 매 턴, 반응�
 def vtext(v, m, mt, o):
     tg = TG_MANUAL[o["rng"]] if engine.manual_target(o) else TG_AUTO[o["rng"]]
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
-            "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집(근처 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
+            "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집({'옆 칸' if o['role'] in ('build', 'summon') else '3칸 안'} 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"{engine.BOOST_KO.get(mt or 'dmg', '피해')} +{m}% ({ {'instant': '3턴', 'turns': '4턴'}.get(o['life'], '이번 스테이지') }, 다른 구슬과 합산)", "burn": f"{tg}에 화상 {m}중첩 (턴마다 중첩×{engine.BURN_DMG} 피해, 1중첩씩 감소)", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
             "draw": "구슬 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 확인", "tempo": "마나 +1", "energy": f"마나 +{max(1,int(o['pe']//1.5))}",
             "create": ("1회용 아이템 1개 생성" if not mt else f"{RES.get(mt)} 2 생성"), "amplify": "다음 구슬 효과 ×2"}.get(v, v)
@@ -40,11 +42,12 @@ def describe(o):
         if o["payload"] and all(p[0] == "buff" for p in o["payload"]): t = body        # 증폭 문구에 기간이 이미 들어 있음
         if o["timing"] == "delayed": t = f"{o['delay']}턴 뒤: {t}"
         c = o["trig"]
-        if c in EVENT_COND: t = f"{life}{cond_every(c)} {body}" + ("" if o["life"] not in ("instant", "turns") else f" ({engine.trig_uses(o)}회까지)") + f" [턴당 최대 {engine.TRIG_PER_TURN}회]"
+        # 피격도 사건처럼 쓴다: 맞을 때마다 한 번(매 턴이 아님)
+        if c in EVENT_COND or c == "hit": t = f"{life}{cond_every(c)} {body}" + ("" if o["life"] not in ("instant", "turns") else f" ({engine.trig_uses(o)}회까지)") + f" [턴당 최대 {engine.TRIG_PER_TURN}회]"
         elif c != "none": t = f"{COND[c]} 발동 — {t}"
     if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.unit_range(o)}칸)"
     elif o["role"] == "cast" and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.CAST_RANGE}칸)"
-    if engine.sustained(o): t += " [소멸: 쓰면 이 스테이지 동안 다시 나오지 않음]"
+    if engine.sustained(o) and o["fate"] != "passive": t += " [소멸: 쓰면 이 스테이지 동안 다시 나오지 않음]"      # 자동 구슬은 쓰지 않으니 소멸도 없다
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"
@@ -59,6 +62,7 @@ def gold_income(o): return sum(m for v, m, mt in o.payload if v in ("money", "st
 def to_dict(o):
     d = dict(name=o.name, role=o.role, payload=[list(p) for p in o.payload], rng=o.rng, life=o.life, timing=o.timing, trig=o.trig, mat=o.mat, fate=o.fate, mod=o.mod, pe=round(o.pe, 2),
              mana=o.mana, hp=o.hp, bcost=list(o.bcost) if o.bcost else None, unit=o.unit, hostile=o.hostile, lvl=o.lvl, delay=o.delay, bag_only=o.bag_only, B=round(o.B, 1), amb=o.amb)
+    if d["fate"] == "passive" and d["role"] != "cast": d["fate"] = "returns"      # 자동은 시전만: 건물·소환물·이동은 놓을 칸이 있어야 하니 손패로 온다(엔진은 자동 시전만 처리)
     shape(d, getattr(o, "boost", None))
     if d["bcost"] and o.role == "build" and gold_income(o): d["bcost"][2] = max(d["bcost"][2], 2 * gold_income(o))
     d["mana"] = value.mana_for(d)            # 건물 비용을 먼저 정한 뒤 나머지를 마나로 매긴다
@@ -112,8 +116,8 @@ VERBS["burn"] = "burning, igniting, scorching, poisoning, or inflicting a linger
 VERBS["debuff"] = VERBS["debuff"].replace("poisoning, ", "")
 VERBS["trash"] = VERBS["trash"].replace("burning up, ", "")
 VERBS["buff"] = "making allies stronger, faster, braver, or more capable, or boosting a kind of effect, like a blessing, a catalyst, a booster, or a lucky charm"
-TRIGGERS = {"none": "no, it simply happens when used", "hit": "when someone is hit or takes damage", "death": "when someone dies or is destroyed", "approach": "when an enemy comes near or steps on it",
-            "orb": "when any other orb is used", "orb_attack": "when ANOTHER orb that attacks is used, as a combo or follow-up bonus (not for an attack that simply hurts)", "orb_eco": "when ANOTHER gathering, farming, trading, or money-making orb is used, as a follow-up bonus",
+TRIGGERS = {"none": "no, it simply happens when used", "hit": "when the PLAYER is struck by an enemy or takes damage (being attacked; NOT when the player attacks or hits something)", "death": "when someone dies or is destroyed", "approach": "when an enemy comes near or steps on it",
+            "orb": "when any other orb is used", "orb_attack": "whenever the player attacks, strikes, or swings, i.e. when ANOTHER orb that attacks is used, as a combo or follow-up bonus (not for an attack that simply hurts)", "orb_eco": "when ANOTHER gathering, farming, trading, or money-making orb is used, as a follow-up bonus",
             "orb_plant": "when ANOTHER plant or farming orb is used", "orb_build": "when ANOTHER building orb is used", "orb_summon": "when ANOTHER summoning orb is used", "orb_defense": "when ANOTHER defending or healing orb is used",
             "kill": "when an enemy is defeated", "harvest": "when resources are gathered"}
 BOOST = ("If an orb with this name makes some kind of effect stronger, which kind would it most naturally strengthen?",
@@ -127,7 +131,12 @@ def jev_request(full, lang="ko"):
     bq["questions"]["boost"] = {"type": "choice", "instructions": BOOST[0], "criteria": BOOST[1]}
     for k in ("unit", "allegiance"):
         i, o = axes_v2.CHOICES[k]; bq["questions"][k] = {"type": "choice", "instructions": i, "criteria": o}
+    bq["questions"]["allegiance"] = {"type": "choice", "criteria": ALLEGIANCE[1], "instructions": ALLEGIANCE[0]}      # 측정 질문은 '보통 누구 편인가'라 늑대·용 같은 짐승이 적 웨이브가 됐다
     return bq
+ALLEGIANCE = ("If the player summoned or called the creature named on this orb, would it fight on the player's side or would it attack the player? "
+              "Animals, beasts, dragons, and monsters that the player summons or tames fight for the player.",
+              {"ally": "it fights for the player: a summoned or tamed creature, pet, helper, hero, worker, or familiar",
+               "hostile": "it attacks the player: the name itself says enemies, invaders, a horde, pests, or a curse that brings monsters against the player"})
 def orb_from_jev(full, lang="ko"):
     d = forge.call_jev(jev_request(full, lang)); a = d["answers"]
     if a["guard"]["probabilities"].get("instructs_the_evaluator", 0) > .5: return scribble(full)

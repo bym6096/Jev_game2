@@ -145,3 +145,15 @@ st0 = {"wood": 6, "ore": 4, "food": 3}; gold0 = 8
 for o in orbs.starter_orbs():
     if o["bcost"]: mt, x, y = o["bcost"]; assert (x <= gold0 - y if mt == "gold" else x <= st0[mt] and y <= gold0), (o["name"], "시작 재료로 지을 수 있어야 한다")
 print("설치 사거리·재료 비용 OK")
+
+# 7) 자동(주머니에 있으면 자동) 반응 구슬은 손패에 안 와도 스테이지 시작부터 반응한다 — 2026-11-08 테스트 플레이에서 발견(처치마다금화가 한 번도 안 터짐)
+pk = orbs._hand("처치마다금화", payload=[["money", 3, None]], life="run", trig="kill", fate="passive", mana=1)
+assert "[주머니에 있으면 자동]" in pk["text"] and "소멸" not in pk["text"], pk["text"]
+g = engine.HexGame(orbs.starter_orbs() + [pk], seed=11); g.start()
+assert all(g.inst[i]["o"]["name"] != "처치마다금화" for i in g.hand + g.draw), "자동 구슬은 손패·뽑을 것에 없다"
+assert any(f["kind"] == "trig" and f["o"]["name"] == "처치마다금화" for f in g.fx), "시작할 때 반응이 깔린다"
+e = g.enemies[0]; e["hp"] = 0; gold = g.gold; g.reap()
+assert g.gold - gold == e["bounty"] + round(3 * engine.PASSIVE_K), (g.gold - gold, e["bounty"])
+assert any("처치" in t for t in g.logs), "처치가 로그에 남는다"
+assert engine.josa("병사") == "병사가" and engine.josa("텃밭") == "텃밭이" and engine.josa("광산") == "광산이"
+print("자동 반응 구슬·처치 로그·조사 OK")

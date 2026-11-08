@@ -56,7 +56,6 @@ def render(v):
     if v["phase"] == "over":
         r = v["result"]; L.append(f"*** 끝: {'정산 통과' if r['pass'] else '정산 실패'} — 골드 {r['gold']}/{r['due']}, 처치 {r['kills']}, {'쓰러짐(골드·자원 몰수)' if r['died'] else '생존'}"); return "\n".join(L + ["최근 로그: " + " | ".join(v["log"][-6:])])
     L.append("손패:"); L += fmt_hand(v)
-    L.append("최근 로그: " + " | ".join(v["log"][-5:]))
     return "\n".join(L)
 def render_setup(v):
     L = [f"=== 준비 단계 · {v['stage_name']} 스테이지 · 낼 돈(정산) {v['due']} · 15턴", "가진 구슬: " + ", ".join(v["bag_names"]), "빈 구슬(이름을 쓰면 Jev가 읽어 구슬이 됨; 2개, 건너뛰어도 됨):"]
@@ -87,14 +86,18 @@ def engine_target(v, i):
     e = next(e for e in v["enemies"] if e["id"] == i); return (e["q"], e["r"])
 
 def cmd_play(args):
-    if not args: sys.exit("사용: play <손패번호> [q,r] [#적id]")
-    kw = {"idx": int(args[0])}
+    if not args: sys.exit("사용: play <손패번호|구슬 이름> [q,r] [#적id]")
+    if args[0].lstrip("-").isdigit(): kw = {"idx": int(args[0])}
+    else:                                # 이름(앞부분)으로 고르기: 구슬을 쓰면 뒤 번호가 당겨지므로 여러 개를 이어 쓸 때 편하다
+        h = [x for x in cur()["hand"] if x["o"]["name"].replace(" ", "").startswith(args[0].replace(" ", ""))]
+        if not h: sys.exit(f"손패에 '{args[0]}'(으)로 시작하는 구슬이 없습니다")
+        kw = {"idx": (next((x for x in h if not x["why"]), h[0]))["idx"]}
     for a in args[1:]:
         if a.startswith("#"): kw["target"] = int(a[1:])
         elif "," in a: q, r = a.split(","); kw["tile"] = [int(q), int(r)]
         else: sys.exit(f"이해할 수 없는 인자: {a} (칸은 q,r  대상은 #id)")
     v = call("play", **kw); r = v.get("action", {})
-    print("✗ " + r["error"] if "error" in r else "✓ 사용함")
+    print("✗ " + r["error"] if "error" in r else "✓ 사용함" + (" — " + " | ".join(v["recent"]) if v.get("recent") else ""))
     if "error" not in r and v.get("events"): print("  일어난 일: " + " / ".join(e["text"] if e["k"] == "pop" else f"{e.get('kind', '')} 공격" for e in v["events"][:12]))
     print(render(v))
 def main():
@@ -108,7 +111,7 @@ def main():
     elif c == "start": print(render(call("start")))
     elif c == "play": cmd_play(a[1:])
     elif c in ("end", "e"):
-        v = call("end_turn"); print("(턴 종료) " + " | ".join(v["log"][-6:])); print(render(v))
+        v = call("end_turn"); print("(턴 종료) " + (" | ".join(v.get("recent") or []) or "특별한 일 없음")); print(render(v))
     elif c == "preview":
         v = call("preview"); p = v.get("preview")
         print("턴을 끝내면: " + (f"골드 {p['gold']:+d}, 체력 {p['hp']:+d}, 처치 {p['kills']}, 새 적 {p['spawn']}, 잃는 건물·소환물 {sum(1 for o in p['own'] if o['lost'])}" if p else "(예측 없음)"))
@@ -128,7 +131,7 @@ HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
   start                           준비를 끝내고 1턴 시작(구슬을 안 만들어도 됨)
   state | s                       지금 상태 다시 보기
   map [손패번호]                  ASCII 지도(손패번호를 주면 그 구슬을 놓을 수 있는 칸/대상을 * 로 표시)
-  play <번호> [q,r] [#적id]       손패의 구슬 사용. 건물·소환·이동은 칸 q,r, 즉발 공격은 대상 #id(생략하면 가장 가까운 적)
+  play <번호|이름> [q,r] [#적id]  손패의 구슬 사용(이름 앞부분으로도 고름: play 화염 #3). 건물·소환·이동은 칸 q,r, 즉발 공격은 대상 #id(생략하면 가장 가까운 적)
   preview                         턴을 끝내면 어떻게 되는지 예측(골드·체력·처치·새 적)
   end | e                         턴 종료(적 행동 → 다음 턴 뽑기). 15턴이 끝나면 정산
   log [n]                         최근 로그
