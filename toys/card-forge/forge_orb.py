@@ -41,24 +41,30 @@ def to_card(o, name, lang):
     rng = engine.unit_range(o) if o["role"] in ("build", "summon") and not o.get("hostile") else (engine.CAST_RANGE if o["role"] == "cast" else None)
     return {"name": name, "lang": lang, "status": "ok", "engine": "orb", "element": ROLE_KO[kd], "kind": "구슬", "color": orb_color(o), "element_family": FAMILY.get(kd, 0),
             "mana": o["mana"], "mana_power": round(o["pe"], 1), "mana_stats": 0, "mana_effect": 0, "attack": 0, "defense": 0, "effect": effects[0]["name"] if effects else "", "effect_desc": o["text"], "effect_value": effects[0]["value"] if effects else 1,
-            "themes": [], "unique": False, "combo": False, "effects": effects, "hint": o.get("hint"),
+            "themes": [], "unique": False, "combo": False, "effects": effects, "hint": o.get("hint"), "mod": o.get("fragmod"),
             "orb": {"role": o["role"], "kind": kd, "text": o["text"], "life": o["life"], "timing": o["timing"], "trig": o["trig"], "fate": o["fate"], "rng": o["rng"], "mod": o["mod"], "hp": o["hp"], "cost": cost, "range": rng,
-                    "unit": o.get("unit"), "mv": o.get("mv"), "place": place, "pe": round(o["pe"], 2), "hostile": bool(o.get("hostile")), "lvl": o.get("lvl"), "delay": o.get("delay"), "payload": [[v, m, mt] for v, m, mt in o["payload"]]}}
+                    "unit": o.get("unit"), "mv": o.get("mv"), "place": place, "echo": bool(o.get("echo")), "copy": bool(o.get("copy")), "pe": round(o["pe"], 2), "hostile": bool(o.get("hostile")), "lvl": o.get("lvl"), "delay": o.get("delay"), "payload": [[v, m, mt] for v, m, mt in o["payload"]]}}
 
-def parse_hint(body, name, lang):
-    """클라이언트가 보낸 힌트 요청 검증 → (typed, hint, 오류). 힌트 말이 붙은 빈 구슬이면 name 은 새긴 전체 이름, typed 는 플레이어가 쓴 이름(그 안에 들어 있어야 함), hint 는 특성 키.
-    힌트가 없으면 (None, None, None). 잘못된 값은 오류(400)로 돌려 서버가 Jev를 부르지 않게 한다."""
-    hint = body.get("hint")
-    if hint in (None, ""): return None, None, None
-    if not isinstance(hint, str) or hint not in orbs.TRAITS: return None, None, "알 수 없는 힌트입니다"
+def parse_frag(body, name, lang):
+    """클라이언트가 보낸 사전단어 요청 검증 → (typed, hint, mod, word, 오류). 사전단어가 붙은 빈 구슬이면 name 은 새긴 전체 이름, typed 는 플레이어가 쓴 이름(그 안에 들어 있어야 함),
+    hint 는 특성 키 또는 mod 는 변환 키(둘 중 하나만), word 는 새겨진 말(표시용). 없으면 모두 None. 잘못된 값은 오류(400)로 돌려 서버가 Jev를 부르지 않게 한다."""
+    hint, mod, word = body.get("hint") or None, body.get("mod") or None, body.get("word")
+    if hint is None and mod is None: return None, None, None, None, None
+    if hint is not None and mod is not None: return None, None, None, None, "힌트와 변환은 함께 쓸 수 없습니다"
+    if hint is not None and (not isinstance(hint, str) or hint not in orbs.TRAITS): return None, None, None, None, "알 수 없는 힌트입니다"
+    if mod is not None and (not isinstance(mod, str) or mod not in orbs.MOD_RULES): return None, None, None, None, "알 수 없는 변환입니다"
     import forge
     typed, err = forge.check_name(body.get("typed"), lang)
-    if err: return None, None, err
-    if typed not in name: return None, None, "힌트 요청의 이름이 맞지 않습니다"
-    return typed, hint, None
+    if err: return None, None, None, None, err
+    if typed not in name: return None, None, None, None, "사전단어 요청의 이름이 맞지 않습니다"
+    word = word if isinstance(word, str) and 0 < len(word) <= 12 and word in name else None
+    return typed, hint, mod, word, None
+def parse_hint(body, name, lang):       # 옛 이름(힌트만)
+    typed, hint, mod, word, err = parse_frag(body, name, lang); return typed, hint, err
 
-def forge_orb(name, lang, typed=None, hint=None):
-    """이름 → 구슬 카드. 프로토타입의 orbs.orb_from_jev 와 같은 Jev 요청·같은 구슬 규칙. 힌트가 붙은 빈 구슬이면(typed, hint) Jev는 쓴 이름만 읽고 특성이 맞으면 효과 ×1.2(orbs.orb_with_hint)."""
+def forge_orb(name, lang, typed=None, hint=None, mod=None, word=None):
+    """이름 → 구슬 카드. 프로토타입의 orbs.orb_from_jev 와 같은 Jev 요청·같은 구슬 규칙. 사전단어(힌트 또는 변환)가 붙은 빈 구슬이면 Jev는 쓴 이름(typed)만 읽고,
+    힌트는 특성이 맞을 때 효과 ×1.2, 변환은 표대로 구슬을 바꾼다(orbs.orb_with_fragment)."""
     lang = lang or "ko"
-    o = orbs.orb_with_hint(name, typed, hint, lang) if hint else orbs.orb_from_jev(name, lang)
+    o = orbs.orb_with_fragment(name, typed, hint, mod, word, lang) if (hint or mod) else orbs.orb_from_jev(name, lang)
     return to_card(o, name, lang)

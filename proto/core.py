@@ -37,7 +37,7 @@ def handle(body):
         full = orbs.fuse(blank, typed)
         try: o = orbs.orb_from_blank(blank, typed)
         except Exception as e: return 502, {"error": f"Jev 호출 실패: {str(e)[:120]}"}
-        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat"), "hint": o.get("hint")}
+        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat"), "hint": o.get("hint"), "mod": o.get("fragmod")}
         return 200, view(S)
     if op == "start":
         if g.phase == "setup": g.start()

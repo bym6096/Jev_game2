@@ -21,8 +21,8 @@ print("힌트 말 OK")
 # 2) 분포: 사전단어 중 HINT_SHARE가 힌트, 힌트 없는 구슬도 많다
 R = random.Random(1); c = collections.Counter()
 for _ in range(4000):
-    b = orbs.new_blank("평범한", R); f = b["frag"]; c["none" if not f else "hint" if f["hint"] else "flavor"] += 1
-assert c["none"] > 1500 and abs(c["hint"] / (c["hint"] + c["flavor"]) - orbs.HINT_SHARE) < .05, c
+    b = orbs.new_blank("평범한", R); f = b["frag"]; c["none" if not f else "hint" if f["hint"] else "mod"] += 1
+assert c["none"] > 1500 and abs(c["hint"] / (c["hint"] + c["mod"]) - orbs.HINT_SHARE) < .05, c
 assert all(orbs.new_blank("낡은", R)["frag"] is not None for _ in range(50)), "낡은 빈 구슬은 항상 사전단어"
 assert orbs.hint_info({"frag": None}) is None and orbs.hint_info({"frag": {"pos": "pre", "t": "녹슨", "sp": True}}) is None, "옛 상태/힌트 없음도 안전"
 print("분포 OK", dict(c))

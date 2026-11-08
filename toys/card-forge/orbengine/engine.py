@@ -46,7 +46,7 @@ def unit_range(o): return 2 if o["role"] == "build" else UNIT_RANGE.get(o.get("u
 ICON = {"wood": "🌲", "ore": "⛏", "food": "🌾", "gold": "🪙"}
 def sustained(o):
     """한 번 쓰면 스테이지(이상) 내내 이어지는 시전 구슬. 효과가 쌓이지 않으므로 값어치가 '한 번 쓴 값'이고, 쓰면 그 스테이지 동안 소멸한다(슬레이 더 스파이어의 소멸)."""
-    return o["role"] == "cast" and o["life"] in ("stage", "run", "forever") and o["timing"] != "delayed"
+    return o["role"] == "cast" and o["life"] in ("stage", "run", "forever")
 def manual_target(o):   # 플레이어가 직접 대상을 고르는 구슬: 즉발 시전 중 적을 겨냥하는 것(지속·지연·조건부·건물·소환물은 자동으로 가장 가까운 적)
     return o["role"] == "cast" and o["life"] == "instant" and o["timing"] != "delayed" and o["trig"] == "none" and o["fate"] != "passive" and any(p[0] in ENEMY_V for p in o["payload"])
 NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
@@ -108,7 +108,7 @@ class HexGame:
             s.log(f"{s.turn}턴: 적 {n}마리가 가장자리에 나타났다")
         for f in s.fx: f["tn"] = 0                              # 반응의 턴당 횟수 초기화
         for b in s.buildings + s.summons: b["tn"] = 0
-        s.disc += s.hand; s.hand = []; s.mana = s.cfg["mana"]; s.fam_turn = collections.Counter(); s.drawn(s.cfg["hand"])
+        s.disc += [i for i in s.hand if not s.inst[i]["o"].get("copy")]; s.hand = []; s.mana = s.cfg["mana"]; s.fam_turn = collections.Counter(); s.drawn(s.cfg["hand"])
     # ---- spawn
     def occupied(s): 
         o = {s.pos}; o |= {(b["q"], b["r"]) for b in s.buildings}; o |= {(u["q"], u["r"]) for u in s.summons}; o |= {(e["q"], e["r"]) for e in s.enemies}; return o
@@ -136,7 +136,7 @@ class HexGame:
         if o["role"] == "move" and not s.valid_tiles(iid): return "이동할 빈 칸이 없음"
         if o["role"] != "move" and s.needs_tile(o) and not s.valid_tiles(iid): return "놓을 수 있는 빈 칸이 없음"
         if manual_target(o) and not s.in_range(): return f"사거리({CAST_RANGE}칸) 안에 적이 없음"
-        if sustained(o) and any(f["kind"] in ("dur", "trig", "mult") and f["o"]["name"] == o["name"] for f in s.fx): return "이미 작동 중"
+        if sustained(o) and any(f["kind"] in ("dur", "trig", "mult", "delay") and f["o"]["name"] == o["name"] for f in s.fx): return "이미 작동 중"
         return None
     def in_range(s): return [e for e in s.enemies if hd((e["q"], e["r"]), s.pos) <= CAST_RANGE]
     def needs_target(s, o): return manual_target(o) and bool(s.in_range())
@@ -195,11 +195,17 @@ class HexGame:
             elif o["bag_only"]: s.apply(o, o["payload"], fm); s.add_dur(iid, o, 3 if o["life"] == "turns" else 10, 3)
             else: s.apply(o, o["payload"], fm); s.add_dur(iid, o, 3 if o["life"] == "turns" else 10 ** 6, 99)
         if o["payload"][0][0] != "amplify": s.amp = 1.0
+        if o.get("echo") and not o.get("copy"): s.make_echo(o)
         s.hand.remove(iid)
-        if o["fate"] == "used_up": s.bag.remove(iid); s.stats["exhausted"] += 1
+        if o.get("copy"): pass                                   # 메아리 사본은 쓰면 사라진다(주머니에도 버린 더미에도 안 감)
+        elif o["fate"] == "used_up": s.bag.remove(iid); s.stats["exhausted"] += 1
         elif sustained(o): s.exhaust(iid)       # 지속 구슬은 쓰면 이 스테이지 동안 소멸(주머니엔 남아 다음 스테이지에 돌아옴) — 손패에 못 쓰는 채로 남지 않게
         else: s.disc.append(iid)
         s.pick = None; s.check_end_of_stage_death(); return {"ok": True}
+    def make_echo(s, o):
+        """메아리(사전단어): 이 구슬의 사본이 이번 턴 손패에 생긴다. 사본은 마나 −1(최소 1), 쓰면 사라지고 턴이 끝나도 사라진다."""
+        c = copy.deepcopy(o); c["mana"] = max(1, o["mana"] - 1); c["echo"] = False; c["copy"] = True; c["text"] = "[사본: 이번 턴에 쓰지 않으면 사라짐] " + o["text"]
+        i = s.nid; s.nid += 1; s.inst[i] = {"id": i, "o": c, "uses": 0}; s.hand.append(i); s.log(f"{o['name']}: 메아리 — 사본이 손패에 생겼다")
     def exhaust(s, iid):
         """소멸: 이 스테이지가 끝날 때까지 뽑는 순환(손패·뽑을 것·버린 것)에서 빠진다. 같은 이름의 다른 사본도 함께 소멸한다(효과가 쌓이지 않아 어차피 못 쓰고 손패만 막으므로)."""
         name = s.inst[iid]["o"]["name"]; s.exh = getattr(s, "exh", [])
@@ -345,7 +351,9 @@ class HexGame:
         # effects
         for f in list(s.fx):
             o = f["o"]
-            if f["kind"] == "delay" and s.turn >= f["at"]: s.ev("pop", s.pos, text=f"{o['name']} 발동", tone="trig"); s.apply(o, o["payload"]); s.fx.remove(f); s.log(f"{o['name']} 발동")
+            if f["kind"] == "delay" and s.turn >= f["at"]:
+                s.ev("pop", s.pos, text=f"{o['name']} 발동", tone="trig"); s.apply(o, o["payload"]); s.fx.remove(f); s.log(f"{o['name']} 발동")
+                if o["life"] != "instant": s.add_dur(f["iid"], o, 3 if o["life"] == "turns" else 10 ** 6, 99)       # 지연된 지속 효과(사전단어 '지연'): 기다린 뒤부터 지속
             elif f["kind"] == "dur":
                 if f["left"] <= 0 or f["charges"] <= 0: s.fx.remove(f); continue
                 s.apply(o, o["payload"]); f["left"] -= 1; f["charges"] -= 1 if o["bag_only"] else 0
@@ -365,7 +373,8 @@ class HexGame:
             elif o["trig"] != "none": continue                     # 반응형 건물: 사건이 일어날 때 emit 이 터뜨린다(매 턴 일하지 않음)
             else: s.apply(o, o["payload"], 1.0, src, b)
         for u in list(s.summons):
-            uo = u["o"]; us = (u["q"], u["r"])
+            uo = u["o"]; us = (u["q"], u["r"]); u["age"] = u.get("age", 0) + 1
+            if uo["timing"] == "delayed" and u["age"] <= uo["delay"]: continue
             if uo["trig"] == "approach":
                 if any(hd((e["q"], e["r"]), us) <= 3 for e in s.enemies) and u.get("fired", 0) < 3: s.apply(uo, uo["payload"], 1.0, us, u); u["fired"] = u.get("fired", 0) + 1; s.ev("pop", us, text=f"{uo['name']} 발동", tone="trig")
             elif uo["trig"] != "none": continue

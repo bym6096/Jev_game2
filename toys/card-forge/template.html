@@ -348,9 +348,10 @@ function cleanCard(c){
   if(c.orb && typeof c.orb === "object"){   // 구슬 엔진(게임 프로토타입과 같은 엔진)이 만든 구슬의 상세
     const q = c.orb, sn = (v, n) => v == null ? null : cNum(v, 0, 999, 0);
     o.engine = "orb";
+    if(c.mod && typeof c.mod === "object") o.mod = {key:cStr(c.mod.key,12), name:cStr(c.mod.name,12), word:c.mod.word ? cStr(c.mod.word,12) : ""};
     if(c.hint && typeof c.hint === "object") o.hint = {trait:cStr(c.hint.trait,12), label:cStr(c.hint.label,12), ok:!!c.hint.ok, mult:Number(c.hint.mult) || 1};
     o.orb = {role:cStr(q.role,12), kind:cStr(q.kind,12), text:cStr(q.text,300), life:cStr(q.life,12), timing:cStr(q.timing,12), trig:cStr(q.trig,12), fate:cStr(q.fate,12), rng:cStr(q.rng,12), mod:q.mod ? cStr(q.mod,12) : null,
-      hp:cNum(q.hp,0,999,1), cost:cStr(q.cost,40), range:sn(q.range), place:sn(q.place), unit:q.unit ? cStr(q.unit,12) : null, mv:sn(q.mv), pe:Number(q.pe) || 0, hostile:!!q.hostile, lvl:cNum(q.lvl,0,99,1), delay:cNum(q.delay,0,99,1),
+      hp:cNum(q.hp,0,999,1), cost:cStr(q.cost,40), range:sn(q.range), place:sn(q.place), echo:!!q.echo, copy:!!q.copy, unit:q.unit ? cStr(q.unit,12) : null, mv:sn(q.mv), pe:Number(q.pe) || 0, hostile:!!q.hostile, lvl:cNum(q.lvl,0,99,1), delay:cNum(q.delay,0,99,1),
       payload:cList(q.payload, 6, p => Array.isArray(p) ? [cStr(p[0],20), cNum(p[1],0,999,0), p[2] ? cStr(p[2],12) : null] : null)}; }
   if(c.alt && typeof c.alt === "object"){   // runner-up readings for the gacha; only a fresh server card carries them
     const t = (a, n) => Array.isArray(a) && a.length >= n ? a : null;
@@ -374,15 +375,17 @@ function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",
 
 // --- blank card selection ---
 let tier = 1, frag = null;
-function drawBlank(keepStatus){ const T=TIERS[tier]; const fl = FRAGS_BY_LANG[curLang]; frag = (fl && Math.random()<T.frag) ? ((curLang==="ko" && Math.random()<HINTS.share) ? hintPick() : fl[Math.floor(Math.random()*fl.length)]) : null; renderBlank(keepStatus); }
+function drawBlank(keepStatus){ const T=TIERS[tier]; const fl = FRAGS_BY_LANG[curLang]; frag = (fl && Math.random()<T.frag) ? (orbBlank() ? (Math.random()<HINTS.share ? hintPick() : modPick()) : fl[Math.floor(Math.random()*fl.length)]) : null; renderBlank(keepStatus); }
 function hintPick(){ const w=HINTS.words[Math.floor(Math.random()*HINTS.words.length)]; return {t:w.t, pos:w.pos, sp:w.sp, hint:w.k, label:w.label}; }
+function modPick(){ const w=HINTS.mods[Math.floor(Math.random()*HINTS.mods.length)]; return {t:w.t, pos:w.pos, sp:w.sp, mod:w.k, label:w.name, text:w.text}; }
+const orbBlank = () => curLang==="ko" && engineSel!=="old";   // 한국어 + 구슬 엔진: 사전단어는 변환 말 144 + 힌트 말 54(옛 맛내기 말은 옛 엔진 전용)
 function renderBlank(keepStatus){
   $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${FRAGS_BY_LANG[curLang]?` · 미리 적힌 말 ${Math.round(T.frag*100)}%`:""}</span></button>`).join("");
   $("pre").textContent=""; $("suf").textContent="";   // a hidden slot must not keep the previous language's word
   $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
   if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
   $("reroll").hidden = TIERS[tier].frag===0 || !FRAGS_BY_LANG[curLang];
-  const hl=$("hintline"); hl.hidden=!(frag&&frag.hint); if(frag&&frag.hint) hl.innerHTML=`<b>힌트: ${esc(frag.label)}</b> — 이름이 '${esc(frag.label)}' 계열이면 효과 ×${HINTS.mult}<small>따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요). 힌트 말은 Jev가 읽지 않고, 내가 쓴 이름만 읽습니다.</small>`;
+  const hl=$("hintline"); hl.hidden=!(frag&&(frag.hint||frag.mod)); if(frag&&frag.mod) hl.innerHTML=`<b>새겨진 말 '${esc(frag.t)}' → ${esc(frag.label)}</b> — ${esc(frag.text)}<small>이 말은 Jev가 읽지 않고, 내가 쓴 이름의 구슬을 표대로 바꿉니다.</small>`; else if(frag&&frag.hint) hl.innerHTML=`<b>힌트: ${esc(frag.label)}</b> — 이름이 '${esc(frag.label)}' 계열이면 효과 ×${HINTS.mult}<small>따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요). 힌트 말은 Jev가 읽지 않고, 내가 쓴 이름만 읽습니다.</small>`;
   if(!keepStatus) updateCount();
 }
 const compose = typed => { typed=typed.trim(); if(!frag) return typed; if(!typed) return "";
@@ -514,6 +517,8 @@ function orbBody(c){   // 구슬 엔진이 읽은 결과: 효과 문장과 구�
   if(o.role === "move" && o.mv) f.push(["이동", o.mv + "칸"]);
   if(o.mod) f.push(["성질", MOD_KO[o.mod] || o.mod]);
   f.push(["주머니", FATE_KO[o.fate] || o.fate]);
+  if(c.mod) f.push(["사전단어", (c.mod.word ? c.mod.word + " → " : "") + c.mod.name]);
+  if(o.echo) f.push(["메아리", "쓰면 사본이 이번 턴 손패에 생김"]);
   if(c.hint) f.push(["힌트", c.hint.label + (c.hint.ok ? " 일치 ×" + c.hint.mult : " 불일치")]);
   return `<div class="tfx"><b>${esc(c.element)}</b> ${esc(o.text)}</div><div class="tip-facts">${f.map(([a, b]) => `<span><i>${esc(a)}</i> ${esc(String(b))}</span>`).join("")}</div>`;
 }
@@ -592,7 +597,7 @@ async function forgeName(typed){
   if(online!==false){
     try{
       let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
-      const req={name,lang:curLang,engine:engineSel}; if(fr&&fr.hint){ const tc=checkName(typed.trim(), curLang); req.typed=tc.err?typed.trim():tc.name; req.hint=fr.hint; }
+      const req={name,lang:curLang,engine:engineSel}; if(fr&&(fr.hint||fr.mod)&&engineSel!=="old"){ const tc=checkName(typed.trim(), curLang); req.typed=tc.err?typed.trim():tc.name; if(fr.hint) req.hint=fr.hint; else { req.mod=fr.mod; req.word=fr.t; } }
       let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...req,code})});
       if(r.status===403){ const c=window.prompt("입장 코드를 입력하세요"); if(c){ try{ localStorage.setItem("forge-code",c); }catch(e){}
         r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...req,code:c})}); } }
@@ -692,7 +697,7 @@ $("deckclear").onclick=()=>{ deck=[]; deckChanged(); };
 
 // --- profile: the language chosen once decides which letters a name may use ---
 let engineSel = "orb"; try{ if(localStorage.getItem("forge-engine")==="old") engineSel = "old"; }catch(e){}
-$("engine").value = engineSel; $("engine").onchange = () => { engineSel = $("engine").value; try{ localStorage.setItem("forge-engine", engineSel); }catch(e){} };
+$("engine").value = engineSel; $("engine").onchange = () => { engineSel = $("engine").value; try{ localStorage.setItem("forge-engine", engineSel); }catch(e){} if(curLang) drawBlank(); };
 let curLang = null; try{ const p=JSON.parse(localStorage.getItem("forge-profile-v1")||"null"); if(p && LANGS[p.lang]) curLang=p.lang; }catch(e){}
 function applyProfile(){
   const has = !!curLang;

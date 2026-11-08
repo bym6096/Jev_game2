@@ -2,7 +2,8 @@
 import json
 samples = json.load(open("samples.json", encoding="utf-8"))
 import forge, fragments, forge_orb
-HINTS = {"words": [{"k": k, "label": forge_orb.orbs.TRAITS[k][0], "pos": pos, "t": w, "sp": sp} for k, pos, w, sp in forge_orb.orbs.HINT_WORDS], "share": forge_orb.orbs.HINT_SHARE, "mult": forge_orb.orbs.HINT_MULT}
+HINTS = {"words": [{"k": k, "label": forge_orb.orbs.TRAITS[k][0], "pos": pos, "t": w, "sp": sp} for k, pos, w, sp in forge_orb.orbs.HINT_WORDS], "share": forge_orb.orbs.HINT_SHARE, "mult": forge_orb.orbs.HINT_MULT,
+         "mods": [{"k": k, "name": forge_orb.orbs.MOD_RULES[k][0], "text": forge_orb.orbs.MOD_RULES[k][1], "pos": pos, "t": w, "sp": sp} for k, pos, w, sp in forge_orb.orbs.MOD_WORDS]}
 html = (open("template.html", encoding="utf-8").read()
         .replace("__SAMPLES__", json.dumps(samples, ensure_ascii=False))
         .replace("__EFFECT_COST__", json.dumps(forge.EFFECT_COST, ensure_ascii=False))

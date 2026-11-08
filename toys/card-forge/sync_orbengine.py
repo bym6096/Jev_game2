@@ -5,7 +5,7 @@
 proto/ 의 orbs.py·engine.py·vendor/ 를 고친 뒤에는 이 스크립트를 다시 실행하고 커밋한다."""
 import os, sys, shutil
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.join(HERE, "..", "..", "proto"); DST = os.path.join(HERE, "orbengine")
-FILES = ["orbs.py", "engine.py", "value.py"] + [os.path.join("vendor", f) for f in ("axes.py", "axes_v1.py", "axes_v2.py", "axes_v3.py", "axes_v4.py", "orbmake.py")]
+FILES = ["orbs.py", "engine.py", "value.py", os.path.join("data", "fragment_mods.json")] + [os.path.join("vendor", f) for f in ("axes.py", "axes_v1.py", "axes_v2.py", "axes_v3.py", "axes_v4.py", "orbmake.py")]
 # vendor/forge.py 는 일부러 뺀다: 이 폴더의 forge.py(원본)가 같은 파일이다.
 CHECK = "--check" in sys.argv; bad = []
 for f in FILES:

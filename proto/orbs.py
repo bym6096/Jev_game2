@@ -18,7 +18,9 @@ TG_AUTO = {"single": "가장 가까운 적 1", "line": "가까운 적 2", "aroun
 EVENT_COND = ("orb", "orb_attack", "orb_eco", "orb_plant", "orb_build", "orb_summon", "orb_defense", "kill", "harvest")      # 사건이 일어날 때마다 터지는 반응(나머지 hit·death·approach는 상황 반응)
 def cond_every(c): s = COND[c]; return s + "마다" if s.endswith("때") else s
 def every(o):   # 건물·소환물이 일하는 때: 평소엔 매 턴, 반응형이면 사건마다
-    c = o["trig"]; return "매 턴 " if c == "none" else (cond_every(c) + " " if c in EVENT_COND else ("아군이 부서질 때마다 " if c == "death" else ("플레이어가 맞을 때마다 " if c == "hit" else COND[c] + " ")))
+    c = o["trig"]
+    if c == "none" and o["timing"] == "delayed": return f"처음 {o['delay']}턴은 쉬고 그다음부터 매 턴 "
+    return "매 턴 " if c == "none" else (cond_every(c) + " " if c in EVENT_COND else ("아군이 부서질 때마다 " if c == "death" else ("플레이어가 맞을 때마다 " if c == "hit" else COND[c] + " ")))
 def vtext(v, m, mt, o):
     tg = TG_MANUAL[o["rng"]] if engine.manual_target(o) else TG_AUTO[o["rng"]]
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
@@ -46,6 +48,9 @@ def describe(o):
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"
+    if o.get("echo"): t += " [메아리: 쓰면 사본이 이번 턴 손패에 생김]"
+    fm = o.get("fragmod")
+    if fm: t += f" [사전단어 '{fm['word']}': {fm['name']}]" if fm.get("word") else f" [사전단어: {fm['name']}]"
     h = o.get("hint")
     if h: t += f" [힌트 '{h['label']}' 일치: 효과 ×{h['mult']:g}]" if h["ok"] else f" [힌트 '{h['label']}' 불일치]"
     return t
@@ -98,8 +103,8 @@ VERBS["debuff"] = VERBS["debuff"].replace("poisoning, ", "")
 VERBS["trash"] = VERBS["trash"].replace("burning up, ", "")
 VERBS["buff"] = "making allies stronger, faster, braver, or more capable, or boosting a kind of effect, like a blessing, a catalyst, a booster, or a lucky charm"
 TRIGGERS = {"none": "no, it simply happens when used", "hit": "when someone is hit or takes damage", "death": "when someone dies or is destroyed", "approach": "when an enemy comes near or steps on it",
-            "orb": "when any other orb is used", "orb_attack": "when an attacking orb is used, like a weapon, a spell, or a strike", "orb_eco": "when a gathering, farming, trading, or money-making orb is used",
-            "orb_plant": "when a plant or farming orb is used", "orb_build": "when a building orb is used", "orb_summon": "when a summoning orb is used", "orb_defense": "when a defending or healing orb is used",
+            "orb": "when any other orb is used", "orb_attack": "when ANOTHER orb that attacks is used, as a combo or follow-up bonus (not for an attack that simply hurts)", "orb_eco": "when ANOTHER gathering, farming, trading, or money-making orb is used, as a follow-up bonus",
+            "orb_plant": "when ANOTHER plant or farming orb is used", "orb_build": "when ANOTHER building orb is used", "orb_summon": "when ANOTHER summoning orb is used", "orb_defense": "when ANOTHER defending or healing orb is used",
             "kill": "when an enemy is defeated", "harvest": "when resources are gathered"}
 BOOST = ("If an orb with this name makes some kind of effect stronger, which kind would it most naturally strengthen?",
          {"dmg": "damage dealt to enemies: weapons, strength, fury", "burn": "burning and poison: fire, embers, oil, kindling", "income": "gold and trade profits: wealth, markets, greed",
@@ -118,21 +123,23 @@ def orb_from_jev(full, lang="ko"):
     if a["guard"]["probabilities"].get("instructs_the_evaluator", 0) > .5: return scribble(full)
     orb = S.make_orb(full, cost_model=CM, gold_mult=GM, extra={full: [a]}); pb = a["boost"]["probabilities"]; orb.boost = max(pb, key=pb.get)       # 증폭 대상(buff 동사일 때만 쓰임)
     return to_dict(orb)
-FRAGS = [tuple(x) for x in json.load(open(os.path.join(HERE, "data", "fragments.json"), encoding="utf-8"))] if os.path.exists(os.path.join(HERE, "data", "fragments.json")) else []
 TIERS = {"낡은": (5, 1.0), "평범한": (7, .5), "깨끗한": (9, .25), "금박": (12, .1)}
-# ---- 특성 힌트(디렉터 2026-11-08): 사전단어 중 일부는 '특성 힌트 말'이다. 이 말이 붙은 빈 구슬에 **그 계열의 이름**을 새기면(Jev가 읽은 결과 효과 동사/역할이 그 특성이면) 효과가 일괄 ×1.2.
-# 힌트는 빈 구슬마다 무작위로, 없는 구슬도 많다. 힌트를 무시하고 시너지에 맞는 이름을 쓰는 것도 자유(부스터를 포기). 부스터는 가격에 반영하지 않는다(마나는 부스터 전 기준 — 그래야 이득).
-# Jev는 힌트가 붙은 구슬에서 **플레이어가 쓴 이름만** 읽는다(힌트 말이 특성을 대신 켜 주면 공짜 부스터가 되므로).
+# ---- 사전단어(빈 구슬에 미리 새겨진 말) — 2026-11-08 디렉터 확정: 풀은 **변환 말 144개 + 힌트 말 54개** 두 종류뿐이다(옛 '맛내기 말' 210개는 폐기, 겹치는 말은 한쪽으로).
+# 두 종류 모두 **Jev는 플레이어가 쓴 이름만 읽는다**(말이 효과를 대신 켜 주면 안 되므로). 변환 말은 표(data/fragment_mods.json, 문서 docs/FRAGMENT_MODS.md)대로 결정적으로 구슬을 바꾸고(가격 표시 마나 포함),
+# 힌트 말은 이름이 그 계열이면 효과 ×1.2(가격 그대로)를 준다. 사전단어가 안 붙은 빈 구슬도 많다(등급별 확률 TIERS).
 HINT_MULT = 1.2
-HINT_SHARE = .5          # 사전단어가 붙은 빈 구슬 중 힌트 말인 비율
+HINT_SHARE = .5          # 사전단어가 붙은 빈 구슬 중 힌트 말인 비율(나머지는 변환 말)
 TRAITS = {   # 키: (이름표, 그 특성으로 치는 효과 동사, 그 특성으로 치는 구슬 역할)
     "burn": ("화상", {"burn"}, set()), "strike": ("타격", {"damage", "drain"}, set()), "income": ("수입", {"money", "steal", "process"}, set()), "grow": ("채집·재배", {"harvest", "grow"}, set()),
     "build": ("건물", set(), {"build"}), "summon": ("소환", set(), {"summon"}), "guard": ("방어·회복", {"guard", "heal"}, set()), "control": ("제어·약화", {"control", "debuff"}, set()), "boost": ("증폭", {"buff", "amplify"}, set())}
-_HW = {   # 계열별 힌트 말: (앞에 붙는 말 3, 뒤에 붙는 말 3). 앞말은 "말 ___", 뒷말은 "___ 말"(띄어 씀)
-    "burn": ("불타는 화염의 잿불의", "불꽃 화염 용암"), "strike": ("맹렬한 강타 번개", "일격 폭발 화살"), "income": ("황금 상인의 금빛", "상회 은행 보물"), "grow": ("풍년의 숲속의 푸른", "농장 열매 씨앗"),
-    "build": ("석조 튼튼한 벽돌", "성채 공방 망루"), "summon": ("용병 군단의 수비대", "부대 병사 기사단"), "guard": ("철벽의 방패 치유의", "방벽 갑옷 성역"), "control": ("서리 저주받은 마비", "족쇄 안개 함정"),
-    "boost": ("증폭된 축복의 각성한", "축복 증폭 강화")}
+_HW = {   # 계열별 힌트 말: (앞에 붙는 말 3, 뒤에 붙는 말 3). 앞말은 "말 ___", 뒷말은 "___ 말"(띄어 씀). 변환 표와 겹치거나 변환처럼 읽히는 말("황금"·"저주받은"·"일격"·"증폭"·"강화")은 뺐다.
+    "burn": ("불타는 화염의 잿불의", "불꽃 화염 용암"), "strike": ("맹렬한 강타 번개", "강습 폭발 화살"), "income": ("부유한 상인의 금빛", "상회 은행 보물"), "grow": ("풍년의 숲속의 푸른", "농장 열매 씨앗"),
+    "build": ("석조 튼튼한 벽돌", "성채 공방 망루"), "summon": ("용병 군단의 수비대", "부대 병사 기사단"), "guard": ("철벽의 방패 치유의", "방벽 갑옷 성역"), "control": ("서리 얼어붙은 마비", "족쇄 안개 함정"),
+    "boost": ("고취된 축복의 각성한", "축복 응원 격려")}
 HINT_WORDS = [(k, pos, w, True) for k, (pre, suf) in _HW.items() for pos, ws in (("pre", pre), ("suf", suf)) for w in ws.split()]
+_MF = os.path.join(HERE, "data", "fragment_mods.json"); _M = json.load(open(_MF, encoding="utf-8")) if os.path.exists(_MF) else {"rules": {}, "words": []}
+MOD_RULES = {k: (v["name"], v["text"]) for k, v in _M["rules"].items()}                       # 변환 키 → (이름, 설명)
+MOD_WORDS = [(w["mod"], w["pos"], w["t"], bool(w["sp"])) for w in _M["words"]]                  # (변환 키, 앞/뒤, 말, 띄어 쓰나)
 def trait_ok(d, trait):
     """이름이 그 특성이었나: Jev가 읽은 결과(만들어진 구슬)의 효과 동사나 역할이 특성에 속하고, 애매한 이름(amb)이 아닐 것."""
     if d.get("scribble") or d.get("amb") or trait not in TRAITS: return False
@@ -146,29 +153,91 @@ def apply_hint(d, trait):
             if p[0] != "move": p[1] = max(1, round(p[1] * HINT_MULT))
     d["hint"] = {"trait": trait, "label": TRAITS[trait][0], "ok": ok, "mult": HINT_MULT if ok else 1.0}
     d["text"] = describe(d); return d
-def hint_info(blank):
-    f = blank.get("frag"); tr = f.get("hint") if f else None
-    return {"trait": tr, "label": TRAITS[tr][0], "mult": HINT_MULT, "text": f"이름이 '{TRAITS[tr][0]}' 계열이면 효과 ×{HINT_MULT:g}"} if tr in TRAITS else None
+
+# ---- 변환 말(12종). 표대로 결정적으로 구슬을 바꾼다. 수치·마나 증감은 표(docs/FRAGMENT_MODS.md 1절)의 값이고 모두 임시.
+RNG_STEPS = ["single", "line", "around", "wide"]
+TN = {"instant": 1.0, "turns": 1.6 / 3, "stage": 2.4 / 12, "run": 3.2 / 40, "forever": 4.0 / 100}      # 지속별 한 번의 크기(측정 모델의 T/N): 지속을 바꿀 때 수치를 이 비로 다시 맞춘다
+LIFE_UP = {"instant": "turns", "turns": "stage", "stage": "run"}
+REVERSE = {"damage": "heal", "heal": "damage", "debuff": "buff", "buff": "debuff", "guard": "debuff", "money": "steal", "steal": "money", "harvest": "grow", "grow": "harvest", "draw": "trash", "trash": "draw"}
+def _scale(d, f):
+    for p in d["payload"]:
+        if p[0] != "move": p[1] = max(1, round(p[1] * f))
+def _mana(d, k): d["mana"] = max(1, min(8, d["mana"] + k))
+def _aura(d):       # 긴 지속은 한 마리가 아니라 무리(측정 모델 규칙)
+    vs = [p[0] for p in d["payload"]]
+    if d["role"] == "cast" and d["life"] in ("stage", "run", "forever") and d["rng"] == "single" and vs and vs[0] in engine.ENEMY_V: d["rng"] = "around"
+def _boost_kind(vs): return "burn" if "burn" in vs else "growth" if any(v in ("harvest", "grow") for v in vs) else "income" if any(v in ("money", "steal", "process") for v in vs) else "dmg"
+def apply_mod(d, mod, word=None):
+    """변환 말을 구슬에 적용한다(d를 고쳐 쓰고 돌려줌). 낙서·알 수 없는 변환은 그대로. 적용할 게 없는 구슬(예: 이미 가장 좁은 범위의 축소)은 효과가 없을 수 있다."""
+    if d.get("scribble") or mod not in MOD_RULES: return d
+    r = d["role"]; placed = r in ("build", "summon") and not d.get("hostile"); usable = r == "cast" or placed
+    if mod == "reverse":
+        for p in d["payload"]:
+            nv = REVERSE.get(p[0])
+            if not nv: continue
+            old = p[0]; p[0] = nv
+            if nv == "buff": p[1] = max(10, min(40, round(10 + 8 * d["pe"]))); p[2] = _boost_kind([q[0] for q in d["payload"]])
+            elif old == "buff": p[1] = max(1, round(d["pe"] * 3)); p[2] = None
+        _scale(d, .9); _aura(d)
+    elif mod == "bigger":
+        d["rng"] = RNG_STEPS[min(3, RNG_STEPS.index(d["rng"]) + 1)] if d["rng"] in RNG_STEPS else d["rng"]
+        if placed: d["hp"] = max(1, round(d["hp"] * 1.3))
+        _scale(d, .9); _mana(d, 1)
+    elif mod == "smaller":
+        d["rng"] = RNG_STEPS[max(0, RNG_STEPS.index(d["rng"]) - 1)] if d["rng"] in RNG_STEPS else d["rng"]
+        _scale(d, .85); _mana(d, -1)
+    elif mod == "faster":
+        if d["timing"] == "delayed": d["timing"] = "now"
+        _mana(d, -1)
+    elif mod == "slower":
+        if usable and not (r == "cast" and d["trig"] != "none"):      # 반응형 시전은 기다릴 일이 없다
+            d["delay"] = (d["delay"] if d["timing"] == "delayed" else 0) + 2; d["timing"] = "delayed"; _scale(d, 1.4)
+    elif mod == "stronger": _scale(d, 1.4); _mana(d, 1)
+    elif mod == "weaker": _scale(d, .7); _mana(d, -1)
+    elif mod == "risky": _scale(d, 1.5); d["mod"] = "risky"
+    elif mod == "random": d["mod"] = "random"; _mana(d, -1)
+    elif mod == "once":
+        _scale(d, 1.5)
+        if d["fate"] != "passive": d["fate"] = "used_up"
+    elif mod == "lasting":
+        if placed: d["hp"] = max(1, round(d["hp"] * 1.5))
+        elif r == "cast" and d["life"] in LIFE_UP:
+            new = LIFE_UP[d["life"]]; _scale(d, TN[new] / TN[d["life"]] * .8); d["life"] = new; _mana(d, 1); _aura(d)
+    elif mod == "echo": d["echo"] = True; _mana(d, 1)
+    d["fragmod"] = {"key": mod, "name": MOD_RULES[mod][0], "word": word}
+    d["text"] = describe(d); return d
+
+def frag_info(blank):
+    """화면용: 이 빈 구슬의 사전단어가 무엇을 하는가(없으면 None). kind = hint | mod."""
+    f = blank.get("frag")
+    if not f: return None
+    if f.get("hint") in TRAITS: tr = f["hint"]; return {"kind": "hint", "key": tr, "label": TRAITS[tr][0], "mult": HINT_MULT, "text": f"이름이 '{TRAITS[tr][0]}' 계열이면 효과 ×{HINT_MULT:g}"}
+    if f.get("mod") in MOD_RULES: nm, tx = MOD_RULES[f["mod"]]; return {"kind": "mod", "key": f["mod"], "label": nm, "text": tx, "word": f["t"]}
+    return None
+hint_info = frag_info       # 옛 이름
 def new_blank(tier, R):
     cap, p = TIERS[tier]; fr = None
     if R.random() < p:
-        if (R.random() < HINT_SHARE) or not FRAGS: k, pos, w, sp = R.choice(HINT_WORDS); fr = {"pos": pos, "t": w, "sp": sp, "hint": k}
-        else: x = R.choice(FRAGS); fr = {"pos": x[0], "t": x[1], "sp": x[2], "hint": None}
+        if (R.random() < HINT_SHARE) or not MOD_WORDS: k, pos, w, sp = R.choice(HINT_WORDS); fr = {"pos": pos, "t": w, "sp": sp, "hint": k, "mod": None}
+        else: k, pos, w, sp = R.choice(MOD_WORDS); fr = {"pos": pos, "t": w, "sp": sp, "hint": None, "mod": k}
     return {"tier": tier, "cap": cap, "frag": fr}
 def fuse(blank, typed):
     f = blank["frag"]
     if not f: return typed
     return f"{f['t']}{' ' if f['sp'] else ''}{typed}" if f["pos"] == "pre" else f"{typed}{' ' if f['sp'] else ''}{f['t']}"
-def orb_with_hint(full, typed, hint, lang="ko", build=None):
-    """힌트가 붙은 이름 → 구슬. Jev는 쓴 이름(typed)만 읽고, 구슬 이름은 새긴 전체 이름(full). 특성이 맞으면 효과 ×HINT_MULT. 힌트가 없으면(hint=None) 전체 이름을 그대로 읽는다.
-    프로토타입(빈 구슬 흐름)과 card-forge(서버가 클라이언트의 힌트 요청을 받을 때)가 같이 쓴다."""
-    build = build or orb_from_jev
-    d = build(typed if hint in TRAITS else full, lang); d["name"] = full
-    if hint in TRAITS and not d.get("scribble"): apply_hint(d, hint)
+def orb_with_fragment(full, typed, hint=None, mod=None, word=None, lang="ko", build=None):
+    """사전단어가 붙은 이름 → 구슬. Jev는 쓴 이름(typed)만 읽고, 구슬 이름은 새긴 전체 이름(full). 힌트면 특성이 맞을 때 ×HINT_MULT, 변환이면 표대로 구슬을 바꾼다. 둘 다 없으면 전체 이름을 읽는다.
+    프로토타입(빈 구슬 흐름)과 card-forge(서버가 클라이언트의 요청을 받을 때)가 같이 쓴다."""
+    build = build or orb_from_jev; hint = hint if hint in TRAITS else None; mod = mod if mod in MOD_RULES else None
+    d = build(typed if (hint or mod) else full, lang); d["name"] = full
+    if d.get("scribble"): return d
+    if hint: apply_hint(d, hint)
+    if mod: apply_mod(d, mod, word)
     return d
+def orb_with_hint(full, typed, hint, lang="ko", build=None): return orb_with_fragment(full, typed, hint=hint, lang=lang, build=build)
 def orb_from_blank(blank, typed, lang="ko", build=None):
-    """빈 구슬 + 플레이어가 쓴 이름 → 구슬(힌트 말이 붙었으면 orb_with_hint 와 같은 규칙)."""
-    f = blank.get("frag"); return orb_with_hint(fuse(blank, typed), typed, f.get("hint") if f else None, lang, build)
+    """빈 구슬 + 플레이어가 쓴 이름 → 구슬."""
+    f = blank.get("frag") or {}; return orb_with_fragment(fuse(blank, typed), typed, f.get("hint"), f.get("mod"), f.get("t"), lang, build)
 def max_typed(blank): return 8 - (len(blank["frag"]["t"].replace(" ", "")) if blank["frag"] else 0)
 def check_typed(blank, typed):
     c, err = forge.check_name(typed, "ko")

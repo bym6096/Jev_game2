@@ -109,8 +109,10 @@ function renderSetup() {
     if (f && f.pos === "pre") nm.append(el("span", { class: "frag" }, f.t));
     nm.append(input);
     if (f && f.pos === "suf") nm.append(el("span", { class: "frag" }, (f.sp ? " " : "") + f.t));
-    const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? (b.hint ? " · 힌트가 붙어 있음" : " · 새겨진 말이 붙어 있음") : " · 새겨진 말 없음"}`)), nm, btn);
-    if (b.hint) card.insertBefore(el("div", { class: "hintline" + (b.orb ? (b.orb.hint && b.orb.hint.ok ? " ok" : " miss") : "") }, el("b", {}, `힌트: ${b.hint.label}`), ` — ${b.hint.text}`, el("small", {}, b.orb ? (b.orb.hint && b.orb.hint.ok ? " ✓ 일치! 효과가 커졌습니다" : " ✗ 이번 이름은 이 계열이 아니었어요") : " · 따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요)")), btn);
+    const h = b.hint, isHint = h && h.kind === "hint";       // 사전단어: 힌트(이름이 그 계열이면 ×1.2) 또는 변환(표대로 구슬을 바꿈)
+    const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? (h ? (isHint ? " · 힌트가 붙어 있음" : " · 변환 말이 붙어 있음") : " · 새겨진 말이 붙어 있음") : " · 새겨진 말 없음"}`)), nm, btn);
+    if (h && isHint) card.insertBefore(el("div", { class: "hintline" + (b.orb ? (b.orb.hint && b.orb.hint.ok ? " ok" : " miss") : "") }, el("b", {}, `힌트: ${h.label}`), ` — ${h.text}`, el("small", {}, b.orb ? (b.orb.hint && b.orb.hint.ok ? " ✓ 일치! 효과가 커졌습니다" : " ✗ 이번 이름은 이 계열이 아니었어요") : " · 따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요)")), btn);
+    if (h && !isHint) card.insertBefore(el("div", { class: "hintline mod" + (b.orb ? " ok" : "") }, el("b", {}, `새겨진 말 '${h.word}' → ${h.label}`), ` — ${h.text}`, el("small", {}, b.orb ? " ✓ 구슬에 적용됐습니다" : " · 이 말은 Jev가 읽지 않고, 내가 쓴 이름의 구슬을 표대로 바꿉니다")), btn);
     if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });
