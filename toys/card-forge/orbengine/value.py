@@ -137,7 +137,7 @@ def breakdown(d, E=None):
     if fate == "used_up": total *= K["FATE_USED_UP"]; notes.append("1회용 ×.75")
     cost = 0.0
     bc = _g(d, "bcost")
-    if role == "build" and bc: mt_, x_, y_ = bc; cost = (x_ + y_) if mt_ == "gold" else x_ * E.res_g + y_
+    if role in ("build", "summon") and bc and not _g(d, "hostile"): mt_, x_, y_ = bc; cost = (x_ + y_) if mt_ == "gold" else x_ * E.res_g + y_
     return dict(total=max(0.0, total), parts=parts, n=n, rel=None, fires=fires, cost=cost, notes=notes)
 
 def net_value(d, E=None):
@@ -145,7 +145,7 @@ def net_value(d, E=None):
     b = breakdown(d, E); return max(0.0, b["total"] - b["cost"])
 
 MAX_MANA = 8
-PAYBACK_STD, PAYBACK_MAX = 3.0, 5.0        # 슬롯형 구슬이 가격(마나+재료·골드)의 몇 배를 버는가: 표준 3배, 5배를 넘으면 싸다
+PAYBACK_STD, PAYBACK_MAX = 3.0, 4.0        # 슬롯형 구슬이 가격(마나+재료·골드)의 몇 배를 버는가: 표준 3배. 4배를 넘으면 모자란 만큼 재료·골드를 더 받는다(enforce_cost)
 def is_slot(d):
     """슬롯형: 한 번 놓으면 오래 일하고 칸(건물·소환물) 또는 '스테이지에 한 번'(지속 시전, 소멸)으로 규제되는 구슬. 마나만으로 값어치를 다 매길 수 없다(마나 최대 6)."""
     r = _g(d, "role"); return (r in ("build", "summon") and not _g(d, "hostile")) or engine.sustained(d)
@@ -170,3 +170,15 @@ def shortfall(d, E=None):
     E = E or E0
     if is_slot(d): return 0.0
     P = net_value(d, E) / E.vpm; paid = min(MAX_MANA, max(1, round(mana_curve(P)))); return max(0.0, (P - paid) * E.vpm)
+
+def enforce_cost(d, E=None):
+    """슬롯형 건물·소환물이 가격(마나×VPM + 재료·골드)의 PAYBACK_MAX배를 넘게 벌면, 모자란 몫을 **재료(70%)와 골드(30%)**로 더 받는다. 마나는 건드리지 않고 비용은 올리기만 한다.
+    마나로는 값어치를 다 못 치르는 구슬(마나 최대 6)을 재료로 갚게 하는 규칙. 돌려주는 값: 올렸으면 True."""
+    E = E or E0
+    if _g(d, "role") not in ("build", "summon") or _g(d, "hostile"): return False
+    b = breakdown(d, E); need = b["total"] / PAYBACK_MAX; price = max(1, _g(d, "mana", 1)) * E.vpm + b["cost"]
+    if price >= need - 1e-9: return False
+    R = need - price; bc = list(_g(d, "bcost") or [(_g(d, "mat") if _g(d, "mat") in engine.RAW else "wood"), 0, 0])
+    if bc[0] == "gold": bc[1] += math.ceil(R)
+    else: bc[1] += math.ceil(R * .7 / E.res_g); bc[2] += math.ceil(R * .3)
+    d["bcost"] = bc; return True

@@ -206,8 +206,8 @@
   "hp": 16,
   "bcost": [
    "wood",
-   2,
-   1
+   6,
+   2
   ],
   "unit": "worker",
   "hostile": false,
@@ -240,8 +240,8 @@
   "hp": 19,
   "bcost": [
    "ore",
-   2,
-   1
+   3,
+   2
   ],
   "unit": "worker",
   "hostile": false,

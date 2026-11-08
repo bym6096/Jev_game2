@@ -69,7 +69,7 @@ function sphere(o, d = orbSize(o)) {
 // 구슬 밑에 한 줄로 보이는 효과 요약(자세한 문장은 오른쪽 정보창)
 const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: (m, t) => `${BOOST_KO[t] || "피해"} +${m}%`, burn: (m) => `화상 ${m}`, debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
 function brief(o) { if (o.scribble) return "낙서"; if (o.role === "move") return `${o.mv || 2}칸`; return (o.payload || []).filter((p) => p[0] !== "move").slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
-const bcostText = (o) => o.role === "build" && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
+const bcostText = (o) => (o.role === "build" || (o.role === "summon" && !o.hostile)) && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
 
 /* ---------- 흐름 ---------- */
 async function newGame() {

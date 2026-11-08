@@ -39,6 +39,7 @@ def trig_match(cond, kind, info):
     if cond.startswith("orb_"): return kind == "orb" and cond[4:] in info.get("tags", ())
     if cond == "death": return kind == "lost"
     return cond == kind
+PLACE_RANGE = 1                                      # 건물·식물·소환물을 놓을 수 있는 거리(내 위치에 인접한 칸만; 이동 구슬은 따로 구슬이 정한 칸 수)
 CAST_RANGE = 4                                       # 플레이어가 쓴 공격 구슬의 사거리(내 위치 기준 칸)
 UNIT_RANGE = {"soldier": 1, "worker": 1, "beast": 1, "spirit": 2, "construct": 2}   # 소환물 종류별 공격 사거리(병사는 근접)
 def unit_range(o): return 2 if o["role"] == "build" else UNIT_RANGE.get(o.get("unit"), 1)   # 건물은 2칸
@@ -123,14 +124,15 @@ class HexGame:
         if o.get("scribble"): pass
         if o["mana"] > s.mana: return "마나 부족"
         if o["role"] == "build":
-            mt, x, y = o["bcost"]
             if is_plant(o):
                 if sum(1 for b in s.buildings if is_plant(b["o"])) >= s.cfg["cap_p"]: return f"식물 칸 부족({s.cfg['cap_p']}칸)"
             elif sum(1 for b in s.buildings if not is_plant(b["o"])) >= s.cap_b: return f"건물 칸 부족({s.cap_b}칸)"
+        if o["role"] == "summon" and not o["hostile"] and len(s.summons) >= s.cap_s: return f"소환물 칸 부족({s.cap_s}칸)"
+        if o["role"] in ("build", "summon") and not o["hostile"] and o.get("bcost"):       # 재료·골드 비용(건물, 그리고 가치가 커서 비용이 붙은 소환물)
+            mt, x, y = o["bcost"]
             if mt == "gold":
                 if s.gold < x + y: return "골드 부족"
             elif s.res[mt] < x or s.gold < y: return "재료 또는 골드 부족"
-        if o["role"] == "summon" and not o["hostile"] and len(s.summons) >= s.cap_s: return f"소환물 칸 부족({s.cap_s}칸)"
         if o["role"] == "move" and not s.valid_tiles(iid): return "이동할 빈 칸이 없음"
         if o["role"] != "move" and s.needs_tile(o) and not s.valid_tiles(iid): return "놓을 수 있는 빈 칸이 없음"
         if manual_target(o) and not s.in_range(): return f"사거리({CAST_RANGE}칸) 안에 적이 없음"
@@ -142,7 +144,7 @@ class HexGame:
     def move_range(s, o): return o.get("mv", s.cfg["move_range"])
     def valid_tiles(s, iid):
         o = s.inst[iid]["o"]; occ = s.occupied()
-        lim = s.move_range(o) if o["role"] == "move" else 2          # 건물·소환은 내 주변 2칸, 이동은 구슬이 정한 칸 수
+        lim = s.move_range(o) if o["role"] == "move" else PLACE_RANGE          # 건물·식물·소환은 내게 인접한 칸, 이동은 구슬이 정한 칸 수
         return [t for t in TILES if 1 <= hd(t, s.pos) <= lim and t not in occ and t not in s.tiles]
     def tile_hint(s, o, t):
         """Good tiles: next to a matching resource tile (harvest) or next to a building of a different family (synergy)."""
@@ -169,10 +171,11 @@ class HexGame:
         s.mana -= o["mana"]; it["uses"] += 1; s.stats["plays"] += 1
         s.emit("orb", tags=tags(o), name=o["name"])         # 이미 깔려 있는 반응이 먼저 반응한다(이 구슬 자신의 반응은 아래에서 깔리므로 자기 자신에겐 안 터짐)
         fam = FAM.get(o["payload"][0][0], "misc"); fm = s.cfg["fam_decay"] ** s.fam_turn[fam]; 
-        if o["role"] == "build":
+        if o["role"] in ("build", "summon") and not o["hostile"] and o.get("bcost"):
             mt, x, y = o["bcost"]
             if mt == "gold": s.gold -= x + y
             else: s.res[mt] -= x; s.gold -= y
+        if o["role"] == "build":
             t = tuple(tile); s.buildings.append({"id": s.uid, "iid": iid, "q": t[0], "r": t[1], "hp": o["hp"], "max": o["hp"], "age": 0, "o": o}); s.uid += 1; s.log(f"건물 설치: {o['name']}")
         elif o["role"] == "move":
             s.pos = tuple(tile); s.log(f"이동: {o['name']}")

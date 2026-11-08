@@ -71,6 +71,8 @@ try:
     for n in sorted(SIM.V3):
         d = orbs.to_dict(SIM.make_orb(n, cost_model=orbs.CM, gold_mult=orbs.GM)); rs.append((value.ratio(d), value.verdict(d), d["mana"]))
     med = st.median(r for r, _, _ in rs); std = sum(1 for _, v, _ in rs if v in ("표준", "최소 가격")) / len(rs)
+    sl = [orbs.to_dict(SIM.make_orb(n, cost_model=orbs.CM, gold_mult=orbs.GM)) for n in sorted(SIM.V3)]
+    assert all(value.payback(d) <= value.PAYBACK_MAX + .3 for d in sl if d["role"] in ("build", "summon") and not d["hostile"]), "슬롯형은 회수 배율 상한(재료·골드로 갚음)을 지킨다"
     assert .7 <= med <= 1.3, f"풀 배율 중앙값 {med:.2f}"; assert std >= .6, f"표준 비율 {std:.0%}"
     print(f"측정 풀 {len(rs)}개 OK: 중앙값 {med:.2f}, 표준·최소 {std:.0%}, 싸다 {sum(1 for _, v, _ in rs if v.startswith('싸'))}개")
 except ImportError: print("측정 풀 건너뜀(sim/ 없음)")

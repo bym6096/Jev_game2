@@ -55,6 +55,7 @@ def to_dict(o):
     shape(d, getattr(o, "boost", None))
     if d["bcost"] and o.role == "build" and gold_income(o): d["bcost"][2] = max(d["bcost"][2], 2 * gold_income(o))
     d["mana"] = value.mana_for(d)            # 건물 비용을 먼저 정한 뒤 나머지를 마나로 매긴다
+    value.enforce_cost(d)                    # 마나로 못 갚는 슬롯형(회수 배율 4 초과)은 재료·골드를 더 받는다
     d["text"] = describe(d); return d
 def shape(d, boost=None):
     """Jev가 정한 동사 수치(측정 모델의 m)를 시너지 동사의 실제 단위로 바꾼다: buff → (퍼센트, 키우는 것), burn → 화상 중첩 수. 한 번만 부른다(구슬 생성 시)."""

@@ -132,3 +132,16 @@ for seed in range(60):
     stat["reactions"] += g.stats["reactions"]; stat["burn_dmg"] += g.stats["burn_dmg"]; stat["pass"] += bool(g.result and g.result["pass"])
 assert stat["reactions"] > 0 and stat["burn_dmg"] > 0, stat
 print("시너지 봇 60판 OK", dict(stat))
+
+# 6) 설치 사거리 1칸 + 재료 비용(건물·소환물)
+g = engine.HexGame(orbs.starter_orbs(), seed=5); g.start(); g.mana = 6
+for iid in g.hand:
+    o = g.inst[iid]["o"]
+    if g.needs_tile(o) and o["role"] != "move": assert all(engine.hd(t, g.pos) == 1 for t in g.valid_tiles(iid)), (o["name"], "건물·식물·소환은 인접 칸만")
+costly = H("무거운 소환", role="summon", payload=[["damage", 4, None]], life="run", mana=1, hp=10, unit="soldier", bcost=["wood", 3, 2])
+g = sgame(); i = put(g, costly); g.res["wood"] = 2; assert "재료" in (g.reason(g.hand[i]) or ""), "소환물도 재료가 모자라면 못 쓴다"
+g.res["wood"] = 5; g.gold = 5; assert g.reason(g.hand[i]) is None and g.play(i, g.valid_tiles(g.hand[i])[0]).get("ok"); assert g.res["wood"] == 2 and g.gold == 3, "소환물 재료·골드 차감"
+st0 = {"wood": 6, "ore": 4, "food": 3}; gold0 = 8
+for o in orbs.starter_orbs():
+    if o["bcost"]: mt, x, y = o["bcost"]; assert (x <= gold0 - y if mt == "gold" else x <= st0[mt] and y <= gold0), (o["name"], "시작 재료로 지을 수 있어야 한다")
+print("설치 사거리·재료 비용 OK")
