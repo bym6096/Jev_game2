@@ -109,7 +109,8 @@ function renderSetup() {
     if (f && f.pos === "pre") nm.append(el("span", { class: "frag" }, f.t));
     nm.append(input);
     if (f && f.pos === "suf") nm.append(el("span", { class: "frag" }, (f.sp ? " " : "") + f.t));
-    const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? " · 새겨진 말이 붙어 있음" : " · 새겨진 말 없음"}`)), nm, btn);
+    const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? (b.hint ? " · 힌트가 붙어 있음" : " · 새겨진 말이 붙어 있음") : " · 새겨진 말 없음"}`)), nm, btn);
+    if (b.hint) card.insertBefore(el("div", { class: "hintline" + (b.orb ? (b.orb.hint && b.orb.hint.ok ? " ok" : " miss") : "") }, el("b", {}, `힌트: ${b.hint.label}`), ` — ${b.hint.text}`, el("small", {}, b.orb ? (b.orb.hint && b.orb.hint.ok ? " ✓ 일치! 효과가 커졌습니다" : " ✗ 이번 이름은 이 계열이 아니었어요") : " · 따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요)")), btn);
     if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });

@@ -46,6 +46,7 @@ main{min-height:0;overflow:auto}
 .namebox input{flex:1;min-width:0;background:transparent;border:0;padding:10px 12px;font-size:17px;outline:none}
 .namebox input:disabled{color:var(--mute)}
 .frag{display:grid;place-items:center;padding:0 12px;background:rgba(227,176,79,.16);color:var(--brass);font-weight:700;font-size:17px;white-space:pre}
+.hintline{font-size:14px;line-height:1.5;padding:8px 10px;border-radius:10px;background:rgba(227,176,79,.10);border:1px dashed rgba(227,176,79,.45)}.hintline b{color:var(--brass)}.hintline small{display:block;color:var(--mute);font-size:12.5px}.hintline.ok{background:rgba(111,211,168,.10);border:1px solid rgba(111,211,168,.4)}.hintline.ok small{color:#6fd3a8}.hintline.miss small{color:var(--mute)}
 .made{border-radius:12px;padding:12px;background:rgba(111,211,168,.08);border:1px solid rgba(111,211,168,.3);font-size:14px;display:flex;gap:14px;align-items:center}
 .made .sphere{flex:none;animation:orbin .7s cubic-bezier(.2,.9,.3,1.15)}
 .made b{display:block;font-size:16px}

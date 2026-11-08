@@ -14,7 +14,7 @@ def unpack(blob):
     return pickle.loads(zlib.decompress(raw))
 def view(S):
     g = S["g"]; v = g.view()
-    v["blanks"] = [{**b, "max_typed": orbs.max_typed(b), "orb": S["written"][i]} for i, b in enumerate(S["blanks"])]
+    v["blanks"] = [{**b, "max_typed": orbs.max_typed(b), "orb": S["written"][i], "hint": orbs.hint_info(b)} for i, b in enumerate(S["blanks"])]
     v["bag_names"] = [g.inst[i]["o"]["name"] for i in g.bag]; v["blob"] = pack(S); return v
 def handle(body):
     """-> (http status, json-able dict)"""
@@ -35,9 +35,9 @@ def handle(body):
         blank = S["blanks"][i]; typed, err = orbs.check_typed(blank, str(body.get("text", "")))
         if err: return 400, {"error": err}
         full = orbs.fuse(blank, typed)
-        try: o = orbs.orb_from_jev(full)
+        try: o = orbs.orb_from_blank(blank, typed)
         except Exception as e: return 502, {"error": f"Jev 호출 실패: {str(e)[:120]}"}
-        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat")}
+        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat"), "hint": o.get("hint")}
         return 200, view(S)
     if op == "start":
         if g.phase == "setup": g.start()

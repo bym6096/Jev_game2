@@ -46,6 +46,8 @@ def describe(o):
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"
+    h = o.get("hint")
+    if h: t += f" [힌트 '{h['label']}' 일치: 효과 ×{h['mult']:g}]" if h["ok"] else f" [힌트 '{h['label']}' 불일치]"
     return t
 # 가격: 이전의 손질(측정 모델 est_total_value × 골드 수입 1.5배 등)을 value.py의 표준 가치 모델로 대체했다. Jev는 가격을 판단하지 않는다(value.py 머리말).
 def gold_income(o): return sum(m for v, m, mt in o.payload if v in ("money", "steal") or (mt == "gold" and v in ("harvest", "grow", "create")))
@@ -118,13 +120,51 @@ def orb_from_jev(full, lang="ko"):
     return to_dict(orb)
 FRAGS = [tuple(x) for x in json.load(open(os.path.join(HERE, "data", "fragments.json"), encoding="utf-8"))] if os.path.exists(os.path.join(HERE, "data", "fragments.json")) else []
 TIERS = {"낡은": (5, 1.0), "평범한": (7, .5), "깨끗한": (9, .25), "금박": (12, .1)}
+# ---- 특성 힌트(디렉터 2026-11-08): 사전단어 중 일부는 '특성 힌트 말'이다. 이 말이 붙은 빈 구슬에 **그 계열의 이름**을 새기면(Jev가 읽은 결과 효과 동사/역할이 그 특성이면) 효과가 일괄 ×1.2.
+# 힌트는 빈 구슬마다 무작위로, 없는 구슬도 많다. 힌트를 무시하고 시너지에 맞는 이름을 쓰는 것도 자유(부스터를 포기). 부스터는 가격에 반영하지 않는다(마나는 부스터 전 기준 — 그래야 이득).
+# Jev는 힌트가 붙은 구슬에서 **플레이어가 쓴 이름만** 읽는다(힌트 말이 특성을 대신 켜 주면 공짜 부스터가 되므로).
+HINT_MULT = 1.2
+HINT_SHARE = .5          # 사전단어가 붙은 빈 구슬 중 힌트 말인 비율
+TRAITS = {   # 키: (이름표, 그 특성으로 치는 효과 동사, 그 특성으로 치는 구슬 역할)
+    "burn": ("화상", {"burn"}, set()), "strike": ("타격", {"damage", "drain"}, set()), "income": ("수입", {"money", "steal", "process"}, set()), "grow": ("채집·재배", {"harvest", "grow"}, set()),
+    "build": ("건물", set(), {"build"}), "summon": ("소환", set(), {"summon"}), "guard": ("방어·회복", {"guard", "heal"}, set()), "control": ("제어·약화", {"control", "debuff"}, set()), "boost": ("증폭", {"buff", "amplify"}, set())}
+_HW = {   # 계열별 힌트 말: (앞에 붙는 말 3, 뒤에 붙는 말 3). 앞말은 "말 ___", 뒷말은 "___ 말"(띄어 씀)
+    "burn": ("불타는 화염의 잿불의", "불꽃 화염 용암"), "strike": ("맹렬한 강타 번개", "일격 폭발 화살"), "income": ("황금 상인의 금빛", "상회 은행 보물"), "grow": ("풍년의 숲속의 푸른", "농장 열매 씨앗"),
+    "build": ("석조 튼튼한 벽돌", "성채 공방 망루"), "summon": ("용병 군단의 수비대", "부대 병사 기사단"), "guard": ("철벽의 방패 치유의", "방벽 갑옷 성역"), "control": ("서리 저주받은 마비", "족쇄 안개 함정"),
+    "boost": ("증폭된 축복의 각성한", "축복 증폭 강화")}
+HINT_WORDS = [(k, pos, w, True) for k, (pre, suf) in _HW.items() for pos, ws in (("pre", pre), ("suf", suf)) for w in ws.split()]
+def trait_ok(d, trait):
+    """이름이 그 특성이었나: Jev가 읽은 결과(만들어진 구슬)의 효과 동사나 역할이 특성에 속하고, 애매한 이름(amb)이 아닐 것."""
+    if d.get("scribble") or d.get("amb") or trait not in TRAITS: return False
+    _, verbs, roles = TRAITS[trait]; vs = {p[0] for p in d["payload"]}
+    return bool(vs & verbs) or (d["role"] in roles and not d.get("hostile"))
+def apply_hint(d, trait):
+    """힌트 결과를 구슬에 새긴다. 일치하면 효과 수치 일괄 ×HINT_MULT(마나·비용은 그대로). d를 고쳐 쓰고 돌려준다."""
+    ok = trait_ok(d, trait)
+    if ok:
+        for p in d["payload"]:
+            if p[0] != "move": p[1] = max(1, round(p[1] * HINT_MULT))
+    d["hint"] = {"trait": trait, "label": TRAITS[trait][0], "ok": ok, "mult": HINT_MULT if ok else 1.0}
+    d["text"] = describe(d); return d
+def hint_info(blank):
+    f = blank.get("frag"); tr = f.get("hint") if f else None
+    return {"trait": tr, "label": TRAITS[tr][0], "mult": HINT_MULT, "text": f"이름이 '{TRAITS[tr][0]}' 계열이면 효과 ×{HINT_MULT:g}"} if tr in TRAITS else None
 def new_blank(tier, R):
-    cap, p = TIERS[tier]; fr = R.choice(FRAGS) if R.random() < p else None
-    return {"tier": tier, "cap": cap, "frag": ({"pos": fr[0], "t": fr[1], "sp": fr[2]} if fr else None)}
+    cap, p = TIERS[tier]; fr = None
+    if R.random() < p:
+        if (R.random() < HINT_SHARE) or not FRAGS: k, pos, w, sp = R.choice(HINT_WORDS); fr = {"pos": pos, "t": w, "sp": sp, "hint": k}
+        else: x = R.choice(FRAGS); fr = {"pos": x[0], "t": x[1], "sp": x[2], "hint": None}
+    return {"tier": tier, "cap": cap, "frag": fr}
 def fuse(blank, typed):
     f = blank["frag"]
     if not f: return typed
     return f"{f['t']}{' ' if f['sp'] else ''}{typed}" if f["pos"] == "pre" else f"{typed}{' ' if f['sp'] else ''}{f['t']}"
+def orb_from_blank(blank, typed, lang="ko", build=None):
+    """빈 구슬 + 플레이어가 쓴 이름 → 구슬. 힌트 말이 붙었으면 Jev는 쓴 이름만 읽고(이름표는 새긴 전체 이름), 특성이 맞으면 ×HINT_MULT."""
+    build = build or orb_from_jev; f = blank.get("frag"); hint = f.get("hint") if f else None; full = fuse(blank, typed)
+    d = build(typed if hint else full, lang); d["name"] = full
+    if hint and not d.get("scribble"): apply_hint(d, hint)
+    return d
 def max_typed(blank): return 8 - (len(blank["frag"]["t"].replace(" ", "")) if blank["frag"] else 0)
 def check_typed(blank, typed):
     c, err = forge.check_name(typed, "ko")
