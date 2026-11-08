@@ -56,6 +56,7 @@ Jev 호출은 `JEV_API_KEY`(클라우드는 프록시가 붙여 줌). 같은 이
 
 ### card-forge: 이번에 바뀐 것
 - `/forge` 기본이 **구슬 엔진**(`engine:"old"`를 보내면 옛 카드 엔진). 화면 위쪽 "구슬 엔진" 선택. `forge_orb.py`가 구슬→화면 카드 JSON(색·무늬·효과 목록·`orb` 상세)으로 바꾸고, 툴팁에 구슬 상세(역할·효과 문장·지속·범위·사거리·체력·재료·성질)가 뜬다. 구슬 엔진 카드에는 공격·방어·테마·고유효과·가챠가 없음. 효과 문구는 한국어뿐(13개 언어 입력은 받지만 질문지 측정은 ko/en만).
+- **2026-11-08 추가 반영(proto와 같은 엔진 복사본이라 자동으로 따라옴 + 화면·서버 연결)**: 시너지(반응 조건 13종·화상·종류별 증폭)·설치 인접 1칸·소환물 재료 비용·표준 가치 모델 가격 — 툴팁 조건 문구(`TRIG_KO`)와 "설치"·"힌트" 행 추가. **빈 구슬 특성 힌트**: `template.html`이 한국어 빈 구슬에 힌트 말을 섞어 뽑고(`HINTS`, `assemble.py`가 `orbs.HINT_WORDS`를 넣음 — `__HINTS__`), 힌트 줄을 보여 주며, 요청에 `typed`(쓴 이름)·`hint`(특성 키)를 같이 보냄. 서버(`server.py`·`api/forge.py`)는 `forge_orb.parse_hint`로 검증(모르는 특성·쓴 이름이 전체 이름에 없으면 400)하고 `forge_orb.forge_orb(name, lang, typed, hint)` → `orbs.orb_with_hint`(Jev는 쓴 이름만 읽고 맞으면 ×1.2). 카드 JSON에 `hint`·`orb.place` 추가. 시험 `python3 toys/card-forge/test_orb_hint.py`(Jev 없음), 로컬 서버+실 Jev+헤드리스 크롬으로 "힌트 줄 → 이름 새기기 → 일치 판정 → 툴팁" 확인. **`template.html`을 고치면 `python assemble.py`(index.html 재생성) 후 `test_orb_hint.py`가 표 일치를 검사한다.** 옛 엔진(`engine:"old"`)은 힌트를 무시.
 - 옛 엔진·유니티 내보내기·빈 구슬 등급·미리 적힌 말·파손·진열장·덱은 그대로. **미리 적힌 말은 아직 옛 목록 210개**라 결과가 흔들림(예: "사과나무 대폭발"=시전).
 
 ### 디렉터 방침·결정 (이번 세션에서 나온 것)

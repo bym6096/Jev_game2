@@ -159,12 +159,16 @@ def fuse(blank, typed):
     f = blank["frag"]
     if not f: return typed
     return f"{f['t']}{' ' if f['sp'] else ''}{typed}" if f["pos"] == "pre" else f"{typed}{' ' if f['sp'] else ''}{f['t']}"
-def orb_from_blank(blank, typed, lang="ko", build=None):
-    """빈 구슬 + 플레이어가 쓴 이름 → 구슬. 힌트 말이 붙었으면 Jev는 쓴 이름만 읽고(이름표는 새긴 전체 이름), 특성이 맞으면 ×HINT_MULT."""
-    build = build or orb_from_jev; f = blank.get("frag"); hint = f.get("hint") if f else None; full = fuse(blank, typed)
-    d = build(typed if hint else full, lang); d["name"] = full
-    if hint and not d.get("scribble"): apply_hint(d, hint)
+def orb_with_hint(full, typed, hint, lang="ko", build=None):
+    """힌트가 붙은 이름 → 구슬. Jev는 쓴 이름(typed)만 읽고, 구슬 이름은 새긴 전체 이름(full). 특성이 맞으면 효과 ×HINT_MULT. 힌트가 없으면(hint=None) 전체 이름을 그대로 읽는다.
+    프로토타입(빈 구슬 흐름)과 card-forge(서버가 클라이언트의 힌트 요청을 받을 때)가 같이 쓴다."""
+    build = build or orb_from_jev
+    d = build(typed if hint in TRAITS else full, lang); d["name"] = full
+    if hint in TRAITS and not d.get("scribble"): apply_hint(d, hint)
     return d
+def orb_from_blank(blank, typed, lang="ko", build=None):
+    """빈 구슬 + 플레이어가 쓴 이름 → 구슬(힌트 말이 붙었으면 orb_with_hint 와 같은 규칙)."""
+    f = blank.get("frag"); return orb_with_hint(fuse(blank, typed), typed, f.get("hint") if f else None, lang, build)
 def max_typed(blank): return 8 - (len(blank["frag"]["t"].replace(" ", "")) if blank["frag"] else 0)
 def check_typed(blank, typed):
     c, err = forge.check_name(typed, "ko")

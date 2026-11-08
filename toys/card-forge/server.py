@@ -67,8 +67,11 @@ class H(BaseHTTPRequestHandler):
         name, err = forge.check_name(body.get("name"), lang)
         if err:
             return self._send(400, {"error": err})
+        typed, hint, herr = forge_orb.parse_hint(body, name, lang) if body.get("engine") != "old" else (None, None, None)
+        if herr:
+            return self._send(400, {"error": herr})
         try:
-            card = forge_orb.forge_orb(name, lang) if body.get("engine") != "old" else forge.forge(name, lang)[0]   # 기본은 게임 프로토타입과 같은 구슬 엔진, "old"는 옛 카드 엔진
+            card = forge_orb.forge_orb(name, lang, typed, hint) if body.get("engine") != "old" else forge.forge(name, lang)[0]   # 기본은 게임 프로토타입과 같은 구슬 엔진(빈 구슬 힌트 포함), "old"는 옛 카드 엔진
         except Exception as e:
             return self._send(502, {"error": f"Jev 호출 실패: {e}"})
         self._send(200, card)

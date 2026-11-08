@@ -36,14 +36,29 @@ def to_card(o, name, lang):
     kd = kind_of(o); verbs = [p for p in o["payload"] if p[0] != "move"] or o["payload"]
     effects = [{"name": VERB_KO.get(v, v), "desc": orbs.vtext(v, m, mt, o), "value": min(99, int(m))} for v, m, mt in verbs]
     cost = ""
-    if o["role"] == "build" and o.get("bcost"): mt, x, y = o["bcost"]; cost = f"{orbs.RES.get(mt, mt)} {x} + 골드 {y}"
+    if o["role"] in ("build", "summon") and not o.get("hostile") and o.get("bcost"): mt, x, y = o["bcost"]; cost = f"{orbs.RES.get(mt, mt)} {x} + 골드 {y}"
+    place = engine.PLACE_RANGE if o["role"] in ("build", "summon") and not o.get("hostile") else None      # 건물·식물·소환물은 내게 인접한 칸에만 놓는다
     rng = engine.unit_range(o) if o["role"] in ("build", "summon") and not o.get("hostile") else (engine.CAST_RANGE if o["role"] == "cast" else None)
     return {"name": name, "lang": lang, "status": "ok", "engine": "orb", "element": ROLE_KO[kd], "kind": "구슬", "color": orb_color(o), "element_family": FAMILY.get(kd, 0),
             "mana": o["mana"], "mana_power": round(o["pe"], 1), "mana_stats": 0, "mana_effect": 0, "attack": 0, "defense": 0, "effect": effects[0]["name"] if effects else "", "effect_desc": o["text"], "effect_value": effects[0]["value"] if effects else 1,
-            "themes": [], "unique": False, "combo": False, "effects": effects,
+            "themes": [], "unique": False, "combo": False, "effects": effects, "hint": o.get("hint"),
             "orb": {"role": o["role"], "kind": kd, "text": o["text"], "life": o["life"], "timing": o["timing"], "trig": o["trig"], "fate": o["fate"], "rng": o["rng"], "mod": o["mod"], "hp": o["hp"], "cost": cost, "range": rng,
-                    "unit": o.get("unit"), "mv": o.get("mv"), "pe": round(o["pe"], 2), "hostile": bool(o.get("hostile")), "lvl": o.get("lvl"), "delay": o.get("delay"), "payload": [[v, m, mt] for v, m, mt in o["payload"]]}}
+                    "unit": o.get("unit"), "mv": o.get("mv"), "place": place, "pe": round(o["pe"], 2), "hostile": bool(o.get("hostile")), "lvl": o.get("lvl"), "delay": o.get("delay"), "payload": [[v, m, mt] for v, m, mt in o["payload"]]}}
 
-def forge_orb(name, lang):
-    """이름 → 구슬 카드. 프로토타입의 orbs.orb_from_jev 와 같은 Jev 요청·같은 구슬 규칙."""
-    return to_card(orbs.orb_from_jev(name, lang or "ko"), name, lang or "ko")
+def parse_hint(body, name, lang):
+    """클라이언트가 보낸 힌트 요청 검증 → (typed, hint, 오류). 힌트 말이 붙은 빈 구슬이면 name 은 새긴 전체 이름, typed 는 플레이어가 쓴 이름(그 안에 들어 있어야 함), hint 는 특성 키.
+    힌트가 없으면 (None, None, None). 잘못된 값은 오류(400)로 돌려 서버가 Jev를 부르지 않게 한다."""
+    hint = body.get("hint")
+    if hint in (None, ""): return None, None, None
+    if not isinstance(hint, str) or hint not in orbs.TRAITS: return None, None, "알 수 없는 힌트입니다"
+    import forge
+    typed, err = forge.check_name(body.get("typed"), lang)
+    if err: return None, None, err
+    if typed not in name: return None, None, "힌트 요청의 이름이 맞지 않습니다"
+    return typed, hint, None
+
+def forge_orb(name, lang, typed=None, hint=None):
+    """이름 → 구슬 카드. 프로토타입의 orbs.orb_from_jev 와 같은 Jev 요청·같은 구슬 규칙. 힌트가 붙은 빈 구슬이면(typed, hint) Jev는 쓴 이름만 읽고 특성이 맞으면 효과 ×1.2(orbs.orb_with_hint)."""
+    lang = lang or "ko"
+    o = orbs.orb_with_hint(name, typed, hint, lang) if hint else orbs.orb_from_jev(name, lang)
+    return to_card(o, name, lang)

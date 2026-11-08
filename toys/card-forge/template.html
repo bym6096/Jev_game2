@@ -40,6 +40,7 @@ button:focus-visible,.tier:focus-visible{outline:2px solid var(--fg);outline-off
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font-family:var(--f-body);cursor:pointer}
 .status{font-size:14px;min-height:20px;color:var(--muted)}
+.hintline{font-size:13.5px;line-height:1.5;padding:7px 10px;border-radius:8px;border:1px dashed #c9b27a99;background:#c9b27a14;margin-top:8px}.hintline b{color:#c9b27a}.hintline small{display:block;color:var(--muted);font-size:12px}
 .stage{width:240px;height:250px;display:grid;place-items:center}
 /* orb: a card is a bead. Jev's color -> --el, blank grade -> material (.t0-.t3), element family -> inner pattern (.f0-.f6), mana -> size (--d).
    The surface carries only the engraved name; everything else is in the hover popup (#tip). */
@@ -245,6 +246,7 @@ code{background:#0001}
       <div class="inputrow">
         <div class="namebox"><span class="frag" id="pre" hidden></span><input type="text" id="name" placeholder="이름을 쓰세요" autocomplete="off" aria-describedby="rule"><span class="frag" id="suf" hidden></span></div>
         <button id="go">새기기</button>
+        <div class="hintline" id="hintline" hidden></div>
         <button class="ghost" id="reroll" hidden>다른 빈 구슬</button>
       </div>
       <div class="hint" id="rule"></div>
@@ -302,6 +304,7 @@ const SUF_SP = ("부스러기|모형|껍데기|흉내|이호|조각|수호자|�
 const SUF_ATT = ("의 그림자|의 꿈|의 왕|의 심장|의 노래|의 축복|의 복수|의 귀환|의 역습|의 비밀|의 일기|의 편지|의 하루|"+
   "의 여름|의 겨울|의 사과|의 선물|의 저주|의 사촌|의 친구|의 적|의 유언|의 전설|의 엄마|의 주인|들|님").split("|").map(t=>({t,pos:"suf"}));
 const FRAGS = [...PRE, ...SUF_SP, ...SUF_ATT];
+const HINTS = __HINTS__;   // 빈 구슬 특성 힌트(한국어): 사전단어 중 일부는 '이름이 이 계열이면 효과 ×1.2' 힌트 말(proto/orbs.py 의 HINT_WORDS 와 같은 표, assemble.py 가 넣음)
 const FRAGS_BY_LANG = {ko: FRAGS, ...__FRAGS__};   // other languages: fragments.py (words that never change with the name)
 const LANGS = __LANGS__;   // same table as forge.LANGUAGES (letters allowed, length cap, ...)
 const MAX_RAW = __MAX_RAW__;
@@ -345,8 +348,9 @@ function cleanCard(c){
   if(c.orb && typeof c.orb === "object"){   // 구슬 엔진(게임 프로토타입과 같은 엔진)이 만든 구슬의 상세
     const q = c.orb, sn = (v, n) => v == null ? null : cNum(v, 0, 999, 0);
     o.engine = "orb";
+    if(c.hint && typeof c.hint === "object") o.hint = {trait:cStr(c.hint.trait,12), label:cStr(c.hint.label,12), ok:!!c.hint.ok, mult:Number(c.hint.mult) || 1};
     o.orb = {role:cStr(q.role,12), kind:cStr(q.kind,12), text:cStr(q.text,300), life:cStr(q.life,12), timing:cStr(q.timing,12), trig:cStr(q.trig,12), fate:cStr(q.fate,12), rng:cStr(q.rng,12), mod:q.mod ? cStr(q.mod,12) : null,
-      hp:cNum(q.hp,0,999,1), cost:cStr(q.cost,40), range:sn(q.range), unit:q.unit ? cStr(q.unit,12) : null, mv:sn(q.mv), pe:Number(q.pe) || 0, hostile:!!q.hostile, lvl:cNum(q.lvl,0,99,1), delay:cNum(q.delay,0,99,1),
+      hp:cNum(q.hp,0,999,1), cost:cStr(q.cost,40), range:sn(q.range), place:sn(q.place), unit:q.unit ? cStr(q.unit,12) : null, mv:sn(q.mv), pe:Number(q.pe) || 0, hostile:!!q.hostile, lvl:cNum(q.lvl,0,99,1), delay:cNum(q.delay,0,99,1),
       payload:cList(q.payload, 6, p => Array.isArray(p) ? [cStr(p[0],20), cNum(p[1],0,999,0), p[2] ? cStr(p[2],12) : null] : null)}; }
   if(c.alt && typeof c.alt === "object"){   // runner-up readings for the gacha; only a fresh server card carries them
     const t = (a, n) => Array.isArray(a) && a.length >= n ? a : null;
@@ -370,13 +374,15 @@ function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",
 
 // --- blank card selection ---
 let tier = 1, frag = null;
-function drawBlank(keepStatus){ const T=TIERS[tier]; const fl = FRAGS_BY_LANG[curLang]; frag = (fl && Math.random()<T.frag) ? fl[Math.floor(Math.random()*fl.length)] : null; renderBlank(keepStatus); }
+function drawBlank(keepStatus){ const T=TIERS[tier]; const fl = FRAGS_BY_LANG[curLang]; frag = (fl && Math.random()<T.frag) ? ((curLang==="ko" && Math.random()<HINTS.share) ? hintPick() : fl[Math.floor(Math.random()*fl.length)]) : null; renderBlank(keepStatus); }
+function hintPick(){ const w=HINTS.words[Math.floor(Math.random()*HINTS.words.length)]; return {t:w.t, pos:w.pos, sp:w.sp, hint:w.k, label:w.label}; }
 function renderBlank(keepStatus){
   $("tiers").innerHTML = TIERS.map((T,i)=>`<button class="tier" aria-pressed="${i===tier}" data-t="${i}"><b>${T.name}</b><span>마나 한계 ${T.cap} · 값 ${T.price}${FRAGS_BY_LANG[curLang]?` · 미리 적힌 말 ${Math.round(T.frag*100)}%`:""}</span></button>`).join("");
   $("pre").textContent=""; $("suf").textContent="";   // a hidden slot must not keep the previous language's word
   $("pre").hidden = !(frag && frag.pos==="pre"); $("suf").hidden = !(frag && frag.pos==="suf");
   if(frag){ (frag.pos==="pre"?$("pre"):$("suf")).textContent = frag.t; }
   $("reroll").hidden = TIERS[tier].frag===0 || !FRAGS_BY_LANG[curLang];
+  const hl=$("hintline"); hl.hidden=!(frag&&frag.hint); if(frag&&frag.hint) hl.innerHTML=`<b>힌트: ${esc(frag.label)}</b> — 이름이 '${esc(frag.label)}' 계열이면 효과 ×${HINTS.mult}<small>따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요). 힌트 말은 Jev가 읽지 않고, 내가 쓴 이름만 읽습니다.</small>`;
   if(!keepStatus) updateCount();
 }
 const compose = typed => { typed=typed.trim(); if(!frag) return typed; if(!typed) return "";
@@ -493,7 +499,7 @@ function manaWhy(c){
   return STATLESS.has(c.kind) ? ` (이름의 힘 ${c.mana_power}${fx})` : ` (이름의 힘 ${c.mana_power} · 수치 ${c.mana_stats} 중 큰 쪽${fx})`;
 }
 // --- the popup: what a bead holds, shown while the pointer (or focus) is on it ---
-const LIFE_KO = {instant:"즉발", turns:"3턴", stage:"한 스테이지", run:"한 런", forever:"영구"}, TIMING_KO = {now:"즉시", delayed:"지연", repeating:"매 턴"}, TRIG_KO = {none:"없음", hit:"피격 시", death:"사망 시", orb:"다른 구슬을 쓸 때", approach:"적이 다가오면"},
+const LIFE_KO = {instant:"즉발", turns:"3턴", stage:"한 스테이지", run:"한 런", forever:"영구"}, TIMING_KO = {now:"즉시", delayed:"지연", repeating:"매 턴"}, TRIG_KO = {none:"없음", hit:"피격 시", death:"사망 시(건물·소환물은 아군이 부서질 때)", orb:"다른 구슬을 쓸 때", approach:"적이 다가오면", orb_attack:"공격 구슬을 쓸 때", orb_eco:"채집·수입 구슬을 쓸 때", orb_plant:"식물 구슬을 쓸 때", orb_build:"건물 구슬을 쓸 때", orb_summon:"소환 구슬을 쓸 때", orb_defense:"방어·회복 구슬을 쓸 때", kill:"적을 처치할 때", harvest:"자원을 거둘 때"},
   RNG_KO = {single:"적 1", line:"적 2", around:"주변 무리", wide:"모든 적"}, FATE_KO = {returns:"주머니로 돌아옴", used_up:"1회용", passive:"주머니에 있으면 자동"}, MOD_KO = {scaling:"쓸수록 성장", risky:"위험", random:"무작위", network:"인접 시너지"},
   UNIT_KO = {soldier:"병사", worker:"일꾼", beast:"짐승", spirit:"정령", construct:"기계"};
 function orbBody(c){   // 구슬 엔진이 읽은 결과: 효과 문장과 구슬의 성질
@@ -501,12 +507,14 @@ function orbBody(c){   // 구슬 엔진이 읽은 결과: 효과 문장과 구�
   if(o.trig !== "none") f.push(["조건", TRIG_KO[o.trig] || o.trig]);
   if(o.role === "cast" || o.role === "build" || o.role === "summon") f.push(["범위", RNG_KO[o.rng] || o.rng]);
   if(o.range) f.push(["사거리", o.range + "칸"]);
+  if(o.place) f.push(["설치", "내게 인접한 칸(" + o.place + "칸)"]);
   if(o.role === "build" || o.role === "summon") f.push(["체력", o.hp]);
   if(o.cost) f.push(["재료", o.cost]);
   if(o.role === "summon" && o.unit) f.push(["소환물", UNIT_KO[o.unit] || o.unit]);
   if(o.role === "move" && o.mv) f.push(["이동", o.mv + "칸"]);
   if(o.mod) f.push(["성질", MOD_KO[o.mod] || o.mod]);
   f.push(["주머니", FATE_KO[o.fate] || o.fate]);
+  if(c.hint) f.push(["힌트", c.hint.label + (c.hint.ok ? " 일치 ×" + c.hint.mult : " 불일치")]);
   return `<div class="tfx"><b>${esc(c.element)}</b> ${esc(o.text)}</div><div class="tip-facts">${f.map(([a, b]) => `<span><i>${esc(a)}</i> ${esc(String(b))}</span>`).join("")}</div>`;
 }
 function tipHTML(c){
@@ -584,9 +592,10 @@ async function forgeName(typed){
   if(online!==false){
     try{
       let code=""; try{ code=localStorage.getItem("forge-code")||""; }catch(e){}
-      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code,engine:engineSel})});
+      const req={name,lang:curLang,engine:engineSel}; if(fr&&fr.hint){ const tc=checkName(typed.trim(), curLang); req.typed=tc.err?typed.trim():tc.name; req.hint=fr.hint; }
+      let r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...req,code})});
       if(r.status===403){ const c=window.prompt("입장 코드를 입력하세요"); if(c){ try{ localStorage.setItem("forge-code",c); }catch(e){}
-        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,lang:curLang,code:c,engine:engineSel})}); } }
+        r=await fetch("forge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...req,code:c})}); } }
       if(r.ok){ card=await r.json(); online=true; } else if(r.status===404||r.status===405){ online=false; } else { err=(await r.json().catch(()=>({}))).error||`오류 ${r.status}`; }
     }catch(e){ online=false; }
   }
