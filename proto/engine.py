@@ -39,6 +39,7 @@ def trig_match(cond, kind, info):
     if cond.startswith("orb_"): return kind == "orb" and cond[4:] in info.get("tags", ())
     if cond == "death": return kind == "lost"
     return cond == kind
+HP_REF = .5                                          # 구슬 수치(측정 모델의 크기 B)가 가정한 적 체력 배율. CFG['ehp']가 이보다 크면 건물·소환물·지속 피해 수치를 그 비율만큼 올린다(orbs.shape)
 PLACE_RANGE = 1                                      # 건물·식물·소환물을 놓을 수 있는 거리(내 위치에 인접한 칸만; 이동 구슬은 따로 구슬이 정한 칸 수)
 CAST_RANGE = 4                                       # 플레이어가 쓴 공격 구슬의 사거리(내 위치 기준 칸)
 UNIT_RANGE = {"soldier": 1, "worker": 1, "beast": 1, "spirit": 2, "construct": 2}   # 소환물 종류별 공격 사거리(병사는 근접)
@@ -53,7 +54,7 @@ NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
 RAW = ("wood", "ore", "food")
 STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hostile": dict(name="적 많음", enemy=1.6, trees=4, ores=3), "rich": dict(name="자원 많음", enemy=.6, trees=14, ores=10)}
 WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
-CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=4, bountyk=4, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2)
+CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=3, bountyk=3, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2)
 
 def is_plant(o):   # 식물 = 경작지를 쓰는 건물형 구슬: 재배(grow) 또는 식량 수확(harvest food)
     if o["role"] != "build" or not o["payload"]: return False

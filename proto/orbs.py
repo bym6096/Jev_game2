@@ -73,7 +73,17 @@ def shape(d, boost=None):
             p[1] = max(10, min(40, round(10 + 8 * d["pe"]))); p[2] = kind
         elif p[0] == "burn": p[1] = max(1, round(p[1] / 4))
     if d["role"] == "cast" and d["life"] in ("stage", "run", "forever") and d["rng"] == "single" and vs and vs[0] == "burn": d["rng"] = "around"      # 긴 지속은 한 마리가 아니라 무리(vendor 규칙과 같음)
-    react_scale(d); return d
+    hp_scale(d); react_scale(d); return d
+DMG_V = ("damage", "drain")
+def placed_scale(d):
+    """건물·소환물·스테이지 이상 지속 시전의 피해 수치에 곱할 배율(적 체력이 측정 모델의 가정보다 클수록 커진다). 즉발·3턴 구슬은 수치가 이미 한 방·몇 방 기준이라 1."""
+    return engine.CFG["ehp"] / engine.HP_REF if ((d["role"] in ("build", "summon") and not d.get("hostile")) or (d["role"] == "cast" and d["life"] in ("stage", "run", "forever"))) else 1.0
+def hp_scale(d):
+    s = placed_scale(d)
+    if s != 1.0:
+        for p in d["payload"]:
+            if p[0] in DMG_V: p[1] = max(1, round(p[1] * s))
+    return d
 def react_scale(d):
     """드문 사건에 반응하는 구슬은 사건 한 번에 더 세게: 매 턴 일하는 구슬(기간 동안 약 REMAIN번)과 총량이 비슷하도록 사건 수로 나눠 키운다(최대 3배).
     횟수가 정해진 즉발·3턴 반응(2회·4회)과, 플레이어 부활(death 시전)은 제외."""
@@ -172,10 +182,14 @@ def apply_mod(d, mod, word=None):
     if d.get("scribble") or mod not in MOD_RULES: return d
     r = d["role"]; placed = r in ("build", "summon") and not d.get("hostile"); usable = r == "cast" or placed
     if mod == "reverse":
+        sc = placed_scale(d)           # 건물·소환·지속의 피해 수치는 체력비로 키워져 있으니, 피해↔회복을 뒤집을 때 그만큼 보정한다
         for p in d["payload"]:
             nv = REVERSE.get(p[0])
             if not nv: continue
-            old = p[0]; p[0] = nv
+            old = p[0]
+            if old in DMG_V and nv not in DMG_V: p[1] = max(1, round(p[1] / sc))
+            elif old not in DMG_V and nv in DMG_V: p[1] = max(1, round(p[1] * sc))
+            p[0] = nv
             if nv == "buff": p[1] = max(10, min(40, round(10 + 8 * d["pe"]))); p[2] = _boost_kind([q[0] for q in d["payload"]])
             elif old == "buff": p[1] = max(1, round(d["pe"] * 3)); p[2] = None
         _scale(d, .9); _aura(d)
@@ -202,7 +216,10 @@ def apply_mod(d, mod, word=None):
     elif mod == "lasting":
         if placed: d["hp"] = max(1, round(d["hp"] * 1.5))
         elif r == "cast" and d["life"] in LIFE_UP:
-            new = LIFE_UP[d["life"]]; _scale(d, TN[new] / TN[d["life"]] * .8); d["life"] = new; _mana(d, 1); _aura(d)
+            old_s = placed_scale(d); new = LIFE_UP[d["life"]]; _scale(d, TN[new] / TN[d["life"]] * .8); d["life"] = new; _mana(d, 1); _aura(d)
+            if placed_scale(d) != old_s:       # 즉발·3턴 → 스테이지: 피해는 체력비 배율을 새로 받는다
+                for p in d["payload"]:
+                    if p[0] in DMG_V: p[1] = max(1, round(p[1] * placed_scale(d) / old_s))
     elif mod == "echo": d["echo"] = True; _mana(d, 1)
     d["fragmod"] = {"key": mod, "name": MOD_RULES[mod][0], "word": word}
     d["text"] = describe(d); return d
