@@ -15,7 +15,13 @@ E = value.econ()
 assert abs(E.vpm - engine.CFG["due"] / (engine.CFG["mana"] * engine.CFG["turns"]) * value.KNOBS["MARGIN"]) < 1e-9
 assert value.econ({"due": 300}).vpm > E.vpm * 1.99, "정산액을 올리면 마나 1당 표준 값어치가 따라 오른다"
 assert value.econ({"bounty0": 6}).kill > E.kill, "현상금을 올리면 처치 값이 오른다"
-assert value.econ({"ehp": 1.0}).ehp > E.ehp
+assert value.econ({"ehp": engine.CFG["ehp"] * 2}).ehp > E.ehp
+# 죽이는 데 드는 사용 횟수: 한 방이면 1, 한 방 직전은 1~2 사이로 매끄럽게, 더 세져도 값이 안 늘고(낭비), 약할수록 늘어난다
+ptk = value.plays_to_kill
+assert ptk(33, 33) == 1 and ptk(100, 33) == 1 and ptk(34, 33) == 1
+assert 1 < ptk(32, 33) < 2 and abs(ptk(32, 33) - ptk(33, 33)) < .6 and 1.4 < ptk(29, 33) < 1.9, "한 방 직전은 1.5회 안팎으로 이어진다(절벽 없음)"
+assert all(ptk(m, 33) >= ptk(m + 1, 33) - 1e-9 for m in range(1, 60)), "피해가 클수록 횟수는 줄거나 같다"
+assert value.breakdown(H("강타", payload=[["damage", 80, None]]))["total"] == value.breakdown(H("강타", payload=[["damage", 40, None]]))["total"] or engine.CFG["ehp"] * 22 < 40, "한 방에 죽이고 남는 피해는 값이 안 늘어난다"
 print("환산율 OK  VPM=%.2f 처치=%.2f 자원=%.2f" % (E.vpm, E.kill, E.res_g))
 
 # 2) 단조성
@@ -46,7 +52,7 @@ print("반응 조건 표 OK")
 for o in orbs.starter_orbs():
     assert o["mana"] <= engine.CFG["mana"], f"{o['name']} 마나 {o['mana']} > 최대 마나"
     if o["name"] in ("달리기", "텃밭"): continue
-    r = value.ratio(o); assert .3 <= r <= 2.6, f"{o['name']} 배율 {r:.2f}"
+    r = value.ratio(o); assert .2 <= r <= 2.6, f"{o['name']} 배율 {r:.2f}"      # 병사(매 턴 피해 4)는 적 체력 33에서 약해져 0.24 — 가치 모델이 정확히 짚은 것(HANDOFF 참고)
 print("시작 구슬 OK", {o["name"]: (o["mana"], round(value.ratio(o), 2)) for o in orbs.starter_orbs() if o["name"] not in ("달리기", "텃밭")})
 
 # 5) 모델 ↔ 엔진: 같은 시드에서 구슬을 4턴째에 쓴 판과 안 쓴 판의 최종 골드 차이

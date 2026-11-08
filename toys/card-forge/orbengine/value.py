@@ -55,12 +55,16 @@ E0 = econ()
 BAG_V = ("draw", "recycle", "trash", "peek", "tempo", "energy", "amplify")
 def _g(d, k, default=None): return d[k] if isinstance(d, dict) else getattr(d, k, default)
 
+def plays_to_kill(m, hp):
+    """적 하나(체력 hp)를 피해 m짜리로 죽이는 데 드는 **사용 횟수**(죽이는 데 마나가 얼마나 드는가의 기준). 한 방에 죽이면 1. 못 죽이면 '올림'(그 구슬만 쓸 때)과 '체력/피해 + 0.5'(마지막 타격의 낭비를 반쯤 인정, 다른 구슬이 마무리할 때) 중 작은 쪽
+    — 한 방 경계(m = hp)에서 값이 끊기지 않고 이어진다. 효과 한 번의 처치 가치 = 처치 값 ÷ 이 횟수(한 번에 죽이고 남는 피해는 낭비라 값이 더 안 늘어난다)."""
+    r = hp / max(m, 1e-9); return max(1.0, min(math.ceil(r), r + .5))
 def unit_value(v, m, mt, d, E, repeat=False):
     """효과 한 번(한 번의 적용)의 값. (값, 적을 겨냥하는가). repeat=True: 같은 적에게 되풀이해 거는 지속·건물 효과 — 약화·제어는 쌓이지 않고 갱신되므로 적용 한 번이 '한 턴 분'이다."""
     nt = E.K["NT"][_g(d, "rng", "single")]; pe = _g(d, "pe", 1.0)
     if v in ("damage", "drain"):
-        x = nt * E.kill * min(1.0, m / E.ehp) + (E.hp_g * .6 * (m // 2) if v == "drain" else 0); return x, True
-    if v == "burn": return nt * E.kill * min(1.0, engine.BURN_DMG * m * (m + 1) / 2 / E.ehp), True
+        x = nt * E.kill / plays_to_kill(m, E.ehp) + (E.hp_g * .6 * (m // 2) if v == "drain" else 0); return x, True
+    if v == "burn": return nt * E.kill / plays_to_kill(engine.BURN_DMG * m * (m + 1) / 2, E.ehp), True
     if v == "debuff": return nt * ((1 if repeat else 3) * min(3, E.eatk) * E.hp_g + E.kill * (.03 if repeat else .1)), True
     if v == "control":
         n = 1 if (repeat or _g(d, "life", "instant") in ("stage", "run", "forever")) else 1 + int(_g(d, "B", 10) // 30); return nt * n * (E.eatk * E.hp_g + E.kill * (.03 if repeat else .1)), True

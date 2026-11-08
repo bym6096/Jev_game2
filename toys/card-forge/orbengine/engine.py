@@ -53,7 +53,7 @@ NT = {"single": 1, "line": 2, "around": 6, "wide": 99}
 RAW = ("wood", "ore", "food")
 STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hostile": dict(name="적 많음", enemy=1.6, trees=4, ores=3), "rich": dict(name="자원 많음", enemy=.6, trees=14, ores=10)}
 WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
-CFG = dict(hp=100, mana=6, hand=5, ehp=.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=2, bountyk=2, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2)
+CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=4, bountyk=4, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2)
 
 def is_plant(o):   # 식물 = 경작지를 쓰는 건물형 구슬: 재배(grow) 또는 식량 수확(harvest food)
     if o["role"] != "build" or not o["payload"]: return False
