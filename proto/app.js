@@ -27,7 +27,7 @@ function el(tag, attrs = {}, ...kids) { const e = document.createElement(tag); f
 function svg(tag, attrs = {}, ...kids) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; }
 /* ---------- 구슬 모양 (card-forge 참고) ----------
    색 = 효과 종류(+이름으로 살짝 변주), 크기 = 마나, 속무늬 = 구슬 종류, 겉에는 새긴 이름만. */
-const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", remove: "#7a8a92", transform: "#c070d0", move: "#6db7ea" };
+const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", burn: "#ef6a2b", remove: "#7a8a92", transform: "#c070d0", move: "#6db7ea" };
 const MAT_COLOR = { wood: "#5fa84f", ore: "#8a97a8", food: "#9ab84a", gold: "#e0b03a" };
 const PATTERN = { build: "repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)", summon: "repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)", move: "radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)", plant: "radial-gradient(circle at 28% 72%,#fff7 0,#fff0 42%),radial-gradient(circle at 72% 30%,#fff5 0,#fff0 36%)" };
 const hash = (str) => { let h = 2166136261; for (const c of str) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
@@ -67,7 +67,7 @@ function sphere(o, d = orbSize(o)) {
   return el("div", { class: "sphere" + (o.scribble ? " scribble" : ""), style: `--el:${orbColor(o)};--d:${d}px;--fs:${e.fs.toFixed(1)}px;--pat:${PATTERN[kindOf(o)] || "none"}` }, eng);
 }
 // 구슬 밑에 한 줄로 보이는 효과 요약(자세한 문장은 오른쪽 정보창)
-const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: () => "강화", debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
+const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: (m, t) => `${BOOST_KO[t] || "피해"} +${m}%`, burn: (m) => `화상 ${m}`, debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
 function brief(o) { if (o.scribble) return "낙서"; if (o.role === "move") return `${o.mv || 2}칸`; return (o.payload || []).filter((p) => p[0] !== "move").slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
 const bcostText = (o) => o.role === "build" && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
 
@@ -241,18 +241,20 @@ function inspectUnit(u) {
   const d = u.d, hp = `체력 ${d.hp}/${d.max}`;
   const box = $("inspect");
   if (u.kind === "p") box.replaceChildren(el("b", {}, "나"), el("div", { class: "sub" }, `체력 ${st.hp}/${st.max_hp}${st.shield ? ` · 방어 ${st.shield}` : ""}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다. 이동 구슬로 자리를 옮길 수 있습니다."));
-  else if (u.kind === "e") box.replaceChildren(el("b", {}, `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
+  else if (u.kind === "e") box.replaceChildren(el("b", {}, `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : "", d.burn ? `화상 ${d.burn}` : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
   else box.replaceChildren(...[el("b", {}, d.name), el("div", { class: "sub" }, `${d.kind === "plant" ? "식물" : u.kind === "b" ? "건물" : "소환물"} · ${hp}`), d.kind === "plant" ? el("p", {}, d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null, d.text ? el("p", { class: "sub" }, d.text) : null].filter(Boolean));
 }
 let fxGroups = [];
-const COND_KO = { hit: "피격 시", death: "사망 시", orb: "다른 구슬을 쓸 때", approach: "적이 다가오면" };
+const COND_KO = { hit: "피격 시", death: "사망 시", orb: "다른 구슬을 쓸 때", approach: "적이 다가오면", orb_attack: "공격 구슬을 쓸 때", orb_eco: "채집·수입 구슬을 쓸 때", orb_plant: "식물 구슬을 쓸 때", orb_build: "건물 구슬을 쓸 때", orb_summon: "소환 구슬을 쓸 때", orb_defense: "방어·회복 구슬을 쓸 때", kill: "적을 처치할 때", harvest: "자원을 거둘 때" };
+const BOOST_KO = { dmg: "피해", burn: "화상", income: "골드 수입", growth: "채집·재배", defense: "방어·회복", unit: "건물·소환물" };
 function groupFx() {
   const m = new Map(); st.fx.forEach((f) => { const k = f.name + "|" + f.kind; const g = m.get(k) || { f, n: 0 }; g.n++; m.set(k, g); }); return [...m.values()];
 }
 function fxInfo(g) {   // 작동 중인 효과 하나의 설명: 종류·남은 시간·발동 조건·문구
-  const f = g.f, rows = [], kind = f.kind === "dur" ? "지속 효과" : f.kind === "trig" ? "조건부 효과" : "대기 중인 효과";
+  const f = g.f, rows = [], kind = f.kind === "dur" ? "지속 효과" : f.kind === "trig" ? "조건부 효과" : f.kind === "mult" ? "증폭" : "대기 중인 효과";
   if (f.kind === "dur") { rows.push(["남은 시간", f.left == null ? "이번 스테이지가 끝날 때까지" : `${f.left}턴`]); if (f.charges != null && f.charges < 99) rows.push(["남은 횟수", `${f.charges}회`]); }
-  if (f.kind === "trig") { rows.push(["발동 조건", COND_KO[f.cond] || f.cond]); if (f.uses != null) rows.push(["남은 발동", `${f.uses}회`]); }
+  if (f.kind === "trig") { rows.push(["발동 조건", COND_KO[f.cond] || f.cond]); if (f.uses != null && f.uses < 1000) rows.push(["남은 발동", `${f.uses}회`]); else rows.push(["남은 발동", "이번 스테이지가 끝날 때까지 (턴당 최대 2회)"]); }
+  if (f.kind === "mult") { rows.push(["키우는 것", BOOST_KO[f.stat] || f.stat]); rows.push(["증폭", `+${f.pct}% (다른 구슬과 합산)`]); rows.push(["남은 시간", f.left == null ? "이번 스테이지가 끝날 때까지" : `${f.left}턴`]); }
   if (f.kind === "delay") rows.push(["발동", f.at - st.turn <= 0 ? "이번 턴 종료 시" : `${f.at - st.turn}턴 뒤 (${f.at}턴)`]);
   if (g.n > 1) rows.push(["겹침", `${g.n}개 (각각 따로 작동)`]);
   return { title: f.name, kind, rows, text: f.text };
@@ -469,7 +471,7 @@ function tipUnit(u) {
     if (u.kind === "p") return el("div", { class: "tipbox" }, el("div", { class: "tiph" }, el("b", {}, "나")), tipRow("체력", `${st.hp}/${st.max_hp}`), st.shield ? tipRow("방어", `+${st.shield}`) : null, tipRow("마나", `${st.mana}/${st.max_mana}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다."));
     if (u.kind === "e") {
       const mv = pv && pv.moves.find((m) => m.id === d.id);
-      return el("div", { class: "tipbox r-enemy" }, el("div", { class: "tiph" }, el("b", {}, `적 Lv${d.lvl}`)), tipRow("체력", hp, "down"), d.stun ? tipRow("상태", "행동 불가") : null, d.weak ? tipRow("상태", "약화(피해 ×1.5로 받음)") : null,
+      return el("div", { class: "tipbox r-enemy" }, el("div", { class: "tiph" }, el("b", {}, `적 Lv${d.lvl}`)), tipRow("체력", hp, "down"), d.stun ? tipRow("상태", "행동 불가") : null, d.weak ? tipRow("상태", "약화(피해 ×1.5로 받음)") : null, d.burn ? tipRow("상태", `화상 ${d.burn}중첩 (턴마다 ${d.burn * 2} 피해)`, "down") : null,
         el("p", {}, d.stun ? "이번 턴에는 움직이지 못합니다." : "가장자리에서 걸어와 길을 막은 건물·식물·소환물을 공격합니다."), pv ? el("div", { class: "tiphint" }, mv ? "이번 턴 종료 시: 한 칸 이동" : "이번 턴 종료 시: 제자리(공격 중일 수 있음)") : null);
     }
     const hit = pv && pv.own.find((o) => o.id === d.id), plant = d.kind === "plant";
@@ -499,7 +501,7 @@ wireTips();
 
 
 /* ---------- 대상 고르기 표시 · 사거리 표시 ---------- */
-const ENEMY_V = ["damage", "drain", "debuff", "control"];
+const ENEMY_V = ["damage", "drain", "debuff", "control", "burn"];
 const AUTO_TG = { single: "가장 가까운 적 1", line: "가까운 적 2", around: "가장 가까운 적 주변 무리(1칸)", wide: "사거리 안의 모든 적" };
 const hexd = (q1, r1, q2, r2) => (Math.abs(q1 - q2) + Math.abs(r1 - r2) + Math.abs(q1 - q2 + r1 - r2)) / 2;
 function rangeRows(d) {
@@ -536,7 +538,7 @@ function clearAoe() { for (const x of units.values()) x.g.classList.remove("tgt-
 
 /* ---------- 간단한 이펙트: 공격 줄·충격·생산 숫자·발동 표시 (서버가 돌려준 events를 순서대로) ---------- */
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const BOLT = { damage: "#ffd36b", drain: "#e0558a", debuff: "#a98cf5", control: "#6db7ea", enemy: "#ef7b7b" };
+const BOLT = { damage: "#ffd36b", burn: "#ef6a2b", drain: "#e0558a", debuff: "#a98cf5", control: "#6db7ea", enemy: "#ef7b7b" };
 async function playEvents(evs) {
   if (!evs || !evs.length || !fxLayer) return;
   if (previewLayer) previewLayer.innerHTML = "";

@@ -7,10 +7,10 @@ if ENG not in sys.path: sys.path.insert(0, ENG)
 import orbs, engine                       # orbengine/ (proto의 복사본). orbs.py가 이 폴더의 forge.py(call_jev)를 쓴다
 
 ROLE_KO = {"cast": "시전", "build": "건물", "summon": "소환", "move": "이동", "plant": "식물"}
-VERB_KO = {"damage": "피해", "drain": "흡수", "guard": "방어", "heal": "회복", "money": "골드", "steal": "탈취", "harvest": "채집", "grow": "재배", "process": "가공", "buff": "강화", "debuff": "약화",
+VERB_KO = {"damage": "피해", "drain": "흡수", "guard": "방어", "heal": "회복", "money": "골드", "steal": "탈취", "harvest": "채집", "grow": "재배", "process": "가공", "buff": "증폭", "burn": "화상", "debuff": "약화",
            "control": "행동 불가", "draw": "더 뽑기", "recycle": "되돌림", "trash": "폐기", "peek": "엿보기", "tempo": "마나", "energy": "마나", "create": "생성", "amplify": "증폭", "remove": "제거", "transform": "변환", "move": "이동"}
 # 구슬 색: proto/app.js 의 orbColor 와 같은 규칙(효과 종류 → 기본색, 이름으로 색조·채도·밝기를 조금 변주)
-VERB_COLOR = {"damage": "#d8503f", "drain": "#b8325a", "guard": "#4b86dc", "heal": "#4cbf86", "money": "#e0b03a", "steal": "#c99a2e", "process": "#d19a3e", "grow": "#7cbf4f", "buff": "#e5863a", "debuff": "#8f6bd8",
+VERB_COLOR = {"damage": "#d8503f", "drain": "#b8325a", "guard": "#4b86dc", "heal": "#4cbf86", "money": "#e0b03a", "steal": "#c99a2e", "process": "#d19a3e", "grow": "#7cbf4f", "buff": "#e5863a", "burn": "#ef6a2b", "debuff": "#8f6bd8",
               "control": "#6c5fd0", "draw": "#37b6c8", "recycle": "#37b6c8", "trash": "#6e8796", "peek": "#58a8d8", "tempo": "#3aa0e8", "energy": "#3aa0e8", "create": "#d36ec0", "amplify": "#e060a0",
               "remove": "#7a8a92", "transform": "#c070d0", "move": "#6db7ea"}
 MAT_COLOR = {"wood": "#5fa84f", "ore": "#8a97a8", "food": "#9ab84a", "gold": "#e0b03a"}
