@@ -55,6 +55,7 @@ def describe(o):
     if o.get("echo"): t += " [메아리: 쓰면 사본이 이번 턴 손패에 생김]"
     fm = o.get("fragmod")
     if fm: t += f" [사전단어 '{fm['word']}': {fm['name']}]" if fm.get("word") else f" [사전단어: {fm['name']}]"
+    if o.get("themes"): t += " [결: " + "·".join(THEMES[k][0] for k in o["themes"] if k in THEMES) + "]"
     h = o.get("hint")
     if h: t += f" [힌트 '{h['label']}' 일치: 효과 ×{h['mult']:g}]" if h["ok"] else f" [힌트 '{h['label']}' 불일치]"
     return t
@@ -122,15 +123,20 @@ def _hand(name, **kw):
 # 손으로 만든 시작 구슬(측정 데이터 없이 규칙만 시험): 이동 구슬 하나, 식물 구슬 하나. 나머지 8개는 sync_vendor.py가 Jev 측정값으로 만든다.
 HAND_STARTERS = [_hand("달리기", role="move", payload=[["move", 0, None]], mana=1, mv=2),
                  _hand("텃밭", role="build", payload=[["grow", 5, "food"]], life="run", timing="repeating", mat="food", mana=2, hp=10, bcost=["food", 1, 1], unit="worker")]
-def starter_orbs(): return json.load(open(os.path.join(HERE, "data", "starter_orbs.json"), encoding="utf-8")) + [dict(o) for o in HAND_STARTERS]      # 옛 시작 주머니(견본 10개): 시험·봇의 기준선
+STARTER_THEMES = {"금화 주머니": ["town"], "화염검": ["war", "fire"], "방패": ["war"], "곡괭이": ["machine"], "병사": ["war"], "벌목장": ["nature"], "광산": ["machine"], "달리기": ["daily"],
+                  "텃밭": ["nature", "food"], "녹슨 단검": ["war"], "동전 몇 닢": ["town"], "사냥꾼 오두막": ["nature"], "올가미": ["nature"], "사냥개": ["nature"], "현상금 쪽지": ["town", "war"],
+                  "작은 방앗간": ["food", "town"], "물뿌리개": ["nature", "daily"], "노점": ["town", "food"], "작은 저금통": ["town", "daily"], "손수레": ["town"], "흥정": ["town"]}      # 시작 구슬의 결은 표로(측정값·손으로 만든 구슬이라 Jev 답이 없음)
+def with_theme(d):
+    d["themes"] = list(STARTER_THEMES.get(d["name"], d.get("themes") or [])); d["text"] = describe(d); return d
+def starter_orbs(): return [with_theme(o) for o in json.load(open(os.path.join(HERE, "data", "starter_orbs.json"), encoding="utf-8")) + [dict(o) for o in HAND_STARTERS]]      # 옛 시작 주머니(견본 10개): 시험·봇의 기준선
 # ---- 초기 직업(2026-11-09 디렉터 B안): 시작 주머니 2~3종 중 하나를 고른다. 초기 직업은 일부러 약하다(기본기도 약하고 시너지도 약함) — 런 중에 이름 구슬과 (나중의) 다양한 직군으로 강해진다.
 # 가격(마나·건물 비용)은 value.py가 매기고 문구는 describe가 만든다. 수치는 임시.
 def _job_orb(name, **kw):
-    d = _hand(name, **kw); d["mana"] = value.mana_for(d); value.enforce_cost(d); d["text"] = describe(d); return d
+    d = _hand(name, **kw); d["mana"] = value.mana_for(d); value.enforce_cost(d); return with_theme(d)
 def _basics():
     return [_job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),                                # 약한 공격: 적(체력 33)을 두 번에
             _job_orb("동전 몇 닢", payload=[["money", 1, None]], pe=.5, B=8, mat="gold"),                         # 약한 돈
-            dict(HAND_STARTERS[0])]                                                                              # 달리기(이동은 모든 직업에)
+            with_theme(dict(HAND_STARTERS[0]))]                                                                  # 달리기(이동은 모든 직업에)
 JOBS = {
     "hunter": ("견습 사냥꾼", "약점을 노려 사냥하고 처치 보상으로 번다(약화 → 피해 ×1.5, 처치 보상 증폭)", lambda: [
         _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
@@ -140,7 +146,7 @@ JOBS = {
         _job_orb("현상금 쪽지", payload=[["buff", 20, "bounty"]], life="turns", pe=.8, B=12)]),
     "farmer": ("견습 농부", "식물을 키워 식량을 모으고 방앗간에서 골드로 바꾼다(식물은 영지로 남아 계속 자람, 채집·재배 증폭)", lambda: [
         _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
-        dict(HAND_STARTERS[1]), dict(HAND_STARTERS[1]),                                                          # 텃밭 ×2
+        with_theme(dict(HAND_STARTERS[1])), with_theme(dict(HAND_STARTERS[1])),                                  # 텃밭 ×2
         _job_orb("작은 방앗간", role="build", payload=[["process", 3, None]], life="run", timing="repeating", mat="food", hp=12, bcost=["wood", 3, 1], unit="worker", pe=.8, B=12),
         _job_orb("물뿌리개", payload=[["buff", 20, "growth"]], life="turns", pe=.8, B=12)]),
     "merchant": ("견습 상인", "골드를 쌓아 두고 이자로 불린다(이자는 가진 골드의 %, 골드 수입 증폭)", lambda: [
@@ -177,7 +183,7 @@ TRIGGERS = {"none": "no, it simply happens when used", "hit": "when the PLAYER i
 BOOST = ("If an orb with this name makes some kind of effect stronger, which kind would it most naturally strengthen?",
          {"dmg": "damage dealt to enemies: weapons, strength, fury", "burn": "burning and poison: fire, embers, oil, kindling", "income": "gold and trade profits: wealth, markets, greed",
           "growth": "gathering and growing resources: harvests, farms, rain, fertility", "defense": "shields and healing: armor, blessings, medicine", "unit": "buildings and summoned creatures: leadership, banners, workshops", "bounty": "rewards for defeating enemies: bounties, trophies, hunting, plunder, wanted posters"})
-def jev_request(full, lang="ko"):
+def jev_request(full, lang="ko", bag=None):
     bq = axes_v3.build_request(full, lang if lang in ("ko", "en") else "en")         # 측정된 질문지는 한국어·영어만 있다. 다른 언어는 "이 이름은 <언어>로 쓴 것" 한 줄만 덧붙인다(card-forge와 같은 방식)
     if lang not in ("ko", "en") and lang in LANG_NAMES: bq["state"] += f"\nThe orb name above is written in {LANG_NAMES[lang]}."
     bq["questions"]["verb"]["criteria"] = VERBS
@@ -186,16 +192,38 @@ def jev_request(full, lang="ko"):
     for k in ("unit", "allegiance"):
         i, o = axes_v2.CHOICES[k]; bq["questions"][k] = {"type": "choice", "instructions": i, "criteria": o}
     bq["questions"]["allegiance"] = {"type": "choice", "criteria": ALLEGIANCE[1], "instructions": ALLEGIANCE[0]}      # 측정 질문은 '보통 누구 편인가'라 늑대·용 같은 짐승이 적 웨이브가 됐다
+    for k, (_, desc) in THEMES.items(): bq["questions"]["t_" + k] = {"type": "noul", "instructions": f"Is the thing named strongly associated with {desc}?"}
+    for i, o in enumerate(pair_names(full, bag)):          # 궁합: 주머니의 다른 구슬과 양방향으로 묻고 평균(한 방향만 물으면 순서에 따라 0.1~0.26 흔들림, measurements/affinity)
+        bq["questions"][f"pa{i}"] = {"type": "noul", "instructions": PAIR_A.format(other=o)}
+        bq["questions"][f"pb{i}"] = {"type": "noul", "instructions": PAIR_B.format(other=o)}
     return bq
+# ---- 결(테마)과 인연(궁합) — 2026-11-09. 동사(무엇을 하나)와 별도로 이름의 결을 읽고, 주머니의 다른 구슬과 어울리는지 Jev가 판단한다. 측정: measurements/affinity/REPORT.md
+THEMES = {"sea": ("바다", "the sea, ships, or sea creatures"), "machine": ("기계", "machines, tools, or technology"), "nature": ("숲", "forests, plants, or wild animals"),
+          "death": ("죽음", "death, graves, or ghosts"), "holy": ("신성", "gods, temples, or the sacred"), "festival": ("축제", "parties, celebrations, or fun"),
+          "daily": ("일상", "ordinary everyday household life"), "cosmic": ("우주", "outer space, stars, or the universe"), "food": ("음식", "food, cooking, or eating"),
+          "memory": ("추억", "nostalgia, old memories, or the past"), "night": ("밤", "night, darkness, sleep, or dreams"), "war": ("전쟁", "battle, soldiers, or weapons"),
+          "fire": ("불", "fire, heat, or burning"), "weather": ("날씨", "storms, wind, rain, or the sky"), "town": ("마을", "towns, shops, money, trade, or work")}
+THEME_MIN, THEME_FALLBACK, PAIR_MAX = .6, .45, 30
+PAIR_A = "Do the thing named and \u300c{other}\u300d naturally belong together in one story, scene, or world, so that using them together would feel fitting?"
+PAIR_B = "Does \u300c{other}\u300d naturally go together with the thing named, in one story, scene, or world, so that using them together would feel fitting?"
+def pair_names(full, bag): return list(dict.fromkeys(n for n in (bag or []) if n != full))[:PAIR_MAX]
+def pick_themes(p):
+    """noul 확률 {결: p} → 결 최대 2개(0.6 이상), 없으면 가장 높은 결 하나(0.45 이상)."""
+    top = sorted(p, key=lambda k: -p[k]); hi = [k for k in top if p[k] >= THEME_MIN][:2]
+    return hi or ([top[0]] if top and p[top[0]] >= THEME_FALLBACK else [])
 ALLEGIANCE = ("If the player summoned or called the creature named on this orb, would it fight on the player's side or would it attack the player? "
               "Animals, beasts, dragons, and monsters that the player summons or tames fight for the player.",
               {"ally": "it fights for the player: a summoned or tamed creature, pet, helper, hero, worker, or familiar",
                "hostile": "it attacks the player: the name itself says enemies, invaders, a horde, pests, or a curse that brings monsters against the player"})
-def orb_from_jev(full, lang="ko"):
-    d = forge.call_jev(jev_request(full, lang)); a = d["answers"]
+def orb_from_jev(full, lang="ko", bag=None):
+    """이름 → 구슬. bag = 지금 주머니에 있는 구슬 이름들(있으면 같은 호출에서 인연을 판단해 d['aff'] = {이름: 궁합}에 담는다)."""
+    d = forge.call_jev(jev_request(full, lang, bag)); a = d["answers"]
     if a["guard"]["probabilities"].get("instructs_the_evaluator", 0) > .5: return scribble(full)
     orb = S.make_orb(full, cost_model=CM, gold_mult=GM, extra={full: [a]}); pb = a["boost"]["probabilities"]; orb.boost = max(pb, key=pb.get)       # 증폭 대상(buff 동사일 때만 쓰임)
-    return to_dict(orb)
+    out = to_dict(orb)
+    out["themes"] = pick_themes({k: a["t_" + k]["noul"] for k in THEMES if "t_" + k in a})
+    out["aff"] = {o: round((a[f"pa{i}"]["noul"] + a[f"pb{i}"]["noul"]) / 2, 3) for i, o in enumerate(pair_names(full, bag)) if f"pa{i}" in a and f"pb{i}" in a}
+    out["text"] = describe(out); return out
 TIERS = {"낡은": (5, 1.0), "평범한": (7, .5), "깨끗한": (9, .25), "금박": (12, .1)}
 # ---- 사전단어(빈 구슬에 미리 새겨진 말) — 2026-11-08 디렉터 확정: 풀은 **변환 말 144개 + 힌트 말 54개** 두 종류뿐이다(옛 '맛내기 말' 210개는 폐기, 겹치는 말은 한쪽으로).
 # 두 종류 모두 **Jev는 플레이어가 쓴 이름만 읽는다**(말이 효과를 대신 켜 주면 안 되므로). 변환 말은 표(data/fragment_mods.json, 문서 docs/FRAGMENT_MODS.md)대로 결정적으로 구슬을 바꾸고(가격 표시 마나 포함),
@@ -306,19 +334,19 @@ def fuse(blank, typed):
     f = blank["frag"]
     if not f: return typed
     return f"{f['t']}{' ' if f['sp'] else ''}{typed}" if f["pos"] == "pre" else f"{typed}{' ' if f['sp'] else ''}{f['t']}"
-def orb_with_fragment(full, typed, hint=None, mod=None, word=None, lang="ko", build=None):
+def orb_with_fragment(full, typed, hint=None, mod=None, word=None, lang="ko", build=None, bag=None):
     """사전단어가 붙은 이름 → 구슬. Jev는 쓴 이름(typed)만 읽고, 구슬 이름은 새긴 전체 이름(full). 힌트면 특성이 맞을 때 ×HINT_MULT, 변환이면 표대로 구슬을 바꾼다. 둘 다 없으면 전체 이름을 읽는다.
     프로토타입(빈 구슬 흐름)과 card-forge(서버가 클라이언트의 요청을 받을 때)가 같이 쓴다."""
-    build = build or orb_from_jev; hint = hint if hint in TRAITS else None; mod = mod if mod in MOD_RULES else None
+    build = build or ((lambda n, l: orb_from_jev(n, l, bag)) if bag else orb_from_jev); hint = hint if hint in TRAITS else None; mod = mod if mod in MOD_RULES else None
     d = build(typed if (hint or mod) else full, lang); d["name"] = full
     if d.get("scribble"): return d
     if hint: apply_hint(d, hint)
     if mod: apply_mod(d, mod, word)
     return d
 def orb_with_hint(full, typed, hint, lang="ko", build=None): return orb_with_fragment(full, typed, hint=hint, lang=lang, build=build)
-def orb_from_blank(blank, typed, lang="ko", build=None):
-    """빈 구슬 + 플레이어가 쓴 이름 → 구슬."""
-    f = blank.get("frag") or {}; return orb_with_fragment(fuse(blank, typed), typed, f.get("hint"), f.get("mod"), f.get("t"), lang, build)
+def orb_from_blank(blank, typed, lang="ko", build=None, bag=None):
+    """빈 구슬 + 플레이어가 쓴 이름 → 구슬. bag = 주머니의 구슬 이름(인연 판단용)."""
+    f = blank.get("frag") or {}; return orb_with_fragment(fuse(blank, typed), typed, f.get("hint"), f.get("mod"), f.get("t"), lang, build, bag)
 def max_typed(blank): return 8 - (len(blank["frag"]["t"].replace(" ", "")) if blank["frag"] else 0)
 def check_typed(blank, typed):
     c, err = forge.check_name(typed, "ko")

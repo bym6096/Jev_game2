@@ -36,9 +36,9 @@ def handle(body):
         blank = S["blanks"][i]; typed, err = orbs.check_typed(blank, str(body.get("text", "")))
         if err: return 400, {"error": err}
         full = orbs.fuse(blank, typed)
-        try: o = orbs.orb_from_blank(blank, typed)
+        try: o = orbs.orb_from_blank(blank, typed, bag=[g.inst[i]["o"]["name"] for i in g.bag])      # 주머니의 구슬과 인연을 같은 호출에서 판단
         except Exception as e: return 502, {"error": f"Jev 호출 실패: {str(e)[:120]}"}
-        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat"), "hint": o.get("hint"), "mod": o.get("fragmod")}
+        g.add_orb(o); S["written"][i] = {"name": full, "text": o["text"], "mana": o["mana"], "role": o["role"], "scribble": bool(o.get("scribble")), "verb": o["payload"][0][0] if o["payload"] else None, "mat": o.get("mat"), "hint": o.get("hint"), "mod": o.get("fragmod"), "themes": o.get("themes") or [], "links": [n for n, p in (o.get("aff") or {}).items() if p >= engine.AFF_LINK]}
         return 200, view(S)
     if op == "start":
         if g.phase == "setup": g.start()

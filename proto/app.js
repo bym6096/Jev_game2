@@ -113,6 +113,7 @@ function renderSetup() {
     const card = el("div", { class: "blank" }, el("h3", {}, `${b.tier} 빈 구슬`, el("small", {}, `마나 한계 ${b.cap}${f ? (h ? (isHint ? " · 힌트가 붙어 있음" : " · 변환 말이 붙어 있음") : " · 새겨진 말이 붙어 있음") : " · 새겨진 말 없음"}`)), nm, btn);
     if (h && isHint) card.insertBefore(el("div", { class: "hintline" + (b.orb ? (b.orb.hint && b.orb.hint.ok ? " ok" : " miss") : "") }, el("b", {}, `힌트: ${h.label}`), ` — ${h.text}`, el("small", {}, b.orb ? (b.orb.hint && b.orb.hint.ok ? " ✓ 일치! 효과가 커졌습니다" : " ✗ 이번 이름은 이 계열이 아니었어요") : " · 따르지 않고 다른 이름을 써도 됩니다(시너지를 우선할 수 있어요)")), btn);
     if (h && !isHint) card.insertBefore(el("div", { class: "hintline mod" + (b.orb ? " ok" : "") }, el("b", {}, `새겨진 말 '${h.word}' → ${h.label}`), ` — ${h.text}`, el("small", {}, b.orb ? " ✓ 구슬에 적용됐습니다" : " · 이 말은 Jev가 읽지 않고, 내가 쓴 이름의 구슬을 표대로 바꿉니다")), btn);
+    if (b.orb && b.orb.links) card.append(el("div", { class: "sub" }, b.orb.links.length ? `인연: ${b.orb.links.join(", ")}` : "주머니에 인연인 구슬이 아직 없습니다"));
     if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });
@@ -306,6 +307,7 @@ function renderHand() {
     const bc = bcostText(o); if (bc) cap.append(el("span", { class: "cost" }, bc.replace("비용: ", "")));
     card.append(cap);
     if (h.why) card.append(el("div", { class: "why" }, h.why));
+    else if (h.bonus > 1) card.append(el("div", { class: "bonus", title: h.bonus_why.join(" · ") }, `★ ×${h.bonus}`));      // 이번 턴에 쓴 구슬과 결이 같거나 인연
     if (n < 9) card.append(el("span", { class: "key", "aria-hidden": "true" }, String(n + 1)));
     hd.append(card);
   });
@@ -318,7 +320,8 @@ function renderHand() {
   $("undo").disabled = busy || !history.length;
   $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}${st.exh ? ` · ${st.exile_word} ${st.exh}` : ""}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
 }
-function peek(h) { $("inspect").replaceChildren(el("b", {}, h.o.name), el("div", { class: "sub" }, `${ROLE[h.o.role] || h.o.role} · 마나 ${h.o.mana}`), el("p", {}, h.o.text)); }
+const relLine = (h) => [h.links && h.links.length ? el("p", { class: "sub" }, `인연: ${h.links.join(", ")} — 같은 턴에 함께 쓰거나 이웃에 놓으면 효과 ↑`) : null, h.bonus > 1 ? el("p", { class: "up" }, `지금 쓰면 ${h.bonus_why.join(" · ")} ×${h.bonus}`) : null];
+function peek(h) { $("inspect").replaceChildren(...[el("b", {}, h.o.name), el("div", { class: "sub" }, `${ROLE[h.o.role] || h.o.role} · 마나 ${h.o.mana}`), el("p", {}, h.o.text), ...relLine(h)].filter(Boolean)); }
 
 /* ---------- 행동 ---------- */
 async function playCard(idx, tile, target) {

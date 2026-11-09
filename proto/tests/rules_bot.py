@@ -254,3 +254,25 @@ for _ in range(8): x = g.res["ore"]; g.hand = []; g.enemies = []; g.end_turn(); 
 assert g.tiles[(2, 0)]["amt"] == 40 and len(set(ore)) == 1 and ore[0] == round(6 * 1.5), ore
 assert all(t["inf"] for t in g.view()["tiles"])
 print("무한 자원 칸 OK", ore[0], "/턴")
+
+# 14) 결·인연(2026-11-09, measurements/affinity): 같은 턴에 결이 같은 구슬 = 공명 ×1.25, 인연 ×1.3, 둘 다 ×1.4. 건물·소환물은 이웃 하나당 +15%
+assert orbs.pick_themes({"sea": .9, "war": .7, "night": .65}) == ["sea", "war"] and orbs.pick_themes({"daily": .5, "town": .44}) == ["daily"] and orbs.pick_themes({"daily": .3}) == []
+A = orbs._hand("상어", payload=[["money", 10, None]], mana=1); A["themes"] = ["sea"]
+B = orbs._hand("해적선", payload=[["money", 10, None]], mana=1); B["themes"] = ["sea", "war"]; B["aff"] = {"상어": .79, "은행": .52}
+C = orbs._hand("은행", payload=[["money", 10, None]], mana=1); C["themes"] = ["town"]
+def gold_of(first, second):
+    g = engine.HexGame(orbs.starter_orbs() + [A, B, C], seed=81); g.start(); g.enemies = []
+    ids = {g.inst[i]["o"]["name"]: i for i in g.bag}; g.hand = [ids[first], ids[second]]; g.mana = 6; g.play(0); x = g.gold; g.fam_turn = collections.Counter(); g.play(0); return g.gold - x, g
+d, g = gold_of("상어", "해적선"); assert d == 14 and g.view()["hand"] == [] and frozenset(("해적선", "상어")) in g.links, d          # 결(바다) + 인연 → ×1.4
+d, _ = gold_of("은행", "해적선"); assert d == 10, d                                                                               # 0.52 < 0.6: 인연 아님, 결도 다름
+d, _ = gold_of("해적선", "상어"); assert d == 14, d                                                                               # 인연은 양쪽
+g = engine.HexGame(orbs.starter_orbs() + [A, B], seed=82); g.start(); g.enemies = []; ids = {g.inst[i]["o"]["name"]: i for i in g.bag}
+g.hand = [ids["상어"], ids["해적선"]]; g.mana = 6; g.play(0); h = g.view()["hand"][0]; assert h["bonus"] == 1.4 and h["links"] == ["상어"] and any("인연" in w for w in h["bonus_why"])
+for o in orbs.job_orbs("hunter") + orbs.starter_orbs(): assert o.get("themes"), o["name"]
+print("결·인연 OK (공명·인연·양방향·표시)")
+P1 = orbs._hand("호박밭", role="build", payload=[["money", 10, None]], life="run", hp=10, mana=1); P1["themes"] = ["nature"]
+P2 = orbs._hand("숲속 오두막", role="build", payload=[["money", 10, None]], life="run", hp=10, mana=1); P2["themes"] = ["nature"]
+g = engine.HexGame(orbs.starter_orbs() + [P1, P2], seed=83); g.start(); g.enemies = []; ids = {g.inst[i]["o"]["name"]: i for i in g.bag}
+g.hand = [ids["호박밭"], ids["숲속 오두막"]]; g.mana = 6; g.play(0, (1, 0)); g.play(0, (1, -1)); x = g.gold; g.hand = []; g.end_turn()
+assert g.gold - x == 2 * round(10 * (1 + engine.NEIGHBOR_K)), g.gold - x        # 둘 다 이웃(같은 결)이라 각각 +15%
+print("결 이웃 보너스 OK")

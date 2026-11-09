@@ -1,0 +1,1017 @@
+{
+ "themes": {
+  "sea": "the sea, ships, or sea creatures",
+  "machine": "machines, tools, or technology",
+  "nature": "forests, plants, or wild animals",
+  "death": "death, graves, or ghosts",
+  "holy": "gods, temples, or the sacred",
+  "festival": "parties, celebrations, or fun",
+  "daily": "ordinary everyday household life",
+  "cosmic": "outer space, stars, or the universe",
+  "food": "food, cooking, or eating",
+  "memory": "nostalgia, old memories, or the past",
+  "night": "night, darkness, sleep, or dreams",
+  "war": "battle, soldiers, or weapons",
+  "fire": "fire, heat, or burning",
+  "weather": "storms, wind, rain, or the sky"
+ },
+ "names": [
+  "상어",
+  "어시장",
+  "등대",
+  "해적선",
+  "거대호박",
+  "할머니의잔소리",
+  "월요일아침",
+  "은행",
+  "화염검",
+  "늑대",
+  "유령선",
+  "장례식",
+  "생일케이크",
+  "놀이공원",
+  "로봇청소기",
+  "별똥별",
+  "사냥트로피",
+  "커피",
+  "자장가",
+  "벼락",
+  "고장난시계",
+  "첫사랑",
+  "술잔치",
+  "묘지기"
+ ],
+ "bag": [
+  "상어",
+  "은행",
+  "화염검",
+  "거대호박",
+  "유령선",
+  "생일케이크",
+  "로봇청소기",
+  "자장가"
+ ],
+ "targets": [
+  "어시장",
+  "등대",
+  "해적선",
+  "장례식",
+  "놀이공원",
+  "고장난시계",
+  "묘지기",
+  "첫사랑",
+  "사냥트로피",
+  "월요일아침",
+  "커피",
+  "별똥별"
+ ],
+ "pair_q": "Do the thing named and 「{other}」 naturally belong together in one story, scene, or world, so that using them together would feel fitting?",
+ "rows": [
+  {
+   "kind": "theme",
+   "name": "상어",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.98,
+    "t_machine": 0.05,
+    "t_nature": 0.75,
+    "t_death": 0.08,
+    "t_holy": 0.04,
+    "t_festival": 0.12,
+    "t_daily": 0.06,
+    "t_cosmic": 0.02,
+    "t_food": 0.34,
+    "t_memory": 0.08,
+    "t_night": 0.09,
+    "t_war": 0.27,
+    "t_fire": 0.02,
+    "t_weather": 0.07
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "어시장",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.55,
+    "t_machine": 0.13,
+    "t_nature": 0.11,
+    "t_death": 0.12,
+    "t_holy": 0.09,
+    "t_festival": 0.22,
+    "t_daily": 0.55,
+    "t_cosmic": 0.03,
+    "t_food": 0.88,
+    "t_memory": 0.24,
+    "t_night": 0.12,
+    "t_war": 0.1,
+    "t_fire": 0.09,
+    "t_weather": 0.07
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "등대",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.95,
+    "t_machine": 0.58,
+    "t_nature": 0.04,
+    "t_death": 0.08,
+    "t_holy": 0.11,
+    "t_festival": 0.06,
+    "t_daily": 0.09,
+    "t_cosmic": 0.11,
+    "t_food": 0.02,
+    "t_memory": 0.21,
+    "t_night": 0.66,
+    "t_war": 0.07,
+    "t_fire": 0.47,
+    "t_weather": 0.47
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "해적선",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.98,
+    "t_machine": 0.49,
+    "t_nature": 0.04,
+    "t_death": 0.11,
+    "t_holy": 0.04,
+    "t_festival": 0.24,
+    "t_daily": 0.04,
+    "t_cosmic": 0.04,
+    "t_food": 0.03,
+    "t_memory": 0.22,
+    "t_night": 0.09,
+    "t_war": 0.76,
+    "t_fire": 0.07,
+    "t_weather": 0.27
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "거대호박",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.08,
+    "t_nature": 0.8,
+    "t_death": 0.19,
+    "t_holy": 0.11,
+    "t_festival": 0.29,
+    "t_daily": 0.28,
+    "t_cosmic": 0.03,
+    "t_food": 0.61,
+    "t_memory": 0.1,
+    "t_night": 0.31,
+    "t_war": 0.08,
+    "t_fire": 0.1,
+    "t_weather": 0.12
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "할머니의잔소리",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.05,
+    "t_nature": 0.05,
+    "t_death": 0.15,
+    "t_holy": 0.06,
+    "t_festival": 0.09,
+    "t_daily": 0.83,
+    "t_cosmic": 0.02,
+    "t_food": 0.1,
+    "t_memory": 0.84,
+    "t_night": 0.24,
+    "t_war": 0.06,
+    "t_fire": 0.05,
+    "t_weather": 0.06
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "월요일아침",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.09,
+    "t_nature": 0.03,
+    "t_death": 0.04,
+    "t_holy": 0.06,
+    "t_festival": 0.09,
+    "t_daily": 0.5,
+    "t_cosmic": 0.04,
+    "t_food": 0.07,
+    "t_memory": 0.17,
+    "t_night": 0.25,
+    "t_war": 0.06,
+    "t_fire": 0.06,
+    "t_weather": 0.07
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "은행",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.37,
+    "t_nature": 0.04,
+    "t_death": 0.03,
+    "t_holy": 0.06,
+    "t_festival": 0.05,
+    "t_daily": 0.26,
+    "t_cosmic": 0.02,
+    "t_food": 0.05,
+    "t_memory": 0.11,
+    "t_night": 0.05,
+    "t_war": 0.05,
+    "t_fire": 0.03,
+    "t_weather": 0.03
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "화염검",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.37,
+    "t_nature": 0.05,
+    "t_death": 0.1,
+    "t_holy": 0.12,
+    "t_festival": 0.07,
+    "t_daily": 0.04,
+    "t_cosmic": 0.04,
+    "t_food": 0.04,
+    "t_memory": 0.08,
+    "t_night": 0.04,
+    "t_war": 0.97,
+    "t_fire": 0.97,
+    "t_weather": 0.08
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "늑대",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.04,
+    "t_nature": 0.96,
+    "t_death": 0.15,
+    "t_holy": 0.09,
+    "t_festival": 0.08,
+    "t_daily": 0.08,
+    "t_cosmic": 0.02,
+    "t_food": 0.22,
+    "t_memory": 0.08,
+    "t_night": 0.5,
+    "t_war": 0.35,
+    "t_fire": 0.05,
+    "t_weather": 0.06
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "유령선",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.91,
+    "t_machine": 0.48,
+    "t_nature": 0.05,
+    "t_death": 0.93,
+    "t_holy": 0.15,
+    "t_festival": 0.11,
+    "t_daily": 0.06,
+    "t_cosmic": 0.15,
+    "t_food": 0.04,
+    "t_memory": 0.24,
+    "t_night": 0.64,
+    "t_war": 0.4,
+    "t_fire": 0.04,
+    "t_weather": 0.28
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "장례식",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.07,
+    "t_nature": 0.06,
+    "t_death": 0.98,
+    "t_holy": 0.49,
+    "t_festival": 0.03,
+    "t_daily": 0.13,
+    "t_cosmic": 0.02,
+    "t_food": 0.03,
+    "t_memory": 0.23,
+    "t_night": 0.48,
+    "t_war": 0.13,
+    "t_fire": 0.22,
+    "t_weather": 0.04
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "생일케이크",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.07,
+    "t_nature": 0.09,
+    "t_death": 0.04,
+    "t_holy": 0.1,
+    "t_festival": 0.97,
+    "t_daily": 0.54,
+    "t_cosmic": 0.02,
+    "t_food": 0.98,
+    "t_memory": 0.39,
+    "t_night": 0.09,
+    "t_war": 0.03,
+    "t_fire": 0.33,
+    "t_weather": 0.05
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "놀이공원",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.04,
+    "t_machine": 0.48,
+    "t_nature": 0.08,
+    "t_death": 0.04,
+    "t_holy": 0.04,
+    "t_festival": 0.93,
+    "t_daily": 0.06,
+    "t_cosmic": 0.03,
+    "t_food": 0.12,
+    "t_memory": 0.4,
+    "t_night": 0.13,
+    "t_war": 0.04,
+    "t_fire": 0.06,
+    "t_weather": 0.1
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "로봇청소기",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.98,
+    "t_nature": 0.03,
+    "t_death": 0.02,
+    "t_holy": 0.02,
+    "t_festival": 0.05,
+    "t_daily": 0.96,
+    "t_cosmic": 0.04,
+    "t_food": 0.04,
+    "t_memory": 0.12,
+    "t_night": 0.06,
+    "t_war": 0.06,
+    "t_fire": 0.03,
+    "t_weather": 0.03
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "별똥별",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.07,
+    "t_nature": 0.06,
+    "t_death": 0.08,
+    "t_holy": 0.16,
+    "t_festival": 0.33,
+    "t_daily": 0.1,
+    "t_cosmic": 0.96,
+    "t_food": 0.12,
+    "t_memory": 0.27,
+    "t_night": 0.88,
+    "t_war": 0.07,
+    "t_fire": 0.52,
+    "t_weather": 0.82
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "사냥트로피",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.13,
+    "t_nature": 0.93,
+    "t_death": 0.58,
+    "t_holy": 0.16,
+    "t_festival": 0.3,
+    "t_daily": 0.08,
+    "t_cosmic": 0.02,
+    "t_food": 0.1,
+    "t_memory": 0.44,
+    "t_night": 0.06,
+    "t_war": 0.66,
+    "t_fire": 0.04,
+    "t_weather": 0.03
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "커피",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.35,
+    "t_nature": 0.44,
+    "t_death": 0.04,
+    "t_holy": 0.07,
+    "t_festival": 0.2,
+    "t_daily": 0.84,
+    "t_cosmic": 0.04,
+    "t_food": 0.9,
+    "t_memory": 0.16,
+    "t_night": 0.21,
+    "t_war": 0.04,
+    "t_fire": 0.49,
+    "t_weather": 0.05
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "자장가",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.09,
+    "t_nature": 0.06,
+    "t_death": 0.22,
+    "t_holy": 0.09,
+    "t_festival": 0.11,
+    "t_daily": 0.58,
+    "t_cosmic": 0.09,
+    "t_food": 0.07,
+    "t_memory": 0.48,
+    "t_night": 0.96,
+    "t_war": 0.05,
+    "t_fire": 0.03,
+    "t_weather": 0.08
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "벼락",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.13,
+    "t_nature": 0.08,
+    "t_death": 0.12,
+    "t_holy": 0.39,
+    "t_festival": 0.08,
+    "t_daily": 0.14,
+    "t_cosmic": 0.22,
+    "t_food": 0.02,
+    "t_memory": 0.07,
+    "t_night": 0.2,
+    "t_war": 0.61,
+    "t_fire": 0.26,
+    "t_weather": 0.96
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "고장난시계",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.86,
+    "t_nature": 0.02,
+    "t_death": 0.21,
+    "t_holy": 0.05,
+    "t_festival": 0.09,
+    "t_daily": 0.65,
+    "t_cosmic": 0.05,
+    "t_food": 0.02,
+    "t_memory": 0.47,
+    "t_night": 0.21,
+    "t_war": 0.06,
+    "t_fire": 0.03,
+    "t_weather": 0.04
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "첫사랑",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.06,
+    "t_nature": 0.04,
+    "t_death": 0.05,
+    "t_holy": 0.07,
+    "t_festival": 0.18,
+    "t_daily": 0.09,
+    "t_cosmic": 0.05,
+    "t_food": 0.03,
+    "t_memory": 0.91,
+    "t_night": 0.15,
+    "t_war": 0.04,
+    "t_fire": 0.09,
+    "t_weather": 0.03
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "술잔치",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.09,
+    "t_nature": 0.07,
+    "t_death": 0.09,
+    "t_holy": 0.17,
+    "t_festival": 0.94,
+    "t_daily": 0.4,
+    "t_cosmic": 0.03,
+    "t_food": 0.71,
+    "t_memory": 0.16,
+    "t_night": 0.41,
+    "t_war": 0.1,
+    "t_fire": 0.11,
+    "t_weather": 0.06
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "묘지기",
+   "rep": 0,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.36,
+    "t_nature": 0.24,
+    "t_death": 0.96,
+    "t_holy": 0.35,
+    "t_festival": 0.08,
+    "t_daily": 0.2,
+    "t_cosmic": 0.06,
+    "t_food": 0.07,
+    "t_memory": 0.13,
+    "t_night": 0.64,
+    "t_war": 0.14,
+    "t_fire": 0.07,
+    "t_weather": 0.05
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "상어",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.98,
+    "t_machine": 0.06,
+    "t_nature": 0.81,
+    "t_death": 0.09,
+    "t_holy": 0.04,
+    "t_festival": 0.12,
+    "t_daily": 0.05,
+    "t_cosmic": 0.02,
+    "t_food": 0.36,
+    "t_memory": 0.07,
+    "t_night": 0.08,
+    "t_war": 0.34,
+    "t_fire": 0.03,
+    "t_weather": 0.07
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "어시장",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.57,
+    "t_machine": 0.14,
+    "t_nature": 0.1,
+    "t_death": 0.13,
+    "t_holy": 0.09,
+    "t_festival": 0.25,
+    "t_daily": 0.45,
+    "t_cosmic": 0.03,
+    "t_food": 0.86,
+    "t_memory": 0.24,
+    "t_night": 0.15,
+    "t_war": 0.1,
+    "t_fire": 0.09,
+    "t_weather": 0.06
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "등대",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.96,
+    "t_machine": 0.61,
+    "t_nature": 0.03,
+    "t_death": 0.07,
+    "t_holy": 0.11,
+    "t_festival": 0.05,
+    "t_daily": 0.08,
+    "t_cosmic": 0.13,
+    "t_food": 0.01,
+    "t_memory": 0.21,
+    "t_night": 0.69,
+    "t_war": 0.07,
+    "t_fire": 0.44,
+    "t_weather": 0.44
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "해적선",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.98,
+    "t_machine": 0.52,
+    "t_nature": 0.03,
+    "t_death": 0.11,
+    "t_holy": 0.04,
+    "t_festival": 0.27,
+    "t_daily": 0.04,
+    "t_cosmic": 0.04,
+    "t_food": 0.02,
+    "t_memory": 0.19,
+    "t_night": 0.08,
+    "t_war": 0.77,
+    "t_fire": 0.06,
+    "t_weather": 0.3
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "거대호박",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.03,
+    "t_machine": 0.07,
+    "t_nature": 0.81,
+    "t_death": 0.27,
+    "t_holy": 0.11,
+    "t_festival": 0.34,
+    "t_daily": 0.26,
+    "t_cosmic": 0.03,
+    "t_food": 0.64,
+    "t_memory": 0.1,
+    "t_night": 0.3,
+    "t_war": 0.08,
+    "t_fire": 0.09,
+    "t_weather": 0.12
+   }
+  },
+  {
+   "kind": "theme",
+   "name": "할머니의잔소리",
+   "rep": 1,
+   "p": {
+    "t_sea": 0.02,
+    "t_machine": 0.06,
+    "t_nature": 0.05,
+    "t_death": 0.14,
+    "t_holy": 0.06,
+    "t_festival": 0.07,
+    "t_daily": 0.84,
+    "t_cosmic": 0.02,
+    "t_food": 0.1,
+    "t_memory": 0.84,
+    "t_night": 0.25,
+    "t_war": 0.05,
+    "t_fire": 0.05,
+    "t_weather": 0.06
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "어시장",
+   "rep": 0,
+   "p": {
+    "p0": 0.68,
+    "p1": 0.67,
+    "p2": 0.4,
+    "p3": 0.27,
+    "p4": 0.51,
+    "p5": 0.28,
+    "p6": 0.36,
+    "p7": 0.19
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "등대",
+   "rep": 0,
+   "p": {
+    "p0": 0.75,
+    "p1": 0.44,
+    "p2": 0.54,
+    "p3": 0.27,
+    "p4": 0.83,
+    "p5": 0.21,
+    "p6": 0.27,
+    "p7": 0.28
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "해적선",
+   "rep": 0,
+   "p": {
+    "p0": 0.85,
+    "p1": 0.56,
+    "p2": 0.64,
+    "p3": 0.26,
+    "p4": 0.79,
+    "p5": 0.23,
+    "p6": 0.28,
+    "p7": 0.24
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "장례식",
+   "rep": 0,
+   "p": {
+    "p0": 0.2,
+    "p1": 0.35,
+    "p2": 0.49,
+    "p3": 0.23,
+    "p4": 0.6,
+    "p5": 0.29,
+    "p6": 0.3,
+    "p7": 0.29
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "놀이공원",
+   "rep": 0,
+   "p": {
+    "p0": 0.38,
+    "p1": 0.54,
+    "p2": 0.28,
+    "p3": 0.3,
+    "p4": 0.6,
+    "p5": 0.56,
+    "p6": 0.4,
+    "p7": 0.27
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "고장난시계",
+   "rep": 0,
+   "p": {
+    "p0": 0.17,
+    "p1": 0.51,
+    "p2": 0.38,
+    "p3": 0.25,
+    "p4": 0.42,
+    "p5": 0.42,
+    "p6": 0.56,
+    "p7": 0.45
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "묘지기",
+   "rep": 0,
+   "p": {
+    "p0": 0.19,
+    "p1": 0.35,
+    "p2": 0.5,
+    "p3": 0.57,
+    "p4": 0.52,
+    "p5": 0.36,
+    "p6": 0.64,
+    "p7": 0.28
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "첫사랑",
+   "rep": 0,
+   "p": {
+    "p0": 0.19,
+    "p1": 0.34,
+    "p2": 0.31,
+    "p3": 0.22,
+    "p4": 0.3,
+    "p5": 0.52,
+    "p6": 0.25,
+    "p7": 0.38
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "사냥트로피",
+   "rep": 0,
+   "p": {
+    "p0": 0.59,
+    "p1": 0.29,
+    "p2": 0.69,
+    "p3": 0.36,
+    "p4": 0.38,
+    "p5": 0.26,
+    "p6": 0.27,
+    "p7": 0.16
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "월요일아침",
+   "rep": 0,
+   "p": {
+    "p0": 0.16,
+    "p1": 0.52,
+    "p2": 0.18,
+    "p3": 0.16,
+    "p4": 0.23,
+    "p5": 0.41,
+    "p6": 0.47,
+    "p7": 0.33
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "커피",
+   "rep": 0,
+   "p": {
+    "p0": 0.17,
+    "p1": 0.51,
+    "p2": 0.31,
+    "p3": 0.25,
+    "p4": 0.28,
+    "p5": 0.72,
+    "p6": 0.5,
+    "p7": 0.37
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "별똥별",
+   "rep": 0,
+   "p": {
+    "p0": 0.18,
+    "p1": 0.23,
+    "p2": 0.58,
+    "p3": 0.34,
+    "p4": 0.51,
+    "p5": 0.58,
+    "p6": 0.34,
+    "p7": 0.52
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "어시장",
+   "rep": 1,
+   "p": {
+    "p0": 0.65,
+    "p1": 0.62,
+    "p2": 0.41,
+    "p3": 0.26,
+    "p4": 0.45,
+    "p5": 0.26,
+    "p6": 0.38,
+    "p7": 0.19
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "등대",
+   "rep": 1,
+   "p": {
+    "p0": 0.73,
+    "p1": 0.44,
+    "p2": 0.49,
+    "p3": 0.27,
+    "p4": 0.84,
+    "p5": 0.2,
+    "p6": 0.31,
+    "p7": 0.28
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "해적선",
+   "rep": 1,
+   "p": {
+    "p0": 0.85,
+    "p1": 0.5,
+    "p2": 0.66,
+    "p3": 0.23,
+    "p4": 0.79,
+    "p5": 0.24,
+    "p6": 0.24,
+    "p7": 0.24
+   }
+  },
+  {
+   "kind": "pair",
+   "name": "장례식",
+   "rep": 1,
+   "p": {
+    "p0": 0.22,
+    "p1": 0.37,
+    "p2": 0.5,
+    "p3": 0.24,
+    "p4": 0.62,
+    "p5": 0.32,
+    "p6": 0.3,
+    "p7": 0.22
+   }
+  },
+  {
+   "kind": "rev",
+   "name": "상어",
+   "rep": 0,
+   "p": {
+    "p0": 0.69,
+    "p1": 0.68,
+    "p2": 0.8,
+    "p3": 0.31,
+    "p4": 0.4,
+    "p5": 0.33,
+    "p6": 0.26,
+    "p7": 0.31,
+    "p8": 0.66,
+    "p9": 0.23,
+    "p10": 0.32,
+    "p11": 0.25
+   }
+  },
+  {
+   "kind": "rev",
+   "name": "은행",
+   "rep": 0,
+   "p": {
+    "p0": 0.54,
+    "p1": 0.35,
+    "p2": 0.42,
+    "p3": 0.27,
+    "p4": 0.37,
+    "p5": 0.38,
+    "p6": 0.29,
+    "p7": 0.32,
+    "p8": 0.22,
+    "p9": 0.41,
+    "p10": 0.6,
+    "p11": 0.23
+   }
+  },
+  {
+   "kind": "rev",
+   "name": "화염검",
+   "rep": 0,
+   "p": {
+    "p0": 0.31,
+    "p1": 0.52,
+    "p2": 0.51,
+    "p3": 0.33,
+    "p4": 0.26,
+    "p5": 0.32,
+    "p6": 0.39,
+    "p7": 0.35,
+    "p8": 0.43,
+    "p9": 0.16,
+    "p10": 0.29,
+    "p11": 0.5
+   }
+  },
+  {
+   "kind": "rev",
+   "name": "거대호박",
+   "rep": 0,
+   "p": {
+    "p0": 0.43,
+    "p1": 0.38,
+    "p2": 0.32,
+    "p3": 0.25,
+    "p4": 0.34,
+    "p5": 0.33,
+    "p6": 0.5,
+    "p7": 0.21,
+    "p8": 0.35,
+    "p9": 0.18,
+    "p10": 0.3,
+    "p11": 0.38
+   }
+  }
+ ]
+}

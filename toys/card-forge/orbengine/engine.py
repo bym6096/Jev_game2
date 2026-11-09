@@ -17,6 +17,9 @@ FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn"
        "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 ENEMY_V = ("damage", "drain", "debuff", "control", "burn")   # 적을 겨냥하는 동사
 TURN_V = ("draw", "recycle", "tempo", "energy", "peek", "trash")
+THEME_KO = {"sea": "바다", "machine": "기계", "nature": "숲", "death": "죽음", "holy": "신성", "festival": "축제", "daily": "일상", "cosmic": "우주", "food": "음식",
+            "memory": "추억", "night": "밤", "war": "전쟁", "fire": "불", "weather": "날씨", "town": "마을"}
+RESONANCE, LINK_MULT, BOTH_MULT, AFF_LINK, NEIGHBOR_K, NEIGHBOR_MAX = 1.25, 1.3, 1.4, .6, .15, 3     # 결·인연(2026-11-09, measurements/affinity): 같은 턴 결 공명 ×1.25, 인연 ×1.3, 둘 다 ×1.4; 이웃 하나당 +15%(최대 3)
 EXILE_KO = "빛바램"                                          # 스테이지 동안 순환에서 빠지는 것의 이름(2026-11-09 디렉터: 슬레이 더 스파이어의 "소멸"과 겹치지 않게). 다음 스테이지엔 다시 빛난다
 def draw_n(o): return 1 + int(o["pe"] // 2.5)                       # '더 뽑기'로 뽑는 구슬 수
 def energy_gain(o): return max(2, 1 + int(o["pe"] // 1.5))          # '마나 충전'으로 얻는 마나(최소 2: 가격 1을 내고도 남게)              # 그 턴의 손패·마나에 작용하는 동사(턴 끝에 생기면 다음 턴으로 미룬다)
@@ -108,7 +111,24 @@ class HexGame:
         s.stage_kills = 0; s.gold_hist = []; s.warned = set()
     # ---- bag
     def add_orb(s, o):
-        i = s.nid; s.nid += 1; s.inst[i] = {"id": i, "o": copy.deepcopy(o), "uses": 0}; s.bag.append(i); return i
+        i = s.nid; s.nid += 1; s.inst[i] = {"id": i, "o": copy.deepcopy(o), "uses": 0}; s.bag.append(i)
+        s.links = getattr(s, "links", set())
+        for other, p in (o.get("aff") or {}).items():          # 인연: Jev가 만든 궁합(양방향 평균)이 문턱 이상이면 이름 쌍으로 이어 둔다
+            if p >= AFF_LINK and other != o["name"]: s.links.add(frozenset((o["name"], other)))
+        return i
+    def linked(s, a, b): return frozenset((a["name"], b["name"])) in getattr(s, "links", set())
+    def kinship(s, a, b):
+        """두 구슬의 관계: (같은 결들, 인연인가)."""
+        return set(a.get("themes") or []) & set(b.get("themes") or []), s.linked(a, b)
+    def link_bonus(s, o):
+        """이번 턴에 이미 쓴 구슬과의 관계로 정해지는 배율과 설명(같은 결 = 공명, 인연)."""
+        th, ln = set(), []
+        for p in getattr(s, "turn_played", []):
+            t, l = s.kinship(o, p); th |= t
+            if l: ln.append(p["name"])
+        mult = BOTH_MULT if (th and ln) else LINK_MULT if ln else RESONANCE if th else 1.0
+        why = ([f"공명({'·'.join(THEME_KO.get(k, k) for k in sorted(th))})"] if th else []) + ([f"인연({', '.join(dict.fromkeys(ln))})"] if ln else [])
+        return mult, why
     def log(s, t): s.logs.append(t); s.logs = s.logs[-60:]; s.recent = getattr(s, "recent", []) + [t]
     def tile_amt(s): return round(s.cfg["tile_amt"] * s.R.uniform(.75, 1.25))   # 자원 칸 하나의 양(스테이지당 수십)
     def ev(s, what, a, b=None, **kw):   # 화면 이펙트용 사건 기록(공격·생산·발동). 위치는 칸 좌표
@@ -145,6 +165,7 @@ class HexGame:
         s.gold_hist.append(s.gold)
         for f in s.fx: f["tn"] = 0                              # 반응의 턴당 횟수 초기화
         for b in s.buildings + s.summons + getattr(s, "estates", []): b["tn"] = 0
+        s.turn_played = []
         s.disc += [i for i in s.hand if not s.inst[i]["o"].get("copy")]; s.hand = []; s.mana = s.max_mana; s.fam_turn = collections.Counter(); s.drawn(s.cfg["hand"])
         s.ending = False; pend = getattr(s, "pending", []); s.pending = []
         if pend:
@@ -221,7 +242,11 @@ class HexGame:
             s.pick = target
         s.mana -= o["mana"]; it["uses"] += 1; s.stats["plays"] += 1; s.cur_iid = iid; s.choice = None
         s.emit("orb", tags=tags(o), name=o["name"])         # 이미 깔려 있는 반응이 먼저 반응한다(이 구슬 자신의 반응은 아래에서 깔리므로 자기 자신에겐 안 터짐)
-        fam = FAM.get(o["payload"][0][0], "misc"); fm = s.cfg["fam_decay"] ** s.fam_turn[fam]; 
+        fam = FAM.get(o["payload"][0][0], "misc"); fm = s.cfg["fam_decay"] ** s.fam_turn[fam]
+        lm, why = s.link_bonus(o)
+        if lm > 1 and o["role"] in ("cast", "move"):              # 시전·이동 구슬: 이번 턴에 쓴 구슬과 결이 같거나 인연이면 효과가 커진다(건물·소환물은 이웃으로 받음)
+            fm *= lm; s.stats["links"] += 1; s.ev("pop", s.pos, text=f"{' '.join(why)} ×{lm:g}", tone="trig"); s.log(f"{o['name']}: {' · '.join(why)} ×{lm:g}")
+        s.turn_played = getattr(s, "turn_played", []) + [o]
         if o["role"] in ("build", "summon") and not o["hostile"] and o.get("bcost"):
             mt, x, y = o["bcost"]
             if mt == "gold": s.gold -= x + y
@@ -347,6 +372,8 @@ class HexGame:
                     x = m * (1 + .1 * max(0, it["uses"] - 1)) + it.get("frac", 0); m = int(x); it["frac"] = x - m
             if o["mod"] == "risky": s.hp -= max(1, m // 4)
             if building:
+                nbn = sum(1 for x in s.buildings + s.summons if x is not building and hd((x["q"], x["r"]), src) == 1 and any(s.kinship(o, x["o"])))
+                if nbn: m = round(m * (1 + NEIGHBOR_K * min(NEIGHBOR_MAX, nbn))); s.stats["neighbor_bonus"] += 1      # 이웃에 결이 같거나 인연인 건물·소환물
                 fams = {FAM.get(x["o"]["payload"][0][0]) for x in s.buildings if hd((x["q"], x["r"]), src) == 1 and x is not building} - {FAM.get(o["payload"][0][0])}
                 if fams: m = round(m * (1 + .2 * len(fams))); s.stats["adj_bonus"] += 1
             bonus = 1 + s.dmgb
@@ -601,17 +628,21 @@ class HexGame:
         for idx, iid in enumerate(s.hand):
             o = s.inst[iid]["o"]; why = s.reason(iid) if s.phase == "play" else "대기"
             vt = s.valid_tiles(iid) if (s.needs_tile(o) and not why) else []
-            playable.append({"idx": idx, "iid": iid, "o": o, "why": why, "need_tile": s.needs_tile(o), "need_target": bool(s.needs_target(o) and not why), "target_ids": [e["id"] for e in s.in_range()] if (s.needs_target(o) and not why) else [], "tiles": [list(t) for t in vt], "hint": [list(t) for t in vt if s.tile_hint(o, t)]})
+            lm, lwhy = s.link_bonus(o) if s.phase == "play" else (1.0, [])
+            playable.append({"idx": idx, "iid": iid, "o": o, "why": why, "links": s.links_of(o), "bonus": lm if o["role"] in ("cast", "move") else 1.0, "bonus_why": lwhy, "need_tile": s.needs_tile(o), "need_target": bool(s.needs_target(o) and not why), "target_ids": [e["id"] for e in s.in_range()] if (s.needs_target(o) and not why) else [], "tiles": [list(t) for t in vt], "hint": [list(t) for t in vt if s.tile_hint(o, t)]})
         return {"phase": s.phase, "turn": s.turn, "turns": s.cfg["turns"], "stage_type": s.stage_type, "stage_name": STAGE_TYPES[s.stage_type]["name"], "hp": round(s.hp), "max_hp": s.max_hp, "shield": round(s.shield), "mana": s.mana, "max_mana": s.max_mana,
                 "gold": s.gold, "res": s.res, "items": s.items, "due": s.due, "land": s.land, "bag": len(s.bag), "draw": len(s.draw), "disc": len(s.disc), "exh": len(getattr(s, "exh", [])), "dmgb": round(s.dmgb, 2),
                 "tiles": [{"q": t[0], "r": t[1], **d, "inf": bool(s.cfg["tile_inf"])} for t, d in s.tiles.items() if d["amt"] > 0], "hand": playable,
-                "buildings": [{"id": b["id"], "q": b["q"], "r": b["r"], "hp": round(b["hp"]), "max": b["max"], "name": b["o"]["name"], "fam": FAM.get(b["o"]["payload"][0][0]), "kind": "plant" if is_plant(b["o"]) else "building", "age": b["age"], "mat": b["o"].get("mat"), "text": b["o"]["text"], "verbs": [p[0] for p in b["o"]["payload"]], "rng": b["o"]["rng"], "range": unit_range(b["o"])} for b in s.buildings],
-                "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"], "text": u["o"]["text"], "verbs": [p[0] for p in u["o"]["payload"]], "rng": u["o"]["rng"], "range": unit_range(u["o"])} for u in s.summons],
+                "buildings": [{"id": b["id"], "q": b["q"], "r": b["r"], "hp": round(b["hp"]), "max": b["max"], "name": b["o"]["name"], "themes": b["o"].get("themes") or [], "fam": FAM.get(b["o"]["payload"][0][0]), "kind": "plant" if is_plant(b["o"]) else "building", "age": b["age"], "mat": b["o"].get("mat"), "text": b["o"]["text"], "verbs": [p[0] for p in b["o"]["payload"]], "rng": b["o"]["rng"], "range": unit_range(b["o"])} for b in s.buildings],
+                "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"], "themes": u["o"].get("themes") or [], "text": u["o"]["text"], "verbs": [p[0] for p in u["o"]["payload"]], "rng": u["o"]["rng"], "range": unit_range(u["o"])} for u in s.summons],
                 "enemies": [{"id": e["id"], "q": e["q"], "r": e["r"], "hp": round(e["hp"]), "max": round(e["max"]), "lvl": e["lvl"], "boss": bool(e.get("boss")), "stun": e["stun"], "weak": e["weak"], "burn": e.get("burn", 0)} for e in s.enemies],
                 "fx": [{"name": f["o"]["name"], "kind": f["kind"], "cond": f.get("cond"), "text": f["o"]["text"], "life": f["o"]["life"], "left": (f["left"] if f.get("left", 10 ** 6) < 1000 else None), "uses": f.get("uses"), "charges": f.get("charges"), "at": f.get("at")} for f in s.fx], "log": s.logs[-14:], "recent": getattr(s, "recent", [])[-20:], "result": s.result, "caps": {"b": getattr(s, "cap_b", s.cfg["cap_b"]), "s": getattr(s, "cap_s", s.cfg["cap_s"]), "p": s.cfg["cap_p"]},
                 "buildings_n": sum(1 for b in s.buildings if not is_plant(b["o"])), "plants_n": sum(1 for b in s.buildings if is_plant(b["o"])), "summons_n": len(s.summons), "pos": list(s.pos), "grow_turns": s.cfg["grow_turns"], "cast_range": CAST_RANGE, "waves": [[t, s.wave_size(t)] for t in sorted(WAVES)],
                 "stage_n": s.stage_n, "stages": s.cfg["stages"], "boss": s.boss, "lvl": s.lvl, "due_next": due_for(s.stage_n + 1, s.cfg) if s.stage_n < s.cfg["stages"] else None, "boss_at": list(s.cfg["boss_at"]),
                 "exits": [s.exit_view(x) for x in s.exits], "estates": [{"name": e["o"]["name"], "stage": e["stage"], "text": e["o"]["text"]} for e in s.estates], "history": s.history, "reward": s.reward, "exile_word": EXILE_KO, "job": getattr(s, "job", None), "choice": ({"kind": s.choice["kind"], "src": s.choice["src"], "options": [{"k": k, "name": s.inst[i]["o"]["name"], "mana": s.inst[i]["o"]["mana"], "text": s.inst[i]["o"]["text"]} for k, i in enumerate(s.choice["ids"])]} if getattr(s, "choice", None) else None), "forecast": s.forecast()}
+    def links_of(s, o):
+        """주머니에서 이 구슬과 인연인 구슬 이름들."""
+        names = dict.fromkeys(s.inst[i]["o"]["name"] for i in s.bag); return [n for n in names if n != o["name"] and frozenset((o["name"], n)) in getattr(s, "links", set())]
     def forecast(s):
         """정산 예상: 지금 골드 + 남은 턴 × 최근 3턴 평균 골드 증가(자원은 이월되므로 넣지 않음)."""
         h = s.gold_hist[-4:]; per = (h[-1] - h[0]) / (len(h) - 1) if len(h) > 1 else 0

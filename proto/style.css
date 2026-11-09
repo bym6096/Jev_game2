@@ -251,3 +251,4 @@ button.mini{font-size:11.5px;padding:1px 8px;border-radius:6px;color:var(--mute)
 .tok-e.boss { stroke-width: 3; }
 .choice { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 1px dashed #58a8d8; border-radius: 10px; max-width: 220px; }
 .choice small { opacity: .7; }
+.orb .bonus { position: absolute; top: -6px; left: -4px; font-size: 12px; font-weight: 700; color: #ffd76a; background: #3a2f12; border: 1px solid #ffd76a; border-radius: 8px; padding: 1px 5px; }

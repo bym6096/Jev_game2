@@ -33,6 +33,8 @@ def fmt_hand(v):
         o = h["o"]; cost = f" · 비용 {o['bcost'][0]} {o['bcost'][1]}+골드 {o['bcost'][2]}" if o.get("bcost") and o["role"] in ("build", "summon") and not o.get("hostile") else ""
         L.append(f" [{h['idx']}] {o['name']}  마나 {o['mana']}  {kind(o)}{cost}")
         L.append(f"      {o['text']}")
+        if h.get("links"): L.append(f"      인연: {', '.join(h['links'])}")
+        if h.get("bonus", 1) > 1 and not h["why"]: L.append(f"      ★ 지금 쓰면 {' · '.join(h['bonus_why'])} ×{h['bonus']:g}")
         if h["why"]: L.append(f"      ✗ 지금은 못 씀: {h['why']}")
         else:
             if h["need_tile"]: L.append(f"      → 놓을 칸 선택 필요: play {h['idx']} q,r   (가능: {' '.join('%d,%d' % tuple(t) for t in h['tiles'][:12])}{' …' if len(h['tiles']) > 12 else ''}; 추천: {' '.join('%d,%d' % tuple(t) for t in h['hint'][:6]) or '없음'})")
@@ -73,7 +75,7 @@ def render_setup(v):
         f = b["frag"]; h = b.get("hint")
         L.append(f" ({i}) {b['tier']} 빈 구슬 · 마나 한계 {b['cap']} · 쓸 수 있는 글자 {b['max_typed']}자" + (f" · 새겨진 말 '{f['t']}'({'앞' if f['pos'] == 'pre' else '뒤'})" if f else " · 새겨진 말 없음"))
         if h: L.append(f"      {'힌트' if h['kind'] == 'hint' else '변환'}: {h['label']} — {h['text']}")
-        if b["orb"]: L.append(f"      → 만든 구슬: {b['orb']['name']} · 마나 {b['orb']['mana']} · {b['orb']['text']}")
+        if b["orb"]: L.append(f"      → 만든 구슬: {b['orb']['name']} · 마나 {b['orb']['mana']} · {b['orb']['text']}" + (f" · 인연: {', '.join(b['orb']['links'])}" if b["orb"].get("links") else " · 인연 없음"))
     L.append("다음: write <번호> <이름>  (구슬 만들기) … 끝나면 start")
     return "\n".join(L)
 def ascii_map(v, hand=None):
@@ -140,8 +142,12 @@ def main():
         rest = a[1:]; hint = mod = None
         if "--hint" in rest: i = rest.index("--hint"); hint = rest[i + 1]; rest = rest[:i] + rest[i + 2:]
         if "--mod" in rest: i = rest.index("--mod"); mod = rest[i + 1]; rest = rest[:i] + rest[i + 2:]
-        name = " ".join(rest); o = orbs.orb_with_fragment(name, name, hint, mod, None, "ko") if (hint or mod) else orbs.orb_from_jev(name, "ko")
-        print(f"{o['name']} · 마나 {o['mana']} · {kind(o)} · {o['text']}"); print("  (원자료) 동사·수치:", [(p[0], p[1], p[2]) for p in o["payload"]], "범위", o["rng"], "지속", o["life"], "반응", o["trig"], "1회용" if o["fate"] == "used_up" else "")
+        bag = None
+        if "--bag" in rest: i = rest.index("--bag"); bag = [x for x in rest[i + 1].split(",") if x]; rest = rest[:i] + rest[i + 2:]
+        name = " ".join(rest); o = orbs.orb_with_fragment(name, name, hint, mod, None, "ko", bag=bag) if (hint or mod) else orbs.orb_from_jev(name, "ko", bag)
+        print(f"{o['name']} · 마나 {o['mana']} · {kind(o)} · {o['text']}")
+        if o.get("aff"): print("  궁합(양방향 평균, 0.6 이상이면 인연): " + " ".join(f"{n} {p:.2f}{'★' if p >= engine.AFF_LINK else ''}" for n, p in sorted(o["aff"].items(), key=lambda x: -x[1])))
+        print("  (원자료) 동사·수치:", [(p[0], p[1], p[2]) for p in o["payload"]], "범위", o["rng"], "지속", o["life"], "반응", o["trig"], "1회용" if o["fate"] == "used_up" else "")
     elif c == "log": print("\n".join(cur()["log"][-(int(a[1]) if len(a) > 1 else 14):]))
     else: sys.exit(f"알 수 없는 명령: {c}\n\n" + HELP)
 HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
@@ -157,6 +163,6 @@ HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
   pick <번호>                     엿보기로 보인 구슬 중 하나를 손패로
   demolish #건물id                건물·식물 철거(마나 1, 재료 절반 돌려받음)
   log [n]                         최근 로그
-  orb <이름> [--hint 특성|--mod 변환]  판 없이 이름만 Jev에게 읽혀 구슬 보기(사전단어 시험: --hint burn, --mod reverse 등 키는 PLAYTEST.md 부록)
+  orb <이름> [--hint 특성|--mod 변환] [--bag 이름1,이름2,…]  판 없이 이름만 Jev에게 읽혀 구슬 보기(사전단어 시험: --hint burn, --mod reverse 등 키는 PLAYTEST.md 부록)
 규칙 요약·평가 방법은 PLAYTEST.md 참고."""
 if __name__ == "__main__": main()
