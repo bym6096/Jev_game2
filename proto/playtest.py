@@ -64,6 +64,7 @@ def render(v):
     if v["fx"]: L.append("작동 중: " + " / ".join(f"{f['name']}({f['kind']}" + (f", {f['left']}턴" if f.get("left") is not None else "") + ")" for f in v["fx"]))
     if v["phase"] == "over":
         r = v["result"]; L.append(f"*** 런 {'클리어!' if r['clear'] else '종료'} — {r['stage']}/{r['stages']}스테이지, " + ("모든 정산 통과" if r["clear"] else ("쓰러짐" if r["died"] else f"정산 실패(골드 {r['gold']}/{r['due']})")) + f", 처치 {r['kills']}, 남은 골드 {r['left']}. 새 런: new"); return "\n".join(L + ["최근 로그: " + " | ".join(v["log"][-6:])])
+    if v.get("choice"): L.append(f"고르기({v['choice']['src']}): " + " / ".join(f"[{c['k']}] {c['name']}(마나 {c['mana']})" for c in v["choice"]["options"]) + "  → pick <번호> (다른 구슬을 쓰거나 턴을 끝내면 사라짐)")
     L.append("손패:"); L += fmt_hand(v)
     return "\n".join(L)
 def render_setup(v):
@@ -122,6 +123,9 @@ def main():
     elif c == "next":
         if len(a) < 2: sys.exit("사용: next <출구번호>")
         v = call("next", exit=int(a[1])); r = v.get("action", {}); print("✗ " + r["error"] if "error" in r else "→ " + " | ".join(v.get("recent") or [])); print(render(v))
+    elif c == "pick":
+        if len(a) < 2: sys.exit("사용: pick <번호>")
+        v = call("pick", k=int(a[1])); r = v.get("action", {}); print("✗ " + r["error"] if "error" in r else "✓ " + " | ".join(v.get("recent") or [])); print(render(v))
     elif c == "demolish":
         if len(a) < 2: sys.exit("사용: demolish #건물id")
         v = call("demolish", id=int(a[1].lstrip("#"))); r = v.get("action", {}); print("✗ " + r["error"] if "error" in r else "✓ " + " | ".join(v.get("recent") or [])); print(render(v))
@@ -150,6 +154,7 @@ HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
   preview                         턴을 끝내면 어떻게 되는지 예측(골드·체력·처치·새 적)
   end | e                         턴 종료(적 행동 → 다음 턴 뽑기). 15턴이 끝나면 정산(통과하면 정산액을 내고 출구 선택, 실패·사망이면 런 종료)
   next <출구번호>                 정산 뒤 출구를 골라 다음 스테이지로(도착하면 보상 빈 구슬을 write, 그다음 start)
+  pick <번호>                     엿보기로 보인 구슬 중 하나를 손패로
   demolish #건물id                건물·식물 철거(마나 1, 재료 절반 돌려받음)
   log [n]                         최근 로그
   orb <이름> [--hint 특성|--mod 변환]  판 없이 이름만 Jev에게 읽혀 구슬 보기(사전단어 시험: --hint burn, --mod reverse 등 키는 PLAYTEST.md 부록)

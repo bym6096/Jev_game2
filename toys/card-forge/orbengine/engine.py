@@ -16,7 +16,7 @@ def josa(w, a="이", b="가"):
 FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco",
        "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 ENEMY_V = ("damage", "drain", "debuff", "control", "burn")   # 적을 겨냥하는 동사
-TURN_V = ("draw", "recycle", "tempo", "energy")
+TURN_V = ("draw", "recycle", "tempo", "energy", "peek")
 def draw_n(o): return 1 + int(o["pe"] // 2.5)                       # '더 뽑기'로 뽑는 구슬 수
 def energy_gain(o): return max(2, 1 + int(o["pe"] // 1.5))          # '마나 충전'으로 얻는 마나(최소 2: 가격 1을 내고도 남게)              # 그 턴의 손패·마나에 작용하는 동사(턴 끝에 생기면 다음 턴으로 미룬다)
 # ---- 시너지: 사건 알림(emit) · 화상 · 종류별 증폭(buff) · 구슬 태그. 숫자는 임시.
@@ -65,7 +65,7 @@ STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hos
 WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
 CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=3, bountyk=3, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2,
            # ---- 런(2026-11-09 디렉터 결정: 사망 = 런 종료, 보스 스테이지도 정산, 영지 효율 감소 없음, 명성 대신 처치 보상을 키우는 구슬). 숫자는 run_bot.py로 맞춘 임시값
-           stages=12, due_r=1.4, boss_at=(4, 8, 12), mana_every=3, lvl_every=2, wave_grow=.25, rest_heal=.3, boss_hp=10, boss_atk=2, boss_bounty=8, boss_call=3)
+           stages=12, due_r=1.4, boss_at=(4, 8, 12), mana_every=0, lvl_every=2, wave_grow=.25, rest_heal=.3, boss_hp=10, boss_atk=2, boss_bounty=8, boss_call=3)
 STAGE_HINT = {"balanced": "평탄한 들판", "hostile": "발소리가 많다", "rich": "숲과 광맥"}      # 출구 힌트에 보이는 지형 말
 REWARD_TIERS = (("평범한", .6), ("깨끗한", .3), ("금박", .1))                                 # 출구 너머 스테이지에 도착하면 받는 빈 구슬 등급(보스를 깨면 금박 하나 더)
 def due_for(n, cfg=CFG): return int(round(cfg["due"] * cfg["due_r"] ** (n - 1) / 5) * 5)      # n번째 스테이지의 정산액(5 단위)
@@ -88,7 +88,7 @@ class HexGame:
     def new_map(s, stage_type):
         """스테이지 하나의 맵·적·칸을 새로 만든다(런의 골드·자원·주머니·영지·체력·런 지속 효과는 그대로)."""
         s.stage_type = stage_type; st = STAGE_TYPES[stage_type]; s.pos = (0, 0)
-        s.due = due_for(s.stage_n, s.cfg); s.lvl = lvl_for(s.stage_n, s.cfg); s.max_mana = s.cfg["mana"] + (s.stage_n - 1) // s.cfg["mana_every"]
+        s.due = due_for(s.stage_n, s.cfg); s.lvl = lvl_for(s.stage_n, s.cfg); s.max_mana = s.cfg["mana"] + ((s.stage_n - 1) // s.cfg["mana_every"] if s.cfg["mana_every"] else 0)      # 2026-11-09 디렉터: 스테이지마다 자동 성장은 하지 않음(나중에 상점·레벨업으로). 0 = 끔
         s.boss = s.stage_n in tuple(s.cfg["boss_at"])
         s.tiles = {}
         free = [t for t in TILES if hd(t, (0, 0)) >= 2]; s.R.shuffle(free)
@@ -146,7 +146,7 @@ class HexGame:
         s.ending = False; pend = getattr(s, "pending", []); s.pending = []
         if pend:
             for v, o in pend: s.apply(o, [(v, 1, None)])
-            n = collections.Counter(v for v, _ in pend); s.log("턴 시작 보너스: " + ", ".join(f"{ {'draw': '더 뽑기', 'recycle': '되돌림', 'tempo': '마나', 'energy': '마나'}[v]} ×{k}" for v, k in n.items()))
+            n = collections.Counter(v for v, _ in pend); s.log("턴 시작 보너스: " + ", ".join(f"{ {'draw': '더 뽑기', 'recycle': '되돌림', 'tempo': '마나', 'energy': '마나', 'peek': '엿보기'}[v]} ×{k}" for v, k in n.items()))
     # ---- spawn
     def occupied(s): 
         o = {s.pos}; o |= {(b["q"], b["r"]) for b in s.buildings}; o |= {(u["q"], u["r"]) for u in s.summons}; o |= {(e["q"], e["r"]) for e in s.enemies}; return o
@@ -216,7 +216,7 @@ class HexGame:
             if e is None: return {"error": "대상으로 고른 적이 없습니다"}
             if hd((e["q"], e["r"]), s.pos) > CAST_RANGE: return {"error": f"사거리({CAST_RANGE}칸) 밖의 적입니다"}
             s.pick = target
-        s.mana -= o["mana"]; it["uses"] += 1; s.stats["plays"] += 1; s.cur_iid = iid
+        s.mana -= o["mana"]; it["uses"] += 1; s.stats["plays"] += 1; s.cur_iid = iid; s.choice = None
         s.emit("orb", tags=tags(o), name=o["name"])         # 이미 깔려 있는 반응이 먼저 반응한다(이 구슬 자신의 반응은 아래에서 깔리므로 자기 자신에겐 안 터짐)
         fam = FAM.get(o["payload"][0][0], "misc"); fm = s.cfg["fam_decay"] ** s.fam_turn[fam]; 
         if o["role"] in ("build", "summon") and not o["hostile"] and o.get("bcost"):
@@ -250,6 +250,16 @@ class HexGame:
         elif sustained(o): s.exhaust(iid)       # 지속 구슬은 쓰면 이 스테이지 동안 소멸(주머니엔 남아 다음 스테이지에 돌아옴) — 손패에 못 쓰는 채로 남지 않게
         else: s.disc.append(iid)
         s.pick = None; s.check_end_of_stage_death(); return {"ok": True}
+    def offer_peek(s, o):
+        """엿보기: 뽑을 더미 위 3개를 보여 주고 1개를 골라 손패로(pick). 고르지 않으면 다음 구슬을 쓰거나 턴을 끝낼 때 사라진다(나머지는 그대로 더미 위)."""
+        if not s.draw: s.draw = [i for i in s.disc if i in s.bag]; s.disc = []; s.R.shuffle(s.draw)
+        ids = s.draw[-3:][::-1]
+        if ids: s.choice = {"kind": "peek", "ids": ids, "src": o["name"]}; s.log(f"{o['name']}: 주머니 위 {len(ids)}개 중 1개를 고르세요")
+    def take_choice(s, k):       # (s.pick은 겨냥한 적 id라 이름을 따로 씀)
+        c = getattr(s, "choice", None)
+        if not c or s.phase != "play": return {"error": "고를 것이 없습니다"}
+        if not (0 <= k < len(c["ids"])): return {"error": "없는 선택지입니다"}
+        s.recent = []; i = c["ids"][k]; s.draw.remove(i); s.hand.append(i); s.choice = None; s.log(f"엿보기: {s.inst[i]['o']['name']}을(를) 손패로"); return {"ok": True}
     def make_echo(s, o):
         """메아리(사전단어): 이 구슬의 사본이 이번 턴 손패에 생긴다. 사본은 마나 −1(최소 1), 쓰면 사라지고 턴이 끝나도 사라진다."""
         c = copy.deepcopy(o); c["mana"] = max(1, o["mana"] - 1); c["echo"] = False; c["copy"] = True; c["text"] = "[사본: 이번 턴에 쓰지 않으면 사라짐] " + o["text"]
@@ -374,7 +384,7 @@ class HexGame:
                 n = 1 if o["life"] in ("stage", "run", "forever") else 1 + int(o["B"] // 30)
                 for e in s.targets(o, src, lim): e["stun"] = max(e["stun"], 1 if e.get("boss") else n); s.ev("hit", at, (e["q"], e["r"]), kind="control")
             elif v in TURN_V and getattr(s, "ending", False):        # 턴 끝(지속·건물·소환물·자동 구슬)에 생긴 마나·뽑기·되돌림은 다음 턴 시작에 준다(그냥 두면 새 턴이 손패·마나를 덮어써서 버려짐)
-                s.pending.append((v, o)); s.ev("pop", at, text={"draw": "다음 턴 +1 뽑기", "recycle": "다음 턴 되돌림", "tempo": "다음 턴 마나 +1", "energy": "다음 턴 마나 +"}[v], tone="up")
+                s.pending.append((v, o)); s.ev("pop", at, text={"draw": "다음 턴 +1 뽑기", "recycle": "다음 턴 되돌림", "tempo": "다음 턴 마나 +1", "energy": "다음 턴 마나 +", "peek": "다음 턴 엿보기"}[v], tone="up")
             elif v == "draw": s.drawn(draw_n(o))
             elif v == "recycle":
                 if s.disc: s.hand.append(s.disc.pop(s.R.randrange(len(s.disc))))
@@ -388,7 +398,7 @@ class HexGame:
                 elif mt: s.res[mt] += 2
                 else: s.items += 1
             elif v == "amplify": s.amp = 2.0
-            elif v == "peek": s.log("주머니 위: " + ", ".join(s.inst[i]["o"]["name"] for i in s.draw[-3:][::-1]))
+            elif v == "peek": s.offer_peek(o)
     def reap(s):
         for e in [e for e in s.enemies if e["hp"] <= 0]:
             if e not in s.enemies: continue                       # 반응이 같은 reap 안에서 이미 치웠을 수 있음
@@ -397,7 +407,7 @@ class HexGame:
     # ---- end turn
     def end_turn(s):
         if s.phase != "play": return {"error": "플레이 중이 아닙니다"}
-        s.events = []; s.pick = None; s.recent = []; s.ending = True; s.pending = []
+        s.events = []; s.pick = None; s.recent = []; s.ending = True; s.pending = []; s.choice = None
         s.amp = 1.0
         if s.items and s.hp < s.max_hp * .5: s.items -= 1; s.hp = min(s.max_hp, s.hp + 15); s.log("아이템 사용: 체력 15")
         if s.res["food"] >= 2 and s.hp < s.max_hp * .6: s.res["food"] -= 2; s.hp = min(s.max_hp, s.hp + 6); s.log("식량을 먹었다: 체력 6")
@@ -579,7 +589,7 @@ class HexGame:
                 "fx": [{"name": f["o"]["name"], "kind": f["kind"], "cond": f.get("cond"), "text": f["o"]["text"], "life": f["o"]["life"], "left": (f["left"] if f.get("left", 10 ** 6) < 1000 else None), "uses": f.get("uses"), "charges": f.get("charges"), "at": f.get("at")} for f in s.fx], "log": s.logs[-14:], "recent": getattr(s, "recent", [])[-20:], "result": s.result, "caps": {"b": getattr(s, "cap_b", s.cfg["cap_b"]), "s": getattr(s, "cap_s", s.cfg["cap_s"]), "p": s.cfg["cap_p"]},
                 "buildings_n": sum(1 for b in s.buildings if not is_plant(b["o"])), "plants_n": sum(1 for b in s.buildings if is_plant(b["o"])), "summons_n": len(s.summons), "pos": list(s.pos), "grow_turns": s.cfg["grow_turns"], "cast_range": CAST_RANGE, "waves": [[t, s.wave_size(t)] for t in sorted(WAVES)],
                 "stage_n": s.stage_n, "stages": s.cfg["stages"], "boss": s.boss, "lvl": s.lvl, "due_next": due_for(s.stage_n + 1, s.cfg) if s.stage_n < s.cfg["stages"] else None, "boss_at": list(s.cfg["boss_at"]),
-                "exits": [s.exit_view(x) for x in s.exits], "estates": [{"name": e["o"]["name"], "stage": e["stage"], "text": e["o"]["text"]} for e in s.estates], "history": s.history, "reward": s.reward, "forecast": s.forecast()}
+                "exits": [s.exit_view(x) for x in s.exits], "estates": [{"name": e["o"]["name"], "stage": e["stage"], "text": e["o"]["text"]} for e in s.estates], "history": s.history, "reward": s.reward, "choice": ({"kind": s.choice["kind"], "src": s.choice["src"], "options": [{"k": k, "name": s.inst[i]["o"]["name"], "mana": s.inst[i]["o"]["mana"], "text": s.inst[i]["o"]["text"]} for k, i in enumerate(s.choice["ids"])]} if getattr(s, "choice", None) else None), "forecast": s.forecast()}
     def forecast(s):
         """정산 예상: 지금 골드 + 남은 턴 × 최근 3턴 평균 골드 증가(자원은 이월되므로 넣지 않음)."""
         h = s.gold_hist[-4:]; per = (h[-1] - h[0]) / (len(h) - 1) if len(h) > 1 else 0

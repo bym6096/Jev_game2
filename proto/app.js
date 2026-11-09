@@ -309,6 +309,8 @@ function renderHand() {
     hd.append(card);
   });
   if (!st.hand.length) hd.append(el("span", { class: "empty" }, "손패가 없습니다. 턴을 끝내면 새로 뽑습니다."));
+  if (st.choice && st.phase === "play") hd.prepend(el("div", { class: "choice", role: "group", "aria-label": "엿보기 고르기" }, el("b", {}, `${st.choice.src}: 1개를 손패로`),
+    ...st.choice.options.map((c) => el("button", { type: "button", title: c.text, onclick: () => pickChoice(c.k) }, `${c.name} · 마나 ${c.mana}`)), el("small", {}, "다른 구슬을 쓰거나 턴을 끝내면 사라집니다")));
   $("endturn").disabled = st.phase !== "play" || busy;
   const usable = st.hand.filter((h) => !h.why).length;
   $("endturn").classList.toggle("ready", st.phase === "play" && !usable);
@@ -357,6 +359,11 @@ async function goNext(i) {
   if (busy) return; busy = true; const v = await api("next", { exit: i }); busy = false;
   if (v.error || (v.action && v.action.error)) return toast(v.error || v.action.error);
   st = v; history = []; startState = null; prev = null; resetMap(); render();
+}
+async function pickChoice(k) {
+  if (busy) return; busy = true; const v = await api("pick", { k }); busy = false;
+  if (v.error || (v.action && v.action.error)) return toast(v.error || v.action.error);
+  pushHistory(); st = v; render();
 }
 async function demolish(id) {
   if (busy) return; busy = true; const v = await api("demolish", { id }); busy = false;

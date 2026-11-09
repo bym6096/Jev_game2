@@ -69,6 +69,10 @@ def handle(body):
         if r.get("ok"):
             R = random.Random(); S["blanks"] = [orbs.new_blank(t, R) for t in (g.reward or [])]; S["written"] = [None] * len(S["blanks"])
         v = view(S); v["action"] = r; return 200, v
+    if op == "pick":            # 엿보기 등 선택지 고르기
+        try: r = g.take_choice(int(body.get("k", -1)))
+        except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}
+        v = view(S); v["action"] = r; return 200, v
     if op == "demolish":
         try: r = g.demolish(int(body.get("id", -1)))
         except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}

@@ -201,3 +201,14 @@ for o in (orbs._hand("커피", payload=[["energy", 9, None]], pe=1.0), orbs._han
     i = next(i for i in g.bag if g.inst[i]["o"]["name"] == o["name"]); g.hand = [i]; g.mana = 6; g.play(0)
     assert g.mana + len(g.hand) > 6, (o["name"], o["mana"], g.mana, len(g.hand))       # 마나 + 손패 합이 쓰기 전(6 + 1장 - 1장)보다 늘어야 한다
 print("손패·마나 동사 OK (턴 끝 효과는 다음 턴으로, 순이익)")
+
+# 10) 엿보기 = 위 3개 중 1개를 골라 손패로(다른 구슬을 쓰면 사라짐), 스테이지마다 최대 마나 자동 증가 없음(2026-11-09)
+pk = orbs._hand("돋보기", payload=[["peek", 12, None]], mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [pk], seed=41); g.start(); g.enemies = []
+g.hand = [next(i for i in g.bag if g.inst[i]["o"]["name"] == "돋보기")]; g.mana = 6; top = g.draw[-3:][::-1]; g.play(0)
+c = g.view()["choice"]; assert c and len(c["options"]) == len(top) and [o["name"] for o in c["options"]] == [g.inst[i]["o"]["name"] for i in top]
+assert g.take_choice(1).get("ok") and g.hand == [top[1]] and top[1] not in g.draw and g.view()["choice"] is None and g.take_choice(0).get("error")
+g = engine.HexGame(orbs.starter_orbs(), seed=42); g.start(); g.gold = 10 ** 6
+for _ in range(5): g.turn = g.cfg["turns"]; g.enemies = []; g.hand = []; g.end_turn(); g.choose_exit(g.exits[0]["i"]); g.start()
+assert g.stage_n == 6 and g.max_mana == engine.CFG["mana"] and len(g.hand) == engine.CFG["hand"], "마나·손패는 스테이지로 자동 성장하지 않는다"
+print("엿보기·마나 고정 OK")

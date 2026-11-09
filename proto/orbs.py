@@ -28,7 +28,7 @@ def vtext(v, m, mt, o):
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
             "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집({'옆 칸' if o['role'] in ('build', 'summon') else '3칸 안'} 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"{engine.BOOST_KO.get(mt or 'dmg', '피해')} +{m}% ({ {'instant': '3턴', 'turns': '4턴'}.get(o['life'], '이번 스테이지') }, 다른 구슬과 합산)", "burn": f"{tg}에 화상 {m}중첩 (턴마다 중첩×{engine.BURN_DMG} 피해, 1중첩씩 감소)", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
-            "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 확인", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
+            "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 중 1개를 골라 손패로", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
             "create": ("1회용 아이템 1개 생성" if not mt else f"{RES.get(mt)} 2 생성"), "amplify": "다음 구슬 효과 ×2"}.get(v, v)
 def describe(o):
     body = "; ".join(vtext(v, m, mt, o) for v, m, mt in o["payload"] if v != "move")
