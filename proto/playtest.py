@@ -39,10 +39,17 @@ def fmt_hand(v):
             elif h["need_target"]: L.append(f"      → 대상 선택 가능: play {h['idx']} #id   (사거리 안 적: {' '.join('#%d' % i for i in h['target_ids'])}; 생략하면 가장 가까운 적)")
             else: L.append(f"      → play {h['idx']}")
     return L or [" (손패 없음 — end 로 턴을 넘기세요)"]
+def stage_tag(v): return f"{v['stage_n']}/{v['stages']}스테이지{' (보스)' if v['boss'] else ''} · {v['stage_name']}"
+def render_exit(v):
+    r = v["result"]; L = [f"=== {r['stage']}스테이지 정산 통과: {r['due']} 냄 → 남은 골드 {v['gold']} · 체력 {v['hp']}/{v['max_hp']} · 자원 나무 {v['res']['wood']} 광석 {v['res']['ore']} 식량 {v['res']['food']}(이월)",
+         f"영지 {len(v['estates'])}곳: " + (", ".join(f"{e['name']}({e['stage']})" for e in v["estates"]) or "없음"), f"다음 정산액: {v['due_next']}" + (" · 다음은 보스 스테이지" if (v['stage_n'] + 1) in v['boss_at'] else ""), "출구(가장자리, 힌트는 일부만 보임):"]
+    for x in v["exits"]: L.append(f" [{x['i']}] ({x['q']},{x['r']}) 지형: {x['type_hint']} · 보상: {x['reward_hint']}" + (" · 큰 그림자(보스)" if x["boss"] else ""))
+    L.append("다음: next <출구번호>"); return "\n".join(L)
 def render(v):
     if v["phase"] == "setup": return render_setup(v)
+    if v["phase"] == "exit": return render_exit(v)
     P = tuple(v["pos"]); L = []
-    L.append(f"=== {min(v['turn'], v['turns'])}/{v['turns']}턴 · {v['stage_name']} 스테이지 · 골드 {v['gold']}/{v['due']} · 체력 {v['hp']}/{v['max_hp']}" + (f" · 방어 {v['shield']}" if v["shield"] else "") + f" · 마나 {v['mana']}/{v['max_mana']}")
+    L.append(f"=== {stage_tag(v)} · {min(v['turn'], v['turns'])}/{v['turns']}턴 · 골드 {v['gold']}/{v['due']} · 체력 {v['hp']}/{v['max_hp']}" + (f" · 방어 {v['shield']}" if v["shield"] else "") + f" · 마나 {v['mana']}/{v['max_mana']}")
     L.append(f"주머니 {v['bag']} · 뽑을 것 {v['draw']} · 버린 것 {v['disc']}" + (f" · 소멸 {v['exh']}" if v.get("exh") else "") + f" | 자원 나무 {v['res']['wood']} 광석 {v['res']['ore']} 식량 {v['res']['food']} · 경작지 {v['land']} · 아이템 {v['items']} | 내 위치 {P[0]},{P[1]}")
     if v["waves"]: L.append("적 웨이브: " + ", ".join(f"{t}턴 {n}마리" for t, n in v["waves"]) + " (가장자리에서 등장)")
     if v["enemies"]:
@@ -52,19 +59,21 @@ def render(v):
     L.append("내 건물·소환물: " + (" / ".join(mine) if mine else "없음") + f"   (칸 한도: 건물 {v['caps']['b']} 식물 {v['caps']['p']} 소환 {v['caps']['s']})")
     res = [f"{'나무' if t['t'] == 'tree' else '광석'}({t['q']},{t['r']}) {t['amt']}" for t in v["tiles"]]
     if res: L.append("자원 칸: " + " ".join(res))
+    fc = v.get("forecast")
+    if fc and v["phase"] == "play": L.append(f"정산 예상: 골드 약 {fc['gold']} / {fc['due']} (최근 턴당 {fc['per_turn']:+g}, 남은 {fc['turns_left']}턴; 자원은 이월이라 안 셈)" + (f" · 영지 {len(v['estates'])}곳" if v["estates"] else ""))
     if v["fx"]: L.append("작동 중: " + " / ".join(f"{f['name']}({f['kind']}" + (f", {f['left']}턴" if f.get("left") is not None else "") + ")" for f in v["fx"]))
     if v["phase"] == "over":
-        r = v["result"]; L.append(f"*** 끝: {'정산 통과' if r['pass'] else '정산 실패'} — 골드 {r['gold']}/{r['due']}, 처치 {r['kills']}, {'쓰러짐(골드·자원 몰수)' if r['died'] else '생존'}"); return "\n".join(L + ["최근 로그: " + " | ".join(v["log"][-6:])])
+        r = v["result"]; L.append(f"*** 런 {'클리어!' if r['clear'] else '종료'} — {r['stage']}/{r['stages']}스테이지, " + ("모든 정산 통과" if r["clear"] else ("쓰러짐" if r["died"] else f"정산 실패(골드 {r['gold']}/{r['due']})")) + f", 처치 {r['kills']}, 남은 골드 {r['left']}. 새 런: new"); return "\n".join(L + ["최근 로그: " + " | ".join(v["log"][-6:])])
     L.append("손패:"); L += fmt_hand(v)
     return "\n".join(L)
 def render_setup(v):
-    L = [f"=== 준비 단계 · {v['stage_name']} 스테이지 · 낼 돈(정산) {v['due']} · 15턴", "가진 구슬: " + ", ".join(v["bag_names"]), "빈 구슬(이름을 쓰면 Jev가 읽어 구슬이 됨; 2개, 건너뛰어도 됨):"]
+    L = [f"=== 준비 단계 · {stage_tag(v)} · 낼 돈(정산) {v['due']} · 15턴 · 최대 마나 {v['max_mana']} · 적 Lv{v['lvl']}", "가진 구슬: " + ", ".join(v["bag_names"]), f"빈 구슬(이름을 쓰면 Jev가 읽어 구슬이 됨; {len(v['blanks'])}개, 건너뛰어도 됨):"]
     for i, b in enumerate(v["blanks"]):
         f = b["frag"]; h = b.get("hint")
         L.append(f" ({i}) {b['tier']} 빈 구슬 · 마나 한계 {b['cap']} · 쓸 수 있는 글자 {b['max_typed']}자" + (f" · 새겨진 말 '{f['t']}'({'앞' if f['pos'] == 'pre' else '뒤'})" if f else " · 새겨진 말 없음"))
         if h: L.append(f"      {'힌트' if h['kind'] == 'hint' else '변환'}: {h['label']} — {h['text']}")
         if b["orb"]: L.append(f"      → 만든 구슬: {b['orb']['name']} · 마나 {b['orb']['mana']} · {b['orb']['text']}")
-    L.append("다음: write <0|1> <이름>  (구슬 만들기) … 끝나면 start")
+    L.append("다음: write <번호> <이름>  (구슬 만들기) … 끝나면 start")
     return "\n".join(L)
 def ascii_map(v, hand=None):
     R = 5; P = tuple(v["pos"]); occ = {}
@@ -110,6 +119,12 @@ def main():
         v = call("write", idx=int(a[1]), text=" ".join(a[2:])); b = v["blanks"][int(a[1])]["orb"]; print(f"만든 구슬: {b['name']} · 마나 {b['mana']} · {b['text']}"); print(render(v))
     elif c == "start": print(render(call("start")))
     elif c == "play": cmd_play(a[1:])
+    elif c == "next":
+        if len(a) < 2: sys.exit("사용: next <출구번호>")
+        v = call("next", exit=int(a[1])); r = v.get("action", {}); print("✗ " + r["error"] if "error" in r else "→ " + " | ".join(v.get("recent") or [])); print(render(v))
+    elif c == "demolish":
+        if len(a) < 2: sys.exit("사용: demolish #건물id")
+        v = call("demolish", id=int(a[1].lstrip("#"))); r = v.get("action", {}); print("✗ " + r["error"] if "error" in r else "✓ " + " | ".join(v.get("recent") or [])); print(render(v))
     elif c in ("end", "e"):
         v = call("end_turn"); print("(턴 종료) " + (" | ".join(v.get("recent") or []) or "특별한 일 없음")); print(render(v))
     elif c == "preview":
@@ -127,13 +142,15 @@ def main():
     else: sys.exit(f"알 수 없는 명령: {c}\n\n" + HELP)
 HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
   new [balanced|hostile|rich]     새 판(균형·적 많음·자원 많음). 빈 구슬 2개와 힌트/사전단어를 보여 준다
-  write <0|1> <이름>              빈 구슬에 이름을 써서 구슬 만들기(실제 Jev 호출, 쓴 이름만 읽힘; 글자 수 제한 있음)
+  write <번호> <이름>             빈 구슬에 이름을 써서 구슬 만들기(실제 Jev 호출, 쓴 이름만 읽힘; 글자 수 제한 있음)
   start                           준비를 끝내고 1턴 시작(구슬을 안 만들어도 됨)
   state | s                       지금 상태 다시 보기
   map [손패번호]                  ASCII 지도(손패번호를 주면 그 구슬을 놓을 수 있는 칸/대상을 * 로 표시)
   play <번호|이름> [q,r] [#적id]  손패의 구슬 사용(이름 앞부분으로도 고름: play 화염 #3). 건물·소환·이동은 칸 q,r, 즉발 공격은 대상 #id(생략하면 가장 가까운 적)
   preview                         턴을 끝내면 어떻게 되는지 예측(골드·체력·처치·새 적)
-  end | e                         턴 종료(적 행동 → 다음 턴 뽑기). 15턴이 끝나면 정산
+  end | e                         턴 종료(적 행동 → 다음 턴 뽑기). 15턴이 끝나면 정산(통과하면 정산액을 내고 출구 선택, 실패·사망이면 런 종료)
+  next <출구번호>                 정산 뒤 출구를 골라 다음 스테이지로(도착하면 보상 빈 구슬을 write, 그다음 start)
+  demolish #건물id                건물·식물 철거(마나 1, 재료 절반 돌려받음)
   log [n]                         최근 로그
   orb <이름> [--hint 특성|--mod 변환]  판 없이 이름만 Jev에게 읽혀 구슬 보기(사전단어 시험: --hint burn, --mod reverse 등 키는 PLAYTEST.md 부록)
 규칙 요약·평가 방법은 PLAYTEST.md 참고."""

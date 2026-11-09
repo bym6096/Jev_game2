@@ -84,7 +84,7 @@ function render() {
   $("setup").hidden = !setup; $("play").hidden = setup;
   if (setup) renderSetup();
   else { renderHud(); renderMap(); renderHand(); renderSide(); runDiff(); if (st.phase === "play") fetchPreview(); else { pv = null; renderPreview(); } }
-  $("over").hidden = st.phase !== "over"; if (st.phase === "over") renderOver();
+  $("over").hidden = st.phase !== "over" && st.phase !== "exit"; if (st.phase === "over") renderOver(); else if (st.phase === "exit") renderExit();
   prev = st;
 }
 
@@ -118,8 +118,9 @@ function renderSetup() {
   });
   document.querySelector(".bagbox summary").textContent = `가진 구슬 (시작 ${st.bag_names.length}개)`;
   $("bagnames").replaceChildren(...st.bag_names.map((n) => el("span", {}, n)));
-  const done = st.blanks.filter((b) => b.orb).length;
-  $("setup-note").textContent = done < 2 ? `만든 구슬 ${done}/2 · 건너뛰고 시작해도 됩니다` : "준비 완료";
+  const done = st.blanks.filter((b) => b.orb).length, nb = st.blanks.length;
+  $("setup-note").textContent = `${st.stage_n}/${st.stages}스테이지${st.boss ? " (보스)" : ""} · 정산 ${st.due} · ` + (done < nb ? `만든 구슬 ${done}/${nb} · 건너뛰고 시작해도 됩니다` : "준비 완료");
+  $("start").textContent = st.stage_n > 1 ? `${st.stage_n}스테이지 시작` : "스테이지 시작";
 }
 
 /* ---------- 상태 줄 ---------- */
@@ -134,10 +135,10 @@ function renderHud() {
   const mana = el("div", { class: "mana", role: "img", "aria-label": `마나 ${st.mana}/${st.max_mana}` });
   for (let i = 0; i < Math.max(st.max_mana, st.mana); i++) mana.append(el("i", { class: i >= st.mana ? "off" : i >= st.mana - spend ? "spend" : "" }));
   h.append(
-    stat("turn", st.stage_name, el("div", { class: "v" }, `${Math.min(st.turn, st.turns)}턴`, el("small", {}, `/ ${st.turns}`)), turns),
+    stat("turn", `${st.stage_n}/${st.stages} ${st.stage_name}${st.boss ? " · 보스" : ""}`, el("div", { class: "v" }, `${Math.min(st.turn, st.turns)}턴`, el("small", {}, `/ ${st.turns}`)), turns),
     stat("hp", "체력", el("div", { class: "v" }, `${st.hp}`, el("small", {}, st.shield ? `방어 +${st.shield}` : `/ ${st.max_hp}`)), el("div", { class: "meter hp" + (hpPct < 30 ? " low" : "") }, el("i", { style: `width:${hpPct}%` }))),
     stat("mana", "마나", el("div", { class: "v" }, `${st.mana}`, el("small", {}, `/ ${st.max_mana}${spend ? ` (−${spend})` : ""}`)), mana),
-    Object.assign(stat("gold", "골드 · 정산까지", el("div", { class: "v" }, `${st.gold}`, el("small", {}, `/ ${st.due}`)), el("div", { class: "meter gold" + (st.gold >= st.due ? " met" : "") }, el("i", { style: `width:${goldPct}%` }))), { className: "stat wide" }),
+    Object.assign(stat("gold", st.forecast && st.phase === "play" ? `골드 · 정산 예상 약 ${st.forecast.gold}` : "골드 · 정산까지", el("div", { class: "v" }, `${st.gold}`, el("small", {}, `/ ${st.due}${st.estates && st.estates.length ? ` · 영지 ${st.estates.length}` : ""}`)), el("div", { class: "meter gold" + (st.gold >= st.due ? " met" : "") }, el("i", { style: `width:${goldPct}%` }))), { className: "stat wide" }),
     stat("res", "자원", el("div", { class: "v res" }, el("span", { "data-stat": "wood" }, "🌲", el("b", {}, ` ${st.res.wood}`)), el("span", { "data-stat": "ore" }, "⛏", el("b", {}, ` ${st.res.ore}`)), el("span", { "data-stat": "food" }, "🌾", el("b", {}, ` ${st.res.food}`)))),
     stat("slots", "배치", el("div", { class: "v" }, `건물 ${st.buildings_n}/${st.caps.b}`, el("small", {}, `식물 ${st.plants_n}/${st.caps.p} · 소환 ${st.summons_n}/${st.caps.s}`))));
 }
@@ -180,7 +181,7 @@ function ghost(c, x, y) {
 function tokenFor(kind, d) {
   const g = svg("g", { class: "unit enter" });
   if (kind === "p") g.append(svg("circle", { r: 17, class: "tok-p" }), svg("text", { class: "glyph" }, "🧙"));
-  else if (kind === "e") g.append(svg("circle", { r: 15, class: "tok-e" }), svg("text", { class: "glyph", "data-g": "1" }, "👹"), svg("circle", { cx: 12, cy: -12, r: 8, fill: "#3a1418", stroke: "#ef7b7b", "stroke-width": 1.5 }), svg("text", { x: 12, y: -9, class: "badge" }, `${d.lvl}`));
+  else if (kind === "e") g.append(svg("circle", { r: d.boss ? 20 : 15, class: "tok-e" + (d.boss ? " boss" : "") }), svg("text", { class: "glyph", "data-g": "1" }, d.boss ? "🐉" : "👹"), svg("circle", { cx: 12, cy: -12, r: 8, fill: "#3a1418", stroke: "#ef7b7b", "stroke-width": 1.5 }), svg("text", { x: 12, y: -9, class: "badge" }, `${d.lvl}`));
   else if (kind === "s") g.append(svg("circle", { r: 15, class: "tok-s" }), svg("text", { class: "glyph" }, "🛡️"));
   else if (d.kind === "plant") g.append(svg("circle", { r: 15, class: "tok-g" }), svg("text", { class: "glyph", "data-pg": "1" }, "🌱"));
   else g.append(svg("rect", { x: -15, y: -15, width: 30, height: 30, rx: 8, class: "tok-b" }), svg("text", { class: "glyph" }, "🏠"));
@@ -211,7 +212,7 @@ function syncUnits() {
     } else u.g.style.transform = tf;
     u.d = d;
     const hp = u.g.querySelector("[data-hp]"); if (hp) hp.setAttribute("width", String(32 * Math.max(0, d.hp) / d.max));
-    const gl = u.g.querySelector("[data-g]"); if (gl) gl.textContent = d.stun ? "💤" : "👹";
+    const gl = u.g.querySelector("[data-g]"); if (gl) gl.textContent = d.stun ? "💤" : d.boss ? "🐉" : "👹";
     const pg = u.g.querySelector("[data-pg]"); if (pg) pg.textContent = plantGlyph(d);
     u.g.dataset.uid = id;
   }
@@ -244,8 +245,9 @@ function inspectUnit(u) {
   const d = u.d, hp = `체력 ${d.hp}/${d.max}`;
   const box = $("inspect");
   if (u.kind === "p") box.replaceChildren(el("b", {}, "나"), el("div", { class: "sub" }, `체력 ${st.hp}/${st.max_hp}${st.shield ? ` · 방어 ${st.shield}` : ""}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다. 이동 구슬로 자리를 옮길 수 있습니다."));
-  else if (u.kind === "e") box.replaceChildren(el("b", {}, `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : "", d.burn ? `화상 ${d.burn}` : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
-  else box.replaceChildren(...[el("b", {}, d.name), el("div", { class: "sub" }, `${d.kind === "plant" ? "식물" : u.kind === "b" ? "건물" : "소환물"} · ${hp}`), d.kind === "plant" ? el("p", {}, d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null, d.text ? el("p", { class: "sub" }, d.text) : null].filter(Boolean));
+  else if (u.kind === "e") box.replaceChildren(el("b", {}, d.boss ? `보스 Lv${d.lvl}` : `적 Lv${d.lvl}`), el("div", { class: "sub" }, hp), el("p", {}, [d.stun ? "행동 불가" : "", d.weak ? "약화" : "", d.burn ? `화상 ${d.burn}` : ""].filter(Boolean).join(" · ") || "가장자리에서 걸어와 길을 막은 건물·소환물을 공격합니다."));
+  else box.replaceChildren(...[el("b", {}, d.name), el("div", { class: "sub" }, `${d.kind === "plant" ? "식물" : u.kind === "b" ? "건물" : "소환물"} · ${hp}`), d.kind === "plant" ? el("p", {}, d.age <= st.grow_turns ? `자라는 중 — ${st.grow_turns + 1 - d.age}턴 뒤 수확 시작` : "다 자라서 매 턴 수확 중") : null, d.text ? el("p", { class: "sub" }, d.text) : null,
+    u.kind === "b" && st.phase === "play" ? el("button", { type: "button", class: "mini", onclick: () => demolish(d.id), title: "마나 1, 재료 비용의 절반을 돌려받습니다" }, "철거 (마나 1)") : null].filter(Boolean));
 }
 let fxGroups = [];
 const COND_KO = { hit: "피격 시", death: "사망 시", orb: "다른 구슬을 쓸 때", approach: "적이 다가오면", orb_attack: "공격 구슬을 쓸 때", orb_eco: "채집·수입 구슬을 쓸 때", orb_plant: "식물 구슬을 쓸 때", orb_build: "건물 구슬을 쓸 때", orb_summon: "소환 구슬을 쓸 때", orb_defense: "방어·회복 구슬을 쓸 때", kill: "적을 처치할 때", harvest: "자원을 거둘 때" };
@@ -335,11 +337,31 @@ async function endTurn() {
 }
 function renderOver() {
   const r = st.result, o = $("over");
-  const rows = [["모은 골드", `${r.gold} / 필요 ${r.due}`], ["처치한 적", r.kills], ["진행한 턴", r.turns], ["쓰러졌는가", r.died ? "예 (이 스테이지의 골드 몰수)" : "아니오"], ["골드 출처", `처치 ${r.src.g_bounty || 0} · 돈 구슬 ${r.src.g_money || 0} · 가공 ${r.src.g_process || 0}`], ["인접 시너지 발동", r.src.adj_bonus || 0]];
+  const rows = [["도달", `${r.stage} / ${r.stages}스테이지`], ["마지막 정산", r.clear ? "모두 통과" : r.died ? "쓰러짐 (런 종료)" : `골드 ${r.gold} / 필요 ${r.due}`], ["처치한 적(런 전체)", r.kills], ["골드 출처", `처치 ${r.src.g_bounty || 0} · 돈 구슬 ${r.src.g_money || 0} · 가공 ${r.src.g_process || 0} · 영지 ${r.src.g_estate || 0}`], ["영지", (st.estates || []).length + "곳"]];
   const t = el("table", {}); rows.forEach(([a, b]) => t.append(el("tr", {}, el("td", {}, a), el("td", {}, String(b)))));
-  const again = el("button", { class: "primary big", type: "button", onclick: newGame }, "다시 하기");
-  o.replaceChildren(el("div", { class: "result", role: "dialog", "aria-modal": "true", "aria-label": "스테이지 결과" }, el("h2", { class: r.pass ? "pass" : "fail" }, r.pass ? "정산 통과" : "정산 실패"), t, el("div", { class: "acts" }, el("button", { type: "button", onclick: () => { o.hidden = true; } }, "지도 보기"), startState ? el("button", { type: "button", title: "같은 맵·같은 주머니·같은 적 등장으로 다시 시작합니다", onclick: replay }, "같은 판 다시") : null, again)));
+  const again = el("button", { class: "primary big", type: "button", onclick: newGame }, "새 런 시작");
+  o.replaceChildren(el("div", { class: "result", role: "dialog", "aria-modal": "true", "aria-label": "런 결과" }, el("h2", { class: r.clear ? "pass" : "fail" }, r.clear ? "런 클리어!" : "런 종료 — 처음부터 다시"), t, el("div", { class: "acts" }, el("button", { type: "button", onclick: () => { o.hidden = true; } }, "지도 보기"), startState ? el("button", { type: "button", title: "같은 맵·같은 주머니·같은 적 등장으로 다시 시작합니다", onclick: replay }, "같은 판 다시") : null, again)));
   setTimeout(() => again.focus(), 50);
+}
+
+function renderExit() {
+  const r = st.result, o = $("over");
+  const rows = [["낸 정산액", `${r.due}`], ["남은 골드", `${st.gold}`], ["자원(이월)", `🌲${st.res.wood} ⛏${st.res.ore} 🌾${st.res.food}`], ["영지", `${st.estates.length}곳 — 이후 스테이지마다 매 턴 생산`], ["다음 정산액", `${st.due_next}`]];
+  if (r.sold) rows.splice(1, 0, ["모자란 골드", `자원 ${r.sold}개를 팔아 채움`]);
+  const t = el("table", {}); rows.forEach(([a, b]) => t.append(el("tr", {}, el("td", {}, a), el("td", {}, String(b)))));
+  const ex = el("div", { class: "exits" }, ...st.exits.map((x) => el("button", { type: "button", class: "exitbtn" + (x.boss ? " boss" : ""), onclick: () => goNext(x.i) },
+    el("b", {}, `출구 ${x.i + 1}`), el("span", {}, `지형: ${x.type_hint}`), el("span", {}, `보상: ${x.reward_hint}`), x.boss ? el("span", { class: "down" }, "큰 그림자 — 보스") : null)));
+  o.replaceChildren(el("div", { class: "result", role: "dialog", "aria-modal": "true", "aria-label": "정산 통과 — 출구 고르기" }, el("h2", { class: "pass" }, `${r.stage}스테이지 정산 통과`), t, el("h3", {}, "다음 스테이지로 갈 출구를 고르세요 (힌트는 일부만 보입니다)"), ex));
+}
+async function goNext(i) {
+  if (busy) return; busy = true; const v = await api("next", { exit: i }); busy = false;
+  if (v.error || (v.action && v.action.error)) return toast(v.error || v.action.error);
+  st = v; history = []; startState = null; prev = null; resetMap(); render();
+}
+async function demolish(id) {
+  if (busy) return; busy = true; const v = await api("demolish", { id }); busy = false;
+  if (v.error || (v.action && v.action.error)) return toast(v.error || v.action.error);
+  pushHistory(); pinned = null; st = v; render(); toast("철거했습니다");
 }
 
 /* ---------- 입력 ---------- */
@@ -474,7 +496,7 @@ function tipUnit(u) {
     if (u.kind === "p") return el("div", { class: "tipbox" }, el("div", { class: "tiph" }, el("b", {}, "나")), tipRow("체력", `${st.hp}/${st.max_hp}`), st.shield ? tipRow("방어", `+${st.shield}`) : null, tipRow("마나", `${st.mana}/${st.max_mana}`), el("p", {}, "건물·식물·소환물은 내 주변 2칸 안에 놓을 수 있습니다."));
     if (u.kind === "e") {
       const mv = pv && pv.moves.find((m) => m.id === d.id);
-      return el("div", { class: "tipbox r-enemy" }, el("div", { class: "tiph" }, el("b", {}, `적 Lv${d.lvl}`)), tipRow("체력", hp, "down"), d.stun ? tipRow("상태", "행동 불가") : null, d.weak ? tipRow("상태", "약화(피해 ×1.5로 받음)") : null, d.burn ? tipRow("상태", `화상 ${d.burn}중첩 (턴마다 ${d.burn * 2} 피해)`, "down") : null,
+      return el("div", { class: "tipbox r-enemy" }, el("div", { class: "tiph" }, el("b", {}, d.boss ? `보스 Lv${d.lvl}` : `적 Lv${d.lvl}`)), tipRow("체력", hp, "down"), d.stun ? tipRow("상태", "행동 불가") : null, d.weak ? tipRow("상태", "약화(피해 ×1.5로 받음)") : null, d.burn ? tipRow("상태", `화상 ${d.burn}중첩 (턴마다 ${d.burn * 2} 피해)`, "down") : null,
         el("p", {}, d.stun ? "이번 턴에는 움직이지 못합니다." : "가장자리에서 걸어와 길을 막은 건물·식물·소환물을 공격합니다."), pv ? el("div", { class: "tiphint" }, mv ? "이번 턴 종료 시: 한 칸 이동" : "이번 턴 종료 시: 제자리(공격 중일 수 있음)") : null);
     }
     const hit = pv && pv.own.find((o) => o.id === d.id), plant = d.kind === "plant";

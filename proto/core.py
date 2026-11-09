@@ -31,7 +31,7 @@ def handle(body):
     if op == "write":
         try: i = int(body.get("idx", -1))
         except (TypeError, ValueError): i = -1
-        if g.phase != "setup" or i not in (0, 1) or S["written"][i]: return 400, {"error": "이미 쓴 빈 구슬이거나 쓸 수 없는 단계입니다"}
+        if g.phase != "setup" or not (0 <= i < len(S["blanks"])) or S["written"][i]: return 400, {"error": "이미 쓴 빈 구슬이거나 쓸 수 없는 단계입니다"}
         blank = S["blanks"][i]; typed, err = orbs.check_typed(blank, str(body.get("text", "")))
         if err: return 400, {"error": err}
         full = orbs.fuse(blank, typed)
@@ -63,6 +63,16 @@ def handle(body):
         pv = {"over": v2["phase"] == "over", "result": v2["result"], "hp": v2["hp"] - v1["hp"], "gold": v2["gold"] - v1["gold"], "res": {k: v2["res"][k] - v1["res"][k] for k in v1["res"]},
               "kills": sum(1 for i in id1 if i not in id2), "spawn": sum(1 for i in id2 if i not in id1), "moves": moves, "own": own, "dead": [[e["q"], e["r"]] for i, e in id1.items() if i not in id2], "spawned": [[e["q"], e["r"]] for i, e in id2.items() if i not in id1]}
         return 200, {"preview": pv}
+    if op == "next":            # 정산 뒤 출구 고르기 → 다음 스테이지 준비(보상 빈 구슬 쓰기)
+        try: r = g.choose_exit(int(body.get("exit", -1)))
+        except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}
+        if r.get("ok"):
+            R = random.Random(); S["blanks"] = [orbs.new_blank(t, R) for t in (g.reward or [])]; S["written"] = [None] * len(S["blanks"])
+        v = view(S); v["action"] = r; return 200, v
+    if op == "demolish":
+        try: r = g.demolish(int(body.get("id", -1)))
+        except (TypeError, ValueError): r = {"error": "요청이 잘못되었습니다"}
+        v = view(S); v["action"] = r; return 200, v
     if op == "end_turn":
         r = g.end_turn(); v = view(S); v["action"] = r; v["events"] = list(getattr(g, "events", [])); return 200, v
     return 404, {"error": "알 수 없는 요청"}

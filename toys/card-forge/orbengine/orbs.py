@@ -122,7 +122,7 @@ TRIGGERS = {"none": "no, it simply happens when used", "hit": "when the PLAYER i
             "kill": "when an enemy is defeated", "harvest": "when resources are gathered"}
 BOOST = ("If an orb with this name makes some kind of effect stronger, which kind would it most naturally strengthen?",
          {"dmg": "damage dealt to enemies: weapons, strength, fury", "burn": "burning and poison: fire, embers, oil, kindling", "income": "gold and trade profits: wealth, markets, greed",
-          "growth": "gathering and growing resources: harvests, farms, rain, fertility", "defense": "shields and healing: armor, blessings, medicine", "unit": "buildings and summoned creatures: leadership, banners, workshops"})
+          "growth": "gathering and growing resources: harvests, farms, rain, fertility", "defense": "shields and healing: armor, blessings, medicine", "unit": "buildings and summoned creatures: leadership, banners, workshops", "bounty": "rewards for defeating enemies: bounties, trophies, hunting, plunder, wanted posters"})
 def jev_request(full, lang="ko"):
     bq = axes_v3.build_request(full, lang if lang in ("ko", "en") else "en")         # 측정된 질문지는 한국어·영어만 있다. 다른 언어는 "이 이름은 <언어>로 쓴 것" 한 줄만 덧붙인다(card-forge와 같은 방식)
     if lang not in ("ko", "en") and lang in LANG_NAMES: bq["state"] += f"\nThe orb name above is written in {LANG_NAMES[lang]}."
@@ -169,7 +169,7 @@ def apply_hint(d, trait):
     ok = trait_ok(d, trait)
     if ok:
         for p in d["payload"]:
-            if p[0] != "move": p[1] = max(1, round(p[1] * HINT_MULT))
+            if p[0] != "move": p[1] = max(p[1] + 1, round(p[1] * HINT_MULT))      # 작은 수치(골드 1 등)도 최소 +1은 커지게
     d["hint"] = {"trait": trait, "label": TRAITS[trait][0], "ok": ok, "mult": HINT_MULT if ok else 1.0}
     d["text"] = describe(d); return d
 
@@ -202,6 +202,7 @@ def apply_mod(d, mod, word=None):
             if nv == "buff": p[1] = max(10, min(40, round(10 + 8 * d["pe"]))); p[2] = _boost_kind([q[0] for q in d["payload"]])
             elif old == "buff": p[1] = max(1, round(d["pe"] * 3)); p[2] = None
         _scale(d, .9); _aura(d)
+        d["mana"] = value.mana_for(d); value.enforce_cost(d)        # 효과의 종류가 바뀌었으니 가격을 다시 매긴다(회복 1마나 → 피해 건물 1마나 같은 공짜를 막음)
     elif mod == "bigger":
         d["rng"] = RNG_STEPS[min(3, RNG_STEPS.index(d["rng"]) + 1)] if d["rng"] in RNG_STEPS else d["rng"]
         if placed: d["hp"] = max(1, round(d["hp"] * 1.3))

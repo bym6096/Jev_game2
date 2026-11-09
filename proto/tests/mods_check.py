@@ -5,7 +5,7 @@ import os, sys, copy, random, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); P = os.path.join(HERE, "..")
 for p in (P, os.path.join(P, "vendor")):
     if p not in sys.path: sys.path.insert(0, p)
-import engine, orbs, forge
+import engine, orbs, value, forge
 H = orbs._hand
 def mod(d, k): return orbs.apply_mod(copy.deepcopy(d), k, "시험")
 
@@ -26,7 +26,7 @@ print("풀 OK", dict(c))
 
 # 2) 변환별 결과
 cast = H("검", role="cast", payload=[["damage", 20, None]], rng="line", life="instant", mana=3, pe=1.5)
-r = mod(cast, "reverse"); assert r["payload"][0][0] == "heal" and r["payload"][0][1] == 18 and r["mana"] == 3, r["payload"]
+r = mod(cast, "reverse"); assert r["payload"][0][0] == "heal" and r["payload"][0][1] == 18 and r["mana"] == value.mana_for(r), (r["payload"], r["mana"])     # 반전 뒤 가격은 다시 매긴다(2026-11-09)
 r = mod(H("약화", payload=[["debuff", 1, None]], pe=1.0), "reverse"); assert r["payload"][0][0] == "buff" and r["payload"][0][2] in engine.BOOST_KINDS and 10 <= r["payload"][0][1] <= 40
 r = mod(H("돈", payload=[["money", 4, None], ["harvest", 5, "ore"]]), "reverse"); assert [p[0] for p in r["payload"]] == ["steal", "grow"] and r["payload"][1][2] == "ore"
 r = mod(H("방어", payload=[["guard", 8, None]]), "reverse"); assert r["payload"][0][0] == "debuff"

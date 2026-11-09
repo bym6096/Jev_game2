@@ -157,3 +157,33 @@ assert g.gold - gold == e["bounty"] + round(3 * engine.PASSIVE_K), (g.gold - gol
 assert any("처치" in t for t in g.logs), "처치가 로그에 남는다"
 assert engine.josa("병사") == "병사가" and engine.josa("텃밭") == "텃밭이" and engine.josa("광산") == "광산이"
 print("자동 반응 구슬·처치 로그·조사 OK")
+
+# 8) 런 구조(2026-11-09): 정산 통과 → 정산액을 내고 출구 → 다음 스테이지(정산액·적 레벨·마나 성장), 영지 생산, 모자란 골드만 자원 판매, 사망·실패 = 런 종료, 보스, 철거
+assert [engine.due_for(n) for n in (1, 2, 3)] == [150, 210, 295] and engine.lvl_for(1) == 1 and engine.lvl_for(3) == 2
+g = engine.HexGame(orbs.starter_orbs(), seed=21); g.start(); g.enemies = []
+mine = g.add_orb(next(o for o in orbs.starter_orbs() if o["name"] == "광산")); g.hand = [mine]; g.mana = 6; g.res["ore"] = 10
+assert g.play(0, g.valid_tiles(mine)[0]).get("ok") and len(g.buildings) == 1
+g.gold = 140; g.res = {"wood": 0, "ore": 50, "food": 0}; g.turn = g.cfg["turns"]; g.end_turn()
+assert g.phase == "exit" and g.result["pass"] and g.result["sold"] == 34 and g.gold == 0 and g.res["ore"] >= 16, (g.phase, g.result.get("sold"), g.gold, g.res)   # 모자란 10골드 = 광석 34개(×0.3), 나머지 이월
+assert len(g.estates) == 1 and 2 <= len(g.exits) <= 3 and all(set(g.exit_view(x)) >= {"type_hint", "reward_hint"} for x in g.exits)
+g.hp = 50; assert g.choose_exit(g.exits[0]["i"]).get("ok") and g.stage_n == 2 and g.due == 210 and g.phase == "setup" and g.hp == 80 and g.reward
+g.start(); ore = g.res["ore"]; g.hand = []; g.enemies = []; g.end_turn(); assert g.res["ore"] > ore, "영지 광산이 새 스테이지에서도 생산한다"
+g.gold = 0; g.res = dict.fromkeys(engine.RAW, 0); g.turn = g.cfg["turns"]; g.end_turn(); assert g.phase == "over" and g.result["run_over"] and not g.result["pass"], "정산 실패 = 런 종료"
+g = engine.HexGame(orbs.starter_orbs(), seed=22); g.start(); g.hp = 1; g.enemies = [dict(g.enemies[0], q=1, r=0, atk=50)]; g.hand = []; g.end_turn()
+assert g.phase == "over" and g.result["died"] and g.result["run_over"], "사망 = 런 종료"
+g = engine.HexGame(orbs.starter_orbs(), seed=23, cfg=dict(boss_at=(1,))); g.start(); b = [e for e in g.enemies if e.get("boss")]
+assert len(b) == 1 and b[0]["max"] == (14 + 8 * 2) * 1.5 * 10 and g.view()["boss"], "보스 스테이지 1턴에 보스"
+g = engine.HexGame(orbs.starter_orbs(), seed=24); g.start(); g.enemies = []; lum = g.add_orb(next(o for o in orbs.starter_orbs() if o["name"] == "벌목장")); g.hand = [lum]; g.mana = 6
+assert g.play(0, g.valid_tiles(lum)[0]).get("ok"); w = g.res["wood"]; bid = g.buildings[0]["id"]; assert g.demolish(bid).get("ok") and not g.buildings and g.mana == 1 and g.res["wood"] == w + 3
+# 처치 보상 증폭(런 지속이면 다음 스테이지로 이어짐) · 쓸수록 성장(시전 구슬도)
+hunt = orbs._hand("현상금 사냥꾼", payload=[["buff", 50, "bounty"]], life="run", mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [hunt], seed=25); g.start(); g.hand = [next(i for i in g.bag if g.inst[i]["o"]["name"] == "현상금 사냥꾼")]; g.mana = 6; g.play(0)
+e = g.enemies[0]; e["hp"] = 0; gold = g.gold; g.reap(); assert g.gold - gold == round(e["bounty"] * 1.5), (g.gold - gold, e["bounty"])
+g.gold = 10 ** 4; g.turn = g.cfg["turns"]; g.enemies = []; g.end_turn(); g.choose_exit(g.exits[0]["i"]); g.start()
+assert any(f["kind"] == "mult" and f["stat"] == "bounty" for f in g.fx), "런 지속 증폭은 다음 스테이지에도 남는다"
+grow = orbs._hand("자라는 돈", payload=[["money", 2, None]], mod="scaling", mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [grow], seed=26); g.start(); got = []
+for _ in range(11):
+    g.hand = [next(i for i in g.bag if g.inst[i]["o"]["name"] == "자라는 돈")]; g.mana = 6; g.fam_turn = collections.Counter(); x = g.gold; g.play(0); got.append(g.gold - x)
+assert got[0] == 2 and got[-1] == 4 and sum(got) == 33, got      # 2 × (1, 1.1, …, 2.0) = 33: 소수는 모아 두었다가 1이 되면 더한다
+print("런 구조 OK (정산·이월·자원 판매·출구·영지·사망·보스·철거·처치 보상 증폭·쓸수록 성장)")

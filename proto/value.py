@@ -23,6 +23,7 @@ KNOBS = dict(
     NT={"single": 1, "line": 1.7, "around": 2.2, "wide": 3.0},     # 한 번에 맞히는 기대 적 수(동시에 나타나는 무리 크기로 제한)
     REL_DEFENSE=.5,    # 방어·회복이 실제로 쓰이는 비율(플레이어가 맞는 일은 드물다)
     NICHE=.5,          # 짝(화상 부여자·채집 구슬·방어 구슬·건물)이 있어야 의미 있는 증폭은 흐름을 이만큼만 친다
+    RUN_LIFE=2.0,      # 런·영구 지속 시전은 스테이지를 넘어 계속 일한다(런 구조, 2026-11-09): 이번 스테이지 값 × 이만큼. 뒤 스테이지일수록 정산액이 1.4배씩 커져 같은 골드의 무게가 줄므로 남은 스테이지 수가 아니라 할인 합(≈2)
     FATE_USED_UP=.75,  # 1회용(쓰면 주머니에서 영구히 빠짐)은 값을 깎는다
     EVENT_SHARE={"attack": .30, "eco": .30, "plant": .06, "build": .12, "summon": .08, "defense": .10},     # 구슬 사용 중 각 태그 비율(시작 주머니 구성 기준)
 )
@@ -47,7 +48,7 @@ def econ(cfg=None, lvl=None):
     for t, sh in K["EVENT_SHARE"].items(): ev["orb_" + t] = plays * sh
     ev.update(kill=E.n_en * E.remain / E.turns * .8, harvest=2 * E.remain, hit=E.remain / 2.5, death=1.5, approach=E.remain * .5)
     E.events = ev
-    E.flow = {"dmg": E.kill_cap, "burn": E.kill_cap * .25, "income": c["due"] * .8, "growth": 30 * E.res_g, "defense": E.hp_g * 40, "unit": c["due"] * .4}      # 증폭 대상의 스테이지 흐름(골드)
+    E.flow = {"dmg": E.kill_cap, "burn": E.kill_cap * .25, "income": c["due"] * .8, "growth": 30 * E.res_g, "defense": E.hp_g * 40, "unit": c["due"] * .4, "bounty": E.n_en * E.bounty * .8}      # 증폭 대상의 스테이지 흐름(골드)
     E.death_save = c["due"] * .1                                                  # 죽음에서 돌아오는 보험: 쓰러질 확률 10% × 몰수되는 골드
     return E
 E0 = econ()
@@ -105,7 +106,7 @@ def breakdown(d, E=None):
     elif role == "summon": n = E.remain; surv = K["SURV_S"]
     elif life == "instant": n = 1; surv = 1.0
     elif life == "turns": n = 4; surv = 1.0
-    else: n = 1 + E.remain; surv = 1.0
+    else: n = (1 + E.remain) * (K["RUN_LIFE"] if life in ("run", "forever") else 1); surv = 1.0
     if role == "cast" and life != "instant" and pay and all(p[0] in BAG_V for p in pay): n = 4          # 주머니 조작 지속은 충전 3번(+즉시 1번)
     if timing == "delayed" and role == "cast": n, notes = 1, notes + ["지연 ×.9"]
     fires = None

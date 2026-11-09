@@ -19,9 +19,13 @@ const url = process.argv[2] || 'http://localhost:8010/', out = process.argv[3] |
     await p.keyboard.press('Space'); await p.waitForFunction(() => !busy, null, { timeout: 8000 }); await p.waitForTimeout(300);
   }
   await p.waitForSelector('#over:not([hidden])', { timeout: 8000 }); await p.screenshot({ path: out + '/over.png' });
-  await p.click('#over .primary'); await p.waitForSelector('#setup:not([hidden])');   // 결과 창의 "다시 하기" await p.click('#start'); await p.waitForSelector('#play:not([hidden])');
+  let next = '런 종료(정산 실패)';
+  if (await p.$('#over .exitbtn')) {      // 정산 통과 → 출구 고르기 → 2스테이지 준비 → 시작
+    await p.click('#over .exitbtn'); await p.waitForSelector('#setup:not([hidden])'); await p.click('#start'); await p.waitForSelector('#play:not([hidden])');
+    next = await p.evaluate(() => `${st.stage_n}스테이지 진입(정산 ${st.due}, 적 Lv${st.lvl}, 마나 ${st.max_mana})`);
+  } else { await p.click('#over .primary'); await p.waitForSelector('#setup:not([hidden])'); }   // 결과 창의 "새 런 시작" await p.click('#start'); await p.waitForSelector('#play:not([hidden])');
   await p.setViewportSize({ width: 390, height: 844 }); await p.waitForTimeout(400); await p.screenshot({ path: out + '/mobile.png' });
   const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth);
-  console.log('15턴 완주 OK | 모바일 가로 넘침:', overflow, '| 콘솔 오류:', JSON.stringify(errs), '| 스크린샷:', out); await b.close();
+  console.log('15턴 완주 OK | ' + next + ' | 모바일 가로 넘침:', overflow, '| 콘솔 오류:', JSON.stringify(errs), '| 스크린샷:', out); await b.close();
   process.exit(errs.length || overflow ? 1 : 0);
 })();
