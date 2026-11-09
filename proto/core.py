@@ -15,7 +15,7 @@ def unpack(blob):
 def view(S):
     g = S["g"]; v = g.view()
     v["blanks"] = [{**b, "max_typed": orbs.max_typed(b), "orb": S["written"][i], "hint": orbs.hint_info(b)} for i, b in enumerate(S["blanks"])]
-    v["bag_names"] = [g.inst[i]["o"]["name"] for i in g.bag]; v["blob"] = pack(S); return v
+    v["bag_names"] = [g.inst[i]["o"]["name"] for i in g.bag]; v["jobs"] = orbs.job_list(); v["job_name"] = orbs.JOBS[g.job][0] if getattr(g, "job", None) in orbs.JOBS else "견본 주머니"; v["blob"] = pack(S); return v
 def handle(body):
     """-> (http status, json-able dict)"""
     code = os.environ.get("ACCESS_CODE")
@@ -23,7 +23,8 @@ def handle(body):
     op = body.get("op")
     if op == "new":
         st = body.get("stage_type", "balanced"); st = st if st in engine.STAGE_TYPES else "balanced"; R = random.Random()
-        g = engine.HexGame(orbs.starter_orbs(), stage_type=st, seed=R.randrange(10 ** 9))
+        job = body.get("job"); job = job if job in orbs.JOBS else next(iter(orbs.JOBS))        # 초기 직업(시작 주머니). 옛 견본 10개는 job="sampler"
+        g = engine.HexGame(orbs.starter_orbs() if body.get("job") == "sampler" else orbs.job_orbs(job), stage_type=st, seed=R.randrange(10 ** 9)); g.job = "sampler" if body.get("job") == "sampler" else job
         return 200, view({"g": g, "blanks": [orbs.new_blank("평범한", R), orbs.new_blank("깨끗한", R)], "written": [None, None]})
     try: S = unpack(body.get("blob", ""))
     except Exception: return 400, {"error": "게임 상태가 올바르지 않습니다. 새 게임을 시작하세요."}

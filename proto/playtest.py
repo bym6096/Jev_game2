@@ -50,7 +50,7 @@ def render(v):
     if v["phase"] == "exit": return render_exit(v)
     P = tuple(v["pos"]); L = []
     L.append(f"=== {stage_tag(v)} · {min(v['turn'], v['turns'])}/{v['turns']}턴 · 골드 {v['gold']}/{v['due']} · 체력 {v['hp']}/{v['max_hp']}" + (f" · 방어 {v['shield']}" if v["shield"] else "") + f" · 마나 {v['mana']}/{v['max_mana']}")
-    L.append(f"주머니 {v['bag']} · 뽑을 것 {v['draw']} · 버린 것 {v['disc']}" + (f" · 소멸 {v['exh']}" if v.get("exh") else "") + f" | 자원 나무 {v['res']['wood']} 광석 {v['res']['ore']} 식량 {v['res']['food']} · 경작지 {v['land']} · 아이템 {v['items']} | 내 위치 {P[0]},{P[1]}")
+    L.append(f"주머니 {v['bag']} · 뽑을 것 {v['draw']} · 버린 것 {v['disc']}" + (f" · {v['exile_word']} {v['exh']}" if v.get("exh") else "") + f" | 자원 나무 {v['res']['wood']} 광석 {v['res']['ore']} 식량 {v['res']['food']} · 경작지 {v['land']} · 아이템 {v['items']} | 내 위치 {P[0]},{P[1]}")
     if v["waves"]: L.append("적 웨이브: " + ", ".join(f"{t}턴 {n}마리" for t, n in v["waves"]) + " (가장자리에서 등장)")
     if v["enemies"]:
         L.append("적: " + " / ".join(f"#{e['id']}({e['q']},{e['r']}) 체력 {e['hp']}/{e['max']} 거리 {engine.hd((e['q'], e['r']), P)}" + (" 기절" if e["stun"] else "") + (" 약화" if e["weak"] else "") + (f" 화상{e['burn']}" if e.get("burn") else "") for e in v["enemies"]))
@@ -68,7 +68,7 @@ def render(v):
     L.append("손패:"); L += fmt_hand(v)
     return "\n".join(L)
 def render_setup(v):
-    L = [f"=== 준비 단계 · {stage_tag(v)} · 낼 돈(정산) {v['due']} · 15턴 · 최대 마나 {v['max_mana']} · 적 Lv{v['lvl']}", "가진 구슬: " + ", ".join(v["bag_names"]), f"빈 구슬(이름을 쓰면 Jev가 읽어 구슬이 됨; {len(v['blanks'])}개, 건너뛰어도 됨):"]
+    L = ([f"직업: {v['job_name']} — " + next((j['desc'] for j in v['jobs'] if j['name'] == v['job_name']), "")] if v["stage_n"] == 1 else []) + [f"=== 준비 단계 · {stage_tag(v)} · 낼 돈(정산) {v['due']} · 15턴 · 최대 마나 {v['max_mana']} · 적 Lv{v['lvl']}", "가진 구슬: " + ", ".join(v["bag_names"]), f"빈 구슬(이름을 쓰면 Jev가 읽어 구슬이 됨; {len(v['blanks'])}개, 건너뛰어도 됨):"]
     for i, b in enumerate(v["blanks"]):
         f = b["frag"]; h = b.get("hint")
         L.append(f" ({i}) {b['tier']} 빈 구슬 · 마나 한계 {b['cap']} · 쓸 수 있는 글자 {b['max_typed']}자" + (f" · 새겨진 말 '{f['t']}'({'앞' if f['pos'] == 'pre' else '뒤'})" if f else " · 새겨진 말 없음"))
@@ -113,7 +113,7 @@ def cmd_play(args):
 def main():
     a = sys.argv[1:]; c = a[0] if a else "help"
     if c in ("help", "-h", "--help"): print(HELP); return
-    if c == "new": v = call("new", stage_type=a[1] if len(a) > 1 else "balanced"); print(render(v))
+    if c == "new": v = call("new", stage_type=a[1] if len(a) > 1 else "balanced", job=a[2] if len(a) > 2 else "hunter"); print(render(v))
     elif c in ("state", "s"): print(render(cur()))
     elif c == "write":
         if len(a) < 3: sys.exit("사용: write <0|1> <이름>")
@@ -145,7 +145,7 @@ def main():
     elif c == "log": print("\n".join(cur()["log"][-(int(a[1]) if len(a) > 1 else 14):]))
     else: sys.exit(f"알 수 없는 명령: {c}\n\n" + HELP)
 HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
-  new [balanced|hostile|rich]     새 판(균형·적 많음·자원 많음). 빈 구슬 2개와 힌트/사전단어를 보여 준다
+  new [balanced|hostile|rich] [hunter|builder|merchant|sampler]   새 런(첫 스테이지 종류, 초기 직업 — 사냥꾼·건축가·상인, sampler는 옛 견본 10개). 빈 구슬 2개를 보여 준다
   write <번호> <이름>             빈 구슬에 이름을 써서 구슬 만들기(실제 Jev 호출, 쓴 이름만 읽힘; 글자 수 제한 있음)
   start                           준비를 끝내고 1턴 시작(구슬을 안 만들어도 됨)
   state | s                       지금 상태 다시 보기

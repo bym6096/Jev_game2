@@ -74,7 +74,7 @@ const bcostText = (o) => (o.role === "build" || (o.role === "summon" && !o.hosti
 /* ---------- 흐름 ---------- */
 async function newGame() {
   if (busy) return; busy = true; sel = null; pinned = null; prev = null; history = []; startState = null; pv = null;
-  const v = await api("new", { stage_type: $("stype").value }); busy = false;
+  const v = await api("new", { stage_type: $("stype").value, job: $("job").value }); busy = false;
   if (v.error) return alert(v.error);
   st = v; $("over").hidden = true; $("app").hidden = false; resetMap(); render();
 }
@@ -116,7 +116,8 @@ function renderSetup() {
     if (b.orb) card.append(el("div", { class: "made" + (b.orb.scribble ? " scr" : "") }, sphere(b.orb, orbSize(b.orb)), el("div", {}, el("b", {}, `${b.orb.name} · 마나 ${b.orb.mana}`), b.orb.text)));
     box.append(card);
   });
-  document.querySelector(".bagbox summary").textContent = `가진 구슬 (시작 ${st.bag_names.length}개)`;
+  document.querySelector(".bagbox summary").textContent = `가진 구슬 — ${st.job_name} (${st.bag_names.length}개)`;
+  const jb = (st.jobs || []).find((j) => j.name === st.job_name); if (jb && st.stage_n === 1) $("setup-note").title = jb.desc;
   $("bagnames").replaceChildren(...st.bag_names.map((n) => el("span", {}, n)));
   const done = st.blanks.filter((b) => b.orb).length, nb = st.blanks.length;
   $("setup-note").textContent = `${st.stage_n}/${st.stages}스테이지${st.boss ? " (보스)" : ""} · 정산 ${st.due} · ` + (done < nb ? `만든 구슬 ${done}/${nb} · 건너뛰고 시작해도 됩니다` : "준비 완료");
@@ -309,13 +310,13 @@ function renderHand() {
     hd.append(card);
   });
   if (!st.hand.length) hd.append(el("span", { class: "empty" }, "손패가 없습니다. 턴을 끝내면 새로 뽑습니다."));
-  if (st.choice && st.phase === "play") hd.prepend(el("div", { class: "choice", role: "group", "aria-label": "엿보기 고르기" }, el("b", {}, `${st.choice.src}: 1개를 손패로`),
+  if (st.choice && st.phase === "play") hd.prepend(el("div", { class: "choice", role: "group", "aria-label": "구슬 고르기" }, el("b", {}, st.choice.kind === "exile" ? `${st.choice.src}: 이번 스테이지 동안 뺄 구슬 1개(${st.exile_word})` : `${st.choice.src}: 1개를 손패로`),
     ...st.choice.options.map((c) => el("button", { type: "button", title: c.text, onclick: () => pickChoice(c.k) }, `${c.name} · 마나 ${c.mana}`)), el("small", {}, "다른 구슬을 쓰거나 턴을 끝내면 사라집니다")));
   $("endturn").disabled = st.phase !== "play" || busy;
   const usable = st.hand.filter((h) => !h.why).length;
   $("endturn").classList.toggle("ready", st.phase === "play" && !usable);
   $("undo").disabled = busy || !history.length;
-  $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}${st.exh ? ` · 소멸 ${st.exh}` : ""}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
+  $("piles").innerHTML = `주머니 ${st.bag} · 뽑을 것 ${st.draw} · 버린 것 ${st.disc}${st.exh ? ` · ${st.exile_word} ${st.exh}` : ""}<br><b>${usable ? `쓸 수 있는 구슬 ${usable}개 남음` : "더 쓸 구슬이 없어요"}</b>`;
 }
 function peek(h) { $("inspect").replaceChildren(el("b", {}, h.o.name), el("div", { class: "sub" }, `${ROLE[h.o.role] || h.o.role} · 마나 ${h.o.mana}`), el("p", {}, h.o.text)); }
 

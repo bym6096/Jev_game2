@@ -159,14 +159,14 @@ assert engine.josa("병사") == "병사가" and engine.josa("텃밭") == "텃밭
 print("자동 반응 구슬·처치 로그·조사 OK")
 
 # 8) 런 구조(2026-11-09): 정산 통과 → 정산액을 내고 출구 → 다음 스테이지(정산액·적 레벨·마나 성장), 영지 생산, 모자란 골드만 자원 판매, 사망·실패 = 런 종료, 보스, 철거
-assert [engine.due_for(n) for n in (1, 2, 3)] == [150, 210, 295] and engine.lvl_for(1) == 1 and engine.lvl_for(3) == 2
+assert [engine.due_for(n) for n in (1, 2, 3)] == [120, 170, 235] and engine.lvl_for(1) == 1 and engine.lvl_for(3) == 2
 g = engine.HexGame(orbs.starter_orbs(), seed=21); g.start(); g.enemies = []
 mine = g.add_orb(next(o for o in orbs.starter_orbs() if o["name"] == "광산")); g.hand = [mine]; g.mana = 6; g.res["ore"] = 10
 assert g.play(0, g.valid_tiles(mine)[0]).get("ok") and len(g.buildings) == 1
-g.gold = 140; g.res = {"wood": 0, "ore": 50, "food": 0}; g.turn = g.cfg["turns"]; g.end_turn()
+g.gold = 110; g.res = {"wood": 0, "ore": 50, "food": 0}; g.turn = g.cfg["turns"]; g.end_turn()
 assert g.phase == "exit" and g.result["pass"] and g.result["sold"] == 34 and g.gold == 0 and g.res["ore"] >= 16, (g.phase, g.result.get("sold"), g.gold, g.res)   # 모자란 10골드 = 광석 34개(×0.3), 나머지 이월
 assert len(g.estates) == 1 and 2 <= len(g.exits) <= 3 and all(set(g.exit_view(x)) >= {"type_hint", "reward_hint"} for x in g.exits)
-g.hp = 50; assert g.choose_exit(g.exits[0]["i"]).get("ok") and g.stage_n == 2 and g.due == 210 and g.phase == "setup" and g.hp == 80 and g.reward
+g.hp = 50; assert g.choose_exit(g.exits[0]["i"]).get("ok") and g.stage_n == 2 and g.due == 170 and g.phase == "setup" and g.hp == 80 and g.reward
 g.start(); ore = g.res["ore"]; g.hand = []; g.enemies = []; g.end_turn(); assert g.res["ore"] > ore, "영지 광산이 새 스테이지에서도 생산한다"
 g.gold = 0; g.res = dict.fromkeys(engine.RAW, 0); g.turn = g.cfg["turns"]; g.end_turn(); assert g.phase == "over" and g.result["run_over"] and not g.result["pass"], "정산 실패 = 런 종료"
 g = engine.HexGame(orbs.starter_orbs(), seed=22); g.start(); g.hp = 1; g.enemies = [dict(g.enemies[0], q=1, r=0, atk=50)]; g.hand = []; g.end_turn()
@@ -212,3 +212,19 @@ g = engine.HexGame(orbs.starter_orbs(), seed=42); g.start(); g.gold = 10 ** 6
 for _ in range(5): g.turn = g.cfg["turns"]; g.enemies = []; g.hand = []; g.end_turn(); g.choose_exit(g.exits[0]["i"]); g.start()
 assert g.stage_n == 6 and g.max_mana == engine.CFG["mana"] and len(g.hand) == engine.CFG["hand"], "마나·손패는 스테이지로 자동 성장하지 않는다"
 print("엿보기·마나 고정 OK")
+
+# 11) 2026-11-09 디렉터: '주머니에 있으면 자동' 없음(모든 구슬은 뽑혀야 씀), 매 턴 손패·마나 효과는 건물·식물만, 스테이지 안 폐기 = 손패 1개를 이번 스테이지 동안 빼기, 초기 직업 3종
+d = orbs.rules_fix(orbs._hand("준비성", payload=[["draw", 3, None]], life="run", fate="passive")); assert d["fate"] == "returns" and d["life"] == "instant"
+d = orbs.rules_fix(orbs._hand("아드레날린", payload=[["buff", 19, "dmg"], ["tempo", 6, None]], life="turns")); assert [p[0] for p in d["payload"]] == ["buff"] and d["life"] == "turns"
+d = orbs.rules_fix(orbs._hand("요정", role="summon", payload=[["energy", 3, None]])); assert d["role"] == "cast" and d["life"] == "instant"
+d = orbs.rules_fix(orbs._hand("발전소", role="build", payload=[["energy", 8, None]], life="run")); assert d["role"] == "build" and d["life"] == "run", "건물은 매 턴 마나를 가질 수 있다"
+tr = orbs._hand("정리정돈", payload=[["trash", 6, None]], mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [tr], seed=51); g.start(); g.enemies = []
+t = next(i for i in g.bag if g.inst[i]["o"]["name"] == "정리정돈"); g.hand = [t] + [i for i in g.hand if i != t][:3]; keep = list(g.hand[1:]); g.mana = 6; g.play(0)
+c = g.view()["choice"]; assert c and c["kind"] == "exile" and len(c["options"]) == 3
+gone = keep[0]; assert g.take_choice(0).get("ok") and gone in g.exh and gone in g.bag and gone not in g.hand, "이번 스테이지만 빠지고 주머니엔 남는다"
+g.gold = 10 ** 6; g.turn = g.cfg["turns"]; g.hand = []; g.end_turn(); g.choose_exit(g.exits[0]["i"]); g.start(); assert gone in g.draw + g.hand, "다음 스테이지엔 돌아온다"
+for k in orbs.JOBS:
+    bag = orbs.job_orbs(k); assert len(bag) == 8 and any(o["name"] == "달리기" for o in bag) and all(o["fate"] == "returns" for o in bag), k
+    g = engine.HexGame(bag, seed=52); g.start(); assert len(g.hand) == 5
+print("자동 구슬 없음·매 턴 손패/마나는 건물만·스테이지 안 빼기·초기 직업 OK")

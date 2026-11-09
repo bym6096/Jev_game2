@@ -38,10 +38,10 @@ def play_run(cfg, seed, bag=None):
         if g.phase == "exit": g.choose_exit(R.choice(g.exits)["i"]); g.start(); continue
         return g
 
-def run(label, cfg, n=40):
+def run(label, cfg, n=40, job=None):
     reach = []; why = collections.Counter(); gold_at = collections.defaultdict(list)
     for s in range(n):
-        g = play_run(cfg, 5000 + s); r = g.result; reach.append(r["stage"] if not r["clear"] else r["stages"] + 1)
+        g = play_run(cfg, 5000 + s, orbs.job_orbs(job) if job else None); r = g.result; reach.append(r["stage"] if not r["clear"] else r["stages"] + 1)
         why["클리어" if r["clear"] else "사망" if r["died"] else "정산 실패"] += 1
         for h in g.history: gold_at[h["stage"]].append(1)
     dist = collections.Counter(reach); stages = (cfg.get("stages") or engine.CFG["stages"])
@@ -53,6 +53,7 @@ if __name__ == "__main__":
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 40
     c = engine.CFG
     print("정산액:", [engine.due_for(k) for k in range(1, c["stages"] + 1)])
-    run("현재 설정", {}, n)
-    for due, r in ((120, 1.4), (100, 1.5), (120, 1.3), (150, 1.3), (100, 1.4)):
-        run(f"정산 {due} × {r}ⁿ", dict(due=due, due_r=r), n)
+    run("옛 시작 주머니(견본 10개)", {}, n)
+    for k, (nm, _, _) in orbs.JOBS.items(): run(nm, {}, n, k)
+    for due, r in ((150, 1.4), (100, 1.4), (120, 1.3)):
+        for k, (nm, _, _) in orbs.JOBS.items(): run(f"{nm} · 정산 {due}×{r}ⁿ", dict(due0=due, due_r=r), n, k)

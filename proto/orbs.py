@@ -28,7 +28,7 @@ def vtext(v, m, mt, o):
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
             "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집({'옆 칸' if o['role'] in ('build', 'summon') else '3칸 안'} 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"{engine.BOOST_KO.get(mt or 'dmg', '피해')} +{m}% ({ {'instant': '3턴', 'turns': '4턴'}.get(o['life'], '이번 스테이지') }, 다른 구슬과 합산)", "burn": f"{tg}에 화상 {m}중첩 (턴마다 중첩×{engine.BURN_DMG} 피해, 1중첩씩 감소)", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
-            "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 중 1개를 골라 손패로", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
+            "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": f"손패의 구슬 1개를 골라 이번 스테이지 동안 빼기({engine.EXILE_KO})", "peek": "주머니 위 3개 중 1개를 골라 손패로", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
             "create": ("1회용 아이템 1개 생성" if not mt else f"{RES.get(mt)} 2 생성"), "amplify": "다음 구슬 효과 ×2"}.get(v, v)
 def describe(o):
     body = "; ".join(vtext(v, m, mt, o) for v, m, mt in o["payload"] if v != "move")
@@ -47,7 +47,7 @@ def describe(o):
         elif c != "none": t = f"{COND[c]} 발동 — {t}"
     if o["role"] in ("build", "summon") and not o["hostile"] and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.unit_range(o)}칸)"
     elif o["role"] == "cast" and any(p[0] in engine.ENEMY_V for p in o["payload"]): t += f" (사거리 {engine.CAST_RANGE}칸)"
-    if engine.sustained(o) and o["fate"] != "passive": t += " [소멸: 쓰면 이 스테이지 동안 다시 나오지 않음]"      # 자동 구슬은 쓰지 않으니 소멸도 없다
+    if engine.sustained(o) and o["fate"] != "passive": t += f" [{engine.EXILE_KO}: 쓰면 이 스테이지 동안 다시 나오지 않음]"
     if o["mod"]: t += f" ＋ {MOD[o['mod']]}"
     if o["fate"] == "used_up": t += " [1회용]"
     if o["fate"] == "passive": t += " [주머니에 있으면 자동]"
@@ -62,12 +62,27 @@ def gold_income(o): return sum(m for v, m, mt in o.payload if v in ("money", "st
 def to_dict(o):
     d = dict(name=o.name, role=o.role, payload=[list(p) for p in o.payload], rng=o.rng, life=o.life, timing=o.timing, trig=o.trig, mat=o.mat, fate=o.fate, mod=o.mod, pe=round(o.pe, 2),
              mana=o.mana, hp=o.hp, bcost=list(o.bcost) if o.bcost else None, unit=o.unit, hostile=o.hostile, lvl=o.lvl, delay=o.delay, bag_only=o.bag_only, B=round(o.B, 1), amb=o.amb)
-    if d["fate"] == "passive" and d["role"] != "cast": d["fate"] = "returns"      # 자동은 시전만: 건물·소환물·이동은 놓을 칸이 있어야 하니 손패로 온다(엔진은 자동 시전만 처리)
+    rules_fix(d)
     shape(d, getattr(o, "boost", None))
     if d["bcost"] and o.role == "build" and gold_income(o): d["bcost"][2] = max(d["bcost"][2], 2 * gold_income(o))
     d["mana"] = value.mana_for(d)            # 건물 비용을 먼저 정한 뒤 나머지를 마나로 매긴다
     value.enforce_cost(d)                    # 마나로 못 갚는 슬롯형(회수 배율 4 초과)은 재료·골드를 더 받는다
     d["text"] = describe(d); return d
+def rules_fix(d):
+    """구슬 구조 규칙(2026-11-09 디렉터): ①'주머니에 있으면 자동'은 없다 — 모든 구슬은 주머니에서 뽑혀 손에 와야 쓴다(Jev가 passive로 읽어도 returns).
+    ②매 턴 손패·마나에 작용하는 효과(더 뽑기·마나·되돌림·엿보기·빼기)는 건물·식물만 가진다: 시전의 지속형은 한 번만(즉발), 소환물은 그 동사를 뺀다(남는 게 없으면 즉발 시전)."""
+    if d["fate"] == "passive": d["fate"] = "returns"
+    tv = [p for p in d["payload"] if p[0] in engine.TURN_V]
+    if not tv: return d
+    if d["role"] == "cast" and d["life"] != "instant":
+        rest = [p for p in d["payload"] if p[0] not in engine.TURN_V]
+        if rest: d["payload"] = rest                 # 지속 효과와 섞인 손패·마나 동사는 뺀다
+        else: d["life"] = "instant"; d["timing"] = "now" if d["timing"] == "repeating" else d["timing"]
+    elif d["role"] == "summon":
+        rest = [p for p in d["payload"] if p[0] not in engine.TURN_V]
+        if rest: d["payload"] = rest
+        else: d["role"] = "cast"; d["life"] = "instant"
+    return d
 def shape(d, boost=None):
     """Jev가 정한 동사 수치(측정 모델의 m)를 시너지 동사의 실제 단위로 바꾼다: buff → (퍼센트, 키우는 것), burn → 화상 중첩 수. 한 번만 부른다(구슬 생성 시)."""
     vs = [p[0] for p in d["payload"]]
@@ -105,7 +120,39 @@ def _hand(name, **kw):
 # 손으로 만든 시작 구슬(측정 데이터 없이 규칙만 시험): 이동 구슬 하나, 식물 구슬 하나. 나머지 8개는 sync_vendor.py가 Jev 측정값으로 만든다.
 HAND_STARTERS = [_hand("달리기", role="move", payload=[["move", 0, None]], mana=1, mv=2),
                  _hand("텃밭", role="build", payload=[["grow", 5, "food"]], life="run", timing="repeating", mat="food", mana=2, hp=10, bcost=["food", 1, 1], unit="worker")]
-def starter_orbs(): return json.load(open(os.path.join(HERE, "data", "starter_orbs.json"), encoding="utf-8")) + [dict(o) for o in HAND_STARTERS]
+def starter_orbs(): return json.load(open(os.path.join(HERE, "data", "starter_orbs.json"), encoding="utf-8")) + [dict(o) for o in HAND_STARTERS]      # 옛 시작 주머니(견본 10개): 시험·봇의 기준선
+# ---- 초기 직업(2026-11-09 디렉터 B안): 시작 주머니 2~3종 중 하나를 고른다. 초기 직업은 일부러 약하다(기본기도 약하고 시너지도 약함) — 런 중에 이름 구슬과 (나중의) 다양한 직군으로 강해진다.
+# 가격(마나·건물 비용)은 value.py가 매기고 문구는 describe가 만든다. 수치는 임시.
+def _job_orb(name, **kw):
+    d = _hand(name, **kw); d["mana"] = value.mana_for(d); value.enforce_cost(d); d["text"] = describe(d); return d
+def _basics():
+    return [_job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),                                # 약한 공격: 적(체력 33)을 두 번에
+            _job_orb("동전 몇 닢", payload=[["money", 1, None]], pe=.5, B=8, mat="gold"),                         # 약한 돈
+            dict(HAND_STARTERS[0])]                                                                              # 달리기(이동은 모든 직업에)
+JOBS = {
+    "hunter": ("견습 사냥꾼", "약점을 노려 사냥하고 처치 보상으로 번다(약화 → 피해 ×1.5, 처치 보상 증폭)", lambda: [
+        _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
+        _job_orb("사냥꾼 오두막", role="build", payload=[["money", 2, None]], trig="kill", life="run", timing="repeating", mat="gold", hp=14, bcost=["wood", 3, 1], unit="worker", pe=.8, B=12),
+        _job_orb("올가미", payload=[["debuff", 1, None]], pe=.8, B=12),
+        _job_orb("사냥개", role="summon", payload=[["damage", 9, None]], unit="beast", pe=.8, B=12, hp=12),
+        _job_orb("현상금 쪽지", payload=[["buff", 20, "bounty"]], life="turns", pe=.8, B=12)]),
+    "builder": ("견습 건축가", "작은 건물을 이웃에 붙여 짓고(다른 종류가 붙으면 +20%) 영지로 쌓는다", lambda: [
+        _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
+        _job_orb("작은 광산", role="build", payload=[["harvest", 4, "ore"]], life="run", timing="repeating", mat="ore", hp=14, bcost=["ore", 3, 1], unit="worker", pe=.8, B=12),
+        _job_orb("작은 벌목장", role="build", payload=[["harvest", 3, "wood"], ["process", 2, None]], life="run", timing="repeating", mat="wood", hp=12, bcost=["wood", 4, 1], unit="worker", pe=.8, B=12),
+        dict(HAND_STARTERS[1]),                                                                                   # 텃밭
+        _job_orb("돌 쌓기", payload=[["guard", 5, None]], pe=.6, B=9)]),
+    "merchant": ("견습 상인", "원료를 사고팔아 골드로 바꾼다(가공 ×1.5, 골드 수입 증폭)", lambda: [
+        _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
+        _job_orb("노점", role="build", payload=[["money", 1, None]], life="run", timing="repeating", mat="gold", hp=12, bcost=["wood", 2, 2], unit="worker", pe=.6, B=9),
+        _job_orb("손수레", payload=[["process", 4, None]], pe=.8, B=12),
+        _job_orb("돌멩이 줍기", payload=[["harvest", 5, "ore"]], pe=.6, B=9, mat="ore"),
+        _job_orb("흥정", payload=[["buff", 20, "income"]], life="turns", pe=.8, B=12)]),
+}
+def job_orbs(job):
+    """직업의 시작 주머니: 공통 기본기(녹슨 단검·동전 몇 닢·달리기) + 직업 구슬 5개 = 8개."""
+    return _basics() + JOBS[job][2]()
+def job_list(): return [{"key": k, "name": v[0], "desc": v[1]} for k, v in JOBS.items()]
 def scribble(name):
     d = dict(name=name, role="cast", payload=[["tempo", 1, None]], rng="single", life="instant", timing="now", trig="none", mat=None, fate="returns", mod=None, pe=0, mana=1, hp=1, bcost=None, unit="soldier", hostile=False, lvl=1, delay=1, bag_only=True, B=1, amb=True)
     d["text"] = "수상한 낙서 — 아무 효과도 없다(손패만 차지)"; d["scribble"] = True; return d
