@@ -236,12 +236,12 @@
   "fate": "returns",
   "mod": null,
   "pe": 1.37,
-  "mana": 3,
+  "mana": 4,
   "hp": 19,
   "bcost": [
    "ore",
-   3,
-   2
+   2,
+   1
   ],
   "unit": "worker",
   "hostile": false,

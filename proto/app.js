@@ -168,7 +168,7 @@ function renderMap() {
       p.addEventListener("pointerenter", () => ghost(c, x, y)); p.addEventListener("pointerleave", () => ghostLayer.replaceChildren());
     } else if (t) p.addEventListener("pointerenter", () => inspectTile(t));
     hexLayer.append(p);
-    if (t) hexLayer.append(svg("text", { x, y: y - 3, class: "mk" }, GLYPH[t.t]), svg("text", { x, y: y + 14, class: "amt" }, String(t.amt)));
+    if (t) hexLayer.append(svg("text", { x, y: y - 3, class: "mk" }, GLYPH[t.t]), svg("text", { x, y: y + 14, class: "amt" }, t.inf ? "∞" : String(t.amt)));
     if (hint.has(k)) hexLayer.append(svg("text", { x: x + 17, y: y - 13, class: "star" }, "✦"));
   }
   syncUnits(); markTargets();
@@ -241,7 +241,7 @@ function runDiff() {
 }
 
 /* ---------- 오른쪽 열 ---------- */
-function inspectTile(t) { $("inspect").replaceChildren(el("b", {}, t.t === "tree" ? "나무 자원 칸" : "광석 자원 칸"), el("div", { class: "sub" }, `남은 양 ${t.amt}`), el("p", {}, "채집 건물을 이 칸 옆(1칸 이내)에 지으면 ×1.5로 모입니다.")); }
+function inspectTile(t) { $("inspect").replaceChildren(el("b", {}, t.t === "tree" ? "나무 자원 칸" : "광석 자원 칸"), el("div", { class: "sub" }, t.inf ? "줄지 않는 자원" : `남은 양 ${t.amt}`), el("p", {}, "채집 건물을 이 칸 옆(1칸 이내)에 지으면 ×1.5로 모입니다.")); }
 function inspectUnit(u) {
   const d = u.d, hp = `체력 ${d.hp}/${d.max}`;
   const box = $("inspect");
@@ -519,7 +519,7 @@ function tipTile(h) {
   if (!t && !ok) return null;
   return { key: `t${q},${r}:${t ? t.amt : ""}:${ok}:${sel}`, build: () => el("div", { class: "tipbox" },
     t ? el("div", { class: "tiph" }, el("b", {}, t.t === "tree" ? "나무 자원 칸" : "광석 자원 칸")) : el("div", { class: "tiph" }, el("b", {}, c && c.o.role === "move" ? "이동할 수 있는 칸" : "놓을 수 있는 칸")),
-    t ? tipRow("남은 양", String(t.amt)) : null,
+    t ? tipRow("남은 양", t.inf ? "무한" : String(t.amt)) : null,
     t ? el("p", {}, "채집 건물을 이 칸 옆(1칸 이내)에 지으면 ×1.5로 모입니다.") : null,
     ok && h.classList.contains("hint") ? el("div", { class: "tiphint" }, "보너스 칸: 맞는 자원 옆이거나 다른 계열 건물 옆") : null,
     ok && c ? el("div", { class: "tiphint" }, `${c.o.name} — ${c.o.role === "move" ? "여기로 이동" : "여기에 놓기"}`) : null) };

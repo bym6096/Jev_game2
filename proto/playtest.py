@@ -57,7 +57,7 @@ def render(v):
     else: L.append("적: 없음")
     mine = [f"{b['kind'] == 'plant' and '식물' or '건물'} {b['name']}#{b['id']}({b['q']},{b['r']}) 체력 {b['hp']}/{b['max']}" for b in v["buildings"]] + [f"소환 {u['name']}#{u['id']}({u['q']},{u['r']}) 체력 {u['hp']}/{u['max']}" for u in v["summons"]]
     L.append("내 건물·소환물: " + (" / ".join(mine) if mine else "없음") + f"   (칸 한도: 건물 {v['caps']['b']} 식물 {v['caps']['p']} 소환 {v['caps']['s']})")
-    res = [f"{'나무' if t['t'] == 'tree' else '광석'}({t['q']},{t['r']}) {t['amt']}" for t in v["tiles"]]
+    res = [f"{'나무' if t['t'] == 'tree' else '광석'}({t['q']},{t['r']}) {'∞' if t.get('inf') else t['amt']}" for t in v["tiles"]]
     if res: L.append("자원 칸: " + " ".join(res))
     fc = v.get("forecast")
     if fc and v["phase"] == "play": L.append(f"정산 예상: 골드 약 {fc['gold']} / {fc['due']} (최근 턴당 {fc['per_turn']:+g}, 남은 {fc['turns_left']}턴; 자원은 이월이라 안 셈)" + (f" · 영지 {len(v['estates'])}곳" if v["estates"] else ""))

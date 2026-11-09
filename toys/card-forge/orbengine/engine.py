@@ -66,7 +66,7 @@ RAW = ("wood", "ore", "food")
 PASSIVE_K = .7                                      # 자동 구슬(손패에 안 오고 주머니에 있으면 일함)의 효과 배율
 STAGE_TYPES = {"balanced": dict(name="균형", enemy=1.0, trees=8, ores=6), "hostile": dict(name="적 많음", enemy=1.6, trees=4, ores=3), "rich": dict(name="자원 많음", enemy=.6, trees=14, ores=10)}
 WAVES = {1: 3, 5: 4, 9: 5}  # 등장 턴: 기본 적 수(스테이지 종류 배율은 별도)
-CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=3, bountyk=3, farm_bounty=.3, land=80, tile_amt=40, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2,
+CFG = dict(hp=100, mana=6, hand=5, ehp=1.5, eatk=.5, fam_decay=.6, weak_bonus=1.5, process_ratio=1.5, bounty0=3, bountyk=3, farm_bounty=.3, land=80, tile_amt=40, tile_inf=True, cap_b=3, hero_b=2, cap_s=3, hero_s=2, turns=15, due=150, lvl=1, cap_p=3, grow_turns=2, move_range=2,
            # ---- 런(2026-11-09 디렉터 결정: 사망 = 런 종료, 보스 스테이지도 정산, 영지 효율 감소 없음, 명성 대신 처치 보상을 키우는 구슬). 숫자는 run_bot.py로 맞춘 임시값
            stages=12, due0=120, due_r=1.4, boss_at=(4, 8, 12), mana_every=0, lvl_every=2, wave_grow=.25, rest_heal=.3, boss_hp=10, boss_atk=2, boss_bounty=8, boss_call=3)
 STAGE_HINT = {"balanced": "평탄한 들판", "hostile": "발소리가 많다", "rich": "숲과 광맥"}      # 출구 힌트에 보이는 지형 말
@@ -366,10 +366,12 @@ class HexGame:
                 if kind:
                     lim = 1 if building else 3
                     cands = sorted([t for t, d in s.tiles.items() if d["t"] == kind and d["amt"] > 0 and hd(t, src) <= lim], key=lambda t: hd(t, src))
-                    need = m
-                    for t in cands:
-                        k = min(need, s.tiles[t]["amt"]); s.tiles[t]["amt"] -= k; need -= k; got += k
-                        if need <= 0: break
+                    if s.cfg["tile_inf"]: got = m if cands else 0     # 2026-11-09 디렉터: 맵의 자원 칸은 무한(허들은 정산 목표). 칸 옆이냐가 중요하다
+                    else:
+                        need = m
+                        for t in cands:
+                            k = min(need, s.tiles[t]["amt"]); s.tiles[t]["amt"] -= k; need -= k; got += k
+                            if need <= 0: break
                     if got == 0 and (o["name"], src) not in s.warned: s.warned.add((o["name"], src)); s.log(f"{o['name']}: 근처에 {'나무' if kind=='tree' else '광석'} 타일이 없다")
                     elif building and cands and hd(cands[0], src) == 1 and got: got = round(got * 1.5)
                 else:
@@ -602,7 +604,7 @@ class HexGame:
             playable.append({"idx": idx, "iid": iid, "o": o, "why": why, "need_tile": s.needs_tile(o), "need_target": bool(s.needs_target(o) and not why), "target_ids": [e["id"] for e in s.in_range()] if (s.needs_target(o) and not why) else [], "tiles": [list(t) for t in vt], "hint": [list(t) for t in vt if s.tile_hint(o, t)]})
         return {"phase": s.phase, "turn": s.turn, "turns": s.cfg["turns"], "stage_type": s.stage_type, "stage_name": STAGE_TYPES[s.stage_type]["name"], "hp": round(s.hp), "max_hp": s.max_hp, "shield": round(s.shield), "mana": s.mana, "max_mana": s.max_mana,
                 "gold": s.gold, "res": s.res, "items": s.items, "due": s.due, "land": s.land, "bag": len(s.bag), "draw": len(s.draw), "disc": len(s.disc), "exh": len(getattr(s, "exh", [])), "dmgb": round(s.dmgb, 2),
-                "tiles": [{"q": t[0], "r": t[1], **d} for t, d in s.tiles.items() if d["amt"] > 0], "hand": playable,
+                "tiles": [{"q": t[0], "r": t[1], **d, "inf": bool(s.cfg["tile_inf"])} for t, d in s.tiles.items() if d["amt"] > 0], "hand": playable,
                 "buildings": [{"id": b["id"], "q": b["q"], "r": b["r"], "hp": round(b["hp"]), "max": b["max"], "name": b["o"]["name"], "fam": FAM.get(b["o"]["payload"][0][0]), "kind": "plant" if is_plant(b["o"]) else "building", "age": b["age"], "mat": b["o"].get("mat"), "text": b["o"]["text"], "verbs": [p[0] for p in b["o"]["payload"]], "rng": b["o"]["rng"], "range": unit_range(b["o"])} for b in s.buildings],
                 "summons": [{"id": u["id"], "q": u["q"], "r": u["r"], "hp": round(u["hp"]), "max": u["max"], "name": u["o"]["name"], "text": u["o"]["text"], "verbs": [p[0] for p in u["o"]["payload"]], "rng": u["o"]["rng"], "range": unit_range(u["o"])} for u in s.summons],
                 "enemies": [{"id": e["id"], "q": e["q"], "r": e["r"], "hp": round(e["hp"]), "max": round(e["max"]), "lvl": e["lvl"], "boss": bool(e.get("boss")), "stun": e["stun"], "weak": e["weak"], "burn": e.get("burn", 0)} for e in s.enemies],

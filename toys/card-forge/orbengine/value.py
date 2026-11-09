@@ -42,6 +42,7 @@ def econ(cfg=None, lvl=None):
     E.turns = c["turns"]
     E.kill_cap = E.n_en * E.kill * .8                                            # 한 구슬이 스테이지에 낼 수 있는 처치 가치의 상한(적 수 한계)
     E.supply_b = 1.5 * c["tile_amt"]; E.supply_c = 2.5 * c["tile_amt"]           # 건물(1칸)·시전(3칸) 주변에서 거둘 수 있는 자원 총량
+    if c.get("tile_inf"): E.supply_b = E.supply_c = float("inf")                   # 자원 칸이 무한이면 상한 없음
     # 사건이 남은 기간에 일어날 기대 횟수(반응 구슬의 신뢰도). 구슬 사용은 마나로, 처치는 적 수로, 수확·피격은 대략으로.
     plays = c["mana"] * E.remain / 2.0                                           # 평균 마나 2짜리를 계속 쓴다고 보고 남은 기간의 구슬 사용 수
     ev = {"orb": plays}

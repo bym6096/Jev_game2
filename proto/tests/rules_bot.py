@@ -244,3 +244,14 @@ i = next(i for i in g.bag if g.inst[i]["o"]["name"] == "오두막"); g.hand = [i
 g.gold = 10 ** 4; g.turn = g.cfg["turns"]; g.hand = []; g.end_turn(); assert any(e["o"]["name"] == "오두막" for e in g.estates), "처치 반응 건물도 영지가 된다"
 g.choose_exit(g.exits[0]["i"]); g.start(); e = g.enemies[0]; e["hp"] = 0; x = g.gold; g.reap(); assert g.gold - x == e["bounty"] + 2, "영지의 처치 반응이 다음 스테이지에서도 터진다"
 print("세 테크 시너지(이자·가공 재료·반응 영지) OK")
+
+# 13) 자원 칸은 무한(2026-11-09 디렉터: 허들은 정산 목표) — 채집해도 줄지 않고, 옆 칸이면 ×1.5
+g = engine.HexGame(orbs.starter_orbs(), seed=71); g.start(); g.enemies = []
+mine = next(i for i in g.bag if g.inst[i]["o"]["name"] == "광산"); g.res["ore"] = 10; g.gold = 10; g.hand = [mine]; g.mana = 6
+t = next(t for t in g.valid_tiles(mine) if any(g.tiles.get(n, {}).get("t") == "ore" for n in engine.nb(t))) if any(any(g.tiles.get(n, {}).get("t") == "ore" for n in engine.nb(t)) for t in g.valid_tiles(mine)) else None
+if t:
+    g.play(0, t); amt = {k: d["amt"] for k, d in g.tiles.items()}; ore = []
+    for _ in range(8): x = g.res["ore"]; g.hand = []; g.enemies = []; g.end_turn(); ore.append(g.res["ore"] - x)
+    assert {k: d["amt"] for k, d in g.tiles.items()} == amt and len(set(ore)) == 1 and ore[0] == round(6 * 1.5), ore
+    assert all(t["inf"] for t in g.view()["tiles"])
+print("무한 자원 칸 OK")
