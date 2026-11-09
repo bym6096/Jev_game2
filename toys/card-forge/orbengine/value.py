@@ -80,7 +80,8 @@ def unit_value(v, m, mt, d, E, repeat=False):
     if v == "draw": return (1 + int(pe // 2.5)) * E.vpm * .6, False
     # 마나 동사: 얻은 마나는 쓸 구슬(손패 5장)이 있어야 의미가 있어 마나 1당 VPM의 절반으로 친다 — 1마나 대신 마나 2를 주는 구슬이 순이익 +1이 되게(슬레이 더 스파이어의 '에너지 카드'처럼)
     if v == "recycle": return E.vpm * .55, False
-    if v == "trash": return E.vpm * .3, False                                     # 손패 1개를 골라 이번 스테이지 동안 뺌(약한 구슬을 덜 뽑게)
+    if v == "trash": return E.vpm * .3, False
+    if v == "interest": return min(m / 100 * E.cfg["due"] * .5, E.cfg["due"] * engine.INTEREST_CAP), False      # 가진 골드를 정산액의 절반쯤으로 본 이자 한 번                                     # 손패 1개를 골라 이번 스테이지 동안 뺌(약한 구슬을 덜 뽑게)
     if v == "peek": return E.vpm * .7, False                                       # 위 3개 중 골라 1개를 손패로 = 더 뽑기 1개 + 고르는 값
     if v == "tempo": return E.vpm * .5 + E.vpm * .6, False                                  # 마나 +1 + 구슬 1개
     if v == "energy": return max(2, 1 + int(pe // 1.5)) * E.vpm * .5, False

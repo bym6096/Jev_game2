@@ -27,7 +27,7 @@ function el(tag, attrs = {}, ...kids) { const e = document.createElement(tag); f
 function svg(tag, attrs = {}, ...kids) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; }
 /* ---------- 구슬 모양 (card-forge 참고) ----------
    색 = 효과 종류(+이름으로 살짝 변주), 크기 = 마나, 속무늬 = 구슬 종류, 겉에는 새긴 이름만. */
-const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", burn: "#ef6a2b", remove: "#7a8a92", transform: "#c070d0", move: "#6db7ea" };
+const VERB_COLOR = { damage: "#d8503f", drain: "#b8325a", guard: "#4b86dc", heal: "#4cbf86", money: "#e0b03a", steal: "#c99a2e", process: "#d19a3e", grow: "#7cbf4f", buff: "#e5863a", debuff: "#8f6bd8", control: "#6c5fd0", draw: "#37b6c8", recycle: "#37b6c8", trash: "#6e8796", peek: "#58a8d8", tempo: "#3aa0e8", energy: "#3aa0e8", create: "#d36ec0", amplify: "#e060a0", burn: "#ef6a2b", interest: "#f0c850", remove: "#7a8a92", transform: "#c070d0", move: "#6db7ea" };
 const MAT_COLOR = { wood: "#5fa84f", ore: "#8a97a8", food: "#9ab84a", gold: "#e0b03a" };
 const PATTERN = { build: "repeating-radial-gradient(circle at 50% 50%,#fff9 0 1px,#fff0 1px 8px)", summon: "repeating-conic-gradient(from 12deg at 50% 50%,#fff9 0 5deg,#fff0 5deg 20deg)", move: "radial-gradient(circle at 50% 60%,#fff8 0,#fff0 58%)", plant: "radial-gradient(circle at 28% 72%,#fff7 0,#fff0 42%),radial-gradient(circle at 72% 30%,#fff5 0,#fff0 36%)" };
 const hash = (str) => { let h = 2166136261; for (const c of str) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
@@ -67,7 +67,7 @@ function sphere(o, d = orbSize(o)) {
   return el("div", { class: "sphere" + (o.scribble ? " scribble" : ""), style: `--el:${orbColor(o)};--d:${d}px;--fs:${e.fs.toFixed(1)}px;--pat:${PATTERN[kindOf(o)] || "none"}` }, eng);
 }
 // 구슬 밑에 한 줄로 보이는 효과 요약(자세한 문장은 오른쪽 정보창)
-const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: (m, t) => `${BOOST_KO[t] || "피해"} +${m}%`, burn: (m) => `화상 ${m}`, debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
+const VERB_BRIEF = { damage: (m) => `피해 ${m}`, drain: (m) => `흡수 ${m}`, guard: (m) => `방어 +${m}`, heal: (m) => `회복 ${m}`, money: (m) => `골드 ${m}`, interest: (m) => `이자 ${m}%`, steal: (m) => `탈취 ${m}`, harvest: (m, t) => `${RES[t] || "자원"} +${m}`, grow: (m, t) => `${RES[t || "food"]} +${m}`, process: () => "가공", buff: (m, t) => `${BOOST_KO[t] || "피해"} +${m}%`, burn: (m) => `화상 ${m}`, debuff: () => "약화", control: () => "행동 불가", draw: () => "더 뽑기", recycle: () => "되돌림", trash: () => "폐기", peek: () => "엿보기", tempo: () => "마나 +1", energy: () => "마나 +", create: () => "생성", amplify: () => "다음 ×2", remove: () => "제거", transform: () => "변환" };
 function brief(o) { if (o.scribble) return "낙서"; if (o.role === "move") return `${o.mv || 2}칸`; return (o.payload || []).filter((p) => p[0] !== "move").slice(0, 2).map(([v, m, t]) => (VERB_BRIEF[v] ? VERB_BRIEF[v](m, t) : v)).join(" · "); }
 const bcostText = (o) => (o.role === "build" || (o.role === "summon" && !o.hostile)) && o.bcost ? `비용: ${RES[o.bcost[0]]} ${o.bcost[1]} + 골드 ${o.bcost[2]}` : "";
 
@@ -252,7 +252,7 @@ function inspectUnit(u) {
 }
 let fxGroups = [];
 const COND_KO = { hit: "피격 시", death: "사망 시", orb: "다른 구슬을 쓸 때", approach: "적이 다가오면", orb_attack: "공격 구슬을 쓸 때", orb_eco: "채집·수입 구슬을 쓸 때", orb_plant: "식물 구슬을 쓸 때", orb_build: "건물 구슬을 쓸 때", orb_summon: "소환 구슬을 쓸 때", orb_defense: "방어·회복 구슬을 쓸 때", kill: "적을 처치할 때", harvest: "자원을 거둘 때" };
-const BOOST_KO = { dmg: "피해", burn: "화상", income: "골드 수입", growth: "채집·재배", defense: "방어·회복", unit: "건물·소환물" };
+const BOOST_KO = { dmg: "피해", burn: "화상", income: "골드 수입", growth: "채집·재배", defense: "방어·회복", unit: "건물·소환물", bounty: "처치 보상" };
 function groupFx() {
   const m = new Map(); st.fx.forEach((f) => { const k = f.name + "|" + f.kind; const g = m.get(k) || { f, n: 0 }; g.n++; m.set(k, g); }); return [...m.values()];
 }

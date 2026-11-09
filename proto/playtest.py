@@ -145,7 +145,7 @@ def main():
     elif c == "log": print("\n".join(cur()["log"][-(int(a[1]) if len(a) > 1 else 14):]))
     else: sys.exit(f"알 수 없는 명령: {c}\n\n" + HELP)
 HELP = """명령 (모두 python3 proto/playtest.py <명령> …)
-  new [balanced|hostile|rich] [hunter|builder|merchant|sampler]   새 런(첫 스테이지 종류, 초기 직업 — 사냥꾼·건축가·상인, sampler는 옛 견본 10개). 빈 구슬 2개를 보여 준다
+  new [balanced|hostile|rich] [hunter|farmer|merchant|sampler]   새 런(첫 스테이지 종류, 초기 직업 — 사냥꾼·농부·상인, sampler는 옛 견본 10개). 빈 구슬 2개를 보여 준다
   write <번호> <이름>             빈 구슬에 이름을 써서 구슬 만들기(실제 Jev 호출, 쓴 이름만 읽힘; 글자 수 제한 있음)
   start                           준비를 끝내고 1턴 시작(구슬을 안 만들어도 됨)
   state | s                       지금 상태 다시 보기

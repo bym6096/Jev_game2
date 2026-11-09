@@ -228,3 +228,19 @@ for k in orbs.JOBS:
     bag = orbs.job_orbs(k); assert len(bag) == 8 and any(o["name"] == "달리기" for o in bag) and all(o["fate"] == "returns" for o in bag), k
     g = engine.HexGame(bag, seed=52); g.start(); assert len(g.hand) == 5
 print("자동 구슬 없음·매 턴 손패/마나는 건물만·스테이지 안 빼기·초기 직업 OK")
+
+# 12) 세 테크의 시너지 구색(2026-11-09): 이자(가진 골드의 %, 정산액 10% 상한), 가공은 건물 재료 먼저, 반응형 경제 건물도 영지로 남아 계속 반응
+assert engine.interest_gain(100, 5, 120) == 5 and engine.interest_gain(1000, 5, 120) == 12, "이자 상한 = 정산액의 10%"
+bank = orbs._hand("저금통", role="build", payload=[["interest", 5, None]], life="run", timing="repeating", hp=12, unit="worker", mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [bank], seed=61); g.start(); g.enemies = []
+i = next(i for i in g.bag if g.inst[i]["o"]["name"] == "저금통"); g.hand = [i]; g.mana = 6; g.play(0, g.valid_tiles(i)[0]); g.gold = 100; g.hand = []; g.end_turn()
+assert g.gold == 105, g.gold
+mill = orbs._hand("방앗간", role="build", payload=[["process", 3, None]], mat="food", life="run", hp=10, mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [mill], seed=62); g.start(); g.res = {"wood": 10, "ore": 10, "food": 10}
+assert g.process(3, "food") == 3 and g.res == {"wood": 10, "ore": 10, "food": 7}, "방앗간은 식량부터"
+lodge = orbs._hand("오두막", role="build", payload=[["money", 2, None]], trig="kill", life="run", hp=10, mana=1)
+g = engine.HexGame(orbs.starter_orbs() + [lodge], seed=63); g.start(); g.enemies = []
+i = next(i for i in g.bag if g.inst[i]["o"]["name"] == "오두막"); g.hand = [i]; g.mana = 6; g.play(0, g.valid_tiles(i)[0])
+g.gold = 10 ** 4; g.turn = g.cfg["turns"]; g.hand = []; g.end_turn(); assert any(e["o"]["name"] == "오두막" for e in g.estates), "처치 반응 건물도 영지가 된다"
+g.choose_exit(g.exits[0]["i"]); g.start(); e = g.enemies[0]; e["hp"] = 0; x = g.gold; g.reap(); assert g.gold - x == e["bounty"] + 2, "영지의 처치 반응이 다음 스테이지에서도 터진다"
+print("세 테크 시너지(이자·가공 재료·반응 영지) OK")

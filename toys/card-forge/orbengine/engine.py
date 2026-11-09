@@ -13,11 +13,11 @@ def josa(w, a="이", b="가"):
     c = w[-1] if w else ""
     if not ("가" <= c <= "힣"): return f"{w}{a}({b})"
     return w + (a if (ord(c) - 0xAC00) % 28 else b)
-FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco",
+FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco", "interest": "gold",
        "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 ENEMY_V = ("damage", "drain", "debuff", "control", "burn")   # 적을 겨냥하는 동사
 TURN_V = ("draw", "recycle", "tempo", "energy", "peek", "trash")
-EXILE_KO = "소멸"                                            # 스테이지 동안 순환에서 빼는 것의 이름(임시 — 슬레이 더 스파이어와 겹쳐 디렉터가 새 이름을 고르는 중)
+EXILE_KO = "빛바램"                                          # 스테이지 동안 순환에서 빠지는 것의 이름(2026-11-09 디렉터: 슬레이 더 스파이어의 "소멸"과 겹치지 않게). 다음 스테이지엔 다시 빛난다
 def draw_n(o): return 1 + int(o["pe"] // 2.5)                       # '더 뽑기'로 뽑는 구슬 수
 def energy_gain(o): return max(2, 1 + int(o["pe"] // 1.5))          # '마나 충전'으로 얻는 마나(최소 2: 가격 1을 내고도 남게)              # 그 턴의 손패·마나에 작용하는 동사(턴 끝에 생기면 다음 턴으로 미룬다)
 # ---- 시너지: 사건 알림(emit) · 화상 · 종류별 증폭(buff) · 구슬 태그. 숫자는 임시.
@@ -26,8 +26,10 @@ TRIG_PER_TURN = 2                  # 반응 하나가 한 턴에 터질 수 있�
 MULT_CAP = 1.5                     # 종류별 증폭의 합 상한(+150%)
 SALE_RATE = .3                     # 스테이지 끝에 남은 자원을 골드로 파는 비율(가치 모델이 자원 값어치의 바닥으로 씀)
 BOOST_KINDS = ("dmg", "burn", "income", "growth", "defense", "unit", "bounty")   # buff 동사가 키우는 것: 피해·화상·골드 수입·채집/재배·방어/회복·건물과 소환물
-KIND = {"damage": "dmg", "drain": "dmg", "money": "income", "steal": "income", "process": "income", "harvest": "growth", "grow": "growth", "guard": "defense", "heal": "defense"}
-ECO_V = ("harvest", "grow", "create", "process", "money", "steal")
+KIND = {"damage": "dmg", "drain": "dmg", "money": "income", "steal": "income", "process": "income", "interest": "income", "harvest": "growth", "grow": "growth", "guard": "defense", "heal": "defense"}
+ECO_V = ("harvest", "grow", "create", "process", "money", "steal", "interest")
+INTEREST_CAP = .1                  # 이자 한 번의 상한 = 이번 스테이지 정산액의 10%(이자놀음이 정산 곡선을 혼자 따라잡지 않게)
+def interest_gain(gold, pct, due): return max(0, min(int(gold * pct / 100), int(due * INTEREST_CAP)))
 COND_KO = {"hit": "피격 시", "death": "사망 시", "orb": "다른 구슬을 쓸 때", "approach": "적이 다가오면", "orb_attack": "공격 구슬을 쓸 때", "orb_eco": "채집·수입 구슬을 쓸 때", "orb_plant": "식물 구슬을 쓸 때",
            "orb_build": "건물 구슬을 쓸 때", "orb_summon": "소환 구슬을 쓸 때", "orb_defense": "방어·회복 구슬을 쓸 때", "kill": "적을 처치할 때", "harvest": "자원을 거둘 때"}
 BOOST_KO = {"dmg": "피해", "burn": "화상", "income": "골드 수입", "growth": "채집·재배", "defense": "방어·회복", "unit": "건물·소환물", "bounty": "처치 보상"}
@@ -142,7 +144,7 @@ class HexGame:
                 s.log(f"보스가 졸개 2마리를 불렀다")
         s.gold_hist.append(s.gold)
         for f in s.fx: f["tn"] = 0                              # 반응의 턴당 횟수 초기화
-        for b in s.buildings + s.summons: b["tn"] = 0
+        for b in s.buildings + s.summons + getattr(s, "estates", []): b["tn"] = 0
         s.disc += [i for i in s.hand if not s.inst[i]["o"].get("copy")]; s.hand = []; s.mana = s.max_mana; s.fam_turn = collections.Counter(); s.drawn(s.cfg["hand"])
         s.ending = False; pend = getattr(s, "pending", []); s.pending = []
         if pend:
@@ -307,6 +309,10 @@ class HexGame:
                     if is_plant(o) and b.get("age", 0) <= s.cfg["grow_turns"]: continue
                     b["tn"] = b.get("tn", 0) + 1; s.stats["reactions"] += 1; src = (b["q"], b["r"])
                     s.ev("pop", src, text=f"{o['name']} 발동", tone="trig"); s.apply(o, o["payload"], 1.0, src, b)
+            for e in getattr(s, "estates", []):
+                c = e["o"]["trig"]
+                if c in ("none", "approach", "hit", "death") or e.get("tn", 0) >= TRIG_PER_TURN or not trig_match(c, kind, info): continue
+                e["tn"] = e.get("tn", 0) + 1; s.stats["reactions"] += 1; s.estate_apply(e)
         finally: s._depth = d
     # ---- effects
     def add_dur(s, iid, o, left, charges):   # 같은 구슬의 지속 효과는 쌓이지 않고 시간만 갱신(쌓이면 매 턴 다시 써서 비용 대비 값어치가 폭주함)
@@ -374,11 +380,11 @@ class HexGame:
                 k = min(m, s.land); s.land -= k; s.res[mt or "food"] += k; s.ev("pop", at, text=(f"+{k} {ICON.get(mt or 'food', '')}" if k else "경작지가 없다"), tone=("gain" if k else "down"))
                 if k: s.emit("harvest", res=mt or "food", n=k)
             elif v == "process":
-                n = 0
-                for k in RAW:
-                    t = min(m - n, s.res[k]); s.res[k] -= t; n += t
-                g = int(n * s.cfg["process_ratio"]); s.gold += g; s.stats["g_process"] += g
+                n = s.process(m, o.get("mat")); g = int(n * s.cfg["process_ratio"]); s.gold += g; s.stats["g_process"] += g
                 if g: s.ev("pop", at, text=f"가공 +{g} 🪙", tone="gain")
+            elif v == "interest":      # 이자: 지금 가진 골드의 m%(한 번에 정산액의 10%까지). 골드를 쌓아 둘수록 커진다 — 쓰기와 모으기 사이의 선택
+                g = interest_gain(s.gold, m, s.due); s.gold += g; s.stats["g_interest"] += g
+                if g: s.ev("pop", at, text=f"이자 +{g} 🪙", tone="gain")
             elif v == "buff":       # 종류별 증폭: m = 퍼센트, mt = 키우는 것(BOOST_KINDS). 같은 구슬은 쌓이지 않고 갱신, 서로 다른 구슬끼리는 더해진다
                 st_ = mt if mt in BOOST_KINDS else "dmg"; s.add_mult(building["iid"] if building else -1, o, st_, m, {"instant": 3, "turns": 4}.get(o["life"], 10 ** 6)); s.ev("pop", at, text=f"{BOOST_KO[st_]} +{m}%", tone="up")
             elif v == "burn":       # 화상: m = 중첩 수. 턴마다 중첩×BURN_DMG 피해를 주고 1중첩씩 줄어든다
@@ -523,29 +529,38 @@ class HexGame:
             k = max(RAW, key=lambda x: s.res[x]); t = min(s.res[k], units - sold); s.res[k] -= t; sold += t
         g = int(round(sold * SALE_RATE, 6)); s.gold += g; s.log(f"정산: 모자란 골드를 자원 {sold}개로 채움(+{g})"); return sold
     # ---- 런: 영지·출구·다음 스테이지
+    def process(s, m, mat=None):
+        """원료 m개를 쓴다(가공). 구슬의 재료(방앗간 = 식량, 제재소 = 나무)를 먼저, 모자라면 다른 원료. 쓴 개수를 돌려준다."""
+        n = 0
+        for k in ([mat] if mat in RAW else []) + [k for k in RAW if k != mat]:
+            t = min(m - n, s.res[k]); s.res[k] -= t; n += t
+        return n
     def to_estates(s):
         """클리어한 스테이지의 건물·식물은 영지가 되어 이후 스테이지마다 매 턴 생산한다(효율 감소 없음, 자원 칸 고갈 없음, 공격받지 않음). 소환물은 떠난다."""
         for b in s.buildings:
             o = b["o"]; kind = {"wood": "tree", "ore": "ore"}.get(next((p[2] for p in o["payload"] if p[0] == "harvest"), None))
             adj = bool(kind) and any(s.tiles.get(n, {}).get("t") == kind for n in nb((b["q"], b["r"])))
-            if any(p[0] in ECO_V for p in o["payload"]) and o["trig"] == "none": s.estates.append({"o": o, "adj": adj, "stage": s.stage_n})
+            if any(p[0] in ECO_V for p in o["payload"]) and o["trig"] not in ("hit", "death", "approach"): s.estates.append({"o": o, "adj": adj, "stage": s.stage_n, "tn": 0})      # 반응형(처치·수확·구슬 사용)도 영지에서 계속 반응
         if s.buildings: s.log(f"영지가 늘었다: {len(s.estates)}곳")
         s.buildings = []; s.summons = []
     def estate_work(s):
         """영지 생산: 경제 동사만(채집·재배·가공·돈). 옆에 자원 칸이 있던 채집 건물은 ×1.5 그대로."""
         g0 = s.gold; r0 = dict(s.res)
         for e in s.estates:
-            for v, m, mt in e["o"]["payload"]:
-                if v == "money": s.gold += m; s.stats["g_estate"] += m
-                elif v in ("harvest", "grow"):
-                    if mt == "gold": s.gold += m; s.stats["g_estate"] += m
-                    else: k = mt or ("food" if v == "grow" else "ore"); s.res[k] += round(m * (1.5 if e["adj"] else 1))
-                elif v == "process":
-                    n = 0
-                    for k in RAW: t = min(m - n, s.res[k]); s.res[k] -= t; n += t
-                    g = int(n * s.cfg["process_ratio"]); s.gold += g; s.stats["g_estate"] += g
+            if e["o"]["trig"] == "none": s.estate_apply(e)
         d = {k: s.res[k] - r0[k] for k in RAW if s.res[k] != r0[k]}
         if s.estates and (s.gold != g0 or d): s.log("영지: " + ", ".join(([f"골드 +{s.gold - g0}"] if s.gold != g0 else []) + [f"{ {'wood': '나무', 'ore': '광석', 'food': '식량'}[k]} {v:+d}" for k, v in d.items()]))
+    def estate_apply(s, e):
+        """영지 하나가 한 번 일한다(경제 동사만, 증폭은 골드 수입·채집 증폭을 받는다)."""
+        for v, m, mt in e["o"]["payload"]:
+            kd = "income" if (mt == "gold" or v in ("money", "process", "interest")) else ("growth" if v in ("harvest", "grow") else None)
+            if kd: m = max(1, round(m * s.mm(kd)))
+            if v == "money": s.gold += m; s.stats["g_estate"] += m
+            elif v in ("harvest", "grow"):
+                if mt == "gold": s.gold += m; s.stats["g_estate"] += m
+                else: k = mt or ("food" if v == "grow" else "ore"); s.res[k] += round(m * (1.5 if e["adj"] else 1))
+            elif v == "process": g = int(s.process(m, e["o"].get("mat")) * s.cfg["process_ratio"]); s.gold += g; s.stats["g_estate"] += g
+            elif v == "interest": g = interest_gain(s.gold, m, s.due); s.gold += g; s.stats["g_estate"] += g; s.stats["g_interest"] += g
     def make_exits(s):
         """출구 2~3곳(맵 가장자리). 속성(지형·보상)은 한두 개만 보인다. 다음이 보스 스테이지면 모든 출구가 보스로 간다."""
         n = s.stage_n + 1; boss = n in tuple(s.cfg["boss_at"]); k = 3 if s.R.random() < .5 else 2

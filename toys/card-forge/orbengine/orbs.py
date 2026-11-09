@@ -26,6 +26,7 @@ def every(o):   # 건물·소환물이 일하는 때: 평소엔 매 턴, 반응�
 def vtext(v, m, mt, o):
     tg = TG_MANUAL[o["rng"]] if engine.manual_target(o) else TG_AUTO[o["rng"]]
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
+            "interest": f"가진 골드의 {m}% 이자(한 번에 정산액의 {round(engine.INTEREST_CAP * 100)}%까지)",
             "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집({'옆 칸' if o['role'] in ('build', 'summon') else '3칸 안'} 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"{engine.BOOST_KO.get(mt or 'dmg', '피해')} +{m}% ({ {'instant': '3턴', 'turns': '4턴'}.get(o['life'], '이번 스테이지') }, 다른 구슬과 합산)", "burn": f"{tg}에 화상 {m}중첩 (턴마다 중첩×{engine.BURN_DMG} 피해, 1중첩씩 감소)", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
             "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": f"손패의 구슬 1개를 골라 이번 스테이지 동안 빼기({engine.EXILE_KO})", "peek": "주머니 위 3개 중 1개를 골라 손패로", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
@@ -91,6 +92,7 @@ def shape(d, boost=None):
             kind = boost if boost in engine.BOOST_KINDS else ("burn" if "burn" in vs else "growth" if any(v in ("harvest", "grow") for v in vs) else "income" if any(v in ("money", "steal", "process") for v in vs) else "dmg")
             p[1] = max(10, min(40, round(10 + 8 * d["pe"]))); p[2] = kind
         elif p[0] == "burn": p[1] = max(1, round(p[1] / 4))
+        elif p[0] == "interest": p[1] = max(2, min(10, round(2 + 2 * d["pe"]))); p[2] = None      # 이자율(%): 이름의 힘에 따라 2~10%
     if d["role"] == "cast" and d["life"] in ("stage", "run", "forever") and d["rng"] == "single" and vs and vs[0] == "burn": d["rng"] = "around"      # 긴 지속은 한 마리가 아니라 무리(vendor 규칙과 같음)
     hp_scale(d); react_scale(d); return d
 DMG_V = ("damage", "drain")
@@ -136,17 +138,16 @@ JOBS = {
         _job_orb("올가미", payload=[["debuff", 1, None]], pe=.8, B=12),
         _job_orb("사냥개", role="summon", payload=[["damage", 9, None]], unit="beast", pe=.8, B=12, hp=12),
         _job_orb("현상금 쪽지", payload=[["buff", 20, "bounty"]], life="turns", pe=.8, B=12)]),
-    "builder": ("견습 건축가", "작은 건물을 이웃에 붙여 짓고(다른 종류가 붙으면 +20%) 영지로 쌓는다", lambda: [
+    "farmer": ("견습 농부", "식물을 키워 식량을 모으고 방앗간에서 골드로 바꾼다(식물은 영지로 남아 계속 자람, 채집·재배 증폭)", lambda: [
         _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
-        _job_orb("작은 광산", role="build", payload=[["harvest", 4, "ore"]], life="run", timing="repeating", mat="ore", hp=14, bcost=["ore", 3, 1], unit="worker", pe=.8, B=12),
-        _job_orb("작은 벌목장", role="build", payload=[["harvest", 3, "wood"], ["process", 2, None]], life="run", timing="repeating", mat="wood", hp=12, bcost=["wood", 4, 1], unit="worker", pe=.8, B=12),
-        dict(HAND_STARTERS[1]),                                                                                   # 텃밭
-        _job_orb("돌 쌓기", payload=[["guard", 5, None]], pe=.6, B=9)]),
-    "merchant": ("견습 상인", "원료를 사고팔아 골드로 바꾼다(가공 ×1.5, 골드 수입 증폭)", lambda: [
+        dict(HAND_STARTERS[1]), dict(HAND_STARTERS[1]),                                                          # 텃밭 ×2
+        _job_orb("작은 방앗간", role="build", payload=[["process", 3, None]], life="run", timing="repeating", mat="food", hp=12, bcost=["wood", 3, 1], unit="worker", pe=.8, B=12),
+        _job_orb("물뿌리개", payload=[["buff", 20, "growth"]], life="turns", pe=.8, B=12)]),
+    "merchant": ("견습 상인", "골드를 쌓아 두고 이자로 불린다(이자는 가진 골드의 %, 골드 수입 증폭)", lambda: [
         _job_orb("녹슨 단검", payload=[["damage", 20, None]], pe=1.0, B=20),
         _job_orb("노점", role="build", payload=[["money", 1, None]], life="run", timing="repeating", mat="gold", hp=12, bcost=["wood", 2, 2], unit="worker", pe=.6, B=9),
+        _job_orb("작은 저금통", role="build", payload=[["interest", 3, None]], life="run", timing="repeating", mat="gold", hp=12, bcost=["ore", 2, 2], unit="worker", pe=.6, B=9),
         _job_orb("손수레", payload=[["process", 4, None]], pe=.8, B=12),
-        _job_orb("돌멩이 줍기", payload=[["harvest", 5, "ore"]], pe=.6, B=9, mat="ore"),
         _job_orb("흥정", payload=[["buff", 20, "income"]], life="turns", pe=.8, B=12)]),
 }
 def job_orbs(job):
@@ -167,6 +168,7 @@ VERBS["trash"] = VERBS["trash"].replace("burning up, ", "")
 VERBS["draw"] = "drawing more orbs into your hand right now, for more options this turn: preparation, inspiration, planning, quick hands, a backpack, a bag of tricks"
 VERBS["tempo"] = "speed, haste, rushing, or doing two things at once, like getting an extra action this turn"
 VERBS["energy"] = "charging up, fueling, caffeine, focus, or meditation that gives you more mana to spend this turn"
+VERBS["interest"] = "earning interest on the gold you are holding, so saving more gold makes more gold: a bank, savings, a loan shark, investment, compound interest"      # 상업 테크(이자놀음, 2026-11-09)
 VERBS["buff"] = "making allies stronger, faster, braver, or more capable, or boosting a kind of effect, like a blessing, a catalyst, a booster, or a lucky charm"
 TRIGGERS = {"none": "no, it simply happens when used", "hit": "when the PLAYER is struck by an enemy or takes damage (being attacked; NOT when the player attacks or hits something)", "death": "when someone dies or is destroyed", "approach": "when an enemy comes near or steps on it",
             "orb": "when any other orb is used", "orb_attack": "whenever the player attacks, strikes, or swings, i.e. when ANOTHER orb that attacks is used, as a combo or follow-up bonus (not for an attack that simply hurts)", "orb_eco": "when ANOTHER gathering, farming, trading, or money-making orb is used, as a follow-up bonus",
