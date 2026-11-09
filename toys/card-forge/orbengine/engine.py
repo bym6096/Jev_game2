@@ -16,6 +16,9 @@ def josa(w, a="이", b="가"):
 FAM = {"money": "gold", "steal": "gold", "damage": "dmg", "drain": "dmg", "burn": "dmg", "guard": "def", "heal": "def", "control": "ctl", "debuff": "ctl", "harvest": "eco", "grow": "eco", "create": "eco", "process": "eco",
        "draw": "bag", "recycle": "bag", "trash": "bag", "tempo": "bag", "energy": "bag", "peek": "bag", "buff": "amp", "amplify": "amp", "remove": "misc", "transform": "misc"}
 ENEMY_V = ("damage", "drain", "debuff", "control", "burn")   # 적을 겨냥하는 동사
+TURN_V = ("draw", "recycle", "tempo", "energy")
+def draw_n(o): return 1 + int(o["pe"] // 2.5)                       # '더 뽑기'로 뽑는 구슬 수
+def energy_gain(o): return max(2, 1 + int(o["pe"] // 1.5))          # '마나 충전'으로 얻는 마나(최소 2: 가격 1을 내고도 남게)              # 그 턴의 손패·마나에 작용하는 동사(턴 끝에 생기면 다음 턴으로 미룬다)
 # ---- 시너지: 사건 알림(emit) · 화상 · 종류별 증폭(buff) · 구슬 태그. 숫자는 임시.
 BURN_DMG, BURN_MAX = 2, 8          # 화상 1중첩당 턴 피해 / 한 적의 최대 중첩(턴마다 1중첩 줄어든다)
 TRIG_PER_TURN = 2                  # 반응 하나가 한 턴에 터질 수 있는 최대 횟수(무한 연쇄 방지)
@@ -140,6 +143,10 @@ class HexGame:
         for f in s.fx: f["tn"] = 0                              # 반응의 턴당 횟수 초기화
         for b in s.buildings + s.summons: b["tn"] = 0
         s.disc += [i for i in s.hand if not s.inst[i]["o"].get("copy")]; s.hand = []; s.mana = s.max_mana; s.fam_turn = collections.Counter(); s.drawn(s.cfg["hand"])
+        s.ending = False; pend = getattr(s, "pending", []); s.pending = []
+        if pend:
+            for v, o in pend: s.apply(o, [(v, 1, None)])
+            n = collections.Counter(v for v, _ in pend); s.log("턴 시작 보너스: " + ", ".join(f"{ {'draw': '더 뽑기', 'recycle': '되돌림', 'tempo': '마나', 'energy': '마나'}[v]} ×{k}" for v, k in n.items()))
     # ---- spawn
     def occupied(s): 
         o = {s.pos}; o |= {(b["q"], b["r"]) for b in s.buildings}; o |= {(u["q"], u["r"]) for u in s.summons}; o |= {(e["q"], e["r"]) for e in s.enemies}; return o
@@ -366,14 +373,16 @@ class HexGame:
             elif v == "control":
                 n = 1 if o["life"] in ("stage", "run", "forever") else 1 + int(o["B"] // 30)
                 for e in s.targets(o, src, lim): e["stun"] = max(e["stun"], 1 if e.get("boss") else n); s.ev("hit", at, (e["q"], e["r"]), kind="control")
-            elif v == "draw": s.drawn(1 + int(o["pe"] // 2.5))
+            elif v in TURN_V and getattr(s, "ending", False):        # 턴 끝(지속·건물·소환물·자동 구슬)에 생긴 마나·뽑기·되돌림은 다음 턴 시작에 준다(그냥 두면 새 턴이 손패·마나를 덮어써서 버려짐)
+                s.pending.append((v, o)); s.ev("pop", at, text={"draw": "다음 턴 +1 뽑기", "recycle": "다음 턴 되돌림", "tempo": "다음 턴 마나 +1", "energy": "다음 턴 마나 +"}[v], tone="up")
+            elif v == "draw": s.drawn(draw_n(o))
             elif v == "recycle":
                 if s.disc: s.hand.append(s.disc.pop(s.R.randrange(len(s.disc))))
             elif v == "trash":
                 c = [i for i in s.disc if s.inst[i]["o"]["name"] != o["name"]]
                 if c: w = c[0]; s.disc.remove(w); s.bag.remove(w); s.log(f"폐기: {s.inst[w]['o']['name']}")
-            elif v == "tempo": s.mana += 1
-            elif v == "energy": s.mana += max(1, int(o["pe"] // 1.5))
+            elif v == "tempo": s.mana += 1; s.drawn(1)                 # 신속: 마나 +1에 구슬 1개 더 — 마나 1짜리가 마나 1만 돌려주면 하는 일이 없다
+            elif v == "energy": s.mana += energy_gain(o)
             elif v == "create":
                 if mt == "gold": s.gold += 2
                 elif mt: s.res[mt] += 2
@@ -388,7 +397,7 @@ class HexGame:
     # ---- end turn
     def end_turn(s):
         if s.phase != "play": return {"error": "플레이 중이 아닙니다"}
-        s.events = []; s.pick = None; s.recent = []
+        s.events = []; s.pick = None; s.recent = []; s.ending = True; s.pending = []
         s.amp = 1.0
         if s.items and s.hp < s.max_hp * .5: s.items -= 1; s.hp = min(s.max_hp, s.hp + 15); s.log("아이템 사용: 체력 15")
         if s.res["food"] >= 2 and s.hp < s.max_hp * .6: s.res["food"] -= 2; s.hp = min(s.max_hp, s.hp + 6); s.log("식량을 먹었다: 체력 6")

@@ -2,7 +2,7 @@
 이동·식물·타게팅·사거리·지속 효과 중첩 방지를 하나씩 확인하고, 무작위 봇 90판을 돌려 예외가 없는지 본다. 통과율은 참고만(봇이 이동을 아무 데나 쓴다)."""
 import os, sys, random, collections
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-import engine, orbs
+import engine, orbs, value
 
 def hand_of(g, *names):
     g.hand = [next(i for i in g.bag if g.inst[i]["o"]["name"] == n) for n in names]; g.mana = 6; return {x["o"]["name"]: x for x in g.view()["hand"]}
@@ -187,3 +187,17 @@ for _ in range(11):
     g.hand = [next(i for i in g.bag if g.inst[i]["o"]["name"] == "자라는 돈")]; g.mana = 6; g.fam_turn = collections.Counter(); x = g.gold; g.play(0); got.append(g.gold - x)
 assert got[0] == 2 and got[-1] == 4 and sum(got) == 33, got      # 2 × (1, 1.1, …, 2.0) = 33: 소수는 모아 두었다가 1이 되면 더한다
 print("런 구조 OK (정산·이월·자원 판매·출구·영지·사망·보스·철거·처치 보상 증폭·쓸수록 성장)")
+
+# 9) 손패·마나 동사(2026-11-09): 턴 끝에 생긴 마나·뽑기는 다음 턴 시작에 받는다(전에는 새 턴이 덮어써서 버려짐), 마나 구슬은 순이익이 있다
+def turn_after(o):
+    g = engine.HexGame(orbs.starter_orbs() + [o], seed=31); g.start(); g.enemies = []
+    i = next(i for i in g.bag if g.inst[i]["o"]["name"] == o["name"]); g.hand = [i]; g.mana = 6
+    assert g.play(0, g.valid_tiles(i)[0] if g.needs_tile(o) else None).get("ok"); g.end_turn(); return len(g.hand), g.mana
+assert turn_after(orbs._hand("발전소", role="build", payload=[["energy", 8, None]], life="run", hp=10, pe=1.0)) == (5, 8)
+assert turn_after(orbs._hand("도서관", role="build", payload=[["draw", 4, None]], life="run", hp=10, pe=1.0)) == (6, 6)
+assert turn_after(orbs._hand("명상", payload=[["energy", 5, None]], life="stage", pe=1.0)) == (5, 8)
+for o in (orbs._hand("커피", payload=[["energy", 9, None]], pe=1.0), orbs._hand("시계", payload=[["tempo", 7, None]], pe=1.0)):
+    o["mana"] = value.mana_for(o); g = engine.HexGame(orbs.starter_orbs() + [o], seed=32); g.start(); g.enemies = []
+    i = next(i for i in g.bag if g.inst[i]["o"]["name"] == o["name"]); g.hand = [i]; g.mana = 6; g.play(0)
+    assert g.mana + len(g.hand) > 6, (o["name"], o["mana"], g.mana, len(g.hand))       # 마나 + 손패 합이 쓰기 전(6 + 1장 - 1장)보다 늘어야 한다
+print("손패·마나 동사 OK (턴 끝 효과는 다음 턴으로, 순이익)")

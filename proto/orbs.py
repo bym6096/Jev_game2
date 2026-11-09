@@ -28,7 +28,7 @@ def vtext(v, m, mt, o):
     return {"damage": f"{tg}에 피해 {m}", "drain": f"{tg}에 피해 {m}, 체력 {m//2} 흡수", "guard": f"방어막 +{m}", "heal": f"체력 {m} 회복", "money": f"골드 {m}",
             "steal": f"적에게서 골드 {m} 탈취", "harvest": (f"식량 {m} 수확(경작지)" if mt == "food" else f"{RES.get(mt)} {m} 채집({'옆 칸' if o['role'] in ('build', 'summon') else '3칸 안'} 자원 타일)"), "grow": f"{RES.get(mt or 'food')} {m} 재배", "process": f"원료 {m}개를 골드 ×1.5로 가공",
             "buff": f"{engine.BOOST_KO.get(mt or 'dmg', '피해')} +{m}% ({ {'instant': '3턴', 'turns': '4턴'}.get(o['life'], '이번 스테이지') }, 다른 구슬과 합산)", "burn": f"{tg}에 화상 {m}중첩 (턴마다 중첩×{engine.BURN_DMG} 피해, 1중첩씩 감소)", "debuff": f"{tg} 공격 약화", "control": f"{tg} 행동 불가", "remove": "효과 1개 제거(미구현)", "transform": "변환(미구현)",
-            "draw": "구슬 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 확인", "tempo": "마나 +1", "energy": f"마나 +{max(1,int(o['pe']//1.5))}",
+            "draw": f"구슬 {engine.draw_n(o)}개 더 뽑기", "recycle": "버린 구슬 1개 되돌림", "trash": "버린 구슬 1개 영구 폐기", "peek": "주머니 위 3개 확인", "tempo": "마나 +1, 구슬 1개 더 뽑기", "energy": f"마나 +{engine.energy_gain(o)}",
             "create": ("1회용 아이템 1개 생성" if not mt else f"{RES.get(mt)} 2 생성"), "amplify": "다음 구슬 효과 ×2"}.get(v, v)
 def describe(o):
     body = "; ".join(vtext(v, m, mt, o) for v, m, mt in o["payload"] if v != "move")
@@ -115,6 +115,11 @@ VERBS = dict(axes_v4.VERBS)
 VERBS["burn"] = "burning, igniting, scorching, poisoning, or inflicting a lingering condition that keeps hurting enemies over several turns"
 VERBS["debuff"] = VERBS["debuff"].replace("poisoning, ", "")
 VERBS["trash"] = VERBS["trash"].replace("burning up, ", "")
+# 손패·마나 동사(2026-11-09): 측정 질문문의 draw는 '자석·그물처럼 끌어당기기'라 손패와 무관한 이름에만 켜졌다 → 게임 안의 뜻(이번 턴 구슬을 더 뽑음 / 마나를 더 씀)으로 바꿈.
+# 실측(이름 12 + 대조 4): 책가방 draw .18→.95, 준비성·계획표·영감 → draw .7, 커피 energy .39→.88, 명상 .56→.96, 대조(화염검·금화 주머니·방패·광산)는 그대로.
+VERBS["draw"] = "drawing more orbs into your hand right now, for more options this turn: preparation, inspiration, planning, quick hands, a backpack, a bag of tricks"
+VERBS["tempo"] = "speed, haste, rushing, or doing two things at once, like getting an extra action this turn"
+VERBS["energy"] = "charging up, fueling, caffeine, focus, or meditation that gives you more mana to spend this turn"
 VERBS["buff"] = "making allies stronger, faster, braver, or more capable, or boosting a kind of effect, like a blessing, a catalyst, a booster, or a lucky charm"
 TRIGGERS = {"none": "no, it simply happens when used", "hit": "when the PLAYER is struck by an enemy or takes damage (being attacked; NOT when the player attacks or hits something)", "death": "when someone dies or is destroyed", "approach": "when an enemy comes near or steps on it",
             "orb": "when any other orb is used", "orb_attack": "whenever the player attacks, strikes, or swings, i.e. when ANOTHER orb that attacks is used, as a combo or follow-up bonus (not for an attack that simply hurts)", "orb_eco": "when ANOTHER gathering, farming, trading, or money-making orb is used, as a follow-up bonus",
