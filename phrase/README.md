@@ -2,7 +2,9 @@
 
 확인하려는 것은 하나다. **말 조각을 모아 조합하고, 그 말로 상황을 헤쳐 나가는 게 재밌는가.** 배경은 `../LESSONS.md`에 있다.
 
-실행: `python3 phrase/server.py` → http://localhost:8020 (키는 `JEV_API_KEY`, 클라우드에서는 프록시가 붙인다)
+실행
+- **웹 (Vercel)**: 새 프로젝트를 이 저장소로 만들고 **Root Directory = `phrase`**, 환경 변수 `JEV_API_KEY`를 넣는다. 선택으로 `ACCESS_CODE`를 넣으면 주소 끝에 `?code=그값`을 붙여야 판정이 된다(남이 키를 쓰지 못하게). 빌드 설정은 필요 없다(`index.html`은 정적 파일, `api/judge.py`는 파이썬 함수).
+- **로컬**: `python3 phrase/server.py` → http://localhost:8020 (키는 `JEV_API_KEY`, 클라우드에서는 프록시가 붙인다)
 
 ## 규칙 (모든 수치와 내용은 임시)
 - 런은 상황 6개(12개 중 무작위)로 이뤄지고 목숨은 3개다. 주머니에는 처음에 조각 14개가 있고, 손에는 7개를 든다.

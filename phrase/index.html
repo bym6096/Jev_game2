@@ -96,6 +96,7 @@ const NEED = 3, TRIES = 3, PEEKS = 2, HAND = 7, MAXLEN = 3, RUN = 6;
 
 // ---- 상태 ----
 let S;
+const ACCESS = new URLSearchParams(location.search).get("code") || "";
 const cache = {};   // 같은 상황·같은 말은 런 안에서 늘 같은 판정(정직함)
 function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 function newRun(){
@@ -118,7 +119,7 @@ const phraseText = () => S.pick.map(i=>S.hand[i]).join(" ");
 async function getJudge(){
   const key = S.sits[S.stage]+"|"+phraseText();
   if(cache[key]) return cache[key];
-  const r = await fetch("/api/judge",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({situation:sit()[1], phrase:phraseText()})});
+  const r = await fetch("/api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:JSON.stringify({situation:sit()[1], phrase:phraseText()})});
   const d = await r.json(); if(!r.ok) throw new Error(d.error||r.status);
   return cache[key]=d;
 }
