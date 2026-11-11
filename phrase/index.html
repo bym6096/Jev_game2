@@ -6,7 +6,7 @@
 <title>말 짓기 회색 박스</title>
 <style>
 :root { --bg:#1d1d1f; --panel:#2a2a2d; --line:#3d3d42; --text:#e8e8ea; --dim:#9a9aa2; --accent:#e0b04a; --good:#5fbf6f; --bad:#d9605a;
-  --ref:#4f7ad6; --pred:#4fa86a; --mod:#c9a23f; --pol:#9a6bd1; }
+  --ref:#4f7ad6; --adj:#4fb3b8; --pred:#4fa86a; --mod:#c9a23f; --pol:#9a6bd1; --int:#d16b9a; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
 main { max-width:760px; margin:0 auto; padding:16px; }
@@ -27,7 +27,8 @@ h3 { margin:0 0 8px; font-size:14px; color:var(--dim); font-weight:600; }
 .talk .them { align-self:flex-start; color:var(--dim); font-size:14px; padding:0 4px; }
 .row { display:flex; flex-wrap:wrap; gap:8px; }
 .tile { border:2px solid; background:#2f2f34; color:var(--text); border-radius:8px; padding:7px 11px; font-size:15px; cursor:pointer; position:relative; }
-.tile.ref { border-color:var(--ref); } .tile.pred { border-color:var(--pred); } .tile.mod { border-color:var(--mod); } .tile.pol { border-color:var(--pol); }
+.tile.ref { border-color:var(--ref); } .tile.pred { border-color:var(--pred); } .tile.mod { border-color:var(--mod); } .tile.pol { border-color:var(--pol); } .tile.adj { border-color:var(--adj); } .tile.int { border-color:var(--int); }
+.tile.rare { background:#3a3424; } .tile.rare::before { content:"★"; color:var(--accent); font-size:11px; margin-right:3px; }
 .tile.used { opacity:.25; cursor:default; }
 .tile small { display:block; font-size:11px; color:var(--dim); line-height:1.1; }
 .slots { display:flex; gap:6px; flex-wrap:wrap; min-height:48px; align-items:center; }
@@ -68,7 +69,7 @@ button:disabled { opacity:.35; cursor:default; }
     <div class="talk" id="talk"></div>
   </div>
   <div class="panel">
-    <h3>지을 말 — 조각을 눌러 넣고(최대 4개), 넣은 <span style="color:var(--ref)">지시 조각</span>을 누르면 역할이 바뀐다</h3>
+    <h3>지을 말 — 조각을 눌러 넣고(최대 5개), 넣은 <span style="color:var(--ref)">지시 조각</span>을 누르면 역할이 바뀐다</h3>
     <div class="slots" id="slots"></div>
     <div class="acts" id="acts"></div>
     <div class="said" id="said"></div>
@@ -80,14 +81,14 @@ button:disabled { opacity:.35; cursor:default; }
     <div id="judge"></div>
   </div>
   <div class="panel">
-    <div class="cats"><span><i style="background:var(--ref)"></i>누구·무엇</span><span><i style="background:var(--pred)"></i>일·상태</span><span><i style="background:var(--mod)"></i>얼마나·언제</span><span><i style="background:var(--pol)"></i>부정·확신</span></div>
+    <div class="cats"><span><i style="background:var(--ref)"></i>누구·무엇</span><span><i style="background:var(--adj)"></i>어떤</span><span><i style="background:var(--pred)"></i>일·상태</span><span><i style="background:var(--mod)"></i>얼마나·언제</span><span><i style="background:var(--pol)"></i>부정·확신</span><span><i style="background:var(--int)"></i>부름·감탄</span><span>★ 희귀</span></div>
     <div class="row" id="hand"></div>
   </div>
   <div class="panel" id="rewardPanel" hidden></div>
   <div class="panel"><h3>기록</h3><div class="log" id="log"></div></div>
 </main>
 <script>
-const NEED=3, LINES=3, PEEKS=2, HAND=8, MAXLEN=4, RUN=6;
+const NEED=3, LINES=3, PEEKS=2, HAND=10, MAXLEN=5, RUN=6;
 const OUT_KEYS=["great","good","little","none","worse"];
 const OUT_KO={great:"대성공 +3", good:"통함 +2", little:"조금 +1", none:"무반응 0", worse:"역효과 −1"};
 const OUT_PTS={great:3, good:2, little:1, none:0, worse:-1};
@@ -103,7 +104,7 @@ const batchim=w=>{const c=w.charCodeAt(w.length-1)-0xAC00; return c>=0&&c<11172&
 function predForm(p,act){
   switch(act){
     case "assert": return [p.h,"."]; case "ask": return [p.h,"?"];
-    case "plead": return p.id==="give"?["줘",", 제발."]:[p.h+" 줘","."];
+    case "plead": return p.ko==="주다"?["줘",", 제발."]:[p.h+" 줘","."];
     case "command": return [p.h+"라","!"]; case "promise": return [p.l+"게","."];
     case "threaten": return [p.l+" 거야",". 두고 봐!"]; case "exclaim": return [p.ne||p.st+"네","!"];
     case "suggest": return [p.st+"자","."];
@@ -121,14 +122,18 @@ function withRole(w,role){
   return w;
 }
 function render(specs,act){
-  const ts=specs.map(s=>{const [id,role=""]=s.split(":"); return [TILES[id],role];});
+  const all=specs.map(s=>{const [id,role=""]=s.split(":"); return [TILES[id],role];});
+  const ints=all.filter(([t])=>t.cat==="int").map(([t])=>t.ko);   // 부름·감탄은 문장 앞으로
+  const ts=all.filter(([t])=>t.cat!=="int");
+  if(!ts.length) return ints.join(", ")+"!";
+  const head=ints.length?ints.join(", ")+", ":"";
   const preds=ts.map(([t],n)=>t.cat==="pred"?n:-1).filter(n=>n>=0);
   const last=preds.length?preds[preds.length-1]:ts.length-1;
   let end=""; const words=ts.map(([t,role],n)=>{
     if(n===last){ const [c,e]=t.cat==="pred"?predForm(t,act):nounForm(t.ko,act); end=e; return c; }
     return t.cat==="pred"?t.st+"고":withRole(t.ko,role);
   });
-  return words.join(" ")+end;
+  return head+words.join(" ")+end;
 }
 
 // ---- 진행 ----
@@ -181,7 +186,10 @@ function endSituation(won){
 function showReward(won){
   const p=document.getElementById("rewardPanel"); p.hidden=false;
   const all=[...S.bag,...S.discard,...S.hand];
-  const offers=shuffle(D.tiles.map(t=>t.id).filter(id=>!all.includes(id))).slice(0,won?3:2).map(id=>({tile:id}));
+  const fresh=D.tiles.filter(t=>!all.includes(t.id));
+  const common=shuffle(fresh.filter(t=>!t.rare).map(t=>t.id)), rare=shuffle(fresh.filter(t=>t.rare).map(t=>t.id));
+  const picks=won?[common[0],common[1],rare[0]]:[common[0],common[1]];
+  const offers=picks.filter(Boolean).map(id=>({tile:id}));
   const newActs=Object.keys(D.acts).filter(a=>!S.acts.includes(a));
   if(won&&newActs.length) offers.push({act:shuffle(newActs)[0]});
   p.innerHTML=`<h3>${won?"목표 달성! ":""}하나를 얻거나, 조각 하나를 버린다</h3>
@@ -208,7 +216,7 @@ function showEnd(won){
 function addLog(t){ S.log.unshift(t); }
 
 // ---- 그리기 ----
-const tileBtn=(id,attr,prefix="",sub="")=>{const t=TILES[id]; return `<button class="tile ${t.cat}" ${attr}>${prefix}${t.ko}${sub}</button>`;};
+const tileBtn=(id,attr,prefix="",sub="")=>{const t=TILES[id]; return `<button class="tile ${t.cat}${t.rare?" rare":""}" ${attr}>${prefix}${t.ko}${sub}</button>`;};
 function paint(){
   const s=sit(), lock=S.busy||S.over||!document.getElementById("rewardPanel").hidden;
   document.getElementById("stage").textContent=`${S.stage+1}/${RUN}`;

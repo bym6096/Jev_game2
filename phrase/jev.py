@@ -11,7 +11,7 @@ DATA = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 TILES = {t["id"]: t for t in DATA["tiles"]}
 SITS = {s["id"]: s for s in DATA["situations"]}
 ACTS = DATA["acts"]
-MAXLEN, MAXHIST = 4, 6
+MAXLEN, MAXHIST = 5, 6
 
 OUTCOME = {
     "great": "목표 쪽으로 확 기울어 거의 넘어왔다",
@@ -41,7 +41,7 @@ def _batchim(w):
 def _pred_form(p, act):
     if act == "assert":   return p["h"], "."
     if act == "ask":      return p["h"], "?"
-    if act == "plead":    return ("줘", ", 제발.") if p["id"] == "give" else (p["h"] + " 줘", ".")
+    if act == "plead":    return ("줘", ", 제발.") if p["ko"] == "주다" else (p["h"] + " 줘", ".")
     if act == "command":  return p["h"] + "라", "!"
     if act == "promise":  return p["l"] + "게", "."
     if act == "threaten": return p["l"] + " 거야", ". 두고 봐!"
@@ -83,7 +83,12 @@ def parse_tile(spec):
 
 
 def render_ko(specs, act):
-    ts = [parse_tile(x) for x in specs]
+    allts = [parse_tile(x) for x in specs]
+    ints = [t["ko"] for t, _ in allts if t["cat"] == "int"]   # 부름·감탄은 문장 앞으로 모은다
+    ts = [x for x in allts if x[0]["cat"] != "int"]
+    if not ts:
+        return ", ".join(ints) + "!"
+    head = ", ".join(ints) + ", " if ints else ""
     preds = [n for n, (t, _) in enumerate(ts) if t["cat"] == "pred"]
     last = preds[-1] if preds else len(ts) - 1
     words = []
@@ -95,7 +100,7 @@ def render_ko(specs, act):
             words.append(t["st"] + "고")
         else:
             words.append(_with_role(t["ko"], role))
-    return " ".join(words) + end
+    return head + " ".join(words) + end
 
 
 # ---- Jev ----
