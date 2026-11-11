@@ -22,9 +22,11 @@ class H(BaseHTTPRequestHandler):
         s.wfile.write(b)
 
     def do_GET(s):
-        if s.path.split("?")[0] not in ("/", "/index.html"):
+        f = {"/": ("index.html", "text/html; charset=utf-8"), "/index.html": ("index.html", "text/html; charset=utf-8"),
+             "/data.json": ("data.json", "application/json; charset=utf-8")}.get(s.path.split("?")[0])
+        if not f:
             return s.send(404, {"error": "not found"})
-        s.send(200, open(os.path.join(HERE, "index.html"), "rb").read(), "text/html; charset=utf-8")
+        s.send(200, open(os.path.join(HERE, f[0]), "rb").read(), f[1])
 
     def do_POST(s):
         if s.path != "/api/judge":

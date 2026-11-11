@@ -3,40 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>말 조각 회색 박스</title>
+<title>말 짓기 회색 박스</title>
 <style>
-:root { --bg:#1d1d1f; --panel:#2a2a2d; --line:#3d3d42; --text:#e8e8ea; --dim:#9a9aa2; --accent:#e0b04a; --good:#5fbf6f; --bad:#d9605a; }
+:root { --bg:#1d1d1f; --panel:#2a2a2d; --line:#3d3d42; --text:#e8e8ea; --dim:#9a9aa2; --accent:#e0b04a; --good:#5fbf6f; --bad:#d9605a;
+  --ref:#4f7ad6; --pred:#4fa86a; --mod:#c9a23f; --pol:#9a6bd1; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
 main { max-width:760px; margin:0 auto; padding:16px; }
 header { display:flex; gap:16px; flex-wrap:wrap; color:var(--dim); font-size:14px; margin-bottom:12px; }
 header b { color:var(--text); }
 .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
+h3 { margin:0 0 8px; font-size:14px; color:var(--dim); font-weight:600; }
 .sit-title { font-size:18px; font-weight:700; }
-.sit-desc { color:var(--dim); margin-top:4px; }
+.sit-desc { color:var(--dim); margin-top:2px; }
+.goal { margin-top:6px; font-size:14px; }
+.goal b { color:var(--accent); }
 .meter { display:flex; gap:6px; margin-top:10px; }
 .pip { width:28px; height:10px; border-radius:3px; background:var(--line); }
 .pip.on { background:var(--good); }
+.info { display:flex; gap:12px; flex-wrap:wrap; font-size:13px; color:var(--dim); margin-top:6px; }
+.talk { margin-top:10px; display:flex; flex-direction:column; gap:6px; }
+.talk .me { align-self:flex-end; background:#4a4232; border-radius:10px 10px 2px 10px; padding:6px 10px; max-width:85%; }
+.talk .them { align-self:flex-start; color:var(--dim); font-size:14px; padding:0 4px; }
 .row { display:flex; flex-wrap:wrap; gap:8px; }
-.frag { background:#3a3a40; border:1px solid #55555c; color:var(--text); border-radius:8px; padding:8px 12px; font-size:15px; cursor:pointer; }
-.frag:hover { border-color:var(--accent); }
-.frag.used { opacity:.3; cursor:default; }
-.phrase { min-height:44px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:18px; }
-.phrase .frag { background:#4a4232; border-color:var(--accent); }
-.phrase .empty { color:var(--dim); font-size:14px; }
+.tile { border:2px solid; background:#2f2f34; color:var(--text); border-radius:8px; padding:7px 11px; font-size:15px; cursor:pointer; position:relative; }
+.tile.ref { border-color:var(--ref); } .tile.pred { border-color:var(--pred); } .tile.mod { border-color:var(--mod); } .tile.pol { border-color:var(--pol); }
+.tile.used { opacity:.25; cursor:default; }
+.tile small { display:block; font-size:11px; color:var(--dim); line-height:1.1; }
+.slots { display:flex; gap:6px; flex-wrap:wrap; min-height:48px; align-items:center; }
+.slots .empty { color:var(--dim); font-size:14px; }
+.slots .tile .x { position:absolute; top:-8px; right:-8px; background:#555; border-radius:50%; width:18px; height:18px; font-size:11px; line-height:18px; text-align:center; }
+.acts { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+.act { background:#3a3a40; border:1px solid #55555c; color:var(--text); border-radius:999px; padding:5px 12px; font-size:14px; cursor:pointer; }
+.act.on { background:var(--accent); color:#1d1d1f; border-color:var(--accent); font-weight:700; }
+.said { font-size:20px; margin-top:12px; min-height:30px; }
 .btns { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-button.act { background:var(--accent); color:#1d1d1f; border:0; border-radius:8px; padding:10px 16px; font-weight:700; font-size:15px; cursor:pointer; }
-button.act.sec { background:#44444a; color:var(--text); }
+button.go { background:var(--accent); color:#1d1d1f; border:0; border-radius:8px; padding:10px 16px; font-weight:700; font-size:15px; cursor:pointer; }
+button.go.sec { background:#44444a; color:var(--text); }
 button:disabled { opacity:.35; cursor:default; }
 .bar { display:flex; height:26px; border-radius:6px; overflow:hidden; position:relative; margin-top:8px; }
 .bar div { display:flex; align-items:center; justify-content:center; font-size:12px; color:#111; white-space:nowrap; overflow:hidden; }
 .needle { position:absolute; top:-4px; bottom:-4px; width:3px; background:#fff; box-shadow:0 0 6px #fff; transition:left .9s cubic-bezier(.2,.8,.2,1); }
 .legend { display:flex; gap:10px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-top:4px; }
 .result { font-size:17px; margin-top:8px; }
-.log { font-size:13px; color:var(--dim); max-height:160px; overflow:auto; }
+.cats { display:flex; gap:12px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-bottom:8px; }
+.cats i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; vertical-align:-1px; }
+.log { font-size:13px; color:var(--dim); max-height:140px; overflow:auto; }
 .log div { border-top:1px solid var(--line); padding:4px 0; }
-.choice { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-h3 { margin:0 0 8px; font-size:15px; color:var(--dim); font-weight:600; }
 </style>
 </head>
 <body>
@@ -46,113 +59,121 @@ h3 { margin:0 0 8px; font-size:15px; color:var(--dim); font-weight:600; }
     <span>목숨 <b id="hearts"></b></span>
     <span>주머니 <b id="bagn"></b></span>
   </header>
-  <div class="panel" id="sitPanel">
+  <div class="panel">
     <div class="sit-title" id="sitTitle"></div>
     <div class="sit-desc" id="sitDesc"></div>
+    <div class="goal">목표: <b id="goal"></b></div>
     <div class="meter" id="meter"></div>
-    <div class="legend" id="sitInfo"></div>
+    <div class="info" id="info"></div>
+    <div class="talk" id="talk"></div>
   </div>
-  <div class="panel" id="playPanel">
-    <h3>내밀 말 (조각을 순서대로 눌러 최대 3개)</h3>
-    <div class="phrase" id="phrase"></div>
+  <div class="panel">
+    <h3>지을 말 — 조각을 눌러 넣고(최대 4개), 넣은 <span style="color:var(--ref)">지시 조각</span>을 누르면 역할이 바뀐다</h3>
+    <div class="slots" id="slots"></div>
+    <div class="acts" id="acts"></div>
+    <div class="said" id="said"></div>
     <div class="btns">
-      <button class="act sec" id="peekBtn">떠보기</button>
-      <button class="act" id="playBtn">내밀기</button>
-      <button class="act sec" id="clearBtn">비우기</button>
+      <button class="go sec" id="peekBtn">떠보기</button>
+      <button class="go" id="sayBtn">말하기</button>
+      <button class="go sec" id="clearBtn">비우기</button>
     </div>
     <div id="judge"></div>
   </div>
-  <div class="panel" id="handPanel">
-    <h3>손에 든 조각</h3>
+  <div class="panel">
+    <div class="cats"><span><i style="background:var(--ref)"></i>누구·무엇</span><span><i style="background:var(--pred)"></i>일·상태</span><span><i style="background:var(--mod)"></i>얼마나·언제</span><span><i style="background:var(--pol)"></i>부정·확신</span></div>
     <div class="row" id="hand"></div>
   </div>
   <div class="panel" id="rewardPanel" hidden></div>
   <div class="panel"><h3>기록</h3><div class="log" id="log"></div></div>
 </main>
 <script>
-// ---- 내용(회색 박스용 임시값: 테마 아님) ----
-const SITUATIONS = [
-  ["우는 아이", "길가에서 어린아이가 엄마를 잃고 울고 있다. 달래서 집을 물어봐야 한다."],
-  ["굶주린 늑대", "굶주린 늑대 세 마리가 이빨을 드러내며 다가온다. 무사히 지나가야 한다."],
-  ["졸고 있는 문지기", "성문 앞, 뇌물을 좋아하는 문지기가 졸고 있다. 성문을 통과해야 한다."],
-  ["수수께끼 트롤", "다리 위의 트롤은 지루해 죽을 지경이다. 재미있게 해 주지 않으면 다리를 건너지 못한다."],
-  ["화난 상인", "물건값을 떼인 상인이 길을 막고 소리친다. 진정시켜야 한다."],
-  ["외로운 유령", "버려진 집의 유령이 백 년째 아무도 찾아오지 않아 슬퍼하며 문을 잠갔다. 문을 열어 달라고 해야 한다."],
-  ["의심 많은 수도승", "산사의 수도승은 거짓을 싫어하고 낯선 이를 믿지 않는다. 하룻밤 묵게 해 달라고 해야 한다."],
-  ["불붙은 헛간", "헛간에 불이 붙었고 안에 염소가 갇혀 있다. 불을 끄거나 염소를 구해야 한다."],
-  ["고집 센 당나귀", "짐을 실은 당나귀가 길 한가운데 주저앉아 꿈쩍도 하지 않는다. 움직이게 해야 한다."],
-  ["실연한 기사", "비 오는 밤, 실연한 기사가 술에 취해 칼을 뽑아 들고 길을 막는다. 칼을 거두게 해야 한다."],
-  ["잠든 용", "보물 더미 위에서 용이 잠들어 있다. 깨우지 않고 보물 하나를 가져와야 한다."],
-  ["까다로운 공주", "웃지 않는 공주를 웃기는 사람에게 상을 준다고 한다. 공주를 웃겨야 한다."],
-];
-const START_BAG = ["따뜻한","녹슨","달콤한","오래된","빛나는","노래","빵","칼","편지","금화","고양이","약속","엄마의","불"];
-const POOL = ["차가운","시끄러운","작은","거대한","부드러운","무서운","가짜","왕의","할머니의","비밀","거짓말","눈물","웃음","꿀","사과","고기","자장가","춤","거울","열쇠","지도","꽃","향수","물","양털","망토","방울","수수께끼","농담","침묵","기도","사과의 말","선물","술","쥐","뼈","달빛","그림자","깃털","북","피리","담요","소금","얼음","연기"];
-const OUT_KEYS = ["great","good","little","none","worse"];
-const OUT_KO = {great:"대성공 +3", good:"통함 +2", little:"조금 +1", none:"무반응 0", worse:"역효과 −1"};
-const OUT_PTS = {great:3, good:2, little:1, none:0, worse:-1};
-const OUT_COL = {great:"#7fdc8a", good:"#5fbf6f", little:"#b8c46a", none:"#8a8a90", worse:"#d9605a"};
-const HOW_KO = {soothe:"마음을 달램", amuse:"웃기거나 즐겁게 함", frighten:"겁을 줌", bribe:"원하는 것을 줌", trick:"속이거나 주의를 돌림", force:"직접 해결함", puzzle:"어리둥절하게 함", offend:"불쾌하게 함"};
-const NEED = 3, TRIES = 3, PEEKS = 2, HAND = 7, MAXLEN = 3, RUN = 6;
+const NEED=3, LINES=3, PEEKS=2, HAND=8, MAXLEN=4, RUN=6;
+const OUT_KEYS=["great","good","little","none","worse"];
+const OUT_KO={great:"대성공 +3", good:"통함 +2", little:"조금 +1", none:"무반응 0", worse:"역효과 −1"};
+const OUT_PTS={great:3, good:2, little:1, none:0, worse:-1};
+const OUT_COL={great:"#7fdc8a", good:"#5fbf6f", little:"#b8c46a", none:"#8a8a90", worse:"#d9605a"};
+const ROLE_KO={"":"", subj:"누가", obj:"무엇을", to:"누구에게"};
+const ROLE_NEXT={"":"subj", subj:"obj", obj:"to", to:""};
+const ACCESS=new URLSearchParams(location.search).get("code")||"";
+let D, TILES, S;
+const cache={};  // 같은 대화 흐름에서 같은 말은 늘 같은 확률(정직함)
 
-// ---- 상태 ----
-let S;
-const ACCESS = new URLSearchParams(location.search).get("code") || "";
-const cache = {};   // 같은 상황·같은 말은 런 안에서 늘 같은 판정(정직함)
-function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+// ---- 한국어 렌더러: jev.py의 render_ko와 같은 규칙 ----
+const batchim=w=>{const c=w.charCodeAt(w.length-1)-0xAC00; return c>=0&&c<11172&&c%28!==0;};
+function predForm(p,act){
+  switch(act){
+    case "assert": return [p.h,"."]; case "ask": return [p.h,"?"];
+    case "plead": return p.id==="give"?["줘",", 제발."]:[p.h+" 줘","."];
+    case "command": return [p.h+"라","!"]; case "promise": return [p.l+"게","."];
+    case "threaten": return [p.l+" 거야",". 두고 봐!"]; case "exclaim": return [p.ne||p.st+"네","!"];
+    case "suggest": return [p.st+"자","."];
+  }
+}
+function nounForm(w,act){
+  const cop=batchim(w)?"이야":"야";
+  return {assert:[w+cop,"."], ask:[w+cop,"?"], plead:[w+" 줘",", 제발."], command:[w+" 내놔","!"], promise:[w+" 줄게","."],
+    threaten:[w+cop,". 두고 봐!"], exclaim:[w+(batchim(w)?"이네":"네"),"!"], suggest:[w+" 하자","."]}[act];
+}
+function withRole(w,role){
+  if(role==="subj") return ({"나":"내가","너":"네가"})[w]||w+(batchim(w)?"이":"가");
+  if(role==="obj") return w+(batchim(w)?"을":"를");
+  if(role==="to") return w+"에게";
+  return w;
+}
+function render(specs,act){
+  const ts=specs.map(s=>{const [id,role=""]=s.split(":"); return [TILES[id],role];});
+  const preds=ts.map(([t],n)=>t.cat==="pred"?n:-1).filter(n=>n>=0);
+  const last=preds.length?preds[preds.length-1]:ts.length-1;
+  let end=""; const words=ts.map(([t,role],n)=>{
+    if(n===last){ const [c,e]=t.cat==="pred"?predForm(t,act):nounForm(t.ko,act); end=e; return c; }
+    return t.cat==="pred"?t.st+"고":withRole(t.ko,role);
+  });
+  return words.join(" ")+end;
+}
+
+// ---- 진행 ----
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a;};
 function newRun(){
-  S = { stage:0, hearts:3, bag:shuffle([...START_BAG]), discard:[], hand:[], pick:[], sits:shuffle(SITUATIONS.map((_,i)=>i)).slice(0,RUN), log:[], busy:false };
+  S={stage:0, hearts:3, bag:shuffle([...D.start]), discard:[], hand:[], acts:[...D.start_acts], sits:shuffle(D.situations.map(s=>s.id)).slice(0,RUN), log:[], over:false};
   startSituation();
 }
 function startSituation(){
-  S.progress=0; S.tries=TRIES; S.peeks=PEEKS; S.pick=[]; S.lastJudge=null; S.result=null;
-  S.discard.push(...S.hand); S.hand=[]; draw(); render();
+  Object.assign(S,{progress:0, lines:LINES, peeks:PEEKS, pick:[], act:S.acts[0], history:[], judged:null, result:null, busy:false});
+  S.discard.push(...S.hand); S.hand=[]; draw(); paint();
 }
-function draw(){
-  while(S.hand.length<HAND){
-    if(!S.bag.length){ if(!S.discard.length) break; S.bag=shuffle(S.discard); S.discard=[]; }
-    S.hand.push(S.bag.pop());
-  }
-}
-const sit = () => SITUATIONS[S.sits[S.stage]];
-const phraseText = () => S.pick.map(i=>S.hand[i]).join(" ");
-
-async function getJudge(){
-  const key = S.sits[S.stage]+"|"+phraseText();
-  if(cache[key]) return cache[key];
-  const r = await fetch("/api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:JSON.stringify({situation:sit()[1], phrase:phraseText()})});
-  const d = await r.json(); if(!r.ok) throw new Error(d.error||r.status);
-  return cache[key]=d;
+function draw(){ while(S.hand.length<HAND){ if(!S.bag.length){ if(!S.discard.length) break; S.bag=shuffle(S.discard); S.discard=[]; } S.hand.push(S.bag.pop()); } }
+const sit=()=>D.situations.find(s=>s.id===S.sits[S.stage]);
+const specs=()=>S.pick.map(p=>S.hand[p.i]+(p.role?":"+p.role:""));
+const hist=()=>S.history.map(h=>({tiles:h.tiles, act:h.act, reaction:h.reaction}));
+async function ask(){
+  const body={sit:sit().id, tiles:specs(), act:S.act, history:hist()};
+  const key=JSON.stringify(body); if(cache[key]) return cache[key];
+  const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:key});
+  const d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); return cache[key]=d;
 }
 async function peek(){
-  if(S.busy||!S.pick.length||!S.peeks) return;
-  S.busy=true; render();
-  try{ S.lastJudge={phrase:phraseText(), d:await getJudge()}; S.peeks--; S.result=null; addLog(`떠보기 「${phraseText()}」`); }
-  catch(e){ addLog("판정 실패: "+e.message); }
-  S.busy=false; render();
+  if(S.busy||!S.pick.length||!S.peeks) return; S.busy=true; S.result=null; paint();
+  try{ const d=await ask(); S.judged=d; S.peeks--; addLog(`떠보기 「${d.said}」`); } catch(e){ addLog("판정 실패: "+e.message); }
+  S.busy=false; paint();
 }
-async function play(){
-  if(S.busy||!S.pick.length||!S.tries) return;
-  S.busy=true; render();
-  let d; const text=phraseText();
-  try{ d=await getJudge(); } catch(e){ addLog("판정 실패: "+e.message); S.busy=false; render(); return; }
-  // 확률대로 굴린다: 바늘 위치 = 난수
+async function say(){
+  if(S.busy||!S.pick.length||!S.lines) return; S.busy=true; S.result=null; paint();
+  let d; try{ d=await ask(); } catch(e){ addLog("판정 실패: "+e.message); S.busy=false; paint(); return; }
   const roll=Math.random(); let acc=0, out="worse";
   for(const k of OUT_KEYS){ acc+=d.outcome[k]||0; if(roll<acc){ out=k; break; } }
-  const how=Object.entries(d.how).sort((a,b)=>b[1]-a[1])[0][0];
-  S.lastJudge={phrase:text, d}; S.result={roll, out, how};
-  S.progress=Math.max(0,S.progress+OUT_PTS[out]); S.tries--;
-  addLog(`「${text}」 → ${OUT_KO[out]} (${HOW_KO[how]})`);
-  const used=new Set(S.pick); S.discard.push(...S.hand.filter((_,i)=>used.has(i))); S.hand=S.hand.filter((_,i)=>!used.has(i)); S.pick=[]; draw();
-  render();
-  await new Promise(r=>setTimeout(r,1100));
-  S.busy=false;
+  const reaction=Object.entries(d.reaction).sort((a,b)=>b[1]-a[1])[0][0];
+  S.judged=d; S.result={roll,out,reaction};
+  S.history.push({tiles:specs(), act:S.act, reaction, said:d.said, out});
+  S.progress=Math.max(0,S.progress+OUT_PTS[out]); S.lines--;
+  addLog(`「${d.said}」 → ${sit().who}: ${D.reactions[reaction]} (${OUT_KO[out]})`);
+  const used=new Set(S.pick.map(p=>p.i)); S.discard.push(...S.hand.filter((_,i)=>used.has(i))); S.hand=S.hand.filter((_,i)=>!used.has(i)); S.pick=[]; draw();
+  paint(); await new Promise(r=>setTimeout(r,1100)); S.busy=false;
   if(S.progress>=NEED) return endSituation(true);
-  if(!S.tries) return endSituation(false);
-  render();
+  if(!S.lines) return endSituation(false);
+  paint();
 }
 function endSituation(won){
-  if(won) addLog(`✔ ${sit()[0]} 해결`);
-  else { S.hearts--; addLog(`✘ ${sit()[0]} 실패 — 목숨 −1`); }
+  if(won) addLog(`✔ ${sit().name}: 목표 달성`); else { S.hearts--; addLog(`✘ ${sit().name}: 실패 — 목숨 −1`); }
   if(S.hearts<=0) return showEnd(false);
   if(S.stage+1>=RUN) return showEnd(true);
   showReward(won);
@@ -160,70 +181,81 @@ function endSituation(won){
 function showReward(won){
   const p=document.getElementById("rewardPanel"); p.hidden=false;
   const all=[...S.bag,...S.discard,...S.hand];
-  const offers=shuffle(POOL.filter(w=>!all.includes(w))).slice(0, won?3:2);
-  p.innerHTML=`<h3>${won?"해결! ":""}새 조각 하나를 고르거나, 조각 하나를 버린다</h3>
-    <div class="choice">${offers.map(w=>`<button class="frag" data-add="${w}">+ ${w}</button>`).join("")}</div>
+  const offers=shuffle(D.tiles.map(t=>t.id).filter(id=>!all.includes(id))).slice(0,won?3:2).map(id=>({tile:id}));
+  const newActs=Object.keys(D.acts).filter(a=>!S.acts.includes(a));
+  if(won&&newActs.length) offers.push({act:shuffle(newActs)[0]});
+  p.innerHTML=`<h3>${won?"목표 달성! ":""}하나를 얻거나, 조각 하나를 버린다</h3>
+    <div class="row">${offers.map(o=>o.act?`<button class="act" data-addact="${o.act}">+ 말투: ${D.acts[o.act].ko}</button>`:tileBtn(o.tile,`data-add="${o.tile}"`,"+ ")).join("")}</div>
     <h3 style="margin-top:12px">버리기</h3>
-    <div class="choice">${[...new Set(all)].map(w=>`<button class="frag" data-del="${w}">− ${w}</button>`).join("")}</div>
-    <div class="btns"><button class="act sec" data-skip>건너뛰기</button></div>`;
+    <div class="row">${[...new Set(all)].map(id=>tileBtn(id,`data-del="${id}"`,"− ")).join("")}</div>
+    <div class="btns"><button class="go sec" data-skip="1">건너뛰기</button></div>`;
   p.onclick=e=>{
     const b=e.target.closest("button"); if(!b) return;
-    if(b.dataset.add) { S.discard.push(b.dataset.add); addLog(`조각 얻음: ${b.dataset.add}`); }
-    if(b.dataset.del) { for(const arr of [S.bag,S.discard,S.hand]){ const i=arr.indexOf(b.dataset.del); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${b.dataset.del}`); }
+    if(b.dataset.add){ S.discard.push(b.dataset.add); addLog(`조각 얻음: ${TILES[b.dataset.add].ko}`); }
+    else if(b.dataset.addact){ S.acts.push(b.dataset.addact); addLog(`말투 얻음: ${D.acts[b.dataset.addact].ko}`); }
+    else if(b.dataset.del){ for(const arr of [S.bag,S.discard,S.hand]){ const i=arr.indexOf(b.dataset.del); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${TILES[b.dataset.del].ko}`); }
+    else if(!b.dataset.skip) return;
     p.hidden=true; p.onclick=null; S.stage++; startSituation();
   };
-  render();
+  paint();
 }
 function showEnd(won){
-  const p=document.getElementById("rewardPanel"); p.hidden=false;
-  p.innerHTML=`<h3>${won?"런 완주!":"런 종료"} — 상황 ${S.stage+1}/${RUN}</h3><div class="btns"><button class="act" id="again">다시 하기</button></div>`;
-  document.getElementById("again").onclick=()=>{ p.hidden=true; document.getElementById("log").innerHTML=""; newRun(); };
-  S.over=true; render();
+  const p=document.getElementById("rewardPanel"); p.hidden=false; S.over=true;
+  p.innerHTML=`<h3>${won?"런 완주!":"런 종료"} — 상황 ${S.stage+1}/${RUN}</h3><div class="btns"><button class="go" id="again">다시 하기</button></div>`;
+  document.getElementById("again").onclick=()=>{ p.hidden=true; newRun(); };
+  paint();
 }
 function addLog(t){ S.log.unshift(t); }
 
 // ---- 그리기 ----
-function render(){
-  const [title,desc]=sit(), lock=S.busy||S.over||!document.getElementById("rewardPanel").hidden;
+const tileBtn=(id,attr,prefix="",sub="")=>{const t=TILES[id]; return `<button class="tile ${t.cat}" ${attr}>${prefix}${t.ko}${sub}</button>`;};
+function paint(){
+  const s=sit(), lock=S.busy||S.over||!document.getElementById("rewardPanel").hidden;
   document.getElementById("stage").textContent=`${S.stage+1}/${RUN}`;
   document.getElementById("hearts").textContent="♥".repeat(Math.max(0,S.hearts));
-  document.getElementById("bagn").textContent=`${S.bag.length} (버림 ${S.discard.length})`;
-  document.getElementById("sitTitle").textContent=title;
-  document.getElementById("sitDesc").textContent=desc;
+  document.getElementById("bagn").textContent=`${S.bag.length} (버림 ${S.discard.length}) · 말투 ${S.acts.length}`;
+  document.getElementById("sitTitle").textContent=s.name;
+  document.getElementById("sitDesc").textContent=s.desc;
+  document.getElementById("goal").textContent=s.goal;
   document.getElementById("meter").innerHTML=Array.from({length:NEED},(_,i)=>`<div class="pip ${i<S.progress?"on":""}"></div>`).join("");
-  document.getElementById("sitInfo").innerHTML=`<span>진척 ${S.progress}/${NEED}</span><span>남은 내밀기 ${S.tries}</span><span>남은 떠보기 ${S.peeks}</span>`;
-  const ph=document.getElementById("phrase");
-  ph.innerHTML=S.pick.length?S.pick.map((i,n)=>`<button class="frag" data-unpick="${n}">${S.hand[i]}</button>`).join(""):`<span class="empty">아래 조각을 눌러 말을 만든다</span>`;
-  document.getElementById("hand").innerHTML=S.hand.map((w,i)=>`<button class="frag ${S.pick.includes(i)?"used":""}" data-pick="${i}">${w}</button>`).join("");
+  document.getElementById("info").innerHTML=`<span>진척 ${S.progress}/${NEED}</span><span>남은 말 ${S.lines}</span><span>남은 떠보기 ${S.peeks}</span>`;
+  document.getElementById("talk").innerHTML=S.history.map(h=>`<div class="me">${h.said}</div><div class="them">→ ${s.who}이(가) ${D.reactions[h.reaction]} · ${OUT_KO[h.out]}</div>`).join("");
+  document.getElementById("slots").innerHTML=S.pick.length?S.pick.map((p,n)=>tileBtn(S.hand[p.i],`data-slot="${n}"`,"",`${p.role?`<small>${ROLE_KO[p.role]}</small>`:""}<span class="x" data-unpick="${n}">✕</span>`)).join(""):`<span class="empty">아래 조각을 눌러 말을 짓는다</span>`;
+  document.getElementById("acts").innerHTML=S.acts.map(a=>`<button class="act ${a===S.act?"on":""}" data-act="${a}">${D.acts[a].ko}</button>`).join("");
+  document.getElementById("said").textContent=S.pick.length?`「${render(specs(),S.act)}」`:"";
+  document.getElementById("hand").innerHTML=S.hand.map((id,i)=>tileBtn(id,`data-pick="${i}"`).replace('class="tile',`class="tile ${S.pick.some(p=>p.i===i)?"used":""}`)).join("");
   document.getElementById("peekBtn").textContent=`떠보기 (${S.peeks})`;
   document.getElementById("peekBtn").disabled=lock||!S.pick.length||!S.peeks;
-  document.getElementById("playBtn").disabled=lock||!S.pick.length||!S.tries;
+  document.getElementById("sayBtn").disabled=lock||!S.pick.length||!S.lines;
   document.getElementById("clearBtn").disabled=lock||!S.pick.length;
-  document.getElementById("judge").innerHTML=S.busy&&!S.result?`<div class="result">Jev가 판단하는 중…</div>`:judgeHTML();
+  document.getElementById("judge").innerHTML=S.busy&&!S.result?`<div class="result">${s.who}이(가) 듣고 있다…</div>`:judgeHTML();
   document.getElementById("log").innerHTML=S.log.map(t=>`<div>${t}</div>`).join("");
 }
 function judgeHTML(){
-  if(!S.lastJudge) return "";
-  const {phrase,d}=S.lastJudge, r=S.result;
-  const bars=OUT_KEYS.map(k=>{const p=d.outcome[k]||0; return `<div style="width:${p*100}%;background:${OUT_COL[k]}" title="${OUT_KO[k]} ${(p*100).toFixed(0)}%">${p>.08?Math.round(p*100)+"%":""}</div>`;}).join("");
-  const how=Object.entries(d.how).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k,p])=>`${HOW_KO[k]} ${Math.round(p*100)}%`).join(" · ");
-  const needle=r?`<div class="needle" id="needle" style="left:0%"></div>`:"";
+  if(!S.judged) return "";
+  const d=S.judged, r=S.result;
+  const bars=OUT_KEYS.map(k=>{const p=d.outcome[k]||0; return `<div style="width:${p*100}%;background:${OUT_COL[k]}">${p>.08?Math.round(p*100)+"%":""}</div>`;}).join("");
+  const reacts=Object.entries(d.reaction).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k,p])=>`${D.reactions[k]} ${Math.round(p*100)}%`).join(" · ");
   if(r) requestAnimationFrame(()=>requestAnimationFrame(()=>{const n=document.getElementById("needle"); if(n) n.style.left=(r.roll*100)+"%";}));
-  return `<div style="margin-top:12px">「${phrase}」${r?"":" (떠보기)"}</div>
-    <div class="bar">${bars}${needle}</div>
+  return `<div style="margin-top:12px">「${d.said}」${r?"":" — 떠보기"}</div>
+    <div class="bar">${bars}${r?`<div class="needle" id="needle" style="left:0%"></div>`:""}</div>
     <div class="legend">${OUT_KEYS.map(k=>`<span style="color:${OUT_COL[k]}">■ ${OUT_KO[k]}</span>`).join("")}</div>
-    <div class="legend">작용: ${how}</div>
+    <div class="legend">${sit().who}의 반응: ${reacts}</div>
     ${r?`<div class="result" style="color:${OUT_COL[r.out]}">${OUT_KO[r.out]}</div>`:""}`;
 }
 document.addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b||S.busy||S.over) return;
-  if(b.dataset.pick!==undefined){ const i=+b.dataset.pick; if(!S.pick.includes(i)&&S.pick.length<MAXLEN){ S.pick.push(i); render(); } }
-  else if(b.dataset.unpick!==undefined){ S.pick.splice(+b.dataset.unpick,1); render(); }
-  else if(b.id==="peekBtn") peek();
-  else if(b.id==="playBtn") play();
-  else if(b.id==="clearBtn"){ S.pick=[]; render(); }
+  const b=e.target.closest("button"); if(!b||S.busy||S.over||!document.getElementById("rewardPanel").hidden) return;
+  if(e.target.dataset.unpick!==undefined){ S.pick.splice(+e.target.dataset.unpick,1); }
+  else if(b.dataset.pick!==undefined){ const i=+b.dataset.pick; if(!S.pick.some(p=>p.i===i)&&S.pick.length<MAXLEN) S.pick.push({i,role:""}); }
+  else if(b.dataset.slot!==undefined){ const p=S.pick[+b.dataset.slot]; if(TILES[S.hand[p.i]].cat==="ref") p.role=ROLE_NEXT[p.role]; }
+  else if(b.dataset.act){ S.act=b.dataset.act; }
+  else if(b.id==="peekBtn") return peek();
+  else if(b.id==="sayBtn") return say();
+  else if(b.id==="clearBtn"){ S.pick=[]; }
+  else return;
+  paint();
 });
-newRun();
+fetch("data.json").then(r=>r.json()).then(d=>{ D=d; TILES=Object.fromEntries(d.tiles.map(t=>[t.id,t])); newRun(); });
 </script>
 </body>
 </html>
