@@ -61,10 +61,10 @@ def render_ko(form, cells, case="obj", act="assert", ending=None):
         if n1 and second:
             return f"{first}의 {second}"
         return " ".join(x for x in (first, second) if x)
-    if form == "short":   # 빠른 모드: 어떤 누가 / 무엇을(격) / 한다 + 끝맺음
+    if form == "short":   # 빠른 모드: 어떤 누가 / 어떤 무엇을(격) / 어떻게 / 한다 + 끝맺음
         if not cells:
             return ""
-        body = render_ko("line", {k: v for k, v in cells.items() if k in ("sa", "s", "o", "v")}, case, "assert")
+        body = render_ko("line", {k: v for k, v in cells.items() if k in ("sa", "s", "oa", "o", "m", "v")}, case, "assert")
         return body[:-1] + (ending or ".") if body.endswith(".") else body + (ending or "")
     # 한 줄: 부름 / 어떤 누가 / 어떤 무엇을(격) / 어떻게 / 부정·확신 / 한다 + 말투
     i, sa, s, oa, o, m, p, v = (g(k) for k in ("i", "sa", "s", "oa", "o", "m", "p", "v"))
@@ -157,10 +157,20 @@ def judge(brief_id, cells, case="obj", act="assert", history=()):
 LAND = {"strong": "확실히 그렇게 느낀다", "some": "어느 정도 느낀다", "bit": "살짝 느낀다", "none": "전혀 못 느낀다", "opposite": "오히려 반대로 느낀다"}
 LAND_PTS = {"strong": 1.0, "some": 0.65, "bit": 0.3, "none": 0.0, "opposite": -0.2}
 ENDINGS = DATA["endings"]
+SENSE = {"clear": "무슨 말인지 바로 그려진다", "plausible": "조금 엉뚱하지만 그럴듯하게 그려진다", "vague": "뭔가 있어 보이지만 뜻이 흐릿하다", "nonsense": "낱말을 늘어놓은 것 같아 말이 안 된다"}
+SENSE_PTS = {"clear": 1.0, "plausible": 0.75, "vague": 0.3, "nonsense": 0.0}
+LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
+SPEED_K, SPEED_T = 0.6, 8.0   # 속도 배율: 목표가 뜬 뒤 SPEED_T초 안에 보낼수록 최대 +0.6 × 꽂힘
 
 
-def judge_rush(vibe, cells, case=".", ending=".", history=()):
-    """빠른 모드: 목표 결 하나. 점수 = 100 × 꽂힘 × (1 + 새로움×꽂힘)."""
+def judge_rush(vibe, cells, case=".", ending=".", history=(), secs=SPEED_T):
+    """빠른 모드: 목표 결 하나.
+    점수 = 100 × 꽂힘 × 길이 배율 × 속도 배율 × 새로움 배율
+      길이 배율 = 1 + LEN_K × (채운 칸 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
+      속도 배율 = 1 + SPEED_K × (남은 몫) × 꽂힘            ← 남은 몫 = max(0, (SPEED_T − 걸린 초) / SPEED_T)
+      새로움 배율 = 1 + 새로움 × 꽂힘 × 뜻²
+    뜻(0~1) = 무슨 말인지 그려지는 정도. 꽂힘만으로는 말 안 되는 긴 줄도 분위기로 점수를 받아서 따로 묻는다.
+    전략: 짧고 정확하게(빠름 → 속도 배율·콤보) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험)."""
     said = render_ko("short", cells, case, ending=ending)
     past = [render_ko("short", h["cells"], h.get("case", "obj"), ending=h.get("ending", ".")) for h in history]
     state = (
@@ -174,12 +184,22 @@ def judge_rush(vibe, cells, case=".", ending=".", history=()):
     a = _call(state, {
         "land": {"type": "choice", "instructions": f"이 줄을 들은 사람은 '{VIBES[vibe]}'을(를) 느끼는가?", "criteria": LAND},
         "fresh": {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH},
+        "sense": {"type": "choice", "instructions": "분위기와 상관없이, 이 줄이 무슨 장면이나 뜻인지 그려지는가?", "criteria": SENSE},
     })
-    la, fr = a["land"]["probabilities"], a["fresh"]["probabilities"]
+    la, fr, se = a["land"]["probabilities"], a["fresh"]["probabilities"], a["sense"]["probabilities"]
+    sense = sum(SENSE_PTS[k] * p for k, p in se.items())
     land = sum(LAND_PTS[k] * p for k, p in la.items())
     fresh = sum(FRESH_BONUS[k] * p for k, p in fr.items())
-    score = max(0, round(100 * land * (1 + max(0, fresh) * max(0, land))))
-    return {"said": said, "land": la, "fresh": fr, "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "score": score}
+    q = max(0, land)
+    n = len(cells)
+    g = sense * sense   # 뜻이 반쯤만 통하면 반보다 더 깎는다(0.9 → 0.81, 0.6 → 0.36)
+    len_mult = 1 + LEN_K * (n - 1) * q * g
+    fresh_mult = 1 + max(0, fresh) * q * g
+    secs = min(max(float(secs), 0.0), 600.0)
+    speed_mult = 1 + SPEED_K * max(0.0, (SPEED_T - secs) / SPEED_T) * q
+    score = max(0, round(100 * land * len_mult * speed_mult * fresh_mult))
+    return {"said": said, "land": la, "fresh": fr, "sense": se, "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "sense_ev": round(sense, 2),
+            "cells": n, "len_mult": round(len_mult, 2), "speed_mult": round(speed_mult, 2), "fresh_mult": round(fresh_mult, 2), "score": score}
 
 
 def handle(req, headers):
@@ -223,7 +243,10 @@ def _handle_rush(req):
             or not all(isinstance(h, dict) and _rush_ok(h.get("cells"), h.get("case", "obj"), h.get("ending", ".")) for h in hist):
         return 400, {"error": "요청 형식이 잘못되었습니다"}
     try:
-        return 200, judge_rush(vibe, req["cells"], case, ending, hist)
+        secs = req.get("secs", SPEED_T)
+        if not isinstance(secs, (int, float)):
+            return 400, {"error": "요청 형식이 잘못되었습니다"}
+        return 200, judge_rush(vibe, req["cells"], case, ending, hist, secs)
     except urllib.error.HTTPError as e:
         return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
     except Exception as e:

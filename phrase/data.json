@@ -3865,12 +3865,26 @@
      "label": "누가"
     },
     {
+     "id": "oa",
+     "cats": [
+      "adj"
+     ],
+     "label": "어떤"
+    },
+    {
      "id": "o",
      "cats": [
       "ref"
      ],
      "label": "무엇을",
      "case": true
+    },
+    {
+     "id": "m",
+     "cats": [
+      "mod"
+     ],
+     "label": "어떻게"
     },
     {
      "id": "v",
