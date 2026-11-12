@@ -52,6 +52,7 @@ button:disabled { opacity:.35; cursor:default; }
 .tile { border:1.5px solid; background:#232328; color:var(--text); border-radius:9px; padding:6px 10px; font-size:15px; cursor:grab; touch-action:none; white-space:nowrap; }
 .tile.ref{border-color:var(--ref)} .tile.adj{border-color:var(--adj)} .tile.pred{border-color:var(--pred)} .tile.mod{border-color:var(--mod)}
 .tile.part { border-color:var(--part); border-style:dashed; padding:5px 9px; font-size:14px; }
+.tile.place { border-color:#f08c5a; border-style:dashed; padding:5px 9px; font-size:14px; }
 .tile.rare { background:#352f1f; } .tile.rare::before { content:"★"; color:var(--accent); font-size:10px; margin-right:3px; }
 .tile.need { box-shadow:0 0 0 2px var(--accent); }
 .tile.used { opacity:.2; }
@@ -79,7 +80,7 @@ const CAT_KO={ref:"누구·무엇", adj:"꾸밈말", mod:"어떻게", pred:"서�
 const ENDS=[".","!","?","…","ㅋㅋ","ㅠㅠ"], ROW_H=42;
 const LAND_KO={strong:"확실히 꽂힘", some:"꽤 통함", bit:"살짝", none:"안 느껴짐", opposite:"반대로 감"};
 const ACCESS=new URLSearchParams(location.search).get("code")||"";
-let D, T, P, G, S, timerId, flowId, uid=0;
+let D, T, P, L, G, S, timerId, flowId, uid=0;
 
 // ---- 한국어 렌더러: jev.py render_free_ko와 같은 규칙 ----
 const code=w=>w.charCodeAt(w.length-1)-0xAC00;
@@ -96,6 +97,7 @@ function renderTokens(tokens,end){
   const out=[];
   tokens.forEach((k,i)=>{
     if(k.p){ if(out.length) out[out.length-1]=attach(out[out.length-1],k.p); return; }
+    if(k.l){ out.push(L[k.l].ko); return; }   // 위치 말: 띄어 쓴 한 낱말(상자 안 → +에서 → 상자 안에서)
     const t=T[k.t]; out.push(t.cat==="pred"?(i===last?t.h:t.st+"고"):t.ko);
   });
   return out.length?out.join(" ")+end:"";
@@ -103,7 +105,8 @@ function renderTokens(tokens,end){
 
 // ---- 도화지: 놓인 조각을 위→아래, 왼→오른 순서로 읽는다 ----
 const order=()=>[...S.items].sort((a,b)=>(Math.floor(a.y/ROW_H)-Math.floor(b.y/ROW_H))||(a.x-b.x));
-const tokens=()=>order().map(it=>it.kind==="p"?{p:it.id}:{t:it.id});
+const tokens=()=>order().map(it=>it.kind==="p"?{p:it.id}:it.kind==="l"?{l:it.id}:{t:it.id});
+const label=it=>it.kind==="p"?P[it.id].ko:it.kind==="l"?L[it.id].ko:T[it.id].ko;
 const words=()=>S.items.filter(it=>it.kind==="t");
 const onCanvas=id=>S.items.some(it=>it.kind==="t"&&it.id===id);
 function appendAt(kind,id){   // 누르면 맨 끝 다음 자리에 놓는다
@@ -111,7 +114,7 @@ function appendAt(kind,id){   // 누르면 맨 끝 다음 자리에 놓는다
   const W=cv.clientWidth, o=order(), last=o[o.length-1];
   let x=10, y=8;
   if(last){ const el=cv.querySelector(`[data-uid="${last.uid}"]`); const w=el?el.offsetWidth:60; x=last.x+w+6; y=Math.floor(last.y/ROW_H)*ROW_H+8;
-    const est=(kind==="p"?P[id].ko:T[id].ko).length*16+28; if(x+est>W-6){ x=10; y+=ROW_H; } }
+    const est=label({kind,id}).length*16+28; if(x+est>W-6){ x=10; y+=ROW_H; } }
   if(y>cv.clientHeight-30) return;
   S.items.push({uid:++uid, kind, id, x, y});
 }
@@ -164,7 +167,7 @@ function problem(){
   if(!n) return "낱말을 올려놓는다";
   if(n>MAX_WORDS) return `낱말은 ${MAX_WORDS}개까지`;
   for(const id of r.need||[]) if(!onCanvas(id)) return `'${T[id].ko}' 넣기`;
-  for(const c of r.ban||[]){ if(c==="part"?S.items.some(it=>it.kind==="p"):w.some(it=>T[it.id].cat===c)) return `${CAT_KO[c]} 빼기`; }
+  for(const c of r.ban||[]){ if(c==="part"?S.items.some(it=>it.kind!=="t"):w.some(it=>T[it.id].cat===c)) return `${CAT_KO[c]} 빼기`; }
   if(r.words_eq&&n!==r.words_eq) return `낱말 정확히 ${r.words_eq}개`;
   if(r.words_min&&n<r.words_min) return `낱말 ${r.words_min}개 이상`;
   return "";
@@ -217,7 +220,7 @@ function paint(){
       <div class="vibe ${g.theme?"theme":""}">${goalLabel(g)}</div>
       <div class="conds">${condChips(g)}</div></div>
     <div class="canvas" id="canvas">${S.items.length?"":`<div class="hint">낱말과 조사를 여기에 끌어다 놓는다</div>`}${S.items.map(it=>{
-      const html=it.kind==="p"?`<button class="tile part" data-item="${it.uid}">${P[it.id].ko}</button>`:tileHTML(it.id,"",`data-item="${it.uid}"`);
+      const html=it.kind==="t"?tileHTML(it.id,"",`data-item="${it.uid}"`):`<button class="tile ${it.kind==="p"?"part":"place"}" data-item="${it.uid}">${label(it)}</button>`;
       return `<div class="chip" data-uid="${it.uid}" style="left:${it.x}px;top:${it.y}px">${html}</div>`;}).join("")}</div>
     <div class="ends">${ENDS.map(e=>`<button class="end ${e===S.end?"on":""}" data-end="${e}" ${g.rules.ending&&e!==g.rules.ending?"disabled":""}>${e}</button>`).join("")}</div>
     <div class="said">${S.items.length?`「${renderTokens(tokens(),S.end)}」`:""}</div>
@@ -225,7 +228,8 @@ function paint(){
     <div class="btns"><button class="go" id="sendBtn">보내기</button><button class="go sec" id="clearBtn">비우기</button><button class="go sec" id="skipBtn">넘기기 −${g.hard?HARD_SKIP:SKIP_COST}초</button></div>
     <div class="fb">${fbHTML()}</div>
     <div class="hand" id="hand">${handHTML()}</div>
-    <div class="palette"><span class="lab">조사 — 무제한</span>${D.particles.map(p=>`<button class="tile part" data-part="${p.id}">${p.ko}</button>`).join("")}</div>`;
+    <div class="palette"><span class="lab">조사 — 무제한</span>${D.particles.map(p=>`<button class="tile part" data-part="${p.id}">${p.ko}</button>`).join("")}
+      <span class="lab" style="margin-top:4px">위치 — 무제한 (상자 + 안 + 에서 → 상자 안에서)</span>${D.places.map(p=>`<button class="tile place" data-place="${p.id}">${p.ko}</button>`).join("")}</div>`;
   S.fresh.clear(); paintTop(); paintControls(); paintMeter();
 }
 function condChips(g){
@@ -275,6 +279,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.item){ S.items=S.items.filter(it=>it.uid!==+b.dataset.item); }            // 도화지 조각을 누르면 뺀다
   else if(b.dataset.tile){ if(onCanvas(b.dataset.tile)) S.items=S.items.filter(it=>!(it.kind==="t"&&it.id===b.dataset.tile)); else appendAt("t",b.dataset.tile); }
   else if(b.dataset.part){ appendAt("p",b.dataset.part); }
+  else if(b.dataset.place){ appendAt("l",b.dataset.place); }
   else if(b.dataset.end){ if(!S.goal.rules.ending) S.end=b.dataset.end; }
   else if(b.id==="sendBtn") return send();
   else if(b.id==="clearBtn"){ S.items=[]; }
@@ -292,6 +297,7 @@ document.addEventListener("pointerdown",e=>{
   let src;
   if(b.dataset.item){ const it=S.items.find(x=>x.uid===+b.dataset.item); if(!it) return; src={kind:it.kind, id:it.id, uid:it.uid}; }
   else if(b.dataset.part) src={kind:"p", id:b.dataset.part};
+  else if(b.dataset.place) src={kind:"l", id:b.dataset.place};
   else if(b.dataset.tile){ if(onCanvas(b.dataset.tile)) return; src={kind:"t", id:b.dataset.tile}; }
   else return;
   const r=b.getBoundingClientRect();
@@ -326,7 +332,7 @@ document.addEventListener("pointerup",e=>{
 });
 document.addEventListener("pointercancel",()=>{ if(drag&&drag.ghost) drag.ghost.remove(); drag=null; if(S&&!S.over) paint(); });
 
-fetch("data.json").then(r=>r.json()).then(d=>{ D=d; G={...d.rush.vibes, ...d.rush.styles}; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); P=Object.fromEntries(d.particles.map(p=>[p.id,p])); paint(); });
+fetch("data.json").then(r=>r.json()).then(d=>{ D=d; G={...d.rush.vibes, ...d.rush.styles}; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); P=Object.fromEntries(d.particles.map(p=>[p.id,p])); L=Object.fromEntries(d.places.map(p=>[p.id,p])); paint(); });
 </script>
 </body>
 </html>

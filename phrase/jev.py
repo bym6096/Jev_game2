@@ -103,14 +103,18 @@ def _attach(w, pid):
 
 
 def render_free_ko(tokens, ending="."):
-    """도화지 모드: 읽는 순서대로 놓인 토큰 목록 [{"t": 조각 id} | {"p": 조사 id}] → 문장.
-    조사는 앞말에 붙고(앞말이 없으면 버린다), 마지막 서술어는 해체 + 끝맺음, 그 앞 서술어는 '~고'로 잇는다."""
+    """도화지 모드: 읽는 순서대로 놓인 토큰 목록 [{"t": 조각 id} | {"p": 조사 id} | {"l": 위치 말 id}] → 문장.
+    조사는 앞말에 붙고(앞말이 없으면 버린다), 위치 말은 띄어 쓴 한 낱말("상자 안" → +에서 → "상자 안에서"),
+    마지막 서술어는 해체 + 끝맺음, 그 앞 서술어는 '~고'로 잇는다."""
     last_pred = max((i for i, k in enumerate(tokens) if "t" in k and TILES[k["t"]]["cat"] == "pred"), default=-1)
     out = []
     for i, k in enumerate(tokens):
         if "p" in k:
             if out:
                 out[-1] = _attach(out[-1], k["p"])
+            continue
+        if "l" in k:
+            out.append(PLACES[k["l"]]["ko"])
             continue
         t = TILES[k["t"]]
         if t["cat"] == "pred":
@@ -194,6 +198,7 @@ ENDINGS = DATA["endings"]
 SENSE = {"clear": "무슨 말인지 바로 그려진다", "plausible": "조금 엉뚱하지만 그럴듯하게 그려진다", "vague": "뭔가 있어 보이지만 뜻이 흐릿하다", "nonsense": "낱말을 늘어놓은 것 같아 말이 안 된다"}
 SENSE_PTS = {"clear": 1.0, "plausible": 0.75, "vague": 0.3, "nonsense": 0.0}
 PARTICLES = {p["id"]: p for p in DATA["particles"]}
+PLACES = {p["id"]: p for p in DATA["places"]}   # 위치 말(안·위·옆…): 조사처럼 팔레트에서 무제한, 길이에는 안 센다
 MAX_WORDS, MAX_TOKENS = 8, 20
 LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
 
@@ -286,7 +291,8 @@ def _rush_ok(tokens, ending):
     for k in tokens:
         if not isinstance(k, dict) or len(k) != 1:
             return False
-        if "t" in k and k["t"] not in TILES or "p" in k and k["p"] not in PARTICLES or not ("t" in k or "p" in k):
+        if "t" in k and k["t"] not in TILES or "p" in k and k["p"] not in PARTICLES or "l" in k and k["l"] not in PLACES \
+                or not ("t" in k or "p" in k or "l" in k):
             return False
     words = [k["t"] for k in tokens if "t" in k]
     return 1 <= len(words) <= MAX_WORDS and len(set(words)) == len(words)
@@ -305,7 +311,7 @@ def _goal_ok(goal, tokens, ending):
     if aud is not None and aud not in AUDIENCES or not isinstance(rules, dict):
         return "목표 형식"
     words = [k["t"] for k in tokens if "t" in k]
-    cats = {TILES[w]["cat"] for w in words} | ({"part"} if any("p" in k for k in tokens) else set())
+    cats = {TILES[w]["cat"] for w in words} | ({"part"} if any("p" in k or "l" in k for k in tokens) else set())
     need = rules.get("need") or []
     if not isinstance(need, list) or not all(x in TILES for x in need) or not set(need) <= set(words):
         return "꼭 넣을 낱말"
