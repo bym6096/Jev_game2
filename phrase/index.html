@@ -3,267 +3,291 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>말 짓기 회색 박스</title>
+<title>한 줄 공방</title>
 <style>
-:root { --bg:#1d1d1f; --panel:#2a2a2d; --line:#3d3d42; --text:#e8e8ea; --dim:#9a9aa2; --accent:#e0b04a; --good:#5fbf6f; --bad:#d9605a;
-  --ref:#4f7ad6; --adj:#4fb3b8; --pred:#4fa86a; --mod:#c9a23f; --pol:#9a6bd1; --int:#d16b9a; }
+:root { --bg:#141416; --panel:#1f1f23; --line:#34343a; --text:#ececef; --dim:#94949c; --accent:#f0c24b; --good:#6fd08a; --bad:#e2675f;
+  --ref:#5b8cff; --adj:#3fc1c9; --pred:#5dbb6f; --mod:#e0a93f; --pol:#a37bea; --int:#e66fa6; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui, sans-serif; }
-main { max-width:760px; margin:0 auto; padding:16px; }
-header { display:flex; gap:16px; flex-wrap:wrap; color:var(--dim); font-size:14px; margin-bottom:12px; }
+main { max-width:780px; margin:0 auto; padding:16px; }
+header { display:flex; gap:16px; flex-wrap:wrap; align-items:baseline; color:var(--dim); font-size:14px; margin-bottom:12px; }
+header .brand { color:var(--text); font-weight:800; font-size:17px; letter-spacing:-.3px; margin-right:auto; }
 header b { color:var(--text); }
-.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
-h3 { margin:0 0 8px; font-size:14px; color:var(--dim); font-weight:600; }
-.sit-title { font-size:18px; font-weight:700; }
-.sit-desc { color:var(--dim); margin-top:2px; }
-.goal { margin-top:6px; font-size:14px; }
-.goal b { color:var(--accent); }
-.meter { display:flex; gap:6px; margin-top:10px; }
-.pip { width:28px; height:10px; border-radius:3px; background:var(--line); }
-.pip.on { background:var(--good); }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:12px; }
+h3 { margin:0 0 8px; font-size:13px; color:var(--dim); font-weight:600; }
+.medium { font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.5px; }
+.client { font-size:18px; font-weight:800; margin-top:2px; }
+.brief { color:var(--dim); margin-top:4px; }
+.chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+.chip { font-size:12px; padding:2px 9px; border-radius:999px; border:1px solid var(--line); color:var(--dim); }
+.chip.vibe { border-color:var(--accent); color:var(--accent); }
+.chip.rule { border-color:var(--bad); color:var(--bad); }
+.goalbar { height:12px; background:var(--line); border-radius:6px; overflow:hidden; margin-top:10px; position:relative; }
+.goalbar div { height:100%; background:var(--good); transition:width .6s; }
 .info { display:flex; gap:12px; flex-wrap:wrap; font-size:13px; color:var(--dim); margin-top:6px; }
-.talk { margin-top:10px; display:flex; flex-direction:column; gap:6px; }
-.talk .me { align-self:flex-end; background:#4a4232; border-radius:10px 10px 2px 10px; padding:6px 10px; max-width:85%; }
-.talk .them { align-self:flex-start; color:var(--dim); font-size:14px; padding:0 4px; }
-.row { display:flex; flex-wrap:wrap; gap:8px; }
-.tile { border:2px solid; background:#2f2f34; color:var(--text); border-radius:8px; padding:7px 11px; font-size:15px; cursor:pointer; position:relative; }
-.tile.ref { border-color:var(--ref); } .tile.pred { border-color:var(--pred); } .tile.mod { border-color:var(--mod); } .tile.pol { border-color:var(--pol); } .tile.adj { border-color:var(--adj); } .tile.int { border-color:var(--int); }
-.tile.rare { background:#3a3424; } .tile.rare::before { content:"★"; color:var(--accent); font-size:11px; margin-right:3px; }
-.tile.used { opacity:.25; cursor:default; }
-.tile small { display:block; font-size:11px; color:var(--dim); line-height:1.1; }
-.slots { display:flex; gap:6px; flex-wrap:wrap; min-height:48px; align-items:center; }
-.slots .empty { color:var(--dim); font-size:14px; }
-.slots .tile .x { position:absolute; top:-8px; right:-8px; background:#555; border-radius:50%; width:18px; height:18px; font-size:11px; line-height:18px; text-align:center; }
-.acts { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
-.act { background:#3a3a40; border:1px solid #55555c; color:var(--text); border-radius:999px; padding:5px 12px; font-size:14px; cursor:pointer; }
-.act.on { background:var(--accent); color:#1d1d1f; border-color:var(--accent); font-weight:700; }
-.said { font-size:20px; margin-top:12px; min-height:30px; }
+.drafts { margin-top:10px; display:flex; flex-direction:column; gap:4px; font-size:14px; }
+.drafts div { display:flex; justify-content:space-between; gap:8px; border-top:1px solid var(--line); padding-top:4px; }
+.drafts b { color:var(--accent); white-space:nowrap; }
+.frame { display:flex; flex-wrap:wrap; gap:6px; align-items:stretch; }
+.cell { min-width:64px; border:1.5px dashed var(--line); border-radius:9px; padding:4px 8px 6px; cursor:pointer; background:#18181b; display:flex; flex-direction:column; }
+.cell .lab { font-size:11px; color:var(--dim); }
+.cell .val { font-size:15px; min-height:22px; }
+.cell.sel { border-style:solid; border-color:var(--accent); }
+.cell.full { border-style:solid; }
+.cell.locked { opacity:.3; cursor:not-allowed; }
+.cell.ref{border-color:var(--ref)} .cell.adj{border-color:var(--adj)} .cell.pred{border-color:var(--pred)} .cell.mod{border-color:var(--mod)} .cell.pol{border-color:var(--pol)} .cell.int{border-color:var(--int)}
+.cell.sel{border-color:var(--accent)!important}
+.case { font-size:11px; background:#2b2b31; border:0; color:var(--text); border-radius:6px; padding:1px 6px; margin-top:3px; cursor:pointer; align-self:flex-start; }
+.acts { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+.acts .lab { font-size:12px; color:var(--dim); margin-right:4px; }
+.act { background:#2b2b31; border:1px solid var(--line); color:var(--text); border-radius:999px; padding:4px 12px; font-size:14px; cursor:pointer; }
+.act.on { background:var(--accent); color:#141416; border-color:var(--accent); font-weight:700; }
+.said { font-size:22px; font-weight:700; margin-top:14px; min-height:34px; letter-spacing:-.3px; }
 .btns { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-button.go { background:var(--accent); color:#1d1d1f; border:0; border-radius:8px; padding:10px 16px; font-weight:700; font-size:15px; cursor:pointer; }
-button.go.sec { background:#44444a; color:var(--text); }
+button.go { background:var(--accent); color:#141416; border:0; border-radius:9px; padding:10px 16px; font-weight:800; font-size:15px; cursor:pointer; }
+button.go.sec { background:#2f2f35; color:var(--text); font-weight:600; }
 button:disabled { opacity:.35; cursor:default; }
-.bar { display:flex; height:26px; border-radius:6px; overflow:hidden; position:relative; margin-top:8px; }
-.bar div { display:flex; align-items:center; justify-content:center; font-size:12px; color:#111; white-space:nowrap; overflow:hidden; }
-.needle { position:absolute; top:-4px; bottom:-4px; width:3px; background:#fff; box-shadow:0 0 6px #fff; transition:left .9s cubic-bezier(.2,.8,.2,1); }
-.legend { display:flex; gap:10px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-top:4px; }
-.result { font-size:17px; margin-top:8px; }
-.cats { display:flex; gap:12px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-bottom:8px; }
-.cats i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; vertical-align:-1px; }
+.score { margin-top:12px; font-size:15px; }
+.score .eq { font-size:26px; font-weight:800; letter-spacing:-.5px; }
+.score .eq span { color:var(--accent); }
+.mini { display:flex; gap:10px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-top:4px; }
+.voice { margin-top:6px; color:var(--text); font-style:italic; }
+.hand { display:flex; flex-direction:column; gap:8px; }
+.hrow { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.hrow .lab { font-size:11px; color:var(--dim); width:64px; }
+.tile { border:1.5px solid; background:#26262b; color:var(--text); border-radius:8px; padding:5px 10px; font-size:14px; cursor:pointer; }
+.tile.ref{border-color:var(--ref)} .tile.adj{border-color:var(--adj)} .tile.pred{border-color:var(--pred)} .tile.mod{border-color:var(--mod)} .tile.pol{border-color:var(--pol)} .tile.int{border-color:var(--int)}
+.tile.rare { background:#352f1f; } .tile.rare::before { content:"★"; color:var(--accent); font-size:10px; margin-right:3px; }
+.tile.used { opacity:.25; }
+.tile.banned { text-decoration:line-through; opacity:.4; cursor:not-allowed; }
 .log { font-size:13px; color:var(--dim); max-height:140px; overflow:auto; }
 .log div { border-top:1px solid var(--line); padding:4px 0; }
+.row { display:flex; flex-wrap:wrap; gap:6px; }
 </style>
 </head>
 <body>
 <main>
-  <header>
-    <span>상황 <b id="stage"></b></span>
-    <span>목숨 <b id="hearts"></b></span>
-    <span>주머니 <b id="bagn"></b></span>
-  </header>
+  <header><span class="brand">한 줄 공방</span><span>의뢰 <b id="stage"></b></span><span>평판 <b id="hearts"></b></span><span>말투 <b id="nacts"></b></span></header>
+  <div class="panel" id="briefPanel"></div>
   <div class="panel">
-    <div class="sit-title" id="sitTitle"></div>
-    <div class="sit-desc" id="sitDesc"></div>
-    <div class="goal">목표: <b id="goal"></b></div>
-    <div class="meter" id="meter"></div>
-    <div class="info" id="info"></div>
-    <div class="talk" id="talk"></div>
-  </div>
-  <div class="panel">
-    <h3>지을 말 — 조각을 눌러 넣고(최대 5개), 넣은 <span style="color:var(--ref)">지시 조각</span>을 누르면 역할이 바뀐다</h3>
-    <div class="slots" id="slots"></div>
+    <h3>문장 틀 — 칸을 고르고 조각을 넣는다. 칸은 비워 둬도 된다. 채운 칸을 다시 누르면 뺀다</h3>
+    <div class="frame" id="frame"></div>
     <div class="acts" id="acts"></div>
     <div class="said" id="said"></div>
     <div class="btns">
-      <button class="go sec" id="peekBtn">떠보기</button>
-      <button class="go" id="sayBtn">말하기</button>
+      <button class="go" id="sendBtn">시안 보내기</button>
+      <button class="go sec" id="redrawBtn">안 쓴 조각 다시 뽑기</button>
       <button class="go sec" id="clearBtn">비우기</button>
     </div>
-    <div id="judge"></div>
+    <div id="result"></div>
   </div>
-  <div class="panel">
-    <div class="cats"><span><i style="background:var(--ref)"></i>누구·무엇</span><span><i style="background:var(--adj)"></i>어떤</span><span><i style="background:var(--pred)"></i>일·상태</span><span><i style="background:var(--mod)"></i>얼마나·언제</span><span><i style="background:var(--pol)"></i>부정·확신</span><span><i style="background:var(--int)"></i>부름·감탄</span><span>★ 희귀</span></div>
-    <div class="row" id="hand"></div>
-  </div>
+  <div class="panel"><div class="hand" id="hand"></div></div>
   <div class="panel" id="rewardPanel" hidden></div>
   <div class="panel"><h3>기록</h3><div class="log" id="log"></div></div>
 </main>
 <script>
-const NEED=3, LINES=3, PEEKS=2, HAND=10, MAXLEN=5, RUN=6;
-const OUT_KEYS=["great","good","little","none","worse"];
-const OUT_KO={great:"대성공 +3", good:"통함 +2", little:"조금 +1", none:"무반응 0", worse:"역효과 −1"};
-const OUT_PTS={great:3, good:2, little:1, none:0, worse:-1};
-const OUT_COL={great:"#7fdc8a", good:"#5fbf6f", little:"#b8c46a", none:"#8a8a90", worse:"#d9605a"};
-const ROLE_KO={"":"", subj:"누가", obj:"무엇을", to:"누구에게"};
-const ROLE_NEXT={"":"subj", subj:"obj", obj:"to", to:""};
+const DRAFTS=3, REDRAWS=2, RUN=6;
+const HAND={ref:5, adj:4, pred:4, mod:2, pol:2, int:2};
+const CAT_KO={ref:"누구·무엇", adj:"어떤", pred:"한다", mod:"어떻게", pol:"부정·확신", int:"부름·감탄"};
+const CASE_ORDER=["obj","to","like","with","at"];
+const ADOPT_KO={yes:"바로 채택", maybe:"고민 중", revise:"수정 요청", no:"거절", angry:"불쾌"};
+const ADOPT_VOICE={yes:"“이거다. 바로 갑시다.”", maybe:"“오… 이거 좀 끌리는데.”", revise:"“느낌은 있는데, 한 번만 더.”", no:"“음… 저희랑은 좀 안 맞네요.”", angry:"“지금 장난하세요?”"};
+const FRESH_KO={wow:"처음 보는 표현", fresh:"신선함", ok:"무난함", cliche:"뻔함", broken:"뜻이 안 전해짐"};
 const ACCESS=new URLSearchParams(location.search).get("code")||"";
-let D, TILES, S;
-const cache={};  // 같은 대화 흐름에서 같은 말은 늘 같은 확률(정직함)
+let D, T, S;
+const cache={};
+const target=stage=>320+60*stage;
 
 // ---- 한국어 렌더러: jev.py의 render_ko와 같은 규칙 ----
 const batchim=w=>{const c=w.charCodeAt(w.length-1)-0xAC00; return c>=0&&c<11172&&c%28!==0;};
 function predForm(p,act){
   switch(act){
-    case "assert": return [p.h,"."]; case "ask": return [p.h,"?"];
-    case "plead": return p.ko==="주다"?["줘",", 제발."]:[p.h+" 줘","."];
-    case "command": return [p.h+"라","!"]; case "promise": return [p.l+"게","."];
-    case "threaten": return [p.l+" 거야",". 두고 봐!"]; case "exclaim": return [p.ne||p.st+"네","!"];
-    case "suggest": return [p.st+"자","."];
+    case "assert": return p.h; case "ask": return p.h+"?"; case "plead": return p.h+" 줘.";
+    case "command": return p.h+"라!"; case "promise": return p.l+"게."; case "threaten": return p.l+" 거야. 두고 봐.";
+    case "exclaim": return (p.ne||p.st+"네")+"!"; case "suggest": return p.st+"자.";
   }
 }
-function nounForm(w,act){
-  const cop=batchim(w)?"이야":"야";
-  return {assert:[w+cop,"."], ask:[w+cop,"?"], plead:[w+" 줘",", 제발."], command:[w+" 내놔","!"], promise:[w+" 줄게","."],
-    threaten:[w+cop,". 두고 봐!"], exclaim:[w+(batchim(w)?"이네":"네"),"!"], suggest:[w+" 하자","."]}[act];
-}
-function withRole(w,role){
-  if(role==="subj") return ({"나":"내가","너":"네가"})[w]||w+(batchim(w)?"이":"가");
-  if(role==="obj") return w+(batchim(w)?"을":"를");
-  if(role==="to") return w+"에게";
-  return w;
-}
-function render(specs,act){
-  const all=specs.map(s=>{const [id,role=""]=s.split(":"); return [TILES[id],role];});
-  const ints=all.filter(([t])=>t.cat==="int").map(([t])=>t.ko);   // 부름·감탄은 문장 앞으로
-  const ts=all.filter(([t])=>t.cat!=="int");
-  if(!ts.length) return ints.join(", ")+"!";
-  const head=ints.length?ints.join(", ")+", ":"";
-  const preds=ts.map(([t],n)=>t.cat==="pred"?n:-1).filter(n=>n>=0);
-  const last=preds.length?preds[preds.length-1]:ts.length-1;
-  let end=""; const words=ts.map(([t,role],n)=>{
-    if(n===last){ const [c,e]=t.cat==="pred"?predForm(t,act):nounForm(t.ko,act); end=e; return c; }
-    return t.cat==="pred"?t.st+"고":withRole(t.ko,role);
-  });
-  return head+words.join(" ")+end;
+const END_NO_PRED={assert:".", ask:"?", plead:", 제발.", command:"!", promise:".", threaten:". 두고 봐.", exclaim:"!", suggest:"."};
+const withCase=(w,c)=>w+({obj:batchim(w)?"을":"를", to:"에게", like:"처럼", with:batchim(w)?"과":"와", at:"에서"})[c];
+const subj=w=>({"나":"내가","너":"네가"})[w]||w+(batchim(w)?"이":"가");
+function render(form,cells,cs="obj",act="assert"){
+  const g=k=>cells[k]?T[cells[k]]:null;
+  if(form==="name"){
+    const [a1,n1,a2,n2]=["a1","n1","a2","n2"].map(g);
+    const first=[a1,n1].filter(Boolean).map(t=>t.ko).join(" "), second=[a2,n2].filter(Boolean).map(t=>t.ko).join(" ");
+    if(n1&&second) return `${first}의 ${second}`;
+    return [first,second].filter(Boolean).join(" ");
+  }
+  const [i,sa,s,oa,o,m,p,v]=["i","sa","s","oa","o","m","p","v"].map(g);
+  const w=[];
+  if(sa) w.push(sa.ko); if(s) w.push(v?subj(s.ko):s.ko); if(oa) w.push(oa.ko); if(o) w.push(v?withCase(o.ko,cs):o.ko);
+  if(m) w.push(m.ko); if(p) w.push(p.ko);
+  let body;
+  if(v){ w.push(predForm(v,act)); body=w.join(" "); if(act==="assert") body+="."; }
+  else body=w.join(" ")+(w.length?END_NO_PRED[act]:"");
+  if(i) return body?i.ko+", "+body:i.ko+"!";
+  return body;
 }
 
 // ---- 진행 ----
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a;};
+const brief=()=>D.briefs.find(b=>b.id===S.briefs[S.stage]);
+const form=()=>D.forms[brief().form];
+const rule=()=>brief().rule||{};
+const banned=id=>(rule().ban_dom_word||[]).some(w=>T[id].ko.includes(w));
 function newRun(){
-  S={stage:0, hearts:3, bag:shuffle([...D.start]), discard:[], hand:[], acts:[...D.start_acts], sits:shuffle(D.situations.map(s=>s.id)).slice(0,RUN), log:[], over:false};
-  startSituation();
+  const bag={}, discard={}, hand={};
+  for(const c in HAND){ bag[c]=shuffle([...D.start[c]]); discard[c]=[]; hand[c]=[]; }
+  S={stage:0, hearts:3, bag, discard, hand, acts:[...D.start_acts], briefs:shuffle(D.briefs.map(b=>b.id)).slice(0,RUN), log:[], over:false};
+  startBrief();
 }
-function startSituation(){
-  Object.assign(S,{progress:0, lines:LINES, peeks:PEEKS, pick:[], act:S.acts[0], history:[], judged:null, result:null, busy:false});
-  S.discard.push(...S.hand); S.hand=[]; draw(); paint();
+function startBrief(){
+  Object.assign(S,{total:0, drafts:DRAFTS, redraws:REDRAWS, cells:{}, cs:"obj", act:S.acts[0], sel:null, history:[], last:null, busy:false});
+  for(const c in HAND){ S.discard[c].push(...S.hand[c]); S.hand[c]=[]; }
+  const req=rule().require;
+  if(req){ const c=T[req].cat; if(![...S.bag[c],...S.discard[c],...S.hand[c]].includes(req)) S.bag[c].push(req); else { for(const arr of [S.bag[c],S.discard[c]]){ const k=arr.indexOf(req); if(k>=0){ arr.splice(k,1); break; } } S.bag[c].push(req); } }
+  draw(); S.sel=firstOpen(); paint();
 }
-function draw(){ while(S.hand.length<HAND){ if(!S.bag.length){ if(!S.discard.length) break; S.bag=shuffle(S.discard); S.discard=[]; } S.hand.push(S.bag.pop()); } }
-const sit=()=>D.situations.find(s=>s.id===S.sits[S.stage]);
-const specs=()=>S.pick.map(p=>S.hand[p.i]+(p.role?":"+p.role:""));
-const hist=()=>S.history.map(h=>({tiles:h.tiles, act:h.act, reaction:h.reaction}));
-async function ask(){
-  const body={sit:sit().id, tiles:specs(), act:S.act, history:hist()};
-  const key=JSON.stringify(body); if(cache[key]) return cache[key];
-  const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:key});
-  const d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); return cache[key]=d;
+function draw(){
+  for(const c in HAND) while(S.hand[c].length<HAND[c]){
+    if(!S.bag[c].length){ if(!S.discard[c].length) break; S.bag[c]=shuffle(S.discard[c]); S.discard[c]=[]; }
+    S.hand[c].push(S.bag[c].pop());
+  }
 }
-async function peek(){
-  if(S.busy||!S.pick.length||!S.peeks) return; S.busy=true; S.result=null; paint();
-  try{ const d=await ask(); S.judged=d; S.peeks--; addLog(`떠보기 「${d.said}」`); } catch(e){ addLog("판정 실패: "+e.message); }
-  S.busy=false; paint();
+const cellSpec=k=>form().cells.find(c=>c.id===k);
+const locked=k=>(rule().lock||[]).includes(k);
+function firstOpen(cat){ const c=form().cells.find(c=>!S.cells[c.id]&&!locked(c.id)&&(!cat||c.cats.includes(cat))); return c?c.id:null; }
+const placed=()=>new Set(Object.values(S.cells));
+function payload(){ return {brief:brief().id, cells:{...S.cells}, case:S.cs, act:S.act, history:S.history.map(h=>({cells:h.cells, case:h.cs, act:h.act}))}; }
+function problem(){
+  const n=Object.keys(S.cells).length;
+  if(!n) return "칸을 하나 이상 채운다";
+  if(rule().max_filled&&n>rule().max_filled) return `칸은 ${rule().max_filled}개까지`;
+  if(rule().require&&!placed().has(rule().require)) return `'${T[rule().require].ko}'를 넣어야 한다`;
+  return "";
 }
-async function say(){
-  if(S.busy||!S.pick.length||!S.lines) return; S.busy=true; S.result=null; paint();
-  let d; try{ d=await ask(); } catch(e){ addLog("판정 실패: "+e.message); S.busy=false; paint(); return; }
-  const roll=Math.random(); let acc=0, out="worse";
-  for(const k of OUT_KEYS){ acc+=d.outcome[k]||0; if(roll<acc){ out=k; break; } }
-  const reaction=Object.entries(d.reaction).sort((a,b)=>b[1]-a[1])[0][0];
-  S.judged=d; S.result={roll,out,reaction};
-  S.history.push({tiles:specs(), act:S.act, reaction, said:d.said, out});
-  S.progress=Math.max(0,S.progress+OUT_PTS[out]); S.lines--;
-  addLog(`「${d.said}」 → ${sit().who}: ${D.reactions[reaction]} (${OUT_KO[out]})`);
-  const used=new Set(S.pick.map(p=>p.i)); S.discard.push(...S.hand.filter((_,i)=>used.has(i))); S.hand=S.hand.filter((_,i)=>!used.has(i)); S.pick=[]; draw();
-  paint(); await new Promise(r=>setTimeout(r,1100)); S.busy=false;
-  if(S.progress>=NEED) return endSituation(true);
-  if(!S.lines) return endSituation(false);
+async function send(){
+  if(S.busy||problem()||!S.drafts) return;
+  S.busy=true; S.last=null; paint();
+  const body=payload(), key=JSON.stringify(body); let d=cache[key];
+  try{ if(!d){ const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:key}); d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); cache[key]=d; } }
+  catch(e){ addLog("판정 실패: "+e.message); S.busy=false; paint(); return; }
+  S.last=d; S.total+=d.score; S.drafts--;
+  S.history.push({cells:{...S.cells}, cs:S.cs, act:S.act, said:d.said, score:d.score});
+  addLog(`「${d.said}」 ${d.base} × ${d.mult} = ${d.score}`);
+  const used=placed(); for(const c in HAND){ S.discard[c].push(...S.hand[c].filter(id=>used.has(id))); S.hand[c]=S.hand[c].filter(id=>!used.has(id)); }
+  S.cells={}; draw(); S.sel=firstOpen(); S.busy=false;
+  if(S.total>=target(S.stage)) return endBrief(true);
+  if(!S.drafts) return endBrief(false);
   paint();
 }
-function endSituation(won){
-  if(won) addLog(`✔ ${sit().name}: 목표 달성`); else { S.hearts--; addLog(`✘ ${sit().name}: 실패 — 목숨 −1`); }
+function redraw(){
+  if(S.busy||!S.redraws) return; S.redraws--;
+  const keep=placed();
+  for(const c in HAND){ S.discard[c].push(...S.hand[c].filter(id=>!keep.has(id))); S.hand[c]=S.hand[c].filter(id=>keep.has(id)); }
+  draw(); addLog("안 쓴 조각을 다시 뽑았다"); paint();
+}
+function endBrief(won){
+  if(won) addLog(`✔ ${brief().client}: 계약 성사 (${S.total}/${target(S.stage)})`);
+  else { S.hearts--; addLog(`✘ ${brief().client}: 계약 불발 — 평판 −1`); }
   if(S.hearts<=0) return showEnd(false);
   if(S.stage+1>=RUN) return showEnd(true);
   showReward(won);
 }
 function showReward(won){
   const p=document.getElementById("rewardPanel"); p.hidden=false;
-  const all=[...S.bag,...S.discard,...S.hand];
-  const fresh=D.tiles.filter(t=>!all.includes(t.id));
-  const common=shuffle(fresh.filter(t=>!t.rare).map(t=>t.id)), rare=shuffle(fresh.filter(t=>t.rare).map(t=>t.id));
-  const picks=won?[common[0],common[1],rare[0]]:[common[0],common[1]];
-  const offers=picks.filter(Boolean).map(id=>({tile:id}));
+  const own=new Set(Object.keys(HAND).flatMap(c=>[...S.bag[c],...S.discard[c],...S.hand[c]]));
+  const fresh=D.tiles.filter(t=>!own.has(t.id));
+  // 감각 영역이 겹치지 않게 섞어서 보여준다(공감각 조합 재료)
+  const commons=shuffle(fresh.filter(t=>!t.rare)), rares=shuffle(fresh.filter(t=>t.rare)), picks=[], doms=new Set();
+  for(const t of commons){ if(picks.length>=(won?2:2)) break; if(t.dom&&doms.has(t.dom)) continue; picks.push(t.id); if(t.dom) doms.add(t.dom); }
+  if(won&&rares[0]) picks.push(rares[0].id);
   const newActs=Object.keys(D.acts).filter(a=>!S.acts.includes(a));
-  if(won&&newActs.length) offers.push({act:shuffle(newActs)[0]});
-  p.innerHTML=`<h3>${won?"목표 달성! ":""}하나를 얻거나, 조각 하나를 버린다</h3>
-    <div class="row">${offers.map(o=>o.act?`<button class="act" data-addact="${o.act}">+ 말투: ${D.acts[o.act].ko}</button>`:tileBtn(o.tile,`data-add="${o.tile}"`,"+ ")).join("")}</div>
-    <h3 style="margin-top:12px">버리기</h3>
-    <div class="row">${[...new Set(all)].map(id=>tileBtn(id,`data-del="${id}"`,"− ")).join("")}</div>
+  p.innerHTML=`<h3>${won?"계약 성사! ":"이번엔 놓쳤다. "}하나를 얻거나, 조각 하나를 버린다</h3>
+    <div class="row">${picks.map(id=>tileBtn(id,`data-add="${id}"`,"+ ")).join("")}${won&&newActs.length?`<button class="act" data-addact="${shuffle(newActs)[0]}">+ 말투</button>`:""}</div>
+    <h3 style="margin-top:12px">버리기</h3><div class="row">${[...own].map(id=>tileBtn(id,`data-del="${id}"`,"− ")).join("")}</div>
     <div class="btns"><button class="go sec" data-skip="1">건너뛰기</button></div>`;
+  p.querySelectorAll("[data-addact]").forEach(b=>b.textContent="+ 말투: "+D.acts[b.dataset.addact].ko);
   p.onclick=e=>{
     const b=e.target.closest("button"); if(!b) return;
-    if(b.dataset.add){ S.discard.push(b.dataset.add); addLog(`조각 얻음: ${TILES[b.dataset.add].ko}`); }
+    if(b.dataset.add){ const c=T[b.dataset.add].cat; S.discard[c].push(b.dataset.add); addLog(`조각 얻음: ${T[b.dataset.add].ko}`); }
     else if(b.dataset.addact){ S.acts.push(b.dataset.addact); addLog(`말투 얻음: ${D.acts[b.dataset.addact].ko}`); }
-    else if(b.dataset.del){ for(const arr of [S.bag,S.discard,S.hand]){ const i=arr.indexOf(b.dataset.del); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${TILES[b.dataset.del].ko}`); }
+    else if(b.dataset.del){ const c=T[b.dataset.del].cat; for(const arr of [S.bag[c],S.discard[c],S.hand[c]]){ const i=arr.indexOf(b.dataset.del); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${T[b.dataset.del].ko}`); }
     else if(!b.dataset.skip) return;
-    p.hidden=true; p.onclick=null; S.stage++; startSituation();
+    p.hidden=true; p.onclick=null; S.stage++; startBrief();
   };
   paint();
 }
 function showEnd(won){
   const p=document.getElementById("rewardPanel"); p.hidden=false; S.over=true;
-  p.innerHTML=`<h3>${won?"런 완주!":"런 종료"} — 상황 ${S.stage+1}/${RUN}</h3><div class="btns"><button class="go" id="again">다시 하기</button></div>`;
+  p.innerHTML=`<h3>${won?"시즌 완주!":"공방 문 닫음"} — 의뢰 ${S.stage+1}/${RUN}</h3><div class="btns"><button class="go" id="again">다시 하기</button></div>`;
   document.getElementById("again").onclick=()=>{ p.hidden=true; newRun(); };
   paint();
 }
 function addLog(t){ S.log.unshift(t); }
 
 // ---- 그리기 ----
-const tileBtn=(id,attr,prefix="",sub="")=>{const t=TILES[id]; return `<button class="tile ${t.cat}${t.rare?" rare":""}" ${attr}>${prefix}${t.ko}${sub}</button>`;};
+const tileBtn=(id,attr,prefix="")=>{const t=T[id]; return `<button class="tile ${t.cat}${t.rare?" rare":""}" ${attr}>${prefix}${t.ko}</button>`;};
 function paint(){
-  const s=sit(), lock=S.busy||S.over||!document.getElementById("rewardPanel").hidden;
+  const b=brief(), f=form(), lock=S.busy||S.over||!document.getElementById("rewardPanel").hidden, tg=target(S.stage);
   document.getElementById("stage").textContent=`${S.stage+1}/${RUN}`;
-  document.getElementById("hearts").textContent="♥".repeat(Math.max(0,S.hearts));
-  document.getElementById("bagn").textContent=`${S.bag.length} (버림 ${S.discard.length}) · 말투 ${S.acts.length}`;
-  document.getElementById("sitTitle").textContent=s.name;
-  document.getElementById("sitDesc").textContent=s.desc;
-  document.getElementById("goal").textContent=s.goal;
-  document.getElementById("meter").innerHTML=Array.from({length:NEED},(_,i)=>`<div class="pip ${i<S.progress?"on":""}"></div>`).join("");
-  document.getElementById("info").innerHTML=`<span>진척 ${S.progress}/${NEED}</span><span>남은 말 ${S.lines}</span><span>남은 떠보기 ${S.peeks}</span>`;
-  document.getElementById("talk").innerHTML=S.history.map(h=>`<div class="me">${h.said}</div><div class="them">→ ${s.who}이(가) ${D.reactions[h.reaction]} · ${OUT_KO[h.out]}</div>`).join("");
-  document.getElementById("slots").innerHTML=S.pick.length?S.pick.map((p,n)=>tileBtn(S.hand[p.i],`data-slot="${n}"`,"",`${p.role?`<small>${ROLE_KO[p.role]}</small>`:""}<span class="x" data-unpick="${n}">✕</span>`)).join(""):`<span class="empty">아래 조각을 눌러 말을 짓는다</span>`;
-  document.getElementById("acts").innerHTML=S.acts.map(a=>`<button class="act ${a===S.act?"on":""}" data-act="${a}">${D.acts[a].ko}</button>`).join("");
-  document.getElementById("said").textContent=S.pick.length?`「${render(specs(),S.act)}」`:"";
-  document.getElementById("hand").innerHTML=S.hand.map((id,i)=>tileBtn(id,`data-pick="${i}"`).replace('class="tile',`class="tile ${S.pick.some(p=>p.i===i)?"used":""}`)).join("");
-  document.getElementById("peekBtn").textContent=`떠보기 (${S.peeks})`;
-  document.getElementById("peekBtn").disabled=lock||!S.pick.length||!S.peeks;
-  document.getElementById("sayBtn").disabled=lock||!S.pick.length||!S.lines;
-  document.getElementById("clearBtn").disabled=lock||!S.pick.length;
-  document.getElementById("judge").innerHTML=S.busy&&!S.result?`<div class="result">${s.who}이(가) 듣고 있다…</div>`:judgeHTML();
+  document.getElementById("hearts").textContent="★".repeat(Math.max(0,S.hearts));
+  document.getElementById("nacts").textContent=S.acts.length;
+  document.getElementById("briefPanel").innerHTML=`
+    <div class="medium">${b.medium} · ${f.desc}</div><div class="client">${b.client}</div><div class="brief">${b.brief}</div>
+    <div class="chips">${b.vibes.map(v=>`<span class="chip vibe">${D.vibes[v]}</span>`).join("")}${b.rule?`<span class="chip rule">${b.rule.label}</span>`:""}</div>
+    <div class="goalbar"><div style="width:${Math.min(100,S.total/tg*100)}%"></div></div>
+    <div class="info"><span>점수 ${S.total} / ${tg}</span><span>남은 시안 ${S.drafts}</span><span>다시 뽑기 ${S.redraws}</span></div>
+    <div class="drafts">${S.history.map(h=>`<div><span>「${h.said}」</span><b>${h.score}</b></div>`).join("")}</div>`;
+  document.getElementById("frame").innerHTML=f.cells.map(c=>{
+    const id=S.cells[c.id], t=id?T[id]:null, lk=locked(c.id);
+    const lab=c.case?D.cases[S.cs]:c.label;
+    return `<div class="cell ${t?"full "+t.cat:""} ${S.sel===c.id?"sel":""} ${lk?"locked":""}" data-cell="${c.id}"><span class="lab">${lk?"봉인":lab}</span><span class="val">${t?t.ko:""}</span>${c.case?`<button class="case" data-case="1">격 바꾸기</button>`:""}</div>`;
+  }).join("");
+  document.getElementById("acts").innerHTML=f.act?`<span class="lab">말투</span>`+S.acts.map(a=>`<button class="act ${a===S.act?"on":""}" data-act="${a}">${D.acts[a].ko}</button>`).join(""):"";
+  const txt=render(b.form,S.cells,S.cs,S.act), pr=problem();
+  document.getElementById("said").textContent=txt?`「${txt}」`:"";
+  const sb=document.getElementById("sendBtn"); sb.disabled=lock||!!pr||!S.drafts; sb.textContent=pr&&Object.keys(S.cells).length?pr:"시안 보내기";
+  const rb=document.getElementById("redrawBtn"); rb.disabled=lock||!S.redraws; rb.textContent=`안 쓴 조각 다시 뽑기 (${S.redraws})`;
+  document.getElementById("clearBtn").disabled=lock||!Object.keys(S.cells).length;
+  const used=placed(), selCats=S.sel?cellSpec(S.sel).cats:null;
+  document.getElementById("hand").innerHTML=Object.keys(HAND).map(c=>{
+    const usable=f.cells.some(x=>x.cats.includes(c)&&!locked(x.id));
+    if(!usable) return "";
+    return `<div class="hrow"><span class="lab">${CAT_KO[c]}</span>${S.hand[c].map(id=>tileBtn(id,`data-tile="${id}"`).replace(`class="tile`,`class="tile ${used.has(id)?"used":""} ${banned(id)?"banned":""}`)).join("")}</div>`;
+  }).join("");
+  document.getElementById("result").innerHTML=S.busy?`<div class="score">${b.client}이(가) 시안을 보는 중…</div>`:resultHTML();
   document.getElementById("log").innerHTML=S.log.map(t=>`<div>${t}</div>`).join("");
 }
-function judgeHTML(){
-  if(!S.judged) return "";
-  const d=S.judged, r=S.result;
-  const bars=OUT_KEYS.map(k=>{const p=d.outcome[k]||0; return `<div style="width:${p*100}%;background:${OUT_COL[k]}">${p>.08?Math.round(p*100)+"%":""}</div>`;}).join("");
-  const reacts=Object.entries(d.reaction).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k,p])=>`${D.reactions[k]} ${Math.round(p*100)}%`).join(" · ");
-  if(r) requestAnimationFrame(()=>requestAnimationFrame(()=>{const n=document.getElementById("needle"); if(n) n.style.left=(r.roll*100)+"%";}));
-  return `<div style="margin-top:12px">「${d.said}」${r?"":" — 떠보기"}</div>
-    <div class="bar">${bars}${r?`<div class="needle" id="needle" style="left:0%"></div>`:""}</div>
-    <div class="legend">${OUT_KEYS.map(k=>`<span style="color:${OUT_COL[k]}">■ ${OUT_KO[k]}</span>`).join("")}</div>
-    <div class="legend">${sit().who}의 반응: ${reacts}</div>
-    ${r?`<div class="result" style="color:${OUT_COL[r.out]}">${OUT_KO[r.out]}</div>`:""}`;
+function resultHTML(){
+  const d=S.last; if(!d) return "";
+  const top=o=>Object.entries(o).sort((a,b)=>b[1]-a[1]);
+  const ad=top(d.adopt)[0][0], fr=top(d.fresh)[0][0];
+  const vibes=top(d.vibe).slice(0,3).map(([k,p])=>`${D.vibes[k]||"무감"} ${Math.round(p*100)}%`).join(" · ");
+  return `<div class="score"><div>「${d.said}」</div>
+    <div class="eq">채택 ${d.base} × 결 ${d.mult} = <span>${d.score}</span></div>
+    <div class="voice">${ADOPT_VOICE[ad]}</div>
+    <div class="mini"><span>의뢰인: ${ADOPT_KO[ad]}</span><span>원하는 결 적중 ${Math.round(d.match*100)}%</span><span>표현: ${FRESH_KO[fr]} (${d.fresh_bonus>=0?"+":""}${d.fresh_bonus})</span></div>
+    <div class="mini">느껴지는 결: ${vibes}</div></div>`;
 }
 document.addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b||S.busy||S.over||!document.getElementById("rewardPanel").hidden) return;
-  if(e.target.dataset.unpick!==undefined){ S.pick.splice(+e.target.dataset.unpick,1); }
-  else if(b.dataset.pick!==undefined){ const i=+b.dataset.pick; if(!S.pick.some(p=>p.i===i)&&S.pick.length<MAXLEN) S.pick.push({i,role:""}); }
-  else if(b.dataset.slot!==undefined){ const p=S.pick[+b.dataset.slot]; if(TILES[S.hand[p.i]].cat==="ref") p.role=ROLE_NEXT[p.role]; }
+  const b=e.target.closest("button,.cell"); if(!b||S.busy||S.over||!document.getElementById("rewardPanel").hidden) return;
+  if(b.dataset.case){ S.cs=CASE_ORDER[(CASE_ORDER.indexOf(S.cs)+1)%CASE_ORDER.length]; }
+  else if(b.dataset.cell){ const k=b.dataset.cell; if(locked(k)) return; if(S.cells[k]){ delete S.cells[k]; S.sel=k; } else S.sel=k; }
+  else if(b.dataset.tile){
+    const id=b.dataset.tile, t=T[id]; if(banned(id)) return;
+    const at=Object.keys(S.cells).find(k=>S.cells[k]===id);
+    if(at){ delete S.cells[at]; S.sel=at; }
+    else { let k=(S.sel&&cellSpec(S.sel).cats.includes(t.cat)&&!locked(S.sel))?S.sel:(firstOpen(t.cat)||form().cells.find(c=>c.cats.includes(t.cat)&&!locked(c.id))?.id); if(!k) return; S.cells[k]=id; S.sel=firstOpen(); }
+  }
   else if(b.dataset.act){ S.act=b.dataset.act; }
-  else if(b.id==="peekBtn") return peek();
-  else if(b.id==="sayBtn") return say();
-  else if(b.id==="clearBtn"){ S.pick=[]; }
+  else if(b.id==="sendBtn") return send();
+  else if(b.id==="redrawBtn") return redraw();
+  else if(b.id==="clearBtn"){ S.cells={}; S.sel=firstOpen(); }
   else return;
   paint();
 });
-fetch("data.json").then(r=>r.json()).then(d=>{ D=d; TILES=Object.fromEntries(d.tiles.map(t=>[t.id,t])); newRun(); });
+fetch("data.json").then(r=>r.json()).then(d=>{ D=d; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); newRun(); });
 </script>
 </body>
 </html>
