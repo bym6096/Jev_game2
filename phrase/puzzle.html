@@ -66,9 +66,14 @@ button:disabled { opacity:.35; cursor:default; }
 .screen .fail { color:var(--bad); font-weight:900; font-size:22px; }
 .screen ol { text-align:left; display:inline-block; margin:12px 0; }
 .screen ol b { color:var(--accent); }
+.modes { display:flex; gap:6px; justify-content:center; padding:10px 16px 0; max-width:780px; margin:0 auto; }
+.modes a { font-size:13px; font-weight:700; color:#8f8f98; text-decoration:none; padding:5px 14px; border-radius:999px; border:1px solid #33333a; }
+.modes a.on { color:#111; background:#ffd24a; border-color:#ffd24a; }
 </style>
 </head>
 <body>
+<nav class="modes"><a href="./">한 줄 공방</a><a href="rush.html">한 줄 러시</a><a href="puzzle.html" class="on">한 줄 퍼즐</a></nav>
+<script>document.querySelectorAll(".modes a").forEach(a=>{ a.href=a.getAttribute("href")+location.search; });   // 접근 코드(?code=)를 다음 화면에도 넘긴다</script>
 <main id="app"></main>
 <script>
 const PER_BLOCK=5, START_WORDS=3, HARD_MULT=2, LEN_K=.4, STYLE_P=.2, REROLLS=2;   // 새로 받기: 구간마다 2번, 다음 구간으로 안 넘어감
@@ -171,7 +176,7 @@ const app=document.getElementById("app");
 const tileHTML=(id,extra="",attr=`data-tile="${id}"`)=>{const t=T[id]; return `<button class="tile ${t.cat}${t.rare?" rare":""}${extra}" ${attr}>${t.ko}</button>`;};
 function header(){
   const cut=cutOf(S.block), pips=Array.from({length:PER_BLOCK},(_,i)=>`<div class="pip ${i<S.stage||(i===S.stage&&S.phase!=="play")?"done":i===S.stage?"now":""} ${i===PER_BLOCK-1?"hard":""}"></div>`).join("");
-  return `<div class="top"><span class="brand">한 줄 퍼즐<a href="rush.html">러시</a><a href="./">공방</a></span>
+  return `<div class="top"><span class="brand">한 줄 퍼즐</span>
       <span class="stage">구간 <b>${S.block+1}</b> · 스테이지 <b>${S.stage+1}/${PER_BLOCK}</b> · 낱말 <b>${wordsIn(S.block)}</b></span><span class="score">${S.total}</span></div>
     <div class="cut"><div class="bar"><div style="width:${Math.min(100,S.blockScore/cut*100)}%"></div></div>
       <div class="txt"><span class="pips">${pips}</span><span>이번 구간 ${S.blockScore} / 정산 컷 ${cut}</span></div></div>`;
@@ -180,7 +185,7 @@ function paint(){
   if(!S){ app.innerHTML=`<div class="screen"><h1>한 줄 퍼즐</h1><p>목표와 낱말 조각이 주어진다. <b style="color:var(--text)">낱말은 전부 써야 하고, 기회는 한 번.</b><br>
     조사·위치 말·끝맺음은 마음대로. 도화지에 놓은 순서대로 읽힌다.<br>
     ${PER_BLOCK}스테이지마다 낱말이 하나씩 늘고, 구간 마지막은 어려운 주제(×${HARD_MULT}).<br>구간이 끝나면 정산 — 그 구간 점수가 컷을 넘어야 다음으로.<br>안 맞는 판은 새로 받을 수 있다: 구간마다 ${REROLLS}번(다음 구간으로 안 넘어감).</p>
-    <button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="rush.html" style="color:var(--dim)">러시</a> · <a href="./" style="color:var(--dim)">공방</a></p></div>`; return; }
+    <button class="go" id="startBtn" style="max-width:260px">시작</button></div>`; return; }
   if(S.phase==="settle"){
     const cut=cutOf(S.block), ok=S.blockScore>=cut;
     app.innerHTML=`${header()}<div class="screen"><div>구간 ${S.block+1} 정산</div><div class="big">${S.blockScore} / ${cut}</div>

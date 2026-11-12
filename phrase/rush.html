@@ -68,9 +68,14 @@ button:disabled { opacity:.35; cursor:default; }
 .over-screen ol b { color:var(--accent); }
 .start { text-align:center; padding:40px 12px; color:var(--dim); }
 .start h1 { color:var(--text); font-size:30px; margin:0 0 8px; }
+.modes { display:flex; gap:6px; justify-content:center; padding:10px 16px 0; max-width:780px; margin:0 auto; }
+.modes a { font-size:13px; font-weight:700; color:#8f8f98; text-decoration:none; padding:5px 14px; border-radius:999px; border:1px solid #33333a; }
+.modes a.on { color:#111; background:#ffd24a; border-color:#ffd24a; }
 </style>
 </head>
 <body>
+<nav class="modes"><a href="./">한 줄 공방</a><a href="rush.html" class="on">한 줄 러시</a><a href="puzzle.html">한 줄 퍼즐</a></nav>
+<script>document.querySelectorAll(".modes a").forEach(a=>{ a.href=a.getAttribute("href")+location.search; });   // 접근 코드(?code=)를 다음 화면에도 넘긴다</script>
 <main id="app"></main>
 <script>
 const TIME=180, HIT_BONUS=3, HIT_LAND=.55, LEN_K=.4, MAX_WORDS=8;
@@ -204,7 +209,7 @@ function paint(){
     낱말 조각과 조사를 도화지에 끌어다 놓는다. 위에서 아래로, 왼쪽에서 오른쪽으로 읽은 순서가 문장이 된다.<br>
     조사는 무제한. 누르면 끝에 붙고, 도화지 밖으로 끌어내면 빠진다.<br>
     잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 주제가 어려운 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만. 짧게 여러 줄을 이어 꽂을지, 길게 한 방을 노릴지.</p>
-    <button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
+    <button class="go" id="startBtn" style="max-width:260px">시작</button></div>`; return; }
   if(S.over){
     const best=[...S.lines].sort((a,b)=>b.pts-a.pts).slice(0,5);
     app.innerHTML=`<div class="over-screen"><div>끝!</div><div class="big">${S.score}</div><div style="color:var(--dim)">${S.lines.length}줄</div>
@@ -213,7 +218,7 @@ function paint(){
   }
   const g=S.goal;
   app.innerHTML=`
-    <div class="top"><span class="brand">한 줄 러시<a href="puzzle.html">퍼즐</a><a href="./">공방</a></span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
+    <div class="top"><span class="brand">한 줄 러시</span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
     <div class="timer"><div id="tbar"></div></div>
     <div class="goal ${g.hard?"hard":""}"><span class="next">다음: ${S.next.hard?"<b style=\"color:var(--bad)\">빡센 목표</b>":G[S.next.vibe]}</span>
       <div class="lab">${g.hard?`<span class="hardtag">빡센 목표 ×${HARD_MULT}</span> · 이 장면이 떠오르게`:"이 느낌으로"}</div>

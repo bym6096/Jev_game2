@@ -64,11 +64,16 @@ button:disabled { opacity:.35; cursor:default; }
 .log { font-size:13px; color:var(--dim); max-height:140px; overflow:auto; }
 .log div { border-top:1px solid var(--line); padding:4px 0; }
 .row { display:flex; flex-wrap:wrap; gap:6px; }
+.modes { display:flex; gap:6px; justify-content:center; padding:10px 16px 0; max-width:780px; margin:0 auto; }
+.modes a { font-size:13px; font-weight:700; color:#8f8f98; text-decoration:none; padding:5px 14px; border-radius:999px; border:1px solid #33333a; }
+.modes a.on { color:#111; background:#ffd24a; border-color:#ffd24a; }
 </style>
 </head>
 <body>
+<nav class="modes"><a href="./" class="on">한 줄 공방</a><a href="rush.html">한 줄 러시</a><a href="puzzle.html">한 줄 퍼즐</a></nav>
+<script>document.querySelectorAll(".modes a").forEach(a=>{ a.href=a.getAttribute("href")+location.search; });   // 접근 코드(?code=)를 다음 화면에도 넘긴다</script>
 <main>
-  <header><span class="brand">한 줄 공방 <a href="rush.html" style="font-size:12px;color:var(--accent);font-weight:600">러시 →</a> <a href="puzzle.html" style="font-size:12px;color:var(--accent);font-weight:600">퍼즐 →</a></span><span>의뢰 <b id="stage"></b></span><span>평판 <b id="hearts"></b></span><span>말투 <b id="nacts"></b></span></header>
+  <header><span class="brand">한 줄 공방</span><span>의뢰 <b id="stage"></b></span><span>평판 <b id="hearts"></b></span><span>말투 <b id="nacts"></b></span></header>
   <div class="panel" id="briefPanel"></div>
   <div class="panel">
     <h3>문장 틀 — 칸을 고르고 조각을 넣는다. 칸은 비워 둬도 된다. 채운 칸을 다시 누르면 뺀다</h3>
