@@ -199,33 +199,44 @@ LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
 SPEED_K, SPEED_T = 0.6, 8.0   # 속도 배율: 목표가 뜬 뒤 SPEED_T초 안에 보낼수록 최대 +0.6 × 꽂힘
 
 
-def judge_rush(vibe, tokens, ending=".", history=(), secs=SPEED_T):
-    """빠른 모드: 목표 결 하나.
+RUSH = DATA["rush"]
+GOALS = RUSH["vibes"] | RUSH["styles"]
+AUDIENCES = RUSH["audiences"]
+CATS = {"ref", "adj", "mod", "pred", "part"}
+
+
+def judge_rush(goal, tokens, ending=".", history=(), secs=SPEED_T):
+    """빠른 모드. 목표 = {"vibes": [느낌 1~2개], "audience": 듣는 사람(선택)}.
     점수 = 100 × 꽂힘 × 길이 배율 × 속도 배율 × 새로움 배율
+      꽂힘 = 느낌이 둘이면 두 꽂힘의 기하평균(둘 다 꽂혀야 한다)
       길이 배율 = 1 + LEN_K × (낱말 수 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
       속도 배율 = 1 + SPEED_K × (남은 몫) × 꽂힘            ← 남은 몫 = max(0, (SPEED_T − 걸린 초) / SPEED_T)
       새로움 배율 = 1 + 새로움 × 꽂힘 × 뜻²
     뜻(0~1) = 무슨 말인지 그려지는 정도. 꽂힘만으로는 말 안 되는 긴 줄도 분위기로 점수를 받아서 따로 묻는다.
     전략: 짧고 정확하게(빠름 → 속도 배율·콤보) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험)."""
+    vibes, aud = goal["vibes"], goal.get("audience")
+    who = AUDIENCES[aud] if aud else "보통 사람"
     said = render_free_ko(tokens, ending)
     past = [render_free_ko(h["tokens"], h.get("ending", ".")) for h in history]
+    want = " 그리고 ".join(f"'{GOALS[v]}'" for v in vibes)
     state = (
-        "놀이 규칙: 플레이어는 정해진 말 조각을 짧은 문장 틀에 끼워 제한 시간 안에 한 줄을 빠르게 짓는다. 조각으로 지은 말이라 조금 서툴 수 있다. "
-        "문법보다 이 말을 들은 보통 사람이 실제로 무엇을 느끼는지로 판단하라. 낱말을 아무렇게나 늘어놓아 뜻이 안 통하면 아무것도 못 느낀다. "
+        "놀이 규칙: 플레이어는 정해진 말 조각과 조사를 이어 붙여 제한 시간 안에 한 줄을 빠르게 짓는다. 조각으로 지은 말이라 조금 서툴 수 있다. "
+        f"문법보다 이 말을 들은 {who}이(가) 실제로 무엇을 느끼는지로 판단하라. 낱말을 아무렇게나 늘어놓아 뜻이 안 통하면 아무것도 못 느낀다. "
         "끝맺음(…, ㅋㅋ, ㅠㅠ 등)의 뉘앙스도 느낌에 넣어라.\n"
-        f"목표: 듣는 사람이 '{VIBES[vibe]}'을(를) 느끼게 한다.\n"
+        f"듣는 사람: {who}\n목표: 듣는 사람이 {want}을(를) 느끼게 한다.\n"
         + ("방금까지 지은 줄(비슷하면 식상하다):\n" + "\n".join(f"- {x}" for x in past) + "\n" if past else "")
         + f"이번 줄: <<<{said}>>>"
     )
-    a = _call(state, {
-        "land": {"type": "choice", "instructions": f"이 줄을 들은 사람은 '{VIBES[vibe]}'을(를) 느끼는가?", "criteria": LAND},
-        "fresh": {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH},
-        "sense": {"type": "choice", "instructions": "분위기와 상관없이, 이 줄이 무슨 장면이나 뜻인지 그려지는가?", "criteria": SENSE},
-    })
-    la, fr, se = a["land"]["probabilities"], a["fresh"]["probabilities"], a["sense"]["probabilities"]
-    sense = sum(SENSE_PTS[k] * p for k, p in se.items())
-    land = sum(LAND_PTS[k] * p for k, p in la.items())
+    qs = {f"land{i}": {"type": "choice", "instructions": f"이 줄을 들은 {who}은(는) '{GOALS[v]}'을(를) 느끼는가?", "criteria": LAND}
+          for i, v in enumerate(vibes)}
+    qs["fresh"] = {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH}
+    qs["sense"] = {"type": "choice", "instructions": "분위기와 상관없이, 이 줄이 무슨 장면이나 뜻인지 그려지는가?", "criteria": SENSE}
+    a = _call(state, qs)
+    lands = [sum(LAND_PTS[k] * p for k, p in a[f"land{i}"]["probabilities"].items()) for i in range(len(vibes))]
+    land = lands[0] if len(lands) == 1 else (min(lands) if min(lands) <= 0 else (lands[0] * lands[1]) ** 0.5)
+    fr, se = a["fresh"]["probabilities"], a["sense"]["probabilities"]
     fresh = sum(FRESH_BONUS[k] * p for k, p in fr.items())
+    sense = sum(SENSE_PTS[k] * p for k, p in se.items())
     q = max(0, land)
     n = sum(1 for k in tokens if "t" in k)   # 길이는 낱말 조각 수(조사는 무료)
     g = sense * sense   # 뜻이 반쯤만 통하면 반보다 더 깎는다(0.9 → 0.81, 0.6 → 0.36)
@@ -234,7 +245,10 @@ def judge_rush(vibe, tokens, ending=".", history=(), secs=SPEED_T):
     secs = min(max(float(secs), 0.0), 600.0)
     speed_mult = 1 + SPEED_K * max(0.0, (SPEED_T - secs) / SPEED_T) * q
     score = max(0, round(100 * land * len_mult * speed_mult * fresh_mult))
-    return {"said": said, "land": la, "fresh": fr, "sense": se, "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "sense_ev": round(sense, 2),
+    land_top = max(a["land0"]["probabilities"].items(), key=lambda kv: kv[1])[0] if len(vibes) == 1 else \
+        min((max(a[f"land{i}"]["probabilities"].items(), key=lambda kv: kv[1])[0] for i in range(len(vibes))), key=lambda k: LAND_PTS[k])
+    return {"said": said, "land_top": land_top, "lands": [round(x, 2) for x in lands], "fresh": fr, "sense": se,
+            "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "sense_ev": round(sense, 2),
             "cells": n, "len_mult": round(len_mult, 2), "speed_mult": round(speed_mult, 2), "fresh_mult": round(fresh_mult, 2), "score": score}
 
 
@@ -263,7 +277,7 @@ def handle(req, headers):
         return 500, {"error": f"판정 오류: {type(e).__name__}"}
 
 
-def _rush_ok(tokens, ending, need=None):
+def _rush_ok(tokens, ending):
     if not isinstance(tokens, list) or not 1 <= len(tokens) <= MAX_TOKENS or ending not in ENDINGS:
         return False
     for k in tokens:
@@ -272,19 +286,48 @@ def _rush_ok(tokens, ending, need=None):
         if "t" in k and k["t"] not in TILES or "p" in k and k["p"] not in PARTICLES or not ("t" in k or "p" in k):
             return False
     words = [k["t"] for k in tokens if "t" in k]
-    return 1 <= len(words) <= MAX_WORDS and len(set(words)) == len(words) and (not need or need in words)
+    return 1 <= len(words) <= MAX_WORDS and len(set(words)) == len(words)
+
+
+def _goal_ok(goal, tokens, ending):
+    """목표 모양과 규칙(빡센 목표의 조건)을 확인한다. 문제가 있으면 이유."""
+    if not isinstance(goal, dict):
+        return "목표 형식"
+    vibes, aud, rules = goal.get("vibes"), goal.get("audience"), goal.get("rules") or {}
+    if not isinstance(vibes, list) or not 1 <= len(vibes) <= 2 or not all(v in GOALS for v in vibes) or len(set(vibes)) != len(vibes):
+        return "목표 느낌"
+    if aud is not None and aud not in AUDIENCES or not isinstance(rules, dict):
+        return "목표 형식"
+    words = [k["t"] for k in tokens if "t" in k]
+    cats = {TILES[w]["cat"] for w in words} | ({"part"} if any("p" in k for k in tokens) else set())
+    need = rules.get("need") or []
+    if not isinstance(need, list) or not all(x in TILES for x in need) or not set(need) <= set(words):
+        return "꼭 넣을 낱말"
+    ban = rules.get("ban") or []
+    if not isinstance(ban, list) or not set(ban) <= CATS or cats & set(ban):
+        return "금지된 범주"
+    if "words_eq" in rules and len(words) != rules["words_eq"]:
+        return "낱말 수"
+    if "words_min" in rules and len(words) < rules["words_min"]:
+        return "낱말 수"
+    if "ending" in rules and ending != rules["ending"]:
+        return "끝맺음"
+    return None
 
 
 def _handle_rush(req):
-    vibe, hist, ending = req.get("vibe"), req.get("history") or [], req.get("ending", ".")
-    if vibe not in VIBES or not isinstance(hist, list) or len(hist) > 6 or not _rush_ok(req.get("tokens"), ending, req.get("need")) \
+    goal, hist, ending, tokens = req.get("goal"), req.get("history") or [], req.get("ending", "."), req.get("tokens")
+    if not _rush_ok(tokens, ending) or not isinstance(hist, list) or len(hist) > 6 \
             or not all(isinstance(h, dict) and _rush_ok(h.get("tokens"), h.get("ending", ".")) for h in hist):
         return 400, {"error": "요청 형식이 잘못되었습니다"}
+    why = _goal_ok(goal, tokens, ending)
+    if why:
+        return 400, {"error": f"목표 조건을 지키지 않음: {why}"}
     secs = req.get("secs", SPEED_T)
     if not isinstance(secs, (int, float)):
         return 400, {"error": "요청 형식이 잘못되었습니다"}
     try:
-        return 200, judge_rush(vibe, req["tokens"], ending, hist, secs)
+        return 200, judge_rush(goal, tokens, ending, hist, secs)
     except urllib.error.HTTPError as e:
         return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
     except Exception as e:

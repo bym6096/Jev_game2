@@ -4305,5 +4305,61 @@
    "b": "아",
    "nb": "야"
   }
- ]
+ ],
+ "rush": {
+  "vibes": {
+   "funny": "웃김",
+   "tender": "애틋",
+   "eerie": "섬뜩",
+   "flutter": "설렘",
+   "cozy": "포근",
+   "mystic": "신비",
+   "cool": "멋짐",
+   "hip": "힙함",
+   "sad": "슬픔",
+   "angry": "킹받음",
+   "proud": "뿌듯",
+   "unfair": "억울",
+   "pity": "짠함",
+   "goose": "소름",
+   "cute": "귀여움",
+   "nostalgia": "아련",
+   "relief": "통쾌",
+   "awkward": "민망",
+   "empty": "허무",
+   "holy": "경건",
+   "cringe": "오글거림",
+   "hungry": "배고픔",
+   "sleepy": "졸림",
+   "tense": "긴장",
+   "peace": "평화",
+   "excited": "신남",
+   "lonely": "쓸쓸",
+   "absurd": "황당",
+   "comfort": "위로",
+   "bold": "박력",
+   "luxury": "고급짐",
+   "grand": "웅장",
+   "dreamy": "몽글몽글",
+   "guilty": "찔림"
+  },
+  "styles": {
+   "ad": "광고 카피 같음",
+   "news": "뉴스 헤드라인 같음",
+   "kdrama": "막장 드라마 같음",
+   "dadjoke": "아재개그 같음",
+   "trailer": "공포영화 예고편 같음",
+   "poem": "시 같음"
+  },
+  "audiences": {
+   "grandma": "할머니",
+   "kid": "초등학생",
+   "alien": "지구에 처음 온 외계인",
+   "ex": "헤어진 연인",
+   "boss": "깐깐한 팀장님",
+   "cat": "고양이",
+   "teen": "중2병 걸린 친구",
+   "ceo": "재벌 회장님"
+  }
+ }
 }

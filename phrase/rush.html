@@ -20,8 +20,12 @@ main { max-width:720px; margin:0 auto; padding:12px 16px 24px; }
 .timer div.low { background:var(--bad); }
 .goal { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 14px; text-align:center; position:relative; }
 .goal .lab { font-size:12px; color:var(--dim); }
-.goal .vibe { font-size:30px; font-weight:900; letter-spacing:-1px; }
-.goal .need { font-size:14px; color:var(--accent); min-height:20px; }
+.goal .vibe { font-size:28px; font-weight:900; letter-spacing:-1px; }
+.goal.hard { border:1.5px solid var(--bad); background:#241618; }
+.hardtag { color:var(--bad); font-weight:900; letter-spacing:.5px; }
+.conds { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; margin-top:4px; min-height:20px; }
+.cond { font-size:12px; color:var(--accent); border:1px solid #ffd24a55; border-radius:999px; padding:1px 8px; }
+.goal.hard .cond { color:#ffb0aa; border-color:#ff6b6155; }
 .goal .next { position:absolute; right:12px; top:8px; font-size:12px; color:var(--dim); }
 .canvas { position:relative; height:170px; margin-top:10px; border:1.5px dashed var(--line); border-radius:12px; overflow:hidden;
   background:repeating-linear-gradient(to bottom, transparent 0 41px, #ffffff0a 41px 42px), #16161a; touch-action:none; }
@@ -68,11 +72,13 @@ button:disabled { opacity:.35; cursor:default; }
 <main id="app"></main>
 <script>
 const TIME=180, HIT_BONUS=3, HIT_LAND=.55, LEN_K=.4, SPEED_K=.6, SPEED_T=8, MAX_WORDS=8;
-const ROWS={ref:8, adj:6, mod:4, pred:6}, FLOW_MS=6000, SKIP_COST=3, NEED_P=.35, RARE_P=.12;
+const ROWS={ref:8, adj:6, mod:4, pred:6}, FLOW_MS=6000, SKIP_COST=3, NEED_P=.35, AUD_P=.15, STYLE_P=.2, RARE_P=.12;
+const HARD_EVERY=5, HARD_MULT=2, HARD_BONUS=8, HARD_SKIP=6;   // 다섯 번째마다 빡센 목표: 점수 ×2, 꽂으면 +8초, 넘기면 −6초
+const CAT_KO={ref:"누구·무엇", adj:"꾸밈말", mod:"어떻게", pred:"서술어", part:"조사"};
 const ENDS=[".","!","?","…","ㅋㅋ","ㅠㅠ"], ROW_H=42;
 const LAND_KO={strong:"확실히 꽂힘", some:"꽤 통함", bit:"살짝", none:"안 느껴짐", opposite:"반대로 감"};
 const ACCESS=new URLSearchParams(location.search).get("code")||"";
-let D, T, P, S, timerId, flowId, uid=0;
+let D, T, P, G, S, timerId, flowId, uid=0;
 
 // ---- 한국어 렌더러: jev.py render_free_ko와 같은 규칙 ----
 const code=w=>w.charCodeAt(w.length-1)-0xAC00;
@@ -114,13 +120,39 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 function randTile(cat,avoid){ const pool=D.tiles.filter(t=>t.cat===cat&&!avoid.has(t.id)&&(Math.random()<RARE_P?true:!t.rare)); return pick(pool).id; }
 const inHand=()=>new Set(Object.values(S.hand).flat());
 function fill(cat){ const av=inHand(); while(S.hand[cat].length<ROWS[cat]){ const id=randTile(cat,av); av.add(id); S.hand[cat].push(id); S.fresh.add(id); } }
-function newGoal(){
-  const vibes=Object.keys(D.vibes); let v=pick(vibes); if(S.goal&&v===S.goal.vibe) v=pick(vibes);
-  const need=Math.random()<NEED_P?pick(S.hand.ref):null;
-  S.goal={vibe:v, need, at:performance.now()}; S.nextVibe=pick(vibes);
+function rollNext(){   // 다음 목표의 종류와 느낌만 미리 정한다(필수 낱말은 그때 손에 든 것으로)
+  const hard=(S.goals+1)%HARD_EVERY===0;
+  const vibe=Math.random()<STYLE_P?pick(Object.keys(D.rush.styles)):pick(Object.keys(D.rush.vibes));
+  return {hard, vibe};
 }
+function newGoal(){
+  const nx=S.next||rollNext(); S.goals++;
+  const g={vibes:[nx.vibe], audience:null, rules:{}, hard:nx.hard, at:performance.now()};
+  const refs=S.hand.ref;
+  if(!nx.hard){
+    if(Math.random()<NEED_P) g.rules.need=[pick(refs)];
+    if(Math.random()<AUD_P) g.audience=pick(Object.keys(D.rush.audiences));
+  } else {
+    // 조건 2~3개를 겹친다
+    const pool=["vibe2","audience","ban","need2","words","ending"];
+    const n=Math.random()<.5?2:3, chosen=[];
+    while(chosen.length<n){ const c=pick(pool); if(!chosen.includes(c)) chosen.push(c); }
+    for(const c of chosen){
+      if(c==="vibe2"){ let v2; do v2=pick(Object.keys(D.rush.vibes)); while(v2===nx.vibe); g.vibes.push(v2); }
+      if(c==="audience") g.audience=pick(Object.keys(D.rush.audiences));
+      if(c==="ban") g.rules.ban=[pick(["adj","mod","part","pred"])];
+      if(c==="need2"){ const a=[...refs].sort(()=>Math.random()-.5); g.rules.need=a.slice(0,2); }
+      if(c==="words"){ if(Math.random()<.5) g.rules.words_eq=pick([2,3]); else g.rules.words_min=6; }
+      if(c==="ending") g.rules.ending=pick(["!","?","…","ㅋㅋ","ㅠㅠ"]);
+    }
+  }
+  if(g.rules.ending) S.end=g.rules.ending;
+  S.goal=g; S.next=rollNext();
+}
+const needs=()=>S.goal.rules.need||[];
+const goalLabel=g=>g.vibes.map(v=>G[v]).join(" + ");
 function start(){
-  S={t:TIME, score:0, combo:0, hand:Object.fromEntries(Object.keys(ROWS).map(c=>[c,[]])), fresh:new Set(), items:[], end:".", lines:[], fb:null, busy:false, over:false, goal:null};
+  S={goals:0, next:null, t:TIME, score:0, combo:0, hand:Object.fromEntries(Object.keys(ROWS).map(c=>[c,[]])), fresh:new Set(), items:[], end:".", lines:[], fb:null, busy:false, over:false, goal:null};
   for(const c in ROWS) fill(c);
   newGoal(); paint();
   clearInterval(timerId); clearInterval(flowId);
@@ -130,7 +162,7 @@ function start(){
 function flow(){   // 조각이 흘러간다: 줄마다 안 쓴 조각 하나가 새것으로
   if(S.over||drag) return;
   for(const c in ROWS){
-    const cand=S.hand[c].map((id,i)=>[id,i]).filter(([id])=>!onCanvas(id)&&id!==S.goal.need);
+    const cand=S.hand[c].map((id,i)=>[id,i]).filter(([id])=>!onCanvas(id)&&!needs().includes(id));
     if(!cand.length) continue;
     const [,i]=pick(cand); const id=randTile(c,inHand()); S.hand[c][i]=id; S.fresh.add(id);
   }
@@ -138,35 +170,37 @@ function flow(){   // 조각이 흘러간다: 줄마다 안 쓴 조각 하나가
 }
 function finish(){ if(S.over) return; S.over=true; clearInterval(timerId); clearInterval(flowId); paint(); }
 function problem(){
-  const w=words().length;
-  if(!w) return "낱말을 올려놓는다";
-  if(w>MAX_WORDS) return `낱말은 ${MAX_WORDS}개까지`;
-  if(S.goal.need&&!onCanvas(S.goal.need)) return `'${T[S.goal.need].ko}' 넣기`;
+  const w=words(), n=w.length, r=S.goal.rules;
+  if(!n) return "낱말을 올려놓는다";
+  if(n>MAX_WORDS) return `낱말은 ${MAX_WORDS}개까지`;
+  for(const id of r.need||[]) if(!onCanvas(id)) return `'${T[id].ko}' 넣기`;
+  for(const c of r.ban||[]){ if(c==="part"?S.items.some(it=>it.kind==="p"):w.some(it=>T[it.id].cat===c)) return `${CAT_KO[c]} 빼기`; }
+  if(r.words_eq&&n!==r.words_eq) return `낱말 정확히 ${r.words_eq}개`;
+  if(r.words_min&&n<r.words_min) return `낱말 ${r.words_min}개 이상`;
   return "";
 }
 async function send(){
   if(S.busy||S.over||problem()) return;
   S.busy=true; paintControls();
   const toks=tokens();
-  const body={mode:"rush", vibe:S.goal.vibe, need:S.goal.need, tokens:toks, ending:S.end,
+  const body={mode:"rush", goal:{vibes:S.goal.vibes, audience:S.goal.audience, rules:S.goal.rules}, tokens:toks, ending:S.end,
     history:S.lines.slice(-5).map(l=>({tokens:l.tokens, ending:l.end})), secs:(performance.now()-S.goal.at)/1000};
   let d;
   try{ const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:JSON.stringify(body)}); d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); }
   catch(e){ S.fb={err:e.message}; S.busy=false; paint(); return; }
   if(S.over){ S.busy=false; return; }
-  const hit=d.land_ev>=HIT_LAND;   // 콤보·시간 보너스는 점수가 아니라 꽂힘으로
-  if(hit) S.t=Math.min(TIME,S.t+HIT_BONUS);
+  const hit=d.land_ev>=HIT_LAND, hard=S.goal.hard;   // 콤보·시간 보너스는 점수가 아니라 꽂힘으로
+  if(hit) S.t=Math.min(TIME,S.t+(hard?HARD_BONUS:HIT_BONUS));
   S.combo=hit?S.combo+1:0;
-  const mult=Math.min(3,1+.25*Math.max(0,S.combo-1)), pts=Math.round(d.score*mult);
+  const mult=Math.min(3,1+.25*Math.max(0,S.combo-1))*(hard?HARD_MULT:1), pts=Math.round(d.score*mult);
   S.score+=pts;
-  const land=Object.entries(d.land).sort((a,b)=>b[1]-a[1])[0][0];
-  S.lines.push({tokens:toks, end:S.end, said:d.said, vibe:S.goal.vibe, pts});
-  S.fb={said:d.said, land, pts, mult, d, hit};
+  S.lines.push({tokens:toks, end:S.end, said:d.said, label:goalLabel(S.goal), hard, pts});
+  S.fb={said:d.said, land:d.land_top, pts, mult, d, hit, hard};
   const used=new Set(words().map(it=>it.id));
   for(const c in ROWS){ S.hand[c]=S.hand[c].filter(id=>!used.has(id)); fill(c); }
   S.items=[]; S.end="."; newGoal(); S.busy=false; paint();
 }
-function skip(){ if(S.over||S.busy) return; S.t=Math.max(0,S.t-SKIP_COST); S.combo=0; S.fb={skip:true}; newGoal(); paint(); }
+function skip(){ if(S.over||S.busy) return; S.t=Math.max(0,S.t-(S.goal.hard?HARD_SKIP:SKIP_COST)); S.combo=0; S.fb={skip:true}; S.end="."; newGoal(); paint(); }
 
 // ---- 그리기 ----
 const app=document.getElementById("app");
@@ -175,34 +209,47 @@ function paint(){
   if(!S){ app.innerHTML=`<div class="start"><h1>한 줄 러시</h1><p>${TIME}초. 떨어지는 목표에 맞는 한 줄을 빠르게 지어 보낸다.<br>
     낱말 조각과 조사를 도화지에 끌어다 놓는다. 위에서 아래로, 왼쪽에서 오른쪽으로 읽은 순서가 문장이 된다.<br>
     조사는 무제한. 누르면 끝에 붙고, 도화지 밖으로 끌어내면 빠진다.<br>
-    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. 길게 지을수록, 빨리 보낼수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만.</p>
+    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 조건이 겹친 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록, 빨리 보낼수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만.</p>
     <button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
   if(S.over){
     const best=[...S.lines].sort((a,b)=>b.pts-a.pts).slice(0,5);
     app.innerHTML=`<div class="over-screen"><div>끝!</div><div class="big">${S.score}</div><div style="color:var(--dim)">${S.lines.length}줄</div>
-      <ol>${best.map(l=>`<li>「${l.said}」 ${D.vibes[l.vibe]} <b>+${l.pts}</b></li>`).join("")}</ol>
+      <ol>${best.map(l=>`<li>「${l.said}」 ${l.hard?"🔥":""}${l.label} <b>+${l.pts}</b></li>`).join("")}</ol>
       <div><button class="go" id="startBtn" style="max-width:260px">다시</button></div></div>`; return;
   }
   const g=S.goal;
   app.innerHTML=`
     <div class="top"><span class="brand">한 줄 러시<a href="./">공방</a></span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
     <div class="timer"><div id="tbar"></div></div>
-    <div class="goal"><span class="next">다음: ${D.vibes[S.nextVibe]}</span><div class="lab">이 느낌으로</div><div class="vibe">${D.vibes[g.vibe]}</div>
-      <div class="need">${g.need?`'${T[g.need].ko}'를 넣어서`:""}</div></div>
+    <div class="goal ${g.hard?"hard":""}"><span class="next">다음: ${S.next.hard?"<b style=\"color:var(--bad)\">빡센 목표</b>":G[S.next.vibe]}</span>
+      <div class="lab">${g.hard?`<span class="hardtag">빡센 목표 ×${HARD_MULT}</span>`:"이 느낌으로"}</div>
+      <div class="vibe">${goalLabel(g)}</div>
+      <div class="conds">${condChips(g)}</div></div>
     <div class="canvas" id="canvas">${S.items.length?"":`<div class="hint">낱말과 조사를 여기에 끌어다 놓는다</div>`}${S.items.map(it=>{
       const html=it.kind==="p"?`<button class="tile part" data-item="${it.uid}">${P[it.id].ko}</button>`:tileHTML(it.id,"",`data-item="${it.uid}"`);
       return `<div class="chip" data-uid="${it.uid}" style="left:${it.x}px;top:${it.y}px">${html}</div>`;}).join("")}</div>
-    <div class="ends">${ENDS.map(e=>`<button class="end ${e===S.end?"on":""}" data-end="${e}">${e}</button>`).join("")}</div>
+    <div class="ends">${ENDS.map(e=>`<button class="end ${e===S.end?"on":""}" data-end="${e}" ${g.rules.ending&&e!==g.rules.ending?"disabled":""}>${e}</button>`).join("")}</div>
     <div class="said">${S.items.length?`「${renderTokens(tokens(),S.end)}」`:""}</div>
     <div class="meter" id="meter"></div>
-    <div class="btns"><button class="go" id="sendBtn">보내기</button><button class="go sec" id="clearBtn">비우기</button><button class="go sec" id="skipBtn">넘기기 −${SKIP_COST}초</button></div>
+    <div class="btns"><button class="go" id="sendBtn">보내기</button><button class="go sec" id="clearBtn">비우기</button><button class="go sec" id="skipBtn">넘기기 −${g.hard?HARD_SKIP:SKIP_COST}초</button></div>
     <div class="fb">${fbHTML()}</div>
     <div class="hand" id="hand">${handHTML()}</div>
     <div class="palette"><span class="lab">조사 — 무제한</span>${D.particles.map(p=>`<button class="tile part" data-part="${p.id}">${p.ko}</button>`).join("")}</div>`;
   S.fresh.clear(); paintTop(); paintControls(); paintMeter();
 }
+function condChips(g){
+  const r=g.rules, c=[];
+  if(g.vibes.length>1) c.push("둘 다 꽂아야 함");
+  if(g.audience) c.push(`듣는 사람: ${D.rush.audiences[g.audience]}`);
+  for(const id of r.need||[]) c.push(`'${T[id].ko}' 넣기`);
+  for(const x of r.ban||[]) c.push(`${CAT_KO[x]} 금지`);
+  if(r.words_eq) c.push(`낱말 정확히 ${r.words_eq}개`);
+  if(r.words_min) c.push(`낱말 ${r.words_min}개 이상`);
+  if(r.ending) c.push(`'${r.ending}'로 끝내기`);
+  return c.map(x=>`<span class="cond">${x}</span>`).join("");
+}
 function handHTML(){
-  return Object.keys(ROWS).map(c=>`<div class="hrow">${S.hand[c].map(id=>tileHTML(id,`${onCanvas(id)?" used":""}${id===S.goal.need?" need":""}${S.fresh.has(id)?" fresh":""}`)).join("")}</div>`).join("");
+  return Object.keys(ROWS).map(c=>`<div class="hrow">${S.hand[c].map(id=>tileHTML(id,`${onCanvas(id)?" used":""}${needs().includes(id)?" need":""}${S.fresh.has(id)?" fresh":""}`)).join("")}</div>`).join("");
 }
 function paintTop(){
   if(!S||S.over) return;
@@ -226,8 +273,8 @@ function fbHTML(){
   const f=S.fb; if(!f) return "";
   if(f.err) return `판정 실패: ${f.err}`;
   if(f.skip) return "넘겼다.";
-  return `<b>「${f.said}」</b><br>${LAND_KO[f.land]} · <span class="pts">+${f.pts}</span>${f.hit?` · +${HIT_BONUS}초`:""}
-    <div class="parts">꽂힘 ${Math.round(f.d.land_ev*100)} · 뜻 ${Math.round(f.d.sense_ev*100)} → 길이 ×${f.d.len_mult} · 빠름 ×${f.d.speed_mult} · 새로움 ×${f.d.fresh_mult}${f.mult>1?` × 콤보 ${f.mult.toFixed(2)}`:""}</div>`;
+  return `<b>「${f.said}」</b><br>${LAND_KO[f.land]} · <span class="pts">+${f.pts}</span>${f.hit?` · +${f.hard?HARD_BONUS:HIT_BONUS}초`:""}
+    <div class="parts">꽂힘 ${f.d.lands.length>1?f.d.lands.map(x=>Math.round(x*100)).join("·")+"→":""}${Math.round(f.d.land_ev*100)} · 뜻 ${Math.round(f.d.sense_ev*100)} → 길이 ×${f.d.len_mult} · 빠름 ×${f.d.speed_mult} · 새로움 ×${f.d.fresh_mult}${f.mult>1?` × ${f.hard?"빡셈·":""}콤보 ${f.mult.toFixed(2)}`:""}</div>`;
 }
 
 // ---- 누르기 ----
@@ -239,7 +286,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.item){ S.items=S.items.filter(it=>it.uid!==+b.dataset.item); }            // 도화지 조각을 누르면 뺀다
   else if(b.dataset.tile){ if(onCanvas(b.dataset.tile)) S.items=S.items.filter(it=>!(it.kind==="t"&&it.id===b.dataset.tile)); else appendAt("t",b.dataset.tile); }
   else if(b.dataset.part){ appendAt("p",b.dataset.part); }
-  else if(b.dataset.end){ S.end=b.dataset.end; }
+  else if(b.dataset.end){ if(!S.goal.rules.ending) S.end=b.dataset.end; }
   else if(b.id==="sendBtn") return send();
   else if(b.id==="clearBtn"){ S.items=[]; }
   else if(b.id==="skipBtn") return skip();
@@ -290,7 +337,7 @@ document.addEventListener("pointerup",e=>{
 });
 document.addEventListener("pointercancel",()=>{ if(drag&&drag.ghost) drag.ghost.remove(); drag=null; if(S&&!S.over) paint(); });
 
-fetch("data.json").then(r=>r.json()).then(d=>{ D=d; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); P=Object.fromEntries(d.particles.map(p=>[p.id,p])); paint(); });
+fetch("data.json").then(r=>r.json()).then(d=>{ D=d; G={...d.rush.vibes, ...d.rush.styles}; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); P=Object.fromEntries(d.particles.map(p=>[p.id,p])); paint(); });
 </script>
 </body>
 </html>
