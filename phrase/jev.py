@@ -86,6 +86,40 @@ def render_ko(form, cells, case="obj", act="assert", ending=None):
     return body
 
 
+def _jong(w):
+    c = ord(w[-1]) - 0xAC00
+    return c % 28 if 0 <= c < 11172 else 0
+
+
+def _attach(w, pid):
+    """조사 하나를 앞말에 붙인다. 받침에 맞는 꼴을 고른다."""
+    p = PARTICLES[pid]
+    if pid == "subj" and w in ("나", "너"):
+        return {"나": "내가", "너": "네가"}[w]
+    if pid == "dir":
+        j = _jong(w)
+        return w + ("으로" if j and j != 8 else "로")   # ㄹ 받침은 '로'
+    return w + (p["b"] if _batchim(w) else p["nb"])
+
+
+def render_free_ko(tokens, ending="."):
+    """도화지 모드: 읽는 순서대로 놓인 토큰 목록 [{"t": 조각 id} | {"p": 조사 id}] → 문장.
+    조사는 앞말에 붙고(앞말이 없으면 버린다), 마지막 서술어는 해체 + 끝맺음, 그 앞 서술어는 '~고'로 잇는다."""
+    last_pred = max((i for i, k in enumerate(tokens) if "t" in k and TILES[k["t"]]["cat"] == "pred"), default=-1)
+    out = []
+    for i, k in enumerate(tokens):
+        if "p" in k:
+            if out:
+                out[-1] = _attach(out[-1], k["p"])
+            continue
+        t = TILES[k["t"]]
+        if t["cat"] == "pred":
+            out.append(t["h"] if i == last_pred else t["st"] + "고")
+        else:
+            out.append(t["ko"])
+    return " ".join(out) + ending if out else ""
+
+
 def check(brief, cells, case, act):
     """칸에 맞는 범주인지, 의뢰의 규칙을 지켰는지. 문제가 있으면 이유 문자열."""
     form = FORMS[brief["form"]]
@@ -159,20 +193,22 @@ LAND_PTS = {"strong": 1.0, "some": 0.65, "bit": 0.3, "none": 0.0, "opposite": -0
 ENDINGS = DATA["endings"]
 SENSE = {"clear": "무슨 말인지 바로 그려진다", "plausible": "조금 엉뚱하지만 그럴듯하게 그려진다", "vague": "뭔가 있어 보이지만 뜻이 흐릿하다", "nonsense": "낱말을 늘어놓은 것 같아 말이 안 된다"}
 SENSE_PTS = {"clear": 1.0, "plausible": 0.75, "vague": 0.3, "nonsense": 0.0}
+PARTICLES = {p["id"]: p for p in DATA["particles"]}
+MAX_WORDS, MAX_TOKENS = 8, 20
 LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
 SPEED_K, SPEED_T = 0.6, 8.0   # 속도 배율: 목표가 뜬 뒤 SPEED_T초 안에 보낼수록 최대 +0.6 × 꽂힘
 
 
-def judge_rush(vibe, cells, case=".", ending=".", history=(), secs=SPEED_T):
+def judge_rush(vibe, tokens, ending=".", history=(), secs=SPEED_T):
     """빠른 모드: 목표 결 하나.
     점수 = 100 × 꽂힘 × 길이 배율 × 속도 배율 × 새로움 배율
-      길이 배율 = 1 + LEN_K × (채운 칸 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
+      길이 배율 = 1 + LEN_K × (낱말 수 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
       속도 배율 = 1 + SPEED_K × (남은 몫) × 꽂힘            ← 남은 몫 = max(0, (SPEED_T − 걸린 초) / SPEED_T)
       새로움 배율 = 1 + 새로움 × 꽂힘 × 뜻²
     뜻(0~1) = 무슨 말인지 그려지는 정도. 꽂힘만으로는 말 안 되는 긴 줄도 분위기로 점수를 받아서 따로 묻는다.
     전략: 짧고 정확하게(빠름 → 속도 배율·콤보) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험)."""
-    said = render_ko("short", cells, case, ending=ending)
-    past = [render_ko("short", h["cells"], h.get("case", "obj"), ending=h.get("ending", ".")) for h in history]
+    said = render_free_ko(tokens, ending)
+    past = [render_free_ko(h["tokens"], h.get("ending", ".")) for h in history]
     state = (
         "놀이 규칙: 플레이어는 정해진 말 조각을 짧은 문장 틀에 끼워 제한 시간 안에 한 줄을 빠르게 짓는다. 조각으로 지은 말이라 조금 서툴 수 있다. "
         "문법보다 이 말을 들은 보통 사람이 실제로 무엇을 느끼는지로 판단하라. 낱말을 아무렇게나 늘어놓아 뜻이 안 통하면 아무것도 못 느낀다. "
@@ -191,7 +227,7 @@ def judge_rush(vibe, cells, case=".", ending=".", history=(), secs=SPEED_T):
     land = sum(LAND_PTS[k] * p for k, p in la.items())
     fresh = sum(FRESH_BONUS[k] * p for k, p in fr.items())
     q = max(0, land)
-    n = len(cells)
+    n = sum(1 for k in tokens if "t" in k)   # 길이는 낱말 조각 수(조사는 무료)
     g = sense * sense   # 뜻이 반쯤만 통하면 반보다 더 깎는다(0.9 → 0.81, 0.6 → 0.36)
     len_mult = 1 + LEN_K * (n - 1) * q * g
     fresh_mult = 1 + max(0, fresh) * q * g
@@ -227,26 +263,28 @@ def handle(req, headers):
         return 500, {"error": f"판정 오류: {type(e).__name__}"}
 
 
-def _rush_ok(cells, case, ending, need=None):
-    spec = {c["id"]: c for c in FORMS["short"]["cells"]}
-    if not isinstance(cells, dict) or not cells or case not in CASES or ending not in ENDINGS:
+def _rush_ok(tokens, ending, need=None):
+    if not isinstance(tokens, list) or not 1 <= len(tokens) <= MAX_TOKENS or ending not in ENDINGS:
         return False
-    if need and need not in cells.values():
-        return False
-    return all(k in spec and TILES.get(t) and TILES[t]["cat"] in spec[k]["cats"] for k, t in cells.items())
+    for k in tokens:
+        if not isinstance(k, dict) or len(k) != 1:
+            return False
+        if "t" in k and k["t"] not in TILES or "p" in k and k["p"] not in PARTICLES or not ("t" in k or "p" in k):
+            return False
+    words = [k["t"] for k in tokens if "t" in k]
+    return 1 <= len(words) <= MAX_WORDS and len(set(words)) == len(words) and (not need or need in words)
 
 
 def _handle_rush(req):
-    vibe, hist = req.get("vibe"), req.get("history") or []
-    case, ending = req.get("case", "obj"), req.get("ending", ".")
-    if vibe not in VIBES or not isinstance(hist, list) or len(hist) > 6 or not _rush_ok(req.get("cells"), case, ending, req.get("need")) \
-            or not all(isinstance(h, dict) and _rush_ok(h.get("cells"), h.get("case", "obj"), h.get("ending", ".")) for h in hist):
+    vibe, hist, ending = req.get("vibe"), req.get("history") or [], req.get("ending", ".")
+    if vibe not in VIBES or not isinstance(hist, list) or len(hist) > 6 or not _rush_ok(req.get("tokens"), ending, req.get("need")) \
+            or not all(isinstance(h, dict) and _rush_ok(h.get("tokens"), h.get("ending", ".")) for h in hist):
+        return 400, {"error": "요청 형식이 잘못되었습니다"}
+    secs = req.get("secs", SPEED_T)
+    if not isinstance(secs, (int, float)):
         return 400, {"error": "요청 형식이 잘못되었습니다"}
     try:
-        secs = req.get("secs", SPEED_T)
-        if not isinstance(secs, (int, float)):
-            return 400, {"error": "요청 형식이 잘못되었습니다"}
-        return 200, judge_rush(vibe, req["cells"], case, ending, hist, secs)
+        return 200, judge_rush(vibe, req["tokens"], ending, hist, secs)
     except urllib.error.HTTPError as e:
         return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
     except Exception as e:
