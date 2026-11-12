@@ -52,7 +52,7 @@ def _subj(w):
     return {"나": "내가", "너": "네가"}.get(w, w + ("이" if _batchim(w) else "가"))
 
 
-def render_ko(form, cells, case="obj", act="assert"):
+def render_ko(form, cells, case="obj", act="assert", ending=None):
     g = lambda k: TILES[cells[k]] if cells.get(k) else None
     if form == "name":
         a1, n1, a2, n2 = g("a1"), g("n1"), g("a2"), g("n2")
@@ -61,6 +61,11 @@ def render_ko(form, cells, case="obj", act="assert"):
         if n1 and second:
             return f"{first}의 {second}"
         return " ".join(x for x in (first, second) if x)
+    if form == "short":   # 빠른 모드: 어떤 누가 / 무엇을(격) / 한다 + 끝맺음
+        if not cells:
+            return ""
+        body = render_ko("line", {k: v for k, v in cells.items() if k in ("sa", "s", "o", "v")}, case, "assert")
+        return body[:-1] + (ending or ".") if body.endswith(".") else body + (ending or "")
     # 한 줄: 부름 / 어떤 누가 / 어떤 무엇을(격) / 어떻게 / 부정·확신 / 한다 + 말투
     i, sa, s, oa, o, m, p, v = (g(k) for k in ("i", "sa", "s", "oa", "o", "m", "p", "v"))
     words = []
@@ -149,11 +154,41 @@ def judge(brief_id, cells, case="obj", act="assert", history=()):
             "score": round(base * round(mult, 1))}
 
 
+LAND = {"strong": "확실히 그렇게 느낀다", "some": "어느 정도 느낀다", "bit": "살짝 느낀다", "none": "전혀 못 느낀다", "opposite": "오히려 반대로 느낀다"}
+LAND_PTS = {"strong": 1.0, "some": 0.65, "bit": 0.3, "none": 0.0, "opposite": -0.2}
+ENDINGS = DATA["endings"]
+
+
+def judge_rush(vibe, cells, case=".", ending=".", history=()):
+    """빠른 모드: 목표 결 하나. 점수 = 100 × 꽂힘 × (1 + 새로움×꽂힘)."""
+    said = render_ko("short", cells, case, ending=ending)
+    past = [render_ko("short", h["cells"], h.get("case", "obj"), ending=h.get("ending", ".")) for h in history]
+    state = (
+        "놀이 규칙: 플레이어는 정해진 말 조각을 짧은 문장 틀에 끼워 제한 시간 안에 한 줄을 빠르게 짓는다. 조각으로 지은 말이라 조금 서툴 수 있다. "
+        "문법보다 이 말을 들은 보통 사람이 실제로 무엇을 느끼는지로 판단하라. 낱말을 아무렇게나 늘어놓아 뜻이 안 통하면 아무것도 못 느낀다. "
+        "끝맺음(…, ㅋㅋ, ㅠㅠ 등)의 뉘앙스도 느낌에 넣어라.\n"
+        f"목표: 듣는 사람이 '{VIBES[vibe]}'을(를) 느끼게 한다.\n"
+        + ("방금까지 지은 줄(비슷하면 식상하다):\n" + "\n".join(f"- {x}" for x in past) + "\n" if past else "")
+        + f"이번 줄: <<<{said}>>>"
+    )
+    a = _call(state, {
+        "land": {"type": "choice", "instructions": f"이 줄을 들은 사람은 '{VIBES[vibe]}'을(를) 느끼는가?", "criteria": LAND},
+        "fresh": {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH},
+    })
+    la, fr = a["land"]["probabilities"], a["fresh"]["probabilities"]
+    land = sum(LAND_PTS[k] * p for k, p in la.items())
+    fresh = sum(FRESH_BONUS[k] * p for k, p in fr.items())
+    score = max(0, round(100 * land * (1 + max(0, fresh) * max(0, land))))
+    return {"said": said, "land": la, "fresh": fr, "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "score": score}
+
+
 def handle(req, headers):
     """요청 dict -> (상태 코드, 응답 dict). ACCESS_CODE 환경 변수가 있으면 X-Access-Code 헤더가 맞아야 한다."""
     code = os.environ.get("ACCESS_CODE")
     if code and headers.get("X-Access-Code") != code:
         return 403, {"error": "접근 코드가 필요합니다 (주소 끝에 ?code=코드)"}
+    if req.get("mode") == "rush":
+        return _handle_rush(req)
     b = BRIEFS.get(req.get("brief"))
     hist = req.get("history") or []
     if not b or not isinstance(hist, list) or len(hist) > MAXHIST:
@@ -166,6 +201,29 @@ def handle(req, headers):
         return 400, {"error": why}
     try:
         return 200, judge(b["id"], req["cells"], case, act, hist)
+    except urllib.error.HTTPError as e:
+        return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
+    except Exception as e:
+        return 500, {"error": f"판정 오류: {type(e).__name__}"}
+
+
+def _rush_ok(cells, case, ending, need=None):
+    spec = {c["id"]: c for c in FORMS["short"]["cells"]}
+    if not isinstance(cells, dict) or not cells or case not in CASES or ending not in ENDINGS:
+        return False
+    if need and need not in cells.values():
+        return False
+    return all(k in spec and TILES.get(t) and TILES[t]["cat"] in spec[k]["cats"] for k, t in cells.items())
+
+
+def _handle_rush(req):
+    vibe, hist = req.get("vibe"), req.get("history") or []
+    case, ending = req.get("case", "obj"), req.get("ending", ".")
+    if vibe not in VIBES or not isinstance(hist, list) or len(hist) > 6 or not _rush_ok(req.get("cells"), case, ending, req.get("need")) \
+            or not all(isinstance(h, dict) and _rush_ok(h.get("cells"), h.get("case", "obj"), h.get("ending", ".")) for h in hist):
+        return 400, {"error": "요청 형식이 잘못되었습니다"}
+    try:
+        return 200, judge_rush(vibe, req["cells"], case, ending, hist)
     except urllib.error.HTTPError as e:
         return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
     except Exception as e:
