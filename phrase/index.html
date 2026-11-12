@@ -122,7 +122,7 @@ function render(form,cells,cs="obj",act="assert"){
   }
   const [i,sa,s,oa,o,m,p,v]=["i","sa","s","oa","o","m","p","v"].map(g);
   const w=[];
-  if(sa) w.push(sa.ko); if(s) w.push(v?subj(s.ko):s.ko); if(oa) w.push(oa.ko); if(o) w.push(v?withCase(o.ko,cs):o.ko);
+  if(sa) w.push(sa.ko); if(s) w.push(v||o?subj(s.ko):s.ko); if(oa) w.push(oa.ko); if(o) w.push(withCase(o.ko,cs));
   if(m) w.push(m.ko); if(p) w.push(p.ko);
   let body;
   if(v){ w.push(predForm(v,act)); body=w.join(" "); if(act==="assert") body+="."; }
@@ -257,8 +257,8 @@ function paint(){
   document.getElementById("frame").innerHTML=f.cells.map(c=>{
     const id=S.cells[c.id], t=id?T[id]:null, lk=locked(c.id);
     const lab=c.case?D.cases[S.cs]:c.label;
-    return `<div class="cell ${t?"full "+t.cat:""} ${S.sel===c.id?"sel":""} ${lk?"locked":""}" data-cell="${c.id}"><span class="lab">${lk?"봉인":lab}</span><span class="val">${t?t.ko:""}</span>${c.case?`<button class="case" data-case="1">격 바꾸기</button>`:""}</div>`;
-  }).join("");
+    return `<div class="cell ${t?"full "+t.cat:""} ${S.sel===c.id?"sel":""} ${lk?"locked":""}" data-cell="${c.id}"><span class="lab">${lk?"봉인":lab}</span><span class="val">${t?t.ko:""}</span></div>`;
+  }).join("")+caseRow();
   document.getElementById("acts").innerHTML=f.act?`<span class="lab">말투</span>`+S.acts.map(a=>`<button class="act ${a===S.act?"on":""}" data-act="${a}">${D.acts[a].ko}</button>`).join(""):"";
   const txt=render(b.form,S.cells,S.cs,S.act), pr=problem();
   document.getElementById("said").textContent=txt?`「${txt}」`:"";
@@ -274,6 +274,11 @@ function paint(){
   document.getElementById("result").innerHTML=S.busy?`<div class="score">${b.client}이(가) 시안을 보는 중…</div>`:resultHTML();
   document.getElementById("log").innerHTML=S.log.map(t=>`<div>${t}</div>`).join("");
 }
+function caseRow(){   // 대상 낱말에 붙일 꼴을 실제 모양으로 보여준다
+  const id=S.cells.o; if(!id||!form().cells.some(c=>c.case)) return "";
+  const w=T[id].ko;
+  return `<div class="acts" style="flex-basis:100%"><span class="lab">붙일 꼴</span>${CASE_ORDER.map(c=>`<button class="act ${c===S.cs?"on":""}" data-case-set="${c}">${withCase(w,c)}</button>`).join("")}</div>`;
+}
 function resultHTML(){
   const d=S.last; if(!d) return "";
   const top=o=>Object.entries(o).sort((a,b)=>b[1]-a[1]);
@@ -287,7 +292,7 @@ function resultHTML(){
 }
 document.addEventListener("click",e=>{
   const b=e.target.closest("button,.cell"); if(!b||S.busy||S.over||!document.getElementById("rewardPanel").hidden) return;
-  if(b.dataset.case){ S.cs=CASE_ORDER[(CASE_ORDER.indexOf(S.cs)+1)%CASE_ORDER.length]; }
+  if(b.dataset.caseSet){ S.cs=b.dataset.caseSet; }
   else if(b.dataset.cell){ const k=b.dataset.cell; if(locked(k)) return; if(S.cells[k]){ delete S.cells[k]; S.sel=k; } else S.sel=k; }
   else if(b.dataset.tile){
     const id=b.dataset.tile, t=T[id]; if(banned(id)) return;

@@ -70,9 +70,9 @@ def render_ko(form, cells, case="obj", act="assert", ending=None):
     i, sa, s, oa, o, m, p, v = (g(k) for k in ("i", "sa", "s", "oa", "o", "m", "p", "v"))
     words = []
     if sa: words.append(sa["ko"])
-    if s: words.append(_subj(s["ko"]) if v else s["ko"])
+    if s: words.append(_subj(s["ko"]) if (v or o) else s["ko"])
     if oa: words.append(oa["ko"])
-    if o: words.append(_case(o["ko"], case) if v else o["ko"])
+    if o: words.append(_case(o["ko"], case))   # 고른 꼴은 서술어가 없어도 붙인다
     if m: words.append(m["ko"])
     if p: words.append(p["ko"])
     if v:

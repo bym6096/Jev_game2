@@ -73,7 +73,7 @@ const withCase=(w,c)=>w+({obj:batchim(w)?"을":"를", to:"에게", like:"처럼"
 const subj=w=>({"나":"내가","너":"네가"})[w]||w+(batchim(w)?"이":"가");
 function render(cells,cs,end){
   const g=k=>cells[k]?T[cells[k]]:null, [sa,s,o,v]=["sa","s","o","v"].map(g), w=[];
-  if(sa) w.push(sa.ko); if(s) w.push(v?subj(s.ko):s.ko); if(o) w.push(v?withCase(o.ko,cs):o.ko);
+  if(sa) w.push(sa.ko); if(s) w.push(v||o?subj(s.ko):s.ko); if(o) w.push(withCase(o.ko,cs));
   if(v){ w.push(v.h); return w.join(" ")+end; }
   return w.length?w.join(" ")+end:"";
 }
@@ -160,13 +160,19 @@ function paint(){
     <div class="goal"><span class="next">다음: ${D.vibes[S.nextVibe]}</span><div class="lab">이 느낌으로</div><div class="vibe">${D.vibes[g.vibe]}</div>
       <div class="need">${g.need?`'${T[g.need].ko}'를 넣어서`:""}</div></div>
     <div class="frame">${D.forms.short.cells.map(c=>{const id=S.cells[c.id], t=id?T[id]:null;
-      return `<div class="cell ${t?t.cat:""}" data-cell="${c.id}"><span class="l">${c.case?D.cases[S.cs]:c.label}</span><span class="v">${t?t.ko:""}</span>${c.case?`<button class="case" data-case="1">격</button>`:""}</div>`;}).join("")}</div>
+      return `<div class="cell ${t?t.cat:""}" data-cell="${c.id}"><span class="l">${c.case?D.cases[S.cs]:c.label}</span><span class="v">${t?t.ko:""}</span></div>`;}).join("")}</div>
+    ${caseRow()}
     <div class="ends">${ENDS.map(e=>`<button class="end ${e===S.end?"on":""}" data-end="${e}">${e}</button>`).join("")}</div>
     <div class="said">${Object.keys(S.cells).length?`「${render(S.cells,S.cs,S.end)}」`:""}</div>
     <div class="btns"><button class="go" id="sendBtn">보내기</button><button class="go sec" id="skipBtn">넘기기 −${SKIP_COST}초</button></div>
     <div class="fb">${fbHTML()}</div>
     <div class="hand" id="hand">${handHTML()}</div>`;
   S.fresh.clear(); paintTop(); paintControls();
+}
+function caseRow(){   // 대상 낱말에 붙일 꼴을 실제 모양으로 보여준다: 우산을 / 우산에게 / 우산처럼 …
+  const id=S.cells.o; if(!id) return "";
+  const w=T[id].ko;
+  return `<div class="ends">${CASE_ORDER.map(c=>`<button class="end ${c===S.cs?"on":""}" data-case-set="${c}">${withCase(w,c)}</button>`).join("")}</div>`;
 }
 function handHTML(){
   const g=S.goal, used=new Set(Object.values(S.cells));
@@ -196,7 +202,7 @@ document.addEventListener("click",e=>{
   if(b.id==="startBtn") return start();
   if(!S||S.over) return;
   if(b.dataset.tile) place(b.dataset.tile);
-  else if(b.dataset.case){ S.cs=CASE_ORDER[(CASE_ORDER.indexOf(S.cs)+1)%CASE_ORDER.length]; }
+  else if(b.dataset.caseSet){ S.cs=b.dataset.caseSet; }
   else if(b.dataset.cell){ delete S.cells[b.dataset.cell]; }
   else if(b.dataset.end){ S.end=b.dataset.end; }
   else if(b.id==="sendBtn") return send();
