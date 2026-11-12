@@ -98,7 +98,7 @@ const FRESH_KO={wow:"처음 보는 표현", fresh:"신선함", ok:"무난함", c
 const ACCESS=new URLSearchParams(location.search).get("code")||"";
 let D, T, S;
 const cache={};
-const target=stage=>320+60*stage;
+const target=stage=>220+40*stage;
 
 // ---- 한국어 렌더러: jev.py의 render_ko와 같은 규칙 ----
 const batchim=w=>{const c=w.charCodeAt(w.length-1)-0xAC00; return c>=0&&c<11172&&c%28!==0;};

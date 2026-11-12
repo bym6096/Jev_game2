@@ -2,7 +2,7 @@
 
 요청: {"brief": 의뢰 id, "cells": {칸 id: 조각 id}, "case": 대상 칸 격, "act": 말투 id, "history": [같은 모양의 앞선 시안...]}
 서버가 조각 id로 문장을 다시 조립하므로, Jev에는 정해진 조각으로 만든 문장만 들어간다(자유 텍스트 없음).
-점수도 서버가 계산한다: 채택 점수 × 결 배율.
+점수도 서버가 계산한다: 채택 점수 × 결 배율, 배율 = 1 + (2×결 적중 + 새로움) × 채택률.
 """
 import json, os, urllib.error, urllib.request
 
@@ -130,7 +130,10 @@ def judge(brief_id, cells, case="obj", act="assert", history=()):
         + f"이번 시안: <<<{said}>>>"
     )
     qs = {
-        "adopt": {"type": "choice", "instructions": f"{b['client']}은(는) 이 시안을 어떻게 받아들이는가? 이미 본 시안과 비슷하면 덜 반긴다.", "criteria": ADOPT},
+        "adopt": {"type": "choice", "instructions": (
+            f"{b['client']}은(는) 이 시안을 실제로 {b['medium']}(으)로 쓸 것인가? 의뢰인은 돈을 내는 사람이다. "
+            "무슨 뜻인지 와닿지 않거나, 의뢰의 목적과 상관없거나, 낱말을 아무렇게나 늘어놓은 것 같으면 아무리 신기해도 채택하지 않는다. "
+            "이미 본 시안과 비슷하면 덜 반긴다."), "criteria": ADOPT},
         "vibe": {"type": "choice", "instructions": "이 한 줄에서 가장 강하게 느껴지는 결은?", "criteria": {k: v for k, v in VIBES.items()} | {"flat": "아무 느낌이 없다"}},
         "fresh": {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH},
     }
@@ -139,7 +142,8 @@ def judge(brief_id, cells, case="obj", act="assert", history=()):
     base = sum(ADOPT_PTS[k] * p for k, p in ad.items())
     match = sum(vi.get(v, 0) for v in b["vibes"])
     fresh = sum(FRESH_BONUS[k] * p for k, p in fr.items())
-    mult = max(0.5, 1 + 2 * match + fresh)
+    # 결과 새로움은 의뢰인이 받아들인 만큼만 배율이 된다: 채택이 낮으면 신선해도 소용없다
+    mult = max(0.5, 1 + (2 * match + fresh) * (base / 100))
     return {"said": said, "adopt": ad, "vibe": vi, "fresh": fr,
             "base": round(base), "match": round(match, 2), "fresh_bonus": round(fresh, 2), "mult": round(mult, 1),
             "score": round(base * round(mult, 1))}
