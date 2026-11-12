@@ -20,6 +20,7 @@ main { max-width:720px; margin:0 auto; padding:12px 16px 24px; }
 .timer div.low { background:var(--bad); }
 .goal { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 14px; text-align:center; position:relative; }
 .goal .lab { font-size:12px; color:var(--dim); }
+.goal .vibe.theme { font-size:21px; letter-spacing:-.5px; line-height:1.3; margin:4px 0; }
 .goal .vibe { font-size:28px; font-weight:900; letter-spacing:-1px; }
 .goal.hard { border:1.5px solid var(--bad); background:#241618; }
 .hardtag { color:var(--bad); font-weight:900; letter-spacing:.5px; }
@@ -120,39 +121,28 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 function randTile(cat,avoid){ const pool=D.tiles.filter(t=>t.cat===cat&&!avoid.has(t.id)&&(Math.random()<RARE_P?true:!t.rare)); return pick(pool).id; }
 const inHand=()=>new Set(Object.values(S.hand).flat());
 function fill(cat){ const av=inHand(); while(S.hand[cat].length<ROWS[cat]){ const id=randTile(cat,av); av.add(id); S.hand[cat].push(id); S.fresh.add(id); } }
-function rollNext(){   // 다음 목표의 종류와 느낌만 미리 정한다(필수 낱말은 그때 손에 든 것으로)
+function rollNext(){   // 다음 목표의 종류와 느낌(또는 주제)을 미리 정한다
   const hard=(S.goals+1)%HARD_EVERY===0;
+  if(hard) return {hard, theme:pick(Object.keys(D.rush.themes).filter(t=>!S.usedThemes.has(t)))||pick(Object.keys(D.rush.themes))};
   const vibe=Math.random()<STYLE_P?pick(Object.keys(D.rush.styles)):pick(Object.keys(D.rush.vibes));
   return {hard, vibe};
 }
 function newGoal(){
   const nx=S.next||rollNext(); S.goals++;
-  const g={vibes:[nx.vibe], audience:null, rules:{}, hard:nx.hard, at:performance.now()};
-  const refs=S.hand.ref;
-  if(!nx.hard){
-    if(Math.random()<NEED_P) g.rules.need=[pick(refs)];
-    if(Math.random()<AUD_P) g.audience=pick(Object.keys(D.rush.audiences));
+  let g;
+  if(nx.hard){   // 빡센 목표: 제한은 없고 주제가 어렵다
+    g={theme:nx.theme, vibes:[], audience:null, rules:{}, hard:true, at:performance.now()}; S.usedThemes.add(nx.theme);
   } else {
-    // 조건 2~3개를 겹친다
-    const pool=["vibe2","audience","ban","need2","words","ending"];
-    const n=Math.random()<.5?2:3, chosen=[];
-    while(chosen.length<n){ const c=pick(pool); if(!chosen.includes(c)) chosen.push(c); }
-    for(const c of chosen){
-      if(c==="vibe2"){ let v2; do v2=pick(Object.keys(D.rush.vibes)); while(v2===nx.vibe); g.vibes.push(v2); }
-      if(c==="audience") g.audience=pick(Object.keys(D.rush.audiences));
-      if(c==="ban") g.rules.ban=[pick(["adj","mod","part","pred"])];
-      if(c==="need2"){ const a=[...refs].sort(()=>Math.random()-.5); g.rules.need=a.slice(0,2); }
-      if(c==="words"){ if(Math.random()<.5) g.rules.words_eq=pick([2,3]); else g.rules.words_min=6; }
-      if(c==="ending") g.rules.ending=pick(["!","?","…","ㅋㅋ","ㅠㅠ"]);
-    }
+    g={vibes:[nx.vibe], audience:null, rules:{}, hard:false, at:performance.now()};
+    if(Math.random()<NEED_P) g.rules.need=[pick(S.hand.ref)];
+    if(Math.random()<AUD_P) g.audience=pick(Object.keys(D.rush.audiences));
   }
-  if(g.rules.ending) S.end=g.rules.ending;
   S.goal=g; S.next=rollNext();
 }
 const needs=()=>S.goal.rules.need||[];
-const goalLabel=g=>g.vibes.map(v=>G[v]).join(" + ");
+const goalLabel=g=>g.theme?D.rush.themes[g.theme]:g.vibes.map(v=>G[v]).join(" + ");
 function start(){
-  S={goals:0, next:null, t:TIME, score:0, combo:0, hand:Object.fromEntries(Object.keys(ROWS).map(c=>[c,[]])), fresh:new Set(), items:[], end:".", lines:[], fb:null, busy:false, over:false, goal:null};
+  S={goals:0, next:null, usedThemes:new Set(), t:TIME, score:0, combo:0, hand:Object.fromEntries(Object.keys(ROWS).map(c=>[c,[]])), fresh:new Set(), items:[], end:".", lines:[], fb:null, busy:false, over:false, goal:null};
   for(const c in ROWS) fill(c);
   newGoal(); paint();
   clearInterval(timerId); clearInterval(flowId);
@@ -183,7 +173,8 @@ async function send(){
   if(S.busy||S.over||problem()) return;
   S.busy=true; paintControls();
   const toks=tokens();
-  const body={mode:"rush", goal:{vibes:S.goal.vibes, audience:S.goal.audience, rules:S.goal.rules}, tokens:toks, ending:S.end,
+  const goal=S.goal.theme?{theme:S.goal.theme}:{vibes:S.goal.vibes, audience:S.goal.audience, rules:S.goal.rules};
+  const body={mode:"rush", goal, tokens:toks, ending:S.end,
     history:S.lines.slice(-5).map(l=>({tokens:l.tokens, ending:l.end}))};
   let d;
   try{ const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:JSON.stringify(body)}); d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); }
@@ -209,7 +200,7 @@ function paint(){
   if(!S){ app.innerHTML=`<div class="start"><h1>한 줄 러시</h1><p>${TIME}초. 떨어지는 목표에 맞는 한 줄을 빠르게 지어 보낸다.<br>
     낱말 조각과 조사를 도화지에 끌어다 놓는다. 위에서 아래로, 왼쪽에서 오른쪽으로 읽은 순서가 문장이 된다.<br>
     조사는 무제한. 누르면 끝에 붙고, 도화지 밖으로 끌어내면 빠진다.<br>
-    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 조건이 겹친 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만. 짧게 여러 줄을 이어 꽂을지, 길게 한 방을 노릴지.</p>
+    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 주제가 어려운 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만. 짧게 여러 줄을 이어 꽂을지, 길게 한 방을 노릴지.</p>
     <button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
   if(S.over){
     const best=[...S.lines].sort((a,b)=>b.pts-a.pts).slice(0,5);
@@ -222,8 +213,8 @@ function paint(){
     <div class="top"><span class="brand">한 줄 러시<a href="./">공방</a></span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
     <div class="timer"><div id="tbar"></div></div>
     <div class="goal ${g.hard?"hard":""}"><span class="next">다음: ${S.next.hard?"<b style=\"color:var(--bad)\">빡센 목표</b>":G[S.next.vibe]}</span>
-      <div class="lab">${g.hard?`<span class="hardtag">빡센 목표 ×${HARD_MULT}</span>`:"이 느낌으로"}</div>
-      <div class="vibe">${goalLabel(g)}</div>
+      <div class="lab">${g.hard?`<span class="hardtag">빡센 목표 ×${HARD_MULT}</span> · 이 장면이 떠오르게`:"이 느낌으로"}</div>
+      <div class="vibe ${g.theme?"theme":""}">${goalLabel(g)}</div>
       <div class="conds">${condChips(g)}</div></div>
     <div class="canvas" id="canvas">${S.items.length?"":`<div class="hint">낱말과 조사를 여기에 끌어다 놓는다</div>`}${S.items.map(it=>{
       const html=it.kind==="p"?`<button class="tile part" data-item="${it.uid}">${P[it.id].ko}</button>`:tileHTML(it.id,"",`data-item="${it.uid}"`);
@@ -239,7 +230,6 @@ function paint(){
 }
 function condChips(g){
   const r=g.rules, c=[];
-  if(g.vibes.length>1) c.push("둘 다 꽂아야 함");
   if(g.audience) c.push(`듣는 사람: ${D.rush.audiences[g.audience]}`);
   for(const id of r.need||[]) c.push(`'${T[id].ko}' 넣기`);
   for(const x of r.ban||[]) c.push(`${CAT_KO[x]} 금지`);

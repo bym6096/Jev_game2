@@ -201,11 +201,12 @@ LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
 RUSH = DATA["rush"]
 GOALS = RUSH["vibes"] | RUSH["styles"]
 AUDIENCES = RUSH["audiences"]
+THEMES = RUSH["themes"]   # 빡센 목표: 제한 없이 주제 자체가 어렵다(구체적이고 복잡한 정서·장면)
 CATS = {"ref", "adj", "mod", "pred", "part"}
 
 
 def judge_rush(goal, tokens, ending=".", history=()):
-    """빠른 모드. 목표 = {"vibes": [느낌 1~2개], "audience": 듣는 사람(선택)}.
+    """빠른 모드. 목표 = {"vibes": [느낌 1~2개], "audience": 듣는 사람(선택)} 또는 {"theme": 어려운 주제 id}.
     점수 = 100 × 꽂힘 × 길이 배율 × 새로움 배율
       꽂힘 = 느낌이 둘이면 두 꽂힘의 기하평균(둘 다 꽂혀야 한다)
       길이 배율 = 1 + LEN_K × (낱말 수 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
@@ -213,11 +214,12 @@ def judge_rush(goal, tokens, ending=".", history=()):
     뜻(0~1) = 무슨 말인지 그려지는 정도. 꽂힘만으로는 말 안 되는 긴 줄도 분위기로 점수를 받아서 따로 묻는다.
     전략: 짧고 정확하게(여러 줄을 빨리 꽂아 콤보·시간 보너스) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험).
     따로 속도 배율은 두지 않는다: 전체 제한 시간이 그 몫을 한다."""
-    vibes, aud = goal["vibes"], goal.get("audience")
+    theme = goal.get("theme")
+    vibes, aud = ([] if theme else goal["vibes"]), goal.get("audience")
     who = AUDIENCES[aud] if aud else "보통 사람"
     said = render_free_ko(tokens, ending)
     past = [render_free_ko(h["tokens"], h.get("ending", ".")) for h in history]
-    want = " 그리고 ".join(f"'{GOALS[v]}'" for v in vibes)
+    want = f"'{THEMES[theme]}'의 정서와 장면" if theme else " 그리고 ".join(f"'{GOALS[v]}'" for v in vibes)
     state = (
         "놀이 규칙: 플레이어는 정해진 말 조각과 조사를 이어 붙여 제한 시간 안에 한 줄을 빠르게 짓는다. 조각으로 지은 말이라 조금 서툴 수 있다. "
         f"문법보다 이 말을 들은 {who}이(가) 실제로 무엇을 느끼는지로 판단하라. 낱말을 아무렇게나 늘어놓아 뜻이 안 통하면 아무것도 못 느낀다. "
@@ -226,8 +228,12 @@ def judge_rush(goal, tokens, ending=".", history=()):
         + ("방금까지 지은 줄(비슷하면 식상하다):\n" + "\n".join(f"- {x}" for x in past) + "\n" if past else "")
         + f"이번 줄: <<<{said}>>>"
     )
-    qs = {f"land{i}": {"type": "choice", "instructions": f"이 줄을 들은 {who}은(는) '{GOALS[v]}'을(를) 느끼는가?", "criteria": LAND}
-          for i, v in enumerate(vibes)}
+    if theme:
+        qs = {"land0": {"type": "choice", "instructions": f"이 줄을 들은 {who}은(는) '{THEMES[theme]}'을(를) 떠올리고 그 정서를 느끼는가?", "criteria": LAND}}
+        vibes = [theme]   # 아래 계산은 꽂힘 하나로 같다
+    else:
+        qs = {f"land{i}": {"type": "choice", "instructions": f"이 줄을 들은 {who}은(는) '{GOALS[v]}'을(를) 느끼는가?", "criteria": LAND}
+              for i, v in enumerate(vibes)}
     qs["fresh"] = {"type": "choice", "instructions": "이 표현은 얼마나 새롭고 의외인가?", "criteria": FRESH}
     qs["sense"] = {"type": "choice", "instructions": "분위기와 상관없이, 이 줄이 무슨 장면이나 뜻인지 그려지는가?", "criteria": SENSE}
     a = _call(state, qs)
@@ -291,7 +297,10 @@ def _goal_ok(goal, tokens, ending):
     if not isinstance(goal, dict):
         return "목표 형식"
     vibes, aud, rules = goal.get("vibes"), goal.get("audience"), goal.get("rules") or {}
-    if not isinstance(vibes, list) or not 1 <= len(vibes) <= 2 or not all(v in GOALS for v in vibes) or len(set(vibes)) != len(vibes):
+    if "theme" in goal:
+        if goal["theme"] not in THEMES or vibes or rules:
+            return "목표 주제"
+    elif not isinstance(vibes, list) or not 1 <= len(vibes) <= 2 or not all(v in GOALS for v in vibes) or len(set(vibes)) != len(vibes):
         return "목표 느낌"
     if aud is not None and aud not in AUDIENCES or not isinstance(rules, dict):
         return "목표 형식"

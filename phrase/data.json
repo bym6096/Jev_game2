@@ -4360,6 +4360,32 @@
    "cat": "고양이",
    "teen": "중2병 걸린 친구",
    "ceo": "재벌 회장님"
+  },
+  "themes": {
+   "monday": "월요일 아침 출근길의 절망",
+   "breakup_text": "헤어지자는 문자를 받은 순간",
+   "first_pay": "첫 월급의 기쁨과 허탈함",
+   "fridge3am": "새벽 3시에 냉장고를 연 죄책감",
+   "report_card": "엄마 몰래 성적표를 숨긴 마음",
+   "graduation": "졸업식 날 텅 빈 교실",
+   "cat_ignore": "고양이에게 무시당한 집사의 자존심",
+   "lotto": "로또 한 번호 차이로 떨어진 기분",
+   "grandma_smell": "할머니 집 냄새가 떠오르는 그리움",
+   "ex_wedding": "전 애인의 결혼 소식",
+   "read_ignore": "단톡방에서 읽씹당한 서운함",
+   "diet": "다이어트 첫날 치킨 앞에서의 갈등",
+   "last_day": "퇴사 마지막 날의 해방감",
+   "exam_over": "수능 끝난 날 밤",
+   "moving": "이사 가는 날 텅 빈 방",
+   "birthday_alone": "생일인데 아무도 연락이 없는 날",
+   "park_closing": "놀이공원 문 닫기 직전",
+   "rain_free": "우산 없이 비를 맞는 해방감",
+   "first_flight": "처음 혼자 비행기 탄 설렘",
+   "alarm": "알람 끄고 다시 잠든 뒤 눈떴을 때의 공포",
+   "wrong_send": "메시지를 엉뚱한 방에 보낸 순간",
+   "old_photo": "오래된 사진 속 지금은 없는 사람",
+   "sunday_night": "일요일 밤 11시의 우울",
+   "first_snow": "첫눈 오는 날 연락하고 싶은 사람"
   }
  }
 }
