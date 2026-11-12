@@ -59,6 +59,7 @@ button:disabled { opacity:.35; cursor:default; }
 .tile.ref{border-color:var(--ref)} .tile.adj{border-color:var(--adj)} .tile.pred{border-color:var(--pred)} .tile.mod{border-color:var(--mod)} .tile.pol{border-color:var(--pol)} .tile.int{border-color:var(--int)}
 .tile.rare { background:#352f1f; } .tile.rare::before { content:"★"; color:var(--accent); font-size:10px; margin-right:3px; }
 .tile.used { opacity:.25; }
+.tile.used-soft { opacity:.75; }
 .tile.banned { text-decoration:line-through; opacity:.4; cursor:not-allowed; }
 .log { font-size:13px; color:var(--dim); max-height:140px; overflow:auto; }
 .log div { border-top:1px solid var(--line); padding:4px 0; }
@@ -87,7 +88,8 @@ button:disabled { opacity:.35; cursor:default; }
 </main>
 <script>
 const DRAFTS=3, REDRAWS=2, RUN=6;
-const HAND={ref:5, adj:4, pred:4, mod:2, pol:2, int:2};
+const HAND={ref:10, adj:7, pred:7, mod:4, pol:3, int:3};
+const TAKE=3, DROP=2;   // 보상: 8개 중 3개까지 가져가고, 2개까지 버린다
 const CAT_KO={ref:"누구·무엇", adj:"어떤", pred:"한다", mod:"어떻게", pol:"부정·확신", int:"부름·감탄"};
 const CASE_ORDER=["obj","to","like","with","at"];
 const ADOPT_KO={yes:"바로 채택", maybe:"고민 중", revise:"수정 요청", no:"거절", angry:"불쾌"};
@@ -198,23 +200,36 @@ function showReward(won){
   const p=document.getElementById("rewardPanel"); p.hidden=false;
   const own=new Set(Object.keys(HAND).flatMap(c=>[...S.bag[c],...S.discard[c],...S.hand[c]]));
   const fresh=D.tiles.filter(t=>!own.has(t.id));
-  // 감각 영역이 겹치지 않게 섞어서 보여준다(공감각 조합 재료)
-  const commons=shuffle(fresh.filter(t=>!t.rare)), rares=shuffle(fresh.filter(t=>t.rare)), picks=[], doms=new Set();
-  for(const t of commons){ if(picks.length>=(won?2:2)) break; if(t.dom&&doms.has(t.dom)) continue; picks.push(t.id); if(t.dom) doms.add(t.dom); }
-  if(won&&rares[0]) picks.push(rares[0].id);
+  // 범주와 감각 영역이 겹치지 않게 섞어서 내민다(공감각 조합 재료)
+  const commons=shuffle(fresh.filter(t=>!t.rare)), rares=shuffle(fresh.filter(t=>t.rare)), picks=[], seenKey=new Set();
+  for(const t of commons){ if(picks.length>=6) break; const k=t.cat+"|"+(t.dom||""); if(seenKey.has(k)) continue; picks.push(t.id); seenKey.add(k); }
+  picks.push(...rares.slice(0,won?2:1).map(t=>t.id));
   const newActs=Object.keys(D.acts).filter(a=>!S.acts.includes(a));
-  p.innerHTML=`<h3>${won?"계약 성사! ":"이번엔 놓쳤다. "}하나를 얻거나, 조각 하나를 버린다</h3>
-    <div class="row">${picks.map(id=>tileBtn(id,`data-add="${id}"`,"+ ")).join("")}${won&&newActs.length?`<button class="act" data-addact="${shuffle(newActs)[0]}">+ 말투</button>`:""}</div>
-    <h3 style="margin-top:12px">버리기</h3><div class="row">${[...own].map(id=>tileBtn(id,`data-del="${id}"`,"− ")).join("")}</div>
-    <div class="btns"><button class="go sec" data-skip="1">건너뛰기</button></div>`;
-  p.querySelectorAll("[data-addact]").forEach(b=>b.textContent="+ 말투: "+D.acts[b.dataset.addact].ko);
+  const actOffer=won&&newActs.length?shuffle(newActs)[0]:null;
+  const take=new Set(), drop=new Set();
+  const draw_=()=>{
+    p.innerHTML=`<h3>${won?"계약 성사! ":"이번엔 놓쳤다. "}${TAKE}개까지 가져간다 (${take.size}/${TAKE})</h3>
+      <div class="row">${picks.map(id=>tileBtn(id,`data-add="${id}"`,take.has(id)?"✓ ":"+ ").replace('class="tile',`class="tile ${take.has(id)?"":"used-soft"}`)).join("")}${actOffer?`<button class="act ${take.has("act:"+actOffer)?"on":""}" data-addact="${actOffer}">+ 말투: ${D.acts[actOffer].ko}</button>`:""}</div>
+      <h3 style="margin-top:12px">${DROP}개까지 버린다 (${drop.size}/${DROP})</h3>
+      <div class="row">${[...own].map(id=>tileBtn(id,`data-del="${id}"`,drop.has(id)?"✕ ":"").replace('class="tile',`class="tile ${drop.has(id)?"used":""}`)).join("")}</div>
+      <div class="btns"><button class="go" data-done="1">다음 의뢰로</button></div>`;
+  };
+  draw_();
   p.onclick=e=>{
     const b=e.target.closest("button"); if(!b) return;
-    if(b.dataset.add){ const c=T[b.dataset.add].cat; S.discard[c].push(b.dataset.add); addLog(`조각 얻음: ${T[b.dataset.add].ko}`); }
-    else if(b.dataset.addact){ S.acts.push(b.dataset.addact); addLog(`말투 얻음: ${D.acts[b.dataset.addact].ko}`); }
-    else if(b.dataset.del){ const c=T[b.dataset.del].cat; for(const arr of [S.bag[c],S.discard[c],S.hand[c]]){ const i=arr.indexOf(b.dataset.del); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${T[b.dataset.del].ko}`); }
-    else if(!b.dataset.skip) return;
-    p.hidden=true; p.onclick=null; S.stage++; startBrief();
+    const tog=(set,key,max)=>{ if(set.has(key)) set.delete(key); else if(set.size<max) set.add(key); };
+    if(b.dataset.add) tog(take,b.dataset.add,TAKE);
+    else if(b.dataset.addact) tog(take,"act:"+b.dataset.addact,TAKE);
+    else if(b.dataset.del) tog(drop,b.dataset.del,DROP);
+    else if(b.dataset.done){
+      for(const k of take){
+        if(k.startsWith("act:")){ S.acts.push(k.slice(4)); addLog(`말투 얻음: ${D.acts[k.slice(4)].ko}`); }
+        else { S.discard[T[k].cat].push(k); addLog(`조각 얻음: ${T[k].ko}`); }
+      }
+      for(const id of drop){ const c=T[id].cat; for(const arr of [S.bag[c],S.discard[c],S.hand[c]]){ const i=arr.indexOf(id); if(i>=0){ arr.splice(i,1); break; } } addLog(`조각 버림: ${T[id].ko}`); }
+      p.hidden=true; p.onclick=null; S.stage++; startBrief(); return;
+    }
+    draw_();
   };
   paint();
 }
