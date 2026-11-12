@@ -27,6 +27,11 @@ main { max-width:720px; margin:0 auto; padding:12px 16px 24px; }
 .cell { flex:1 1 70px; min-height:54px; border:1.5px dashed var(--line); border-radius:10px; padding:4px 8px; cursor:pointer; background:#17171b; display:flex; flex-direction:column; justify-content:center; }
 .cell .l { font-size:10px; color:var(--dim); }
 .cell .v { font-size:16px; font-weight:700; min-height:22px; }
+.cell.ok{border:1.5px solid var(--accent)!important; background:#22201a}
+.cell.no{opacity:.35}
+.tile,.cell{touch-action:none}
+.ghost{position:fixed; z-index:50; pointer-events:none; transform:translate(-50%,-60%) scale(1.08); box-shadow:0 6px 18px #0008}
+.dragging{opacity:.3}
 .cell.ref{border:1.5px solid var(--ref)} .cell.adj{border:1.5px solid var(--adj)} .cell.pred{border:1.5px solid var(--pred)}
 .case { font-size:10px; background:#2b2b31; border:0; color:var(--text); border-radius:5px; padding:1px 6px; cursor:pointer; align-self:flex-start; margin-top:2px; }
 .ends { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
@@ -147,7 +152,7 @@ function place(id){
 // ---- 그리기 ----
 const app=document.getElementById("app");
 function paint(){
-  if(!S){ app.innerHTML=`<div class="start"><h1>한 줄 러시</h1><p>${TIME}초. 떨어지는 목표에 맞는 한 줄을 빠르게 지어 보낸다.<br>조각을 누르면 틀에 들어가고, 다시 누르면 빠진다. 끝맺음으로 뉘앙스를 바꾼다.<br>60점 넘게 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보.</p><button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
+  if(!S){ app.innerHTML=`<div class="start"><h1>한 줄 러시</h1><p>${TIME}초. 떨어지는 목표에 맞는 한 줄을 빠르게 지어 보낸다.<br>조각을 누르면 틀에 들어가고, 다시 누르면 빠진다. 원하는 칸으로 끌어다 놓아도 된다(누가 없이 무엇을만 써도 된다). 칸 밖으로 끌어내면 빠진다. 끝맺음으로 뉘앙스를 바꾼다.<br>60점 넘게 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보.</p><button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
   if(S.over){
     const best=[...S.lines].sort((a,b)=>b.pts-a.pts).slice(0,5);
     app.innerHTML=`<div class="over"><div>끝!</div><div class="big">${S.score}</div><div style="color:var(--dim)">${S.lines.length}줄</div>
@@ -211,6 +216,49 @@ document.addEventListener("click",e=>{
   else return;
   paint();
 });
+// ---- 끌어다 놓기: 손패 조각 → 칸, 칸 → 칸(자리 바꿈), 칸 → 밖(빼기). 그냥 누르면 click으로 처리된다 ----
+let drag=null, eatClick=false;
+document.addEventListener("pointerdown",e=>{
+  if(!S||S.over||S.busy) return;
+  const tile=e.target.closest(".tile[data-tile]"), cell=e.target.closest(".cell[data-cell]");
+  const from=tile?null:(cell&&S.cells[cell.dataset.cell]?cell.dataset.cell:null);
+  const id=tile?tile.dataset.tile:(from?S.cells[from]:null);
+  if(!id) return;
+  drag={id, from, x:e.clientX, y:e.clientY, src:tile||cell, ghost:null, on:false};
+});
+document.addEventListener("pointermove",e=>{
+  if(!drag) return;
+  if(!drag.on){
+    if(Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<8) return;
+    drag.on=true; const t=T[drag.id];
+    const g=document.createElement("div"); g.className=`tile ghost ${t.cat}${t.rare?" rare":""}`; g.textContent=t.ko; document.body.appendChild(g); drag.ghost=g;
+    drag.src.classList.add("dragging");
+    document.querySelectorAll(".cell[data-cell]").forEach(c=>{ const spec=D.forms.short.cells.find(x=>x.id===c.dataset.cell); c.classList.add(spec.cats.includes(t.cat)?"ok":"no"); });
+  }
+  drag.ghost.style.left=e.clientX+"px"; drag.ghost.style.top=e.clientY+"px";
+  e.preventDefault();
+},{passive:false});
+function endDrag(e){
+  if(!drag) return; const d=drag; drag=null;
+  if(!d.on) return;
+  eatClick=true; setTimeout(()=>eatClick=false,0);
+  d.ghost.remove();
+  const el=document.elementFromPoint(e.clientX,e.clientY), cell=el&&el.closest(".cell[data-cell]");
+  const t=T[d.id];
+  if(cell){
+    const k=cell.dataset.cell, spec=D.forms.short.cells.find(x=>x.id===k);
+    if(spec.cats.includes(t.cat)&&k!==d.from){
+      const old=S.cells[k];
+      for(const kk in S.cells) if(S.cells[kk]===d.id) delete S.cells[kk];   // 같은 조각은 한 칸에만
+      S.cells[k]=d.id;
+      if(d.from&&old&&D.forms.short.cells.find(x=>x.id===d.from).cats.includes(T[old].cat)) S.cells[d.from]=old;   // 칸끼리는 자리 바꿈
+    }
+  } else if(d.from){ delete S.cells[d.from]; }   // 칸에서 밖으로 끌어내면 뺀다
+  paint();
+}
+document.addEventListener("pointerup",endDrag);
+document.addEventListener("pointercancel",e=>{ if(drag&&drag.ghost) drag.ghost.remove(); drag=null; paint(); });
+document.addEventListener("click",e=>{ if(eatClick){ e.stopImmediatePropagation(); e.preventDefault(); } },true);
 document.addEventListener("keydown",e=>{ if(e.key==="Enter"&&S&&!S.over) send(); });
 fetch("data.json").then(r=>r.json()).then(d=>{ D=d; T=Object.fromEntries(d.tiles.map(t=>[t.id,t])); paint(); });
 </script>
