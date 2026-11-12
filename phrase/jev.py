@@ -304,7 +304,7 @@ def _goal_ok(goal, tokens, ending):
         return "목표 형식"
     vibes, aud, rules = goal.get("vibes"), goal.get("audience"), goal.get("rules") or {}
     if "theme" in goal:
-        if goal["theme"] not in THEMES or vibes or rules:
+        if goal["theme"] not in THEMES or vibes:
             return "목표 주제"
     elif not isinstance(vibes, list) or not 1 <= len(vibes) <= 2 or not all(v in GOALS for v in vibes) or len(set(vibes)) != len(vibes):
         return "목표 느낌"

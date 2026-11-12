@@ -23,7 +23,7 @@ class H(BaseHTTPRequestHandler):
 
     def do_GET(s):
         f = {"/": ("index.html", "text/html; charset=utf-8"), "/index.html": ("index.html", "text/html; charset=utf-8"),
-             "/data.json": ("data.json", "application/json; charset=utf-8"), "/rush.html": ("rush.html", "text/html; charset=utf-8")}.get(s.path.split("?")[0])
+             "/data.json": ("data.json", "application/json; charset=utf-8"), "/rush.html": ("rush.html", "text/html; charset=utf-8"), "/puzzle.html": ("puzzle.html", "text/html; charset=utf-8")}.get(s.path.split("?")[0])
         if not f:
             return s.send(404, {"error": "not found"})
         s.send(200, open(os.path.join(HERE, f[0]), "rb").read(), f[1])

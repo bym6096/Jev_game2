@@ -213,7 +213,7 @@ function paint(){
   }
   const g=S.goal;
   app.innerHTML=`
-    <div class="top"><span class="brand">한 줄 러시<a href="./">공방</a></span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
+    <div class="top"><span class="brand">한 줄 러시<a href="puzzle.html">퍼즐</a><a href="./">공방</a></span><span class="combo" id="tleft" style="color:var(--dim)"></span><span class="combo" id="combo"></span><span class="score" id="score"></span></div>
     <div class="timer"><div id="tbar"></div></div>
     <div class="goal ${g.hard?"hard":""}"><span class="next">다음: ${S.next.hard?"<b style=\"color:var(--bad)\">빡센 목표</b>":G[S.next.vibe]}</span>
       <div class="lab">${g.hard?`<span class="hardtag">빡센 목표 ×${HARD_MULT}</span> · 이 장면이 떠오르게`:"이 느낌으로"}</div>
