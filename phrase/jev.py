@@ -196,7 +196,6 @@ SENSE_PTS = {"clear": 1.0, "plausible": 0.75, "vague": 0.3, "nonsense": 0.0}
 PARTICLES = {p["id"]: p for p in DATA["particles"]}
 MAX_WORDS, MAX_TOKENS = 8, 20
 LEN_K = 0.4          # 길이 배율: 칸 하나 더할 때마다 +0.4 × 꽂힘
-SPEED_K, SPEED_T = 0.6, 8.0   # 속도 배율: 목표가 뜬 뒤 SPEED_T초 안에 보낼수록 최대 +0.6 × 꽂힘
 
 
 RUSH = DATA["rush"]
@@ -205,15 +204,15 @@ AUDIENCES = RUSH["audiences"]
 CATS = {"ref", "adj", "mod", "pred", "part"}
 
 
-def judge_rush(goal, tokens, ending=".", history=(), secs=SPEED_T):
+def judge_rush(goal, tokens, ending=".", history=()):
     """빠른 모드. 목표 = {"vibes": [느낌 1~2개], "audience": 듣는 사람(선택)}.
-    점수 = 100 × 꽂힘 × 길이 배율 × 속도 배율 × 새로움 배율
+    점수 = 100 × 꽂힘 × 길이 배율 × 새로움 배율
       꽂힘 = 느낌이 둘이면 두 꽂힘의 기하평균(둘 다 꽂혀야 한다)
       길이 배율 = 1 + LEN_K × (낱말 수 − 1) × 꽂힘 × 뜻²    ← 길어도 안 꽂히거나 말이 안 되면 거의 안 붙는다
-      속도 배율 = 1 + SPEED_K × (남은 몫) × 꽂힘            ← 남은 몫 = max(0, (SPEED_T − 걸린 초) / SPEED_T)
       새로움 배율 = 1 + 새로움 × 꽂힘 × 뜻²
     뜻(0~1) = 무슨 말인지 그려지는 정도. 꽂힘만으로는 말 안 되는 긴 줄도 분위기로 점수를 받아서 따로 묻는다.
-    전략: 짧고 정확하게(빠름 → 속도 배율·콤보) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험)."""
+    전략: 짧고 정확하게(여러 줄을 빨리 꽂아 콤보·시간 보너스) vs 길고 그럴싸하게(길이 배율, 대신 시간이 들고 뜻이 흐려질 위험).
+    따로 속도 배율은 두지 않는다: 전체 제한 시간이 그 몫을 한다."""
     vibes, aud = goal["vibes"], goal.get("audience")
     who = AUDIENCES[aud] if aud else "보통 사람"
     said = render_free_ko(tokens, ending)
@@ -242,14 +241,12 @@ def judge_rush(goal, tokens, ending=".", history=(), secs=SPEED_T):
     g = sense * sense   # 뜻이 반쯤만 통하면 반보다 더 깎는다(0.9 → 0.81, 0.6 → 0.36)
     len_mult = 1 + LEN_K * (n - 1) * q * g
     fresh_mult = 1 + max(0, fresh) * q * g
-    secs = min(max(float(secs), 0.0), 600.0)
-    speed_mult = 1 + SPEED_K * max(0.0, (SPEED_T - secs) / SPEED_T) * q
-    score = max(0, round(100 * land * len_mult * speed_mult * fresh_mult))
+    score = max(0, round(100 * land * len_mult * fresh_mult))
     land_top = max(a["land0"]["probabilities"].items(), key=lambda kv: kv[1])[0] if len(vibes) == 1 else \
         min((max(a[f"land{i}"]["probabilities"].items(), key=lambda kv: kv[1])[0] for i in range(len(vibes))), key=lambda k: LAND_PTS[k])
     return {"said": said, "land_top": land_top, "lands": [round(x, 2) for x in lands], "fresh": fr, "sense": se,
             "land_ev": round(land, 2), "fresh_bonus": round(fresh, 2), "sense_ev": round(sense, 2),
-            "cells": n, "len_mult": round(len_mult, 2), "speed_mult": round(speed_mult, 2), "fresh_mult": round(fresh_mult, 2), "score": score}
+            "cells": n, "len_mult": round(len_mult, 2), "fresh_mult": round(fresh_mult, 2), "score": score}
 
 
 def handle(req, headers):
@@ -323,11 +320,8 @@ def _handle_rush(req):
     why = _goal_ok(goal, tokens, ending)
     if why:
         return 400, {"error": f"목표 조건을 지키지 않음: {why}"}
-    secs = req.get("secs", SPEED_T)
-    if not isinstance(secs, (int, float)):
-        return 400, {"error": "요청 형식이 잘못되었습니다"}
     try:
-        return 200, judge_rush(goal, tokens, ending, hist, secs)
+        return 200, judge_rush(goal, tokens, ending, hist)
     except urllib.error.HTTPError as e:
         return 502, {"error": f"Jev HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}"}
     except Exception as e:

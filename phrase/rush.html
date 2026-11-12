@@ -71,7 +71,7 @@ button:disabled { opacity:.35; cursor:default; }
 <body>
 <main id="app"></main>
 <script>
-const TIME=180, HIT_BONUS=3, HIT_LAND=.55, LEN_K=.4, SPEED_K=.6, SPEED_T=8, MAX_WORDS=8;
+const TIME=180, HIT_BONUS=3, HIT_LAND=.55, LEN_K=.4, MAX_WORDS=8;
 const ROWS={ref:8, adj:6, mod:4, pred:6}, FLOW_MS=6000, SKIP_COST=3, NEED_P=.35, AUD_P=.15, STYLE_P=.2, RARE_P=.12;
 const HARD_EVERY=5, HARD_MULT=2, HARD_BONUS=8, HARD_SKIP=6;   // 다섯 번째마다 빡센 목표: 점수 ×2, 꽂으면 +8초, 넘기면 −6초
 const CAT_KO={ref:"누구·무엇", adj:"꾸밈말", mod:"어떻게", pred:"서술어", part:"조사"};
@@ -184,7 +184,7 @@ async function send(){
   S.busy=true; paintControls();
   const toks=tokens();
   const body={mode:"rush", goal:{vibes:S.goal.vibes, audience:S.goal.audience, rules:S.goal.rules}, tokens:toks, ending:S.end,
-    history:S.lines.slice(-5).map(l=>({tokens:l.tokens, ending:l.end})), secs:(performance.now()-S.goal.at)/1000};
+    history:S.lines.slice(-5).map(l=>({tokens:l.tokens, ending:l.end}))};
   let d;
   try{ const r=await fetch("api/judge",{method:"POST",headers:{"Content-Type":"application/json","X-Access-Code":ACCESS},body:JSON.stringify(body)}); d=await r.json(); if(!r.ok) throw new Error(d.error||r.status); }
   catch(e){ S.fb={err:e.message}; S.busy=false; paint(); return; }
@@ -209,7 +209,7 @@ function paint(){
   if(!S){ app.innerHTML=`<div class="start"><h1>한 줄 러시</h1><p>${TIME}초. 떨어지는 목표에 맞는 한 줄을 빠르게 지어 보낸다.<br>
     낱말 조각과 조사를 도화지에 끌어다 놓는다. 위에서 아래로, 왼쪽에서 오른쪽으로 읽은 순서가 문장이 된다.<br>
     조사는 무제한. 누르면 끝에 붙고, 도화지 밖으로 끌어내면 빠진다.<br>
-    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 조건이 겹친 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록, 빨리 보낼수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만.</p>
+    잘 꽂으면 +${HIT_BONUS}초, 연속으로 꽂으면 콤보. ${HARD_EVERY}번째마다 조건이 겹친 <b style="color:var(--bad)">빡센 목표</b>(×${HARD_MULT}, +${HARD_BONUS}초).<br> 길게 지을수록 배율이 붙는다 — 단, 꽂히고 말이 되는 만큼만. 짧게 여러 줄을 이어 꽂을지, 길게 한 방을 노릴지.</p>
     <button class="go" id="startBtn" style="max-width:260px">시작</button><p style="margin-top:18px"><a href="./" style="color:var(--dim)">← 한 줄 공방</a></p></div>`; return; }
   if(S.over){
     const best=[...S.lines].sort((a,b)=>b.pts-a.pts).slice(0,5);
@@ -260,9 +260,8 @@ function paintTop(){
 }
 function paintMeter(){   // 꽂힘이 100이면 받을 배율 상한(실제는 꽂힘·뜻만큼)
   const el=document.getElementById("meter"); if(!el||!S||S.over) return;
-  const n=words().length, secs=(performance.now()-S.goal.at)/1000;
-  const lm=1+LEN_K*Math.max(0,n-1), sm=1+SPEED_K*Math.max(0,(SPEED_T-secs)/SPEED_T);
-  el.innerHTML=`<span>낱말 ${n}</span><span>길이 최대 ×${lm.toFixed(1)}</span><span class="${sm>1.01?"hot":""}">빠름 최대 ×${sm.toFixed(2)}</span>`;
+  const n=words().length, lm=1+LEN_K*Math.max(0,n-1);
+  el.innerHTML=`<span>낱말 ${n}</span><span>길이 최대 ×${lm.toFixed(1)}</span>`;
 }
 function paintControls(){
   const b=document.getElementById("sendBtn"); if(!b) return;
@@ -274,7 +273,7 @@ function fbHTML(){
   if(f.err) return `판정 실패: ${f.err}`;
   if(f.skip) return "넘겼다.";
   return `<b>「${f.said}」</b><br>${LAND_KO[f.land]} · <span class="pts">+${f.pts}</span>${f.hit?` · +${f.hard?HARD_BONUS:HIT_BONUS}초`:""}
-    <div class="parts">꽂힘 ${f.d.lands.length>1?f.d.lands.map(x=>Math.round(x*100)).join("·")+"→":""}${Math.round(f.d.land_ev*100)} · 뜻 ${Math.round(f.d.sense_ev*100)} → 길이 ×${f.d.len_mult} · 빠름 ×${f.d.speed_mult} · 새로움 ×${f.d.fresh_mult}${f.mult>1?` × ${f.hard?"빡셈·":""}콤보 ${f.mult.toFixed(2)}`:""}</div>`;
+    <div class="parts">꽂힘 ${f.d.lands.length>1?f.d.lands.map(x=>Math.round(x*100)).join("·")+"→":""}${Math.round(f.d.land_ev*100)} · 뜻 ${Math.round(f.d.sense_ev*100)} → 길이 ×${f.d.len_mult} · 새로움 ×${f.d.fresh_mult}${f.mult>1?` × ${f.hard?"빡셈·":""}콤보 ${f.mult.toFixed(2)}`:""}</div>`;
 }
 
 // ---- 누르기 ----
