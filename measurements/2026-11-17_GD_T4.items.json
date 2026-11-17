@@ -1,0 +1,446 @@
+[
+ {
+  "id": "k1_ko",
+  "cond": "ko",
+  "state": "대장장이의 아들이 어젯밤 전쟁터에서 돌아오지 않았다. 손님이 전쟁 영웅을 찬양하는 노래를 부른다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "대장장이의 기분은?",
+    "criteria": {
+     "기쁨": null,
+     "무덤덤": null,
+     "괴로움": null
+    }
+   }
+  },
+  "map": {
+   "기쁨": "joy",
+   "무덤덤": "indifferent",
+   "괴로움": "pain"
+  }
+ },
+ {
+  "id": "k1_en",
+  "cond": "en",
+  "state": "The blacksmith's son did not come back from the battlefield last night. A customer sings a song praising war heroes.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the blacksmith's mood?",
+    "criteria": {
+     "joy": null,
+     "indifferent": null,
+     "pain": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k2_ko",
+  "cond": "ko",
+  "state": "주문 단어는 '서리'다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "이 주문의 원소는?",
+    "criteria": {
+     "불": null,
+     "얼음": null,
+     "번개": null,
+     "땅": null
+    }
+   }
+  },
+  "map": {
+   "불": "fire",
+   "얼음": "ice",
+   "번개": "lightning",
+   "땅": "earth"
+  }
+ },
+ {
+  "id": "k2_en",
+  "cond": "en",
+  "state": "The spell word is 'frost'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which element is this spell?",
+    "criteria": {
+     "fire": null,
+     "ice": null,
+     "lightning": null,
+     "earth": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k3_ko",
+  "cond": "ko",
+  "state": "퀘스트: '물을 담을 수 있는 걸 가져와.' 플레이어가 스펀지를 가져왔다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "의뢰인은 받아 주는가?",
+    "criteria": {
+     "받는다": null,
+     "거절한다": null
+    }
+   }
+  },
+  "map": {
+   "받는다": "accept",
+   "거절한다": "reject"
+  }
+ },
+ {
+  "id": "k3_en",
+  "cond": "en",
+  "state": "Quest: 'Bring something that can hold water.' The player brings a sponge.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the quest giver accept it?",
+    "criteria": {
+     "accept": null,
+     "reject": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k4_ko",
+  "cond": "ko",
+  "state": "할머니가 손주에게 직접 뜬 목도리를 선물했다. 손주는 목도리를 받자마자 서랍에 넣었다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "할머니의 마음은?",
+    "criteria": {
+     "뿌듯함": null,
+     "서운함": null,
+     "무관심": null
+    }
+   }
+  },
+  "map": {
+   "뿌듯함": "proud",
+   "서운함": "hurt",
+   "무관심": "indifferent"
+  }
+ },
+ {
+  "id": "k4_en",
+  "cond": "en",
+  "state": "Grandma gave her grandchild a scarf she knitted herself. The grandchild put it in a drawer right away.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does grandma feel?",
+    "criteria": {
+     "proud": null,
+     "hurt": null,
+     "indifferent": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k5_ko",
+  "cond": "ko",
+  "state": "규칙: '빨간 보석이면서 금이 가지 않았거나, 파란 보석이면 상인이 산다.' 보석은 빨갛고 금이 갔다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "상인이 사는가?",
+    "criteria": {
+     "산다": null,
+     "안 산다": null
+    }
+   }
+  },
+  "map": {
+   "산다": "buys",
+   "안 산다": "does_not_buy"
+  }
+ },
+ {
+  "id": "k5_en",
+  "cond": "en",
+  "state": "Rule: 'If the gem is red and not cracked, or if it is blue, the merchant buys it.' The gem is red and cracked.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the merchant buy it?",
+    "criteria": {
+     "buys": null,
+     "does_not_buy": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k6_ko",
+  "cond": "ko",
+  "state": "늑대는 사슴을 먹고 사슴은 어린 나무를 먹는다. 사냥꾼이 골짜기의 늑대를 모두 없앴다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "몇 년 뒤 어린 나무는?",
+    "criteria": {
+     "늘어난다": null,
+     "줄어든다": null,
+     "그대로": null
+    }
+   }
+  },
+  "map": {
+   "늘어난다": "more",
+   "줄어든다": "fewer",
+   "그대로": "same"
+  }
+ },
+ {
+  "id": "k6_en",
+  "cond": "en",
+  "state": "Wolves eat deer and deer eat young trees. Hunters removed all the wolves from the valley.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to young trees in a few years?",
+    "criteria": {
+     "more": null,
+     "fewer": null,
+     "same": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k7_ko",
+  "cond": "ko",
+  "state": "퇴사 케이크에 '7년 동안 감사했습니다. 이제 제 시간은 제 겁니다'라고 적었다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "이 문구에서 가장 강한 느낌은?",
+    "criteria": {
+     "웃김": null,
+     "애틋": null,
+     "분노": null,
+     "무덤덤": null
+    }
+   }
+  },
+  "map": {
+   "웃김": "funny",
+   "애틋": "tender",
+   "분노": "anger",
+   "무덤덤": "flat"
+  }
+ },
+ {
+  "id": "k7_en",
+  "cond": "en",
+  "state": "The farewell cake says: 'Thank you for seven years. My time is mine now.'",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What feeling is strongest in this message?",
+    "criteria": {
+     "funny": null,
+     "tender": null,
+     "anger": null,
+     "flat": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k8_ko",
+  "cond": "ko",
+  "state": "이름이 '깃털검'인 무기가 있다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "이 무기는 무거운가 가벼운가?",
+    "criteria": {
+     "무겁다": null,
+     "가볍다": null
+    }
+   }
+  },
+  "map": {
+   "무겁다": "heavy",
+   "가볍다": "light"
+  }
+ },
+ {
+  "id": "k8_en",
+  "cond": "en",
+  "state": "There is a weapon named 'Featherblade'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is it heavy or light?",
+    "criteria": {
+     "heavy": null,
+     "light": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k9_ko",
+  "cond": "ko",
+  "state": "비 오는 날만 여는 바의 칵테일 이름이 '젖은 별의 속삭임'이다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "이 이름의 결은?",
+    "criteria": {
+     "신비": null,
+     "웃김": null,
+     "섬뜩": null,
+     "무덤덤": null
+    }
+   }
+  },
+  "map": {
+   "신비": "mystic",
+   "웃김": "funny",
+   "섬뜩": "eerie",
+   "무덤덤": "flat"
+  }
+ },
+ {
+  "id": "k9_en",
+  "cond": "en",
+  "state": "A bar that opens only on rainy days names its cocktail 'Whisper of a Wet Star'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the vibe of this name?",
+    "criteria": {
+     "mystic": null,
+     "funny": null,
+     "eerie": null,
+     "flat": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k10_ko",
+  "cond": "ko",
+  "state": "단톡방에 생일 축하를 부탁했는데 열 명이 읽고 아무도 답하지 않았다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "보낸 사람의 기분은?",
+    "criteria": {
+     "서운함": null,
+     "기쁨": null,
+     "무관심": null
+    }
+   }
+  },
+  "map": {
+   "서운함": "hurt",
+   "기쁨": "happy",
+   "무관심": "indifferent"
+  }
+ },
+ {
+  "id": "k10_en",
+  "cond": "en",
+  "state": "You asked a group chat to wish you a happy birthday. Ten people read it and nobody replied.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the sender feel?",
+    "criteria": {
+     "hurt": null,
+     "happy": null,
+     "indifferent": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k11_ko",
+  "cond": "ko",
+  "state": "얼음이 가득 찬 물컵의 얼음이 다 녹았다. 컵은 처음에 가장자리까지 가득 차 있었다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "물이 넘치는가?",
+    "criteria": {
+     "넘친다": null,
+     "안 넘친다": null
+    }
+   }
+  },
+  "map": {
+   "넘친다": "overflows",
+   "안 넘친다": "does_not"
+  }
+ },
+ {
+  "id": "k11_en",
+  "cond": "en",
+  "state": "A glass filled to the brim with water has ice in it. All the ice melts.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the water overflow?",
+    "criteria": {
+     "overflows": null,
+     "does_not": null
+    }
+   }
+  }
+ },
+ {
+  "id": "k12_ko",
+  "cond": "ko",
+  "state": "고양이 카페 에코백 문구: '나는 너의 집사, 너는 나의 무시'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "이 문구의 결은?",
+    "criteria": {
+     "웃김": null,
+     "포근": null,
+     "섬뜩": null,
+     "무덤덤": null
+    }
+   }
+  },
+  "map": {
+   "웃김": "funny",
+   "포근": "cozy",
+   "섬뜩": "eerie",
+   "무덤덤": "flat"
+  }
+ },
+ {
+  "id": "k12_en",
+  "cond": "en",
+  "state": "Cat cafe tote bag text: 'I am your servant, you are my ignoring.'",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the vibe of this text?",
+    "criteria": {
+     "funny": null,
+     "cozy": null,
+     "eerie": null,
+     "flat": null
+    }
+   }
+  }
+ }
+]

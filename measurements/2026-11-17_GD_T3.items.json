@@ -1,0 +1,443 @@
+[
+ {
+  "id": "x1_base",
+  "cond": "base",
+  "state": "A stranger asks the blacksmith to sharpen a sword tonight.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the blacksmith agree?",
+    "criteria": {
+     "agrees": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "refuses"
+  }
+ },
+ {
+  "id": "x1_rel",
+  "cond": "rel",
+  "state": "A stranger asks the blacksmith to sharpen a sword tonight. The blacksmith saw this stranger rob a shop yesterday.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the blacksmith agree?",
+    "criteria": {
+     "agrees": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "refuses"
+  }
+ },
+ {
+  "id": "x1_irr",
+  "cond": "irr",
+  "state": "A stranger asks the blacksmith to sharpen a sword tonight. The blacksmith's favorite color is green.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the blacksmith agree?",
+    "criteria": {
+     "agrees": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "refuses"
+  }
+ },
+ {
+  "id": "x2_base",
+  "cond": "base",
+  "state": "The cat sits by its empty food bowl.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the cat hungry?",
+    "criteria": {
+     "hungry": null,
+     "not_hungry": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "not_hungry"
+  }
+ },
+ {
+  "id": "x2_rel",
+  "cond": "rel",
+  "state": "The cat sits by its empty food bowl. The cat was fed a large meal ten minutes ago.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the cat hungry?",
+    "criteria": {
+     "hungry": null,
+     "not_hungry": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "not_hungry"
+  }
+ },
+ {
+  "id": "x2_irr",
+  "cond": "irr",
+  "state": "The cat sits by its empty food bowl. There is a calendar on the wall.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the cat hungry?",
+    "criteria": {
+     "hungry": null,
+     "not_hungry": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "not_hungry"
+  }
+ },
+ {
+  "id": "x3_base",
+  "cond": "base",
+  "state": "A tourist asks a local for directions to the museum.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the local stop to help?",
+    "criteria": {
+     "helps": null,
+     "ignores": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "ignores"
+  }
+ },
+ {
+  "id": "x3_rel",
+  "cond": "rel",
+  "state": "A tourist asks a local for directions to the museum. The local is late for a job interview and is running.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the local stop to help?",
+    "criteria": {
+     "helps": null,
+     "ignores": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "ignores"
+  }
+ },
+ {
+  "id": "x3_irr",
+  "cond": "irr",
+  "state": "A tourist asks a local for directions to the museum. The local is wearing blue shoes.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the local stop to help?",
+    "criteria": {
+     "helps": null,
+     "ignores": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "ignores"
+  }
+ },
+ {
+  "id": "x4_base",
+  "cond": "base",
+  "state": "The player offers the old wizard a rare book.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How grateful is the wizard?",
+    "criteria": {
+     "very": null,
+     "somewhat": null,
+     "not_at_all": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very"
+  }
+ },
+ {
+  "id": "x4_rel",
+  "cond": "rel",
+  "state": "The player offers the old wizard a rare book. The wizard has been searching for this exact book for forty years.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How grateful is the wizard?",
+    "criteria": {
+     "very": null,
+     "somewhat": null,
+     "not_at_all": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very"
+  }
+ },
+ {
+  "id": "x4_irr",
+  "cond": "irr",
+  "state": "The player offers the old wizard a rare book. It is a Tuesday.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How grateful is the wizard?",
+    "criteria": {
+     "very": null,
+     "somewhat": null,
+     "not_at_all": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very"
+  }
+ },
+ {
+  "id": "x5_base",
+  "cond": "base",
+  "state": "A child is offered broccoli for dinner.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the child eat it happily?",
+    "criteria": {
+     "happily": null,
+     "reluctantly": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "happily"
+  }
+ },
+ {
+  "id": "x5_rel",
+  "cond": "rel",
+  "state": "A child is offered broccoli for dinner. The child just won a broccoli-eating contest and loves it.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the child eat it happily?",
+    "criteria": {
+     "happily": null,
+     "reluctantly": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "happily"
+  }
+ },
+ {
+  "id": "x5_irr",
+  "cond": "irr",
+  "state": "A child is offered broccoli for dinner. The kitchen lights are yellow.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the child eat it happily?",
+    "criteria": {
+     "happily": null,
+     "reluctantly": null,
+     "refuses": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "happily"
+  }
+ },
+ {
+  "id": "x6_base",
+  "cond": "base",
+  "state": "The general considers attacking the castle at dawn.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the general attack?",
+    "criteria": {
+     "attacks": null,
+     "waits": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "attacks"
+  }
+ },
+ {
+  "id": "x6_rel",
+  "cond": "rel",
+  "state": "The general considers attacking the castle at dawn. Scouts report the castle's walls collapsed in last night's earthquake.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the general attack?",
+    "criteria": {
+     "attacks": null,
+     "waits": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "attacks"
+  }
+ },
+ {
+  "id": "x6_irr",
+  "cond": "irr",
+  "state": "The general considers attacking the castle at dawn. The general's horse is named Pepper.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the general attack?",
+    "criteria": {
+     "attacks": null,
+     "waits": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "attacks"
+  }
+ },
+ {
+  "id": "x7_base",
+  "cond": "base",
+  "state": "A shopper looks at an expensive coat.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the shopper buy the coat?",
+    "criteria": {
+     "buys": null,
+     "walks_away": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "buys"
+  }
+ },
+ {
+  "id": "x7_rel",
+  "cond": "rel",
+  "state": "A shopper looks at an expensive coat. The shopper just received a large inheritance.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the shopper buy the coat?",
+    "criteria": {
+     "buys": null,
+     "walks_away": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "buys"
+  }
+ },
+ {
+  "id": "x7_irr",
+  "cond": "irr",
+  "state": "A shopper looks at an expensive coat. A radio is playing jazz in the store.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the shopper buy the coat?",
+    "criteria": {
+     "buys": null,
+     "walks_away": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "buys"
+  }
+ },
+ {
+  "id": "x8_base",
+  "cond": "base",
+  "state": "The villagers hear a howl in the forest at night.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How afraid are the villagers?",
+    "criteria": {
+     "very_afraid": null,
+     "a_little": null,
+     "not_afraid": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very_afraid"
+  }
+ },
+ {
+  "id": "x8_rel",
+  "cond": "rel",
+  "state": "The villagers hear a howl in the forest at night. Three sheep were found torn apart this morning.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How afraid are the villagers?",
+    "criteria": {
+     "very_afraid": null,
+     "a_little": null,
+     "not_afraid": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very_afraid"
+  }
+ },
+ {
+  "id": "x8_irr",
+  "cond": "irr",
+  "state": "The villagers hear a howl in the forest at night. The village has a new bakery.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How afraid are the villagers?",
+    "criteria": {
+     "very_afraid": null,
+     "a_little": null,
+     "not_afraid": null
+    }
+   }
+  },
+  "expect": {
+   "q_up": "very_afraid"
+  }
+ }
+]

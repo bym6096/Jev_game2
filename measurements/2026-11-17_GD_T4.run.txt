@@ -1,0 +1,1 @@
+{"jev": {"calls": 24, "errors": 0, "input_tokens": 7799, "latency_ms_p50": 178, "latency_ms_p95": 475}, "gemini": {"calls": 24, "errors": 0, "input_tokens": 2713, "latency_ms_p50": 330, "latency_ms_p95": 442}}

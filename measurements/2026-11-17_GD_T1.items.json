@@ -1,0 +1,745 @@
+[
+ {
+  "id": "b1",
+  "cond": "boundary",
+  "state": "A customer asks the bakery for 'something sweet but not a dessert'. The clerk offers a honey-glazed ham.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the offer fit the request?",
+    "criteria": {
+     "fits": null,
+     "does_not_fit": null
+    }
+   }
+  },
+  "expect": {
+   "q": "fits"
+  }
+ },
+ {
+  "id": "b2",
+  "cond": "boundary",
+  "state": "A sign says 'No vehicles in the park'. A child rides a small tricycle on the path.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does a reasonable park ranger treat this as a violation?",
+    "criteria": {
+     "violation": null,
+     "not_violation": null
+    }
+   }
+  },
+  "expect": {
+   "q": "not_violation"
+  }
+ },
+ {
+  "id": "b3",
+  "cond": "boundary",
+  "state": "The rule card says: 'Only words for animals may be played.' The player plays the word 'mermaid'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the play allowed under the rule?",
+    "criteria": {
+     "allowed": null,
+     "not_allowed": null
+    }
+   }
+  },
+  "expect": {
+   "q": "not_allowed"
+  }
+ },
+ {
+  "id": "b4",
+  "cond": "boundary",
+  "state": "A recipe calls for 'a fruit'. The cook uses a tomato.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Botanically, does the tomato satisfy the recipe's wording?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "yes"
+  }
+ },
+ {
+  "id": "b5",
+  "cond": "boundary",
+  "state": "The quest says: 'Bring me something that can hold water.' The player brings a sponge.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the quest giver accept it?",
+    "criteria": {
+     "accept": null,
+     "reject": null
+    }
+   }
+  },
+  "expect": {
+   "q": "accept"
+  }
+ },
+ {
+  "id": "d1",
+  "cond": "direct",
+  "state": "The innkeeper just lost her only son in the war. A bard sings a cheerful drinking song about soldiers.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the innkeeper react?",
+    "criteria": {
+     "delighted": null,
+     "neutral": null,
+     "upset": null
+    }
+   }
+  },
+  "expect": {
+   "q": "upset"
+  }
+ },
+ {
+  "id": "d2",
+  "cond": "direct",
+  "state": "The guard has not eaten in two days. The player offers him a warm loaf of bread to let them pass.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the guard tempted?",
+    "criteria": {
+     "tempted": null,
+     "indifferent": null
+    }
+   }
+  },
+  "expect": {
+   "q": "tempted"
+  }
+ },
+ {
+  "id": "d3",
+  "cond": "direct",
+  "state": "The dragon is famous for hoarding gold. The player throws a handful of gold coins away from the cave entrance.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Where does the dragon look?",
+    "criteria": {
+     "at_the_coins": null,
+     "at_the_player": null
+    }
+   }
+  },
+  "expect": {
+   "q": "at_the_coins"
+  }
+ },
+ {
+  "id": "d4",
+  "cond": "direct",
+  "state": "The merchant is terrified of cats. The player walks into the shop carrying a cat.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the merchant's mood?",
+    "criteria": {
+     "calm": null,
+     "anxious": null
+    }
+   }
+  },
+  "expect": {
+   "q": "anxious"
+  }
+ },
+ {
+  "id": "d5",
+  "cond": "direct",
+  "state": "It is pouring rain and the traveler has no umbrella. A shopkeeper offers an umbrella for a fair price.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the traveler buy it?",
+    "criteria": {
+     "buys": null,
+     "declines": null
+    }
+   }
+  },
+  "expect": {
+   "q": "buys"
+  }
+ },
+ {
+  "id": "s1",
+  "cond": "single",
+  "state": "The spell word is 'frost'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which element does this spell belong to?",
+    "criteria": {
+     "fire": null,
+     "ice": null,
+     "lightning": null,
+     "earth": null
+    }
+   }
+  },
+  "expect": {
+   "q": "ice"
+  }
+ },
+ {
+  "id": "s2",
+  "cond": "single",
+  "state": "The potion is named 'Whisper of the Owl'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which effect best fits the name?",
+    "criteria": {
+     "strength": null,
+     "night_vision": null,
+     "fire_resistance": null,
+     "speed": null
+    }
+   }
+  },
+  "expect": {
+   "q": "night_vision"
+  }
+ },
+ {
+  "id": "s3",
+  "cond": "single",
+  "state": "The card is named 'Thornwall'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What role does the card most likely play?",
+    "criteria": {
+     "attack": null,
+     "defense": null,
+     "healing": null,
+     "draw": null
+    }
+   }
+  },
+  "expect": {
+   "q": "defense"
+  }
+ },
+ {
+  "id": "s4",
+  "cond": "single",
+  "state": "The weapon is called 'Featherblade'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the weapon heavy or light?",
+    "criteria": {
+     "heavy": null,
+     "light": null
+    }
+   }
+  },
+  "expect": {
+   "q": "light"
+  }
+ },
+ {
+  "id": "s5",
+  "cond": "single",
+  "state": "The NPC's nickname is 'Old Grumble'.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the NPC's likely temperament?",
+    "criteria": {
+     "cheerful": null,
+     "grumpy": null,
+     "shy": null
+    }
+   }
+  },
+  "expect": {
+   "q": "grumpy"
+  }
+ },
+ {
+  "id": "m1",
+  "cond": "multi",
+  "state": "On the table: a lit candle, a sheet of paper, and a glass of water. The paper is placed directly over the candle flame.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the paper?",
+    "criteria": {
+     "burns": null,
+     "gets_wet": null,
+     "nothing": null
+    }
+   }
+  },
+  "expect": {
+   "q": "burns"
+  }
+ },
+ {
+  "id": "m2",
+  "cond": "multi",
+  "state": "A magnet is placed between an iron nail and a wooden spoon, each 2 cm away.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which object moves toward the magnet?",
+    "criteria": {
+     "nail": null,
+     "spoon": null,
+     "both": null,
+     "neither": null
+    }
+   }
+  },
+  "expect": {
+   "q": "nail"
+  }
+ },
+ {
+  "id": "m3",
+  "cond": "multi",
+  "state": "A balloon, a pin, and a pillow are in a box. The box is shaken hard so the pin hits the balloon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the state of the balloon?",
+    "criteria": {
+     "intact": null,
+     "popped": null
+    }
+   }
+  },
+  "expect": {
+   "q": "popped"
+  }
+ },
+ {
+  "id": "m4",
+  "cond": "multi",
+  "state": "A key is inside a locked chest. The chest's key is inside a locked drawer. The drawer is unlocked.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Can the player now open the chest?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "yes"
+  }
+ },
+ {
+  "id": "m5",
+  "cond": "multi",
+  "state": "A rope ties a bucket to a well crank. The rope is cut halfway down while the bucket is hanging.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Where does the bucket end up?",
+    "criteria": {
+     "at_the_top": null,
+     "at_the_bottom": null,
+     "stays_halfway": null
+    }
+   }
+  },
+  "expect": {
+   "q": "at_the_bottom"
+  }
+ },
+ {
+  "id": "c1",
+  "cond": "combo3",
+  "state": "The potion recipe: red herb gives fire, blue herb gives ice, and fire plus ice cancel into plain water. Green herb gives poison. The player brews red, blue, and green.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the result?",
+    "criteria": {
+     "fire_potion": null,
+     "ice_potion": null,
+     "poison": null,
+     "plain_water": null
+    }
+   }
+  },
+  "expect": {
+   "q": "poison"
+  }
+ },
+ {
+  "id": "c2",
+  "cond": "combo3",
+  "state": "Rule: a team wins only if it has a healer, a tank, and a damage dealer. Team A has two healers and one damage dealer.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does team A meet the rule?",
+    "criteria": {
+     "meets": null,
+     "fails": null
+    }
+   }
+  },
+  "expect": {
+   "q": "fails"
+  }
+ },
+ {
+  "id": "c3",
+  "cond": "combo3",
+  "state": "Paint mixing: red plus yellow makes orange, orange plus blue makes brown. The painter mixes red, yellow, and blue.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What color results?",
+    "criteria": {
+     "orange": null,
+     "green": null,
+     "brown": null,
+     "purple": null
+    }
+   }
+  },
+  "expect": {
+   "q": "brown"
+  }
+ },
+ {
+  "id": "c4",
+  "cond": "combo3",
+  "state": "A lock opens only when the dials read sun, moon, and star in that order. The player sets moon, sun, star.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the lock open?",
+    "criteria": {
+     "opens": null,
+     "stays_locked": null
+    }
+   }
+  },
+  "expect": {
+   "q": "stays_locked"
+  }
+ },
+ {
+  "id": "c5",
+  "cond": "combo3",
+  "state": "Fire beats grass, grass beats water, water beats fire. Player has a fire unit and a water unit; enemy has one grass unit.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which player unit should attack to win?",
+    "criteria": {
+     "fire": null,
+     "water": null
+    }
+   }
+  },
+  "expect": {
+   "q": "fire"
+  }
+ },
+ {
+  "id": "p1",
+  "cond": "physics",
+  "state": "A heavy iron ball and a light wooden ball of the same size are dropped together from a 2 m table in normal air.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which hits the floor first?",
+    "criteria": {
+     "iron_first": null,
+     "wood_first": null,
+     "about_the_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "about_the_same"
+  }
+ },
+ {
+  "id": "p2",
+  "cond": "physics",
+  "state": "An ice cube is placed in a glass of water filled to the brim. The ice melts completely.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the glass overflow?",
+    "criteria": {
+     "overflows": null,
+     "does_not_overflow": null
+    }
+   }
+  },
+  "expect": {
+   "q": "does_not_overflow"
+  }
+ },
+ {
+  "id": "p3",
+  "cond": "physics",
+  "state": "A ball is rolled off a flat table at high speed.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What path does the ball follow after leaving the table?",
+    "criteria": {
+     "straight_down": null,
+     "curved_arc": null,
+     "straight_horizontal": null
+    }
+   }
+  },
+  "expect": {
+   "q": "curved_arc"
+  }
+ },
+ {
+  "id": "p4",
+  "cond": "physics",
+  "state": "A boat floats in a closed pool. A big rock is taken from the boat and dropped into the pool water.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the pool's water level?",
+    "criteria": {
+     "rises": null,
+     "falls": null,
+     "stays_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "falls"
+  }
+ },
+ {
+  "id": "p5",
+  "cond": "physics",
+  "state": "A cup of hot coffee and a cup of cold milk sit in the same room for 5 hours.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How do their temperatures compare at the end?",
+    "criteria": {
+     "coffee_hotter": null,
+     "milk_hotter": null,
+     "about_the_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "about_the_same"
+  }
+ },
+ {
+  "id": "i1",
+  "cond": "chain",
+  "state": "The miller depends on the river to turn the wheel. Beavers build a dam upstream. The village bakery buys all its flour from the miller.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the bakery's bread supply?",
+    "criteria": {
+     "increases": null,
+     "decreases": null,
+     "unchanged": null
+    }
+   }
+  },
+  "expect": {
+   "q": "decreases"
+  }
+ },
+ {
+  "id": "i2",
+  "cond": "chain",
+  "state": "The king loves his daughter. The princess loves the stable boy. The stable boy saved the king's horse yesterday.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the king likely to approve of the stable boy?",
+    "criteria": {
+     "more_likely": null,
+     "less_likely": null
+    }
+   }
+  },
+  "expect": {
+   "q": "more_likely"
+  }
+ },
+ {
+  "id": "i3",
+  "cond": "chain",
+  "state": "Wolves eat deer. Deer eat young trees. Hunters remove all the wolves from the valley.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the young trees over the next years?",
+    "criteria": {
+     "more_trees": null,
+     "fewer_trees": null,
+     "no_change": null
+    }
+   }
+  },
+  "expect": {
+   "q": "fewer_trees"
+  }
+ },
+ {
+  "id": "i4",
+  "cond": "chain",
+  "state": "The town's only well is poisoned. The town's tavern makes ale from well water. The guard drinks ale every night.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the guard at risk?",
+    "criteria": {
+     "at_risk": null,
+     "safe": null
+    }
+   }
+  },
+  "expect": {
+   "q": "at_risk"
+  }
+ },
+ {
+  "id": "i5",
+  "cond": "chain",
+  "state": "Rain makes the road muddy. Muddy roads slow the supply carts. Without supplies, the fort's archers run out of arrows. It rained for a week.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the fort's defense weaker or stronger?",
+    "criteria": {
+     "weaker": null,
+     "stronger": null,
+     "same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "weaker"
+  }
+ },
+ {
+  "id": "l1",
+  "cond": "logic",
+  "state": "Rule: 'If the gem is red and not cracked, or if it is blue, the merchant buys it.' The gem is red and cracked.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the merchant buy it?",
+    "criteria": {
+     "buys": null,
+     "does_not_buy": null
+    }
+   }
+  },
+  "expect": {
+   "q": "does_not_buy"
+  }
+ },
+ {
+  "id": "l2",
+  "cond": "logic",
+  "state": "Rule: 'Unless it is night, the gate is open, except on holidays when it is always closed.' It is a holiday morning.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the gate open?",
+    "criteria": {
+     "open": null,
+     "closed": null
+    }
+   }
+  },
+  "expect": {
+   "q": "closed"
+  }
+ },
+ {
+  "id": "l3",
+  "cond": "logic",
+  "state": "Rule: 'Every knight who is not a squire's mentor must patrol.' Sir Aldo mentors no squire.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Must Sir Aldo patrol?",
+    "criteria": {
+     "must_patrol": null,
+     "need_not": null
+    }
+   }
+  },
+  "expect": {
+   "q": "must_patrol"
+  }
+ },
+ {
+  "id": "l4",
+  "cond": "logic",
+  "state": "Rule: 'No one may enter unless they carry neither a sword nor a torch.' The visitor carries a torch only.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "May the visitor enter?",
+    "criteria": {
+     "may_enter": null,
+     "may_not": null
+    }
+   }
+  },
+  "expect": {
+   "q": "may_not"
+  }
+ },
+ {
+  "id": "l5",
+  "cond": "logic",
+  "state": "Rule: 'A card scores double if it is a heart, but not if it is also a face card, unless it is the queen.' The card is the queen of hearts.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does it score double?",
+    "criteria": {
+     "double": null,
+     "normal": null
+    }
+   }
+  },
+  "expect": {
+   "q": "double"
+  }
+ }
+]

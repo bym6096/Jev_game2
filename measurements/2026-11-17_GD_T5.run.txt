@@ -1,0 +1,2 @@
+[gemini] HTTP 429 on rush1_salad: b'{"error":{"message":"Rate limit exceeded for model gemini-decision-1 (limit: 50000 input tokens per minute on Free Tier). Please retry in 28s or upgrade your tier at https://ai.dev/rate-limit.","code":"too_many_requests"}}'
+{"jev": {"calls": 110, "errors": 0, "input_tokens": 109128, "latency_ms_p50": 150, "latency_ms_p95": 210}, "gemini": {"calls": 110, "errors": 1, "input_tokens": 64282, "latency_ms_p50": 311, "latency_ms_p95": 433}}
