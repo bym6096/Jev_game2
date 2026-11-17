@@ -1,0 +1,951 @@
+[
+ {
+  "id": "p1",
+  "cond": "physics",
+  "state": "In a vacuum chamber on Earth, a feather and a hammer are released at the same moment from the same height.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which reaches the floor first?",
+    "criteria": {
+     "feather": null,
+     "hammer": null,
+     "same_time": null
+    }
+   }
+  },
+  "expect": {
+   "q": "same_time"
+  }
+ },
+ {
+  "id": "p2",
+  "cond": "physics",
+  "state": "A glass is filled to the brim with salt water. A floating cube of fresh-water ice is in it. The ice melts completely.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens?",
+    "criteria": {
+     "overflows": null,
+     "level_drops": null,
+     "stays_exactly_full": null
+    }
+   }
+  },
+  "expect": {
+   "q": "overflows"
+  }
+ },
+ {
+  "id": "p3",
+  "cond": "physics",
+  "state": "A stone on a string is swung in a horizontal circle. The string snaps.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the stone move right after?",
+    "criteria": {
+     "straight_away_from_center": null,
+     "along_the_tangent_of_the_circle": null,
+     "keeps_circling": null
+    }
+   }
+  },
+  "expect": {
+   "q": "along_the_tangent_of_the_circle"
+  }
+ },
+ {
+  "id": "p4",
+  "cond": "physics",
+  "state": "A helium balloon floats inside a closed car. The car suddenly accelerates forward.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which way does the balloon move relative to the car?",
+    "criteria": {
+     "forward": null,
+     "backward": null,
+     "stays_put": null
+    }
+   }
+  },
+  "expect": {
+   "q": "forward"
+  }
+ },
+ {
+  "id": "p5",
+  "cond": "physics",
+  "state": "An accurate pendulum clock is carried to the top of a very high mountain, where gravity is slightly weaker.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How does the clock keep time there?",
+    "criteria": {
+     "runs_fast": null,
+     "runs_slow": null,
+     "unchanged": null
+    }
+   }
+  },
+  "expect": {
+   "q": "runs_slow"
+  }
+ },
+ {
+  "id": "p6",
+  "cond": "physics",
+  "state": "On a seesaw, a 10 kg bag sits 1 m from the pivot on the left, and a 5 kg bag sits 3 m from the pivot on the right.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which side goes down?",
+    "criteria": {
+     "left_heavier_bag": null,
+     "right_lighter_bag": null,
+     "balanced": null
+    }
+   }
+  },
+  "expect": {
+   "q": "right_lighter_bag"
+  }
+ },
+ {
+  "id": "p7",
+  "cond": "physics",
+  "state": "A rowboat floats in a closed pool. A block of wood is taken out of the boat and put in the pool, where it floats.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the pool's water level?",
+    "criteria": {
+     "rises": null,
+     "falls": null,
+     "stays_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "stays_same"
+  }
+ },
+ {
+  "id": "p8",
+  "cond": "physics",
+  "state": "A cup of water sits on a kitchen scale. You dip your finger into the water without touching the cup or the scale.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does the scale reading do?",
+    "criteria": {
+     "increases": null,
+     "decreases": null,
+     "unchanged": null
+    }
+   }
+  },
+  "expect": {
+   "q": "increases"
+  }
+ },
+ {
+  "id": "p9",
+  "cond": "physics",
+  "state": "Two marbles roll off the same flat table edge at the same moment, one fast and one slow.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which hits the floor first?",
+    "criteria": {
+     "fast_one": null,
+     "slow_one": null,
+     "same_time": null
+    }
+   }
+  },
+  "expect": {
+   "q": "same_time"
+  }
+ },
+ {
+  "id": "p10",
+  "cond": "physics",
+  "state": "You see your body from the chest up in a small wall mirror. You step back two meters, still facing it.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How much of your body do you see now?",
+    "criteria": {
+     "more": null,
+     "less": null,
+     "about_the_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "about_the_same"
+  }
+ },
+ {
+  "id": "m1",
+  "cond": "state",
+  "state": "A ball is under cup A. Cups A and B swap places. Then cups B and C swap places. Then cups A and C swap places. The ball always moves with its cup; the letters name positions.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which position is the ball in now?",
+    "criteria": {
+     "A": null,
+     "B": null,
+     "C": null
+    }
+   }
+  },
+  "expect": {
+   "q": "A"
+  }
+ },
+ {
+  "id": "m2",
+  "cond": "state",
+  "state": "The player has 3 apples. She gives 2 to Ann. Ann gives 1 back. The player eats 1. Then she finds 2 more.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How many apples does the player have?",
+    "criteria": {
+     "1": null,
+     "2": null,
+     "3": null,
+     "4": null
+    }
+   }
+  },
+  "expect": {
+   "q": "3"
+  }
+ },
+ {
+  "id": "m3",
+  "cond": "state",
+  "state": "Lever 1 toggles door A. Lever 2 toggles both door A and door B. Both doors start closed. The player pulls lever 1, then lever 2, then lever 2 again, then lever 1.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which doors are open now?",
+    "criteria": {
+     "none": null,
+     "only_A": null,
+     "only_B": null,
+     "both": null
+    }
+   }
+  },
+  "expect": {
+   "q": "none"
+  }
+ },
+ {
+  "id": "m4",
+  "cond": "state",
+  "state": "Three blocks are stacked: red at the bottom, blue in the middle, green on top. The player takes the top block and puts it under the stack. Then does that once more.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which block is on top now?",
+    "criteria": {
+     "red": null,
+     "blue": null,
+     "green": null
+    }
+   }
+  },
+  "expect": {
+   "q": "red"
+  }
+ },
+ {
+  "id": "m5",
+  "cond": "state",
+  "state": "The tavern is directly north of the church. The mill is directly east of the tavern. The well is directly south of the mill.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Where is the well relative to the church?",
+    "criteria": {
+     "east_side": null,
+     "west_side": null,
+     "same_north_south_line": null
+    }
+   }
+  },
+  "expect": {
+   "q": "east_side"
+  }
+ },
+ {
+  "id": "m6",
+  "cond": "state",
+  "state": "Five guests arrive at a party. Every guest shakes hands exactly once with every other guest.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How many handshakes happen?",
+    "criteria": {
+     "5": null,
+     "10": null,
+     "20": null,
+     "25": null
+    }
+   }
+  },
+  "expect": {
+   "q": "10"
+  }
+ },
+ {
+  "id": "m7",
+  "cond": "state",
+  "state": "A chest needs a gold, a silver, and a bronze key all at once. The player has the gold and silver keys. A guard will trade his bronze key, but only for the player's gold key.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Can the player open the chest?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "no"
+  }
+ },
+ {
+  "id": "m8",
+  "cond": "state",
+  "state": "Each turn every slime splits into two slimes. There is 1 slime at the start. Four turns pass.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How many slimes are there?",
+    "criteria": {
+     "4": null,
+     "8": null,
+     "16": null,
+     "32": null
+    }
+   }
+  },
+  "expect": {
+   "q": "16"
+  }
+ },
+ {
+  "id": "c1",
+  "cond": "combo",
+  "state": "Crafting rules: water + fire = steam. steam + air = cloud. cloud + fire = lightning. earth + water = mud. The player combines water with fire, then adds air to the result, then adds fire to that result.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the final item?",
+    "criteria": {
+     "steam": null,
+     "cloud": null,
+     "lightning": null,
+     "mud": null
+    }
+   }
+  },
+  "expect": {
+   "q": "lightning"
+  }
+ },
+ {
+  "id": "c2",
+  "cond": "combo",
+  "state": "Card rules: add up card values; hearts count double; above 21 is a bust. The player holds the 10 of spades and the 6 of hearts.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the result?",
+    "criteria": {
+     "16": null,
+     "21": null,
+     "bust": null
+    }
+   }
+  },
+  "expect": {
+   "q": "bust"
+  }
+ },
+ {
+  "id": "c3",
+  "cond": "combo",
+  "state": "Rules: Spock beats rock, lizard beats Spock, rock beats lizard. Player A plays rock, player B plays lizard, player C plays Spock.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which player beats both others?",
+    "criteria": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "nobody": null
+    }
+   }
+  },
+  "expect": {
+   "q": "nobody"
+  }
+ },
+ {
+  "id": "c4",
+  "cond": "combo",
+  "state": "Potion rules: salt makes a potion stronger. Moonwater reverses a potion's effect (healing becomes harm). Salt added after moonwater does nothing. The player starts with a healing potion, adds moonwater, then salt.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the potion now?",
+    "criteria": {
+     "strong_healing": null,
+     "healing": null,
+     "harm": null,
+     "strong_harm": null
+    }
+   }
+  },
+  "expect": {
+   "q": "harm"
+  }
+ },
+ {
+  "id": "c5",
+  "cond": "combo",
+  "state": "A team gets +1 bonus for every pair of members from the same guild. The team has 2 mages and 3 warriors.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What is the bonus?",
+    "criteria": {
+     "2": null,
+     "4": null,
+     "5": null,
+     "10": null
+    }
+   }
+  },
+  "expect": {
+   "q": "4"
+  }
+ },
+ {
+  "id": "c6",
+  "cond": "combo",
+  "state": "A recipe uses exactly two herbs from A, B, C, D. A may never be used with C. B may only be used if D is also used.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Which pair is valid?",
+    "criteria": {
+     "A_and_B": null,
+     "A_and_C": null,
+     "B_and_D": null,
+     "B_and_C": null
+    }
+   }
+  },
+  "expect": {
+   "q": "B_and_D"
+  }
+ },
+ {
+  "id": "i1",
+  "cond": "chain",
+  "state": "A cold winter kills the crop pests. Without pests, crops thrive. Thriving crops lower grain prices. Low grain prices cut the grain merchant's profits. This winter was unusually warm.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Compared to after a cold winter, the merchant's profits are:",
+    "criteria": {
+     "higher": null,
+     "lower": null,
+     "the_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "higher"
+  }
+ },
+ {
+  "id": "i2",
+  "cond": "chain",
+  "state": "When the bridge is out, carts take the mountain road. The mountain road has bandits. Bandit attacks raise the price of silk in the city. Last week the bridge was out; yesterday it was repaired.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Compared to last week, the silk price will tend to:",
+    "criteria": {
+     "rise": null,
+     "fall": null,
+     "stay_the_same": null
+    }
+   }
+  },
+  "expect": {
+   "q": "fall"
+  }
+ },
+ {
+  "id": "i3",
+  "cond": "chain",
+  "state": "Owls eat mice. Cats eat mice. Mice eat stored grain. A disease kills most of the cats in the village.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the stored grain?",
+    "criteria": {
+     "more_is_lost": null,
+     "less_is_lost": null,
+     "no_change": null
+    }
+   }
+  },
+  "expect": {
+   "q": "more_is_lost"
+  }
+ },
+ {
+  "id": "i4",
+  "cond": "chain",
+  "state": "The lighthouse keeper fell asleep and the light went out for the night. Ships could not see the rocks. The village was waiting for a ship carrying medicine. That night the medicine ship had stayed in another port because of a storm.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Did the keeper's nap stop the medicine from arriving?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "no"
+  }
+ },
+ {
+  "id": "i5",
+  "cond": "chain",
+  "state": "The king doubles the tax on salt. Fishermen use salt to preserve fish. Preserved fish is the main winter food in the north.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What happens to the cost of winter food in the north?",
+    "criteria": {
+     "goes_up": null,
+     "goes_down": null,
+     "no_change": null
+    }
+   }
+  },
+  "expect": {
+   "q": "goes_up"
+  }
+ },
+ {
+  "id": "l1",
+  "cond": "logic",
+  "state": "Rule: 'No knight who has never lost a duel may be a judge.' Sir Bren has lost one duel.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does this rule forbid Sir Bren from being a judge?",
+    "criteria": {
+     "forbids": null,
+     "does_not_forbid": null
+    }
+   }
+  },
+  "expect": {
+   "q": "does_not_forbid"
+  }
+ },
+ {
+  "id": "l2",
+  "cond": "logic",
+  "state": "Every guard is either awake or asleep. It is not true that every guard is awake.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Must at least one guard be asleep?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "yes"
+  }
+ },
+ {
+  "id": "l3",
+  "cond": "logic",
+  "state": "All dragons that breathe fire are red. Ember is a red dragon.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Must Ember breathe fire?",
+    "criteria": {
+     "must": null,
+     "not_necessarily": null
+    }
+   }
+  },
+  "expect": {
+   "q": "not_necessarily"
+  }
+ },
+ {
+  "id": "l4",
+  "cond": "logic",
+  "state": "The door opens if and only if exactly two of the three levers are up. All three levers are up.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the door open?",
+    "criteria": {
+     "open": null,
+     "closed": null
+    }
+   }
+  },
+  "expect": {
+   "q": "closed"
+  }
+ },
+ {
+  "id": "l5",
+  "cond": "logic",
+  "state": "A card is playable unless it is red; a red card is playable only if it is not a seven; but the seven of hearts is always playable. The card is the seven of diamonds.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is it playable?",
+    "criteria": {
+     "playable": null,
+     "not_playable": null
+    }
+   }
+  },
+  "expect": {
+   "q": "not_playable"
+  }
+ },
+ {
+  "id": "l6",
+  "cond": "logic",
+  "state": "Either the cook lied or the butler lied, but not both. The cook told the truth.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Did the butler lie?",
+    "criteria": {
+     "lied": null,
+     "told_the_truth": null,
+     "cannot_tell": null
+    }
+   }
+  },
+  "expect": {
+   "q": "lied"
+  }
+ },
+ {
+  "id": "l7",
+  "cond": "logic",
+  "state": "If it rains, the festival moves indoors. The festival did not move indoors.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Did it rain?",
+    "criteria": {
+     "it_rained": null,
+     "it_did_not_rain": null,
+     "cannot_tell": null
+    }
+   }
+  },
+  "expect": {
+   "q": "it_did_not_rain"
+  }
+ },
+ {
+  "id": "l8",
+  "cond": "logic",
+  "state": "If the gate is open, the dog escapes. The dog escaped.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Was the gate open?",
+    "criteria": {
+     "it_was_open": null,
+     "it_was_closed": null,
+     "cannot_tell": null
+    }
+   }
+  },
+  "expect": {
+   "q": "cannot_tell"
+  }
+ },
+ {
+  "id": "l9",
+  "cond": "logic",
+  "state": "It is false that no wizard is wise.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is at least one wizard wise?",
+    "criteria": {
+     "yes": null,
+     "no": null,
+     "cannot_tell": null
+    }
+   }
+  },
+  "expect": {
+   "q": "yes"
+  }
+ },
+ {
+  "id": "b1",
+  "cond": "pragmatic",
+  "state": "After the hero accidentally burned down the bakery, the baker said: 'Oh, wonderful. Thank you SO much, hero.'",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Is the baker grateful?",
+    "criteria": {
+     "grateful": null,
+     "not_grateful": null
+    }
+   }
+  },
+  "expect": {
+   "q": "not_grateful"
+  }
+ },
+ {
+  "id": "b2",
+  "cond": "pragmatic",
+  "state": "Quest: 'Bring me something older than this castle.' The castle was built 300 years ago. The player brings a river stone.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the stone meet the quest literally?",
+    "criteria": {
+     "meets": null,
+     "does_not_meet": null
+    }
+   }
+  },
+  "expect": {
+   "q": "meets"
+  }
+ },
+ {
+  "id": "b3",
+  "cond": "pragmatic",
+  "state": "Before the bard went on stage, the innkeeper told him: 'Break a leg!'",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What did the innkeeper mean?",
+    "criteria": {
+     "threat": null,
+     "good_luck": null,
+     "warning_about_the_stairs": null
+    }
+   }
+  },
+  "expect": {
+   "q": "good_luck"
+  }
+ },
+ {
+  "id": "b4",
+  "cond": "pragmatic",
+  "state": "A sign says: 'Dogs must be carried on the escalator.' A man with no dog wants to ride the escalator.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Does the sign require him to carry a dog?",
+    "criteria": {
+     "yes": null,
+     "no": null
+    }
+   }
+  },
+  "expect": {
+   "q": "no"
+  }
+ },
+ {
+  "id": "b5",
+  "cond": "pragmatic",
+  "state": "식당에서 손님이 빈 컵을 들고 직원에게 '저기, 여기 물 좀…' 하고 말끝을 흐렸다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "손님이 바라는 것은?",
+    "criteria": {
+     "물을_달라": null,
+     "물이_더럽다": null,
+     "물을_치워_달라": null
+    }
+   }
+  },
+  "expect": {
+   "q": "물을_달라"
+  }
+ },
+ {
+  "id": "b6",
+  "cond": "pragmatic",
+  "state": "친구가 두 시간 늦게 와서 '많이 기다렸지?' 하고 미안해하자, 두 시간 내내 기다린 나는 웃으며 '아니, 나도 방금 왔어'라고 했다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "내 말의 의도는?",
+    "criteria": {
+     "사실을_말함": null,
+     "친구를_배려함": null,
+     "화가_나서_비꼼": null
+    }
+   }
+  },
+  "expect": {
+   "q": "친구를_배려함"
+  }
+ },
+ {
+  "id": "n1",
+  "cond": "count",
+  "state": "The hero has 12 HP. A goblin hits for 3 damage every turn. The hero drinks a potion that heals 5 HP once, right after the second hit. HP cannot go above 12.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "On which hit does the hero's HP first reach 0 or below?",
+    "criteria": {
+     "4th": null,
+     "5th": null,
+     "6th": null,
+     "7th": null
+    }
+   }
+  },
+  "expect": {
+   "q": "6th"
+  }
+ },
+ {
+  "id": "n2",
+  "cond": "count",
+  "state": "A shop sells swords for 30 gold and buys them back at half price. The player has 50 gold, buys one sword, and sells it back.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "How much gold does the player have?",
+    "criteria": {
+     "20": null,
+     "35": null,
+     "50": null,
+     "65": null
+    }
+   }
+  },
+  "expect": {
+   "q": "35"
+  }
+ },
+ {
+  "id": "n3",
+  "cond": "count",
+  "state": "상점 규칙: 포션은 개당 4골드인데 3개를 사면 1개를 더 준다. 플레이어는 12골드로 살 수 있는 만큼 산다.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "플레이어가 받는 포션은 몇 개인가?",
+    "criteria": {
+     "3": null,
+     "4": null,
+     "5": null,
+     "6": null
+    }
+   }
+  },
+  "expect": {
+   "q": "4"
+  }
+ },
+ {
+  "id": "t1",
+  "cond": "mind",
+  "state": "Alice puts the key in the red box and leaves the room. While she is gone, Bob moves the key to the blue box. Alice did not see this. Alice comes back for the key.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "Where does Alice look first?",
+    "criteria": {
+     "red_box": null,
+     "blue_box": null
+    }
+   }
+  },
+  "expect": {
+   "q": "red_box"
+  }
+ },
+ {
+  "id": "t2",
+  "cond": "mind",
+  "state": "Lena gives Sam a wrapped box. Sam shakes it and is sure it is a book, but it is actually a scarf. Before opening it, Sam tells his friend about the gift.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Sam say the gift is?",
+    "criteria": {
+     "a_book": null,
+     "a_scarf": null
+    }
+   }
+  },
+  "expect": {
+   "q": "a_book"
+  }
+ },
+ {
+  "id": "t3",
+  "cond": "mind",
+  "state": "Mia hides a coin under the cup while Leo watches. Leo leaves. Mia moves the coin to her pocket. Ana saw everything. Ana is asked where Leo will look for the coin when he returns.",
+  "questions": {
+   "q": {
+    "type": "choice",
+    "instructions": "What does Ana answer?",
+    "criteria": {
+     "under_the_cup": null,
+     "in_Mias_pocket": null
+    }
+   }
+  },
+  "expect": {
+   "q": "under_the_cup"
+  }
+ }
+]
